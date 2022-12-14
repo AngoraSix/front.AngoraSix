@@ -1,0 +1,36 @@
+@import '~typeface-roboto/index.css';
+
+@keyframes backgroundLoadingAnimation {
+  0% {
+    background: #ffffffaa;
+  }
+  50% {
+    background: #4527a033;
+  }
+  100% {
+    background: #ffffffaa;
+  }
+}
+
+.App__LoadingOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff3;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0.3;
+}
+
+.App__LoadingOverlay--hidden {
+  display: none;
+}
+
+.App__LoadingOverlay--visible {
+  display: block;
+  opacity: 1;
+  animation: backgroundLoginTopAnimation 2s infinite;
+  z-index: 99999;
+}

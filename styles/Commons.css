@@ -1,0 +1,8 @@
+.MuiLoadingButton-root {
+  min-width: 3.1em;
+  min-height: 3.1em;
+}
+
+.LoadingButton--circle {
+  border-radius: 3.1em;
+}
