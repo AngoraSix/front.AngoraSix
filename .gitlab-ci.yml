@@ -1,0 +1,32 @@
+# pipeline will be triggered only for
+# the default branch (usually master), tags, and all types of merge request
+include:
+  - template: 'Workflows/MergeRequest-Pipelines.gitlab-ci.yml'
+  - project: 'themalders/hoc/core'
+    file: '.gitlab-ci-common-build.yml'
+    ref: master
+  - project: 'themalders/hoc/core'
+    file: '.gitlab-ci-common-release.yml'
+    ref: master
+  - project: 'themalders/hoc/core'
+    file: '.gitlab-ci-common-deploy.yml'
+    ref: master
+  - project: 'themalders/hoc/core'
+    file: '.gitlab-ci-common-cleanup.yml'
+    ref: master
+
+image: docker:stable
+
+services:
+  - docker:dind
+
+stages:
+  - build
+  - release
+  - deploy
+  - deploy_cleanup
+
+variables:
+  DOCKER_RELEASE_IMAGE: themalders/hoc-web:latest
+  DOCKER_PROD_IMAGE: themalders/hoc-web:prod
+  COMPOSE_SERVICE_NAME: web-svc
