@@ -2,11 +2,13 @@
   display: flex;
   flex-direction: column;
   gap: 15px;
+  flex-grow: 1;
 }
 
 .ProjectManagementView__Sections {
   display: flex;
   flex-direction: row;
+  flex-grow: 1;
 }
 
 .ProjectManagementView__Section.Main {
@@ -38,7 +40,13 @@
 
 /* Main Caps Mgmt Section */
 
-.ManagementCapsSection__Container {
+.ManagementCoreSection__Container {
+  padding-top: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  height: 100%;
+  border-radius: 5px;
 }
 
 @media (min-width: 600px) {

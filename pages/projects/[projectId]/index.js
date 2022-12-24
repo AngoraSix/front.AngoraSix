@@ -56,11 +56,11 @@ export const getServerSideProps = async (ctx) => {
   const validatedToken =
     session?.error !== 'RefreshAccessTokenError' ? session : null;
   let isAdmin = false;
-  console.log("GERGERGER1111");
   try {
-    console.log("GERGERGER2222");
-    const projectManagement = await api.projects.getProjectManagement(projectId, validatedToken);
-    console.log("GERGERGER");
+    const projectManagement = await api.projects.getProjectManagement(
+      projectId,
+      validatedToken
+    );
     console.log(projectManagement);
     const project = projectManagement.project;
     const projectManagementActions = {};
@@ -79,7 +79,6 @@ export const getServerSideProps = async (ctx) => {
   } catch (err) {
     logger.error('err', err);
   }
-  console.log("GERGERGER44444");
   return {
     props: {
       ...props,

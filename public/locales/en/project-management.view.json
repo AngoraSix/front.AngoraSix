@@ -1,4 +1,8 @@
 {
     "project-management.view.page.title.template": ":project - Management",
-    "project-management.view.page.description.template": "Management information for project :project"
+    "project-management.view.page.description.template": "Management information for project :project",
+    "project-management.view.status": "Status",
+    "project-management.view.status.IDEA": "Idea",
+    "project-management.view.status.STARTUP": "Startup",
+    "project-management.view.status.OPERATIONAL": "Operational"
 }

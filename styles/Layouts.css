@@ -17,6 +17,8 @@
   .DefaultLayout__Page__Body {
     padding: 45px 20px;
     width: 90%;
+    display: flex;
+    flex-direction: column;
   }
 }
 
