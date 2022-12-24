@@ -8,8 +8,6 @@ function capitalizeFirstLetter(string) {
 }
 
 const translateOrValue = (t, i18n, i18nKey, value) => {
-  console.log('GERRRRR');
-  console.log(capitalizeFirstLetter(value));
   return i18n.exists(i18nKey, {
     ns: 'project-management.view',
   })
