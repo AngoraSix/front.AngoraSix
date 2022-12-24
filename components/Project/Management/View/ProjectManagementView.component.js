@@ -1,4 +1,4 @@
-import { Box, SwipeableDrawer } from '@mui/material';
+import { Box, SwipeableDrawer, Typography } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/styles';
 import { styled } from '@mui/system';
@@ -22,52 +22,62 @@ const ProjectManagementView = ({ project, projectManagement }) => {
   }));
 
   const Puller = styled(Box)(({ theme }) => ({
-    width: 6,
-    height: 30,
+    width: 30,
+    height: 6,
     backgroundColor: theme.palette.mode === 'light' ? '#fff' : grey[900],
     borderRadius: 3,
   }));
 
   return (
     <Box className="ProjectManagementView ProjectManagementView__Container">
-      <Box className="ProjectManagementView__Section Main">
-        <ManagementCapsSection projectManagement={projectManagement} />
-      </Box>
-      {isMobile ? (
-        <SwipeableDrawer
-          className="ProjectManagementView__SectionsDrawer__Drawer"
-          anchor="right"
-          open={openDrawer}
-          onClose={toggleDrawer(false)}
-          onOpen={toggleDrawer(true)}
-          swipeAreaWidth={drawerBleeding}
-          disableSwipeToOpen={false}
-          ModalProps={{
-            keepMounted: true,
-          }}
-        >
-          <StyledBox
-            className="ProjectManagementView__SectionsDrawer__Puller"
-            sx={{
-              left: -drawerBleeding,
-              backgroundColor: theme.palette.primary.main,
+      <Typography
+        align="center"
+        variant="h6"
+        component="h2"
+        color="primary.main"
+      >
+        {project.name}
+      </Typography>
+      <Box className="ProjectManagementView__Sections">
+        <Box className="ProjectManagementView__Section Main">
+          <ManagementCapsSection projectManagement={projectManagement} />
+        </Box>
+        {isMobile ? (
+          <SwipeableDrawer
+            className="ProjectManagementView__SectionsDrawer__Drawer"
+            anchor="bottom"
+            open={openDrawer}
+            onClose={toggleDrawer(false)}
+            onOpen={toggleDrawer(true)}
+            swipeAreaWidth={drawerBleeding}
+            disableSwipeToOpen={false}
+            ModalProps={{
+              keepMounted: true,
             }}
           >
-            <Puller />
-          </StyledBox>
-          <ManagementCoreSection
-            project={project}
-            projectManagement={projectManagement}
-          />
-        </SwipeableDrawer>
-      ) : (
-        <Box className="ProjectManagementView__Section Side">
-          <ManagementCoreSection
-            project={project}
-            projectManagement={projectManagement}
-          />
-        </Box>
-      )}
+            <StyledBox
+              className="ProjectManagementView__SectionsDrawer__Puller"
+              sx={{
+                top: -drawerBleeding,
+                backgroundColor: theme.palette.primary.main,
+              }}
+            >
+              <Puller />
+            </StyledBox>
+            <ManagementCoreSection
+              project={project}
+              projectManagement={projectManagement}
+            />
+          </SwipeableDrawer>
+        ) : (
+          <Box className="ProjectManagementView__Section Side">
+            <ManagementCoreSection
+              project={project}
+              projectManagement={projectManagement}
+            />
+          </Box>
+        )}
+      </Box>
     </Box>
   );
 };

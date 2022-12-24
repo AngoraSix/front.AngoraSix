@@ -1,8 +1,12 @@
 .ProjectManagementView__Container {
-  /* position: relative; */
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.ProjectManagementView__Sections {
   display: flex;
   flex-direction: row;
-  /* align-items: center; */
 }
 
 .ProjectManagementView__Section.Main {
@@ -15,19 +19,18 @@
 
 .ProjectManagementView__SectionsDrawer__Drawer.MuiDrawer-root > .MuiPaper-root {
   overflow: visible;
-  width: calc(50% - 56px);
+  height: calc(75% - 56px);
 }
 
 .ProjectManagementView__SectionsDrawer__Puller {
-  min-width: 10vw;
-  min-height: 100vh;
+  height: 5vh;
   z-index: 1;
   position: absolute;
   border-top-left-radius: 18px;
-  border-bottom-left-radius: 18px;
+  border-top-right-radius: 18px;
   visibility: visible;
-  top: 0;
-  bottom: 0;
+  right: 0;
+  left: 0;
   display: flex;
   justify-content: center;
   align-items: center;
