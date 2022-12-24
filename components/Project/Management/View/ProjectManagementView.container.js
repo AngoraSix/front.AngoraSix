@@ -3,30 +3,30 @@ import ProjectManagementView from './ProjectManagementView.component';
 
 const ProjectManagementViewContainer = ({
   project,
-  projectPresentation,
-  projectPresentationActions,
+  projectManagement,
+  projectManagementActions,
   isAdmin,
 }) => {
   return (
     <ProjectManagementView
       project={project}
-      projectPresentation={projectPresentation}
+      projectManagement={projectManagement}
       isAdmin={isAdmin}
-      projectPresentationActions={projectPresentationActions}
+      projectManagementActions={projectManagementActions}
     />
   );
 };
 
 ProjectManagementViewContainer.defaultProps = {
   isAdmin: false,
-  projectPresentationActions: {},
+  projectManagementActions: {},
 };
 
 ProjectManagementViewContainer.propTypes = {
   project: PropTypes.object.isRequired,
-  projectPresentation: PropTypes.object.isRequired,
+  projectManagement: PropTypes.object.isRequired,
   isAdmin: PropTypes.bool,
-  projectPresentationActions: PropTypes.object,
+  projectManagementActions: PropTypes.object,
 };
 
 export default ProjectManagementViewContainer;

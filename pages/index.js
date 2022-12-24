@@ -26,28 +26,14 @@ const HomePage = ({}) => {
 };
 
 HomePage.defaultProps = {
-  projectPresentationsList: [],
 };
 
 HomePage.propTypes = {
-  projectPresentationsList: PropTypes.array,
 };
 
 export const getServerSideProps = async (ctx) => {
   const session = await getSession(ctx);
   let props = {};
-
-  try {
-    const projectPresentationsList =
-      await api.projects.fetchProjectPresentations(session?.user?.attributes);
-    props = {
-      ...props,
-      ...(await serverSideTranslations(ctx.locale, ['common'])),
-      projectPresentationsList,
-    };
-  } catch (err) {
-    logger.error('err', err);
-  }
 
   return {
     props,

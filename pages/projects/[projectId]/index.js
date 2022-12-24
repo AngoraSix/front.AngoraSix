@@ -51,20 +51,24 @@ ProjectManagementViewPage.propTypes = {
 
 export const getServerSideProps = async (ctx) => {
   let props = {};
-  const { projectId, projectManagementId } = ctx.params;
+  const { projectId } = ctx.params;
   const session = await getSession(ctx);
   const validatedToken =
     session?.error !== 'RefreshAccessTokenError' ? session : null;
   let isAdmin = false;
+  console.log("GERGERGER1111");
   try {
-    const project = await api.projects.getProject(projectId, validatedToken);
-    const projectManagement = {};
+    console.log("GERGERGER2222");
+    const projectManagement = await api.projects.getProjectManagement(projectId, validatedToken);
+    console.log("GERGERGER");
+    console.log(projectManagement);
+    const project = projectManagement.project;
     const projectManagementActions = {};
     // hateoasFormToActions(projectManagement);
-    // isAdmin =
-    //   session?.user.id != null &&
-    //   session?.user.id === projectManagement.project.adminId &&
-    //   projectManagement?.projectId === projectId;
+    isAdmin =
+      session?.user.id != null &&
+      session?.user.id === project.adminId &&
+      projectManagement?.projectId === projectId;
     props = {
       ...props,
       project,
@@ -75,7 +79,7 @@ export const getServerSideProps = async (ctx) => {
   } catch (err) {
     logger.error('err', err);
   }
-
+  console.log("GERGERGER44444");
   return {
     props: {
       ...props,
