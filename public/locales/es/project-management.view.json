@@ -4,5 +4,7 @@
     "project-management.view.status": "Estado",
     "project-management.view.status.IDEA": "Idea",
     "project-management.view.status.STARTUP": "Startup",
-    "project-management.view.status.OPERATIONAL": "Operacional"
+    "project-management.view.status.OPERATIONAL": "Operacional",
+    "project-management.view.bylaws.OPERATION_CORE_RETRIBUTION_MODEL": "Modelo de Redistribucion",
+    "project-management.view.bylaws.OPERATION_CORE_RETRIBUTION_MODEL.CAPS": "Chapitas"
 }
