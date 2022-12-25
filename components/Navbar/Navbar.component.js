@@ -114,7 +114,7 @@ const Navbar = () => {
                 <MenuItem
                   key="projects"
                   onClick={() =>
-                    router.push(ROUTES.projects.presentations.list)
+                    router.push(ROUTES.projects.management.landing)
                   }
                 >
                   <Typography
@@ -137,7 +137,7 @@ const Navbar = () => {
             </Box>
 
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-              <Link href={ROUTES.projects.presentations.list}>
+              <Link href={ROUTES.projects.management.landing}>
                 <Button
                   className="Navbar__Menu__Item"
                   variant="text"
