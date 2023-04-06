@@ -38,8 +38,10 @@ export const REQUIRED_SECTIONS = {
   BYLAWS: 'BYLAWS',
 };
 
-export default {
+const projectManagementFormProperties = {
   core: PROJECT_MANAGEMENT_CORE_FORM_FIELDS,
   bylaws: PROJECT_MANAGEMENT_BYLAWS_SUPPORTED_BYLAWS,
   requiredSections: REQUIRED_SECTIONS,
 };
+
+export default projectManagementFormProperties;

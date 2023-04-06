@@ -1,6 +1,6 @@
 # Dockerfile
 FROM node:14-slim as builder
-WORKDIR /opt/hoc-web
+WORKDIR /opt/front.angorasix
 COPY . .
 ARG BUILD
 ENV A6_APP_BUILD $BUILD

@@ -31,7 +31,7 @@ const ProjectManagementBylawsData = ({
         justifyContent="center"
       >
         {SUPPORTED_BYLAWS.map((bylawKey) => (
-          <Grid item xs={5}>
+          <Grid key={bylawKey} item xs={5}>
             <TextField
               label={t(
                 `project-management.edit.form.fields.bylaws.${bylawKey}`

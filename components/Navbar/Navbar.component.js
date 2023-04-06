@@ -18,11 +18,12 @@ import {
 import Cookies from 'js-cookie';
 import { signIn, signOut, useSession } from 'next-auth/react';
 import { useTranslation } from 'next-i18next';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React from 'react';
 import config from '../../config';
-import { resolveRoute, ROUTES } from '../../constants';
+import { ROUTES, resolveRoute } from '../../constants';
 
 const Navbar = () => {
   const { data: session, status } = useSession();
@@ -75,7 +76,7 @@ const Navbar = () => {
         <Container maxWidth="xl">
           <Toolbar>
             <Box sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}>
-              <img
+              <Image
                 className="Navbar__Logo"
                 src={config.site.head.image.logo}
                 alt="AngoraSix"
@@ -128,7 +129,7 @@ const Navbar = () => {
               </Menu>
             </Box>
             <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-              <img
+              <Image
                 className="Navbar__Logo"
                 src={config.site.head.image.logo}
                 alt="AngoraSix"
@@ -153,11 +154,11 @@ const Navbar = () => {
               <Tooltip title={t('navbar.language.tooltip')}>
                 <Button
                   onClick={handleOpenLanguageMenu}
-                  sx={{ p: 0 }}
                   size="large"
                   variant="text"
                   sx={{
                     color: 'primary.contrastText',
+                    p: 0,
                   }}
                   startIcon={<LanguageIcon />}
                 >
@@ -240,10 +241,12 @@ const Navbar = () => {
                 <Button
                   onClick={() => signIn('angorasixkeycloak')}
                   variant="contained"
-                  sx={{ backgroundColor: 'primary.dark' }}
+                  sx={{
+                    backgroundColor: 'primary.dark',
+                    display: { xs: 'none', sm: 'flex' },
+                  }}
                   startIcon={<LoginIcon />}
                   alt="login"
-                  sx={{ display: { xs: 'none', sm: 'flex' } }}
                 >
                   {t('navbar.settings.menu.login')}
                 </Button>

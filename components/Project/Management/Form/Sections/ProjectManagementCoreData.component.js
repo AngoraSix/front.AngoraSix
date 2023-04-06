@@ -45,7 +45,9 @@ const ProjectManagementCoreData = ({
             }
           >
             {CORE_FIELDS.status.options.map((option) => (
-              <MenuItem value={option.key}>{t(option.label)}</MenuItem>
+              <MenuItem key={option.key} value={option.key}>
+                {t(option.label)}
+              </MenuItem>
             ))}
           </Select>
         </Grid>
