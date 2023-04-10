@@ -61,7 +61,6 @@ export const getServerSideProps = async (ctx) => {
       projectId,
       validatedToken
     );
-    console.log(projectManagement);
     const project = projectManagement.project;
     const projectManagementActions = {};
     // hateoasFormToActions(projectManagement);

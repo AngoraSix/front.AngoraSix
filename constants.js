@@ -33,7 +33,7 @@ export const ROUTES = {
     },
   },
   profile: {
-    view: 'http://localhost:9090/profile/:profileId',
+    view: '/profile/:profileId',
   },
 };
 

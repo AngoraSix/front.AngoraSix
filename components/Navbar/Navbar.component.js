@@ -76,12 +76,18 @@ const Navbar = () => {
         <Container maxWidth="xl">
           <Toolbar>
             <Box sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}>
-              <Image
-                className="Navbar__Logo"
-                src={config.site.head.image.logo}
-                alt="AngoraSix"
-                title="AngoraSix"
-              />
+              <Box className="Commons__NextImageContainer">
+                <Image
+                  className="Navbar__Logo"
+                  src={config.site.head.image.logo}
+                  alt="AngoraSix"
+                  title="AngoraSix"
+                  layout="fill"
+                  placeholder="blur"
+                  blurDataURL={config.site.head.image.logo}
+                  priority={true}
+                />
+              </Box>
             </Box>
             <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
               <IconButton
@@ -129,14 +135,19 @@ const Navbar = () => {
               </Menu>
             </Box>
             <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-              <Image
-                className="Navbar__Logo"
-                src={config.site.head.image.logo}
-                alt="AngoraSix"
-                title="AngoraSix"
-              />
+              <Box className="Commons__NextImageContainer">
+                <Image
+                  className="Navbar__Logo"
+                  src={config.site.head.image.logo}
+                  alt="AngoraSix"
+                  title="AngoraSix"
+                  layout="fill"
+                  placeholder="blur"
+                  blurDataURL={config.site.head.image.logo}
+                  priority={true}
+                />
+              </Box>
             </Box>
-
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
               <Link href={ROUTES.projects.management.landing}>
                 <Button
