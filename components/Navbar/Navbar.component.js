@@ -90,7 +90,7 @@ const Navbar = () => {
                 />
               </Box>
             </Box>
-            <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+            {/* <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
               <IconButton
                 size="large"
                 aria-label="account of current user"
@@ -134,7 +134,7 @@ const Navbar = () => {
                   </Typography>
                 </MenuItem>
               </Menu>
-            </Box>
+            </Box> */}
             <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
               <Box className="Commons__NextImageContainer">
                 <Image
@@ -151,7 +151,7 @@ const Navbar = () => {
               </Box>
             </Box>
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-              <Link href={ROUTES.projects.management.landing}>
+              {/* <Link href={ROUTES.projects.management.landing}>
                 <Button
                   className="Navbar__Menu__Item"
                   variant="text"
@@ -160,7 +160,7 @@ const Navbar = () => {
                 >
                   {t('navbar.menu.projects')}
                 </Button>
-              </Link>
+              </Link> */}
             </Box>
 
             <Box className="Navbar__Language" sx={{ flexGrow: 0 }}>
@@ -217,7 +217,7 @@ const Navbar = () => {
                     />
                   </IconButton>
                 </Tooltip>
-                <Menu
+                {/* <Menu
                   sx={{ mt: '45px' }}
                   id="menu-appbar"
                   anchorEl={anchorElUser}
@@ -247,11 +247,11 @@ const Navbar = () => {
                       {t('navbar.settings.menu.logout')}
                     </Typography>
                   </MenuItem>
-                </Menu>
+                </Menu> */}
               </Box>
             ) : (
               <Box sx={{ flexGrow: 0 }}>
-                <Button
+                {/* <Button
                   onClick={() => signIn('angorasixkeycloak')}
                   variant="contained"
                   sx={{
@@ -270,7 +270,7 @@ const Navbar = () => {
                   sx={{ display: { xs: 'flex', sm: 'none' } }}
                 >
                   <LoginIcon />
-                </IconButton>
+                </IconButton> */}
               </Box>
             )}
           </Toolbar>
