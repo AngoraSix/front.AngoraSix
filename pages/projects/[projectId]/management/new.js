@@ -30,7 +30,8 @@ const NewProjectManagementPage = ({ session, project, isAdmin }) => {
       router.push(viewURL);
     }
     return () => {};
-  }, [isAdmin, onError, router, session]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isAdmin, router, session]);
 
   if (!session || session.error || !project || !isAdmin) {
     logger.error('Log in to modify / create Project Management registry');

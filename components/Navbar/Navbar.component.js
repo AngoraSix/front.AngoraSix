@@ -35,10 +35,10 @@ const Navbar = () => {
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const [anchorElLanguage, setAnchorElLanguage] = React.useState(null);
 
-  const handleChange = (selectedLocale) => {
+  const handleChange = async (selectedLocale) => {
     if (selectedLocale != locale) {
       Cookies.set('NEXT_LOCALE', selectedLocale);
-      router.push({ pathname, query }, asPath, { locale: selectedLocale });
+      await router.push({ pathname, query }, asPath, { locale: selectedLocale });
     }
     setAnchorElLanguage(null);
   };
@@ -83,6 +83,7 @@ const Navbar = () => {
                   alt="AngoraSix"
                   title="AngoraSix"
                   layout="fill"
+                  fill={true}
                   placeholder="blur"
                   blurDataURL={config.site.head.image.logo}
                   priority={true}
@@ -142,6 +143,7 @@ const Navbar = () => {
                   alt="AngoraSix"
                   title="AngoraSix"
                   layout="fill"
+                  fill={true}
                   placeholder="blur"
                   blurDataURL={config.site.head.image.logo}
                   priority={true}
@@ -193,7 +195,7 @@ const Navbar = () => {
                 onClose={handleCloseLanguageMenu}
               >
                 {otherLocales.map((l) => (
-                  <MenuItem key={l} value={l} onClick={() => handleChange(l)}>
+                  <MenuItem key={l} value={l} onClick={async () => await handleChange(l)}>
                     {l.toUpperCase()}
                   </MenuItem>
                 ))}
