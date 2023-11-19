@@ -27,6 +27,6 @@ stages:
   - deploy_cleanup
 
 variables:
-  DOCKER_RELEASE_IMAGE: themalders/hoc-web:latest
-  DOCKER_PROD_IMAGE: themalders/hoc-web:prod
-  COMPOSE_SERVICE_NAME: web-svc
+  DOCKER_RELEASE_IMAGE: angorasix/front.angorasix:latest
+  DOCKER_PROD_IMAGE: angorasix/front.angorasix:prod
+  COMPOSE_SERVICE_NAME: front.angorasix

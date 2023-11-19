@@ -1,12 +1,8 @@
 import { Box, Typography } from '@mui/material';
-import { getSession } from 'next-auth/react';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import PropTypes from 'prop-types';
 import React from 'react';
-import api from '../api';
 import DefaultLayout from '../layouts/DefaultLayout';
-import logger from '../utils/logger';
 
 const HomePage = ({}) => {
   const { t } = useTranslation('common');
@@ -19,21 +15,26 @@ const HomePage = ({}) => {
       }}
     >
       <Box>
-        <Typography>LANDING PAGE</Typography>
+        <Typography variant="h3" align="center" color="primary.main"> 
+          {t('common.temp.landing-page.title')}
+        </Typography>
+        <Typography variant="h4" align="center">
+          {t('common.temp.landing-page.text')}
+        </Typography>
       </Box>
     </DefaultLayout>
   );
 };
 
-HomePage.defaultProps = {
-};
+HomePage.defaultProps = {};
 
-HomePage.propTypes = {
-};
+HomePage.propTypes = {};
 
 export const getServerSideProps = async (ctx) => {
-  const session = await getSession(ctx);
-  let props = {};
+  // const session = await getSession(ctx);
+  let props = {
+    ...(await serverSideTranslations(ctx.locale, ['common'])),
+  };
 
   return {
     props,

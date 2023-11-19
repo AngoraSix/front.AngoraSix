@@ -11,6 +11,7 @@ import '../styles/Commons.css';
 import '../styles/globals.css';
 import '../styles/Layouts.css';
 import '../styles/Navbar.css';
+import '../styles/ProjectManagementForm.css';
 import '../styles/ProjectManagementView.css';
 import { getEnv } from '../utils/env';
 import { appWithTranslation } from 'next-i18next';

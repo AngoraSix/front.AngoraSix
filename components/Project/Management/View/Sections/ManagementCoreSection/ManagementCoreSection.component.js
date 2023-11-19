@@ -23,7 +23,7 @@ const ManagementCoreSection = ({ project, projectManagement }) => {
     <Box
       className="ManagementCoreSection ManagementCoreSection__Container"
       sx={{
-        backgroundColor: theme.palette.primary.light,
+        backgroundColor: theme.palette.primary.main,
       }}
     >
       <Box className="ManagementCoreSection__Status">

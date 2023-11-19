@@ -4,7 +4,7 @@ import InternalServerError from '../../../../utils/errors/InternalServerError';
 import MethodNotAllowedError from '../../../../utils/errors/MethodNotAllowedError';
 import logger from '../../../../utils/logger';
 
-export default async (req, res) => {
+const projectByIdApiPage = async (req, res) => {
   if (req.method === 'PUT') {
     const validatedToken = await obtainValidatedToken(req);
     try {
@@ -36,3 +36,5 @@ export default async (req, res) => {
     res.status(mnaError.status).json(mnaError.asObject());
   }
 };
+
+export default projectByIdApiPage;

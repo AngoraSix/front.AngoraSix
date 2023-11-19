@@ -1,0 +1,13 @@
+/* Project Presentation Form */
+.ProjectManagementForm__Container {
+  margin: 0 7%;
+}
+
+.ProjectManagementForm__Section {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+.ProjectManagementForm__Section__Status {
+  margin-bottom: 1em;
+}

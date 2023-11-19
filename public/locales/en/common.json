@@ -20,5 +20,7 @@
     "common.media.options.video": "Video",
     "common.media.options.video.dialog": "Introduce the Youtube video ID or URL",
     "common.domain.section": "Section",
-    "common.domain.sections": "Sections"
+    "common.domain.sections": "Sections",
+    "common.temp.landing-page.title": "Coming soon",
+    "common.temp.landing-page.text": "Site under construction :)"
 }

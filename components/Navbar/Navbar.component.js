@@ -18,11 +18,12 @@ import {
 import Cookies from 'js-cookie';
 import { signIn, signOut, useSession } from 'next-auth/react';
 import { useTranslation } from 'next-i18next';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React from 'react';
 import config from '../../config';
-import { resolveRoute, ROUTES } from '../../constants';
+import { ROUTES, resolveRoute } from '../../constants';
 
 const Navbar = () => {
   const { data: session, status } = useSession();
@@ -34,10 +35,10 @@ const Navbar = () => {
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const [anchorElLanguage, setAnchorElLanguage] = React.useState(null);
 
-  const handleChange = (selectedLocale) => {
+  const handleChange = async (selectedLocale) => {
     if (selectedLocale != locale) {
       Cookies.set('NEXT_LOCALE', selectedLocale);
-      router.push({ pathname, query }, asPath, { locale: selectedLocale });
+      await router.push({ pathname, query }, asPath, { locale: selectedLocale });
     }
     setAnchorElLanguage(null);
   };
@@ -75,14 +76,21 @@ const Navbar = () => {
         <Container maxWidth="xl">
           <Toolbar>
             <Box sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}>
-              <img
-                className="Navbar__Logo"
-                src={config.site.head.image.logo}
-                alt="AngoraSix"
-                title="AngoraSix"
-              />
+              <Box className="Commons__NextImageContainer">
+                <Image
+                  className="Navbar__Logo"
+                  src={config.site.head.image.logo}
+                  alt="AngoraSix"
+                  title="AngoraSix"
+                  layout="fill"
+                  fill={true}
+                  placeholder="blur"
+                  blurDataURL={config.site.head.image.logo}
+                  priority={true}
+                />
+              </Box>
             </Box>
-            <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+            {/* <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
               <IconButton
                 size="large"
                 aria-label="account of current user"
@@ -126,18 +134,24 @@ const Navbar = () => {
                   </Typography>
                 </MenuItem>
               </Menu>
-            </Box>
+            </Box> */}
             <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-              <img
-                className="Navbar__Logo"
-                src={config.site.head.image.logo}
-                alt="AngoraSix"
-                title="AngoraSix"
-              />
+              <Box className="Commons__NextImageContainer">
+                <Image
+                  className="Navbar__Logo"
+                  src={config.site.head.image.logo}
+                  alt="AngoraSix"
+                  title="AngoraSix"
+                  layout="fill"
+                  fill={true}
+                  placeholder="blur"
+                  blurDataURL={config.site.head.image.logo}
+                  priority={true}
+                />
+              </Box>
             </Box>
-
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-              <Link href={ROUTES.projects.management.landing}>
+              {/* <Link href={ROUTES.projects.management.landing}>
                 <Button
                   className="Navbar__Menu__Item"
                   variant="text"
@@ -146,18 +160,18 @@ const Navbar = () => {
                 >
                   {t('navbar.menu.projects')}
                 </Button>
-              </Link>
+              </Link> */}
             </Box>
 
             <Box className="Navbar__Language" sx={{ flexGrow: 0 }}>
               <Tooltip title={t('navbar.language.tooltip')}>
                 <Button
                   onClick={handleOpenLanguageMenu}
-                  sx={{ p: 0 }}
                   size="large"
                   variant="text"
                   sx={{
                     color: 'primary.contrastText',
+                    p: 0,
                   }}
                   startIcon={<LanguageIcon />}
                 >
@@ -181,7 +195,7 @@ const Navbar = () => {
                 onClose={handleCloseLanguageMenu}
               >
                 {otherLocales.map((l) => (
-                  <MenuItem key={l} value={l} onClick={() => handleChange(l)}>
+                  <MenuItem key={l} value={l} onClick={async () => await handleChange(l)}>
                     {l.toUpperCase()}
                   </MenuItem>
                 ))}
@@ -203,7 +217,7 @@ const Navbar = () => {
                     />
                   </IconButton>
                 </Tooltip>
-                <Menu
+                {/* <Menu
                   sx={{ mt: '45px' }}
                   id="menu-appbar"
                   anchorEl={anchorElUser}
@@ -233,17 +247,19 @@ const Navbar = () => {
                       {t('navbar.settings.menu.logout')}
                     </Typography>
                   </MenuItem>
-                </Menu>
+                </Menu> */}
               </Box>
             ) : (
               <Box sx={{ flexGrow: 0 }}>
-                <Button
+                {/* <Button
                   onClick={() => signIn('angorasixkeycloak')}
                   variant="contained"
-                  sx={{ backgroundColor: 'primary.dark' }}
+                  sx={{
+                    backgroundColor: 'primary.dark',
+                    display: { xs: 'none', sm: 'flex' },
+                  }}
                   startIcon={<LoginIcon />}
                   alt="login"
-                  sx={{ display: { xs: 'none', sm: 'flex' } }}
                 >
                   {t('navbar.settings.menu.login')}
                 </Button>
@@ -254,7 +270,7 @@ const Navbar = () => {
                   sx={{ display: { xs: 'flex', sm: 'none' } }}
                 >
                   <LoginIcon />
-                </IconButton>
+                </IconButton> */}
               </Box>
             )}
           </Toolbar>

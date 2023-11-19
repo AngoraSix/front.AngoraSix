@@ -12,14 +12,14 @@ const AppContainer = (props) => {
 
   checkActiveToken();
 
-  const startLoading = () => {
-    doLoad(true);
-  };
-  const finishLoading = () => {
-    doLoad(false);
-  };
-
   useEffect(() => {
+    const startLoading = () => {
+      doLoad(true);
+    };
+    const finishLoading = () => {
+      doLoad(false);
+    };
+
     router.events.on('beforeHistoryChange', startLoading);
     router.events.on('routeChangeStart', startLoading);
 
@@ -33,7 +33,8 @@ const AppContainer = (props) => {
       router.events.off('routeChangeComplete', finishLoading);
       router.events.off('routeChangeError', finishLoading);
     };
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [router]);
 
   return <App isLoading={isLoading} {...props} />;
 };

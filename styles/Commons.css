@@ -6,3 +6,9 @@
 .LoadingButton--circle {
   border-radius: 3.1em;
 }
+
+.Commons__NextImageContainer {
+  position: relative;
+  width: 2.2em;
+  height: 2.2em;
+}
