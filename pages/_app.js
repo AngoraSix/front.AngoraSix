@@ -1,4 +1,5 @@
 import { SessionProvider as NextAuthProvider } from 'next-auth/react';
+import { appWithTranslation } from 'next-i18next';
 import PropTypes from 'prop-types';
 import { Provider as ReduxProvider } from 'react-redux';
 import { createStore } from 'redux';
@@ -8,21 +9,19 @@ import config from '../config';
 import reducers from '../store/reducers';
 import '../styles/App.css';
 import '../styles/Commons.css';
-import '../styles/globals.css';
 import '../styles/Layouts.css';
 import '../styles/Navbar.css';
 import '../styles/ProjectManagementForm.css';
 import '../styles/ProjectManagementView.css';
+import '../styles/globals.css';
 import { getEnv } from '../utils/env';
-import { appWithTranslation } from 'next-i18next';
-import App from "next/app"
 
-const A6WebApp = ({ Component, pageProps, preloadedState, env }) => {
+const AngoraSixWebApp = ({ Component, pageProps, preloadedState, env }) => {
   const store = createStore(reducers, preloadedState);
 
   config.applyEnvConfig(env);
   api.applyEnvConfig(env);
-  
+
   return (
     <ReduxProvider store={store}>
       <NextAuthProvider session={pageProps.session} refetchInterval={1 * 30}>
@@ -34,21 +33,20 @@ const A6WebApp = ({ Component, pageProps, preloadedState, env }) => {
   );
 };
 
-A6WebApp.defaultProps = {
+AngoraSixWebApp.defaultProps = {
   pageProps: {},
   preloadedState: {},
   env: {},
 };
 
-A6WebApp.propTypes = {
+AngoraSixWebApp.propTypes = {
   Component: PropTypes.any.isRequired,
   pageProps: PropTypes.object,
   preloadedState: PropTypes.object,
   env: PropTypes.object,
 };
 
-A6WebApp.getInitialProps = async ({ ctx }) => {
-  const nextProps = App.getInitialProps(ctx);
+AngoraSixWebApp.getInitialProps = async ({ ctx }) => {
   const env = getEnv();
 
   config.applyEnvConfig(env);
@@ -59,10 +57,9 @@ A6WebApp.getInitialProps = async ({ ctx }) => {
   const preloadedState = store.getState();
 
   return {
-    ...nextProps,
     preloadedState,
     env,
   };
 };
 
-export default appWithTranslation(A6WebApp);
+export default appWithTranslation(AngoraSixWebApp);

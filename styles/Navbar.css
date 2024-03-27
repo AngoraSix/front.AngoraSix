@@ -27,8 +27,14 @@
   filter: brightness(90%);
 }
 
+.Navbar__Logo__Container {
+  position: relative;
+  height: 2.5em;
+  width: 2.5em;
+}
+
 .Navbar__Logo {
-  width: auto;
-  height: 50px;
+  /* width: auto; */
+  /* height: 50px; */
   object-fit: contain;
 }

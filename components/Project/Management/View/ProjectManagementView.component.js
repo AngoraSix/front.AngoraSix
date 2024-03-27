@@ -1,6 +1,6 @@
 import { Box, SwipeableDrawer, Typography } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import { useTheme } from '@mui/styles';
+import { useTheme } from '@mui/material/styles';
 import { styled } from '@mui/system';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';

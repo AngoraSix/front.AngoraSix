@@ -1,5 +1,5 @@
 import { Box, Grid, Typography } from '@mui/material';
-import { useTheme } from '@mui/styles';
+import { useTheme } from '@mui/material/styles';
 import { useTranslation } from 'next-i18next';
 import PropTypes from 'prop-types';
 
