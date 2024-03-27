@@ -2,10 +2,10 @@ import { getSession } from 'next-auth/react';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import PropTypes from 'prop-types';
-import api from '../../../../api';
-import ProjectManagementView from '../../../../components/Project/Management/View';
-import DefaultLayout from '../../../../layouts/DefaultLayout';
-import logger from '../../../../utils/logger';
+import api from '../../../../../api';
+import ProjectManagementView from '../../../../../components/Project/Management/View';
+import DefaultLayout from '../../../../../layouts/DefaultLayout';
+import logger from '../../../../../utils/logger';
 
 const ProjectManagementViewPage = ({
   project,
@@ -51,23 +51,22 @@ ProjectManagementViewPage.propTypes = {
 
 export const getServerSideProps = async (ctx) => {
   let props = {};
-  const { projectId } = ctx.params;
+  const { projectId, managementId } = ctx.params;
   const session = await getSession(ctx);
   const validatedToken =
     session?.error !== 'RefreshAccessTokenError' ? session : null;
   let isAdmin = false;
   try {
     const projectManagement = await api.projects.getProjectManagement(
-      projectId,
+      managementId,
       validatedToken
     );
     const project = projectManagement.project;
     const projectManagementActions = {};
     // hateoasFormToActions(projectManagement);
-    isAdmin =
-      session?.user.id != null &&
-      session?.user.id === project.adminId &&
-      projectManagement?.projectId === projectId;
+    if (projectManagement.projectId != projectId) {
+      throw new Error("Project Management doesn't match projectId in URL");
+    }
     props = {
       ...props,
       project,

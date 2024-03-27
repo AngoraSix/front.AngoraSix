@@ -15,11 +15,11 @@ class ProjectsAPI {
     return data;
   }
 
-  async getProjectManagement(projectId, token) {
+  async getProjectManagement(managementId, token) {
     const headers = this.axios.getCommonHeaders();
     const authHeaders = this.axios.getAuthorizationHeaders(token, false);
-    const { data } = await this.axios.get(
-      `/${projectId}/management`,
+    const response = await this.axios.get(
+      `/management/${managementId}`,
       {
         headers: {
           ...headers,
@@ -27,7 +27,8 @@ class ProjectsAPI {
         },
       }
     );
-    return data;
+    return response.data
+    // return data;
   }
 
   async saveProjectManagement(
