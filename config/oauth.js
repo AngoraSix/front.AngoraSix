@@ -1,5 +1,3 @@
-import KeycloakProvider from 'next-auth/providers/keycloak';
-
 export const oauthFrameworkConfig = {
   debug:
     process.env.A6_APP_OAUTH_FW_DEBUG &&
@@ -13,24 +11,17 @@ export const oauthFrameworkConfig = {
   },
 };
 
-export const oauthBuiltinProviderConfig = KeycloakProvider({
-  clientId: process.env.A6_APP_OAUTH_CLIENT_ID || 'clientId',
-  clientSecret: process.env.A6_APP_OAUTH_CLIENT_SECRET || 'clientSecret',
-  issuer: process.env.A6_APP_OAUTH_PROVIDER_ISSUER || 'realms/myrealm/',
-  token: process.env.A6_APP_OAUTH_PROVIDER_TOKEN_ENDPOINT || undefined,
-});
-
 /*
 Not used -> now using built-in provider...does it provide token endpoint for refresh token?
 */
 export const oauthProviderConfig = {
-  id: 'angorasixkeycloak',
-  name: 'AngorasixKeycloak',
+  id: 'angorasixspring',
+  name: 'AngoraSixSpring',
   type: 'oauth',
   version: '2.0',
-  wellKnown:
-    process.env.A6_APP_OAUTH_PROVIDER_DISCOVERY_ENDPOINT ||
-    '/myrealm/.well-known/openid-configuration',
+  // wellKnown:
+  //   process.env.A6_APP_OAUTH_PROVIDER_DISCOVERY_ENDPOINT ||
+  //   '/.well-known/openid-configuration',
   authorization: {
     url: process.env.A6_APP_OAUTH_PROVIDER_AUTHORIZATION_ENDPOINT || undefined,
     params: {
@@ -41,19 +32,21 @@ export const oauthProviderConfig = {
   },
   token: process.env.A6_APP_OAUTH_PROVIDER_TOKEN_ENDPOINT || undefined,
   userinfo: process.env.A6_APP_OAUTH_PROVIDER_USERINFO_ENDPOINT || undefined,
+  jwks_endpoint: process.env.A6_APP_OAUTH_PROVIDER_JWKS_ENDPOINT || undefined,
   idToken: true,
-  issuer: process.env.A6_APP_OAUTH_PROVIDER_ISSUER || 'realms/myrealm/',
+  issuer: process.env.A6_APP_OAUTH_PROVIDER_ISSUER || '/',
   checks: ['pkce', 'state'],
   async profile(profile, tokens) {
     return {
-      id: profile.sub,
-      name: profile.name,
+      id: profile.a6_contributor_id,
+      givenName: profile.given_name,
+      familyName: profile.family_name,
       email: profile.email,
-      image: profile.picture,
+      image: profile.a6_profile_image,
+      imageThumbnail: profile.a6_profile_image_thumbnail,
       identityProvider: profile.identityProvider
     };
   },
-
   clientId: process.env.A6_APP_OAUTH_CLIENT_ID || 'clientId',
   clientSecret: process.env.A6_APP_OAUTH_CLIENT_SECRET || 'clientSecret',
 };
