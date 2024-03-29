@@ -1,10 +1,10 @@
+import axios from 'axios';
+import moment from 'moment';
 import NextAuth from 'next-auth';
 import {
   oauthFrameworkConfig,
   oauthProviderConfig,
 } from '../../../config/oauth';
-import axios from 'axios';
-import moment from 'moment';
 import logger from '../../../utils/logger';
 
 export const oauthCallbacksConfig = {
@@ -42,18 +42,30 @@ export const oauthCallbacksConfig = {
  */
 async function refreshAccessToken(token) {
   try {
-    const params = new URLSearchParams();
-    params.append('client_id', oauthProviderConfig.clientId);
-    params.append('client_secret', oauthProviderConfig.clientSecret);
-    params.append('grant_type', 'refresh_token');
-    params.append('refresh_token', token.refreshToken);
-    const response = await axios.post(oauthProviderConfig.token, params);
+    const response = await axios.post(
+      oauthProviderConfig.token,
+      { grant_type: 'refresh_token', refresh_token: token.refreshToken },
+      {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+        auth: {
+          username: oauthProviderConfig.clientId,
+          password: oauthProviderConfig.clientSecret,
+        },
+      }
+    );
 
     if (response.status >= 300) {
       throw new Error('Error refreshing token');
     }
 
     let accessTokenBody = response.data;
+
+    if (oauthFrameworkConfig.debug) {
+      logger.info(`Refreshed Access Token: ${accessTokenBody.access_token}`);
+    }
+
     return {
       accessToken: accessTokenBody.access_token,
       accessTokenExpires: moment().unix() + accessTokenBody.expires_in,
