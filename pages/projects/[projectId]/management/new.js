@@ -18,7 +18,7 @@ const NOT_ADMIN_ERROR_MESSAGE =
   'You need admin privileges to create a Management registry for a Project';
 
 const NewProjectManagementPage = ({ session, project, isAdmin }) => {
-  const { t } = useTranslation('project-management.edit');
+  const { t } = useTranslation('management.edit');
   useActiveSession();
   const { onError } = useNotifications();
   const router = useRouter();
@@ -46,12 +46,12 @@ const NewProjectManagementPage = ({ session, project, isAdmin }) => {
   return (
     <DefaultLayout
       headData={{
-        title: t('project-management.edit.page.title.template').replace(
+        title: t('management.edit.page.title.template').replace(
           ':project',
           project.name
         ),
         description: t(
-          'project-management.edit.page.description.template'
+          'management.edit.page.description.template'
         ).replace(':project', project.name),
       }}
     >
@@ -95,7 +95,7 @@ export const getServerSideProps = async (ctx) => {
       session,
       ...(await serverSideTranslations(ctx.locale, [
         'common',
-        'project-management.edit',
+        'management.edit',
         'common.languages',
       ])),
     },

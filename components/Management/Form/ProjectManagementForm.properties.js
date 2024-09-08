@@ -1,20 +1,20 @@
 export const PROJECT_MANAGEMENT_CORE_FORM_FIELDS = {
   status: {
     key: 'status',
-    label: 'project-management.edit.form.wizard-fields.status',
+    label: 'management.edit.form.wizard-fields.status',
     required: true,
     options: [
       {
         key: 'idea',
-        label: 'project-management.edit.form.wizard-fields.status.IDEA',
+        label: 'management.edit.form.wizard-fields.status.IDEA',
       },
       {
         key: 'startup',
-        label: 'project-management.edit.form.wizard-fields.status.STARTUP',
+        label: 'management.edit.form.wizard-fields.status.STARTUP',
       },
       {
         key: 'operational',
-        label: 'project-management.edit.form.wizard-fields.status.OPERATIONAL',
+        label: 'management.edit.form.wizard-fields.status.OPERATIONAL',
       },
     ],
   },

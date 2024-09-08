@@ -17,7 +17,7 @@ import ProjectManagementFormReducer, {
 } from './ProjectManagementForm.reducer';
 
 const ProjectManagementFormContainer = ({ project, projectManagement }) => {
-  const { t } = useTranslation('project-management.edit');
+  const { t } = useTranslation('management.edit');
   const { doLoad } = useLoading();
   const { onSuccess, onError } = useNotifications();
   const router = useRouter();
@@ -65,7 +65,7 @@ const ProjectManagementFormContainer = ({ project, projectManagement }) => {
         );
 
         onSuccess(
-          t('project-management.edit.form.notifications.success.saved')
+          t('management.edit.form.notifications.success.saved')
         );
 
         const viewURL = isTriggeredAction

@@ -13,7 +13,7 @@ const ProjectManagementForm = ({
   wasSubmitted,
   setIsSectionCompleted,
 }) => {
-  const { t } = useTranslation('project-management.edit');
+  const { t } = useTranslation('management.edit');
 
   return (
     <Box
@@ -25,7 +25,7 @@ const ProjectManagementForm = ({
           variant="subtitle1"
           color="primary"
         >
-          {t('project-management.edit.form.fields.status')}
+          {t('management.edit.form.fields.status')}
         </Typography>
         <ProjectManagementCoreData
           formData={formData}
@@ -40,7 +40,7 @@ const ProjectManagementForm = ({
           variant="subtitle1"
           color="primary"
         >
-          {t('project-management.edit.form.bylaws')}
+          {t('management.edit.form.bylaws')}
         </Typography>
         <ProjectManagementBylawsData
           formData={formData}
@@ -60,7 +60,7 @@ const ProjectManagementForm = ({
           variant="contained"
           fullWidth
         >
-          {t('project-management.edit.form.commands.save')}
+          {t('management.edit.form.commands.save')}
         </Button>
       </Box>
     </Box>

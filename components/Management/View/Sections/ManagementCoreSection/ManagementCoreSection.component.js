@@ -9,14 +9,14 @@ function capitalizeFirstLetter(string) {
 
 const translateOrValue = (t, i18n, i18nKey, value) => {
   return i18n.exists(i18nKey, {
-    ns: 'project-management.view',
+    ns: 'management.view',
   })
     ? t(i18nKey)
     : capitalizeFirstLetter(value);
 };
 
 const ManagementCoreSection = ({ project, projectManagement }) => {
-  const { t, i18n } = useTranslation('project-management.view');
+  const { t, i18n } = useTranslation('management.view');
   const theme = useTheme();
 
   return (
@@ -30,7 +30,7 @@ const ManagementCoreSection = ({ project, projectManagement }) => {
         <Box className="ManagementCoreSection__Field">
           <Box className="ManagementCoreSection__Field__Title">
             <Typography align="center">
-              {t('project-management.view.status')}
+              {t('management.view.status')}
             </Typography>
           </Box>
           <Box className="ManagementCoreSection__Field__Value">
@@ -40,7 +40,7 @@ const ManagementCoreSection = ({ project, projectManagement }) => {
               component="h4"
               color="primary.contrastText"
             >
-              {t(`project-management.view.status.${projectManagement.status}`)}
+              {t(`management.view.status.${projectManagement.status}`)}
             </Typography>
           </Box>
         </Box>
@@ -56,7 +56,7 @@ const ManagementCoreSection = ({ project, projectManagement }) => {
                       {translateOrValue(
                         t,
                         i18n,
-                        `project-management.view.bylaws.${bylaw.scope}`,
+                        `management.view.bylaws.${bylaw.scope}`,
                         bylaw.scope
                       )}
                     </Typography>
@@ -66,7 +66,7 @@ const ManagementCoreSection = ({ project, projectManagement }) => {
                       {translateOrValue(
                         t,
                         i18n,
-                        `project-management.view.bylaws.${bylaw.scope}.${bylaw.definition}`,
+                        `management.view.bylaws.${bylaw.scope}.${bylaw.definition}`,
                         bylaw.definition
                       )}
                     </Typography>

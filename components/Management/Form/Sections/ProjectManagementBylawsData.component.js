@@ -11,7 +11,7 @@ const ProjectManagementBylawsData = ({
   wasSubmitted,
   onInputKeyPressed,
 }) => {
-  const { t } = useTranslation('project-management.edit');
+  const { t } = useTranslation('management.edit');
   const onFieldChange = (property) => (event) => {
     let {
       target: { value },
@@ -34,7 +34,7 @@ const ProjectManagementBylawsData = ({
           <Grid key={bylawKey} item xs={5}>
             <TextField
               label={t(
-                `project-management.edit.form.fields.bylaws.${bylawKey}`
+                `management.edit.form.fields.bylaws.${bylawKey}`
               )}
               value={formData.bylaws?.[bylawKey] || ''}
               onChange={onFieldChange(`bylaws.${bylawKey}`)}

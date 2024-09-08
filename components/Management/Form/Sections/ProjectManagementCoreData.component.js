@@ -10,7 +10,7 @@ const ProjectManagementCoreData = ({
   setIsCompleted,
   wasSubmitted,
 }) => {
-  const { t } = useTranslation('project-management.edit');
+  const { t } = useTranslation('management.edit');
   const onFieldChange = (property) => (event) => {
     let {
       target: { value },
@@ -34,7 +34,7 @@ const ProjectManagementCoreData = ({
             {...CORE_FIELDS.status}
             label={
               formData.status
-                ? t('project-management.edit.form.fields.status')
+                ? t('management.edit.form.fields.status')
                 : t(CORE_FIELDS.status.label)
             }
             value={formData.status || ''}
