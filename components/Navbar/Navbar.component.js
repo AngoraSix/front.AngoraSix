@@ -23,7 +23,8 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import config from '../../config';
-import { ROUTES, resolveRoute } from '../../constants';
+import { ROUTES } from '../../constants/constants';
+import { resolveRoute } from '../../utils/api/apiHelper';
 import Notifications from './Notifications';
 
 const Navbar = () => {

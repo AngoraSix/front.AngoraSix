@@ -11,6 +11,7 @@ import '../styles/App.css';
 import '../styles/Commons.css';
 import '../styles/Layouts.css';
 import '../styles/Navbar.css';
+import '../styles/ManagementIntegrationList.css';
 import '../styles/ProjectManagementForm.css';
 import '../styles/ProjectManagementView.css';
 import '../styles/globals.css';

@@ -1,0 +1,6 @@
+/* Management Integration List */
+@media (min-width: 600px) {
+  .ManagementIntegrationList__Container {
+    margin: 0 15%;
+  }
+}

@@ -1,0 +1,3 @@
+import RedirectAuthorizationRegistrationAction from './RedirectAuthorizationRegistrationAction.component';
+
+export default RedirectAuthorizationRegistrationAction;

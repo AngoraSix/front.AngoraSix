@@ -1,12 +1,14 @@
-import { Box, Divider, List, ListItem, ListItemText, Typography } from '@mui/material';
+import { Avatar, Box, Divider, List, ListItem, ListItemAvatar, ListItemText, SvgIcon, Typography } from '@mui/material';
 import { useTranslation } from 'next-i18next';
 import PropTypes from 'prop-types';
 import React from 'react';
+import { THIRD_PARTY } from '../../../../constants/constants';
+import IntegrationActions from './IntegrationActions';
 
-const ManagementIntegrationList = ({ managementIntegrations, managementIntegrationsActions, isLoading }) => {
+const ManagementIntegrationList = ({ managementIntegrations, managementIntegrationsActions, actionFns, isLoading }) => {
 
   const { t } = useTranslation('management.integration.list');
-
+  
   return (
     <Box className="ManagementIntegrationList ManagementIntegrationList__Container">
       <Typography
@@ -17,22 +19,35 @@ const ManagementIntegrationList = ({ managementIntegrations, managementIntegrati
       >
         {t('management.integration.list.title')}
       </Typography>
-      <List className="AdministeredProjects__Listing" dense>
+      <List className="ManagementIntegrationList__Listing" dense>
         {!isLoading && !managementIntegrations.length && (
-          <Typography>SINCRONIZR loco</Typography>
+          <Typography>{t('management.integration.list.empty-message')}</Typography>
         )}
         {managementIntegrations.map((integration) => {
           return (
             <React.Fragment key={integration.id}>
               <ListItem
-                className="AdministeredProjects__Listing__Item"
+                className="ManagementIntegration__Listing__Item"
                 key={integration.id}
               >
+                <ListItemAvatar className="NotificationItem__Image">
+                  <Avatar variant="rounded" sx={{ bgcolor: THIRD_PARTY[integration.source].color }}>
+                    <SvgIcon sx={{ fontSize: 22 }} component={THIRD_PARTY[integration.source].logo} inheritViewBox />
+                  </Avatar>
+                </ListItemAvatar>
                 <ListItemText
-                  className="AdministeredProjects__Listing__Title"
-                  primary={integration.source}
+                  className="ManagementIntegration__Listing__Title"
+                  primary={THIRD_PARTY[integration.source].name}
                 />
+                {integration.actions && (
+                  <IntegrationActions
+                    sourceKey={integration.source}
+                    actions={integration.actions}
+                    actionFns={actionFns}
+                  />
+                )}
               </ListItem>
+
               <Divider variant="middle" />
             </React.Fragment>
           );

@@ -51,6 +51,7 @@ ProjectManagementViewPage.propTypes = {
 
 export const getServerSideProps = async (ctx) => {
   let props = {};
+
   const { projectId, managementId } = ctx.params;
   const session = await getSession(ctx);
   const validatedToken =

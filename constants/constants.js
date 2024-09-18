@@ -1,3 +1,5 @@
+import TrelloLogo from '../public/logos/thirdparty/trello.svg';
+
 export const PROFILE_ATTRIBUTES = {
   headImage: {
     key: 'headImage',
@@ -17,27 +19,6 @@ export const PROFILE_ATTRIBUTES = {
   },
 };
 
-export const resolveRoute = (route, ...args) => {
-  const isAbsoluteUrl = new RegExp('^(?:[a-z+]+:)?//', 'i');
-  if (isAbsoluteUrl.test(route)) {
-    const absUrl = new URL(route);
-    return `${absUrl.protocol}//${absUrl.host}${replacePathParams(
-      absUrl.pathname,
-      ...args
-    )}`;
-  } else {
-    return replacePathParams(route, ...args);
-  }
-};
-
-const replacePathParams = (path, ...args) => {
-  return args.reduce(
-    // replace each path pattern
-    (url, replaceString) => url.replace(/:\w+/, replaceString),
-    path
-  );
-};
-
 export const ROUTES = {
   projects: {
     management: {
@@ -55,3 +36,11 @@ export const HEADERS = {
     error: 'A6-REDIRECT-ERROR-MESSAGE',
   },
 };
+
+export const THIRD_PARTY = {
+  trello: {
+    logo: TrelloLogo,
+    name: 'Trello',
+    color: 	'#0079BF'
+  }
+}

@@ -3,18 +3,21 @@ import {
   createObjectWithFlatParams,
   toType,
 } from '../utils/helpers';
+import { processHateoasActions } from '../utils/rest/hateoas/hateoasUtils';
 import ManagementIntegrationConfig from './ManagementIntegrationConfig';
 import ManagementIntegrationStatus from './ManagementIntegrationStatus';
 
 export default class ManagementIntegration {
   #status;
   #config;
-  constructor({ source, projectManagementId, status, config, id }) {
+  constructor(object) {
+    const { source, projectManagementId, status, config, id } = object;
     this.source = source;
     this.projectManagementId = projectManagementId;
     this.status = status;
     this.config = config;
     this.id = id;
+    this.actions = processHateoasActions(object);
   }
 
   static fromFormData(formData) {

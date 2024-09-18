@@ -10,13 +10,13 @@ import logger from '../../../../utils/logger';
 const ManagementIntegrationsViewPage = ({
   managementIntegrationsResponseData,
 }) => {
-  const { t } = useTranslation('management.integrations.list');
+  const { t } = useTranslation('management.integration.list');
 
   return (
     <DefaultLayout
       headData={{
-        title: t('management.integrations.view.page.title.template'),
-        description: t('management.integrations.view.page.description.template'),
+        title: t('management.integration.list.page.title'),
+        description: t('management.integration.list.page.description'),
       }}
     >
       <ManagementIntegrationList
@@ -59,7 +59,7 @@ export const getServerSideProps = async (ctx) => {
       session,
       ...(await serverSideTranslations(ctx.locale, [
         'common',
-        'management.integrations.list',
+        'management.integration.list',
       ])),
     },
   };

@@ -8,10 +8,11 @@ import React, { useEffect } from 'react';
 import api from '../../../../api';
 import FormSkeleton from '../../../../components/common/Skeletons/FormSkeleton.component';
 import ProjectManagementForm from '../../../../components/Project/Management/Form';
-import { resolveRoute, ROUTES } from '../../../../constants';
+import { ROUTES } from '../../../../constants/constants';
 import { useNotifications } from '../../../../hooks/app';
 import { useActiveSession } from '../../../../hooks/oauth';
 import DefaultLayout from '../../../../layouts/DefaultLayout';
+import { resolveRoute } from '../../../../utils/api/apiHelper';
 import logger from '../../../../utils/logger';
 
 const NOT_ADMIN_ERROR_MESSAGE =
@@ -29,7 +30,7 @@ const NewProjectManagementPage = ({ session, project, isAdmin }) => {
       const viewURL = resolveRoute(ROUTES.projects.management.landing);
       router.push(viewURL);
     }
-    return () => {};
+    return () => { };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isAdmin, router, session]);
 
