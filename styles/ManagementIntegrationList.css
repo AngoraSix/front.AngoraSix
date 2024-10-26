@@ -4,3 +4,20 @@
     margin: 0 15%;
   }
 }
+
+/* Management Integration Interactions */
+.ManagementIntegrationInteraction__Container {
+  display: flex;
+  flex-direction: column;
+  /* flex */
+  justify-content: space-between;
+  height: 100%;
+}
+
+
+.ManagementIntegrationInteraction__Content {
+  display: flex;
+  justify-content: center;
+  margin: 2em 0;
+
+}

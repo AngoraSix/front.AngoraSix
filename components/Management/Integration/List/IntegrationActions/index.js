@@ -1,3 +1,3 @@
-import IntegrationActions from './IntegrationActions.component';
+import IntegrationActions from './IntegrationActions.container';
 
 export default IntegrationActions;

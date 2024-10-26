@@ -5,10 +5,11 @@ import React from 'react';
 import { THIRD_PARTY } from '../../../../constants/constants';
 import IntegrationActions from './IntegrationActions';
 
-const ManagementIntegrationList = ({ managementIntegrations, managementIntegrationsActions, actionFns, isLoading }) => {
+const ManagementIntegrationList = ({ projectManagementId, managementIntegrations, updateIntegration }) => {
 
   const { t } = useTranslation('management.integration.list');
-  
+  const managementIntegrationsList = Object.values(managementIntegrations);
+
   return (
     <Box className="ManagementIntegrationList ManagementIntegrationList__Container">
       <Typography
@@ -20,17 +21,17 @@ const ManagementIntegrationList = ({ managementIntegrations, managementIntegrati
         {t('management.integration.list.title')}
       </Typography>
       <List className="ManagementIntegrationList__Listing" dense>
-        {!isLoading && !managementIntegrations.length && (
+        {!managementIntegrationsList.length && (
           <Typography>{t('management.integration.list.empty-message')}</Typography>
         )}
-        {managementIntegrations.map((integration) => {
+        {managementIntegrationsList.map((integration) => {
           return (
             <React.Fragment key={integration.id}>
               <ListItem
                 className="ManagementIntegration__Listing__Item"
                 key={integration.id}
               >
-                <ListItemAvatar className="NotificationItem__Image">
+                <ListItemAvatar className="ManagementIntegration__Listing__Item__Image">
                   <Avatar variant="rounded" sx={{ bgcolor: THIRD_PARTY[integration.source].color }}>
                     <SvgIcon sx={{ fontSize: 22 }} component={THIRD_PARTY[integration.source].logo} inheritViewBox />
                   </Avatar>
@@ -41,9 +42,11 @@ const ManagementIntegrationList = ({ managementIntegrations, managementIntegrati
                 />
                 {integration.actions && (
                   <IntegrationActions
+                    integrationId={integration.id}
                     sourceKey={integration.source}
+                    projectManagementId={projectManagementId}
                     actions={integration.actions}
-                    actionFns={actionFns}
+                    updateIntegration={updateIntegration}
                   />
                 )}
               </ListItem>
@@ -53,20 +56,18 @@ const ManagementIntegrationList = ({ managementIntegrations, managementIntegrati
           );
         })}
       </List>
-
     </Box>
   );
 };
 
 ManagementIntegrationList.defaultProps = {
-  isAdmin: false,
-  projectManagementActions: {},
-  managementIntegrations: []
+  managementIntegrations: {}
 };
 
 ManagementIntegrationList.propTypes = {
-  managementIntegrations: PropTypes.array,
-  projectManagementActions: PropTypes.object,
+  managementIntegrations: PropTypes.object,
+  projectManagementId: PropTypes.string.isRequired,
+  updateIntegration: PropTypes.func.isRequired
 };
 
 export default ManagementIntegrationList;

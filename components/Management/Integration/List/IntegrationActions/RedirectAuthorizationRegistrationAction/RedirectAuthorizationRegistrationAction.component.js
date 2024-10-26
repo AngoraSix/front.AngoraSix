@@ -7,15 +7,15 @@ import React from 'react';
 import config from '../../../../../../config';
 import { resolveRoute } from '../../../../../../utils/api/apiHelper';
 
-const RedirectAuthorizationRegistrationAction = ({ sourceKey, actionKey, actionData, onRedirectAuthorization }) => {
+const RedirectAuthorizationRegistrationAction = ({ sourceKey, actionKey, actionData, projectManagementId, onRedirectAuthorization }) => {
   const authorizationUrlTemplate = actionData.href;
 
   const { t } = useTranslation('management.integration.list');
-  const redirectUrl = config.integrations.registration.actions.redirectAuthorization.registrationUrlTemplate.replace(':source', sourceKey);
+  const redirectUrl = config.integrations.registration.actions.redirectAuthorization.registrationUrlTemplate.replace(':managementId', projectManagementId).replace(':sourceKey', sourceKey);
   const authorizationUrl = resolveRoute(authorizationUrlTemplate, redirectUrl);
 
   return (
-    <Tooltip title={t('management.integration.list.actions.register.tooltip.template').replace(':source', sourceKey)}>
+    <Tooltip title={t('management.integration.list.actions.register.tooltip.template').replace(':sourceKey', sourceKey)}>
       <React.Fragment>
         <Button
           className={`IntegrationItem__Actions__Button RedirectAuthorizationRegistrationAction__Button`}

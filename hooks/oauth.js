@@ -13,7 +13,7 @@ export const useActiveSession = (allowsAnonymous = false) => {
     const identityProvider = session?.user?.identityProvider;
     if ((!session || shouldReauth) && !allowsAnonymous) {
       signIn(
-        'angorasixkeycloak',
+        'angorasixspring',
         null,
         identityProvider ? { kc_idp_hint: identityProvider } : null
       ); // Force sign in to hopefully resolve error and be able to edit
@@ -23,7 +23,7 @@ export const useActiveSession = (allowsAnonymous = false) => {
 };
 
 // If there is a session with an expired token, reauthenticate, otherwise if there is no session, leave it as it is
-export const checkActiveToken = () => {
+export const useAndCheckActiveToken = () => {
   const { data: session, status } = useSession();
   const loading = status === 'loading';
   const { doLoad } = useLoading();
@@ -34,7 +34,7 @@ export const checkActiveToken = () => {
     const identityProvider = session?.user?.identityProvider;
     if (shouldReauth) {
       signIn(
-        'angorasixkeycloak',
+        'angorasixspring',
         null,
         identityProvider ? { kc_idp_hint: identityProvider } : null
       );

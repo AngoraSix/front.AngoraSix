@@ -6,10 +6,13 @@ import api from '../../../../api';
 import ManagementIntegrationList from '../../../../components/Management/Integration/List';
 import DefaultLayout from '../../../../layouts/DefaultLayout';
 import logger from '../../../../utils/logger';
+import { useActiveSession } from '../../../../hooks/oauth';
 
 const ManagementIntegrationsViewPage = ({
   managementIntegrationsResponseData,
+  projectManagementId
 }) => {
+  useActiveSession();
   const { t } = useTranslation('management.integration.list');
 
   return (
@@ -21,6 +24,7 @@ const ManagementIntegrationsViewPage = ({
     >
       <ManagementIntegrationList
         managementIntegrationsResponseData={managementIntegrationsResponseData}
+        projectManagementId={projectManagementId}
       />
     </DefaultLayout>
   );
@@ -32,6 +36,7 @@ ManagementIntegrationsViewPage.defaultProps = {
 
 ManagementIntegrationsViewPage.propTypes = {
   managementIntegrationsResponseData: PropTypes.object.isRequired,
+  projectManagementId: PropTypes.string.isRequired
 };
 
 export const getServerSideProps = async (ctx) => {
@@ -48,6 +53,7 @@ export const getServerSideProps = async (ctx) => {
 
     props = {
       ...props,
+      projectManagementId: managementId,
       managementIntegrationsResponseData,
     };
   } catch (err) {

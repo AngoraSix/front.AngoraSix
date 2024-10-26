@@ -3,14 +3,14 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useLoading } from '../../hooks/app';
 import App from './App.component';
-import { checkActiveToken } from '../../hooks/oauth';
+import { useAndCheckActiveToken } from '../../hooks/oauth';
 
 const AppContainer = (props) => {
   const reduxDispatch = useDispatch();
   const router = useRouter();
   const { isLoading, doLoad } = useLoading();
 
-  checkActiveToken();
+  useAndCheckActiveToken();
 
   useEffect(() => {
     const startLoading = () => {
