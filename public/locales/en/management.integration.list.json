@@ -1,0 +1,10 @@
+{
+    "management.integration.list.page.title": "Project Management - Integrations",
+    "management.integration.list.page.description": "List of Project Management Integrations",
+    "management.integration.list.actions.register.text": "Register",
+    "management.integration.list.actions.register.tooltip.template": "Register integration with :source",
+    "management.integration.list.actions.disable.text": "Disable",
+    "management.integration.list.actions.disable.tooltip.template": "Disable integration with :source",
+    "management.integration.list.title": "Management Integrations",
+    "management.integration.list.empty-message": "No integrations found"
+}

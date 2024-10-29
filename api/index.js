@@ -3,6 +3,7 @@ import BaseAPI from './BaseAPI';
 import ContributorsAPI from './contributors';
 import FrontAPI from './front';
 import ProjectsAPI from './projects';
+import ManagementIntegrationsAPI from './managementIntegrations';
 
 class API {
   constructor() {
@@ -17,6 +18,10 @@ class API {
     return this.projectsAPI;
   }
 
+  get managementIntegrations() {
+    return this.managementIntegrationsAPI;
+  }
+
   get clubs() {
     return this.clubsAPI;
   }
@@ -27,10 +32,6 @@ class API {
 
   get contributors() {
     return this.contributorsAPI;
-  }
-
-  get thirdParties() {
-    return this.thirdPartiesAPI;
   }
 
   applyEnvConfig() {
@@ -44,6 +45,7 @@ class API {
       })
     );
     this.projectsAPI = new ProjectsAPI(_getServiceAPI('projects', this.axios));
+    this.managementIntegrationsAPI = new ManagementIntegrationsAPI(_getServiceAPI('managementIntegrations', this.axios));
     this.contributorsAPI = new ContributorsAPI(
       _getServiceAPI('contributors', this.axios)
     );

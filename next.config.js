@@ -10,6 +10,10 @@ module.exports = {
       net: false,
       tls: false,
     };
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: ['@svgr/webpack'],
+    });
     return config;
   },
 

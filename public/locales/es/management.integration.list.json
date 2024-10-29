@@ -1,0 +1,10 @@
+{
+    "management.integration.list.page.title": "Administración de Proyecto - Integraciones",
+    "management.integration.list.page.description": "Listado de las Integraciones de Administración de Proyecto",
+    "management.integration.list.actions.register.text": "Registrar",
+    "management.integration.list.actions.register.tooltip.template": "Registrar integracion con :source",
+    "management.integration.list.actions.disable.text": "Deshabilitar",
+    "management.integration.list.actions.disable.tooltip.template": "Deshabilitar integracion con :source",
+    "management.integration.list.title": "Integraciones de Administración",
+    "management.integration.list.empty-message": "No se encontraron integraciones"
+}

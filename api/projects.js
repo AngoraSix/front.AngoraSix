@@ -28,7 +28,6 @@ class ProjectsAPI {
       }
     );
     return response.data
-    // return data;
   }
 
   async saveProjectManagement(

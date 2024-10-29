@@ -8,17 +8,18 @@ import React, { useEffect } from 'react';
 import api from '../../../../api';
 import FormSkeleton from '../../../../components/common/Skeletons/FormSkeleton.component';
 import ProjectManagementForm from '../../../../components/Project/Management/Form';
-import { resolveRoute, ROUTES } from '../../../../constants';
+import { ROUTES } from '../../../../constants/constants';
 import { useNotifications } from '../../../../hooks/app';
 import { useActiveSession } from '../../../../hooks/oauth';
 import DefaultLayout from '../../../../layouts/DefaultLayout';
+import { resolveRoute } from '../../../../utils/api/apiHelper';
 import logger from '../../../../utils/logger';
 
 const NOT_ADMIN_ERROR_MESSAGE =
   'You need admin privileges to create a Management registry for a Project';
 
 const NewProjectManagementPage = ({ session, project, isAdmin }) => {
-  const { t } = useTranslation('project-management.edit');
+  const { t } = useTranslation('management.edit');
   useActiveSession();
   const { onError } = useNotifications();
   const router = useRouter();
@@ -29,7 +30,7 @@ const NewProjectManagementPage = ({ session, project, isAdmin }) => {
       const viewURL = resolveRoute(ROUTES.projects.management.landing);
       router.push(viewURL);
     }
-    return () => {};
+    return () => { };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isAdmin, router, session]);
 
@@ -46,12 +47,12 @@ const NewProjectManagementPage = ({ session, project, isAdmin }) => {
   return (
     <DefaultLayout
       headData={{
-        title: t('project-management.edit.page.title.template').replace(
+        title: t('management.edit.page.title.template').replace(
           ':project',
           project.name
         ),
         description: t(
-          'project-management.edit.page.description.template'
+          'management.edit.page.description.template'
         ).replace(':project', project.name),
       }}
     >
@@ -95,7 +96,7 @@ export const getServerSideProps = async (ctx) => {
       session,
       ...(await serverSideTranslations(ctx.locale, [
         'common',
-        'project-management.edit',
+        'management.edit',
         'common.languages',
       ])),
     },

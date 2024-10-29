@@ -11,10 +11,12 @@ import '../styles/App.css';
 import '../styles/Commons.css';
 import '../styles/Layouts.css';
 import '../styles/Navbar.css';
+import '../styles/ManagementIntegrationList.css';
 import '../styles/ProjectManagementForm.css';
 import '../styles/ProjectManagementView.css';
 import '../styles/globals.css';
 import { getEnv } from '../utils/env';
+import logger from '../utils/logger';
 
 const AngoraSixWebApp = ({ Component, pageProps, preloadedState, env }) => {
   const store = createStore(reducers, preloadedState);

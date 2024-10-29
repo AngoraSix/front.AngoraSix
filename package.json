@@ -3,13 +3,14 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 7070",
+    "dev": "next dev -p 10700",
     "lint": "next lint",
-    "debug": "cross-env NODE_OPTIONS='--inspect' next dev -p 7070",
+    "debug": "cross-env NODE_OPTIONS='--inspect' next dev -p 10700",
     "other:debug": "NODE_OPTIONS='--inspect' next dev -p 7088",
     "build": "next build",
     "start": "next start -p 80",
-    "start:local": "WEBPACK_CONFIG_FILE=all NODE_OPTIONS='--preserve-symlinks-main --preserve-symlinks'  && next dev -p 7070"
+    "start:local": "WEBPACK_CONFIG_FILE=all NODE_OPTIONS='--preserve-symlinks-main --preserve-symlinks'  && next dev -p 10700",
+    "start:local:win": "set WEBPACK_CONFIG_FILE=all && set NODE_OPTIONS='--preserve-symlinks-main --preserve-symlinks'  && next dev -p 10700"
   },
   "dependencies": {
     "@emotion/react": "^11.11.0",
@@ -17,6 +18,7 @@
     "@mui/icons-material": "^5.11.16",
     "@mui/lab": "^5.0.0-alpha.85",
     "@mui/material": "^5.12.1",
+    "@svgr/webpack": "^8.1.0",
     "axios": "^1.6.2",
     "chalk": "^5.0.1",
     "classnames": "^2.3.1",

@@ -8,6 +8,7 @@ class Api {
     };
     this.servicesAPIGatewayPath = {
       projects: env.API_PROJECTS_SERVER_APIGATEWAY_PATH || '/projects',
+      managementIntegrations: env.API_MANAGEMENTINTEGRATIONS_SERVER_APIGATEWAY_PATH || '/management/integrations',
     };
     this.servicesAPIParams = {
     };

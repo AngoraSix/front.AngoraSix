@@ -1,0 +1,10 @@
+{
+    "management.view.page.title.template": ":project - Administración",
+    "management.view.page.description.template": "Información de administración del projecto :project",
+    "management.view.status": "Estado",
+    "management.view.status.IDEA": "Idea",
+    "management.view.status.STARTUP": "Startup",
+    "management.view.status.OPERATIONAL": "Operacional",
+    "management.view.bylaws.OPERATION_CORE_RETRIBUTION_MODEL": "Modelo de Redistribucion",
+    "management.view.bylaws.OPERATION_CORE_RETRIBUTION_MODEL.CAPS": "Chapitas"
+}

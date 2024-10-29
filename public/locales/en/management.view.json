@@ -1,0 +1,10 @@
+{
+    "management.view.page.title.template": ":project - Management",
+    "management.view.page.description.template": "Management information for project :project",
+    "management.view.status": "Status",
+    "management.view.status.IDEA": "Idea",
+    "management.view.status.STARTUP": "Startup",
+    "management.view.status.OPERATIONAL": "Operational",
+    "management.view.bylaws.OPERATION_CORE_RETRIBUTION_MODEL": "Redistibution Model",
+    "management.view.bylaws.OPERATION_CORE_RETRIBUTION_MODEL.CAPS": "Caps"
+}

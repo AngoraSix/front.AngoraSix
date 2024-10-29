@@ -13,17 +13,17 @@ const ProjectManagementViewPage = ({
   projectManagementActions,
   isAdmin,
 }) => {
-  const { t } = useTranslation('project-management.view');
+  const { t } = useTranslation('management.view');
 
   return (
     <DefaultLayout
       headData={{
-        title: t('project-management.view.page.title.template').replace(
+        title: t('management.view.page.title.template').replace(
           ':project',
           project.name
         ),
         description: t(
-          'project-management.view.page.description.template'
+          'management.view.page.description.template'
         ).replace(':project', project.name),
       }}
     >
@@ -83,7 +83,7 @@ export const getServerSideProps = async (ctx) => {
       session,
       ...(await serverSideTranslations(ctx.locale, [
         'common',
-        'project-management.view',
+        'management.view',
       ])),
     },
   };
