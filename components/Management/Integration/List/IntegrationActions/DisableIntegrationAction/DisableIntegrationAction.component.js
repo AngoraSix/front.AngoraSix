@@ -1,13 +1,10 @@
-import AddCircleIconContained from '@mui/icons-material/AddCircle';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { Button, IconButton, Tooltip } from '@mui/material';
 import { useTranslation } from 'next-i18next';
 import PropTypes from 'prop-types';
 import React from 'react';
-import config from '../../../../../../config';
-import { resolveRoute } from '../../../../../../utils/api/apiHelper';
 
-const DisableIntegrationAction = ({sourceKey, actionKey, actionData, projectManagementId, integrationId, onDisableIntegration }) => {
+const DisableIntegrationAction = ({ sourceKey, actionKey, actionData, projectManagementId, integrationId, onDisableIntegration }) => {
   const { t } = useTranslation('management.integration.list');
 
   return (

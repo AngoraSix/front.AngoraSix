@@ -50,10 +50,18 @@ const IntegrationActionsContainer = ({ sourceKey, projectManagementId, actions, 
     updateIntegration(disableResponse);
   };
 
+  const onImportData = async (integrationId) => {
+    setIsProcessing(true);
+    console.log("IMPORTDATA!!!!")
+    // const disableResponse = await api.front.disableIntegration(integrationId);
+    // updateIntegration(disableResponse);
+  };
+
 
   const actionFns = {
     onRedirectAuthorization,
-    onDisableIntegration
+    onDisableIntegration,
+    onImportData
   };
 
   return <IntegrationActions

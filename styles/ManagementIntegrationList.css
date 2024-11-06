@@ -1,4 +1,14 @@
 /* Management Integration List */
+.IntegrationItem__Actions{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.IntegrationItem__Actions__Button{
+  margin: 0 0.5em;
+}
+
 @media (min-width: 600px) {
   .ManagementIntegrationList__Container {
     margin: 0 15%;
