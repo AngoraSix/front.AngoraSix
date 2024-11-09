@@ -4,11 +4,13 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { INTEGRATION_ACTIONS_SUPPORTED_KEYS } from './IntegrationActions.properties';
 import RedirectAuthoziationRegistrationAction from './RedirectAuthorizationRegistrationAction';
-import DisableIntegrationAction from './DisableIntegrationAction/DisableIntegrationAction.component';
+import DisableIntegrationAction from './DisableIntegrationAction';
+import ImportDataAction from './ImportDataAction';
 
 const INTEGRATIONS_ACTION_STRATEGIES = {
   [INTEGRATION_ACTIONS_SUPPORTED_KEYS.REDIRECT_AUTHORIZATION]: RedirectAuthoziationRegistrationAction,
   [INTEGRATION_ACTIONS_SUPPORTED_KEYS.DISABLE_INTEGRATION]: DisableIntegrationAction,
+  [INTEGRATION_ACTIONS_SUPPORTED_KEYS.IMPORT_DATA]: ImportDataAction,
 };
 
 const IntegrationActions = ({sourceKey, projectManagementId, integrationId, actions, actionFns, isProcessing }) => {
@@ -17,7 +19,7 @@ const IntegrationActions = ({sourceKey, projectManagementId, integrationId, acti
       {isProcessing ?
         <React.Fragment>
           <LoadingButton
-            className={`IntegrationItem__Actions__Button__Processing`}
+            className={`IntegrationItem__Actions__Button IntegrationItem__Actions__Button__Processing`}
             color="primary"
             variant="contained"
             loading
@@ -26,7 +28,7 @@ const IntegrationActions = ({sourceKey, projectManagementId, integrationId, acti
           >
           </LoadingButton>
           <IconButton
-            className={`IntegrationItem__Actions__Button__Processing`}
+            className={`IntegrationItem__Actions__Button IntegrationItem__Actions__Button__Processing`}
             aria-label="processing"
             color="primary"
             sx={{ display: { xs: 'flex', sm: 'none' } }}

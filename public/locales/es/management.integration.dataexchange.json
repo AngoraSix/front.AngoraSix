@@ -1,0 +1,7 @@
+{
+    "management.integration.dataexchange.new.page.title": "Importe de Datos",
+    "management.integration.dataexchange.new.page.description": "Importe de Datos de una Integración",
+    "management.integration.dataexchange.new.field.label.trello.SELECT_BOARD": "Tablero",
+    "management.integration.dataexchange.new.field.pickone.trello.SELECT_BOARD": "Seelccionar tablero para importar tareas",
+    "management.integration.dataexchange.new.title.template.trello.SELECT_BOARD": "Paso :stepNumber - Seleccionar Tablero"
+}

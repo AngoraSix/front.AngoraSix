@@ -26,6 +26,11 @@ export const ROUTES = {
       landing: '/',
     },
   },
+  integrations: {
+    dataExchange: {
+      new: '/integrations/:integrationId/data-exchange/new'
+    }
+  },
   profile: {
     view: '/profile/:profileId',
   },
