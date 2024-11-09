@@ -1,3 +1,4 @@
+import { FieldMakerModel } from 'react-mui-fieldmaker';
 import HateoasCollectionDto from './hateoasDtos';
 
 const ADMIN_REQUIRED_KEY = 'admin';
@@ -23,11 +24,23 @@ export const processHateoasActions = (hateoasResponse = {}) => {
   return actions || {};
 };
 
-const hateoasPropertyToFieldMakerField = (hateoasProperty) => ({
-  key: hateoasProperty.name,
-  label: hateoasProperty.name,
-  type: hateoasProperty.type,
-});
+export const hateoasPropertyToFieldMakerField = (hateoasProperty) => {
+  return new FieldMakerModel({
+    key: hateoasProperty.key || hateoasProperty.name,
+    label: hateoasProperty.name,
+    type: hateoasProperty.type,
+
+    options: hateoasProperty.options?.inline,
+    config: {
+      valueKey: hateoasProperty.config?.valueKey || 'value',
+      labelKey: hateoasProperty.config?.labelKey || 'prompt',
+    },
+
+    withPickOneOption: hateoasProperty.withPickOneOption || false,
+    pickOneOptionValue: hateoasProperty.pickOneOptionValue || null,
+    pickOneOptionPrompt: hateoasProperty.pickOneOptionPrompt || 'Select',
+  })
+};
 
 const _isAdminProperty = (property) => {
   return property.name === ADMIN_REQUIRED_KEY && property.type == null;

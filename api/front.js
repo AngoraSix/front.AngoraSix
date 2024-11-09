@@ -43,6 +43,13 @@ class FrontAPI {
     );
     return data;
   }
+
+  async importDataFromIntegration(integrationId) {
+    const { data } = await this.axios.post(
+      `api/managements/integrations/${integrationId}/data-exchange`,
+    );
+    return data;
+  }
 }
 
 export default FrontAPI;
