@@ -2,3 +2,15 @@
 .DataExchangeForm__Step {
   margin: 0 0 20px 0;
 }
+
+.DataExchangeForm__Container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.DataExchangeForm__Section {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}

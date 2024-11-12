@@ -1,20 +1,22 @@
+import PropTypes from 'prop-types';
 import React, { useReducer } from 'react';
 import DataExchange from '../../../../../models/DataExchange';
 import { toType } from '../../../../../utils/helpers';
 import DataExchangeForm from './DataExchangeForm.component';
-
-import PropTypes from 'prop-types';
 import DataExchangeFormReducer, {
   INITIAL_STATE,
-  updateFieldsAction
+  isProcessing,
+  updateFieldsAction,
+  wasSubmitted
 } from './DataExchangeForm.reducer';
 
 const DataExchangeFormContainer = ({ dataExchange }) => {
   const dataExchangeObj = toType(dataExchange, DataExchange);
 
-  const currentStep = dataExchangeObj.status.steps.at(-1);
+  const currentStepIndex = dataExchangeObj.status.steps.length - 1;
+  const currentStep = dataExchangeObj.status.steps.at(currentStepIndex);
   const currentStepObj = {
-    number: dataExchangeObj.status.steps.length,
+    index: currentStepIndex,
     key: currentStep.stepKey
   }
   const requiredDataForStep = currentStep.requiredDataForStep;
@@ -23,10 +25,11 @@ const DataExchangeFormContainer = ({ dataExchange }) => {
   const [formState, dispatch] = useReducer(DataExchangeFormReducer, {
     ...INITIAL_STATE,
     formData: { ...formData },
+    currentStepIndex
   });
 
   // // we want to support updating several fields at once => value can be an array of fields
-  const onFormChange = (property) => (eventOrValue) => {
+  const onFormChange = (stepIndex, property) => (eventOrValue) => {
     const partialFormData =
       Array.isArray(eventOrValue) && property == null
         ? Object.assign({}, ...eventOrValue.map(([p, v]) => ({ [p]: v })))
@@ -36,8 +39,21 @@ const DataExchangeFormContainer = ({ dataExchange }) => {
             : eventOrValue,
         };
 
-    dispatch(updateFieldsAction(partialFormData));
+    dispatch(updateFieldsAction({ [stepIndex]: partialFormData }));
   };
+
+  const onContinueExchange = () => {
+    dispatch(isProcessing(true));
+    if (requiredDataForStep.every(item => {
+      const stepFormData = formState.formData[formState.currentStepIndex]
+      return Object.hasOwn(stepFormData, item.key) && stepFormData[item.key] != null && stepFormData[item.key] != '';
+    })) {
+      console.log("@TODO SEGUIR ACA");
+    } else {
+      dispatch(wasSubmitted(true));
+    }
+    dispatch(isProcessing(false));
+  }
 
   // const setIsSectionCompleted = (section) => (isCompleted) => {
   //   dispatch(updatedCompletedFormSection(section, isCompleted));
@@ -81,6 +97,10 @@ const DataExchangeFormContainer = ({ dataExchange }) => {
   //   doLoad(false);
   // };
 
+  const actionFns = {
+    onContinueExchange
+  }
+
   return (
     <DataExchangeForm
       formData={formState.formData}
@@ -88,9 +108,10 @@ const DataExchangeFormContainer = ({ dataExchange }) => {
       source={dataExchangeObj.source}
       currentStepObj={currentStepObj}
       onFormChange={onFormChange}
-    // onSubmit={onSubmit}
-    // setIsSectionCompleted={setIsSectionCompleted}
-    // wasSubmitted={formState.wasSubmitted}
+      actions={dataExchangeObj.actions}
+      actionFns={actionFns}
+      wasSubmitted={formState.wasSubmitted}
+      isProcessing={formState.isProcessing}
     />
   );
 };
