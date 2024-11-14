@@ -44,13 +44,6 @@ class FrontAPI {
     return data;
   }
 
-  // async importDataFromIntegration(integrationId) {
-  //   const { data } = await this.axios.post(
-  //     `api/managements/integrations/${integrationId}/data-exchange`,
-  //   );
-  //   return data;
-  // }
-
   async submitDataExchangeStep(dataExchangeId, stepIndex, stepData) {
     const { data } = await this.axios.patch(
       `api/integrations/data-exchange/${dataExchangeId}`,
