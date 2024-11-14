@@ -4,6 +4,7 @@ const FORM_WAS_SUBMITTED =
   'DataExchangeFormForm/FORM_WAS_SUBMITTED';
 const PROCESSING_FORM =
   'DataExchangeFormForm/PROCESSING_FORM';
+const NEW_STEP = 'DataExchangeFormForm/NEW_STEP';
 
 export const updateFieldsAction = (payload) => ({
   type: UPDATE_STEP_FIELDS,
@@ -20,11 +21,21 @@ export const isProcessing = (payload) => ({
   payload,
 });
 
+export const newStep = (payload) => ({
+  type: NEW_STEP,
+  payload,
+});
+
 export const INITIAL_STATE = {
   formData: {},
+  actions: {},
   wasSubmitted: false,
   isProcessing: false,
-  currentStepIndex: 0
+  dataExchangeStatus: '',
+  currentStepObj: {
+    index: 0,
+    key: '',
+  }
 };
 
 const DataExchangeFormFormReducer = (state = INITIAL_STATE, action) => {
@@ -43,6 +54,22 @@ const DataExchangeFormFormReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         isProcessing: action.payload,
+      };
+    case NEW_STEP:
+      const { actions, requiredDataForStep, dataExchangeStatus, currentStepObj } = action.payload;
+      const currentStepIndex = state.currentStepObj.index + 1;
+      return {
+        ...state,
+        currentStepIndex,
+        dataExchangeStatus,
+        requiredDataForStep,
+        actions,
+        currentStepObj,
+        formData: {
+          ...state.formData,
+          [currentStepIndex]: {}
+        },
+        wasSubmitted: false,
       };
     default:
       return state;

@@ -4,6 +4,11 @@
     "management.integration.dataexchange.new.title.template.trello.SELECT_BOARD": "Step :stepNumber - Select Board",
     "management.integration.dataexchange.new.field.label.trello.SELECT_BOARD_FIELD": "Board",
     "management.integration.dataexchange.new.field.pickone.trello.SELECT_BOARD_FIELD": "Select board to import Tasks",
+    "management.integration.dataexchange.new.title.template.trello.RESOLVE_BOARD_MAPPING": "Step :stepNumber - Resolve Board Configs",
+    "management.integration.dataexchange.new.field.label.trello.SELECT_DONE_LIST_FIELD": "DONE List",
+    "management.integration.dataexchange.new.field.pickone.trello.SELECT_DONE_LIST_FIELD": "Select List of Done tasks",
     "management.integration.dataexchange.new.actions.continue.text": "Continue",
-    "management.integration.dataexchange.new.actions.continue.tooltip": "Continue to the next step"
+    "management.integration.dataexchange.new.actions.continue.tooltip": "Continue to the next step",
+    "management.integration.dataexchange.new.title.completed": "Completed",
+    "management.integration.dataexchange.new.message.completed": "Closing..."
 }
