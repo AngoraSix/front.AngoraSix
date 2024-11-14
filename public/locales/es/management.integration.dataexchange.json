@@ -1,7 +1,14 @@
 {
     "management.integration.dataexchange.new.page.title": "Importe de Datos",
     "management.integration.dataexchange.new.page.description": "Importe de Datos de una Integración",
-    "management.integration.dataexchange.new.field.label.trello.SELECT_BOARD": "Tablero",
-    "management.integration.dataexchange.new.field.pickone.trello.SELECT_BOARD": "Seelccionar tablero para importar tareas",
-    "management.integration.dataexchange.new.title.template.trello.SELECT_BOARD": "Paso :stepNumber - Seleccionar Tablero"
+    "management.integration.dataexchange.new.title.template.trello.SELECT_BOARD": "Paso :stepNumber - Seleccionar Tablero",
+    "management.integration.dataexchange.new.field.label.trello.SELECT_BOARD_FIELD": "Tablero",
+    "management.integration.dataexchange.new.field.pickone.trello.SELECT_BOARD_FIELD": "Seelccionar tablero para importar tareas",
+    "management.integration.dataexchange.new.title.template.trello.RESOLVE_BOARD_MAPPING": "Paso :stepNumber - Resolver configuraciones del tablero",
+    "management.integration.dataexchange.new.field.label.trello.SELECT_DONE_LIST_FIELD": "Lista de COMPLETADAS/DONE",
+    "management.integration.dataexchange.new.field.pickone.trello.SELECT_DONE_LIST_FIELD": "Seleccione lista de tareas completadas",
+    "management.integration.dataexchange.new.actions.continue.text": "Continuar",
+    "management.integration.dataexchange.new.actions.continue.tooltip": "Continuar al siguiente paso",
+    "management.integration.dataexchange.new.title.completed": "Completed",
+    "management.integration.dataexchange.new.message.completed": "Cerrando..."
 }

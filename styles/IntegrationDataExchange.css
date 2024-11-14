@@ -1,4 +1,34 @@
 /* Management Integration List */
-.DataExchangeForm__Step {
+.DataExchangeForm__Section__Title {
   margin: 0 0 20px 0;
+}
+
+.DataExchangeForm__Container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.DataExchangeForm__Section {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  text-align: center;
+  width: 100%;
+}
+
+.DataExchangeForm__Actions {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.DataExchangeForm__Completed__Icon {
+  font-size: 3.5em;
+}
+
+@media (min-width: 600px) {
+  .DataExchangeForm__Container {
+    padding: 0 15%;
+  }
 }

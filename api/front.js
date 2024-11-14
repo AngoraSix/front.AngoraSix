@@ -44,9 +44,10 @@ class FrontAPI {
     return data;
   }
 
-  async importDataFromIntegration(integrationId) {
-    const { data } = await this.axios.post(
-      `api/managements/integrations/${integrationId}/data-exchange`,
+  async submitDataExchangeStep(dataExchangeId, stepIndex, stepData) {
+    const { data } = await this.axios.patch(
+      `api/integrations/data-exchange/${dataExchangeId}`,
+      createPatchBody(PATCH_SUPPORTED_OPERATIONS.REPLACE, `status/steps/${stepIndex}`, stepData)
     );
     return data;
   }

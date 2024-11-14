@@ -68,6 +68,23 @@ class ProjectManagementIntegrationsAPI {
     return data;
   }
 
+  async patchDataExchange(patchBody, dataExchangeId, token) {
+    const headers = this.axios.getCommonHeaders();
+    const authHeaders = this.axios.getAuthorizationHeaders(token, false);
+    const infraHeaders = await obtainInfraHeaders(
+      config.infra,
+      config.api.serverBaseURL
+    );
+
+    const { data } = await this.axios.patch(`/data-exchange/${dataExchangeId}`, patchBody, {
+      headers: {
+        ...headers,
+        ...authHeaders,
+        ...infraHeaders,
+      },
+    });
+    return data;
+  }
 
   async createDataExchange(integrationId, token) {
     const headers = this.axios.getCommonHeaders();

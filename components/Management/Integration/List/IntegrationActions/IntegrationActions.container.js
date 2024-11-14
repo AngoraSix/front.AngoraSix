@@ -1,11 +1,10 @@
 import PropTypes from 'prop-types';
 import React, { useEffect, useRef, useState } from 'react';
 import api from '../../../../../api';
+import { ROUTES } from '../../../../../constants/constants';
+import { resolveRoute } from '../../../../../utils/api/apiHelper';
 import { INTERCOMMUNICATION_KEYS } from '../../ManagementIntegration.properties';
 import IntegrationActions from './IntegrationActions.component';
-import ManagementIntegration from '../../../../../models/ManagementIntegration';
-import { ROUTES } from '../../../../../constants/constants'
-import { resolveRoute } from '../../../../../utils/api/apiHelper';
 
 const IntegrationActionsContainer = ({ sourceKey, projectManagementId, actions, updateIntegration, integrationId }) => {
   const [authRequest, _setAuthRequest] = useState({
@@ -54,14 +53,14 @@ const IntegrationActionsContainer = ({ sourceKey, projectManagementId, actions, 
 
   const onImportData = async (integrationId) => {
     const newDataExchange = resolveRoute(
-              ROUTES.integrations.dataExchange.new,
-              integrationId,
-            );
+      ROUTES.integrations.dataExchange.new,
+      integrationId,
+    );
     let newModal = window.open(newDataExchange, 'data_exchange_process', 'width=800,height=600,left=200,top=100');
     window.addEventListener('message', (event) => {
-      if (event.origin === window.location.origin && event.data.type === INTERCOMMUNICATION_KEYS.importData) {
+      if (event.origin === window.location.origin && event.data.type === INTERCOMMUNICATION_KEYS.importDataCompleted) {
         setModal(null);
-        updateIntegration(event.data.data);
+        setIsProcessing(false);
       } else {
         console.warn('Message origin not trusted:', event.origin);
       }
