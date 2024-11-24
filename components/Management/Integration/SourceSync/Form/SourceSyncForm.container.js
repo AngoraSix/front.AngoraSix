@@ -1,24 +1,24 @@
 import PropTypes from 'prop-types';
 import React, { useReducer } from 'react';
 import api from '../../../../../api';
-import DataExchange from '../../../../../models/DataExchange';
+import SourceSync from '../../../../../models/SourceSync';
 import { toType } from '../../../../../utils/helpers';
 import { INTERCOMMUNICATION_KEYS } from '../../ManagementIntegration.properties';
-import DataExchangeForm from './DataExchangeForm.component';
-import { DATA_EXCHANGE_STATUS } from './DataExchangeForm.properties';
-import DataExchangeFormReducer, {
+import SourceSyncForm from './SourceSyncForm.component';
+import { SOURCE_SYNC_STATUS } from './SourceSyncForm.properties';
+import SourceSyncFormReducer, {
   INITIAL_STATE,
   isProcessing,
   newStep,
   updateFieldsAction,
   wasSubmitted
-} from './DataExchangeForm.reducer';
+} from './SourceSyncForm.reducer';
 
-const DataExchangeFormContainer = ({ dataExchange }) => {
-  const dataExchangeObj = toType(dataExchange, DataExchange);
+const SourceSyncFormContainer = ({ sourceSync }) => {
+  const sourceSyncObj = toType(sourceSync, SourceSync);
 
-  const currentStepIndex = dataExchangeObj.status.steps.length - 1;
-  const currentStep = dataExchangeObj.status.steps.at(currentStepIndex);
+  const currentStepIndex = sourceSyncObj.status.steps.length - 1;
+  const currentStep = sourceSyncObj.status.steps.at(currentStepIndex);
   const currentStepObj = {
     index: currentStepIndex,
     key: currentStep.stepKey
@@ -26,13 +26,13 @@ const DataExchangeFormContainer = ({ dataExchange }) => {
   const requiredDataForStep = currentStep.requiredDataForStep;
   const formData = requiredDataForStep.map(data => ({ [data.key]: data.value }));
 
-  const [formState, dispatch] = useReducer(DataExchangeFormReducer, {
+  const [formState, dispatch] = useReducer(SourceSyncFormReducer, {
     ...INITIAL_STATE,
     formData: { ...formData },
-    actions: dataExchangeObj.actions,
+    actions: sourceSyncObj.actions,
     requiredDataForStep,
     currentStepObj,
-    dataExchangeStatus: dataExchangeObj.status.status
+    sourceSyncStatus: sourceSyncObj.status.status
   });
 
   // // we want to support updating several fields at once => value can be an array of fields
@@ -50,29 +50,29 @@ const DataExchangeFormContainer = ({ dataExchange }) => {
     dispatch(updateFieldsAction({ [stepIndex]: partialFormData }));
   };
 
-  const onContinueExchange = async () => {
+  const onContinueSync = async () => {
     dispatch(isProcessing(true));
     if (formState.requiredDataForStep.every(item => _hasBeenFilled(item))) {
-      const dataExchangeResponse = await api.front.submitDataExchangeStep(dataExchange.id, formState.currentStepObj.index, formState.formData[formState.currentStepObj.index]);
-      const dataExchangeObj = toType(dataExchangeResponse, DataExchange);
-      const currentStepIndex = dataExchangeObj.status.steps.length - 1;
-      const currentStep = dataExchangeObj.status.steps.at(currentStepIndex);
+      const sourceSyncResponse = await api.front.submitSourceSyncStep(sourceSync.id, formState.currentStepObj.index, formState.formData[formState.currentStepObj.index]);
+      const sourceSyncObj = toType(sourceSyncResponse, SourceSync);
+      const currentStepIndex = sourceSyncObj.status.steps.length - 1;
+      const currentStep = sourceSyncObj.status.steps.at(currentStepIndex);
       const currentStepObj = {
         index: currentStepIndex,
         key: currentStep.stepKey
       }
-      const dataExchangeStatus = dataExchangeObj.status.status;
+      const sourceSyncStatus = sourceSyncObj.status.status;
       dispatch(newStep({
-        actions: dataExchangeObj.actions,
-        requiredDataForStep: dataExchangeObj.status.steps.at(dataExchangeObj.status.steps.length - 1).requiredDataForStep,
-        dataExchangeStatus,
+        actions: sourceSyncObj.actions,
+        requiredDataForStep: sourceSyncObj.status.steps.at(sourceSyncObj.status.steps.length - 1).requiredDataForStep,
+        sourceSyncStatus,
         currentStepObj
       }));
-      if (dataExchangeStatus === DATA_EXCHANGE_STATUS.COMPLETED) {
-        window.opener.postMessage({ type: INTERCOMMUNICATION_KEYS.importDataCompleted, data: dataExchangeResponse }, window.location.origin);
+      if (sourceSyncStatus === SOURCE_SYNC_STATUS.COMPLETED) {
+        window.opener.postMessage({ type: INTERCOMMUNICATION_KEYS.syncConfigCompleted, data: sourceSyncResponse }, window.location.origin);
         setTimeout(() => {
           window.close();
-        }, 3500);
+        }, 2000);
       }
     } else {
       dispatch(wasSubmitted(true));
@@ -86,31 +86,31 @@ const DataExchangeFormContainer = ({ dataExchange }) => {
   }
 
   const actionFns = {
-    onContinueExchange
+    onContinueSync
   }
 
   return (
-    <DataExchangeForm
+    <SourceSyncForm
       formData={formState.formData}
       requiredStepFields={formState.requiredDataForStep}
-      source={dataExchangeObj.source}
+      source={sourceSyncObj.source}
       currentStepObj={formState.currentStepObj}
       onFormChange={onFormChange}
       actions={formState.actions}
       actionFns={actionFns}
       wasSubmitted={formState.wasSubmitted}
       isProcessing={formState.isProcessing}
-      dataExchangeStatus={formState.dataExchangeStatus}
+      sourceSyncStatus={formState.sourceSyncStatus}
     />
   );
 };
 
-DataExchangeFormContainer.defaults = {
-  dataExchange: {},
+SourceSyncFormContainer.defaults = {
+  sourceSync: {},
 };
 
-DataExchangeFormContainer.propTypes = {
-  dataExchange: PropTypes.object,
+SourceSyncFormContainer.propTypes = {
+  sourceSync: PropTypes.object,
 };
 
-export default DataExchangeFormContainer;
+export default SourceSyncFormContainer;

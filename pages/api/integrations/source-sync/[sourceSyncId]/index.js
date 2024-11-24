@@ -8,18 +8,18 @@ const page = async (req, res) => {
   if (req.method === 'PATCH') {
     const validatedToken = await obtainValidatedToken(req);
     try {
-      const data = await api.managementIntegrations.patchDataExchange(
+      const data = await api.managementIntegrations.patchSourceSync(
         req.body,
-        req.query.dataExchangeId,
+        req.query.sourceSyncId,
         validatedToken
       );
 
       res.status(200).json(data);
     } catch (err) {
-      const errorMessage = `Error patching Data Exchange [${req.method}]`,
+      const errorMessage = `Error patching Source Sync [${req.method}]`,
         internalServerErr = new InternalServerError(
           errorMessage,
-          'DATA_EXCHANGE_PATCH'
+          'SOURCE_SYNC_PATCH'
         );
       logger.error(
         errorMessage,
@@ -32,7 +32,7 @@ const page = async (req, res) => {
   } else {
     const mnaError = new MethodNotAllowedError(
       `No API support for ${req.method} HTTP method`,
-      'DATA_EXCHANGE'
+      'SOURCE_SYNC'
     );
     res.status(mnaError.status).json(mnaError.asObject());
   }

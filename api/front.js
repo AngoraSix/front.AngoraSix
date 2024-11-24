@@ -44,9 +44,9 @@ class FrontAPI {
     return data;
   }
 
-  async submitDataExchangeStep(dataExchangeId, stepIndex, stepData) {
+  async submitSourceSyncStep(sourceSyncId, stepIndex, stepData) {
     const { data } = await this.axios.patch(
-      `api/integrations/data-exchange/${dataExchangeId}`,
+      `api/integrations/source-sync/${sourceSyncId}`,
       createPatchBody(PATCH_SUPPORTED_OPERATIONS.REPLACE, `status/steps/${stepIndex}`, stepData)
     );
     return data;

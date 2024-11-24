@@ -4,10 +4,10 @@ import {
   toType,
 } from '../utils/helpers';
 import { processHateoasActions } from '../utils/rest/hateoas/hateoasUtils';
-import DataExchangeStatus from './DataExchangeStatus';
+import SourceSyncStatus from './SourceSyncStatus';
 import moment from 'moment';
 
-export default class DataExchange {
+export default class SourceSync {
   #status;
   constructor(object) {
     const { source, integrationId, startedInstant, lastInteractionInstant, status, id } = object;
@@ -22,7 +22,7 @@ export default class DataExchange {
 
   static fromFormData(formData) {
     let projectObject = createObjectFromFlatParams(formData);
-    return new DataExchange(projectObject);
+    return new SourceSync(projectObject);
   }
 
   toFormData() {
@@ -30,10 +30,10 @@ export default class DataExchange {
   }
 
   /**
-   * @param {DataExchangeStatus} status
+   * @param {SourceSyncStatus} status
    */
   set status(status) {
-    this.#status = toType(status, DataExchangeStatus, true);
+    this.#status = toType(status, SourceSyncStatus, true);
   }
 
   get status() {

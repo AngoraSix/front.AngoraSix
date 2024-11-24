@@ -1,9 +1,9 @@
-import DataExchangeStatusStep from './DataExchangeStatusStep';
+import SourceSyncStatusStep from './SourceSyncStatusStep';
 
-export default class DataExchangeStatus {
+export default class SourceSyncStatus {
   constructor({ status, steps }) {
     this.status = status;
-    this.steps = steps?.map((step) => new DataExchangeStatusStep(step));
+    this.steps = steps?.map((step) => new SourceSyncStatusStep(step));
   }
   
   toFormData(fieldSuffix = '') {

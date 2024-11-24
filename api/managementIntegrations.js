@@ -68,7 +68,7 @@ class ProjectManagementIntegrationsAPI {
     return data;
   }
 
-  async patchDataExchange(patchBody, dataExchangeId, token) {
+  async patchSourceSync(patchBody, sourceSyncId, token) {
     const headers = this.axios.getCommonHeaders();
     const authHeaders = this.axios.getAuthorizationHeaders(token, false);
     const infraHeaders = await obtainInfraHeaders(
@@ -76,7 +76,7 @@ class ProjectManagementIntegrationsAPI {
       config.api.serverBaseURL
     );
 
-    const { data } = await this.axios.patch(`/data-exchange/${dataExchangeId}`, patchBody, {
+    const { data } = await this.axios.patch(`/source-sync/${sourceSyncId}`, patchBody, {
       headers: {
         ...headers,
         ...authHeaders,
@@ -86,7 +86,7 @@ class ProjectManagementIntegrationsAPI {
     return data;
   }
 
-  async createDataExchange(integrationId, token) {
+  async createSourceSync(integrationId, token) {
     const headers = this.axios.getCommonHeaders();
     const authHeaders = this.axios.getAuthorizationHeaders(token, false);
     const infraHeaders = await obtainInfraHeaders(
@@ -94,7 +94,7 @@ class ProjectManagementIntegrationsAPI {
       config.api.serverBaseURL
     );
 
-    const { data } = await this.axios.post(`/${integrationId}/data-exchange`,
+    const { data } = await this.axios.post(`/${integrationId}/source-sync`,
       {},
       {
         headers: {

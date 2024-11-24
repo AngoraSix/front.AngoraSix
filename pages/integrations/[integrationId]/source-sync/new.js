@@ -6,17 +6,17 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import api from '../../../../api';
 import FormSkeleton from '../../../../components/common/Skeletons/FormSkeleton.component';
-import DataExchangeForm from '../../../../components/Management/Integration/DataExchange/Form';
+import SourceSyncForm from '../../../../components/Management/Integration/SourceSync/Form';
 import { useActiveSession } from '../../../../hooks/oauth';
 import DefaultLayout from '../../../../layouts/DefaultLayout';
 import logger from '../../../../utils/logger';
 
-const NewDataExchangePage = ({ session, dataExchange }) => {
-    const { t } = useTranslation('management.integration.dataexchange¡');
+const NewSourceSyncPage = ({ session, sourceSync }) => {
+    const { t } = useTranslation('management.integration.sourcesync');
     useActiveSession();
 
-    if (!session || session.error || !dataExchange) {
-        logger.error('Log in to start data exchange');
+    if (!session || session.error || !sourceSync) {
+        logger.error('Log in to start source sync');
         return (
             <DefaultLayout>
                 <Box>
@@ -28,20 +28,20 @@ const NewDataExchangePage = ({ session, dataExchange }) => {
     return (
         <DefaultLayout
             headData={{
-                title: t('management.integration.dataexchange.new.page.title'),
-                description: t('management.integration.dataexchange.new.page.description'),
+                title: t('management.integration.sourcesync.new.page.title'),
+                description: t('management.integration.sourcesync.new.page.description'),
             }}
         >
-            <DataExchangeForm dataExchange={dataExchange} />
+            <SourceSyncForm sourceSync={sourceSync} />
         </DefaultLayout>
     );
 };
 
-NewDataExchangePage.defaultProps = {
+NewSourceSyncPage.defaultProps = {
     isAdmin: false,
 };
 
-NewDataExchangePage.propTypes = {
+NewSourceSyncPage.propTypes = {
     projectManagement: PropTypes.object,
     session: PropTypes.object,
     isAdmin: PropTypes.bool,
@@ -54,10 +54,10 @@ export const getServerSideProps = async (ctx) => {
     const validatedToken =
         session?.error !== 'RefreshAccessTokenError' ? session : null;
     try {
-        const dataExchange = await api.managementIntegrations.createDataExchange(integrationId, validatedToken);
+        const sourceSync = await api.managementIntegrations.createSourceSync(integrationId, validatedToken);
         props = {
             ...props,
-            dataExchange,
+            sourceSync,
         };
     } catch (err) {
         logger.error('err', err);
@@ -69,11 +69,11 @@ export const getServerSideProps = async (ctx) => {
             session,
             ...(await serverSideTranslations(ctx.locale, [
                 'common',
-                'management.integration.dataexchange',
+                'management.integration.sourcesync',
                 'common.languages',
             ])),
         },
     };
 };
 
-export default NewDataExchangePage;
+export default NewSourceSyncPage;

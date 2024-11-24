@@ -27,8 +27,8 @@ export const ROUTES = {
     },
   },
   integrations: {
-    dataExchange: {
-      new: '/integrations/:integrationId/data-exchange/new'
+    sourceSync: {
+      new: '/integrations/:integrationId/source-sync/new'
     }
   },
   profile: {

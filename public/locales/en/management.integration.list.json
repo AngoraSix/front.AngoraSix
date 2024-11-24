@@ -5,8 +5,8 @@
     "management.integration.list.actions.register.tooltip.template": "Register integration with :source",
     "management.integration.list.actions.disable.text": "Disable",
     "management.integration.list.actions.disable.tooltip.template": "Disable integration with :source",
-    "management.integration.list.actions.import.text": "Import",
-    "management.integration.list.actions.import.tooltip.template": "Import tasks from :source",
+    "management.integration.list.actions.sync.text": "Sync",
+    "management.integration.list.actions.sync.tooltip.template": "Sync tasks from :source",
     "management.integration.list.title": "Management Integrations",
     "management.integration.list.empty-message": "No integrations found"
 }

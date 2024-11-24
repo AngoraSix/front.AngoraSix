@@ -9,7 +9,7 @@ import config from '../config';
 import reducers from '../store/reducers';
 import '../styles/App.css';
 import '../styles/Commons.css';
-import '../styles/IntegrationDataExchange.css';
+import '../styles/IntegrationSourceSync.css';
 import '../styles/Layouts.css';
 import '../styles/ManagementIntegrationList.css';
 import '../styles/Navbar.css';
