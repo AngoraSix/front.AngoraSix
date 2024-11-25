@@ -51,15 +51,16 @@ const IntegrationActionsContainer = ({ sourceKey, projectManagementId, actions, 
     updateIntegration(disableResponse);
   };
 
-  const onSyncConfig = async (integrationId) => {
-    const newSourceSync = resolveRoute(
+  const onStartSourceSync = async (integrationId) => {
+    const startSourceSyncRoute = resolveRoute(
       ROUTES.integrations.sourceSync.new,
       integrationId,
     );
-    let newModal = window.open(newSourceSync, 'source_sync_process', 'width=800,height=600,left=200,top=100');
+    let newModal = window.open(startSourceSyncRoute, 'source_sync_process', 'width=800,height=600,left=200,top=100');
     window.addEventListener('message', (event) => {
-      if (event.origin === window.location.origin && event.data.type === INTERCOMMUNICATION_KEYS.syncConfigCompleted) {
+      if (event.origin === window.location.origin && event.data.type === INTERCOMMUNICATION_KEYS.sourceSyncCompleted) {
         setModal(null);
+        updateIntegration(event.data.data);
         setIsProcessing(false);
       } else {
         console.warn('Message origin not trusted:', event.origin);
@@ -73,7 +74,7 @@ const IntegrationActionsContainer = ({ sourceKey, projectManagementId, actions, 
   const actionFns = {
     onRedirectAuthorization,
     onDisableIntegration,
-    onSyncConfig
+    onStartSourceSync
   };
 
   return <IntegrationActions

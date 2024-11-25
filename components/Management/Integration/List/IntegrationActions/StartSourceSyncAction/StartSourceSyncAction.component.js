@@ -4,20 +4,20 @@ import { useTranslation } from 'next-i18next';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-const SyncConfigAction = ({ sourceKey, integrationId, onSyncConfig }) => {
+const StartSourceSyncAction = ({ sourceKey, integrationId, onStartSourceSync }) => {
   const { t } = useTranslation('management.integration.list');
 
   return (
     <Tooltip title={t('management.integration.list.actions.sync.tooltip.template').replace(':sourceKey', sourceKey)}>
       <React.Fragment>
         <Button
-          className={`IntegrationItem__Actions__Button SyncConfigAction__Button`}
+          className={`IntegrationItem__Actions__Button StartSourceSyncAction__Button`}
           color="primary"
           variant="contained"
           startIcon={<SyncIcon />}
           size="small"
           sx={{ display: { xs: 'none', sm: 'flex' } }}
-          onClick={() => onSyncConfig(integrationId)}
+          onClick={() => onStartSourceSync(integrationId)}
         >
           {t('management.integration.list.actions.sync.text')}
         </Button>
@@ -25,7 +25,7 @@ const SyncConfigAction = ({ sourceKey, integrationId, onSyncConfig }) => {
           aria-label="register"
           color="primary"
           sx={{ display: { xs: 'flex', sm: 'none' } }}
-          onClick={() => onSyncConfig(integrationId)}
+          onClick={() => onStartSourceSync(integrationId)}
         >
           <SyncIcon />
         </IconButton>
@@ -34,10 +34,10 @@ const SyncConfigAction = ({ sourceKey, integrationId, onSyncConfig }) => {
   );
 };
 
-SyncConfigAction.propTypes = {
+StartSourceSyncAction.propTypes = {
   actionData: PropTypes.object.isRequired,
-  onSyncConfig: PropTypes.func.isRequired,
+  onStartSourceSync: PropTypes.func.isRequired,
   integrationId: PropTypes.string.isRequired,
 };
 
-export default SyncConfigAction;
+export default StartSourceSyncAction;

@@ -5,12 +5,12 @@ import React from 'react';
 import { INTEGRATION_ACTIONS_SUPPORTED_KEYS } from './IntegrationActions.properties';
 import RedirectAuthoziationRegistrationAction from './RedirectAuthorizationRegistrationAction';
 import DisableIntegrationAction from './DisableIntegrationAction';
-import SyncConfigAction from './SyncConfigAction';
+import StartSourceSyncAction from './StartSourceSyncAction';
 
 const INTEGRATIONS_ACTION_STRATEGIES = {
   [INTEGRATION_ACTIONS_SUPPORTED_KEYS.REDIRECT_AUTHORIZATION]: RedirectAuthoziationRegistrationAction,
   [INTEGRATION_ACTIONS_SUPPORTED_KEYS.DISABLE_INTEGRATION]: DisableIntegrationAction,
-  [INTEGRATION_ACTIONS_SUPPORTED_KEYS.IMPORT_DATA]: SyncConfigAction,
+  [INTEGRATION_ACTIONS_SUPPORTED_KEYS.START_SOURCE_SYNC]: StartSourceSyncAction,
 };
 
 const IntegrationActions = ({sourceKey, projectManagementId, integrationId, actions, actionFns, isProcessing }) => {

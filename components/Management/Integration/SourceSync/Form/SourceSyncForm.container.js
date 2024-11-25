@@ -69,10 +69,11 @@ const SourceSyncFormContainer = ({ sourceSync }) => {
         currentStepObj
       }));
       if (sourceSyncStatus === SOURCE_SYNC_STATUS.COMPLETED) {
-        window.opener.postMessage({ type: INTERCOMMUNICATION_KEYS.syncConfigCompleted, data: sourceSyncResponse }, window.location.origin);
+        const integrationResponse = await api.front.getIntegration(sourceSync.integrationId);
+        window.opener.postMessage({ type: INTERCOMMUNICATION_KEYS.sourceSyncCompleted, data: integrationResponse }, window.location.origin);
         setTimeout(() => {
           window.close();
-        }, 2000);
+        }, 1000);
       }
     } else {
       dispatch(wasSubmitted(true));
