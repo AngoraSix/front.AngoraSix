@@ -1,10 +1,10 @@
 
-const UPDATE_STEP_FIELDS = 'DataExchangeFormForm/UPDATE_STEP_FIELDS';
+const UPDATE_STEP_FIELDS = 'SourceSyncFormForm/UPDATE_STEP_FIELDS';
 const FORM_WAS_SUBMITTED =
-  'DataExchangeFormForm/FORM_WAS_SUBMITTED';
+  'SourceSyncFormForm/FORM_WAS_SUBMITTED';
 const PROCESSING_FORM =
-  'DataExchangeFormForm/PROCESSING_FORM';
-const NEW_STEP = 'DataExchangeFormForm/NEW_STEP';
+  'SourceSyncFormForm/PROCESSING_FORM';
+const NEW_STEP = 'SourceSyncFormForm/NEW_STEP';
 
 export const updateFieldsAction = (payload) => ({
   type: UPDATE_STEP_FIELDS,
@@ -31,14 +31,14 @@ export const INITIAL_STATE = {
   actions: {},
   wasSubmitted: false,
   isProcessing: false,
-  dataExchangeStatus: '',
+  sourceSyncStatus: '',
   currentStepObj: {
     index: 0,
     key: '',
   }
 };
 
-const DataExchangeFormFormReducer = (state = INITIAL_STATE, action) => {
+const SourceSyncFormFormReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case UPDATE_STEP_FIELDS:
       return {
@@ -56,12 +56,12 @@ const DataExchangeFormFormReducer = (state = INITIAL_STATE, action) => {
         isProcessing: action.payload,
       };
     case NEW_STEP:
-      const { actions, requiredDataForStep, dataExchangeStatus, currentStepObj } = action.payload;
+      const { actions, requiredDataForStep, sourceSyncStatus, currentStepObj } = action.payload;
       const currentStepIndex = state.currentStepObj.index + 1;
       return {
         ...state,
         currentStepIndex,
-        dataExchangeStatus,
+        sourceSyncStatus,
         requiredDataForStep,
         actions,
         currentStepObj,
@@ -76,4 +76,4 @@ const DataExchangeFormFormReducer = (state = INITIAL_STATE, action) => {
   }
 };
 
-export default DataExchangeFormFormReducer;
+export default SourceSyncFormFormReducer;

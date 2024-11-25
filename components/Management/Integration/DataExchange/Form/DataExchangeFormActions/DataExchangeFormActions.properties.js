@@ -1,3 +1,0 @@
-export const DATA_EXCHANGE_FORM_ACTIONS_SUPPORTED_KEYS = {
-  CONTINUE_DATA_EXCHANGE: 'continueDataExchange',
-}

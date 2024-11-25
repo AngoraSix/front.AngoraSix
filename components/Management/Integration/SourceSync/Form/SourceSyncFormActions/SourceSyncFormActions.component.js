@@ -2,20 +2,20 @@ import { LoadingButton } from '@mui/lab';
 import { Box, CircularProgress, IconButton } from '@mui/material';
 import PropTypes from 'prop-types';
 import React from 'react';
-import ContinueDataExchangeAction from './ContinueDataExchangeAction';
-import { DATA_EXCHANGE_FORM_ACTIONS_SUPPORTED_KEYS } from './DataExchangeFormActions.properties';
+import ContinueSourceSyncAction from './ContinueSourceSyncAction';
+import { SOURCE_SYNC_FORM_ACTIONS_SUPPORTED_KEYS } from './SourceSyncFormActions.properties';
 
-const DATA_EXCHANGE_FORM_ACTION_STRATEGIES = {
-  [DATA_EXCHANGE_FORM_ACTIONS_SUPPORTED_KEYS.CONTINUE_DATA_EXCHANGE]: ContinueDataExchangeAction,
+const SOURCE_SYNC_FORM_ACTION_STRATEGIES = {
+  [SOURCE_SYNC_FORM_ACTIONS_SUPPORTED_KEYS.CONTINUE_SOURCE_SYNC]: ContinueSourceSyncAction,
 };
 
-const DataExchangeFormActions = ({ actions, actionFns, isProcessing }) => {
+const SourceSyncFormActions = ({ actions, actionFns, isProcessing }) => {
   return (
-    <Box className="DataExchangeForm__Actions">
+    <Box className="SourceSyncForm__Actions">
       {isProcessing ?
         <React.Fragment>
           <LoadingButton
-            className={`DataExchangeForm__Actions__Button DataExchangeForm__Actions__Button__Processing`}
+            className={`SourceSyncForm__Actions__Button SourceSyncForm__Actions__Button__Processing`}
             color="primary"
             variant="contained"
             loading
@@ -24,7 +24,7 @@ const DataExchangeFormActions = ({ actions, actionFns, isProcessing }) => {
           >
           </LoadingButton>
           <IconButton
-            className={`DataExchangeForm__Actions__Button DataExchangeForm__Actions__Button__Processing`}
+            className={`SourceSyncForm__Actions__Button SourceSyncForm__Actions__Button__Processing`}
             aria-label="processing"
             color="primary"
             sx={{ display: { xs: 'flex', sm: 'none' } }}
@@ -34,7 +34,7 @@ const DataExchangeFormActions = ({ actions, actionFns, isProcessing }) => {
         </React.Fragment>
         : Object.entries(actions)
           .map(([actionKey]) => {
-            const ActionComponent = DATA_EXCHANGE_FORM_ACTION_STRATEGIES[actionKey];
+            const ActionComponent = SOURCE_SYNC_FORM_ACTION_STRATEGIES[actionKey];
             return ActionComponent ? (
               <ActionComponent
                 key={actionKey}
@@ -47,15 +47,15 @@ const DataExchangeFormActions = ({ actions, actionFns, isProcessing }) => {
   );
 };
 
-DataExchangeFormActions.defaultProps = {
+SourceSyncFormActions.defaultProps = {
   actions: {},
   actionFns: {},
 };
 
-DataExchangeFormActions.propTypes = {
+SourceSyncFormActions.propTypes = {
   actions: PropTypes.object.isRequired,
   actionFns: PropTypes.object.isRequired,
   isProcessing: PropTypes.bool,
 };
 
-export default DataExchangeFormActions;
+export default SourceSyncFormActions;

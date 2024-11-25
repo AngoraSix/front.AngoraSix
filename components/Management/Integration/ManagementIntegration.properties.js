@@ -5,5 +5,5 @@ export const INTERACTION_PHASE = {
 
 export const INTERCOMMUNICATION_KEYS = {
   registrationCompleted: 'registrationCompleted',
-  importDataCompleted: 'importDataCompleted',
+  sourceSyncCompleted: 'sourceSyncCompleted',
 }

@@ -4,10 +4,10 @@ import { useTranslation } from 'next-i18next';
 import PropTypes from 'prop-types';
 import React from 'react';
 import FieldMaker from 'react-mui-fieldmaker';
-import { DATA_EXCHANGE_STATUS } from './DataExchangeForm.properties';
-import DataExchangeFormActions from './DataExchangeFormActions';
+import { SOURCE_SYNC_STATUS } from './SourceSyncForm.properties';
+import SourceSyncFormActions from './SourceSyncFormActions';
 
-const DataExchangeForm = ({
+const SourceSyncForm = ({
   formData,
   requiredStepFields,
   source,
@@ -17,36 +17,36 @@ const DataExchangeForm = ({
   actionFns,
   isProcessing,
   wasSubmitted,
-  dataExchangeStatus
+  sourceSyncStatus
 }) => {
-  const { t } = useTranslation('management.integration.dataexchange');
+  const { t } = useTranslation('management.integration.sourcesync');
   return (
     <Box
-      className={`DataExchangeForm DataExchangeForm__Container`}
+      className={`SourceSyncForm SourceSyncForm__Container`}
     >
-      {dataExchangeStatus != DATA_EXCHANGE_STATUS.COMPLETED
+      {sourceSyncStatus != SOURCE_SYNC_STATUS.COMPLETED
         ? (
           <React.Fragment>
-            <Box className="DataExchangeForm__Section DataExchangeForm__Section__Title">
+            <Box className="SourceSyncForm__Section SourceSyncForm__Section__Title">
               <Typography
-                className="DataExchangeForm__Title"
+                className="SourceSyncForm__Title"
                 color="primary.main"
                 variant="subtitle1"
               >
-                {t(`management.integration.dataexchange.new.title.template.${source.toLowerCase()}.${currentStepObj.key}`).replace(':stepNumber', currentStepObj.index + 1)}
+                {t(`management.integration.sourcesync.new.title.template.${source.toLowerCase()}.${currentStepObj.key}`).replace(':stepNumber', currentStepObj.index + 1)}
               </Typography>
             </Box>
-            <Box className="DataExchangeForm__Section DataExchangeForm__Section__RequiredData">
+            <Box className="SourceSyncForm__Section SourceSyncForm__Section__RequiredData">
               {requiredStepFields.map((field) => {
                 const fieldValue = formData[currentStepObj.index][field.key]?.[0];
                 const translationKey = field.key.split(":")[0];
                 return <FieldMaker
                   {...Object.fromEntries(Object.entries(field).filter(([_, value]) => value != null))}
                   key={field.key}
-                  label={t(`management.integration.dataexchange.new.field.label.${source.toLowerCase()}.${translationKey}`)}
+                  label={t(`management.integration.sourcesync.new.field.label.${source.toLowerCase()}.${translationKey}`)}
                   withPickOneOption={true}
                   pickOneOptionValue={null}
-                  pickOneOptionPrompt={t(`management.integration.dataexchange.new.field.pickone.${source.toLowerCase()}.${translationKey}`)}
+                  pickOneOptionPrompt={t(`management.integration.sourcesync.new.field.pickone.${source.toLowerCase()}.${translationKey}`)}
                   value={fieldValue}
                   onChange={onFormChange(currentStepObj.index, field.key)}
                   error={wasSubmitted && (fieldValue == null || fieldValue == '')}
@@ -54,33 +54,33 @@ const DataExchangeForm = ({
                 />
               })}
             </Box>
-            <Box className="DataExchangeForm__Section DataExchangeForm__Section__Actions">
-              <DataExchangeFormActions
+            <Box className="SourceSyncForm__Section SourceSyncForm__Section__Actions">
+              <SourceSyncFormActions
                 actions={actions}
                 actionFns={actionFns}
                 isProcessing={isProcessing} />
             </Box>
           </React.Fragment>
         )
-        : (<Box className="DataExchangeForm__Section DataExchangeForm__Section__Title">
+        : (<Box className="SourceSyncForm__Section SourceSyncForm__Section__Title">
           <Typography
-            className="DataExchangeForm__Title"
+            className="SourceSyncForm__Title"
             color="primary.main"
             variant="h4"
           >
-            {t(`management.integration.dataexchange.new.title.completed`)}
+            {t(`management.integration.sourcesync.new.title.completed`)}
           </Typography>
-          <Box className="DataExchangeForm__Section DataExchangeForm__Section__Message">
+          <Box className="SourceSyncForm__Section SourceSyncForm__Section__Message">
             <CompletedIcon
-              color="secondary" className='DataExchangeForm__Completed__Icon' fontSize='large' />
+              color="secondary" className='SourceSyncForm__Completed__Icon' fontSize='large' />
           </Box>
 
           <Typography
-            className="DataExchangeForm__Title"
+            className="SourceSyncForm__Title"
             color="primary.main"
             variant="subtitle1"
           >
-            {t(`management.integration.dataexchange.new.message.completed`)}
+            {t(`management.integration.sourcesync.new.message.completed`)}
           </Typography>
         </Box>)
       }
@@ -88,10 +88,10 @@ const DataExchangeForm = ({
   );
 };
 
-DataExchangeForm.defaultProps = {
+SourceSyncForm.defaultProps = {
 };
 
-DataExchangeForm.propTypes = {
+SourceSyncForm.propTypes = {
   formData: PropTypes.object.isRequired,
   requiredStepFields: PropTypes.array.isRequired,
   onFormChange: PropTypes.func.isRequired,
@@ -100,4 +100,4 @@ DataExchangeForm.propTypes = {
   currentStepObj: PropTypes.object.isRequired,
 };
 
-export default DataExchangeForm;
+export default SourceSyncForm;

@@ -1,0 +1,3 @@
+export const SOURCE_SYNC_FORM_ACTIONS_SUPPORTED_KEYS = {
+  CONTINUE_SOURCE_SYNC: 'continueSourceSync',
+}

@@ -24,6 +24,13 @@ class FrontAPI {
     return data;
   }
 
+  async getIntegration(integrationId) {
+    const { data } = await this.axios.get(
+      `api/integrations/${integrationId}`
+    );
+    return data;
+  }
+
   async registerIntegration(sourceKey, projectManagementId, tokenValue) {
     const integrationRegistrationBody = {
       token: tokenValue,
@@ -38,15 +45,15 @@ class FrontAPI {
 
   async disableIntegration(integrationId) {
     const { data } = await this.axios.patch(
-      `api/managements/integrations/${integrationId}`,
+      `api/integrations/${integrationId}`,
       createPatchBody(PATCH_SUPPORTED_OPERATIONS.REPLACE, 'status/status', "DISABLED")
     );
     return data;
   }
 
-  async submitDataExchangeStep(dataExchangeId, stepIndex, stepData) {
+  async submitSourceSyncStep(sourceSyncId, stepIndex, stepData) {
     const { data } = await this.axios.patch(
-      `api/integrations/data-exchange/${dataExchangeId}`,
+      `api/integrations/source-sync/${sourceSyncId}`,
       createPatchBody(PATCH_SUPPORTED_OPERATIONS.REPLACE, `status/steps/${stepIndex}`, stepData)
     );
     return data;
