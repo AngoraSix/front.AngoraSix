@@ -51,12 +51,12 @@ const IntegrationActionsContainer = ({ sourceKey, projectManagementId, actions, 
     updateIntegration(disableResponse);
   };
 
-  const onStartSourceSync = async (integrationId) => {
-    const startSourceSyncRoute = resolveRoute(
+  const onConfigSourceSync = async (integrationId) => {
+    const configSourceSyncRoute = resolveRoute(
       ROUTES.integrations.sourceSync.new,
       integrationId,
     );
-    let newModal = window.open(startSourceSyncRoute, 'source_sync_process', 'width=800,height=600,left=200,top=100');
+    let newModal = window.open(configSourceSyncRoute, 'source_sync_process', 'width=800,height=600,left=200,top=100');
     window.addEventListener('message', (event) => {
       if (event.origin === window.location.origin && event.data.type === INTERCOMMUNICATION_KEYS.sourceSyncCompleted) {
         setModal(null);
@@ -74,7 +74,7 @@ const IntegrationActionsContainer = ({ sourceKey, projectManagementId, actions, 
   const actionFns = {
     onRedirectAuthorization,
     onDisableIntegration,
-    onStartSourceSync
+    onConfigSourceSync
   };
 
   return <IntegrationActions
