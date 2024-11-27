@@ -5,7 +5,7 @@ import React from 'react';
 import { THIRD_PARTY } from '../../../../constants/constants';
 import IntegrationActions from './IntegrationActions';
 
-const ManagementIntegrationList = ({ projectManagementId, managementIntegrations, updateIntegration }) => {
+const ManagementIntegrationList = ({ projectManagementId, managementIntegrations, updateIntegration, updateSourceSync }) => {
 
   const { t } = useTranslation('management.integration.list');
   const managementIntegrationsList = Object.values(managementIntegrations);
@@ -25,6 +25,7 @@ const ManagementIntegrationList = ({ projectManagementId, managementIntegrations
           <Typography>{t('management.integration.list.empty-message')}</Typography>
         )}
         {managementIntegrationsList.map((integration) => {
+          const actions = { ...integration.sourceSync?.actions, ...integration.actions };
           return (
             <React.Fragment key={integration.id}>
               <ListItem
@@ -40,13 +41,15 @@ const ManagementIntegrationList = ({ projectManagementId, managementIntegrations
                   className="ManagementIntegration__Listing__Title"
                   primary={THIRD_PARTY[integration.source].name}
                 />
-                {integration.actions && (
+                {actions && (
                   <IntegrationActions
                     integrationId={integration.id}
+                    sourceSyncId={integration.sourceSync?.id}
                     sourceKey={integration.source}
                     projectManagementId={projectManagementId}
-                    actions={integration.actions}
+                    actions={actions}
                     updateIntegration={updateIntegration}
+                    updateSourceSync={updateSourceSync}
                   />
                 )}
               </ListItem>
@@ -67,7 +70,8 @@ ManagementIntegrationList.defaultProps = {
 ManagementIntegrationList.propTypes = {
   managementIntegrations: PropTypes.object,
   projectManagementId: PropTypes.string.isRequired,
-  updateIntegration: PropTypes.func.isRequired
+  updateIntegration: PropTypes.func.isRequired,
+  updateSourceSync: PropTypes.func.isRequired
 };
 
 export default ManagementIntegrationList;

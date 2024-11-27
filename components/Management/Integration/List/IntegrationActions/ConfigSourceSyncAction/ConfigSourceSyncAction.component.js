@@ -8,7 +8,7 @@ const ConfigSourceSyncAction = ({ sourceKey, integrationId, onConfigSourceSync }
   const { t } = useTranslation('management.integration.list');
 
   return (
-    <Tooltip title={t('management.integration.list.actions.sync.tooltip.template').replace(':sourceKey', sourceKey)}>
+    <Tooltip title={t('management.integration.list.actions.configsync.tooltip.template').replace(':sourceKey', sourceKey)}>
       <React.Fragment>
         <Button
           className={`IntegrationItem__Actions__Button ConfigSourceSyncAction__Button`}
@@ -19,7 +19,7 @@ const ConfigSourceSyncAction = ({ sourceKey, integrationId, onConfigSourceSync }
           sx={{ display: { xs: 'none', sm: 'flex' } }}
           onClick={() => onConfigSourceSync(integrationId)}
         >
-          {t('management.integration.list.actions.sync.text')}
+          {t('management.integration.list.actions.configsync.text')}
         </Button>
         <IconButton
           aria-label="register"

@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
 import React, { useReducer } from 'react';
 import ManagementIntegration from '../../../../models/ManagementIntegration';
+import SourceSync from '../../../../models/SourceSync';
 import { mapToHateoasCollectionDto } from '../../../../utils/rest/hateoas/hateoasUtils';
 import ManagementIntegrationList from './ManagementIntegrationList.component';
-import ManagementIntegrationListReducer, { generateInitialState, replaceIntegration } from './ManagementIntegrationList.reducer';
+import ManagementIntegrationListReducer, { generateInitialState, replaceIntegration, replaceIntegrationSourceSync } from './ManagementIntegrationList.reducer';
 
 const ManagementIntegrationListContainer = ({
   projectManagementId,
@@ -21,12 +22,17 @@ const ManagementIntegrationListContainer = ({
     dispatch(replaceIntegration(integration));
   }
 
+  const updateSourceSync = (sourceSyncDto) => {
+    const sourceSync = sourceSyncDto instanceof SourceSync ? sourceSyncDto : new SourceSync(sourceSyncDto);
+    dispatch(replaceIntegrationSourceSync(sourceSync));
+  }
+
   return (
     <ManagementIntegrationList
       managementIntegrations={integrationsState.collection}
-      // managementIntegrationsActions={integrationsState.actions}
       projectManagementId={projectManagementId}
       updateIntegration={updateIntegration}
+      updateSourceSync={updateSourceSync}
     />
   );
 };

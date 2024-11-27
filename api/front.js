@@ -58,6 +58,14 @@ class FrontAPI {
     );
     return data;
   }
+
+  async requestFullSync(sourceSyncId) {
+    const { data } = await this.axios.patch(
+      `api/integrations/source-sync/${sourceSyncId}`,
+      createPatchBody(PATCH_SUPPORTED_OPERATIONS.ADD, `events`, { type: 'REQUEST_FULL_SYNC' })
+    );
+    return data;
+  }
 }
 
 export default FrontAPI;

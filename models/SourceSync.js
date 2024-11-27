@@ -10,11 +10,9 @@ import moment from 'moment';
 export default class SourceSync {
   #status;
   constructor(object) {
-    const { source, integrationId, startedInstant, lastInteractionInstant, status, id } = object;
-    this.source = source;
+    const { source, integrationId, status, id } = object;
+    this.source = source?.toLowerCase();
     this.integrationId = integrationId;
-    this.startedInstant = startedInstant && moment(startedInstant);
-    this.lastInteractionInstant = lastInteractionInstant && moment(lastInteractionInstant);
     this.status = status;
     this.id = id;
     this.actions = processHateoasActions(object);
@@ -46,8 +44,6 @@ export default class SourceSync {
       [`${fieldSuffix}source`]: this.source,
       [`${fieldSuffix}integrationId`]: this.integrationId,
       [`${fieldSuffix}status`]: this.status?.toFormData(),
-      [`${fieldSuffix}startedInstant`]: this.startedInstant?.format('dd.mm.yyyy'),
-      [`${fieldSuffix}lastInteractionInstant`]: this.lastInteractionInstant?.format('dd.mm.yyyy'),
     };
   }
 
@@ -57,8 +53,6 @@ export default class SourceSync {
       source: this.source,
       integrationId: this.integrationId,
       status: this.status,
-      startedInstant: this.startedInstant,
-      lastInteractionInstant: this.lastInteractionInstant,
     };
   }
 }

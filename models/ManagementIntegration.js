@@ -6,16 +6,19 @@ import {
 import { processHateoasActions } from '../utils/rest/hateoas/hateoasUtils';
 import ManagementIntegrationConfig from './ManagementIntegrationConfig';
 import ManagementIntegrationStatus from './ManagementIntegrationStatus';
+import SourceSync from './SourceSync';
 
 export default class ManagementIntegration {
   #status;
   #config;
+  #sourceSync;
   constructor(object) {
-    const { source, projectManagementId, status, config, id } = object;
-    this.source = source;
+    const { source, projectManagementId, status, config, sourceSync, id } = object;
+    this.source = source?.toLowerCase();
     this.projectManagementId = projectManagementId;
     this.status = status;
     this.config = config;
+    this.sourceSync = sourceSync;
     this.id = id;
     this.actions = processHateoasActions(object);
   }
@@ -51,6 +54,17 @@ export default class ManagementIntegration {
     return this.#config;
   }
 
+  /**
+   * @param {SourceSync} status
+   */
+  set sourceSync(sourceSync) {
+    this.#sourceSync = toType(sourceSync, SourceSync, true);
+  }
+
+  get sourceSync() {
+    return this.#sourceSync;
+  }
+
   toFormData(fieldSuffix = '') {
     return {
       [`${fieldSuffix}id`]: this.id,
@@ -58,6 +72,7 @@ export default class ManagementIntegration {
       [`${fieldSuffix}projectManagementId`]: this.projectManagementId,
       [`${fieldSuffix}status`]: this.status?.toFormData(),
       [`${fieldSuffix}config`]: this.config.toFormData(),
+      [`${fieldSuffix}sourceSync`]: this.sourceSync.toFormData(),
     };
   }
 
@@ -68,6 +83,7 @@ export default class ManagementIntegration {
       projectManagementId: this.projectManagementId,
       status: this.status,
       config: this.config,
+      sourceSync: this.sourceSync,
     };
   }
 }
