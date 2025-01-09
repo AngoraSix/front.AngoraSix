@@ -4,29 +4,31 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import PropTypes from 'prop-types';
 import api from '../../../../api';
 import ManagementIntegrationList from '../../../../components/Management/Integration/List';
-import DefaultLayout from '../../../../layouts/DefaultLayout';
-import logger from '../../../../utils/logger';
 import { useActiveSession } from '../../../../hooks/oauth';
+import ManagementDetailsLayout from '../../../../layouts/ManagementDetailsLayout';
+import logger from '../../../../utils/logger';
 
 const ManagementIntegrationsViewPage = ({
   managementIntegrationsResponseData,
-  projectManagementId
+  projectManagementId,
+  projectManagement
 }) => {
   useActiveSession();
   const { t } = useTranslation('management.integration.list');
 
   return (
-    <DefaultLayout
+    <ManagementDetailsLayout
       headData={{
         title: t('management.integration.list.page.title'),
         description: t('management.integration.list.page.description'),
       }}
+      projectManagement={projectManagement}
     >
       <ManagementIntegrationList
         managementIntegrationsResponseData={managementIntegrationsResponseData}
         projectManagementId={projectManagementId}
       />
-    </DefaultLayout>
+    </ManagementDetailsLayout>
   );
 };
 
@@ -51,10 +53,16 @@ export const getServerSideProps = async (ctx) => {
       validatedToken
     );
 
+    const projectManagement = await api.projects.getProjectManagement(
+      managementId,
+      validatedToken
+    );
+
     props = {
       ...props,
       projectManagementId: managementId,
       managementIntegrationsResponseData,
+      projectManagement
     };
   } catch (err) {
     logger.error('err', err);
@@ -65,6 +73,7 @@ export const getServerSideProps = async (ctx) => {
       session,
       ...(await serverSideTranslations(ctx.locale, [
         'common',
+        'management.common',
         'management.integration.list',
       ])),
     },
