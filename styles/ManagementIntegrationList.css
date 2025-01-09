@@ -19,7 +19,6 @@
 .ManagementIntegrationInteraction__Container {
   display: flex;
   flex-direction: column;
-  /* flex */
   justify-content: space-between;
   height: 100%;
 }

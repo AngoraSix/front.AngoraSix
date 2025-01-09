@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
 import api from '../../../../api';
 import FormSkeleton from '../../../../components/common/Skeletons/FormSkeleton.component';
-import ProjectManagementForm from '../../../../components/Project/Management/Form';
+import ProjectManagementForm from '../../../../components/Management/Form';
 import { ROUTES } from '../../../../constants/constants';
 import { useNotifications } from '../../../../hooks/app';
 import { useActiveSession } from '../../../../hooks/oauth';
@@ -80,7 +80,7 @@ export const getServerSideProps = async (ctx) => {
   let isAdmin = false;
   try {
     const project = await api.projects.getProject(projectId, validatedToken);
-    isAdmin = session?.user.id != null && session?.user.id === project.adminId;
+    isAdmin = session?.user.id != null && project.admins?.some((contr) => contr.contributorId === session?.user.id);
     props = {
       ...props,
       project,

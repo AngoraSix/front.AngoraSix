@@ -2,13 +2,13 @@ import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import React, { useReducer } from 'react';
-import api from '../../../../api';
-import { ROUTES } from '../../../../constants/constants';
+import api from '../../../api';
+import { ROUTES } from '../../../constants/constants';
 import { resolveRoute } from '../../../utils/api/apiHelper';
-import { useLoading, useNotifications } from '../../../../hooks/app';
-import ProjectManagement from '../../../../models/ProjectManagement';
-import { toType } from '../../../../utils/helpers';
-import logger from '../../../../utils/logger';
+import { useLoading, useNotifications } from '../../../hooks/app';
+import ProjectManagement from '../../../models/ProjectManagement';
+import { toType } from '../../../utils/helpers';
+import logger from '../../../utils/logger';
 import ProjectManagementForm from './ProjectManagementForm.component';
 import ProjectManagementFormReducer, {
   INITIAL_STATE,
