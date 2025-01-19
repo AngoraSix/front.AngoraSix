@@ -14,6 +14,7 @@ import { useActiveSession } from '../../../../hooks/oauth';
 import DefaultLayout from '../../../../layouts/DefaultLayout';
 import { resolveRoute } from '../../../../utils/api/apiHelper';
 import logger from '../../../../utils/logger';
+import { isA6ResourceAdmin } from '../../../../utils/commons/a6commonsUtils';
 
 const NOT_ADMIN_ERROR_MESSAGE =
   'You need admin privileges to create a Management registry for a Project';
@@ -80,7 +81,7 @@ export const getServerSideProps = async (ctx) => {
   let isAdmin = false;
   try {
     const project = await api.projects.getProject(projectId, validatedToken);
-    isAdmin = session?.user.id != null && project.admins?.some((contr) => contr.contributorId === session?.user.id);
+    isAdmin = isA6ResourceAdmin(session?.user?.id,  project);
     props = {
       ...props,
       project,

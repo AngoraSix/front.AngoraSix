@@ -66,6 +66,16 @@ class FrontAPI {
     );
     return data;
   }
+
+  async getContributors(contributorIds) {
+    const contributorIdsArray = Array.isArray(contributorIds)
+      ? contributorIds
+      : [contributorIds];
+    const { data: membersData } = await this.axios.get(`/api/contributors`, {
+      params: { contributorIds: contributorIdsArray.join() },
+    });
+    return membersData;
+  }
 }
 
 export default FrontAPI;

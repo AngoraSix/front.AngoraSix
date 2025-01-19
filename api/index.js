@@ -1,9 +1,10 @@
 import config from '../config';
 import BaseAPI from './BaseAPI';
+import ClubsAPI from './club';
 import ContributorsAPI from './contributors';
 import FrontAPI from './front';
-import ProjectsAPI from './projects';
 import ManagementIntegrationsAPI from './managementIntegrations';
+import ProjectsAPI from './projects';
 
 class API {
   constructor() {
@@ -46,9 +47,8 @@ class API {
     );
     this.projectsAPI = new ProjectsAPI(_getServiceAPI('projects', this.axios));
     this.managementIntegrationsAPI = new ManagementIntegrationsAPI(_getServiceAPI('managementIntegrations', this.axios));
-    this.contributorsAPI = new ContributorsAPI(
-      _getServiceAPI('contributors', this.axios)
-    );
+    this.contributorsAPI = new ContributorsAPI(_getServiceAPI('contributors', this.axios));
+    this.clubsAPI = new ClubsAPI(_getServiceAPI('clubs', this.axios));
   }
 }
 
@@ -58,15 +58,15 @@ const _getServiceAPI = (service, axiosInstance) => {
 
   return serviceOverrideBaseURL
     ? new BaseAPI({
-        ...axiosInstance.getDefaults(),
-        baseURL: serviceOverrideBaseURL,
-      })
+      ...axiosInstance.getDefaults(),
+      baseURL: serviceOverrideBaseURL,
+    })
     : apiGatewayPath
-    ? new BaseAPI({
+      ? new BaseAPI({
         ...axiosInstance.getDefaults(),
         baseURL: `${axiosInstance.getBaseURL()}${apiGatewayPath}`,
       })
-    : axiosInstance;
+      : axiosInstance;
 };
 
 const api = new API();
