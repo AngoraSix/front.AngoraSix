@@ -7,13 +7,14 @@ import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
 import api from '../../../../api';
 import FormSkeleton from '../../../../components/common/Skeletons/FormSkeleton.component';
-import ProjectManagementForm from '../../../../components/Project/Management/Form';
+import ProjectManagementForm from '../../../../components/Management/Form';
 import { ROUTES } from '../../../../constants/constants';
 import { useNotifications } from '../../../../hooks/app';
 import { useActiveSession } from '../../../../hooks/oauth';
 import DefaultLayout from '../../../../layouts/DefaultLayout';
 import { resolveRoute } from '../../../../utils/api/apiHelper';
 import logger from '../../../../utils/logger';
+import { isA6ResourceAdmin } from '../../../../utils/commons/a6commonsUtils';
 
 const NOT_ADMIN_ERROR_MESSAGE =
   'You need admin privileges to create a Management registry for a Project';
@@ -80,7 +81,7 @@ export const getServerSideProps = async (ctx) => {
   let isAdmin = false;
   try {
     const project = await api.projects.getProject(projectId, validatedToken);
-    isAdmin = session?.user.id != null && session?.user.id === project.adminId;
+    isAdmin = isA6ResourceAdmin(session?.user?.id,  project);
     props = {
       ...props,
       project,

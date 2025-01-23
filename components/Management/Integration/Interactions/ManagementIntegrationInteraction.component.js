@@ -34,14 +34,6 @@ const ResolveInteractionComponent = (interactionState, t) => {
         </Box>
       </React.Fragment>);
       return RegisteringComponent;
-
-    case INTERACTION_PHASE.onInput:
-      const OnInputComponent = () => (
-        <Typography variant="body1">
-          On INPUT HERE...
-        </Typography>
-      );
-      return OnInputComponent;
     default:
       const NotSupportedComponent = () => (<Typography
         align="center"

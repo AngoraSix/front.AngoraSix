@@ -30,14 +30,6 @@ const ProjectManagementView = ({ project, projectManagement }) => {
 
   return (
     <Box className="ProjectManagementView ProjectManagementView__Container">
-      <Typography
-        align="center"
-        variant="h6"
-        component="h2"
-        color="primary.main"
-      >
-        {project.name}
-      </Typography>
       <Box className="ProjectManagementView__Sections">
         <Box className="ProjectManagementView__Section Main">
           <ManagementCapsSection projectManagement={projectManagement} />

@@ -6,7 +6,7 @@ import { resolveRoute } from '../../../../../utils/api/apiHelper';
 import { INTERCOMMUNICATION_KEYS } from '../../ManagementIntegration.properties';
 import IntegrationActions from './IntegrationActions.component';
 
-const IntegrationActionsContainer = ({ sourceKey, projectManagementId, actions, updateIntegration, integrationId }) => {
+const IntegrationActionsContainer = ({ sourceKey, projectManagementId, integrationId, sourceSyncId, actions, updateIntegration, updateSourceSync }) => {
   const [authRequest, _setAuthRequest] = useState({
     source: '',
   });
@@ -51,12 +51,12 @@ const IntegrationActionsContainer = ({ sourceKey, projectManagementId, actions, 
     updateIntegration(disableResponse);
   };
 
-  const onStartSourceSync = async (integrationId) => {
-    const startSourceSyncRoute = resolveRoute(
+  const onConfigSourceSync = async (integrationId) => {
+    const configSourceSyncRoute = resolveRoute(
       ROUTES.integrations.sourceSync.new,
       integrationId,
     );
-    let newModal = window.open(startSourceSyncRoute, 'source_sync_process', 'width=800,height=600,left=200,top=100');
+    let newModal = window.open(configSourceSyncRoute, 'source_sync_process', 'width=800,height=600,left=200,top=100');
     window.addEventListener('message', (event) => {
       if (event.origin === window.location.origin && event.data.type === INTERCOMMUNICATION_KEYS.sourceSyncCompleted) {
         setModal(null);
@@ -70,17 +70,30 @@ const IntegrationActionsContainer = ({ sourceKey, projectManagementId, actions, 
     setModal(newModal);
   };
 
+  const onRequestFullSync = async (sourceSyncId) => {
+    setIsProcessing(true);
+    const sourceSyncResponse = await api.front.requestFullSync(sourceSyncId);
+    updateSourceSync(sourceSyncResponse);
+  };
+
+  const onUpdateSourceSyncConfig = async (sourceSyncId) => {
+    // NOT IMPLEMENTED YET: 
+    console.log("Update Source Sync Config not implemented yet");
+  };
 
   const actionFns = {
     onRedirectAuthorization,
     onDisableIntegration,
-    onStartSourceSync
+    onConfigSourceSync,
+    onRequestFullSync,
+    onUpdateSourceSyncConfig
   };
 
   return <IntegrationActions
     sourceKey={sourceKey}
     projectManagementId={projectManagementId}
     integrationId={integrationId}
+    sourceSyncId={sourceSyncId}
     actions={actions}
     actionFns={actionFns}
     isProcessing={isProcessing || modal !== null}
@@ -98,7 +111,9 @@ IntegrationActionsContainer.propTypes = {
   sourceKey: PropTypes.string.isRequired,
   projectManagementId: PropTypes.string.isRequired,
   integrationId: PropTypes.string,
-  updateIntegration: PropTypes.func.isRequired
+  sourceSyncId: PropTypes.string,
+  updateIntegration: PropTypes.func.isRequired,
+  updateSourceSync: PropTypes.func.isRequired
 };
 
 export default IntegrationActionsContainer;

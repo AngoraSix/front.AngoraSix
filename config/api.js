@@ -9,8 +9,12 @@ class Api {
     this.servicesAPIGatewayPath = {
       projects: env.API_PROJECTS_SERVER_APIGATEWAY_PATH || '/projects',
       managementIntegrations: env.API_MANAGEMENTINTEGRATIONS_SERVER_APIGATEWAY_PATH || '/management/integrations',
+      contributors: env.API_CONTRIBUTORS_SERVER_APIGATEWAY_PATH || '/contributors',
     };
     this.servicesAPIParams = {
+      clubsProjectManagementMembersType:
+        env.APIPARAMS_CLUBS_WELLKNOWN_PROJECTMGMTMEMBERS ||
+        'project-management-members',
     };
   }
 }

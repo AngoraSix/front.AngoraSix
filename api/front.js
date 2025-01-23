@@ -58,6 +58,24 @@ class FrontAPI {
     );
     return data;
   }
+
+  async requestFullSync(sourceSyncId) {
+    const { data } = await this.axios.patch(
+      `api/integrations/source-sync/${sourceSyncId}`,
+      createPatchBody(PATCH_SUPPORTED_OPERATIONS.ADD, `events`, { type: 'REQUEST_FULL_SYNC' })
+    );
+    return data;
+  }
+
+  async getContributors(contributorIds) {
+    const contributorIdsArray = Array.isArray(contributorIds)
+      ? contributorIds
+      : [contributorIds];
+    const { data: membersData } = await this.axios.get(`/api/contributors`, {
+      params: { contributorIds: contributorIdsArray.join() },
+    });
+    return membersData;
+  }
 }
 
 export default FrontAPI;

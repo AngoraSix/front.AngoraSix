@@ -5,8 +5,12 @@
     "management.integration.list.actions.register.tooltip.template": "Registrar integracion con :source",
     "management.integration.list.actions.disable.text": "Deshabilitar",
     "management.integration.list.actions.disable.tooltip.template": "Deshabilitar integracion con :source",
-    "management.integration.list.actions.sync.text": "Sincronizar",
-    "management.integration.list.actions.sync.tooltip.template": "Sincronizar tareas de :source",
+    "management.integration.list.actions.configsync.text": "Sincronizar",
+    "management.integration.list.actions.configsync.tooltip.template": "Configurar sincronizacion de tareas de :source",
+    "management.integration.list.actions.fullsync.text": "Sincronizar",
+    "management.integration.list.actions.fullsync.tooltip.template": "Solicitar sincronización completa de tareas para :source",
+    "management.integration.list.actions.updatesyncconfig.text": "Re-configurar",
+    "management.integration.list.actions.updatesyncconfig.tooltip.template": "Configurar sincronizacion de tareas de :source",
     "management.integration.list.title": "Integraciones de Administración",
     "management.integration.list.empty-message": "No se encontraron integraciones"
 }

@@ -3,7 +3,7 @@ import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import PropTypes from 'prop-types';
 import api from '../../../../../api';
-import ProjectManagementView from '../../../../../components/Project/Management/View';
+import ProjectManagementView from '../../../../../components/Management/View';
 import DefaultLayout from '../../../../../layouts/DefaultLayout';
 import logger from '../../../../../utils/logger';
 

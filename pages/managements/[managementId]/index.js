@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import api from '../../../api';
 import ProjectManagementView from '../../../components/Management/View';
 import DefaultLayout from '../../../layouts/DefaultLayout';
+import ManagementDetailsLayout from '../../../layouts/ManagementDetailsLayout';
 import logger from '../../../utils/logger';
 
 const ProjectManagementViewPage = ({
@@ -16,7 +17,7 @@ const ProjectManagementViewPage = ({
   const { t } = useTranslation('management.view');
 
   return (
-    <DefaultLayout
+    <ManagementDetailsLayout
       headData={{
         title: t('management.view.page.title.template').replace(
           ':project',
@@ -26,6 +27,7 @@ const ProjectManagementViewPage = ({
           'management.view.page.description.template'
         ).replace(':project', project.name),
       }}
+      projectManagement={projectManagement}
     >
       <ProjectManagementView
         project={project}
@@ -33,7 +35,7 @@ const ProjectManagementViewPage = ({
         projectManagementActions={projectManagementActions}
         isAdmin={isAdmin}
       />
-    </DefaultLayout>
+    </ManagementDetailsLayout>
   );
 };
 
@@ -52,7 +54,7 @@ ProjectManagementViewPage.propTypes = {
 export const getServerSideProps = async (ctx) => {
   let props = {};
 
-  const { projectId, managementId } = ctx.params;
+  const { managementId } = ctx.params;
   const session = await getSession(ctx);
   const validatedToken =
     session?.error !== 'RefreshAccessTokenError' ? session : null;
@@ -83,6 +85,7 @@ export const getServerSideProps = async (ctx) => {
       session,
       ...(await serverSideTranslations(ctx.locale, [
         'common',
+        'management.common',
         'management.view',
       ])),
     },

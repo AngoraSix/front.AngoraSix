@@ -1,0 +1,3 @@
+export const CONTRIBUTORS_ACTIONS_SUPPORTED_KEYS = {
+  INVITE_CONTRIBUTOR: 'inviteContributor',
+}

@@ -1,0 +1,7 @@
+{
+    "management.contributors.page.title.template": ":project - Contributors",
+    "management.contributors.page.description.template": "Contributors information for project :project",
+    "management.contributors.list.title": "Contributors",
+    "management.contributors.list.empty-message": "No contributors found",
+    "management.contributors.list.roles.ADMIN": "Admin"
+}

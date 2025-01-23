@@ -26,6 +26,11 @@ export const ROUTES = {
       landing: '/',
     },
   },
+  management: {
+    main: '/managements/:managementId',
+    integrations: '/managements/:managementId/integrations',
+    contributors: '/managements/:managementId/contributors',
+    },
   integrations: {
     sourceSync: {
       new: '/integrations/:integrationId/source-sync/new'

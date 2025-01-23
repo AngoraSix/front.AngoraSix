@@ -7,7 +7,7 @@ import { INTERACTION_PHASE, INTERCOMMUNICATION_KEYS } from '../ManagementIntegra
 const ManagementIntegrationInteractionContainer = ({
   managementId, sourceKey, interactionPhase
 }) => {
-  const [interactionState, setInteractionState] = useState(INTERACTION_PHASE[interactionPhase]);
+  const interactionState = INTERACTION_PHASE[interactionPhase];
 
   useEffect(() => {
     async function processRegistering() {

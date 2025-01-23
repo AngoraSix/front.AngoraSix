@@ -5,8 +5,12 @@
     "management.integration.list.actions.register.tooltip.template": "Register integration with :source",
     "management.integration.list.actions.disable.text": "Disable",
     "management.integration.list.actions.disable.tooltip.template": "Disable integration with :source",
-    "management.integration.list.actions.sync.text": "Sync",
-    "management.integration.list.actions.sync.tooltip.template": "Sync tasks from :source",
+    "management.integration.list.actions.configsync.text": "Sync",
+    "management.integration.list.actions.configsync.tooltip.template": "Configure task syncing for :source",
+    "management.integration.list.actions.fullsync.text": "Sync",
+    "management.integration.list.actions.fullsync.tooltip.template": "Request full task sync for :source",
+    "management.integration.list.actions.updatesyncconfig.text": "Re-config",
+    "management.integration.list.actions.updatesyncconfig.tooltip.template": "Configure task syncing for :source",
     "management.integration.list.title": "Management Integrations",
     "management.integration.list.empty-message": "No integrations found"
 }
