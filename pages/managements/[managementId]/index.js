@@ -1,11 +1,13 @@
+import { Box } from '@mui/material';
 import { getSession } from 'next-auth/react';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import PropTypes from 'prop-types';
 import api from '../../../api';
+import FormSkeleton from '../../../components/common/Skeletons/FormSkeleton.component';
 import ProjectManagementView from '../../../components/Management/View';
-import DefaultLayout from '../../../layouts/DefaultLayout';
 import ManagementDetailsLayout from '../../../layouts/ManagementDetailsLayout';
+import { isA6ResourceAdmin } from '../../../utils/commons/a6commonsUtils';
 import logger from '../../../utils/logger';
 
 const ProjectManagementViewPage = ({
@@ -13,8 +15,25 @@ const ProjectManagementViewPage = ({
   projectManagement,
   projectManagementActions,
   isAdmin,
+  session
 }) => {
   const { t } = useTranslation('management.view');
+
+  if (!projectManagement) {
+    logger.error('Log in to see management dashboard');
+    return (
+      <ManagementDetailsLayout
+        headData={{
+          title: t("management.common.page.loading.title"),
+          description: t("management.common.page.loading.description")
+        }}
+        isAdmin={isAdmin}>
+        <Box>
+          <FormSkeleton />
+        </Box>
+      </ManagementDetailsLayout>
+    );
+  }
 
   return (
     <ManagementDetailsLayout
@@ -28,6 +47,7 @@ const ProjectManagementViewPage = ({
         ).replace(':project', project.name),
       }}
       projectManagement={projectManagement}
+      isAdmin={isAdmin}
     >
       <ProjectManagementView
         project={project}
@@ -52,14 +72,13 @@ ProjectManagementViewPage.propTypes = {
 };
 
 export const getServerSideProps = async (ctx) => {
-  let props = {};
+  let props = { isAdmin: false };
 
   const { managementId } = ctx.params;
   const session = await getSession(ctx);
   const validatedToken =
     session?.error !== 'RefreshAccessTokenError' ? session : null;
-  let isAdmin = false;
-  
+
   try {
     const projectManagement = await api.projects.getProjectManagement(
       managementId,
@@ -68,13 +87,13 @@ export const getServerSideProps = async (ctx) => {
 
     const project = projectManagement.project;
     const projectManagementActions = {};
-    
+
     props = {
       ...props,
       project,
       projectManagement,
       projectManagementActions,
-      isAdmin,
+      isAdmin: isA6ResourceAdmin(session?.user?.id, projectManagement),
     };
   } catch (err) {
     logger.error('err', err);

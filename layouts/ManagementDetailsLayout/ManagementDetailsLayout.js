@@ -6,7 +6,7 @@ import ManagementTabs from '../../components/ManagementTabs';
 import Navbar from '../../components/Navbar';
 import config from '../../config';
 
-const ManagementDetailsLayout = ({ projectManagement, children, className, headData, contained = true }) => {
+const ManagementDetailsLayout = ({ projectManagement, isAdmin, children, className, headData, contained = true }) => {
   const head = {
     ...config.site.head,
     ...headData,
@@ -32,7 +32,7 @@ const ManagementDetailsLayout = ({ projectManagement, children, className, headD
       </Head>
       <Navbar />
       <ChildrenContainer className={`${className}__Body`}>
-        <ManagementTabs projectManagement={projectManagement} />
+        <ManagementTabs projectManagement={projectManagement} isAdmin={isAdmin} />
         {children}
       </ChildrenContainer>
     </Box>

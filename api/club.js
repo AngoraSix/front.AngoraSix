@@ -26,6 +26,28 @@ class ClubsAPI {
     );
     return data;
   }
+
+  async inviteContributor(clubId, invitationData, token) {
+    const headers = this.axios.getCommonHeaders();
+    const authHeaders = this.axios.getAuthorizationHeaders(token);
+    const infraHeaders = await obtainInfraHeaders(
+      config.infra,
+      config.api.serverBaseURL
+    );
+
+    const { data } = await this.axios.post(
+      `/clubs/${clubId}/invitations`,
+      invitationData,
+      {
+        headers: {
+          ...headers,
+          ...authHeaders,
+          ...infraHeaders,
+        },
+      }
+    );
+    return data;
+  }
 }
 
 export default ClubsAPI;

@@ -22,20 +22,17 @@ const ManagementContributorsPage = ({
   useActiveSession();
   const project = projectManagementResponse.project;
 
-  if (!session || session.error || !isAdmin || !contributorsClubResponse) {
-    logger.error('Log in to see contributors of management');
+  if (!session || session.error || !isAdmin || !projectManagementResponse) {
+    logger.error('Log in to see management dashboard');
     return (
       <ManagementDetailsLayout
         headData={{
-          title: t('management.contributors.page.title.template').replace(
-            ':project',
-            project.name
-          ),
+          title: t("management.common.page.loading.title"),
           description: t(
-            'management.contributors.page.description.template'
-          ).replace(':project', project.name),
+            "management.common.page.loading.description"
+          )
         }}
-        projectManagement={projectManagementResponse}>
+        isAdmin={isAdmin}>
         <Box>
           <FormSkeleton />
         </Box>
@@ -55,6 +52,7 @@ const ManagementContributorsPage = ({
         ).replace(':project', project.name),
       }}
       projectManagement={projectManagementResponse}
+      isAdmin={isAdmin}
     >
       <ManagementContributors
         projectManagementResponse={projectManagementResponse}
@@ -101,8 +99,6 @@ export const getServerSideProps = async (ctx) => {
       contributorsClubResponse.members = membersData;
     }
 
-    console.log(contributorsClubResponse);
-
     props = {
       ...props,
       projectManagementResponse,
@@ -110,8 +106,6 @@ export const getServerSideProps = async (ctx) => {
       isAdmin: isA6ResourceAdmin(session?.user?.id, contributorsClubResponse),
     };
   } catch (err) {
-    logger.error("VVVVVVVVV");
-    console.log(err);
     logger.error('err', err);
   }
   return {

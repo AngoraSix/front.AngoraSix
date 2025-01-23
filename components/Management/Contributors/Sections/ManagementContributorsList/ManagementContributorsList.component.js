@@ -15,7 +15,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTranslation } from 'next-i18next';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { ListSkeleton } from '../../../common/Skeletons/ListSkeleton.component';
+import { ListSkeleton } from '../../../../common/Skeletons/ListSkeleton.component';
 
 const ManagementContributorsList = ({
     contributorsClub, isLoading }) => {
@@ -61,18 +61,19 @@ const ManagementContributorsList = ({
                                                     <Chip
                                                         className='ManagementContributorsList__Listing__Role'
                                                         key={role}
-                                                        label={t(`management.contributors.list.roles.${role.toUpperCase()}`, { defaultValue: role })}
+                                                        label={t(`management.contributors.list.roles.${role.toLowerCase()}`, { defaultValue: role })}
                                                         variant={role === 'admin' ? "filled" : "outlined"}
                                                         color="primary"
                                                         size="small" />
                                                 )
                                             }
+                                            secondaryTypographyProps={{ component: 'div' }}
                                         />
                                         {!isMobile && member.roles.map(role =>
                                             <Chip
                                                 className='ManagementContributorsList__Listing__Role'
                                                 key={role}
-                                                label={t(`management.contributors.list.roles.${role.toUpperCase()}`, { defaultValue: role })}
+                                                label={t(`management.contributors.list.roles.${role.toLowerCase()}`, { defaultValue: role })}
                                                 variant={role === 'admin' ? "filled" : "outlined"}
                                                 color="primary" />
                                         )}

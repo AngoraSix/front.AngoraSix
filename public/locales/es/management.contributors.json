@@ -3,5 +3,14 @@
     "management.contributors.page.description.template": "Información de los colaboradores para el proyecto :project",
     "management.contributors.list.title": "Colaboradores",
     "management.contributors.list.empty-message": "No se encontraron colaboradores",
-    "management.contributors.list.roles.ADMIN": "Admin"
+    "management.contributors.list.roles.admin": "Admin",
+    "management.contributors.actions.invite.button": "Invitar",
+    "management.contributors.actions.invite.error": "Ocurrió un error al invitar al colaborador",
+    "management.contributors.actions.invite.success": "Colaborador invitado exitosamente",
+    "management.contributors.actions.dialog.title": "Invitar colaborador",
+    "management.contributors.actions.dialog.inputs.email.label": "Email",
+    "management.contributors.actions.dialog.inputs.email.error": "Email inválido",
+    "management.contributors.actions.dialog.inputs.default.error": "Valor inválido",
+    "management.contributors.actions.dialog.commands.cancel": "Cancelar",
+    "management.contributors.actions.dialog.commands.done": "Finalizar"
 }

@@ -3,5 +3,14 @@
     "management.contributors.page.description.template": "Contributors information for project :project",
     "management.contributors.list.title": "Contributors",
     "management.contributors.list.empty-message": "No contributors found",
-    "management.contributors.list.roles.ADMIN": "Admin"
+    "management.contributors.list.roles.admin": "Admin",
+    "management.contributors.actions.invite.button": "Invite",
+    "management.contributors.actions.invite.error": "An error occurred while inviting the contributor",
+    "management.contributors.actions.invite.success": "Contributor invited successfully",
+    "management.contributors.actions.dialog.title": "Invite contributor",
+    "management.contributors.actions.dialog.inputs.email.label": "Email",
+    "management.contributors.actions.dialog.inputs.email.error": "Invalid email",
+    "management.contributors.actions.dialog.inputs.default.error": "Invalid value",
+    "management.contributors.actions.dialog.commands.cancel": "Cancel",
+    "management.contributors.actions.dialog.commands.done": "Done"
 }
