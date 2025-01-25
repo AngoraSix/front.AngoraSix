@@ -16,7 +16,7 @@ const ManagementIntegrationList = ({ projectManagementId, managementIntegrations
         align="center"
         variant="h6"
         component="h2"
-        color="primary.main"
+        color="primary"
       >
         {t('management.integration.list.title')}
       </Typography>

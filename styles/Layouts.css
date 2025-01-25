@@ -28,16 +28,16 @@
 }
 
 .ManagementDetailsLayout__Page__Body {
-  display: block;
+  display: flex;
+  flex-direction: column;
   padding: 45px 16px 24px;
   margin: -20px auto 20px;
   min-width: 300px;
   width: calc(100% - 20px);
   min-height: calc(100vh - 80px);
-  display: block;
 }
 
-.ManagementTabs__Container{
+.ManagementTabs__Container {
   margin-bottom: 1.2rem;
 }
 

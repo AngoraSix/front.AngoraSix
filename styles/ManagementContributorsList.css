@@ -1,4 +1,14 @@
 /* Management Contributors List */
+.ManagementContributors__Container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.ManagementContributorsList__Container {
+  flex-grow: 1;
+}
+
 .ManagementContributorsList__Listing__Role {
   margin-right: 0.3rem;
 }
@@ -7,6 +17,15 @@
   display: flex;
   justify-content: space-around;
   margin-top: 1rem;
+}
+
+.ManagementContributorsActions__Dialog__Content {
+  display: flex;
+  flex-direction: column;
+}
+
+.ManagementContributorsActions__Dialog__Content .ManagementContributorsActions__Dialog__Field {
+  margin: 1rem 0;
 }
 
 @media (min-width: 600px) {

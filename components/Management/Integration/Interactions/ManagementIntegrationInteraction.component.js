@@ -24,7 +24,7 @@ const ResolveInteractionComponent = (interactionState, t) => {
         align="center"
         variant="h6"
         component="h2"
-        color="primary.main"
+        color="primary"
       >
         {t('management.integration.interactions.in-progress.text')}
       </Typography>
@@ -39,7 +39,7 @@ const ResolveInteractionComponent = (interactionState, t) => {
         align="center"
         variant="h6"
         component="h2"
-        color="primary.main"
+        color="primary"
       >
         {t('management.integration.interactions.not-supported.text')}
       </Typography>);

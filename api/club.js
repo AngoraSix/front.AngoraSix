@@ -15,7 +15,51 @@ class ClubsAPI {
     );
 
     const { data } = await this.axios.get(
-      `/clubs/well-known/${projectId}/${clubType}`,
+      `/well-known/${projectId}/${clubType}`,
+      {
+        headers: {
+          ...headers,
+          ...authHeaders,
+          ...infraHeaders,
+        },
+      }
+    );
+    return data;
+  }
+
+  async inviteContributor(clubId, invitationData, token) {
+    const headers = this.axios.getCommonHeaders();
+    const authHeaders = this.axios.getAuthorizationHeaders(token);
+    const infraHeaders = await obtainInfraHeaders(
+      config.infra,
+      config.api.serverBaseURL
+    );
+
+    const { data } = await this.axios.post(
+      `/${clubId}/invitations`,
+      invitationData,
+      {
+        headers: {
+          ...headers,
+          ...authHeaders,
+          ...infraHeaders,
+        },
+      }
+    );
+    return data;
+  }
+
+  async acceptInvitation(clubId, invitationToken, token) {
+    const headers = this.axios.getCommonHeaders();
+    const authHeaders = this.axios.getAuthorizationHeaders(token);
+    const infraHeaders = await obtainInfraHeaders(
+      config.infra,
+      config.api.serverBaseURL
+    );
+
+    const { data } = await this.axios.post(
+      `/${clubId}/invitations/${invitationToken}`,
+      {},
       {
         headers: {
           ...headers,

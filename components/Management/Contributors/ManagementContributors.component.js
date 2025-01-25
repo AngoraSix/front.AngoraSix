@@ -1,20 +1,16 @@
 import { Box } from '@mui/material';
 import PropTypes from 'prop-types';
 import React from 'react';
-import ManagementContributorsActions from './Sections/ManagementContributorsActions.component';
-import ManagementContributorsList from './Sections/ManagementContributorsList.component';
+import ManagementContributorsActions from './Sections/ManagementContributorsActions';
+import ManagementContributorsList from './Sections/ManagementContributorsList';
 
 const ManagementContributors = ({ contributorsClub }) => {
-  console.log('contributorsClub', contributorsClub.members);
-
   return (
     <Box className="ManagementContributors ManagementContributors__Container">
-      <Box className="ManagementContributors__Sections">
-        <Box className="ManagementContributors__Section Main">
-          <ManagementContributorsList contributorsClub={contributorsClub} />
-          <ManagementContributorsActions contributorsClubActions={contributorsClub.actions} />
-        </Box>
-      </Box>
+      <ManagementContributorsList contributorsClub={contributorsClub} />
+      <ManagementContributorsActions
+        contributorsClubActions={contributorsClub.actions}
+        clubId={contributorsClub.id} />
     </Box>
   );
 };

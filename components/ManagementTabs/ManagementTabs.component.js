@@ -9,7 +9,6 @@ import {
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import { useSession } from 'next-auth/react';
 import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 import React from 'react';
@@ -25,37 +24,38 @@ const PATHS_TO_TAB_INDEX = {
     index: 0,
     key: 'main',
     routePattern: ROUTES.management.main,
-    Icon: DashboardIcon
+    Icon: DashboardIcon,
+    justForAdmins: false
   },
   [transformPath(ROUTES.management.integrations)]: {
     index: 1,
     key: 'integrations',
     routePattern: ROUTES.management.integrations,
-    Icon: IntegrationsIcon
+    Icon: IntegrationsIcon,
+    justForAdmins: true
   },
   [transformPath(ROUTES.management.contributors)]: {
     index: 2,
     key: 'contributors',
     routePattern: ROUTES.management.contributors,
-    Icon: ContributorsIcon
+    Icon: ContributorsIcon,
+    justForAdmins: true
   }
 }
 
-const ManagementTabs = ({ projectManagement }) => {
-  const { data: session, status } = useSession();
+const ManagementTabs = ({ projectManagement, isAdmin }) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const { t } = useTranslation('management.common');
   const router = useRouter();
-  const { pathname, asPath, query, locale, locales } = router;
+  const { pathname } = router;
 
   const selectedValue = PATHS_TO_TAB_INDEX[pathname];
-
   return (
     <Box className="ManagementTabs ManagementTabs__Container">
       <Box className="ManagementTabs__Title">
         <Typography variant="h8" color="primary">
-          {projectManagement.project.name}
+          {projectManagement?.project?.name}
         </Typography>
       </Box>
       <Tabs className='ManagementTabs_Tabs'
@@ -64,12 +64,12 @@ const ManagementTabs = ({ projectManagement }) => {
         variant={isMobile ? "fullWidth" : "standard"}>
         {/* variant={isMobile ? "scrollable" : "standard"}
         scrollButtons={isMobile ? "auto" : false}> */}
-        {Object.values(PATHS_TO_TAB_INDEX).map(({ key, routePattern, Icon }) => isMobile ?
+        {Object.values(PATHS_TO_TAB_INDEX).filter(({ justForAdmins }) => (!justForAdmins || isAdmin)).map(({ key, routePattern, Icon }) => isMobile ?
           <Tab key={key} onClick={() => {
-            router.push(resolveRoute(routePattern, projectManagement.id))
+            router.push(resolveRoute(routePattern, projectManagement?.id))
           }} icon={<Icon />} aria-label={t(`management.common.tabs.${key}`)} />
           : <Tab key={key} onClick={() => {
-            router.push(resolveRoute(routePattern, projectManagement.id))
+            router.push(resolveRoute(routePattern, projectManagement?.id))
           }} label={t(`management.common.tabs.${key}`)} />)}
       </Tabs>
     </Box>

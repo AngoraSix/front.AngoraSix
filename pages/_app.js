@@ -8,6 +8,7 @@ import A6App from '../components/App';
 import config from '../config';
 import reducers from '../store/reducers';
 import '../styles/App.css';
+import '../styles/ClubInvitations.css';
 import '../styles/Commons.css';
 import '../styles/IntegrationSourceSync.css';
 import '../styles/Layouts.css';

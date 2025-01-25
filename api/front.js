@@ -76,6 +76,11 @@ class FrontAPI {
     });
     return membersData;
   }
+
+  async inviteContributor(clubId, inviteData) {
+    const { data } = await this.axios.post(`/api/clubs/${clubId}/invitations`, inviteData);
+    return data;
+  }
 }
 
 export default FrontAPI;

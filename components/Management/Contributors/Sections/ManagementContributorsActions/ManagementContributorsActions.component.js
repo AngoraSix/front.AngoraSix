@@ -1,36 +1,24 @@
-import { Box, Button } from '@mui/material';
+import { Box } from '@mui/material';
 import PropTypes from 'prop-types';
 import React from 'react';
+import InviteContributorAction from './ActionStrategies/InviteContributorAction';
 import { CONTRIBUTORS_ACTIONS_SUPPORTED_KEYS } from './ManagementContributorsActions.properties';
 
-const ManagementContributorsActions = ({ contributorsClubActions }) => {
-    console.log("YESS?")
-    console.log(contributorsClubActions)
+const CONTRIBUTORS_ACTIONS = {
+    [CONTRIBUTORS_ACTIONS_SUPPORTED_KEYS.INVITE_CONTRIBUTOR]: InviteContributorAction
+};
 
-    const CONTRIBUTORS_ACTIONS = {
-        [CONTRIBUTORS_ACTIONS_SUPPORTED_KEYS.INVITE_CONTRIBUTOR]: (props) =>
-            <Button {...props}
-                onClick={(event) => {
-                    event.preventDefault();
-                }}
-                color="primary"
-                variant="contained">
-                INVITE
-            </Button>,
-    };
-
+const ManagementContributorsActions = ({ contributorsClubActions, clubId }) => {
     return (
         <Box className="ManagementContributorsActions ManagementContributorsActions__Container">
             {Object.entries(contributorsClubActions)
                 .map(([actionKey, actionData = {}]) => {
                     const ActionComponent = CONTRIBUTORS_ACTIONS[actionKey];
-                    console.log("ATRONE");
-                    console.log(actionKey);
-                    console.log(actionData.template?.method); //DIALOG HERE!
                     return ActionComponent ? (
                         <ActionComponent
                             key={actionKey}
-                            {...actionData}
+                            clubId={clubId}
+                            actionData={actionData}
                         />
                     ) : null;
                 }).filter((x) => x)}
@@ -43,6 +31,7 @@ ManagementContributorsActions.defaultProps = {
 
 ManagementContributorsActions.propTypes = {
     contributorsClubActions: PropTypes.object.isRequired,
+    clubId: PropTypes.string.isRequired,
 };
 
 export default ManagementContributorsActions;
