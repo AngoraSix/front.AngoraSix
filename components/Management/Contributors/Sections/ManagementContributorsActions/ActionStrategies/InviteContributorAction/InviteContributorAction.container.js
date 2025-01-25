@@ -9,8 +9,6 @@ import InviteContributorActionReducer, { INITIAL_STATE, setDialogOpened, updateF
 
 const _isInvalidForm = (currentFormState) => {
   return Object.entries(currentFormState).some(([key, value]) => {
-    console.log(key, value);
-    console.log(!isValidEmail(value));
     return key === 'email' && !isValidEmail(value);
   });
 }
@@ -25,7 +23,6 @@ const InviteContributorActionContainer = ({
       ...actionData.template.fields.flatMap(({ key }) => { return { [key]: '' } }).reduce((acc, curr) => ({ ...acc, ...curr }), {}),
     }
   });
-  console.log(formState);
   const { onSuccess, onError } = useNotifications();
   const { doLoad } = useLoading();
   const { t } = useTranslation('management.contributors');

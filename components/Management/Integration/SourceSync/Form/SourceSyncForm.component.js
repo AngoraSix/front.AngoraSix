@@ -30,7 +30,7 @@ const SourceSyncForm = ({
             <Box className="SourceSyncForm__Section SourceSyncForm__Section__Title">
               <Typography
                 className="SourceSyncForm__Title"
-                color="primary.main"
+                color="primary"
                 variant="subtitle1"
               >
                 {t(`management.integration.sourcesync.new.title.template.${source.toLowerCase()}.${currentStepObj.key}`).replace(':stepNumber', currentStepObj.index + 1)}
@@ -65,7 +65,7 @@ const SourceSyncForm = ({
         : (<Box className="SourceSyncForm__Section SourceSyncForm__Section__Title">
           <Typography
             className="SourceSyncForm__Title"
-            color="primary.main"
+            color="primary"
             variant="h4"
           >
             {t(`management.integration.sourcesync.new.title.completed`)}
@@ -77,7 +77,7 @@ const SourceSyncForm = ({
 
           <Typography
             className="SourceSyncForm__Title"
-            color="primary.main"
+            color="primary"
             variant="subtitle1"
           >
             {t(`management.integration.sourcesync.new.message.completed`)}

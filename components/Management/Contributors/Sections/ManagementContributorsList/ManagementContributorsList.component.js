@@ -29,7 +29,7 @@ const ManagementContributorsList = ({
                 align="center"
                 variant="h6"
                 component="h2"
-                color="primary.main"
+                color="primary"
             >
                 {t('management.contributors.list.title')}
             </Typography>

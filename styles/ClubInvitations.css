@@ -1,0 +1,15 @@
+/* Club Invitation*/
+.ClubInvitation__Container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ClubInvitation__Section {
+  margin: 1rem 0;
+}
+
+.ClubInvitation__Icon {
+  font-size: 5em;
+}

@@ -10,6 +10,7 @@ class Api {
       projects: env.API_PROJECTS_SERVER_APIGATEWAY_PATH || '/projects',
       managementIntegrations: env.API_MANAGEMENTINTEGRATIONS_SERVER_APIGATEWAY_PATH || '/management/integrations',
       contributors: env.API_CONTRIBUTORS_SERVER_APIGATEWAY_PATH || '/contributors',
+      clubs: env.API_CLUBS_SERVER_APIGATEWAY_PATH || '/clubs',
     };
     this.servicesAPIParams = {
       clubsProjectManagementMembersType:
