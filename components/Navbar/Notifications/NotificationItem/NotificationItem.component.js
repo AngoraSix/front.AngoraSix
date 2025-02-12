@@ -59,13 +59,12 @@ const NotificationItem = ({ notification, onNotificationAction }) => {
   return (
     <React.Fragment>
       <ListItem
-        className={`NotificationItem ${
-          notification.dismissedForUser ? 'NotificationItem--dismissed' : ''
-        }`}
+        className={`NotificationItem ${notification.dismissedForUser ? 'NotificationItem--dismissed' : ''
+          }`}
         style={{
           backgroundColor: notification.dismissedForUser
             ? null
-            : theme.palette.primary.light,
+            : theme.palette.secondary.main,
         }}
         alignItems="flex-start"
       >
@@ -92,12 +91,12 @@ const NotificationItem = ({ notification, onNotificationAction }) => {
                 fontSize="small"
               />
               <Typography
-                className={`NotificationItem__Title NotificationItem__Text ${
-                  notification.dismissedForUser
+                className={`NotificationItem__Title NotificationItem__Text ${notification.dismissedForUser
                     ? 'NotificationItem__Text--dismissed'
                     : ''
-                }`}
+                  }`}
                 variant="subtitle1"
+                color="secondary.contrastText"
               >
                 {notificationTitle}
               </Typography>
@@ -107,12 +106,11 @@ const NotificationItem = ({ notification, onNotificationAction }) => {
             <Typography
               component="span"
               variant="body2"
-              className={`NotificationItem__Message NotificationItem__Title NotificationItem__Text ${
-                notification.dismissedForUser
+              className={`NotificationItem__Message NotificationItem__Title NotificationItem__Text ${notification.dismissedForUser
                   ? 'NotificationItem__Text--dismissed'
                   : ''
-              }`}
-              color="textPrimary"
+                }`}
+              color="secondary.contrastText"
             >
               {notificationMessage}
             </Typography>

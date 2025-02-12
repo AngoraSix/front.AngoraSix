@@ -6,16 +6,17 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 const LinkAction = ({ url, text, dismissedForUser }) => {
-  const { t } = useTranslation('commons');
   const theme = useTheme();
+  const { t } = useTranslation('common');
+
   return (
     <React.Fragment>
       <a href={url} target="_blank">
         <Button
           variant="outlined"
           className={`NotificationItem__Actions__Button LinkAction__Button ${dismissedForUser
-              ? 'NotificationItem__Actions__Button--dismissed'
-              : ''
+            ? 'NotificationItem__Actions__Button--dismissed'
+            : ''
             }`}
           size="small"
           startIcon={<OpenInNewIcon />}

@@ -23,7 +23,7 @@ const ManagementContributorsPage = ({
   const project = projectManagementResponse.project;
 
   if (!session || session.error || !isAdmin || !projectManagementResponse) {
-    logger.error('Log in to see management dashboard');
+    logger.error('Log in to see management contributors');
     return (
       <ManagementDetailsLayout
         headData={{
@@ -94,7 +94,7 @@ export const getServerSideProps = async (ctx) => {
       const membersResponse = await api.contributors.listContributors(memberIds, validatedToken);
       const membersData = membersResponse.map((member) => ({
         ...member,
-        ...(members.find((m) => m.id === member.contributorId) || {}),
+        ...(members.find((m) => m.contributorId === member.id) || {}),
       }));
       contributorsClubResponse.members = membersData;
     }

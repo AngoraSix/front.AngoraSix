@@ -50,7 +50,8 @@ const InviteContributorActionInputDialog = ({
       className="ManagementContributorsActions__Dialog__Container"
       open={!!open}
       onClose={handleDialogClose}
-      maxWidth="xl"
+      maxWidth="sm"
+      fullWidth
       TransitionComponent={Transition}
     >
       <form onSubmit={onDialogSubmit}>

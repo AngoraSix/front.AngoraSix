@@ -1,6 +1,6 @@
 import NotificationsToReadIcon from '@mui/icons-material/Notifications';
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
-import { Badge, IconButton } from '@mui/material';
+import { Badge, Box, IconButton } from '@mui/material';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import NotificationsList from './NotificationsList.component';
@@ -25,8 +25,8 @@ const Notifications = ({
 
   return (
     <React.Fragment>
-      <div className="Navbar__Column Navbar__NotificationsIcon">
-        <IconButton onClick={onNotificationsClick}>
+      <Box className="Navbar__Column Navbar__NotificationsIcon">
+        <IconButton sx={{ color: 'primary.contrastText' }} onClick={onNotificationsClick}>
           {totalToRead ? (
             <Badge badgeContent={totalToRead} color="error" max={99}>
               <NotificationsToReadIcon />
@@ -35,7 +35,7 @@ const Notifications = ({
             <NotificationsNoneIcon />
           )}
         </IconButton>
-      </div>
+      </Box>
       {(isNotificationsOpen || hasImportantNotification) && (
         <NotificationsList
           notifications={notifications}

@@ -1,8 +1,8 @@
 {
   "name": "AngoraSix",
   "short_name": "A6",
-  "theme_color": "#47626B",
-  "background_color": "#A9BEC5",
+  "theme_color": "#0A2239",
+  "background_color": "#FFFFFF",
   "display": "minimal-ui",
   "scope": "/",
   "start_url": "/",

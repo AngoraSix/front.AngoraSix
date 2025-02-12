@@ -1,0 +1,1 @@
+export const getFromEnvsOrElse = (env, key, orElse) => env?.[key] || process.env[key] || orElse;
