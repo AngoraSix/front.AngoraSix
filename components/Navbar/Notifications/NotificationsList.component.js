@@ -22,8 +22,11 @@ const NotificationsList = ({
         !allNotifications.length ? 'Empty' : ''
       }`}
       style={{
-        backgroundColor: alpha(theme.palette.primary.dark, 0.25),
+        backgroundColor: theme.palette.primary.main,
       }}
+      // style={{
+      //   backgroundColor: alpha(theme.palette.primary.dark, 0.25),
+      // }}
     >
       <List className="NotificationsList__List">
         {allNotifications.map((notification) => (

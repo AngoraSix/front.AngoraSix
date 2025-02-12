@@ -13,14 +13,19 @@
 
 .App__Container .Navbar__Container {
   z-index: 1101;
+  height: 5rem;
 }
 
-.Navbar__Language {
-  color: #fafafa;
+.Navbar__Container__Internal {
+  flex-grow: 1;
+}
+
+.Navbar__Toolbar {
+  height: 100%;
 }
 
 .Navbar__Login__Icon {
-  color: #fafafa;
+  color: #ffffff;
 }
 
 .Navbar__Menu__Item:hover {
@@ -30,11 +35,48 @@
 .Navbar__Logo__Container {
   position: relative;
   height: 2.5em;
-  width: 2.5em;
+  width: 2.5rem;
 }
 
-.Navbar__Logo {
-  /* width: auto; */
-  /* height: 50px; */
+.Navbar__Element {
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  display: flex;
+  flex-grow: 0;
+  order: 2;
+}
+
+.Navbar__Element.Navbar__Logo {
   object-fit: contain;
+  justify-content: start;
+  flex-grow: 1;
+  margin: 0 1.5rem;
+}
+
+.Navbar__Language {
+  display: flex;
+  flex-grow: 0;
+}
+
+.Navbar__Element.Navbar__Notifications {
+  margin: 0 1rem 0 0;
+}
+
+@media (min-width: 600px) {
+  .Navbar__Element.Navbar__Logo {
+    order: 1;
+    flex-grow: 0;
+    margin: 0 1rem;
+  }
+
+  .Navbar__Element.Navbar__Notifications {
+    margin: 0 1.5rem 0 0.5rem;
+  }
+
+  .Navbar__Element.Navbar__Menu {
+    flex-grow: 1;
+    justify-content: start;
+    margin: 0 2rem;
+  }
 }

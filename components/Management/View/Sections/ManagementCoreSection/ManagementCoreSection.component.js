@@ -29,15 +29,14 @@ const ManagementCoreSection = ({ project, projectManagement }) => {
       <Box className="ManagementCoreSection__Status">
         <Box className="ManagementCoreSection__Field">
           <Box className="ManagementCoreSection__Field__Title">
-            <Typography align="center">
+            <Typography variant="h6" align="center" color="primary.contrastText">
               {t('management.view.status')}
             </Typography>
           </Box>
           <Box className="ManagementCoreSection__Field__Value">
             <Typography
               align="center"
-              variant="h6"
-              component="h4"
+              variant="body1"
               color="primary.contrastText"
             >
               {t(`management.view.status.${projectManagement.status}`)}

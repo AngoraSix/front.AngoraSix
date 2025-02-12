@@ -15,10 +15,12 @@ import '../styles/Layouts.css';
 import '../styles/ManagementContributorsList.css';
 import '../styles/ManagementIntegrationList.css';
 import '../styles/Navbar.css';
+import '../styles/Notifications.css';
 import '../styles/ProjectManagementForm.css';
 import '../styles/ProjectManagementView.css';
 import '../styles/globals.css';
-import { getEnv } from '../utils/env';
+import { getPublicEnv, removeSecrets } from '../utils/env';
+global.EventSource = require('eventsource');
 
 const AngoraSixWebApp = ({ Component, pageProps, preloadedState, env }) => {
   const store = createStore(reducers, preloadedState);
@@ -50,8 +52,8 @@ AngoraSixWebApp.propTypes = {
   env: PropTypes.object,
 };
 
-AngoraSixWebApp.getInitialProps = async ({ ctx }) => {
-  const env = getEnv();
+AngoraSixWebApp.getInitialProps = async () => {
+  const env = getPublicEnv();
 
   config.applyEnvConfig(env);
   api.applyEnvConfig(env);
@@ -62,7 +64,7 @@ AngoraSixWebApp.getInitialProps = async ({ ctx }) => {
 
   return {
     preloadedState,
-    env,
+    env: removeSecrets(env), // Just for a double-check before passing to front, there should be no AN_PUBLIC_APP_ keys at this point
   };
 };
 

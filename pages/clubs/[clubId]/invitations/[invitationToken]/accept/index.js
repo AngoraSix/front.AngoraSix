@@ -82,8 +82,6 @@ export const getServerSideProps = async (ctx) => {
           ...props,
           badRequestResponse
         };
-
-        console.log(badRequestResponse);
       } else {
         logger.error('err', err);
       }

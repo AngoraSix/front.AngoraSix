@@ -18,7 +18,7 @@ export const ACTION_IDS = {
   GATEWAY_NOTIFICATION_RESPOND: 'gatewayNotificationRespond',
 };
 
-const NotificationsContainer = ({}) => {
+const NotificationsContainer = ({ }) => {
   const { onError } = useNotifications();
   const [state, dispatch] = useReducer(NotificationsReducer, INITIAL_STATE);
   const { data: session } = useSession();
@@ -27,19 +27,20 @@ const NotificationsContainer = ({}) => {
     const initializeNotifications = async () => {
       if (session && !session.error && !state?.initialized) {
         try {
-          // await fetchNotifications();
-          // let eventSource = api.front.streamContributorNotifications();
-          // eventSource.onmessage = (m) => {
-          //   dispatch(newNotificationAction(JSON.parse(m.data)));
-          // };
+          await fetchNotifications();
+          let eventSource = api.front.streamContributorNotifications();
+          eventSource.onmessage = (m) => {
+            dispatch(newNotificationAction(JSON.parse(m.data)));
+          };
 
-          // eventSource.onerror = (e) => {
-          //   logger.error(`Error on EvenSource: ${JSON.stringify(e)}`);
-          //   eventSource.close();
-          // };
-          // return () => {
-          //   eventSource.close();
-          // };
+          eventSource.onerror = (e) => {
+            logger.error(`Error on EvenSource: ${JSON.stringify(e)}`);
+            debugger;
+            eventSource.close();
+          };
+          return () => {
+            eventSource.close();
+          };
         } catch (e) {
           onError(`Error retrieving contributor notifications: ${e}`);
         }

@@ -5,6 +5,7 @@ import ContributorsAPI from './contributors';
 import FrontAPI from './front';
 import ManagementIntegrationsAPI from './managementIntegrations';
 import ProjectsAPI from './projects';
+import NotificationsAPI from './notifications';
 
 class API {
   constructor() {
@@ -30,6 +31,10 @@ class API {
   get media() {
     return this.mediaAPI;
   }
+  
+  get notifications() {
+    return this.notificationsAPI;
+  }
 
   get contributors() {
     return this.contributorsAPI;
@@ -43,12 +48,16 @@ class API {
     this.frontAPI = new FrontAPI(
       new BaseAPI({
         baseURL: '/',
-      })
+      }),
+      config.api.frontLocalhost
     );
     this.projectsAPI = new ProjectsAPI(_getServiceAPI('projects', this.axios));
     this.managementIntegrationsAPI = new ManagementIntegrationsAPI(_getServiceAPI('managementIntegrations', this.axios));
     this.contributorsAPI = new ContributorsAPI(_getServiceAPI('contributors', this.axios));
     this.clubsAPI = new ClubsAPI(_getServiceAPI('clubs', this.axios));
+    this.notificationsAPI = new NotificationsAPI(
+      _getServiceAPI('notifications', this.axios)
+    );
   }
 }
 

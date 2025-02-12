@@ -24,7 +24,7 @@ const ManagementIntegrationsViewPage = ({
 
 
   if (!session || session.error || !isAdmin || !projectManagement) {
-    logger.error('Log in to see management dashboard');
+    logger.error('Log in to see management integrations');
     return (
       <ManagementDetailsLayout
         headData={{

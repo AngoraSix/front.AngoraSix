@@ -15,6 +15,8 @@ import {
   Tooltip,
   Typography,
 } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import Cookies from 'js-cookie';
 import { signIn, signOut, useSession } from 'next-auth/react';
 import { useTranslation } from 'next-i18next';
@@ -28,11 +30,12 @@ import { resolveRoute } from '../../utils/api/apiHelper';
 import Notifications from './Notifications';
 
 const Navbar = () => {
-  const { data: session, status } = useSession();
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const { data: session } = useSession();
   const { t } = useTranslation('common');
   const router = useRouter();
   const { pathname, asPath, query, locale, locales } = router;
-  const loading = status === 'loading';
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
   const [anchorElLanguage, setAnchorElLanguage] = useState(null);
@@ -50,6 +53,7 @@ const Navbar = () => {
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
+
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
   };
@@ -75,33 +79,12 @@ const Navbar = () => {
   return (
     <React.Fragment>
       <LinearProgress className="Navbar__ProgressBar" color="primary" />
-
       <AppBar className="Navbar Navbar__Container" position="fixed">
-        <Container maxWidth="xl">
-          <Toolbar>
-            <Box
-              className="Navbar__Logo__Container"
-              sx={{
-                mr: 2,
-                display: { xs: 'none', md: 'flex' },
-              }}
-            >
-              <Image
-                className="Navbar__Logo"
-                src={config.site.head.image.logo}
-                alt="AngoraSix"
-                title="AngoraSix"
-                placeholder="blur"
-                blurDataURL={config.site.head.image.logo}
-                sx={{ priority: { xs: false, md: true } }}
-                fill
-                sizes="(max-width: 768px) 2.5em,
-                  (max-width: 1200px) 2.5em,
-                  2.5em"
-              />
-            </Box>
-            <Box sx={{ flexGrow: 0, display: { xs: 'flex', md: 'none' } }}>
-              <IconButton
+        <Container className='Navbar__Container__Internal' maxWidth="xl">
+          <Toolbar className='Navbar__Toolbar'>
+            {/* MENU */}
+            <Box className="Navbar__Element Navbar__Menu">
+              {isMobile ? (<><IconButton
                 size="large"
                 aria-label="account of current user"
                 aria-controls="menu-appbar"
@@ -111,96 +94,173 @@ const Navbar = () => {
               >
                 <MenuIcon />
               </IconButton>
-              <Menu
-                id="menu-appbar"
-                anchorEl={anchorElNav}
-                anchorOrigin={{
-                  vertical: 'bottom',
-                  horizontal: 'left',
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'left',
-                }}
-                open={Boolean(anchorElNav)}
-                onClose={handleCloseNavMenu}
-                sx={{
-                  display: { xs: 'block', md: 'none' },
-                }}
-              >
-              </Menu>
+                <Menu
+                  id="menu-appbar"
+                  anchorEl={anchorElNav}
+                  anchorOrigin={{
+                    vertical: 'bottom',
+                    horizontal: 'left',
+                  }}
+                  keepMounted
+                  transformOrigin={{
+                    vertical: 'top',
+                    horizontal: 'left',
+                  }}
+                  open={Boolean(anchorElNav)}
+                  onClose={handleCloseNavMenu}
+                >
+                  <MenuItem
+                    key="managements"
+                    onClick={() =>
+                      router.push(ROUTES.projects.management.landing)
+                    }
+                  >
+                    <Typography
+                      textAlign="center"
+                      onClick={handleCloseNavMenu}
+                    >
+                      {t('navbar.menu.projects')}
+                    </Typography>
+                  </MenuItem>
+                </Menu></>) : (<Link href={ROUTES.projects.management.landing}>
+                  <Button
+                    className="Navbar__Menu__Item"
+                    variant="text"
+                    sx={{ color: 'primary.contrastText' }}
+                    onClick={handleCloseNavMenu}
+                  >
+                    {t('navbar.menu.projects')}
+                  </Button>
+                </Link>)}
             </Box>
-            <Box
-              className="Navbar__Logo__Container"
-              sx={{
-                flexGrow: 1,
-                display: { xs: 'flex', md: 'none' },
-              }}
+            {/* LOGO */}
+            {isMobile ? (<Box
+              className="Navbar__Element Navbar__Logo"
             >
-              <Image
-                className="Navbar__Logo"
-                src={config.site.head.image.logo}
-                alt="AngoraSix"
-                title="AngoraSix"
-                placeholder="blur"
-                blurDataURL={config.site.head.image.logo}
-                sx={{ priority: { xs: true, md: false } }}
-                fill
-                object-fit="contain"
-                sizes="(max-width: 768px) 2.5em,
-                  (max-width: 1200px) 2.5em,
-                  2.5em"
-              />
-            </Box>
-
-            <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            </Box>
+              <Link
+                href="/"
+              >
+                <Box
+                  className="Navbar__Logo__Container"
+                >
+                  <Image
+                    className="Navbar__Logo"
+                    src={config.site.head.image.logo}
+                    alt="Cooperativemos!"
+                    title="Cooperativemos!"
+                    placeholder="blur"
+                    blurDataURL={config.site.head.image.logo}
+                    fill
+                    sizes="(max-width: 600px) 2.5rem,
+                    2.5rem"
+                  />
+                </Box>
+              </Link>
+            </Box>) : (<Box
+              className="Navbar__Element Navbar__Logo"
+            >
+              <Link href="/">
+                <Box
+                  className="Navbar__Logo__Container"
+                >
+                  <Image
+                    className="Navbar__Logo"
+                    src={config.site.head.image.logo}
+                    alt="Cooperativemos!"
+                    title="Cooperativemos!"
+                    placeholder="blur"
+                    blurDataURL={config.site.head.image.logo}
+                    fill
+                    sizes="(max-width: 600px) 2.5rem,
+                    2.5rem"
+                  />
+                </Box>
+              </Link>
+            </Box>)}
             {/* LANGUAGE */}
-            <Box className="Navbar__Language" sx={{ flexGrow: 0 }}>
-              <Tooltip title={t('navbar.language.tooltip')}>
-                <Button
+            <Box className="Navbar__Element Navbar__Language">
+              {isMobile ? (<><Tooltip title={t('navbar.language.tooltip')}>
+                <IconButton
                   onClick={handleOpenLanguageMenu}
-                  sx={{ p: 0, color: 'primary.contrastText' }}
                   size="large"
                   variant="text"
-                  startIcon={<LanguageIcon />}
+                  sx={{ color: 'primary.contrastText' }}
                 >
-                  {locale.toUpperCase()}
-                </Button>
+                  <LanguageIcon />
+                </IconButton>
               </Tooltip>
-              <Menu
-                sx={{ mt: '45px' }}
-                id="menu-lang"
-                anchorEl={anchorElLanguage}
-                anchorOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }}
-                open={Boolean(anchorElLanguage)}
-                onClose={handleCloseLanguageMenu}
-              >
-                {otherLocales.map((l) => (
-                  <MenuItem
-                    key={l}
-                    value={l}
-                    onClick={async () => await handleChange(l)}
+                <Menu
+                  sx={{ mt: '45px' }}
+                  id="menu-lang"
+                  anchorEl={anchorElLanguage}
+                  anchorOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                  }}
+                  keepMounted
+                  transformOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                  }}
+                  open={Boolean(anchorElLanguage)}
+                  onClose={handleCloseLanguageMenu}
+                >
+                  {otherLocales.map((l) => (
+                    <MenuItem
+                      key={l}
+                      value={l}
+                      onClick={async () => await handleChange(l)}
+                    >
+                      {l.toUpperCase()}
+                    </MenuItem>
+                  ))}
+                </Menu></>) : (<><Tooltip title={t('navbar.language.tooltip')}>
+                  <Button
+                    onClick={handleOpenLanguageMenu}
+                    sx={{ color: 'primary.contrastText' }}
+                    size="large"
+                    variant="text"
+                    startIcon={<LanguageIcon />}
                   >
-                    {l.toUpperCase()}
-                  </MenuItem>
-                ))}
-              </Menu>
+                    <Typography sx={{ display: { xs: 'none', sm: 'block' } }} variant='body1'>
+                      {locale.toUpperCase()}
+                    </Typography>
+                  </Button>
+                </Tooltip>
+                  <Menu
+                    sx={{ mt: '45px' }}
+                    id="menu-lang"
+                    anchorEl={anchorElLanguage}
+                    anchorOrigin={{
+                      vertical: 'top',
+                      horizontal: 'right',
+                    }}
+                    keepMounted
+                    transformOrigin={{
+                      vertical: 'top',
+                      horizontal: 'right',
+                    }}
+                    open={Boolean(anchorElLanguage)}
+                    onClose={handleCloseLanguageMenu}
+                  >
+                    {otherLocales.map((l) => (
+                      <MenuItem
+                        key={l}
+                        value={l}
+                        onClick={async () => await handleChange(l)}
+                      >
+                        {l.toUpperCase()}
+                      </MenuItem>
+                    ))}
+                  </Menu></>)}
             </Box>
             {/* NOTIFICATIONS */}
-            <Notifications />
+            <Box className="Navbar__Element Navbar__Notifications">
+              <Notifications />
+            </Box>
             {/* PROFILE ICON */}
             {session ? (
-              <Box sx={{ flexGrow: 0 }}>
+              <Box className="Navbar__Element Navbar__Session__Data">
                 <Tooltip title={t('navbar.settings.tooltip')}>
                   <IconButton
                     onClick={handleOpenUserMenu}
@@ -246,29 +306,27 @@ const Navbar = () => {
                   </MenuItem>
                 </Menu>
               </Box>
-            ) : (
-              <Box sx={{ flexGrow: 0 }}>
-                <Button
-                  onClick={() => signIn('angorasixspring')}
-                  variant="contained"
-                  sx={{
-                    backgroundColor: 'primary.dark',
-                    display: { xs: 'none', sm: 'flex' },
-                  }}
-                  startIcon={<LoginIcon />}
-                  alt="login"
-                >
-                  {t('navbar.settings.menu.login')}
-                </Button>
-                <IconButton
-                  className="Navbar__Login__Icon"
-                  onClick={() => signIn('angorasixspring')}
-                  aria-label="login"
-                  sx={{ display: { xs: 'flex', sm: 'none' } }}
-                >
-                  <LoginIcon />
-                </IconButton>
-              </Box>
+            ) : (<Box className="Navbar__Element Navbar__Session__Login">
+              {isMobile ? <IconButton
+                className="Navbar__Login__Icon"
+                onClick={() => signIn('angorasixspring')}
+                aria-label="login"
+                sx={{ display: { xs: 'flex', sm: 'none' } }}
+              >
+                <LoginIcon />
+              </IconButton> : <Button
+                onClick={() => signIn('angorasixspring')}
+                variant="contained"
+                color="secondary"
+                sx={{
+                  display: { xs: 'none', sm: 'flex' },
+                }}
+                startIcon={<LoginIcon />}
+                alt="login"
+              >
+                {t('navbar.settings.menu.login')}
+              </Button>}
+            </Box>
             )}
           </Toolbar>
         </Container>
@@ -276,7 +334,7 @@ const Navbar = () => {
 
       {/* Another Toolbar just to fit the fixed position of Navbar */}
       <Toolbar />
-    </React.Fragment>
+    </React.Fragment >
   );
 };
 

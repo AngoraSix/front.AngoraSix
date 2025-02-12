@@ -1,0 +1,117 @@
+.NotificationsList.NotificationsList__Panel {
+  position: absolute;
+  flex-grow: 0;
+  max-width: 100%;
+  overflow-y: scroll;
+  top: 100%;
+  right: 7px;
+  max-height: 100vh;
+  padding-bottom: 10vh;
+  border-radius: 0 0 15px 15px;
+  padding-left: 6px;
+}
+
+.NotificationsList.NotificationsList__Panel.Empty {
+  padding: 2em;
+}
+
+.NotificationsList__Panel--loading > * {
+  margin-top: 10px;
+}
+
+.NotificationsList__List {
+  padding-bottom: 0;
+}
+
+.NotificationsList__LoadMore {
+  text-align: center;
+}
+
+.NotificationsList__LoadMore .NotificationsList__LoadMore__Button {
+  width: 100%;
+  border-radius: 5px 5px 15px 15px;
+}
+
+.NotificationItem {
+  border-radius: 15px;
+  margin-bottom: 10px;
+}
+
+.NotificationItem__TextContainer {
+  min-width: 80%;
+}
+
+.NotificationItem__Title {
+  margin-right: 8%;
+  font-size: 1.1rem;
+}
+
+.NotificationItem__Message {
+  font-size: 0.95rem;
+}
+
+.NotificationItem__AlertIcon {
+  position: absolute;
+  right: 20px;
+}
+
+.NotificationItem--dismissed {
+  background-color: #b2b2b2;
+  transition: background-color 1s;
+  -webkit-transition: background-color 1s;
+}
+
+.NotificationItem__Text--dismissed {
+  opacity: 60%;
+}
+
+.NotificationItem .NotificationItem__Actions {
+  flex-basis: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.NotificationItem .NotificationItem__Actions a {
+  text-decoration: none;
+}
+
+.NotificationItem .NotificationItem__Actions__Button {
+  color: #ffffff;
+}
+
+.NotificationItem .NotificationItem__Actions__TextInput {
+  background-color: rgba(255, 255, 255, 0.25);
+  border-radius: 5px;
+}
+
+.NotificationItem__Actions__Form {
+  min-width: 80%;
+}
+
+.NotificationItem .NotificationItem__Actions__Button--dismissed {
+  background-color: #b2b2b2;
+}
+
+@media (min-width: 768px) {
+  .NotificationsList.NotificationsList__Panel {
+    max-width: 40%;
+    max-height: 50vh;
+    border-radius: 0 0 15px 15px;
+    padding-bottom: 0;
+  }
+
+  .NotificationsList.NotificationsList__Panel::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .NotificationsList.NotificationsList__Panel::-webkit-scrollbar-track {
+    background: transparent;
+    margin: 15px;
+  }
+
+  .NotificationsList.NotificationsList__Panel::-webkit-scrollbar-thumb {
+    background-color: #47626b;
+    border-radius: 6px;
+  }
+}
