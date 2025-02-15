@@ -81,12 +81,18 @@ const IntegrationActionsContainer = ({ sourceKey, projectManagementId, integrati
     console.log("Update Source Sync Config not implemented yet");
   };
 
+  const onMatchPlatformUsers = async (sourceSyncId) => {
+    // NOT IMPLEMENTED YET: 
+    console.log("Match Platform Users not implemented yet");
+  };
+
   const actionFns = {
     onRedirectAuthorization,
     onDisableIntegration,
     onConfigSourceSync,
     onRequestFullSync,
-    onUpdateSourceSyncConfig
+    onUpdateSourceSyncConfig,
+    onMatchPlatformUsers
   };
 
   return <IntegrationActions

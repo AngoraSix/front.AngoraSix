@@ -4,4 +4,5 @@ export const INTEGRATION_ACTIONS_SUPPORTED_KEYS = {
   CONFIG_SOURCE_SYNC: 'configSourceSync',
   REQUEST_FULL_SYNC: 'requestFullSync',
   UPDATE_SOURCE_SYNC_CONFIG: 'updateSourceSyncConfig',
+  MATCH_PLATFORM_USERS: 'matchPlatformUsers',
 }
