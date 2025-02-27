@@ -1,3 +1,3 @@
-import MatchPlatformUsersAction from './MatchPlatformUsersAction.component';
+import MatchPlatformUsersActionContainer from './MatchPlatformUsersAction.container';
 
-export default MatchPlatformUsersAction;
+export default MatchPlatformUsersActionContainer;

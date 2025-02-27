@@ -4,7 +4,7 @@ import { useTranslation } from 'next-i18next';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-const MatchPlatformUsersAction = ({ sourceKey, sourceSyncId, onMatchPlatformUsers }) => {
+const MatchPlatformUsersAction = ({ sourceKey, sourceSyncId, integrationId, onTriggerMatchPlatformUsers }) => {
   const { t } = useTranslation('management.integration.list');
 
   return (
@@ -17,7 +17,7 @@ const MatchPlatformUsersAction = ({ sourceKey, sourceSyncId, onMatchPlatformUser
           startIcon={<UsersMatchIcon />}
           size="small"
           sx={{ display: { xs: 'none', sm: 'flex' } }}
-          onClick={() => onMatchPlatformUsers(sourceSyncId)}
+          onClick={() => onTriggerMatchPlatformUsers(sourceSyncId, integrationId)}
         >
           {t('management.integration.list.actions.matchplatformusers.text')}
         </Button>
@@ -25,7 +25,7 @@ const MatchPlatformUsersAction = ({ sourceKey, sourceSyncId, onMatchPlatformUser
           aria-label="register"
           color="primary"
           sx={{ display: { xs: 'flex', sm: 'none' } }}
-          onClick={() => onMatchPlatformUsers(sourceSyncId)}
+          onClick={() => onTriggerMatchPlatformUsers(sourceSyncId, integrationId)}
         >
           <UsersMatchIcon />
         </IconButton>
@@ -35,9 +35,10 @@ const MatchPlatformUsersAction = ({ sourceKey, sourceSyncId, onMatchPlatformUser
 };
 
 MatchPlatformUsersAction.propTypes = {
-  actionData: PropTypes.object.isRequired,
-  onMatchPlatformUsers: PropTypes.func.isRequired,
   integrationId: PropTypes.string.isRequired,
+  sourceKey: PropTypes.string.isRequired,
+  sourceSyncId: PropTypes.string.isRequired,
+  onTriggerMatchPlatformUsers: PropTypes.func.isRequired,
 };
 
 export default MatchPlatformUsersAction;

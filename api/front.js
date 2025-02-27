@@ -101,6 +101,26 @@ class FrontAPI {
     const { data } = await this.axios.post(`/api/clubs/${clubId}/invitations`, inviteData);
     return data;
   }
+
+  async getProjectManagement(managementId) {
+    const { data } = await this.axios.get(`/api/managements/${managementId}`);
+    return data;
+  }
+
+  async getWellKnownClub(projectId, clubType) {
+    const { data } = await this.axios.get(
+      `api/clubs/well-known/${projectId}/${clubType}`
+    );
+    return data;
+  }
+
+  async startPlatformUsersMatch(sourceSyncId, projectContributors) {
+    const { data } = await this.axios.post(`api/integrations/source-sync/${sourceSyncId}/mappings/users`,
+      {
+        projectContributors
+      });
+    return data;
+  }
 }
 
 export default FrontAPI;

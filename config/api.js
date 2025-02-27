@@ -18,7 +18,7 @@ class Api {
     };
     this.servicesAPIParams = {
       clubsProjectManagementMembersType:
-        getFromEnvsOrElse(env, 'A6_APP_APIPARAMS_CLUBS_WELLKNOWN_PROJECTMGMTMEMBERS', 'project-management-members'),
+        getFromEnvsOrElse(env, 'A6_PUBLIC_APP_APIPARAMS_CLUBS_WELLKNOWN_PROJECTMGMTMEMBERS', 'project-management-members'),
     };
     this.frontLocalhost = getFromEnvsOrElse(env, 'A6_PUBLIC_APP_API_EVENTSOURCE_LOCALHOST', 'https://localhost/');
   }

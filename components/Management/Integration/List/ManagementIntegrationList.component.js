@@ -34,7 +34,7 @@ const ManagementIntegrationList = ({ projectManagementId, managementIntegrations
               >
                 <ListItemAvatar className="ManagementIntegration__Listing__Item__Image">
                   <Avatar variant="rounded" sx={{ bgcolor: THIRD_PARTY[integration.source].color }}>
-                    <SvgIcon sx={{ fontSize: 22 }} component={THIRD_PARTY[integration.source].logo} inheritViewBox />
+                    <SvgIcon sx={{ fontSize: 22 }} component={THIRD_PARTY[integration.source].logo} viewBox="0 0 24 24" />
                   </Avatar>
                 </ListItemAvatar>
                 <ListItemText

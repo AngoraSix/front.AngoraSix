@@ -2,24 +2,24 @@ import { LoadingButton } from '@mui/lab';
 import { Box, CircularProgress, IconButton } from '@mui/material';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { INTEGRATION_ACTIONS_SUPPORTED_KEYS } from './IntegrationActions.properties';
-import RedirectAuthoziationRegistrationAction from './RedirectAuthorizationRegistrationAction';
-import DisableIntegrationAction from './DisableIntegrationAction';
 import ConfigSourceSyncAction from './ConfigSourceSyncAction';
+import DisableIntegrationAction from './DisableIntegrationAction';
+import { INTEGRATION_ACTIONS_SUPPORTED_KEYS } from './IntegrationActions.properties';
+import MatchPlatformUsersAction from './MatchPlatformUsersAction';
+import RedirectAuthoziationRegistrationAction from './RedirectAuthorizationRegistrationAction';
 import RequestFullSyncAction from './RequestFullSyncAction';
 import UpdateSourceSyncConfigAction from './UpdateSourceSyncConfigAction';
-import MatchPlatformUsersAction from './MatchPlatformUsersAction';
 
 const INTEGRATIONS_ACTION_STRATEGIES = {
   [INTEGRATION_ACTIONS_SUPPORTED_KEYS.REDIRECT_AUTHORIZATION]: RedirectAuthoziationRegistrationAction,
   [INTEGRATION_ACTIONS_SUPPORTED_KEYS.DISABLE_INTEGRATION]: DisableIntegrationAction,
-  [INTEGRATION_ACTIONS_SUPPORTED_KEYS.CONFIG_SOURCE_SYNC]: ConfigSourceSyncAction,
+  [INTEGRATION_ACTIONS_SUPPORTED_KEYS.START_CONFIG_SOURCE_SYNC]: ConfigSourceSyncAction,
   [INTEGRATION_ACTIONS_SUPPORTED_KEYS.REQUEST_FULL_SYNC]: RequestFullSyncAction,
   [INTEGRATION_ACTIONS_SUPPORTED_KEYS.UPDATE_SOURCE_SYNC_CONFIG]: UpdateSourceSyncConfigAction,
-  [INTEGRATION_ACTIONS_SUPPORTED_KEYS.MATCH_PLATFORM_USERS]: MatchPlatformUsersAction,
+  [INTEGRATION_ACTIONS_SUPPORTED_KEYS.START_MATCH_PLATFORM_USERS]: MatchPlatformUsersAction,
 };
 
-const IntegrationActions = ({sourceKey, projectManagementId, integrationId, sourceSyncId, actions, actionFns, isProcessing }) => {
+const IntegrationActions = ({ sourceKey, projectManagementId, integrationId, sourceSyncId, actions, actionFns, isProcessing }) => {
   return (
     <Box className="IntegrationItem__Actions">
       {isProcessing ?

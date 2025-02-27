@@ -19,7 +19,7 @@ module.exports = {
 
   i18n,
   images: {
-    domains: ['storage.googleapis.com', 'i.ytimg.com', 'googleusercontent.com', 'localhost', 'gateway'],
+    domains: ['trello-members.s3.amazonaws.com', 'storage.googleapis.com', 'i.ytimg.com', 'googleusercontent.com', 'localhost', 'gateway'],
   },
   output: 'standalone',
 };

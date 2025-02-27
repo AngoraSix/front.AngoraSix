@@ -1,35 +1,21 @@
 import { toType } from '../utils/helpers';
 import { processHateoasActions } from '../utils/rest/hateoas/hateoasUtils';
 import Media from './Media';
+import Contributor from './Contributor';
 
-export default class ClubMemberContributor {
+export default class ClubMemberContributor extends Contributor {
   constructor(memberContributorObject) {
+    super(memberContributorObject);
     const {
-      id,
       contributorId,
       roles,
       data,
       status,
-      providerUsers,
-      email,
-      firstName,
-      lastName,
-      profileMedia,
-      headMedia
     } = memberContributorObject;
-
-    this.id = id;
     this.contributorId = contributorId;
     this.roles = roles;
     this.data = data;
     this.status = status;
-    this.providerUsers = providerUsers;
-    this.email = email;
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.profileMedia = toType(profileMedia, Media, true);
-    this.headMedia = toType(headMedia, Media, true);
-    this.actions = processHateoasActions(memberContributorObject);
   }
 
 

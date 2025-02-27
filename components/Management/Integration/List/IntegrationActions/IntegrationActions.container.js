@@ -52,11 +52,12 @@ const IntegrationActionsContainer = ({ sourceKey, projectManagementId, integrati
   };
 
   const onConfigSourceSync = async (integrationId) => {
-    const configSourceSyncRoute = resolveRoute(
-      ROUTES.integrations.sourceSync.new,
+    const startConfigSourceSyncRoute = resolveRoute(
+      ROUTES.management.integrations.sourceSync.new,
+      projectManagementId,
       integrationId,
     );
-    let newModal = window.open(configSourceSyncRoute, 'source_sync_process', 'width=800,height=600,left=200,top=100');
+    let newModal = window.open(startConfigSourceSyncRoute, 'source_sync_process', 'width=800,height=600,left=200,top=100');
     window.addEventListener('message', (event) => {
       if (event.origin === window.location.origin && event.data.type === INTERCOMMUNICATION_KEYS.sourceSyncCompleted) {
         setModal(null);
@@ -81,9 +82,27 @@ const IntegrationActionsContainer = ({ sourceKey, projectManagementId, integrati
     console.log("Update Source Sync Config not implemented yet");
   };
 
-  const onMatchPlatformUsers = async (sourceSyncId) => {
-    // NOT IMPLEMENTED YET: 
-    console.log("Match Platform Users not implemented yet");
+  const onMatchPlatformUsers = async (isProcessing) => {
+    setIsProcessing(isProcessing);
+
+    // const startConfigSourceSyncRoute = resolveRoute(
+    //   ROUTES.management.integrations.sourceSync.usersMatch,
+    //   projectManagementId,
+    //   integrationId,
+    //   sourceSyncId
+    // );
+    // let newModal = window.open(startConfigSourceSyncRoute, 'platform_users_matching_process', 'width=800,height=600,left=200,top=100');
+    // window.addEventListener('message', (event) => {
+    //   if (event.origin === window.location.origin && event.data.type === INTERCOMMUNICATION_KEYS.sourceSyncCompleted) {
+    //     setModal(null);
+    //     updateIntegration(event.data.data);
+    //     setIsProcessing(false);
+    //   } else {
+    //     console.warn('Message origin not trusted:', event.origin);
+    //   }
+    // });
+    // setIsProcessing(true);
+    // setModal(newModal);
   };
 
   const actionFns = {
