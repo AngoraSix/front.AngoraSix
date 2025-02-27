@@ -93,13 +93,12 @@ const SourceUserDropDown = ({
               onClick={() => handleMenuItemClick(null, -1)} />
           </MenuItem>
           {fieldSpec?.options.inline.map((option, index) => {
-            return (<>
+            return (
               <MenuItem
                 key={option.value}
                 onClick={() => handleMenuItemClick(option.value, index)}>
                 <SourceUserCard userData={option.promptData} onClick={() => handleMenuItemClick(option.promptData.id, index)} />
-              </MenuItem>
-            </>)
+              </MenuItem>)
           })}
         </MenuList>
       </Menu>
@@ -110,7 +109,6 @@ SourceUserDropDown.defaultProps = {
 };
 
 SourceUserDropDown.propTypes = {
-  contributorId: PropTypes.string.isRequired,
   fieldSpec: PropTypes.object.isRequired,
 };
 

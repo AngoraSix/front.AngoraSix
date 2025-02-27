@@ -21,7 +21,7 @@ const SourceSyncUsersMatch = ({
   const { t } = useTranslation('management.integration.sourcesync.users');
 
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
   const usersToMatch = Object.entries(contributorMatches)
   return <Box
@@ -33,67 +33,68 @@ const SourceSyncUsersMatch = ({
     >
       {t('management.integration.sourcesync.users.match.title')}
     </Typography>
-    <Box className="SourceSyncUsersMatch__Grid__Container">
-      {usersToMatch.length ?
-        (<Grid container rowSpacing={7} className="SourceSyncUsersMatch__Grid">
-          {usersToMatch.map(([contributorId, matchSpec], index) => {
-            return <>
-              <Grid key={contributorId} container rowSpacing={0.5}>
-                <Grid
-                  key={`${contributorId}-a6`}
-                  xs={12}
-                  sm={5}
-                  className='SourceSyncUsersMatch__Grid__Element A6User Left'
-                >
-                  <A6UserCard contributorId={contributorId} fieldSpec={matchSpec} />
-                </Grid>
-
-                <Grid
-                  key={`${contributorId}-matchIcon`}
-                  xs={12}
-                  sm={1}
-                  className='SourceSyncUsersMatch__Grid__Element'
-                >
-                  <Box className="SourceSyncUsersMatch__Grid__Element__MatchIcon">
-                    {isMobile ? <ToDownIcon /> : <ToRightIcon />}
-                  </Box>
-                </Grid>
-                <Grid
-                  key={`${contributorId}-source`}
-                  xs={12}
-                  sm={6}
-                  className='SourceSyncUsersMatch__Grid__Element A6User Right'
-                >
-                  <SourceUserDropDown
-                    onSelectMember={onMemberMatchSelect(contributorId)}
-                    fieldSpec={matchSpec}
-                    sourceData={THIRD_PARTY[sourceKey]}
-                    selectedIndex={matchSpec.selectedIndex} />
-                </Grid>
+    {usersToMatch.length ? (<Box className="SourceSyncUsersMatch__Grid__Container">
+      <Grid container rowSpacing={{ xs: 7, md: 0 }} className="SourceSyncUsersMatch__Grid">
+        {usersToMatch.map(([contributorId, matchSpec], index) => {
+          return <React.Fragment key={contributorId}>
+            <Grid
+              className="SourceSyncUsersMatch__Grid__Contributor"
+              container
+              sm={12}
+              rowSpacing={{ xs: 0.5, md: 0 }}>
+              <Grid
+                key={`${contributorId}-a6`}
+                xs={12}
+                md={5}
+                className='SourceSyncUsersMatch__Grid__Element'
+              >
+                <A6UserCard contributorId={contributorId} fieldSpec={matchSpec} />
               </Grid>
 
-              {usersToMatch.length > index + 1 && <Grid
-                key={`${contributorId}-divider`}
+              <Grid
+                key={`${contributorId}-matchIcon`}
                 xs={12}
-                sm={0}
-                className='SourceSyncUsersMatch__Grid__Element__Divider'
+                md={2}
+                className='SourceSyncUsersMatch__Grid__Element'
               >
-                <Divider variant="middle" className="SourceSyncUsersMatch__Grid__Element__MatchIcon" />
-              </Grid>}
-            </>
-          })}
+                <Box className="SourceSyncUsersMatch__Grid__Element__MatchIcon">
+                  {isMobile ? <ToDownIcon /> : <ToRightIcon />}
+                </Box>
+              </Grid>
+              <Grid
+                key={`${contributorId}-source`}
+                xs={12}
+                md={5}
+                className='SourceSyncUsersMatch__Grid__Element A6User Right'
+              >
+                <SourceUserDropDown
+                  onSelectMember={onMemberMatchSelect(contributorId)}
+                  fieldSpec={matchSpec}
+                  sourceData={THIRD_PARTY[sourceKey]}
+                  selectedIndex={matchSpec.selectedIndex} />
+              </Grid>
+            </Grid>
 
-          <Box className="SourceSyncUsersMatch__Grid__Actions_Submit">
-            <Button onClick={onSubmit} variant="contained" color="primary">
-              {t('management.integration.sourcesync.users.match.submit')}
-            </Button>
+            {usersToMatch.length > index + 1 && <Grid
+              key={`${contributorId}-divider`}
+              xs={12}
+              md={0}
+              className='SourceSyncUsersMatch__Grid__Element__Divider'
+            >
+              <Divider variant="middle" className="SourceSyncUsersMatch__Grid__Element__MatchIcon" />
+            </Grid>}
+          </React.Fragment>
+        })}
+        <Box className="SourceSyncUsersMatch__Grid__Actions_Submit">
+          <Button onClick={onSubmit} variant="contained" color="primary">
+            {t('management.integration.sourcesync.users.match.submit')}
+          </Button>
 
-          </Box>
-        </Grid>) : (<Box>
-          <ListSkeleton />
-        </Box>)
-      }
-    </Box>
+        </Box>
+      </Grid>
+    </Box>) : (<Box className="SourceSyncUsersMatch__Grid__Container">
+      <ListSkeleton />
+    </Box>)}
   </Box >
 };
 
@@ -104,12 +105,10 @@ SourceSyncUsersMatch.defaultProps = {
 };
 
 SourceSyncUsersMatch.propTypes = {
-  formData: PropTypes.object.isRequired,
+  contributorMatches: PropTypes.object.isRequired,
   projectPresentation: PropTypes.object,
-  onFormChange: PropTypes.func.isRequired,
+  onMemberMatchSelect: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
-  wasSubmitted: PropTypes.bool,
-  setIsSectionCompleted: PropTypes.func,
 };
 
 export default SourceSyncUsersMatch;

@@ -54,13 +54,15 @@ const SourceSyncUsersMatchContainer = ({
         }));
       }
     }
-    if (!!initialUsersMatchingResponse && !!contributorsResponse) {
-      dispatch(setupState({
-        userMatchingFieldSpecs: initialUsersMatchingResponse,
-        contributorsData: contributorsResponse.map((contributor) => toType(contributor, Contributor))
-      }));
-    } else if (isDialogOpen) {
-      initializeUserMatching();
+    if (!formState.initialized) {
+      if (!!initialUsersMatchingResponse && !!contributorsResponse) {
+        dispatch(setupState({
+          userMatchingFieldSpecs: initialUsersMatchingResponse,
+          contributorsData: contributorsResponse.map((contributor) => toType(contributor, Contributor))
+        }));
+      } else if (isDialogOpen) {
+        initializeUserMatching();
+      }
     }
   }, [initialUsersMatchingResponse, contributorsResponse, isDialogOpen]);
 
@@ -82,8 +84,6 @@ const SourceSyncUsersMatchContainer = ({
       let userMatchingToSubmit = Object.fromEntries(
         Object.entries(formState.matches).map(([key, obj]) => [key, obj.value])
       );
-      console.log("GERGERGER EN SUBMITT")
-      console.log(userMatchingToSubmit);
 
       onSuccess(
         t('management.integration.sourcesync.users.notifications.success.saved')

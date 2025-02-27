@@ -13,6 +13,7 @@ export const setupState = (payload) => ({
 
 export const INITIAL_STATE = {
   matches: {},
+  initialized: false
 };
 
 const SourceSyncUsersMatchReducer = (state = INITIAL_STATE, action) => {
@@ -46,6 +47,7 @@ const SourceSyncUsersMatchReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         matches: { ...fields },
+        initialized: true,
       };
     default:
       return state;
