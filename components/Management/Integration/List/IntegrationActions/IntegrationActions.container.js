@@ -76,6 +76,15 @@ const IntegrationActionsContainer = ({ sourceKey, projectManagementId, integrati
     updateSourceSync(sourceSyncResponse);
   };
 
+  const onGetSourceSync = async (sourceSyncId) => {
+    // NOT IMPLEMENTED YET: 
+    setIsProcessing(true);
+    const sourceSyncResponse = await api.front.getSourceSync(sourceSyncId);
+    // updateSourceSync(sourceSyncResponse);
+    console.log("Source Sync Response: ", sourceSyncResponse);
+    setIsProcessing(false);
+  };
+
   const onUpdateSourceSyncConfig = async (sourceSyncId) => {
     // NOT IMPLEMENTED YET: 
     console.log("Update Source Sync Config not implemented yet");
@@ -86,7 +95,8 @@ const IntegrationActionsContainer = ({ sourceKey, projectManagementId, integrati
     onDisableIntegration,
     onConfigSourceSync,
     onRequestFullSync,
-    onUpdateSourceSyncConfig
+    onUpdateSourceSyncConfig,
+    onGetSourceSync
   };
 
   return <IntegrationActions
