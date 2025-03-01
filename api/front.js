@@ -87,6 +87,14 @@ class FrontAPI {
     return data;
   }
 
+  async registerMappingUsers(sourceSyncId, usersMappingData) {
+    const { data } = await this.axios.patch(
+      `api/integrations/source-sync/${sourceSyncId}`,
+      createPatchBody(PATCH_SUPPORTED_OPERATIONS.REPLACE, `mappings/users`, usersMappingData)
+    );
+    return data;
+  }
+
   async getContributors(contributorIds) {
     const contributorIdsArray = Array.isArray(contributorIds)
       ? contributorIds

@@ -40,7 +40,7 @@ const SourceSyncUsersMatchReducer = (state = INITIAL_STATE, action) => {
           value,
           contributorData,
           options: fieldSpec.options,
-          selectedIndex: contributorData.options?.inline?.findIndex(option => option.id === value),
+          selectedIndex: fieldSpec.options?.inline?.findIndex(option => option.value === value),
         };
         return acc;
       }, {});

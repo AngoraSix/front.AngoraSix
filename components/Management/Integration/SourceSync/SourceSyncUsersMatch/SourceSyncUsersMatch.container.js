@@ -84,17 +84,22 @@ const SourceSyncUsersMatchContainer = ({
       let userMatchingToSubmit = Object.fromEntries(
         Object.entries(formState.matches).map(([key, obj]) => [key, obj.value])
       );
-
+      const sourceSyncPatchResponse = await api.front.registerMappingUsers(sourceSyncId, userMatchingToSubmit);
+      doLoad(false);
       onSuccess(
         t('management.integration.sourcesync.users.notifications.success.saved')
       );
 
-      const viewURL = resolveRoute(ROUTES.management.integrations.view, projectManagementId);
       if (isTriggeredAction) {
-        router.push(viewURL, viewURL, { shallow: true });
         onDialogClose();
       } else {
+        const viewURL = resolveRoute(ROUTES.management.integrations.view, projectManagementId);
         // console.log TODO CHANGE HERE, onLargerProcessFinish() (will show complete OK and close modal);
+        // check window.opener ? if exists, post message and close window
+        // or otherwise simply router.push?
+
+        // window.opener.postMessage({ type: INTERCOMMUNICATION_KEYS.registrationCompleted, data: registrationResponse }, window.location.origin);
+        // window.close();
         router.push(viewURL);
       }
     } catch (err) {
@@ -103,7 +108,6 @@ const SourceSyncUsersMatchContainer = ({
       doLoad(false);
     }
   };
-
   return isTriggeredAction ? (
     <SourceSyncUsersMatchDialog
       managementId={projectManagementId}

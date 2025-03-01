@@ -40,7 +40,7 @@ const SourceSyncUsersMatch = ({
             <Grid
               className="SourceSyncUsersMatch__Grid__Contributor"
               container
-              sm={12}
+              xs={12}
               rowSpacing={{ xs: 0.5, md: 0 }}>
               <Grid
                 key={`${contributorId}-a6`}
