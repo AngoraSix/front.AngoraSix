@@ -68,6 +68,24 @@ class ProjectManagementIntegrationsAPI {
     return data;
   }
 
+  async getSourceSync(sourceSyncId, token) {
+    const headers = this.axios.getCommonHeaders();
+    const authHeaders = this.axios.getAuthorizationHeaders(token, false);
+    const infraHeaders = await obtainInfraHeaders(
+      config.infra,
+      config.api.serverBaseURL
+    );
+
+    const { data } = await this.axios.get(`/source-sync/${sourceSyncId}`, {
+      headers: {
+        ...headers,
+        ...authHeaders,
+        ...infraHeaders,
+      },
+    });
+    return data;
+  }
+
   async patchSourceSync(patchBody, sourceSyncId, token) {
     const headers = this.axios.getCommonHeaders();
     const authHeaders = this.axios.getAuthorizationHeaders(token, false);

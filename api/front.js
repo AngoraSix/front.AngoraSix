@@ -95,6 +95,13 @@ class FrontAPI {
     return data;
   }
 
+  async getSourceSync(sourceSyncId) {
+    const { data } = await this.axios.get(
+      `api/integrations/source-sync/${sourceSyncId}`,
+    )
+    return data;
+  }
+
   async getContributors(contributorIds) {
     const contributorIdsArray = Array.isArray(contributorIds)
       ? contributorIds

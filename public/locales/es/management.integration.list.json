@@ -13,6 +13,8 @@
     "management.integration.list.actions.updatesyncconfig.tooltip.template": "Configurar sincronizacion de tareas de :source",
     "management.integration.list.actions.matchplatformusers.text": "Asociar usuarios",
     "management.integration.list.actions.matchplatformusers.tooltip.template": "Asociar los colaboradores con los usuarios de :source",
+    "management.integration.list.actions.getsourcesync.tooltip.template": "Ver estado de sincronizacion de :source",
+    "management.integration.list.actions.getsourcesync.text": "Ver estado",
     "management.integration.list.title": "Integraciones de Administración",
     "management.integration.list.empty-message": "No se encontraron integraciones"
 }

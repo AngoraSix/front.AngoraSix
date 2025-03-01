@@ -9,6 +9,7 @@ import MatchPlatformUsersAction from './MatchPlatformUsersAction';
 import RedirectAuthoziationRegistrationAction from './RedirectAuthorizationRegistrationAction';
 import RequestFullSyncAction from './RequestFullSyncAction';
 import UpdateSourceSyncConfigAction from './UpdateSourceSyncConfigAction';
+import GetSourceSyncAction from './GetSourceSyncAction';
 
 const INTEGRATIONS_ACTION_STRATEGIES = {
   [INTEGRATION_ACTIONS_SUPPORTED_KEYS.REDIRECT_AUTHORIZATION]: RedirectAuthoziationRegistrationAction,
@@ -17,6 +18,7 @@ const INTEGRATIONS_ACTION_STRATEGIES = {
   [INTEGRATION_ACTIONS_SUPPORTED_KEYS.REQUEST_FULL_SYNC]: RequestFullSyncAction,
   [INTEGRATION_ACTIONS_SUPPORTED_KEYS.UPDATE_SOURCE_SYNC_CONFIG]: UpdateSourceSyncConfigAction,
   [INTEGRATION_ACTIONS_SUPPORTED_KEYS.START_MATCH_PLATFORM_USERS]: MatchPlatformUsersAction,
+  [INTEGRATION_ACTIONS_SUPPORTED_KEYS.GET_SOURCE_SYNC]: GetSourceSyncAction,
 };
 
 const IntegrationActions = ({ sourceKey, projectManagementId, integrationId, sourceSyncId, actions, actionFns, isProcessing }) => {
