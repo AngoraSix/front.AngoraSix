@@ -87,6 +87,14 @@ class FrontAPI {
     return data;
   }
 
+  async registerMappingUsers(sourceSyncId, usersMappingData) {
+    const { data } = await this.axios.patch(
+      `api/integrations/source-sync/${sourceSyncId}`,
+      createPatchBody(PATCH_SUPPORTED_OPERATIONS.REPLACE, `mappings/users`, usersMappingData)
+    );
+    return data;
+  }
+
   async getSourceSync(sourceSyncId) {
     const { data } = await this.axios.get(
       `api/integrations/source-sync/${sourceSyncId}`,
@@ -106,6 +114,26 @@ class FrontAPI {
 
   async inviteContributor(clubId, inviteData) {
     const { data } = await this.axios.post(`/api/clubs/${clubId}/invitations`, inviteData);
+    return data;
+  }
+
+  async getProjectManagement(managementId) {
+    const { data } = await this.axios.get(`/api/managements/${managementId}`);
+    return data;
+  }
+
+  async getWellKnownClub(projectId, clubType) {
+    const { data } = await this.axios.get(
+      `api/clubs/well-known/${projectId}/${clubType}`
+    );
+    return data;
+  }
+
+  async startPlatformUsersMatch(sourceSyncId, projectContributors) {
+    const { data } = await this.axios.post(`api/integrations/source-sync/${sourceSyncId}/mappings/users`,
+      {
+        projectContributors
+      });
     return data;
   }
 }

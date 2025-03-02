@@ -37,10 +37,10 @@ const ManagementContributorsList = ({
                 <List className="ManagementContributorsList__Listing" dense>
                     {contributorsClub.members.map((member) => {
                         return (
-                            <React.Fragment key={member.id}>
+                            <React.Fragment key={member.contributorId}>
                                 <ListItem
                                     className="ManagementContributorsList__Listing__Item"
-                                    key={member.id}
+                                    key={member.contributorId}
                                 >
                                     <ListItemButton
                                         onClick={(e) => {

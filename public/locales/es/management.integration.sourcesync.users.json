@@ -1,0 +1,8 @@
+{
+    "management.integration.sourcesync.users.page.title": "Asociar usuarios de plataformas",
+    "management.integration.sourcesync.users.page.description": "Asocie los usuarios de las diferentes plataformas",
+    "management.integration.sourcesync.users.notifications.success.saved": "La asociación de usuarios se ha registrado correctamente.",
+    "management.integration.sourcesync.users.match.title": "Asociar usuarios de plataformas",
+    "management.integration.sourcesync.users.match.options.unassigned": "Sin asignar",
+    "management.integration.sourcesync.users.match.submit": "Enviar"
+}

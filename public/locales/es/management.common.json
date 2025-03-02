@@ -1,5 +1,7 @@
 {
-    "management.common.tabs.main": "Panel de control",
+    "management.common.tabs.dashboard": "Panel de control",
     "management.common.tabs.contributors": "Contribuidores",
-    "management.common.tabs.integrations": "Integraciones"
+    "management.common.tabs.integrations": "Integraciones",
+    "management.common.page.loading.title": "Información de administración",
+    "management.common.page.loading.description": "Información de administración para el proyecto"
 }

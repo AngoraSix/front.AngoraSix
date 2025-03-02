@@ -1,5 +1,5 @@
 {
-    "management.common.tabs.main": "Dashboard",
+    "management.common.tabs.dashboard": "Dashboard",
     "management.common.tabs.contributors": "Contributors",
     "management.common.tabs.integrations": "Integrations",
     "management.common.page.loading.title": "Management information",

@@ -60,7 +60,6 @@ const ProjectManagementViewPage = ({
 };
 
 ProjectManagementViewPage.defaultProps = {
-  isAdmin: false,
   projectManagementActions: {},
 };
 
@@ -80,6 +79,7 @@ export const getServerSideProps = async (ctx) => {
     session?.error !== 'RefreshAccessTokenError' ? session : null;
 
   try {
+    
     const projectManagement = await api.projects.getProjectManagement(
       managementId,
       validatedToken

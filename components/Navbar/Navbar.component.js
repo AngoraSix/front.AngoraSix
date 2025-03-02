@@ -146,8 +146,8 @@ const Navbar = () => {
                   <Image
                     className="Navbar__Logo"
                     src={config.site.head.image.logo}
-                    alt="Cooperativemos!"
-                    title="Cooperativemos!"
+                    alt="Angorasix"
+                    title="AngoraSix"
                     placeholder="blur"
                     blurDataURL={config.site.head.image.logo}
                     fill
@@ -166,8 +166,8 @@ const Navbar = () => {
                   <Image
                     className="Navbar__Logo"
                     src={config.site.head.image.logo}
-                    alt="Cooperativemos!"
-                    title="Cooperativemos!"
+                    alt="AngoraSix"
+                    title="AngoraSix"
                     placeholder="blur"
                     blurDataURL={config.site.head.image.logo}
                     fill

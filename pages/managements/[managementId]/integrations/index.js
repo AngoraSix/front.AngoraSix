@@ -103,6 +103,7 @@ export const getServerSideProps = async (ctx) => {
         'common',
         'management.common',
         'management.integration.list',
+        'management.integration.sourcesync.users'
       ])),
     },
   };

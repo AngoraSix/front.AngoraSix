@@ -11,6 +11,8 @@
     "management.integration.list.actions.fullsync.tooltip.template": "Request full task sync for :source",
     "management.integration.list.actions.updatesyncconfig.text": "Re-config",
     "management.integration.list.actions.updatesyncconfig.tooltip.template": "Configure task syncing for :source",
+    "management.integration.list.actions.matchplatformusers.text": "Match Users",
+    "management.integration.list.actions.matchplatformusers.tooltip.template": "Match the contributors with the :source users",
     "management.integration.list.actions.getsourcesync.tooltip.template": "Check sync status for :source",
     "management.integration.list.actions.getsourcesync.text": "Check",
     "management.integration.list.title": "Management Integrations",

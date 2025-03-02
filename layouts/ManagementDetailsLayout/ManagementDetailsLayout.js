@@ -2,7 +2,7 @@ import { Box, Paper } from '@mui/material';
 import Head from 'next/head';
 import PropTypes from 'prop-types';
 import React from 'react';
-import ManagementTabs from '../../components/ManagementTabs';
+import ManagementTabs from '../../components/Management/ManagementTabs';
 import Navbar from '../../components/Navbar';
 import config from '../../config';
 

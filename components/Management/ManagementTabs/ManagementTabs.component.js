@@ -12,25 +12,25 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 import React from 'react';
-import { ROUTES } from '../../constants/constants';
-import { resolveRoute } from '../../utils/api/apiHelper';
+import { ROUTES } from '../../../constants/constants';
+import { resolveRoute } from '../../../utils/api/apiHelper';
 
 function transformPath(path) {
   return path.replace(/\/:(\w+)/g, '/[$1]').replace(/\/management\//, '/managements/');
 }
 
 const PATHS_TO_TAB_INDEX = {
-  [transformPath(ROUTES.management.main)]: {
+  [transformPath(ROUTES.management.dashboard)]: {
     index: 0,
-    key: 'main',
-    routePattern: ROUTES.management.main,
+    key: 'dashboard',
+    routePattern: ROUTES.management.dashboard,
     Icon: DashboardIcon,
     justForAdmins: false
   },
-  [transformPath(ROUTES.management.integrations)]: {
+  [transformPath(ROUTES.management.integrations.view)]: {
     index: 1,
     key: 'integrations',
-    routePattern: ROUTES.management.integrations,
+    routePattern: ROUTES.management.integrations.view,
     Icon: IntegrationsIcon,
     justForAdmins: true
   },

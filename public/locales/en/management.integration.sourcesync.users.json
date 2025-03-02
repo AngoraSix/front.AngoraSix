@@ -1,0 +1,8 @@
+{
+    "management.integration.sourcesync.users.page.title": "Platform User Matching",
+    "management.integration.sourcesync.users.page.description": "Match the users from the different platforms to the users in the system.",
+    "management.integration.sourcesync.users.notifications.success.saved": "The user matching has been registered successfully.",
+    "management.integration.sourcesync.users.match.title": "Platform Users Matching",
+    "management.integration.sourcesync.users.match.options.unassigned": "Unassign",
+    "management.integration.sourcesync.users.match.submit": "Submit"
+}

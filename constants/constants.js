@@ -27,18 +27,19 @@ export const ROUTES = {
     },
   },
   management: {
-    main: '/managements/:managementId',
-    integrations: '/managements/:managementId/integrations',
-    contributors: '/managements/:managementId/contributors',
+    dashboard: '/managements/:managementId',
+    integrations: {
+      view: '/managements/:managementId/integrations',
+      sourceSync: {
+        new: '/managements/:managementId/integrations/:integrationId/source-sync/new',
+        usersMatch: '/managements/:managementId/integrations/:integrationId/source-sync/:sourceSyncId/match-users',
+      },
     },
-  integrations: {
-    sourceSync: {
-      new: '/integrations/:integrationId/source-sync/new'
-    }
+    contributors: '/managements/:managementId/contributors',
   },
   profile: {
     view: '/profile/:profileId',
-  },
+  }
 };
 
 export const HEADERS = {
@@ -51,6 +52,6 @@ export const THIRD_PARTY = {
   trello: {
     logo: TrelloLogo,
     name: 'Trello',
-    color: 	'#0079BF'
+    color: '#0079BF'
   }
 }
