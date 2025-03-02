@@ -35,7 +35,6 @@ const NotificationsContainer = ({ }) => {
 
           eventSource.onerror = (e) => {
             logger.error(`Error on EvenSource: ${JSON.stringify(e)}`);
-            debugger;
             eventSource.close();
           };
           return () => {
