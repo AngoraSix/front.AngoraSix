@@ -44,28 +44,27 @@ class FrontAPI {
     return data;
   }
 
-  async getIntegration(integrationId) {
+  async getSourceSync(sourceSyncId) {
     const { data } = await this.axios.get(
-      `api/integrations/${integrationId}`
+      `api/integrations/${sourceSyncId}`
     );
     return data;
   }
 
-  async registerIntegration(sourceKey, projectManagementId, tokenValue) {
+  async registerSourceSync(sourceKey, projectManagementId, tokenValue) {
     const integrationRegistrationBody = {
-      token: tokenValue,
-      projectManagementId
+      accessToken: tokenValue,
     };
     const { data } = await this.axios.post(
-      `api/integrations/authorization/${sourceKey}/register`,
+      `api/integrations/authorization/${projectManagementId}/${sourceKey}/register`,
       integrationRegistrationBody
     );
     return data;
   }
 
-  async disableIntegration(integrationId) {
+  async disableIntegration(sourceSyncId) {
     const { data } = await this.axios.patch(
-      `api/integrations/${integrationId}`,
+      `api/integrations/${sourceSyncId}`,
       createPatchBody(PATCH_SUPPORTED_OPERATIONS.REPLACE, 'status/status', "DISABLED")
     );
     return data;
@@ -73,15 +72,15 @@ class FrontAPI {
 
   async submitSourceSyncStep(sourceSyncId, stepIndex, stepData) {
     const { data } = await this.axios.patch(
-      `api/integrations/source-sync/${sourceSyncId}`,
-      createPatchBody(PATCH_SUPPORTED_OPERATIONS.REPLACE, `status/steps/${stepIndex}`, stepData)
+      `api/integrations/${sourceSyncId}`,
+      createPatchBody(PATCH_SUPPORTED_OPERATIONS.REPLACE, `config/steps/${stepIndex}`, stepData)
     );
     return data;
   }
 
   async requestFullSync(sourceSyncId) {
     const { data } = await this.axios.patch(
-      `api/integrations/source-sync/${sourceSyncId}`,
+      `api/integrations/${sourceSyncId}`,
       createPatchBody(PATCH_SUPPORTED_OPERATIONS.ADD, `events`, { type: 'REQUEST_FULL_SYNC' })
     );
     return data;
@@ -89,15 +88,15 @@ class FrontAPI {
 
   async registerMappingUsers(sourceSyncId, usersMappingData) {
     const { data } = await this.axios.patch(
-      `api/integrations/source-sync/${sourceSyncId}`,
+      `api/integrations/${sourceSyncId}`,
       createPatchBody(PATCH_SUPPORTED_OPERATIONS.REPLACE, `mappings/users`, usersMappingData)
     );
     return data;
   }
 
-  async getSourceSync(sourceSyncId) {
+  async getSourceSyncState(sourceSyncId) {
     const { data } = await this.axios.get(
-      `api/integrations/source-sync/${sourceSyncId}`,
+      `api/integrations/${sourceSyncId}`,
     )
     return data;
   }
@@ -130,7 +129,7 @@ class FrontAPI {
   }
 
   async startPlatformUsersMatch(sourceSyncId, projectContributors) {
-    const { data } = await this.axios.post(`api/integrations/source-sync/${sourceSyncId}/mappings/users`,
+    const { data } = await this.axios.post(`api/integrations/${sourceSyncId}/mappings/users`,
       {
         projectContributors
       });

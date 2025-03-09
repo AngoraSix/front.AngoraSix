@@ -6,12 +6,13 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import config from '../../../../../../config';
 import { resolveRoute } from '../../../../../../utils/api/apiHelper';
+import { INTEGRATION_QUERY_PARAMS } from '../../../ManagementIntegration.properties';
 
 const RedirectAuthorizationRegistrationAction = ({ sourceKey, actionKey, actionData, projectManagementId, onRedirectAuthorization }) => {
   const authorizationUrlTemplate = actionData.href;
 
   const { t } = useTranslation('management.integration.list');
-  const redirectUrl = config.integrations.registration.actions.redirectAuthorization.registrationUrlTemplate.replace(':managementId', projectManagementId).replace(':sourceKey', sourceKey);
+  const redirectUrl = `${config.integrations.registration.actions.redirectAuthorization.registrationUrlTemplate.replace(':managementId', projectManagementId).replace(':sourceKey', sourceKey)}?${INTEGRATION_QUERY_PARAMS.multipleStepProcess}`;
   const authorizationUrl = resolveRoute(authorizationUrlTemplate, redirectUrl);
 
   return (

@@ -6,7 +6,7 @@ class ProjectManagementIntegrationsAPI {
     this.axios = axiosInstance;
   }
 
-  async listIntegrationsForProjectManagement(projectManagementId, token) {
+  async listSourceSyncsForProjectManagement(projectManagementId, token) {
     const headers = this.axios.getCommonHeaders();
     const authHeaders = this.axios.getAuthorizationHeaders(token, false);
     const infraHeaders = await obtainInfraHeaders(
@@ -14,7 +14,7 @@ class ProjectManagementIntegrationsAPI {
       config.api.serverBaseURL
     );
 
-    const { data } = await this.axios.get(`/project-management/${projectManagementId}`, {
+    const { data } = await this.axios.get(`/project-management/${projectManagementId}/source-sync`, {
       headers: {
         ...headers,
         ...authHeaders,
@@ -24,7 +24,7 @@ class ProjectManagementIntegrationsAPI {
     return data;
   }
 
-  async registerIntegrationsForProjectManagement(projectManagementId, sourceKey, configs, token) {
+  async registerSourceSyncForProjectManagement(projectManagementId, sourceKey, configBody, token) {  
     const headers = this.axios.getCommonHeaders();
     const authHeaders = this.axios.getAuthorizationHeaders(token, false);
     const infraHeaders = await obtainInfraHeaders(
@@ -32,12 +32,12 @@ class ProjectManagementIntegrationsAPI {
       config.api.serverBaseURL
     );
 
-    const { data } = await this.axios.post(`/project-management/${projectManagementId}`,
+    const { data } = await this.axios.post(`/project-management/${projectManagementId}/source-sync`,
       {
         source: sourceKey,
         projectManagementId,
         config: {
-          sourceStrategyConfigData: configs
+          accessToken: configBody.accessToken,
         }
       },
       {
@@ -50,15 +50,14 @@ class ProjectManagementIntegrationsAPI {
     return data;
   }
 
-  async patchIntegration(patchBody, integrationId, token) {
+  async patchSourceSync(patchBody, sourceSyncId, token) {
     const headers = this.axios.getCommonHeaders();
     const authHeaders = this.axios.getAuthorizationHeaders(token, false);
     const infraHeaders = await obtainInfraHeaders(
       config.infra,
       config.api.serverBaseURL
     );
-
-    const { data } = await this.axios.patch(`/${integrationId}`, patchBody, {
+    const { data } = await this.axios.patch(`/source-sync/${sourceSyncId}`, patchBody, {
       headers: {
         ...headers,
         ...authHeaders,
@@ -86,7 +85,7 @@ class ProjectManagementIntegrationsAPI {
     return data;
   }
 
-  async patchSourceSync(patchBody, sourceSyncId, token) {
+  async getSourceSyncState(sourceSyncId, token) {
     const headers = this.axios.getCommonHeaders();
     const authHeaders = this.axios.getAuthorizationHeaders(token, false);
     const infraHeaders = await obtainInfraHeaders(
@@ -94,45 +93,7 @@ class ProjectManagementIntegrationsAPI {
       config.api.serverBaseURL
     );
 
-    const { data } = await this.axios.patch(`/source-sync/${sourceSyncId}`, patchBody, {
-      headers: {
-        ...headers,
-        ...authHeaders,
-        ...infraHeaders,
-      },
-    });
-    return data;
-  }
-
-  async createSourceSync(integrationId, token) {
-    const headers = this.axios.getCommonHeaders();
-    const authHeaders = this.axios.getAuthorizationHeaders(token, false);
-    const infraHeaders = await obtainInfraHeaders(
-      config.infra,
-      config.api.serverBaseURL
-    );
-
-    const { data } = await this.axios.post(`/${integrationId}/source-sync`,
-      {},
-      {
-        headers: {
-          ...headers,
-          ...authHeaders,
-          ...infraHeaders,
-        },
-      });
-    return data;
-  }
-
-  async getIntegration(integrationId, token) {
-    const headers = this.axios.getCommonHeaders();
-    const authHeaders = this.axios.getAuthorizationHeaders(token, false);
-    const infraHeaders = await obtainInfraHeaders(
-      config.infra,
-      config.api.serverBaseURL
-    );
-
-    const { data } = await this.axios.get(`/${integrationId}`, {
+    const { data } = await this.axios.get(`/source-sync/${sourceSyncId}/state`, {
       headers: {
         ...headers,
         ...authHeaders,

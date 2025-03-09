@@ -1,5 +1,5 @@
 import { Box, Button, List, Typography } from '@mui/material';
-import { alpha, useTheme } from '@mui/material/styles';
+import { useTheme } from '@mui/material/styles';
 import { useTranslation } from 'next-i18next';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -24,9 +24,6 @@ const NotificationsList = ({
       style={{
         backgroundColor: theme.palette.primary.main,
       }}
-      // style={{
-      //   backgroundColor: alpha(theme.palette.primary.dark, 0.25),
-      // }}
     >
       <List className="NotificationsList__List">
         {allNotifications.map((notification) => (

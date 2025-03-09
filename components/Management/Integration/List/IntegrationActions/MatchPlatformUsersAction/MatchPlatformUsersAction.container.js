@@ -6,14 +6,13 @@ import SourceSyncUsersMatch from '../../../SourceSync/SourceSyncUsersMatch';
 import MatchPlatformUsersAction from './MatchPlatformUsersAction.component';
 
 const MatchPlatformUsersActionContainer = ({
-  sourceKey, projectManagementId, sourceSyncId, integrationId, onMatchPlatformUsers }) => {
+  sourceKey, projectManagementId, sourceSyncId, onMatchPlatformUsers }) => {
   const { t } = useTranslation('management.integration.list');
   const router = useRouter();
 
   const [dialogOpened, setDialogOpened] = useState(false);
 
   const onTriggerMatchPlatformUsers = async () => {
-    // onMatchPlatformUsers(true);
     setDialogOpened(true);
   }
 
@@ -27,7 +26,6 @@ const MatchPlatformUsersActionContainer = ({
       <MatchPlatformUsersAction
         sourceKey={sourceKey}
         sourceSyncId={sourceSyncId}
-        integrationId={integrationId}
         onTriggerMatchPlatformUsers={onTriggerMatchPlatformUsers} />
       <SourceSyncUsersMatch
         // initialUsersMatchingFieldSpecs={matchUsersData.initialUsersMatchingFieldSpecs}
@@ -46,7 +44,6 @@ const MatchPlatformUsersActionContainer = ({
 MatchPlatformUsersActionContainer.propTypes = {
   actionData: PropTypes.object.isRequired,
   onMatchPlatformUsers: PropTypes.func.isRequired,
-  integrationId: PropTypes.string.isRequired,
   projectManagementId: PropTypes.string.isRequired,
   sourceSyncId: PropTypes.string.isRequired,
   sourceKey: PropTypes.string.isRequired,

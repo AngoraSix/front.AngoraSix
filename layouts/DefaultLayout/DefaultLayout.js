@@ -29,7 +29,7 @@ const DefaultLayout = ({ children, className, headData, contained = true }) => {
           content={head.image.logo}
         />
       </Head>
-      <Navbar />
+      {typeof window !== 'undefined' && !window.opener && <Navbar />}
       <ChildrenContainer className={`${className}__Body`}>
         {children}
       </ChildrenContainer>

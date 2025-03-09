@@ -26,5 +26,6 @@
     "common.domain.section": "Section",
     "common.domain.sections": "Sections",
     "common.temp.landing-page.title": "Coming soon",
-    "common.temp.landing-page.text": "Site under construction :)"
+    "common.temp.landing-page.text": "Site under construction :)",
+    "common.interactions.in-progress.text": "Processing. Hold on a minute..."
 }

@@ -1,6 +1,5 @@
 {
     "management.integration.interactions.registration.page.title.template": "Integration with :sourceName",
     "management.integration.interactions.registration.page.description.template": "Process of registering a project management with :sourceName service",
-    "management.integration.interactions.in-progress.text": "Processing. Hold on a minute...",
     "management.integration.interactions.not-supported.text": "Operation not available"
 }

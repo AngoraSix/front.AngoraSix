@@ -26,5 +26,6 @@
     "common.domain.section": "Sección",
     "common.domain.sections": "Secciones",
     "common.temp.landing-page.title": "Vuelva pronto",
-    "common.temp.landing-page.text": "Sitio en construcción :)"
+    "common.temp.landing-page.text": "Sitio en construcción :)",
+    "common.interactions.in-progress.text": "Procesando. Aguarde un minuto..."
 }

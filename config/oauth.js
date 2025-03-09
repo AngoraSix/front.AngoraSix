@@ -18,9 +18,6 @@ export const oauthProviderConfig = {
   name: 'AngoraSixSpring',
   type: 'oauth',
   version: '2.0',
-  // wellKnown:
-  //   process.env.A6_APP_OAUTH_PROVIDER_DISCOVERY_ENDPOINT ||
-  //   '/.well-known/openid-configuration',
   authorization: {
     url: process.env.A6_APP_OAUTH_PROVIDER_AUTHORIZATION_ENDPOINT || undefined,
     params: {

@@ -1,30 +1,21 @@
 import {
-  createObjectFromFlatParams,
-  createObjectWithFlatParams,
-  toType,
+  toType
 } from '../utils/helpers';
 import { processHateoasActions } from '../utils/rest/hateoas/hateoasUtils';
+import SourceSyncConfig from './SourceSyncConfig';
 import SourceSyncStatus from './SourceSyncStatus';
-import moment from 'moment';
 
 export default class SourceSync {
   #status;
+  #config;
   constructor(object) {
-    const { source, integrationId, status, id } = object;
-    this.source = source?.toLowerCase();
-    this.integrationId = integrationId;
-    this.status = status;
+    const { source, projectManagementId, status, config, id } = object;
     this.id = id;
+    this.source = source?.toLowerCase();
+    this.projectManagementId = projectManagementId;
+    this.status = status;
+    this.config = config;
     this.actions = processHateoasActions(object);
-  }
-
-  static fromFormData(formData) {
-    let projectObject = createObjectFromFlatParams(formData);
-    return new SourceSync(projectObject);
-  }
-
-  toFormData() {
-    createObjectWithFlatParams(this);
   }
 
   /**
@@ -38,22 +29,15 @@ export default class SourceSync {
     return this.#status;
   }
 
-  toFormData(fieldSuffix = '') {
-    return {
-      [`${fieldSuffix}id`]: this.id,
-      [`${fieldSuffix}source`]: this.source,
-      [`${fieldSuffix}integrationId`]: this.integrationId,
-      [`${fieldSuffix}status`]: this.status?.toFormData(),
-    };
+  /**
+   * @param {SourceSyncConfig} config
+   */
+  set config(config) {
+    this.#config = toType(config, SourceSyncConfig, true);
   }
 
-  toJSON() {
-    return {
-      id: this.id,
-      source: this.source,
-      integrationId: this.integrationId,
-      status: this.status,
-    };
+  get config() {
+    return this.#config;
   }
 }
 

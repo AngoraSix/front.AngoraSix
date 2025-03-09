@@ -1,14 +1,14 @@
 {
-    "management.integration.sourcesync.new.page.title": "Importe de Datos",
-    "management.integration.sourcesync.new.page.description": "Importe de Datos de una Integración",
-    "management.integration.sourcesync.new.title.template.trello.SELECT_BOARD": "Paso :stepNumber - Seleccionar Tablero",
-    "management.integration.sourcesync.new.field.label.trello.SELECT_BOARD_FIELD": "Tablero",
-    "management.integration.sourcesync.new.field.pickone.trello.SELECT_BOARD_FIELD": "Seelccionar tablero para importar tareas",
-    "management.integration.sourcesync.new.title.template.trello.RESOLVE_BOARD_MAPPING": "Paso :stepNumber - Resolver configuraciones del tablero",
-    "management.integration.sourcesync.new.field.label.trello.SELECT_DONE_LIST_FIELD": "Lista de COMPLETADAS/DONE",
-    "management.integration.sourcesync.new.field.pickone.trello.SELECT_DONE_LIST_FIELD": "Seleccione lista de tareas completadas",
-    "management.integration.sourcesync.new.actions.continue.text": "Continuar",
-    "management.integration.sourcesync.new.actions.continue.tooltip": "Continuar al siguiente paso",
-    "management.integration.sourcesync.new.title.completed": "Completed",
-    "management.integration.sourcesync.new.message.completed": "Cerrando..."
+    "management.integration.sourcesync.finish.page.title": "Importe de Datos",
+    "management.integration.sourcesync.finish.page.description": "Importe de Datos de una Integración",
+    "management.integration.sourcesync.finish.title.template.trello.SELECT_BOARD": "Paso :stepNumber - Seleccionar Tablero",
+    "management.integration.sourcesync.finish.field.label.trello.SELECT_BOARD_FIELD": "Tablero",
+    "management.integration.sourcesync.finish.field.pickone.trello.SELECT_BOARD_FIELD": "Seelccionar tablero para importar tareas",
+    "management.integration.sourcesync.finish.title.template.trello.RESOLVE_BOARD_MAPPING": "Paso :stepNumber - Resolver configuraciones del tablero",
+    "management.integration.sourcesync.finish.field.label.trello.SELECT_DONE_LIST_FIELD": "Lista de COMPLETADAS/DONE",
+    "management.integration.sourcesync.finish.field.pickone.trello.SELECT_DONE_LIST_FIELD": "Seleccione lista de tareas completadas",
+    "management.integration.sourcesync.finish.actions.continue.text": "Continuar",
+    "management.integration.sourcesync.finish.actions.continue.tooltip": "Continuar al siguiente paso",
+    "management.integration.sourcesync.finish.title.completed": "Completed",
+    "management.integration.sourcesync.finish.message.completed": "Cerrando..."
 }

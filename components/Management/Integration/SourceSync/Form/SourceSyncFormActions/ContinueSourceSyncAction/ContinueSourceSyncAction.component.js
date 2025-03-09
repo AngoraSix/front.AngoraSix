@@ -9,7 +9,7 @@ const ContinueSourceSyncAction = ({ onContinueSync }) => {
   const { t } = useTranslation('management.integration.sourcesync');
 
   return (
-    <Tooltip title={t('management.integration.sourcesync.new.actions.continue.tooltip')}>
+    <Tooltip title={t('management.integration.sourcesync.finish.actions.continue.tooltip')}>
       <React.Fragment>
         <Button
           className={`SourceSyncFormItem__Actions__Button ContinueSourceSyncAction__Button`}
@@ -19,7 +19,7 @@ const ContinueSourceSyncAction = ({ onContinueSync }) => {
           size="small"
           onClick={() => onContinueSync()}
         >
-          {t('management.integration.sourcesync.new.actions.continue.text')}
+          {t('management.integration.sourcesync.finish.actions.continue.text')}
         </Button>
       </React.Fragment>
     </Tooltip >

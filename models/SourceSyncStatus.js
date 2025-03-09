@@ -1,22 +1,8 @@
-import SourceSyncStatusStep from './SourceSyncStatusStep';
+import moment from 'moment';
 
 export default class SourceSyncStatus {
-  constructor({ status, steps }) {
+  constructor({ status, expirationDate }) {
     this.status = status;
-    this.steps = steps?.map((step) => new SourceSyncStatusStep(step));
-  }
-  
-  toFormData(fieldSuffix = '') {
-    return {
-      [`${fieldSuffix}status`]: this.status,
-      [`${fieldSuffix}steps`]: this.steps?.map(step => step.toFormData()),
-    };
-  }
-
-  toJSON() {
-    return {
-      status: this.status,
-      steps: this.steps,
-    };
+    this.expirationDate = expirationDate && moment(expirationDate);
   }
 }

@@ -33,7 +33,7 @@ const SourceSyncUsersMatchReducer = (state = INITIAL_STATE, action) => {
       };
     case SETUP_STATE:
       const { userMatchingFieldSpecs, contributorsData } = action.payload;
-      const fields = userMatchingFieldSpecs.reduce((acc, fieldSpec) => {
+      const fields = userMatchingFieldSpecs.collection.reduce((acc, fieldSpec) => {
         const contributorData = contributorsData.find(contributor => contributor.id === fieldSpec.name)
         const value = fieldSpec.options?.selectedValues[0]
         acc[fieldSpec.name] = {

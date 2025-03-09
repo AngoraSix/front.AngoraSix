@@ -5,7 +5,7 @@ import React from 'react';
 import { THIRD_PARTY } from '../../../../constants/constants';
 import IntegrationActions from './IntegrationActions';
 
-const ManagementIntegrationList = ({ projectManagementId, managementIntegrations, updateIntegration, updateSourceSync }) => {
+const ManagementIntegrationList = ({ projectManagementId, managementIntegrations, updateSourceSync }) => {
 
   const { t } = useTranslation('management.integration.list');
   const managementIntegrationsList = Object.values(managementIntegrations);
@@ -24,31 +24,29 @@ const ManagementIntegrationList = ({ projectManagementId, managementIntegrations
         {!managementIntegrationsList.length && (
           <Typography>{t('management.integration.list.empty-message')}</Typography>
         )}
-        {managementIntegrationsList.map((integration) => {
-          const actions = { ...integration.sourceSync?.actions, ...integration.actions };
+        {managementIntegrationsList.map((sourceSync) => {
+          const actions = { ...sourceSync.sourceSync?.actions, ...sourceSync.actions };
           return (
-            <React.Fragment key={integration.id}>
+            <React.Fragment key={sourceSync.id}>
               <ListItem
                 className="ManagementIntegration__Listing__Item"
-                key={integration.id}
+                key={sourceSync.id}
               >
                 <ListItemAvatar className="ManagementIntegration__Listing__Item__Image">
-                  <Avatar variant="rounded" sx={{ bgcolor: THIRD_PARTY[integration.source].color }}>
-                    <SvgIcon sx={{ fontSize: 22 }} component={THIRD_PARTY[integration.source].logo} viewBox="0 0 24 24" />
+                  <Avatar variant="rounded" sx={{ bgcolor: THIRD_PARTY[sourceSync.source].color }}>
+                    <SvgIcon sx={{ fontSize: 22 }} component={THIRD_PARTY[sourceSync.source].logo} viewBox="0 0 24 24" />
                   </Avatar>
                 </ListItemAvatar>
                 <ListItemText
                   className="ManagementIntegration__Listing__Title"
-                  primary={THIRD_PARTY[integration.source].name}
+                  primary={THIRD_PARTY[sourceSync.source].name}
                 />
                 {actions && (
                   <IntegrationActions
-                    integrationId={integration.id}
-                    sourceSyncId={integration.sourceSync?.id}
-                    sourceKey={integration.source}
+                    sourceSyncId={sourceSync.id}
+                    sourceKey={sourceSync.source}
                     projectManagementId={projectManagementId}
                     actions={actions}
-                    updateIntegration={updateIntegration}
                     updateSourceSync={updateSourceSync}
                   />
                 )}
@@ -70,7 +68,6 @@ ManagementIntegrationList.defaultProps = {
 ManagementIntegrationList.propTypes = {
   managementIntegrations: PropTypes.object,
   projectManagementId: PropTypes.string.isRequired,
-  updateIntegration: PropTypes.func.isRequired,
   updateSourceSync: PropTypes.func.isRequired
 };
 

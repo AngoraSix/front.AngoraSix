@@ -1,8 +1,8 @@
-import api from '../../../../../../../api';
-import { obtainValidatedToken } from '../../../../../../../utils/api/apiHelper';
-import InternalServerError from '../../../../../../../utils/errors/InternalServerError';
-import MethodNotAllowedError from '../../../../../../../utils/errors/MethodNotAllowedError';
-import logger from '../../../../../../../utils/logger';
+import api from '../../../../../../api';
+import { obtainValidatedToken } from '../../../../../../utils/api/apiHelper';
+import InternalServerError from '../../../../../../utils/errors/InternalServerError';
+import MethodNotAllowedError from '../../../../../../utils/errors/MethodNotAllowedError';
+import logger from '../../../../../../utils/logger';
 
 const page = async (req, res) => {
     if (req.method === 'POST') {

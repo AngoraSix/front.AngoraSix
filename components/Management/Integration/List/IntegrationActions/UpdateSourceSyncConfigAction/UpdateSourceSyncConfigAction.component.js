@@ -37,7 +37,7 @@ const UpdateSourceSyncConfigAction = ({ sourceKey, sourceSyncId, onUpdateSourceS
 UpdateSourceSyncConfigAction.propTypes = {
   actionData: PropTypes.object.isRequired,
   onUpdateSourceSyncConfig: PropTypes.func.isRequired,
-  integrationId: PropTypes.string.isRequired,
+  sourceSyncId: PropTypes.string.isRequired,
 };
 
 export default UpdateSourceSyncConfigAction;

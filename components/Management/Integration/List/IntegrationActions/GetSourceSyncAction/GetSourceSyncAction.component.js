@@ -41,7 +41,7 @@ const GetSourceSyncAction = ({ sourceKey, sourceSyncId, onGetSourceSync }) => {
 GetSourceSyncAction.propTypes = {
   actionData: PropTypes.object.isRequired,
   onGetSourceSync: PropTypes.func.isRequired,
-  integrationId: PropTypes.string.isRequired,
+  sourceSyncId: PropTypes.string.isRequired,
 };
 
 export default GetSourceSyncAction;
