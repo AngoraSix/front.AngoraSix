@@ -1,24 +1,27 @@
+import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import React, { useReducer } from 'react';
 import api from '../../../../../api';
+import { ROUTES } from '../../../../../constants/constants';
 import SourceSync from '../../../../../models/SourceSync';
+import { resolveRoute } from '../../../../../utils/api/apiHelper';
 import { toType } from '../../../../../utils/helpers';
-import { INTERCOMMUNICATION_KEYS } from '../../ManagementIntegration.properties';
+import { INTEGRATION_QUERY_PARAMS, INTERCOMMUNICATION_KEYS } from '../../ManagementIntegration.properties';
 import SourceSyncForm from './SourceSyncForm.component';
 import { SOURCE_SYNC_STATUS } from './SourceSyncForm.properties';
 import SourceSyncFormReducer, {
   INITIAL_STATE,
   isProcessing,
-  newStep,
   updateFieldsAction,
   wasSubmitted
 } from './SourceSyncForm.reducer';
 
 const SourceSyncFormContainer = ({ sourceSync }) => {
   const sourceSyncObj = toType(sourceSync, SourceSync);
+  const router = useRouter();
 
-  const currentStepIndex = sourceSyncObj.status.steps.length - 1;
-  const currentStep = sourceSyncObj.status.steps.at(currentStepIndex);
+  const currentStepIndex = sourceSyncObj.config.steps.length - 1;
+  const currentStep = sourceSyncObj.config.steps.at(currentStepIndex);
   const currentStepObj = {
     index: currentStepIndex,
     key: currentStep.stepKey
@@ -55,30 +58,36 @@ const SourceSyncFormContainer = ({ sourceSync }) => {
     if (formState.requiredDataForStep.every(item => _hasBeenFilled(item))) {
       const sourceSyncResponse = await api.front.submitSourceSyncStep(sourceSync.id, formState.currentStepObj.index, formState.formData[formState.currentStepObj.index]);
       const sourceSyncObj = toType(sourceSyncResponse, SourceSync);
-      const currentStepIndex = sourceSyncObj.status.steps.length - 1;
-      const currentStep = sourceSyncObj.status.steps.at(currentStepIndex);
+      const currentStepIndex = sourceSyncObj.config.steps.length - 1;
+      const currentStep = sourceSyncObj.config.steps.at(currentStepIndex);
       const currentStepObj = {
         index: currentStepIndex,
         key: currentStep.stepKey
       }
       const sourceSyncStatus = sourceSyncObj.status.status;
-      dispatch(newStep({
-        actions: sourceSyncObj.actions,
-        requiredDataForStep: sourceSyncObj.status.steps.at(sourceSyncObj.status.steps.length - 1).requiredDataForStep,
-        sourceSyncStatus,
-        currentStepObj
-      }));
-      if (sourceSyncStatus === SOURCE_SYNC_STATUS.COMPLETED) {
-        const integrationResponse = await api.front.getIntegration(sourceSync.integrationId);
-        window.opener.postMessage({ type: INTERCOMMUNICATION_KEYS.sourceSyncCompleted, data: integrationResponse }, window.location.origin);
-        setTimeout(() => {
-          window.close();
-        }, 1000);
+      if (sourceSyncStatus === SOURCE_SYNC_STATUS.REGISTERED) {
+        const isMultipleStepProcess = INTEGRATION_QUERY_PARAMS.multipleStepProcess in router.query;
+        if (isMultipleStepProcess) {
+          const matchPlatformUsersPage = `${resolveRoute(
+            ROUTES.management.integrations.sourceSync.usersMatch,
+            sourceSyncObj.projectManagementId,
+            sourceSyncObj.id,
+          )}${isMultipleStepProcess ? `?${INTEGRATION_QUERY_PARAMS.multipleStepProcess}` : ''}`;
+          setTimeout(() => {
+            router.push(matchPlatformUsersPage);
+          }, 500);
+        } else {
+          window.opener.postMessage({ type: INTERCOMMUNICATION_KEYS.sourceSyncConfigCompleted, data: sourceSyncResponse }, window.location.origin);
+          setTimeout(() => {
+            window.close();
+          }, 1000);
+        }
+      } else {
+        dispatch(isProcessing(false));
       }
     } else {
       dispatch(wasSubmitted(true));
     }
-    dispatch(isProcessing(false));
   }
 
   const _hasBeenFilled = (item) => {

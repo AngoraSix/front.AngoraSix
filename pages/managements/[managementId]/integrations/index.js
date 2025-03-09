@@ -12,7 +12,7 @@ import { isA6ResourceAdmin } from '../../../../utils/commons/a6commonsUtils';
 import logger from '../../../../utils/logger';
 
 const ManagementIntegrationsViewPage = ({
-  managementIntegrationsResponseData,
+  sourceSyncsResponseData,
   projectManagementId,
   projectManagement,
   session,
@@ -51,7 +51,7 @@ const ManagementIntegrationsViewPage = ({
       isAdmin={isAdmin}
     >
       <ManagementIntegrationList
-        managementIntegrationsResponseData={managementIntegrationsResponseData}
+        sourceSyncsResponseData={sourceSyncsResponseData}
         projectManagementId={projectManagementId}
       />
     </ManagementDetailsLayout>
@@ -59,11 +59,11 @@ const ManagementIntegrationsViewPage = ({
 };
 
 ManagementIntegrationsViewPage.defaultProps = {
-  managementIntegrationsResponseData: {},
+  sourceSyncsResponseData: {},
 };
 
 ManagementIntegrationsViewPage.propTypes = {
-  managementIntegrationsResponseData: PropTypes.object.isRequired,
+  sourceSyncsResponseData: PropTypes.object.isRequired,
   projectManagementId: PropTypes.string.isRequired,
   isAdmin: PropTypes.bool,
 };
@@ -75,7 +75,7 @@ export const getServerSideProps = async (ctx) => {
   const validatedToken =
     session?.error !== 'RefreshAccessTokenError' ? session : null;
   try {
-    const managementIntegrationsResponseData = await api.managementIntegrations.listIntegrationsForProjectManagement(
+    const sourceSyncsResponseData = await api.managementIntegrations.listSourceSyncsForProjectManagement(
       managementId,
       validatedToken
     );
@@ -88,7 +88,7 @@ export const getServerSideProps = async (ctx) => {
     props = {
       ...props,
       projectManagementId: managementId,
-      managementIntegrationsResponseData,
+      sourceSyncsResponseData,
       projectManagement,
       isAdmin: isA6ResourceAdmin(session?.user?.id, projectManagement),
     };

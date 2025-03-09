@@ -31,8 +31,8 @@ export const ROUTES = {
     integrations: {
       view: '/managements/:managementId/integrations',
       sourceSync: {
-        new: '/managements/:managementId/integrations/:integrationId/source-sync/new',
-        usersMatch: '/managements/:managementId/integrations/:integrationId/source-sync/:sourceSyncId/match-users',
+        finish: '/managements/:managementId/integrations/:sourceSyncId/finish',
+        usersMatch: '/managements/:managementId/integrations/:sourceSyncId/match-users',
       },
     },
     contributors: '/managements/:managementId/contributors',

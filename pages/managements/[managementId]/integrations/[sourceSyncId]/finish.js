@@ -4,12 +4,12 @@ import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import PropTypes from 'prop-types';
 import React from 'react';
-import api from '../../../../../../api';
-import FormSkeleton from '../../../../../../components/common/Skeletons/FormSkeleton.component';
-import SourceSyncForm from '../../../../../../components/Management/Integration/SourceSync/Form';
-import { useActiveSession } from '../../../../../../hooks/oauth';
-import DefaultLayout from '../../../../../../layouts/DefaultLayout';
-import logger from '../../../../../../utils/logger';
+import api from '../../../../../api';
+import FormSkeleton from '../../../../../components/common/Skeletons/FormSkeleton.component';
+import SourceSyncForm from '../../../../../components/Management/Integration/SourceSync/Form';
+import { useActiveSession } from '../../../../../hooks/oauth';
+import DefaultLayout from '../../../../../layouts/DefaultLayout';
+import logger from '../../../../../utils/logger';
 
 const NewSourceSyncPage = ({ session, sourceSync }) => {
     const { t } = useTranslation('management.integration.sourcesync');
@@ -28,8 +28,8 @@ const NewSourceSyncPage = ({ session, sourceSync }) => {
     return (
         <DefaultLayout
             headData={{
-                title: t('management.integration.sourcesync.new.page.title'),
-                description: t('management.integration.sourcesync.new.page.description'),
+                title: t('management.integration.sourcesync.finish.page.title'),
+                description: t('management.integration.sourcesync.finish.page.description'),
             }}
         >
             <SourceSyncForm sourceSync={sourceSync} />
@@ -49,12 +49,12 @@ NewSourceSyncPage.propTypes = {
 
 export const getServerSideProps = async (ctx) => {
     let props = {};
-    const { managementId, integrationId } = ctx.params,
+    const { sourceSyncId } = ctx.params,
         session = await getSession(ctx);
     const validatedToken =
         session?.error !== 'RefreshAccessTokenError' ? session : null;
     try {
-        const sourceSync = await api.managementIntegrations.createSourceSync(integrationId, validatedToken);
+        const sourceSync = await api.managementIntegrations.getSourceSync(sourceSyncId, validatedToken);
         props = {
             ...props,
             sourceSync,

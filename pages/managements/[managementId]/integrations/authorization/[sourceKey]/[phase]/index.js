@@ -29,11 +29,11 @@ const IntegrationRegistrationViewPage = ({
 };
 
 IntegrationRegistrationViewPage.defaultProps = {
-  managementIntegrationsResponseData: {},
+  sourceSyncsResponseData: {},
 };
 
 IntegrationRegistrationViewPage.propTypes = {
-  managementIntegrationsResponseData: PropTypes.object.isRequired,
+  sourceSyncsResponseData: PropTypes.object.isRequired,
 };
 
 export const getServerSideProps = async (ctx) => {

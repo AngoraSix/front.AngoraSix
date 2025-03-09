@@ -3,6 +3,9 @@ export const INTERACTION_PHASE = {
 }
 
 export const INTERCOMMUNICATION_KEYS = {
-  registrationCompleted: 'registrationCompleted',
-  sourceSyncCompleted: 'sourceSyncCompleted',
+  sourceSyncConfigCompleted: 'sourceSyncConfigCompleted',
+}
+
+export const INTEGRATION_QUERY_PARAMS = {
+  multipleStepProcess: 'multiplestep',
 }

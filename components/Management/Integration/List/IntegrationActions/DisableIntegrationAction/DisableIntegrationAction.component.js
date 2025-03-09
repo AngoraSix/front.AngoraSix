@@ -4,7 +4,7 @@ import { useTranslation } from 'next-i18next';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-const DisableIntegrationAction = ({ sourceKey, actionKey, actionData, projectManagementId, integrationId, onDisableIntegration }) => {
+const DisableIntegrationAction = ({ sourceKey, actionKey, actionData, projectManagementId, sourceSyncId, onDisableIntegration }) => {
   const { t } = useTranslation('management.integration.list');
 
   return (
@@ -17,7 +17,7 @@ const DisableIntegrationAction = ({ sourceKey, actionKey, actionData, projectMan
           startIcon={<DeleteIcon />}
           size="small"
           sx={{ display: { xs: 'none', sm: 'flex' } }}
-          onClick={() => onDisableIntegration(integrationId)}
+          onClick={() => onDisableIntegration(sourceSyncId)}
         >
           {t('management.integration.list.actions.disable.text')}
         </Button>
@@ -25,7 +25,7 @@ const DisableIntegrationAction = ({ sourceKey, actionKey, actionData, projectMan
           aria-label="register"
           color="primary"
           sx={{ display: { xs: 'flex', sm: 'none' } }}
-          onClick={() => onDisableIntegration(integrationId)}
+          onClick={() => onDisableIntegration(sourceSyncId)}
         >
           <DeleteIcon />
         </IconButton>
@@ -37,7 +37,7 @@ const DisableIntegrationAction = ({ sourceKey, actionKey, actionData, projectMan
 DisableIntegrationAction.propTypes = {
   actionData: PropTypes.object.isRequired,
   onDisableIntegration: PropTypes.func.isRequired,
-  integrationId: PropTypes.string.isRequired,
+  sourceSyncId: PropTypes.string.isRequired,
 };
 
 export default DisableIntegrationAction;

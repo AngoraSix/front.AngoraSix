@@ -1,14 +1,14 @@
 {
-    "management.integration.sourcesync.new.page.title": "Data Import",
-    "management.integration.sourcesync.new.page.description": "Importing data from an integration",
-    "management.integration.sourcesync.new.title.template.trello.SELECT_BOARD": "Step :stepNumber - Select Board",
-    "management.integration.sourcesync.new.field.label.trello.SELECT_BOARD_FIELD": "Board",
-    "management.integration.sourcesync.new.field.pickone.trello.SELECT_BOARD_FIELD": "Select board to import Tasks",
-    "management.integration.sourcesync.new.title.template.trello.RESOLVE_BOARD_MAPPING": "Step :stepNumber - Resolve Board Configs",
-    "management.integration.sourcesync.new.field.label.trello.SELECT_DONE_LIST_FIELD": "DONE List",
-    "management.integration.sourcesync.new.field.pickone.trello.SELECT_DONE_LIST_FIELD": "Select List of Done tasks",
-    "management.integration.sourcesync.new.actions.continue.text": "Continue",
-    "management.integration.sourcesync.new.actions.continue.tooltip": "Continue to the next step",
-    "management.integration.sourcesync.new.title.completed": "Completed",
-    "management.integration.sourcesync.new.message.completed": "Closing..."
+    "management.integration.sourcesync.finish.page.title": "Data Import",
+    "management.integration.sourcesync.finish.page.description": "Importing data from an integration",
+    "management.integration.sourcesync.finish.title.template.trello.SELECT_BOARD": "Step :stepNumber - Select Board",
+    "management.integration.sourcesync.finish.field.label.trello.SELECT_BOARD_FIELD": "Board",
+    "management.integration.sourcesync.finish.field.pickone.trello.SELECT_BOARD_FIELD": "Select board to import Tasks",
+    "management.integration.sourcesync.finish.title.template.trello.RESOLVE_BOARD_MAPPING": "Step :stepNumber - Resolve Board Configs",
+    "management.integration.sourcesync.finish.field.label.trello.SELECT_DONE_LIST_FIELD": "DONE List",
+    "management.integration.sourcesync.finish.field.pickone.trello.SELECT_DONE_LIST_FIELD": "Select List of Done tasks",
+    "management.integration.sourcesync.finish.actions.continue.text": "Continue",
+    "management.integration.sourcesync.finish.actions.continue.tooltip": "Continue to the next step",
+    "management.integration.sourcesync.finish.title.completed": "Completed",
+    "management.integration.sourcesync.finish.message.completed": "Closing..."
 }

@@ -1,13 +1,7 @@
-const REPLACE_INTEGRATION = 'ManagementIntegrationList/REPLACE_INTEGRATION';
-const REPLACE_INTEGRATION_SOURCE_SYNC = 'ManagementIntegrationList/REPLACE_INTEGRATION_SOURCE_SYNC';
+const REPLACE_SOURCE_SYNC = 'ManagementIntegrationList/REPLACE_SOURCE_SYNC';
 
-export const replaceIntegration = (payload) => ({
-  type: REPLACE_INTEGRATION,
-  payload,
-});
-
-export const replaceIntegrationSourceSync = (payload) => ({
-  type: REPLACE_INTEGRATION_SOURCE_SYNC,
+export const replaceSourceSync = (payload) => ({
+  type: REPLACE_SOURCE_SYNC,
   payload,
 });
 
@@ -32,23 +26,10 @@ export const generateInitialState = (hateoasCollectionDto) => {
 
 const ManagementIntegrationListReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case REPLACE_INTEGRATION:
+    case REPLACE_SOURCE_SYNC:
       return {
         ...state,
         collection: { ...state.collection, [action.payload.source]: action.payload },
-      };
-    case REPLACE_INTEGRATION_SOURCE_SYNC:
-      const sourceKey = action.payload.source
-      const stateIntegration = state.collection[sourceKey];
-      return {
-        ...state,
-        collection: {
-          ...state.collection,
-          [sourceKey]: {
-            ...stateIntegration,
-            sourceSync: action.payload
-          }
-        },
       };
     default:
       return state;

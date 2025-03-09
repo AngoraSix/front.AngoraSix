@@ -24,7 +24,7 @@ const SourceSyncForm = ({
     <Box
       className={`SourceSyncForm SourceSyncForm__Container`}
     >
-      {sourceSyncStatus != SOURCE_SYNC_STATUS.COMPLETED
+      {sourceSyncStatus != SOURCE_SYNC_STATUS.REGISTERED
         ? (
           <React.Fragment>
             <Box className="SourceSyncForm__Section SourceSyncForm__Section__Title">
@@ -33,7 +33,7 @@ const SourceSyncForm = ({
                 color="primary"
                 variant="subtitle1"
               >
-                {t(`management.integration.sourcesync.new.title.template.${source.toLowerCase()}.${currentStepObj.key}`).replace(':stepNumber', currentStepObj.index + 1)}
+                {t(`management.integration.sourcesync.finish.title.template.${source.toLowerCase()}.${currentStepObj.key}`).replace(':stepNumber', currentStepObj.index + 1)}
               </Typography>
             </Box>
             <Box className="SourceSyncForm__Section SourceSyncForm__Section__RequiredData">
@@ -43,10 +43,10 @@ const SourceSyncForm = ({
                 return <FieldMaker
                   {...Object.fromEntries(Object.entries(field).filter(([_, value]) => value != null))}
                   key={field.key}
-                  label={t(`management.integration.sourcesync.new.field.label.${source.toLowerCase()}.${translationKey}`)}
+                  label={t(`management.integration.sourcesync.finish.field.label.${source.toLowerCase()}.${translationKey}`)}
                   withPickOneOption={true}
                   pickOneOptionValue={null}
-                  pickOneOptionPrompt={t(`management.integration.sourcesync.new.field.pickone.${source.toLowerCase()}.${translationKey}`)}
+                  pickOneOptionPrompt={t(`management.integration.sourcesync.finish.field.pickone.${source.toLowerCase()}.${translationKey}`)}
                   value={fieldValue}
                   onChange={onFormChange(currentStepObj.index, field.key)}
                   error={wasSubmitted && (fieldValue == null || fieldValue == '')}
@@ -61,14 +61,13 @@ const SourceSyncForm = ({
                 isProcessing={isProcessing} />
             </Box>
           </React.Fragment>
-        )
-        : (<Box className="SourceSyncForm__Section SourceSyncForm__Section__Title">
+        ) : (<Box className="SourceSyncForm__Section SourceSyncForm__Section__Title">
           <Typography
             className="SourceSyncForm__Title"
             color="primary"
             variant="h4"
           >
-            {t(`management.integration.sourcesync.new.title.completed`)}
+            {t(`management.integration.sourcesync.finish.title.completed`)}
           </Typography>
           <Box className="SourceSyncForm__Section SourceSyncForm__Section__Message">
             <CompletedIcon
@@ -80,7 +79,7 @@ const SourceSyncForm = ({
             color="primary"
             variant="subtitle1"
           >
-            {t(`management.integration.sourcesync.new.message.completed`)}
+            {t(`management.integration.sourcesync.finish.message.completed`)}
           </Typography>
         </Box>)
       }

@@ -1,7 +1,8 @@
-import { Box, CircularProgress, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { useTranslation } from 'next-i18next';
 import PropTypes from 'prop-types';
 import React from 'react';
+import SpinnerSkeleton from '../../../common/Skeletons/SpinnerSkeleton.component';
 import { INTERACTION_PHASE } from '../ManagementIntegration.properties';
 
 const ManagementIntegrationInteraction = ({ interactionState }) => {
@@ -20,19 +21,7 @@ const ManagementIntegrationInteraction = ({ interactionState }) => {
 const ResolveInteractionComponent = (interactionState, t) => {
   switch (interactionState) {
     case INTERACTION_PHASE.register:
-      const RegisteringComponent = () => (<React.Fragment><Box className="ManagementIntegrationInteraction__Text"><Typography
-        align="center"
-        variant="h6"
-        component="h2"
-        color="primary"
-      >
-        {t('management.integration.interactions.in-progress.text')}
-      </Typography>
-      </Box>
-        <Box className="ManagementIntegrationInteraction__Content" sx={{ display: 'flex' }}>
-          <CircularProgress className="ManagementIntegrationInteraction__Spinner" size="4rem" />
-        </Box>
-      </React.Fragment>);
+      const RegisteringComponent = () => (<SpinnerSkeleton />);
       return RegisteringComponent;
     default:
       const NotSupportedComponent = () => (<Typography

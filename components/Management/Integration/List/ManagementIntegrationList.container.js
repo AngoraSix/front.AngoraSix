@@ -1,37 +1,30 @@
 import PropTypes from 'prop-types';
 import React, { useReducer } from 'react';
-import ManagementIntegration from '../../../../models/ManagementIntegration';
 import SourceSync from '../../../../models/SourceSync';
 import { mapToHateoasCollectionDto } from '../../../../utils/rest/hateoas/hateoasUtils';
 import ManagementIntegrationList from './ManagementIntegrationList.component';
-import ManagementIntegrationListReducer, { generateInitialState, replaceIntegration, replaceIntegrationSourceSync } from './ManagementIntegrationList.reducer';
+import ManagementIntegrationListReducer, { generateInitialState, replaceSourceSync } from './ManagementIntegrationList.reducer';
 
 const ManagementIntegrationListContainer = ({
   projectManagementId,
-  managementIntegrationsResponseData,
+  sourceSyncsResponseData,
 }) => {
   const hateoasCollectionDto = mapToHateoasCollectionDto(
-    managementIntegrationsResponseData,
-    ManagementIntegration
+    sourceSyncsResponseData,
+    SourceSync
   );
+  
 
   const [integrationsState, dispatch] = useReducer(ManagementIntegrationListReducer, generateInitialState(hateoasCollectionDto));
 
-  const updateIntegration = (integrationDto) => {
-    const integration = integrationDto instanceof ManagementIntegration ? integrationDto : new ManagementIntegration(integrationDto);
-    dispatch(replaceIntegration(integration));
-  }
-
   const updateSourceSync = (sourceSyncDto) => {
     const sourceSync = sourceSyncDto instanceof SourceSync ? sourceSyncDto : new SourceSync(sourceSyncDto);
-    dispatch(replaceIntegrationSourceSync(sourceSync));
+    dispatch(replaceSourceSync(sourceSync));
   }
-
   return (
     <ManagementIntegrationList
       managementIntegrations={integrationsState.collection}
       projectManagementId={projectManagementId}
-      updateIntegration={updateIntegration}
       updateSourceSync={updateSourceSync}
     />
   );
@@ -41,7 +34,7 @@ ManagementIntegrationListContainer.defaultProps = {
 };
 
 ManagementIntegrationListContainer.propTypes = {
-  managementIntegrationsResponseData: PropTypes.object.isRequired,
+  sourceSyncsResponseData: PropTypes.object.isRequired,
   projectManagementId: PropTypes.string.isRequired,
 };
 

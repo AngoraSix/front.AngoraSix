@@ -7,9 +7,12 @@ import config from '../../../../../config';
 import { ROUTES } from '../../../../../constants/constants';
 import { useLoading, useNotifications } from '../../../../../hooks/app';
 import Contributor from '../../../../../models/Contributor';
+import InlineFieldSpec from '../../../../../models/InlineFieldSpec';
 import { resolveRoute } from '../../../../../utils/api/apiHelper';
 import { toType } from '../../../../../utils/helpers';
 import logger from '../../../../../utils/logger';
+import { mapToHateoasCollectionDto } from '../../../../../utils/rest/hateoas/hateoasUtils';
+import { INTERCOMMUNICATION_KEYS } from '../../ManagementIntegration.properties';
 import SourceSyncUsersMatchDialog from './Dialog';
 import SourceSyncUsersMatch from './SourceSyncUsersMatch.component';
 import SourceSyncUsersMatchReducer, {
@@ -49,7 +52,7 @@ const SourceSyncUsersMatchContainer = ({
           initializationContributorsResponse,
         );
         dispatch(setupState({
-          userMatchingFieldSpecs: initializationUsersMatchingResponse,
+          userMatchingFieldSpecs: mapToHateoasCollectionDto(initializationUsersMatchingResponse, InlineFieldSpec),
           contributorsData: initializationContributorsResponse.map((contributor) => toType(contributor, Contributor))
         }));
       }
@@ -57,7 +60,7 @@ const SourceSyncUsersMatchContainer = ({
     if (!formState.initialized) {
       if (!!initialUsersMatchingResponse && !!contributorsResponse) {
         dispatch(setupState({
-          userMatchingFieldSpecs: initialUsersMatchingResponse,
+          userMatchingFieldSpecs: mapToHateoasCollectionDto(initialUsersMatchingResponse, InlineFieldSpec),
           contributorsData: contributorsResponse.map((contributor) => toType(contributor, Contributor))
         }));
       } else if (isDialogOpen) {
@@ -92,14 +95,13 @@ const SourceSyncUsersMatchContainer = ({
 
       if (isTriggeredAction) {
         onDialogClose();
+      } else if (window.opener) {
+        window.opener.postMessage({ type: INTERCOMMUNICATION_KEYS.sourceSyncConfigCompleted, data: sourceSyncPatchResponse }, window.location.origin);
+        setTimeout(() => {
+          window.close();
+        }, 1000);
       } else {
         const viewURL = resolveRoute(ROUTES.management.integrations.view, projectManagementId);
-        // console.log TODO CHANGE HERE, onLargerProcessFinish() (will show complete OK and close modal);
-        // check window.opener ? if exists, post message and close window
-        // or otherwise simply router.push?
-
-        // window.opener.postMessage({ type: INTERCOMMUNICATION_KEYS.registrationCompleted, data: registrationResponse }, window.location.origin);
-        // window.close();
         router.push(viewURL);
       }
     } catch (err) {

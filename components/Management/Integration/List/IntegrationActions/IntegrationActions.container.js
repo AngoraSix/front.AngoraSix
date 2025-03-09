@@ -1,12 +1,10 @@
 import PropTypes from 'prop-types';
 import React, { useEffect, useRef, useState } from 'react';
 import api from '../../../../../api';
-import { ROUTES } from '../../../../../constants/constants';
-import { resolveRoute } from '../../../../../utils/api/apiHelper';
 import { INTERCOMMUNICATION_KEYS } from '../../ManagementIntegration.properties';
 import IntegrationActions from './IntegrationActions.component';
 
-const IntegrationActionsContainer = ({ sourceKey, projectManagementId, integrationId, sourceSyncId, actions, updateIntegration, updateSourceSync }) => {
+const IntegrationActionsContainer = ({ sourceKey, projectManagementId, sourceSyncId, actions, updateSourceSync }) => {
   const [authRequest, _setAuthRequest] = useState({
     source: '',
   });
@@ -31,9 +29,9 @@ const IntegrationActionsContainer = ({ sourceKey, projectManagementId, integrati
   const onRedirectAuthorization = (sourceKey, authorizationUrl) => {
     let newModal = window.open(authorizationUrl, 'external_login_page', 'width=800,height=600,left=200,top=100');
     window.addEventListener('message', (event) => {
-      if (event.origin === window.location.origin && event.data.type === INTERCOMMUNICATION_KEYS.registrationCompleted) {
+      if (event.origin === window.location.origin && event.data.type === INTERCOMMUNICATION_KEYS.sourceSyncConfigCompleted) {
         setModal(null);
-        updateIntegration(event.data.data);
+        updateSourceSync(event.data.data);
       } else {
         console.warn('Message origin not trusted:', event.origin);
       }
@@ -45,30 +43,10 @@ const IntegrationActionsContainer = ({ sourceKey, projectManagementId, integrati
     });
   };
 
-  const onDisableIntegration = async (integrationId) => {
+  const onDisableIntegration = async (sourceSyncId) => {
     setIsProcessing(true);
-    const disableResponse = await api.front.disableIntegration(integrationId);
-    updateIntegration(disableResponse);
-  };
-
-  const onConfigSourceSync = async (integrationId) => {
-    const startConfigSourceSyncRoute = resolveRoute(
-      ROUTES.management.integrations.sourceSync.new,
-      projectManagementId,
-      integrationId,
-    );
-    let newModal = window.open(startConfigSourceSyncRoute, 'source_sync_process', 'width=800,height=600,left=200,top=100');
-    window.addEventListener('message', (event) => {
-      if (event.origin === window.location.origin && event.data.type === INTERCOMMUNICATION_KEYS.sourceSyncCompleted) {
-        setModal(null);
-        updateIntegration(event.data.data);
-        setIsProcessing(false);
-      } else {
-        console.warn('Message origin not trusted:', event.origin);
-      }
-    });
-    setIsProcessing(true);
-    setModal(newModal);
+    const disableResponse = await api.front.disableIntegration(sourceSyncId);
+    updateSourceSync(disableResponse);
   };
 
   const onRequestFullSync = async (sourceSyncId) => {
@@ -81,7 +59,6 @@ const IntegrationActionsContainer = ({ sourceKey, projectManagementId, integrati
     // NOT IMPLEMENTED YET: 
     setIsProcessing(true);
     const sourceSyncResponse = await api.front.getSourceSync(sourceSyncId);
-    // updateSourceSync(sourceSyncResponse);
     console.log("Source Sync Response: ", sourceSyncResponse);
     setIsProcessing(false);
   };
@@ -93,31 +70,11 @@ const IntegrationActionsContainer = ({ sourceKey, projectManagementId, integrati
 
   const onMatchPlatformUsers = async (isProcessing) => {
     setIsProcessing(isProcessing);
-
-    // const startConfigSourceSyncRoute = resolveRoute(
-    //   ROUTES.management.integrations.sourceSync.usersMatch,
-    //   projectManagementId,
-    //   integrationId,
-    //   sourceSyncId
-    // );
-    // let newModal = window.open(startConfigSourceSyncRoute, 'platform_users_matching_process', 'width=800,height=600,left=200,top=100');
-    // window.addEventListener('message', (event) => {
-    //   if (event.origin === window.location.origin && event.data.type === INTERCOMMUNICATION_KEYS.sourceSyncCompleted) {
-    //     setModal(null);
-    //     updateIntegration(event.data.data);
-    //     setIsProcessing(false);
-    //   } else {
-    //     console.warn('Message origin not trusted:', event.origin);
-    //   }
-    // });
-    // setIsProcessing(true);
-    // setModal(newModal);
   };
 
   const actionFns = {
     onRedirectAuthorization,
     onDisableIntegration,
-    onConfigSourceSync,
     onRequestFullSync,
     onUpdateSourceSyncConfig,
     onMatchPlatformUsers,
@@ -127,7 +84,6 @@ const IntegrationActionsContainer = ({ sourceKey, projectManagementId, integrati
   return <IntegrationActions
     sourceKey={sourceKey}
     projectManagementId={projectManagementId}
-    integrationId={integrationId}
     sourceSyncId={sourceSyncId}
     actions={actions}
     actionFns={actionFns}
@@ -145,10 +101,7 @@ IntegrationActionsContainer.propTypes = {
   actions: PropTypes.object.isRequired,
   sourceKey: PropTypes.string.isRequired,
   projectManagementId: PropTypes.string.isRequired,
-  integrationId: PropTypes.string,
   sourceSyncId: PropTypes.string,
-  updateIntegration: PropTypes.func.isRequired,
-  updateSourceSync: PropTypes.func.isRequired
 };
 
 export default IntegrationActionsContainer;
