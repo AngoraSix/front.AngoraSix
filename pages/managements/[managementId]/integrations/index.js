@@ -85,6 +85,16 @@ export const getServerSideProps = async (ctx) => {
       validatedToken
     );
 
+    
+    console.log("SOLO PARA DEBUGGEAR - BORRAR ESTA LLAMADA");
+    const managementTasksStats = await api.managementTasks.resolveProjectManagementTasks(
+      managementId,
+      validatedToken
+    );
+
+    console.log("TASKSSSSSSS");
+    console.log(managementTasksStats);
+
     props = {
       ...props,
       projectManagementId: managementId,
