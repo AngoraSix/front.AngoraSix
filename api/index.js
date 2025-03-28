@@ -6,6 +6,7 @@ import FrontAPI from './front';
 import ManagementIntegrationsAPI from './managementIntegrations';
 import ProjectsAPI from './projects';
 import NotificationsAPI from './notifications';
+import ManagementTasksAPI from './managementTasks';
 
 class API {
   constructor() {
@@ -24,6 +25,10 @@ class API {
     return this.managementIntegrationsAPI;
   }
 
+  get managementTasks() {
+    return this.managementTasksAPI;
+  }
+
   get clubs() {
     return this.clubsAPI;
   }
@@ -31,7 +36,7 @@ class API {
   get media() {
     return this.mediaAPI;
   }
-  
+
   get notifications() {
     return this.notificationsAPI;
   }
@@ -53,6 +58,7 @@ class API {
     );
     this.projectsAPI = new ProjectsAPI(_getServiceAPI('projects', this.axios));
     this.managementIntegrationsAPI = new ManagementIntegrationsAPI(_getServiceAPI('managementIntegrations', this.axios));
+    this.managementTasksAPI = new ManagementTasksAPI(_getServiceAPI('managementTasks', this.axios));
     this.contributorsAPI = new ContributorsAPI(_getServiceAPI('contributors', this.axios));
     this.clubsAPI = new ClubsAPI(_getServiceAPI('clubs', this.axios));
     this.notificationsAPI = new NotificationsAPI(

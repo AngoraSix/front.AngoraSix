@@ -9,7 +9,11 @@ import ManagementCoreSection from './Sections/ManagementCoreSection';
 
 const drawerBleeding = 35;
 
-const ProjectManagementView = ({ project, projectManagement }) => {
+const ProjectManagementView = ({
+  project,
+  projectManagement,
+  projectManagementTasksStats,
+}) => {
   const theme = useTheme();
   const [openDrawer, setOpenDrawer] = useState(false);
   const toggleDrawer = (isOpen) => () => {
@@ -32,7 +36,10 @@ const ProjectManagementView = ({ project, projectManagement }) => {
     <Box className="ProjectManagementView ProjectManagementView__Container">
       <Box className="ProjectManagementView__Sections">
         <Box className="ProjectManagementView__Section Main">
-          <ManagementCapsSection projectManagement={projectManagement} />
+          <ManagementCapsSection
+            projectManagement={projectManagement}
+            projectManagementTasksStats={projectManagementTasksStats}
+          />
         </Box>
         {isMobile ? (
           <SwipeableDrawer
