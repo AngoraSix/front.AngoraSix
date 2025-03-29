@@ -94,6 +94,8 @@ export const getServerSideProps = async (ctx) => {
     const projectManagementTasksStats =
       await api.managementTasks.resolveProjectManagementTasks(
         managementId,
+        31,
+        'recentlyCompletedEffort',
         validatedToken
       );
 

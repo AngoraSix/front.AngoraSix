@@ -24,7 +24,6 @@ const ManagementCoreSection = ({ project, projectManagement }) => {
       className="ManagementCoreSection ManagementCoreSection__Container"
       sx={{
         backgroundColor: theme.palette.primary.main,
-        border: '1px solid red',
         minWidth: '200px',
       }}
     >

@@ -7,7 +7,8 @@ const ManagementCapsSection = ({
   projectManagementTasksStats,
 }) => {
   const { project, contributor } = projectManagementTasksStats;
-  const projectData = [
+
+  const projectChartData = [
     {
       id: 0,
       value: project.contributors.reduce(
@@ -32,7 +33,7 @@ const ManagementCapsSection = ({
     },
   ];
 
-  const contributorData = [
+  const contributorChartData = [
     {
       id: 3,
       value: contributor?.tasks.totalCount - contributor?.tasks.completedCount,
@@ -46,6 +47,21 @@ const ManagementCapsSection = ({
       color: '#4CAF50',
     },
   ];
+
+  const contributorsChartData = project.contributors.map((it, index) => {
+    const color =
+      it.contributorId == contributor?.contributorId ? '#FF9800' : '#9E9E9E';
+
+    const label =
+      it.contributorId == contributor?.contributorId ? 'You' : undefined;
+
+    return {
+      id: 5 + index,
+      value: it.tasks.totalCount,
+      label,
+      color,
+    };
+  });
 
   return (
     <Box
@@ -69,7 +85,7 @@ const ManagementCapsSection = ({
         <Grid item xs={12} md={12}>
           <Typography variant="h6">Project Tasks</Typography>
         </Grid>
-        <TaskChart data={projectData} />
+        <TaskChart data={projectChartData} />
         <TaskSummary tasks={project.tasks} />
 
         {/* Contributor Overview */}
@@ -78,10 +94,14 @@ const ManagementCapsSection = ({
             <Grid item xs={12} md={12}>
               <Typography variant="h6">Your Tasks</Typography>
             </Grid>
-            <TaskChart data={contributorData} />
+            <TaskChart data={contributorChartData} />
             <TaskSummary tasks={contributor.tasks} />
           </>
         )}
+        <Grid item xs={12} md={12}>
+          <Typography variant="h6">Contributors by Tasks</Typography>
+        </Grid>
+        <ContributorChart data={contributorsChartData} />
       </Grid>
     </Box>
   );
@@ -96,6 +116,26 @@ ManagementCapsSection.propTypes = {
   projectManagementTasksStats: PropTypes.object.isRequired,
   isAdmin: PropTypes.bool,
 };
+
+const ContributorChart = ({ data }) => (
+  <Grid item xs={12} md={6} sx={{ minWidth: '400px' }}>
+    <PieChart
+      series={[
+        {
+          data,
+          innerRadius: 75,
+          outerRadius: 100,
+          paddingAngle: 2,
+          cornerRadius: 4,
+          startAngle: -45,
+          endAngle: 315,
+        },
+      ]}
+      width={400}
+      height={200}
+    />
+  </Grid>
+);
 
 const TaskChart = ({ data }) => (
   <Grid item xs={12} md={6} sx={{ minWidth: '400px' }}>
@@ -135,7 +175,7 @@ const TaskSummary = ({ tasks }) => (
         {tasks.totalCount - tasks.completedCount}
       </Typography>
       <Typography variant="body1">
-        <strong>TotalEffort:</strong> {tasks.totalDoneEffort}
+        <strong>Invested Effort:</strong> {tasks.completedEffort}
       </Typography>
     </Box>
   </Grid>
