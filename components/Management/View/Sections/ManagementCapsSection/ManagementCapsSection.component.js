@@ -1,3 +1,4 @@
+import { useTranslation } from 'next-i18next';
 import { Box, Typography, Divider, Grid } from '@mui/material';
 import { PieChart } from '@mui/x-charts/PieChart';
 import PropTypes from 'prop-types';
@@ -8,6 +9,8 @@ const ManagementCapsSection = ({
 }) => {
   const { project, contributor } = projectManagementTasksStats;
 
+  const { t } = useTranslation('management.view');
+
   const projectChartData = [
     {
       id: 0,
@@ -16,19 +19,19 @@ const ManagementCapsSection = ({
           prev + curr.tasks.totalCount - curr.tasks.completedCount,
         0
       ),
-      label: 'Assigned',
+      label: t('management.view.stats.tasks.label.ASSIGNED'),
       color: '#FF9800',
     },
     {
       id: 1,
       value: project.tasks.completedCount,
-      label: 'Done',
+      label: t('management.view.stats.tasks.label.DONE'),
       color: '#4CAF50',
     },
     {
       id: 2,
       value: project.tasks.totalCount - project.tasks.completedCount,
-      label: 'Pending',
+      label: t('management.view.stats.tasks.label.PENDING'),
       color: '#9E9E9E',
     },
   ];
@@ -37,13 +40,13 @@ const ManagementCapsSection = ({
     {
       id: 3,
       value: contributor?.tasks.totalCount - contributor?.tasks.completedCount,
-      label: 'Assigned',
+      label: t('management.view.stats.tasks.label.ASSIGNED'),
       color: '#FF9800',
     },
     {
       id: 4,
       value: contributor?.tasks.completedCount,
-      label: 'Done',
+      label: t('management.view.stats.tasks.label.DONE'),
       color: '#4CAF50',
     },
   ];
@@ -53,7 +56,7 @@ const ManagementCapsSection = ({
       it.contributorId == contributor?.contributorId ? '#FF9800' : '#9E9E9E';
 
     const label =
-      it.contributorId == contributor?.contributorId ? 'You' : undefined;
+      it.contributorId == contributor?.contributorId ? t("management.view.stats.tasks.label.YOU") : undefined;
 
     return {
       id: 5 + index,
@@ -75,34 +78,54 @@ const ManagementCapsSection = ({
       }}
     >
       <Typography variant="h5" gutterBottom>
-        Project Overview
+        {t('management.view.stats.title')}
       </Typography>
 
       <Divider sx={{ mb: 2 }} />
 
-      <Grid container spacing={4}>
-        {/* Project Overview */}
-        <Grid item xs={12} md={12}>
-          <Typography variant="h6">Project Tasks</Typography>
-        </Grid>
-        <TaskChart data={projectChartData} />
-        <TaskSummary tasks={project.tasks} />
+      {project ? (
+        <Grid container spacing={4}>
+          {/* Project Overview */}
+          <Grid item xs={12} md={12}>
+            <Typography variant="h6">
+              {t('management.view.stats.project.tasks')}
+            </Typography>
+          </Grid>
+          {project.tasks.totalCount > 0 && (
+            <TaskChart data={projectChartData} />
+          )}
+          <TaskSummary tasks={project.tasks} t={t} />
 
-        {/* Contributor Overview */}
-        {contributor && (
-          <>
-            <Grid item xs={12} md={12}>
-              <Typography variant="h6">Your Tasks</Typography>
-            </Grid>
-            <TaskChart data={contributorChartData} />
-            <TaskSummary tasks={contributor.tasks} />
-          </>
-        )}
-        <Grid item xs={12} md={12}>
-          <Typography variant="h6">Contributors by Tasks</Typography>
+          {/* Contributor Overview */}
+          {contributor && (
+            <>
+              <Grid item xs={12} md={12}>
+                <Typography variant="h6">
+                  {t('management.view.stats.contributor.tasks')}
+                </Typography>
+              </Grid>
+              <TaskChart data={contributorChartData} />
+              <TaskSummary tasks={contributor.tasks} t={t} />
+            </>
+          )}
+
+          {/* Contributor By Tasks */}
+          {project?.contributors?.length > 0 && (
+            <>
+              <Grid item xs={12} md={12}>
+                <Typography variant="h6">
+                  {t('management.view.stats.contributors.tasks')}
+                </Typography>
+              </Grid>
+              <ContributorChart data={contributorsChartData} />
+            </>
+          )}
         </Grid>
-        <ContributorChart data={contributorsChartData} />
-      </Grid>
+      ) : (
+        <Typography variant="h6">
+          {t('management.view.stats.NO_DATA')}
+        </Typography>
+      )}
     </Box>
   );
 };
@@ -157,25 +180,28 @@ const TaskChart = ({ data }) => (
   </Grid>
 );
 
-const TaskSummary = ({ tasks }) => (
+const TaskSummary = ({ tasks, t }) => (
   <Grid item xs={12} md={6}>
     <Box>
       <Typography variant="body1">
-        <strong>Total Tasks:</strong> {tasks.totalCount}
+        <strong>{t('management.view.stats.tasks.total')}:</strong>{' '}
+        {tasks.totalCount}
       </Typography>
       <Typography variant="body1">
-        <strong>Recently Completed Tasks:</strong>{' '}
+        <strong>{t('management.view.stats.tasks.recently_completed')}:</strong>{' '}
         {tasks.recentlyCompletedCount}
       </Typography>
       <Typography variant="body1">
-        <strong>Completed Tasks:</strong> {tasks.completedCount}
+        <strong>{t('management.view.stats.tasks.completed')}:</strong>{' '}
+        {tasks.completedCount}
       </Typography>
       <Typography variant="body1">
-        <strong>Pending Tasks:</strong>{' '}
+        <strong>{t('management.view.stats.tasks.pending')}:</strong>{' '}
         {tasks.totalCount - tasks.completedCount}
       </Typography>
       <Typography variant="body1">
-        <strong>Invested Effort:</strong> {tasks.completedEffort}
+        <strong>{t('management.view.stats.tasks.invested_effort')}:</strong>{' '}
+        {tasks.completedEffort}
       </Typography>
     </Box>
   </Grid>

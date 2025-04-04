@@ -6,13 +6,10 @@ class ProjectManagementTasksAPI {
     this.axios = axiosInstance;
   }
 
-  async resolveProjectManagementTasks(
-    projectManagementId,
-    recentPeriodDays,
-    sortField,
-    token
-  ) {
-    // recentPeriodDays=1&sortField=recentlyCompletedEffort
+  async resolveProjectManagementTasks(projectManagementId, token) {
+    const recentPeriodDays = 1;
+    const sortField = 'recentlyCompletedEffort';
+
     const headers = this.axios.getCommonHeaders();
     const authHeaders = this.axios.getAuthorizationHeaders(token, false);
     const infraHeaders = await obtainInfraHeaders(

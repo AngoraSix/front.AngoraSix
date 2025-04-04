@@ -1,13 +1,15 @@
+import ProjectManagementStats from '../../../../../models/ProjectManagementStats';
 import ManagementCapsSection from './ManagementCapsSection.component';
 
 const ManagementCapsSectionContainer = ({
   projectManagement,
   projectManagementTasksStats,
 }) => {
+  const tasksStats = new ProjectManagementStats(projectManagementTasksStats);
   return (
     <ManagementCapsSection
       projectManagement={projectManagement}
-      projectManagementTasksStats={projectManagementTasksStats}
+      projectManagementTasksStats={tasksStats}
     />
   );
 };
