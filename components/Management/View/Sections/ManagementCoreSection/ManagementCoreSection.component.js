@@ -24,12 +24,17 @@ const ManagementCoreSection = ({ project, projectManagement }) => {
       className="ManagementCoreSection ManagementCoreSection__Container"
       sx={{
         backgroundColor: theme.palette.primary.main,
+        minWidth: '200px',
       }}
     >
       <Box className="ManagementCoreSection__Status">
         <Box className="ManagementCoreSection__Field">
           <Box className="ManagementCoreSection__Field__Title">
-            <Typography variant="h6" align="center" color="primary.contrastText">
+            <Typography
+              variant="h6"
+              align="center"
+              color="primary.contrastText"
+            >
               {t('management.view.status')}
             </Typography>
           </Box>

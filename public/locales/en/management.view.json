@@ -6,5 +6,22 @@
     "management.view.status.STARTUP": "Startup",
     "management.view.status.OPERATIONAL": "Operational",
     "management.view.bylaws.OPERATION_CORE_RETRIBUTION_MODEL": "Redistibution Model",
-    "management.view.bylaws.OPERATION_CORE_RETRIBUTION_MODEL.CAPS": "Caps"
+    "management.view.bylaws.OPERATION_CORE_RETRIBUTION_MODEL.CAPS": "Caps",
+
+    "management.view.stats.tasks.label.ASSIGNED": "Assigned",
+    "management.view.stats.tasks.label.DONE": "Done",
+    "management.view.stats.tasks.label.PENDING": "Pending",
+    "management.view.stats.tasks.label.YOU": "You",
+
+    "management.view.stats.tasks.total": "Total Tasks",
+    "management.view.stats.tasks.recently_completed": "Recently Completed Tasks",
+    "management.view.stats.tasks.completed": "Completed Tasks",
+    "management.view.stats.tasks.pending": "Pending Tasks",
+    "management.view.stats.tasks.invested_effort": "Invested Effort",
+
+    "management.view.stats.title": "Project Overview",
+    "management.view.stats.project.tasks": "Project Tasks",
+    "management.view.stats.contributor.tasks": "Your Tasks",
+    "management.view.stats.contributors.tasks": "Contributors By Tasks",
+    "management.view.stats.NO_DATA": "No Data"
 }

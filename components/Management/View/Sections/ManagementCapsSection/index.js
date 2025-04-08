@@ -1,3 +1,3 @@
-import ManagementCapsSection from './ManagementCapsSection.component';
+import ManagementCapsSection from './ManagementCapsSection.container';
 
 export default ManagementCapsSection;

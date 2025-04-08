@@ -9,6 +9,7 @@
     "other:debug": "NODE_OPTIONS='--inspect' next dev -p 7088",
     "build": "next build",
     "start": "next start -p 80",
+    "start:docker": "next start -p 10700",
     "start:local": "WEBPACK_CONFIG_FILE=all NODE_OPTIONS='--preserve-symlinks-main --preserve-symlinks'  && next dev -p 10700",
     "start:local:win": "set WEBPACK_CONFIG_FILE=all && set NODE_OPTIONS='--preserve-symlinks-main --preserve-symlinks'  && next dev -p 10700"
   },
@@ -18,6 +19,7 @@
     "@mui/icons-material": "^5.11.16",
     "@mui/lab": "^5.0.0-alpha.85",
     "@mui/material": "^5.12.1",
+    "@mui/x-charts": "^7.28.0",
     "@svgr/webpack": "^8.1.0",
     "axios": "^1.6.2",
     "chalk": "^5.0.1",

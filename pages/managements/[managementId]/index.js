@@ -13,9 +13,10 @@ import logger from '../../../utils/logger';
 const ProjectManagementViewPage = ({
   project,
   projectManagement,
+  projectManagementTasksStats,
   projectManagementActions,
   isAdmin,
-  session
+  session,
 }) => {
   const { t } = useTranslation('management.view');
 
@@ -24,10 +25,11 @@ const ProjectManagementViewPage = ({
     return (
       <ManagementDetailsLayout
         headData={{
-          title: t("management.common.page.loading.title"),
-          description: t("management.common.page.loading.description")
+          title: t('management.common.page.loading.title'),
+          description: t('management.common.page.loading.description'),
         }}
-        isAdmin={isAdmin}>
+        isAdmin={isAdmin}
+      >
         <Box>
           <FormSkeleton />
         </Box>
@@ -42,9 +44,10 @@ const ProjectManagementViewPage = ({
           ':project',
           project.name
         ),
-        description: t(
-          'management.view.page.description.template'
-        ).replace(':project', project.name),
+        description: t('management.view.page.description.template').replace(
+          ':project',
+          project.name
+        ),
       }}
       projectManagement={projectManagement}
       isAdmin={isAdmin}
@@ -52,6 +55,7 @@ const ProjectManagementViewPage = ({
       <ProjectManagementView
         project={project}
         projectManagement={projectManagement}
+        projectManagementTasksStats={projectManagementTasksStats}
         projectManagementActions={projectManagementActions}
         isAdmin={isAdmin}
       />
@@ -79,7 +83,6 @@ export const getServerSideProps = async (ctx) => {
     session?.error !== 'RefreshAccessTokenError' ? session : null;
 
   try {
-    
     const projectManagement = await api.projects.getProjectManagement(
       managementId,
       validatedToken
@@ -88,10 +91,17 @@ export const getServerSideProps = async (ctx) => {
     const project = projectManagement.project;
     const projectManagementActions = {};
 
+    const projectManagementTasksStats =
+      await api.managementTasks.resolveProjectManagementTasks(
+        managementId,
+        validatedToken
+      );
+
     props = {
       ...props,
       project,
       projectManagement,
+      projectManagementTasksStats,
       projectManagementActions,
       isAdmin: isA6ResourceAdmin(session?.user?.id, projectManagement),
     };

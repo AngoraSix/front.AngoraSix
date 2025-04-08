@@ -8,6 +8,7 @@
 .ProjectManagementView__Sections {
   display: flex;
   flex-direction: row;
+  gap: 15px;
   flex-grow: 1;
 }
 
