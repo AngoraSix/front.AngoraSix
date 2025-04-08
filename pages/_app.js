@@ -11,6 +11,7 @@ import '../styles/App.css';
 import '../styles/ClubInvitations.css';
 import '../styles/Commons.css';
 import '../styles/IntegrationSourceSync.css';
+import '../styles/ManagementCapsSection.css';
 import '../styles/Layouts.css';
 import '../styles/ManagementContributorsList.css';
 import '../styles/ManagementIntegrationList.css';

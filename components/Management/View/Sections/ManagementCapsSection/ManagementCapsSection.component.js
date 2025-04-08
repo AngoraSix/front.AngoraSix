@@ -1,5 +1,5 @@
 import { useTranslation } from 'next-i18next';
-import { Box, Typography, Divider, Grid } from '@mui/material';
+import { Box, Typography, Divider, Grid, useTheme } from '@mui/material';
 import { PieChart } from '@mui/x-charts/PieChart';
 import PropTypes from 'prop-types';
 
@@ -11,72 +11,92 @@ const ManagementCapsSection = ({
 
   const { t } = useTranslation('management.view');
 
+  const theme = useTheme();
+
+  const projectAssignedTasksCount = project.contributors.reduce(
+    (prev, curr) => prev + curr.tasks.totalCount - curr.tasks.completedCount,
+    0
+  );
+
+  const projectPendingTasksCount =
+    project.tasks.totalCount - project.tasks.completedCount;
+
   const projectChartData = [
     {
       id: 0,
-      value: project.contributors.reduce(
-        (prev, curr) =>
-          prev + curr.tasks.totalCount - curr.tasks.completedCount,
-        0
-      ),
-      label: t('management.view.stats.tasks.label.ASSIGNED'),
-      color: '#FF9800',
+      value: (projectAssignedTasksCount * 100) / project.tasks.totalCount,
+      label: `${t('management.view.stats.tasks.label.ASSIGNED')} ${Math.round(
+        (projectAssignedTasksCount * 100) / project.tasks.totalCount
+      )} %`,
+      color: theme.palette.primary.light,
     },
     {
       id: 1,
-      value: project.tasks.completedCount,
-      label: t('management.view.stats.tasks.label.DONE'),
-      color: '#4CAF50',
+      value: (project.tasks.completedCount * 100) / project.tasks.totalCount,
+      label: `${t('management.view.stats.tasks.label.DONE')} ${Math.round(
+        (project.tasks.completedCount * 100) / project.tasks.totalCount
+      )} %`,
+      color: theme.palette.success.light,
     },
     {
       id: 2,
-      value: project.tasks.totalCount - project.tasks.completedCount,
-      label: t('management.view.stats.tasks.label.PENDING'),
-      color: '#9E9E9E',
+      value: (projectPendingTasksCount * 100) / project.tasks.totalCount,
+      label: `${t('management.view.stats.tasks.label.PENDING')} ${Math.round(
+        (projectPendingTasksCount * 100) / project.tasks.totalCount
+      )} %`,
+      color: theme.palette.secondary.main,
     },
   ];
+
+  const contributorAssignedTasksCount =
+    contributor?.tasks.totalCount - contributor?.tasks.completedCount;
 
   const contributorChartData = [
     {
       id: 3,
-      value: contributor?.tasks.totalCount - contributor?.tasks.completedCount,
-      label: t('management.view.stats.tasks.label.ASSIGNED'),
-      color: '#FF9800',
+      value:
+        (contributorAssignedTasksCount * 100) / contributor?.tasks.totalCount,
+      label: `${t('management.view.stats.tasks.label.ASSIGNED')} ${Math.round(
+        (contributorAssignedTasksCount * 100) / contributor?.tasks.totalCount
+      )} %`,
+      color: theme.palette.primary.light,
     },
     {
       id: 4,
-      value: contributor?.tasks.completedCount,
-      label: t('management.view.stats.tasks.label.DONE'),
-      color: '#4CAF50',
+      value:
+        (contributor?.tasks.completedCount * 100) /
+        contributor?.tasks.totalCount,
+      label: `${t('management.view.stats.tasks.label.DONE')} ${Math.round(
+        (contributor?.tasks.completedCount * 100) /
+          contributor?.tasks.totalCount
+      )} %`,
+      color: theme.palette.success.light,
     },
   ];
 
   const contributorsChartData = project.contributors.map((it, index) => {
     const color =
-      it.contributorId == contributor?.contributorId ? '#FF9800' : '#9E9E9E';
+      it.contributorId == contributor?.contributorId
+        ? theme.palette.primary.light
+        : theme.palette.secondary.main;
 
     const label =
-      it.contributorId == contributor?.contributorId ? t("management.view.stats.tasks.label.YOU") : undefined;
+      it.contributorId == contributor?.contributorId
+        ? `${t('management.view.stats.tasks.label.YOU')} ${Math.round(
+            (it.tasks.totalCount * 100) / project.tasks.totalCount
+          )} %`
+        : undefined;
 
     return {
       id: 5 + index,
-      value: it.tasks.totalCount,
+      value: (it.tasks.totalCount * 100) / project.tasks.totalCount,
       label,
       color,
     };
   });
 
   return (
-    <Box
-      sx={{
-        border: '1px solid #ddd',
-        borderRadius: '8px',
-        padding: '20px',
-        boxShadow: 0,
-        backgroundColor: '#fff',
-        height: '100%',
-      }}
-    >
+    <Box className="ManagementCapsSection__Container">
       <Typography variant="h5" gutterBottom>
         {t('management.view.stats.title')}
       </Typography>
@@ -117,7 +137,7 @@ const ManagementCapsSection = ({
                   {t('management.view.stats.contributors.tasks')}
                 </Typography>
               </Grid>
-              <ContributorChart data={contributorsChartData} />
+              <TaskChart data={contributorsChartData} />
             </>
           )}
         </Grid>
@@ -140,28 +160,8 @@ ManagementCapsSection.propTypes = {
   isAdmin: PropTypes.bool,
 };
 
-const ContributorChart = ({ data }) => (
-  <Grid item xs={12} md={6} sx={{ minWidth: '400px' }}>
-    <PieChart
-      series={[
-        {
-          data,
-          innerRadius: 75,
-          outerRadius: 100,
-          paddingAngle: 2,
-          cornerRadius: 4,
-          startAngle: -45,
-          endAngle: 315,
-        },
-      ]}
-      width={400}
-      height={200}
-    />
-  </Grid>
-);
-
 const TaskChart = ({ data }) => (
-  <Grid item xs={12} md={6} sx={{ minWidth: '400px' }}>
+  <Grid item xs={12} md={6} sx={{ minWidth: '450px' }}>
     <PieChart
       series={[
         {
@@ -174,8 +174,11 @@ const TaskChart = ({ data }) => (
           endAngle: 315,
         },
       ]}
-      width={400}
+      width={450}
       height={200}
+      margin={{
+        left: -150,
+      }}
     />
   </Grid>
 );
