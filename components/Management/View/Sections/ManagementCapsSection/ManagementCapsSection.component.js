@@ -19,11 +19,11 @@ const ManagementCapsSection = ({
   );
 
   const projectPendingTasksCount =
-    project.tasks.totalCount - project.tasks.completedCount;
+    project.tasks.totalCount - projectAssignedTasksCount;
 
   const projectChartData = [
     {
-      id: 0,
+      id: getRandomId(),
       value: (projectAssignedTasksCount * 100) / project.tasks.totalCount,
       label: `${t('management.view.stats.tasks.label.ASSIGNED')} ${Math.round(
         (projectAssignedTasksCount * 100) / project.tasks.totalCount
@@ -31,7 +31,7 @@ const ManagementCapsSection = ({
       color: theme.palette.primary.light,
     },
     {
-      id: 1,
+      id: getRandomId(),
       value: (project.tasks.completedCount * 100) / project.tasks.totalCount,
       label: `${t('management.view.stats.tasks.label.DONE')} ${Math.round(
         (project.tasks.completedCount * 100) / project.tasks.totalCount
@@ -39,7 +39,7 @@ const ManagementCapsSection = ({
       color: theme.palette.success.light,
     },
     {
-      id: 2,
+      id: getRandomId(),
       value: (projectPendingTasksCount * 100) / project.tasks.totalCount,
       label: `${t('management.view.stats.tasks.label.PENDING')} ${Math.round(
         (projectPendingTasksCount * 100) / project.tasks.totalCount
@@ -53,7 +53,7 @@ const ManagementCapsSection = ({
 
   const contributorChartData = [
     {
-      id: 3,
+      id: getRandomId(),
       value:
         (contributorAssignedTasksCount * 100) / contributor?.tasks.totalCount,
       label: `${t('management.view.stats.tasks.label.ASSIGNED')} ${Math.round(
@@ -62,7 +62,7 @@ const ManagementCapsSection = ({
       color: theme.palette.primary.light,
     },
     {
-      id: 4,
+      id: getRandomId(),
       value:
         (contributor?.tasks.completedCount * 100) /
         contributor?.tasks.totalCount,
@@ -74,7 +74,7 @@ const ManagementCapsSection = ({
     },
   ];
 
-  const contributorsChartData = project.contributors.map((it, index) => {
+  const contributorsChartData = project.contributors.map((it) => {
     const color =
       it.contributorId == contributor?.contributorId
         ? theme.palette.primary.light
@@ -88,7 +88,7 @@ const ManagementCapsSection = ({
         : undefined;
 
     return {
-      id: 5 + index,
+      id: getRandomId(),
       value: (it.tasks.totalCount * 100) / project.tasks.totalCount,
       label,
       color,
@@ -187,27 +187,41 @@ const TaskSummary = ({ tasks, t }) => (
   <Grid item xs={12} md={6}>
     <Box>
       <Typography variant="body1">
-        <strong>{t('management.view.stats.tasks.total')}:</strong>{' '}
+        <Typography variant="body1" component="span" fontWeight="bold">
+          {t('management.view.stats.tasks.total')}:
+        </Typography>{' '}
         {tasks.totalCount}
       </Typography>
       <Typography variant="body1">
-        <strong>{t('management.view.stats.tasks.recently_completed')}:</strong>{' '}
+        <Typography variant="body1" component="span" fontWeight="bold">
+          {t('management.view.stats.tasks.recently_completed')}:
+        </Typography>{' '}
         {tasks.recentlyCompletedCount}
       </Typography>
       <Typography variant="body1">
-        <strong>{t('management.view.stats.tasks.completed')}:</strong>{' '}
+        <Typography variant="body1" component="span" fontWeight="bold">
+          {t('management.view.stats.tasks.completed')}:
+        </Typography>{' '}
         {tasks.completedCount}
       </Typography>
       <Typography variant="body1">
-        <strong>{t('management.view.stats.tasks.pending')}:</strong>{' '}
+        <Typography variant="body1" component="span" fontWeight="bold">
+          {t('management.view.stats.tasks.pending')}:
+        </Typography>{' '}
         {tasks.totalCount - tasks.completedCount}
       </Typography>
       <Typography variant="body1">
-        <strong>{t('management.view.stats.tasks.invested_effort')}:</strong>{' '}
+        <Typography variant="body1" component="span" fontWeight="bold">
+          {t('management.view.stats.tasks.invested_effort')}:
+        </Typography>{' '}
         {tasks.completedEffort}
       </Typography>
     </Box>
   </Grid>
 );
+
+const getRandomId = (salt = 0) => {
+  return Date.now() + Math.random() + salt;
+};
 
 export default ManagementCapsSection;
