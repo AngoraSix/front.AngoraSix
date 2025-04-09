@@ -1,4 +1,4 @@
-import { Box, SwipeableDrawer, Typography } from '@mui/material';
+import { Box, SwipeableDrawer } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import { styled } from '@mui/system';
@@ -13,6 +13,7 @@ const ProjectManagementView = ({
   project,
   projectManagement,
   projectManagementTasksStats,
+  projectManagementAccountsStats,
 }) => {
   const theme = useTheme();
   const [openDrawer, setOpenDrawer] = useState(false);
@@ -39,6 +40,7 @@ const ProjectManagementView = ({
           <ManagementCapsSection
             projectManagement={projectManagement}
             projectManagementTasksStats={projectManagementTasksStats}
+            projectManagementAccountsStats={projectManagementAccountsStats}
           />
         </Box>
         {isMobile ? (

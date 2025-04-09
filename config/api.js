@@ -12,6 +12,7 @@ class Api {
       projects: getFromEnvsOrElse(env, 'A6_APP_API_PROJECTS_SERVER_APIGATEWAY_PATH', '/projects'),
       managementIntegrations: getFromEnvsOrElse(env, 'A6_APP_API_MANAGEMENTINTEGRATIONS_SERVER_APIGATEWAY_PATH', '/management/integrations'),
       managementTasks: getFromEnvsOrElse(env, 'A6_APP_API_MANAGEMENTTASKS_SERVER_APIGATEWAY_PATH', '/management/tasks'),
+      managementAccounts: getFromEnvsOrElse(env, 'A6_APP_API_MANAGEMENTACCOUNTS_SERVER_APIGATEWAY_PATH', '/accounts/management'),
       contributors: getFromEnvsOrElse(env, 'A6_APP_API_CONTRIBUTORS_SERVER_APIGATEWAY_PATH', '/contributors'),
       clubs: getFromEnvsOrElse(env, 'A6_APP_API_CLUBS_SERVER_APIGATEWAY_PATH', '/clubs'),
       notifications:

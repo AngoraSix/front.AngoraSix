@@ -12,16 +12,14 @@
     "management.view.stats.tasks.label.DONE": "Done",
     "management.view.stats.tasks.label.PENDING": "Pending",
     "management.view.stats.tasks.label.YOU": "You",
-
     "management.view.stats.tasks.total": "Total Tasks",
-    "management.view.stats.tasks.recently_completed": "Recently Completed Tasks",
     "management.view.stats.tasks.completed": "Completed Tasks",
+    "management.view.stats.tasks.recently_completed": "Recently Completed Tasks",
     "management.view.stats.tasks.pending": "Pending Tasks",
     "management.view.stats.tasks.invested_effort": "Invested Effort",
-
+    "management.view.stats.accounts.balance": "Balance",
     "management.view.stats.title": "Project Overview",
-    "management.view.stats.project.tasks": "Project Tasks",
-    "management.view.stats.contributor.tasks": "Your Tasks",
-    "management.view.stats.contributors.tasks": "Contributors By Tasks",
-    "management.view.stats.NO_DATA": "No Data"
+    "management.view.stats.contributors.details": "Contributors Details",
+    "management.view.contributor": "Contributor"
+
 }
