@@ -1,20 +1,8 @@
 import { useTranslation } from 'next-i18next';
-import {
-  Box,
-  Typography,
-  Card,
-  CardContent,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  Paper,
-  useTheme,
-} from '@mui/material';
+import { Box, Typography, Card, CardContent, useTheme } from '@mui/material';
 import { styled } from '@mui/system';
 import { PieChart } from '@mui/x-charts/PieChart';
+import ContributorsDetails from './ContributorsDetails';
 
 import PropTypes from 'prop-types';
 
@@ -45,27 +33,35 @@ const ManagementCapsSection = ({
     {
       label: t('management.view.stats.tasks.completed'),
       value: project.tasks?.tasks.completedCount,
-      background: '#e8f5e9',
+      background: theme.palette.green.light,
     },
     {
       label: t('management.view.stats.tasks.invested_effort'),
       value: project.tasks?.tasks.totalEffort,
-      background: '#ffebee',
+      background: theme.palette.red.light,
     },
     {
-      label: 'USD Balance',
-      value:
-        project.accounts.finance?.length > 0
-          ? project.accounts?.finance[0].balance
-          : 0,
-      background: '#e3f2fd',
-    },
-    {
-      label: 'CAPS Balance',
-      value: project.accounts.ownership.balance,
-      background: '#e3f2fd',
+      label: `${project.accounts?.ownership.currency} ${t(
+        'management.view.stats.accounts.balance'
+      )}`,
+      value: project.accounts?.ownership.balance,
+      background: theme.palette.blue.light,
     },
   ];
+
+  if (project.accounts?.finance?.length > 0) {
+    const finance = project.accounts.finance.map((it) => {
+      return {
+        label: `${it.currency} ${t('management.view.stats.accounts.balance')}`,
+        value: `$ ${it.balance}`,
+        background: theme.palette.blue.light,
+      };
+    });
+
+    projectCards.push(...finance);
+  }
+
+  console.log(projectCards);
 
   const contributorCards = [
     {
@@ -76,36 +72,38 @@ const ManagementCapsSection = ({
     {
       label: t('management.view.stats.tasks.completed'),
       value: contributor.tasks?.tasks.completedCount,
-      background: '#e8f5e9',
+      background: theme.palette.green.light,
     },
     {
       label: t('management.view.stats.tasks.pending'),
       value: contributor.tasks?.tasks.pendingCount,
-      background: '#fffed1',
+      background: theme.palette.yellow.light,
     },
     {
       label: t('management.view.stats.tasks.invested_effort'),
       value: contributor.tasks?.tasks.totalEffort,
-      background: '#ffebee',
-    },
-    {
-      label: `${contributor.accounts?.ownership.currency} ${t(
-        'management.view.stats.accounts.balance'
-      )}`,
-      value:
-        contributor.accounts?.finance?.length > 0
-          ? contributor.accounts?.finance[0].balance
-          : 0,
-      background: '#e3f2fd',
+      background: theme.palette.red.light,
     },
     {
       label: `${contributor.accounts?.ownership.currency} ${t(
         'management.view.stats.accounts.balance'
       )}`,
       value: contributor.accounts?.ownership.balance,
-      background: '#e3f2fd',
+      background: theme.palette.blue.light,
     },
   ];
+
+  if (contributor.accounts?.finance?.length > 0) {
+    const finance = contributor.accounts.finance.map((it) => {
+      return {
+        label: `${it.currency} ${t('management.view.stats.accounts.balance')}`,
+        value: `$ ${it.balance}`,
+        background: theme.palette.blue.light,
+      };
+    });
+
+    contributorCards.push(...finance);
+  }
 
   const toPercentage = (amount, total) => {
     return Math.round((amount * 100) / total);
@@ -215,7 +213,7 @@ const ManagementCapsSection = ({
       <Typography variant="h5" gutterBottom>
         {t('management.view.stats.contributors.details')}
       </Typography>
-      <ContributorTable contributors={project.tasks.contributors} />
+      <ContributorsDetails contributors={project.tasks.contributors} />
     </Box>
   );
 };
@@ -232,54 +230,6 @@ ManagementCapsSection.propTypes = {
 
 const getRandomId = (salt = 0) => {
   return Date.now() + Math.random() + salt;
-};
-
-const ContributorTable = ({ contributors = [] }) => {
-  const { t } = useTranslation('management.view');
-  return (
-    <TableContainer component={Paper} elevation={2}>
-      <Table size="small">
-        <TableHead>
-          <TableRow>
-            <TableCell sx={{ fontWeight: 'bold' }}>
-              {t('management.view.contributor')}
-            </TableCell>
-            <TableCell sx={{ fontWeight: 'bold' }} align="right">
-              {t('management.view.stats.tasks.total')}
-            </TableCell>
-            <TableCell sx={{ fontWeight: 'bold' }} align="right">
-             {t('management.view.stats.tasks.invested_effort')} 
-            </TableCell>
-            <TableCell sx={{ fontWeight: 'bold' }} align="right">
-              {t('management.view.stats.tasks.completed')}
-            </TableCell>
-            <TableCell sx={{ fontWeight: 'bold' }} align="right">
-              {t('management.view.stats.tasks.recently_completed')}
-            </TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {contributors.map((contributor, index) => (
-            <TableRow key={contributor.contributorId}>
-              <TableCell>{index + 1}</TableCell>
-              <TableCell align="right">
-                {contributor.tasks.totalCount}
-              </TableCell>
-              <TableCell align="right">
-                {contributor.tasks.totalEffort}
-              </TableCell>
-              <TableCell align="right">
-                {contributor.tasks.completedCount}
-              </TableCell>
-              <TableCell align="right">
-                {contributor.tasks.recentlyCompletedCount}
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
-  );
 };
 
 const StatCard = ({

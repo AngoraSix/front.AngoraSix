@@ -18,7 +18,10 @@ class ProjectStats {
       0
     );
 
-    this.tasks.pendingCount = this.tasks.totalCount - this.tasks.assignedCount;
+    this.tasks.pendingCount =
+      this.tasks.totalCount -
+      this.tasks.assignedCount -
+      this.tasks.completedCount;
   }
 }
 
