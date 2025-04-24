@@ -1,5 +1,6 @@
 import { useTranslation } from 'next-i18next';
 import {
+  Box,
   Table,
   TableBody,
   TableCell,
@@ -12,48 +13,48 @@ import {
 const ContributorsDetails = ({ contributors = [] }) => {
   const { t } = useTranslation('management.view');
   return (
-    <TableContainer component={Paper} elevation={2}>
-      <Table size="small">
-        <TableHead>
-          <TableRow>
-            <TableCell sx={{ fontWeight: 'bold' }}>
-              {t('management.view.contributor')}
-            </TableCell>
-            <TableCell sx={{ fontWeight: 'bold' }} align="right">
-              {t('management.view.stats.tasks.total')}
-            </TableCell>
-            <TableCell sx={{ fontWeight: 'bold' }} align="right">
-              {t('management.view.stats.tasks.invested_effort')}
-            </TableCell>
-            <TableCell sx={{ fontWeight: 'bold' }} align="right">
-              {t('management.view.stats.tasks.completed')}
-            </TableCell>
-            <TableCell sx={{ fontWeight: 'bold' }} align="right">
-              {t('management.view.stats.tasks.recently_completed')}
-            </TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {contributors.map((contributor, index) => (
-            <TableRow key={contributor.contributorId}>
-              <TableCell>{index + 1}</TableCell>
-              <TableCell align="right">
-                {contributor.tasks.totalCount}
+    <Box sx={{ width: '80%' }}>
+      <TableContainer component={Paper} elevation={2}>
+        <Table size="small">
+          <TableHead>
+            <TableRow>
+              <TableCell sx={{ fontWeight: 'bold' }}>#</TableCell>
+              <TableCell sx={{ fontWeight: 'bold' }} align="right">
+                {t('management.view.stats.tasks.total')}
               </TableCell>
-              <TableCell align="right">
-                {contributor.tasks.totalEffort}
+              <TableCell sx={{ fontWeight: 'bold' }} align="right">
+                {t('management.view.stats.tasks.invested_effort')}
               </TableCell>
-              <TableCell align="right">
-                {contributor.tasks.completedCount}
+              <TableCell sx={{ fontWeight: 'bold' }} align="right">
+                {t('management.view.stats.tasks.completed')}
               </TableCell>
-              <TableCell align="right">
-                {contributor.tasks.recentlyCompletedCount}
+              <TableCell sx={{ fontWeight: 'bold' }} align="right">
+                {t('management.view.stats.tasks.recently_completed')}
               </TableCell>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+          </TableHead>
+          <TableBody>
+            {contributors.map((contributor, index) => (
+              <TableRow key={contributor.contributorId}>
+                <TableCell>{index + 1}</TableCell>
+                <TableCell align="right">
+                  {contributor.tasks.totalCount}
+                </TableCell>
+                <TableCell align="right">
+                  {contributor.tasks.totalEffort}
+                </TableCell>
+                <TableCell align="right">
+                  {contributor.tasks.completedCount}
+                </TableCell>
+                <TableCell align="right">
+                  {contributor.tasks.recentlyCompletedCount}
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </Box>
   );
 };
 
