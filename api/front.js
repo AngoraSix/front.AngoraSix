@@ -13,7 +13,7 @@ class FrontAPI {
     number = 0,
     extraSkip = 0,
     size = 20,
-    sort = '<dismissed,>instantOfCreation',
+    sort = '<dismissed,>creationInstant',
   }) {
     const { data } = await this.axios.get(
       `api/notifications?size=${size}&number=${number}&sort=${sort}&extraSkip=${extraSkip}`
@@ -121,9 +121,9 @@ class FrontAPI {
     return data;
   }
 
-  async getWellKnownClub(projectId, clubType) {
+  async getWellKnownClub(projectManagementId, clubType) {
     const { data } = await this.axios.get(
-      `api/clubs/well-known/${projectId}/${clubType}`
+      `api/clubs/well-known/project-management/${projectManagementId}/${clubType}`
     );
     return data;
   }

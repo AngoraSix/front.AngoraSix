@@ -13,10 +13,10 @@ export default class Notification {
       isUnique,
       title,
       message,
-      instantOfCreation,
+      creationInstant,
       media,
       alertLevel,
-      instantOfIssue,
+      issuanceInstant,
       needsExplicitDismiss,
       dismissedForUser,
     } = notificationObject;
@@ -29,10 +29,10 @@ export default class Notification {
     this.isUnique = isUnique;
     this.title = title;
     this.message = message;
-    this.instantOfCreation = instantOfCreation && moment(instantOfCreation);
+    this.creationInstant = creationInstant && moment(creationInstant);
     this.media = media;
     this.alertLevel = alertLevel;
-    this.instantOfIssue = instantOfIssue && moment(instantOfIssue);
+    this.issuanceInstant = issuanceInstant && moment(issuanceInstant);
     this.needsExplicitDismiss = needsExplicitDismiss;
     this.dismissedForUser = dismissedForUser;
     this.actions = processHateoasActions(notificationObject);
