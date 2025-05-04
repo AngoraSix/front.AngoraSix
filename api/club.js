@@ -6,7 +6,7 @@ class ClubsAPI {
     this.axios = axiosInstance;
   }
 
-  async getWellKnownClub(projectId, clubType, token) {
+  async getWellKnownClub(projectManagementId, clubType, token) {
     const headers = this.axios.getCommonHeaders();
     const authHeaders = this.axios.getAuthorizationHeaders(token);
     const infraHeaders = await obtainInfraHeaders(
@@ -15,7 +15,7 @@ class ClubsAPI {
     );
 
     const { data } = await this.axios.get(
-      `/well-known/${projectId}/${clubType}`,
+      `/well-known/project-management/${projectManagementId}/${clubType}`,
       {
         headers: {
           ...headers,

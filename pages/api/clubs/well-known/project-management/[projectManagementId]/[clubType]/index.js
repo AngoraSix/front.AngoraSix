@@ -1,8 +1,8 @@
-import api from '../../../../../../api';
-import { obtainValidatedToken } from '../../../../../../utils/api/apiHelper';
-import InternalServerError from '../../../../../../utils/errors/InternalServerError';
-import MethodNotAllowedError from '../../../../../../utils/errors/MethodNotAllowedError';
-import logger from '../../../../../../utils/logger';
+import api from '../../../../../../../api';
+import { obtainValidatedToken } from '../../../../../../../utils/api/apiHelper';
+import InternalServerError from '../../../../../../../utils/errors/InternalServerError';
+import MethodNotAllowedError from '../../../../../../../utils/errors/MethodNotAllowedError';
+import logger from '../../../../../../../utils/logger';
 
 const page = async (req, res) => {
   if (req.method === 'GET') {
@@ -11,7 +11,7 @@ const page = async (req, res) => {
     try {
       const managementData =
         await api.clubs.getWellKnownClub(
-          req.query.projectId,
+          req.query.projectManagementId,
           req.query.clubType,
           validatedToken
         );
