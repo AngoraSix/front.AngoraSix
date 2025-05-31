@@ -81,7 +81,7 @@ export const getServerSideProps = async (ctx) => {
       managementId,
       validatedToken
     );
-    const contributorsClubResponse = await api.clubs.getWellKnownClub(projectManagementResponse.project.id, config.api.servicesAPIParams.clubsProjectManagementMembersType, validatedToken);
+    const contributorsClubResponse = await api.clubs.getWellKnownClub(projectManagementResponse.id, config.api.servicesAPIParams.clubsProjectManagementMembersType, validatedToken);
     const members = contributorsClubResponse?.members;
     if (members?.length) {
       const memberIds = members.map((m) => m.contributorId);

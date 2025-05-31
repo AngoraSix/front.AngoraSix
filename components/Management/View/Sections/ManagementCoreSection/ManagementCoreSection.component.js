@@ -8,11 +8,14 @@ function capitalizeFirstLetter(string) {
 }
 
 const translateOrValue = (t, i18n, i18nKey, value) => {
-  return i18n.exists(i18nKey, {
+  const resolvedValue = i18n.exists(i18nKey, {
     ns: 'management.view',
-  })
-    ? t(i18nKey)
-    : capitalizeFirstLetter(value);
+  }) ? t(i18nKey)
+    : (typeof value === 'string' || value instanceof String)
+      ? capitalizeFirstLetter(value)
+      : value;
+
+  return String(resolvedValue);
 };
 
 const ManagementCoreSection = ({ project, projectManagement }) => {
@@ -50,30 +53,31 @@ const ManagementCoreSection = ({ project, projectManagement }) => {
       </Box>
       <Box className="ManagementCoreSection__Bylaws">
         <Grid container spacing={2}>
-          {projectManagement.constitution.bylaws.map((bylaw) => {
+          {Object.entries(projectManagement.constitution.bylaws).map(([scope, bylaw]) => {
             return (
-              <Grid item xs={6} key={bylaw.scope}>
+              <Grid item xs={12} key={scope}>
                 <Box className="ManagementCoreSection__Field">
-                  <Box className="ManagementCoreSection__Field__Title">
-                    <Typography align="center">
+                  {(typeof bylaw.definition != "boolean" || bylaw.definition) && <Box className="ManagementCoreSection__Field__Title">
+                    <Typography align="center"
+                      color="primary.contrastText">
                       {translateOrValue(
                         t,
                         i18n,
-                        `management.view.bylaws.${bylaw.scope}`,
-                        bylaw.scope
+                        `management.view.bylaws.${scope}`,
+                        scope
                       )}
                     </Typography>
-                  </Box>
-                  <Box className="ManagementCoreSection__Field__Value">
+                  </Box>}
+                  {(typeof bylaw.definition != "boolean") && <Box className="ManagementCoreSection__Field__Value">
                     <Typography align="center" color="primary.contrastText">
                       {translateOrValue(
                         t,
                         i18n,
-                        `management.view.bylaws.${bylaw.scope}.${bylaw.definition}`,
+                        `management.view.bylaws.${scope}.${bylaw.definition}`,
                         bylaw.definition
                       )}
                     </Typography>
-                  </Box>
+                  </Box>}
                 </Box>
               </Grid>
             );

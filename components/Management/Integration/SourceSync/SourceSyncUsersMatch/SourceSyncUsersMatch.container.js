@@ -41,7 +41,7 @@ const SourceSyncUsersMatchContainer = ({
   useEffect(() => {
     const initializeUserMatching = async () => {
       const projectManagementResponse = await api.front.getProjectManagement(projectManagementId);
-      const contributorsClubResponse = await api.front.getWellKnownClub(projectManagementResponse.project.id, config.api.servicesAPIParams.clubsProjectManagementMembersType);
+      const contributorsClubResponse = await api.front.getWellKnownClub(projectManagementResponse.id, config.api.servicesAPIParams.clubsProjectManagementMembersType);
       const members = contributorsClubResponse?.members;
       if (members?.length) {
         const memberIds = members.map((m) => m.contributorId);

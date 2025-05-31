@@ -13,7 +13,6 @@ const page = async (req, res) => {
                 req.body,
                 validatedToken,
             );
-
             res.status(200).json(data);
         } catch (err) {
             const errorMessage = `Error Starting Platform Users Matching Process [${req.method}]`,

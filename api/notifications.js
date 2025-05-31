@@ -11,7 +11,7 @@ class NotificationsAPI {
     {
       number = 0,
       size = 20,
-      sort = '<dismissed,>instantOfCreation',
+      sort = '<dismissed,>creationInstant',
       extraSkip = 0,
     }
   ) {

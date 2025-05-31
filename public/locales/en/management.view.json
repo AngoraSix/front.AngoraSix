@@ -5,6 +5,9 @@
     "management.view.status.IDEA": "Idea",
     "management.view.status.STARTUP": "Startup",
     "management.view.status.OPERATIONAL": "Operational",
+    "management.view.bylaws.OWNERSHIP_IS_A6MANAGED": "A6-Managed Ownership",
+    "management.view.bylaws.OWNERSHIP_IS_A6MANAGED.true": "True",
+    "management.view.bylaws.OWNERSHIP_IS_A6MANAGED.false": "False",
     "management.view.bylaws.OPERATION_CORE_RETRIBUTION_MODEL": "Redistibution Model",
     "management.view.bylaws.OPERATION_CORE_RETRIBUTION_MODEL.CAPS": "Caps",
 
