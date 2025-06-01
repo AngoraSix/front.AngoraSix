@@ -13,7 +13,7 @@ const ProjectManagementView = ({
   project,
   projectManagement,
   projectManagementTasksStats,
-  projectManagementAccountsStats,
+  projectManagementAccountingStats,
 }) => {
   const theme = useTheme();
   const [openDrawer, setOpenDrawer] = useState(false);
@@ -40,7 +40,7 @@ const ProjectManagementView = ({
           <ManagementCapsSection
             projectManagement={projectManagement}
             projectManagementTasksStats={projectManagementTasksStats}
-            projectManagementAccountsStats={projectManagementAccountsStats}
+            projectManagementAccountingStats={projectManagementAccountingStats}
           />
         </Box>
         {isMobile ? (

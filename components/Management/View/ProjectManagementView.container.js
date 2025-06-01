@@ -5,7 +5,7 @@ const ProjectManagementViewContainer = ({
   project,
   projectManagement,
   projectManagementTasksStats,
-  projectManagementAccountsStats,
+  projectManagementAccountingStats,
   projectManagementActions,
   isAdmin,
 }) => {
@@ -15,7 +15,7 @@ const ProjectManagementViewContainer = ({
       projectManagement={projectManagement}
       isAdmin={isAdmin}
       projectManagementTasksStats={projectManagementTasksStats}
-      projectManagementAccountsStats={projectManagementAccountsStats}
+      projectManagementAccountingStats={projectManagementAccountingStats}
       projectManagementActions={projectManagementActions}
     />
   );

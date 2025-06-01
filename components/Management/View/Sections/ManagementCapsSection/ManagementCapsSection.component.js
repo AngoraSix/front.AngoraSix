@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 const ManagementCapsSection = ({
   projectManagement,
   projectManagementTasksStats,
-  projectManagementAccountsStats,
+  projectManagementAccountingStats,
 }) => {
   const { t } = useTranslation('management.view');
   const theme = useTheme();
@@ -17,12 +17,12 @@ const ManagementCapsSection = ({
 
   const project = {
     tasks: projectManagementTasksStats.project,
-    accounts: projectManagementAccountsStats.project,
+    accounts: projectManagementAccountingStats.project,
   };
 
   const contributor = {
     tasks: projectManagementTasksStats.contributor,
-    accounts: projectManagementAccountsStats.contributor,
+    accounts: projectManagementAccountingStats.contributor,
   };
 
   const projectCards = [

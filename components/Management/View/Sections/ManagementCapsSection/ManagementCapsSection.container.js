@@ -1,21 +1,21 @@
 import ProjectManagementStats from '../../../../../models/ProjectManagementStats';
-import ProjectManagementAccountsStats from '../../../../../models/ProjectManagementAccountsStats';
+import ProjectManagementAccountingStats from '../../../../../models/ProjectManagementAccountingStats';
 import ManagementCapsSection from './ManagementCapsSection.component';
 
 const ManagementCapsSectionContainer = ({
   projectManagement,
   projectManagementTasksStats,
-  projectManagementAccountsStats,
+  projectManagementAccountingStats,
 }) => {
   const tasksStats = new ProjectManagementStats(projectManagementTasksStats);
-  const accountsStats = new ProjectManagementAccountsStats(
-    projectManagementAccountsStats
+  const accountsStats = new ProjectManagementAccountingStats(
+    projectManagementAccountingStats
   );
   return (
     <ManagementCapsSection
       projectManagement={projectManagement}
       projectManagementTasksStats={tasksStats}
-      projectManagementAccountsStats={accountsStats}
+      projectManagementAccountingStats={accountsStats}
     />
   );
 };
