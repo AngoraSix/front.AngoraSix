@@ -14,6 +14,7 @@ const ProjectManagementViewPage = ({
   project,
   projectManagement,
   projectManagementTasksStats,
+  projectManagementAccountingStats,
   projectManagementActions,
   isAdmin,
   session,
@@ -56,6 +57,7 @@ const ProjectManagementViewPage = ({
         project={project}
         projectManagement={projectManagement}
         projectManagementTasksStats={projectManagementTasksStats}
+        projectManagementAccountingStats={projectManagementAccountingStats}
         projectManagementActions={projectManagementActions}
         isAdmin={isAdmin}
       />
@@ -97,11 +99,19 @@ export const getServerSideProps = async (ctx) => {
         validatedToken
       );
 
+    const projectManagementAccountingStats = 
+      await api.managementAccounting.resolveProjectManagementAccounting(
+        managementId,
+        validatedToken
+      );
+
+
     props = {
       ...props,
       project,
       projectManagement,
       projectManagementTasksStats,
+      projectManagementAccountingStats,
       projectManagementActions,
       isAdmin: isA6ResourceAdmin(session?.user?.id, projectManagement),
     };

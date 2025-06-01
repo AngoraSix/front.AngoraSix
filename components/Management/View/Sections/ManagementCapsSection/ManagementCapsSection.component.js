@@ -1,151 +1,226 @@
 import { useTranslation } from 'next-i18next';
-import { Box, Typography, Divider, Grid, useTheme } from '@mui/material';
-import { PieChart } from '@mui/x-charts/PieChart';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { Box, Typography, useTheme } from '@mui/material';
+import ContributorsDetails from './ContributorsDetails';
+import { StatCard, PieChartCard } from './Cards';
+
 import PropTypes from 'prop-types';
 
 const ManagementCapsSection = ({
   projectManagement,
   projectManagementTasksStats,
+  projectManagementAccountingStats,
 }) => {
-  const { project, contributor } = projectManagementTasksStats;
-
   const { t } = useTranslation('management.view');
-
   const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
-  const projectAssignedTasksCount = project.contributors.reduce(
-    (prev, curr) => prev + curr.tasks.totalCount - curr.tasks.completedCount,
-    0
-  );
+  const project = {
+    tasks: projectManagementTasksStats.project,
+    accounts: projectManagementAccountingStats.project,
+  };
 
-  const projectPendingTasksCount =
-    project.tasks.totalCount - projectAssignedTasksCount;
+  const contributor = {
+    tasks: projectManagementTasksStats.contributor,
+    accounts: projectManagementAccountingStats.contributor,
+  };
 
-  const projectChartData = [
+  const projectCards = [
     {
-      id: getRandomId(),
-      value: (projectAssignedTasksCount * 100) / project.tasks.totalCount,
-      label: `${t('management.view.stats.tasks.label.ASSIGNED')} ${Math.round(
-        (projectAssignedTasksCount * 100) / project.tasks.totalCount
-      )} %`,
-      color: theme.palette.primary.light,
+      label: t('management.view.stats.tasks.total'),
+      value: project.tasks?.tasks.totalCount,
+      background: theme.palette.grey[100],
     },
     {
-      id: getRandomId(),
-      value: (project.tasks.completedCount * 100) / project.tasks.totalCount,
-      label: `${t('management.view.stats.tasks.label.DONE')} ${Math.round(
-        (project.tasks.completedCount * 100) / project.tasks.totalCount
-      )} %`,
-      color: theme.palette.success.light,
+      label: t('management.view.stats.tasks.completed'),
+      value: project.tasks?.tasks.completedCount,
+      background: theme.palette.green.light,
     },
     {
-      id: getRandomId(),
-      value: (projectPendingTasksCount * 100) / project.tasks.totalCount,
-      label: `${t('management.view.stats.tasks.label.PENDING')} ${Math.round(
-        (projectPendingTasksCount * 100) / project.tasks.totalCount
-      )} %`,
-      color: theme.palette.secondary.main,
-    },
-  ];
-
-  const contributorAssignedTasksCount =
-    contributor?.tasks.totalCount - contributor?.tasks.completedCount;
-
-  const contributorChartData = [
-    {
-      id: getRandomId(),
-      value:
-        (contributorAssignedTasksCount * 100) / contributor?.tasks.totalCount,
-      label: `${t('management.view.stats.tasks.label.ASSIGNED')} ${Math.round(
-        (contributorAssignedTasksCount * 100) / contributor?.tasks.totalCount
-      )} %`,
-      color: theme.palette.primary.light,
+      label: t('management.view.stats.tasks.invested_effort'),
+      value: project.tasks?.tasks.totalEffort,
+      background: theme.palette.red.light,
     },
     {
-      id: getRandomId(),
-      value:
-        (contributor?.tasks.completedCount * 100) /
-        contributor?.tasks.totalCount,
-      label: `${t('management.view.stats.tasks.label.DONE')} ${Math.round(
-        (contributor?.tasks.completedCount * 100) /
-          contributor?.tasks.totalCount
-      )} %`,
-      color: theme.palette.success.light,
+      label: `${project.accounts?.ownership.currency} ${t(
+        'management.view.stats.accounts.balance'
+      )}`,
+      value: project.accounts?.ownership.balance,
+      background: theme.palette.blue.light,
     },
   ];
 
-  const contributorsChartData = project.contributors.map((it) => {
-    const color =
-      it.contributorId == contributor?.contributorId
-        ? theme.palette.primary.light
-        : theme.palette.secondary.main;
+  if (project.accounts?.finance?.length > 0) {
+    const finance = project.accounts.finance.map((it) => {
+      return {
+        label: `${it.currency} ${t('management.view.stats.accounts.balance')}`,
+        value: `$ ${it.balance}`,
+        background: theme.palette.blue.light,
+      };
+    });
 
-    const label =
-      it.contributorId == contributor?.contributorId
-        ? `${t('management.view.stats.tasks.label.YOU')} ${Math.round(
-            (it.tasks.totalCount * 100) / project.tasks.totalCount
-          )} %`
-        : undefined;
+    projectCards.push(...finance);
+  }
 
-    return {
+  const contributorCards = [
+    {
+      label: t('management.view.stats.tasks.total'),
+      value: contributor.tasks?.tasks.totalCount,
+      background: theme.palette.grey[100],
+    },
+    {
+      label: t('management.view.stats.tasks.completed'),
+      value: contributor.tasks?.tasks.completedCount,
+      background: theme.palette.green.light,
+    },
+    {
+      label: t('management.view.stats.tasks.pending'),
+      value: contributor.tasks?.tasks.pendingCount,
+      background: theme.palette.yellow.light,
+    },
+    {
+      label: t('management.view.stats.tasks.invested_effort'),
+      value: contributor.tasks?.tasks.totalEffort,
+      background: theme.palette.red.light,
+    },
+    {
+      label: `${contributor.accounts?.ownership.currency} ${t(
+        'management.view.stats.accounts.balance'
+      )}`,
+      value: contributor.accounts?.ownership.balance,
+      background: theme.palette.blue.light,
+    },
+  ];
+
+  if (contributor.accounts?.finance?.length > 0) {
+    const finance = contributor.accounts.finance.map((it) => {
+      return {
+        label: `${it.currency} ${t('management.view.stats.accounts.balance')}`,
+        value: `$ ${it.balance}`,
+        background: theme.palette.blue.light,
+      };
+    });
+
+    contributorCards.push(...finance);
+  }
+
+  const toPercentage = (amount, total) => {
+    return Math.round((amount * 100) / total);
+  };
+
+  const projectOwnershipChartData = [
+    {
       id: getRandomId(),
-      value: (it.tasks.totalCount * 100) / project.tasks.totalCount,
-      label,
-      color,
-    };
-  });
+      value: toPercentage(
+        contributor?.accounts?.ownership.balance,
+        project.accounts?.ownership.balance
+      ),
+      label: `${t('management.view.stats.tasks.label.YOU')} ${toPercentage(
+        contributor?.accounts?.ownership.balance,
+        project.accounts?.ownership.balance
+      )} %`,
+    },
+    {
+      id: getRandomId(),
+      value: toPercentage(
+        project.accounts?.ownership.balance -
+          contributor?.accounts?.ownership.balance,
+        project.accounts?.ownership.balance
+      ),
+      color: theme.palette.grey[500],
+    },
+  ];
+
+  const projectTasksChartData = [
+    {
+      id: getRandomId(),
+      value: toPercentage(
+        project.tasks?.tasks.assignedCount,
+        project.tasks?.tasks.totalCount
+      ),
+      label: `${t('management.view.stats.tasks.label.ASSIGNED')} ${toPercentage(
+        project.tasks?.tasks.assignedCount,
+        project.tasks?.tasks.totalCount
+      )} %`,
+    },
+    {
+      id: getRandomId(),
+      value: toPercentage(
+        project.tasks?.tasks.completedCount,
+        project.tasks?.tasks.totalCount
+      ),
+      label: `${t('management.view.stats.tasks.label.DONE')} ${toPercentage(
+        project.tasks?.tasks.completedCount,
+        project.tasks?.tasks.totalCount
+      )} %`,
+    },
+    {
+      id: getRandomId(),
+      value: toPercentage(
+        project.tasks?.tasks.pendingCount,
+        project.tasks?.tasks.totalCount
+      ),
+      label: `${t('management.view.stats.tasks.label.PENDING')} ${toPercentage(
+        project.tasks?.tasks.pendingCount,
+        project.tasks?.tasks.totalCount
+      )} %`,
+    },
+  ];
 
   return (
     <Box className="ManagementCapsSection__Container">
-      <Typography variant="h5" gutterBottom>
+      <Typography variant="h5" mb={2} gutterBottom>
         {t('management.view.stats.title')}
       </Typography>
-
-      <Divider sx={{ mb: 2 }} />
-
-      {project ? (
-        <Grid container spacing={4}>
-          {/* Project Overview */}
-          <Grid item xs={12} md={12}>
-            <Typography variant="h6">
-              {t('management.view.stats.project.tasks')}
-            </Typography>
-          </Grid>
-          {project.tasks.totalCount > 0 && (
-            <TaskChart data={projectChartData} />
-          )}
-          <TaskSummary tasks={project.tasks} t={t} />
-
-          {/* Contributor Overview */}
-          {contributor && (
-            <>
-              <Grid item xs={12} md={12}>
-                <Typography variant="h6">
-                  {t('management.view.stats.contributor.tasks')}
-                </Typography>
-              </Grid>
-              <TaskChart data={contributorChartData} />
-              <TaskSummary tasks={contributor.tasks} t={t} />
-            </>
-          )}
-
-          {/* Contributor By Tasks */}
-          {project?.contributors?.length > 0 && (
-            <>
-              <Grid item xs={12} md={12}>
-                <Typography variant="h6">
-                  {t('management.view.stats.contributors.tasks')}
-                </Typography>
-              </Grid>
-              <TaskChart data={contributorsChartData} />
-            </>
-          )}
-        </Grid>
-      ) : (
-        <Typography variant="h6">
-          {t('management.view.stats.NO_DATA')}
-        </Typography>
+      <Box className="ManagementCapsSection__CardsContainer">
+        {projectCards.map((it, index) => (
+          <StatCard
+            key={index}
+            label={it.label}
+            value={it.value}
+            background={it.background}
+            subtext={it.subtext}
+          />
+        ))}
+      </Box>
+      <Box className="ManagementCapsSection__CardsContainer">
+        {project.tasks?.tasks.totalCount > 0 && (
+          <PieChartCard
+            title="Tasks"
+            data={projectTasksChartData}
+            isMobile={isMobile}
+          />
+        )}
+        {contributor.accounts && (
+          <PieChartCard
+            title="Ownership"
+            data={projectOwnershipChartData}
+            isMobile={isMobile}
+          />
+        )}
+      </Box>
+      {contributor.tasks && (
+        <>
+          <Typography variant="h5" gutterBottom>
+            Your Contributions
+          </Typography>
+          <Box className="ManagementCapsSection__CardsContainer">
+            {contributorCards.map((it, index) => (
+              <StatCard
+                key={index}
+                label={it.label}
+                value={it.value}
+                background={it.background}
+                subtext={it.subtext}
+              />
+            ))}
+          </Box>
+        </>
       )}
+      <Typography variant="h5" gutterBottom>
+        {t('management.view.stats.contributors.details')}
+      </Typography>
+      <ContributorsDetails contributors={project.tasks.contributors} />
     </Box>
   );
 };
@@ -159,66 +234,6 @@ ManagementCapsSection.propTypes = {
   projectManagementTasksStats: PropTypes.object.isRequired,
   isAdmin: PropTypes.bool,
 };
-
-const TaskChart = ({ data }) => (
-  <Grid item xs={12} md={6} sx={{ minWidth: '450px' }}>
-    <PieChart
-      series={[
-        {
-          data,
-          innerRadius: 75,
-          outerRadius: 100,
-          paddingAngle: 2,
-          cornerRadius: 4,
-          startAngle: -45,
-          endAngle: 315,
-        },
-      ]}
-      width={450}
-      height={200}
-      margin={{
-        left: -150,
-      }}
-    />
-  </Grid>
-);
-
-const TaskSummary = ({ tasks, t }) => (
-  <Grid item xs={12} md={6}>
-    <Box>
-      <Typography variant="body1">
-        <Typography variant="body1" component="span" fontWeight="bold">
-          {t('management.view.stats.tasks.total')}:
-        </Typography>{' '}
-        {tasks.totalCount}
-      </Typography>
-      <Typography variant="body1">
-        <Typography variant="body1" component="span" fontWeight="bold">
-          {t('management.view.stats.tasks.recently_completed')}:
-        </Typography>{' '}
-        {tasks.recentlyCompletedCount}
-      </Typography>
-      <Typography variant="body1">
-        <Typography variant="body1" component="span" fontWeight="bold">
-          {t('management.view.stats.tasks.completed')}:
-        </Typography>{' '}
-        {tasks.completedCount}
-      </Typography>
-      <Typography variant="body1">
-        <Typography variant="body1" component="span" fontWeight="bold">
-          {t('management.view.stats.tasks.pending')}:
-        </Typography>{' '}
-        {tasks.totalCount - tasks.completedCount}
-      </Typography>
-      <Typography variant="body1">
-        <Typography variant="body1" component="span" fontWeight="bold">
-          {t('management.view.stats.tasks.invested_effort')}:
-        </Typography>{' '}
-        {tasks.completedEffort}
-      </Typography>
-    </Box>
-  </Grid>
-);
 
 const getRandomId = (salt = 0) => {
   return Date.now() + Math.random() + salt;

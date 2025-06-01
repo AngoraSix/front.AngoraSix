@@ -15,16 +15,13 @@
     "management.view.stats.tasks.label.DONE": "Completadas",
     "management.view.stats.tasks.label.PENDING": "Pendientes",
     "management.view.stats.tasks.label.YOU": "Tú",
-
     "management.view.stats.tasks.total": "Tareas Totales",
-    "management.view.stats.tasks.recently_completed": "Tareas Recientemente Completadas",
     "management.view.stats.tasks.completed": "Tareas Completadas",
+    "management.view.stats.tasks.recently_completed": "Tareas Completadas Recientemente",
     "management.view.stats.tasks.pending": "Tareas Pendientes",
     "management.view.stats.tasks.invested_effort": "Esfuerzo Total",
-
     "management.view.stats.title": "Resumen del Proyecto",
-    "management.view.stats.project.tasks": "Tareas del Proyecto",
-    "management.view.stats.contributor.tasks": "Tus Tareas",
-    "management.view.stats.contributors.tasks": "Tareas por Contribuidor",
-    "management.view.stats.NO_DATA": "Sin Datos"
+    "management.view.stats.contributors.details": "Detalles de los Contribuidores",
+    "management.view.stats.accounts.balance": "Balance",
+    "management.view.contributor": "Contribuidor"
 }

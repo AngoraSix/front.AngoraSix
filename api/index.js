@@ -4,6 +4,7 @@ import ClubsAPI from './club';
 import ContributorsAPI from './contributors';
 import FrontAPI from './front';
 import ManagementIntegrationsAPI from './managementIntegrations';
+import ManagementAccountingAPI from './managementAccounting';
 import ProjectsAPI from './projects';
 import NotificationsAPI from './notifications';
 import ManagementTasksAPI from './managementTasks';
@@ -27,6 +28,10 @@ class API {
 
   get managementTasks() {
     return this.managementTasksAPI;
+  }
+
+  get managementAccounting() {
+    return this.managementAccountingAPI;
   }
 
   get clubs() {
@@ -59,6 +64,7 @@ class API {
     this.projectsAPI = new ProjectsAPI(_getServiceAPI('projects', this.axios));
     this.managementIntegrationsAPI = new ManagementIntegrationsAPI(_getServiceAPI('managementIntegrations', this.axios));
     this.managementTasksAPI = new ManagementTasksAPI(_getServiceAPI('managementTasks', this.axios));
+    this.managementAccountingAPI = new ManagementAccountingAPI(_getServiceAPI('managementAccounting', this.axios));
     this.contributorsAPI = new ContributorsAPI(_getServiceAPI('contributors', this.axios));
     this.clubsAPI = new ClubsAPI(_getServiceAPI('clubs', this.axios));
     this.notificationsAPI = new NotificationsAPI(
