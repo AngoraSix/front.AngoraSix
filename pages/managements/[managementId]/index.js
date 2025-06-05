@@ -85,6 +85,7 @@ export const getServerSideProps = async (ctx) => {
     session?.error !== 'RefreshAccessTokenError' ? session : null;
 
   try {
+    console.log("GERRRR000")
     const projectManagement = await api.projects.getProjectManagement(
       managementId,
       validatedToken
@@ -93,12 +94,14 @@ export const getServerSideProps = async (ctx) => {
     const project = projectManagement.project;
     const projectManagementActions = {};
 
+    console.log("GERRRR1111")
     const projectManagementTasksStats =
       await api.managementTasks.resolveProjectManagementTasks(
         managementId,
         validatedToken
       );
 
+    console.log("GERRRR2222")
     const projectManagementAccountingStats = 
       await api.managementAccounting.resolveProjectManagementAccounting(
         managementId,
