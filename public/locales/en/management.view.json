@@ -10,6 +10,7 @@
     "management.view.bylaws.OWNERSHIP_IS_A6MANAGED.false": "False",
     "management.view.bylaws.OPERATION_CORE_RETRIBUTION_MODEL": "Redistibution Model",
     "management.view.bylaws.OPERATION_CORE_RETRIBUTION_MODEL.CAPS": "Caps",
+    "management.view.bylaws.A6_INTERNAL-PROJECTS-OWNERSHIP_CAP--STARTUP_RETRIBUTION_PERIOD": "Startup Retribution Period",
 
     "management.view.stats.tasks.label.ASSIGNED": "Assigned",
     "management.view.stats.tasks.label.DONE": "Done",
@@ -23,6 +24,7 @@
     "management.view.stats.accounts.balance": "Balance",
     "management.view.stats.title": "Project Overview",
     "management.view.stats.contributors.details": "Contributors Details",
-    "management.view.contributor": "Contributor"
+    "management.view.contributor": "Contributor",
 
+    "management.view.stats.accounts.currency.A6_INTERNAL-PROJECTS-OWNERSHIP_CAP": "A6 Caps"
 }

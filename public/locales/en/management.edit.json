@@ -25,5 +25,7 @@
     "management.view.bylaws.OWNERSHIP_IS_A6MANAGED.false": "False",
 
     "management.view.bylaws.OPERATION_CORE_RETRIBUTION_MODEL": "Redistibution Model",
-    "management.view.bylaws.OPERATION_CORE_RETRIBUTION_MODEL.CAPS": "Caps"
+    "management.view.bylaws.OPERATION_CORE_RETRIBUTION_MODEL.CAPS": "Caps",
+
+    "management.view.bylaws.A6_INTERNAL-PROJECTS-OWNERSHIP_CAP--STARTUP_RETRIBUTION_PERIOD": "Startup Retribution Period"
 }

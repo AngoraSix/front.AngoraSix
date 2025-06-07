@@ -42,7 +42,7 @@ const ManagementCapsSection = ({
       background: theme.palette.red.light,
     },
     {
-      label: `${project.accounts?.ownership.currency} ${t(
+      label: `${t(`management.view.stats.accounts.currency.${project.accounts?.ownership.currency}`, { defaultValue: project.accounts?.ownership.currency })} ${t(
         'management.view.stats.accounts.balance'
       )}`,
       value: project.accounts?.ownership.balance,
@@ -124,7 +124,7 @@ const ManagementCapsSection = ({
       id: getRandomId(),
       value: toPercentage(
         project.accounts?.ownership.balance -
-          contributor?.accounts?.ownership.balance,
+        contributor?.accounts?.ownership.balance,
         project.accounts?.ownership.balance
       ),
       color: theme.palette.grey[500],
