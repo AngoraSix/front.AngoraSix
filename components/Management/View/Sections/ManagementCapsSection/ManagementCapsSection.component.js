@@ -1,12 +1,12 @@
-import { useTranslation } from "next-i18next"
+import { Assessment, Group, TrendingUp } from "@mui/icons-material"
+import { Box, Container, Fade, Grow, Typography, useTheme } from "@mui/material"
 import useMediaQuery from "@mui/material/useMediaQuery"
-import { Box, Typography, useTheme, Container, Fade, Grow } from "@mui/material"
 import { styled } from "@mui/system"
-import ContributorsDetails from "./ContributorsDetails"
-import { StatCard, PieChartCard, LineChartCard, ChartToggleCard } from "./Cards"
-import { Assessment, TrendingUp, Group } from "@mui/icons-material"
+import { useTranslation } from "next-i18next"
 import PropTypes from "prop-types"
 import { useState } from "react"
+import { ChartToggleCard, LineChartCard, PieChartCard, StatCard } from "./Cards"
+import ContributorsDetails from "./ContributorsDetails"
 
 const SectionContainer = styled(Box)(({ theme }) => ({
   background: "linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)",
@@ -129,7 +129,7 @@ const ManagementCapsSection = ({
   if (project.accounts?.finance?.length > 0) {
     const finance = project.accounts.finance.map((it) => ({
       label: `${it.currency} ${t("management.view.stats.accounts.balance")}`,
-      value: `${it.currency.toLowerCase() != 'equity'? '$' : ''}${it.balance}`,
+      value: `${it.currency.toLowerCase() != 'equity' ? '$' : ''}${it.balance}`,
       background: theme.palette.blue?.light || "#dbeafe",
       trend: "up",
     }))
@@ -167,7 +167,7 @@ const ManagementCapsSection = ({
   if (contributor.accounts?.finance?.length > 0) {
     const finance = contributor.accounts.finance.map((it) => ({
       label: `${it.currency} ${t("management.view.stats.accounts.balance")}`,
-      value: `${it.currency.toLowerCase() != 'equity'? '$' : ''}${it.balance}`,
+      value: `${it.currency.toLowerCase() != 'equity' ? '$' : ''}${it.balance}`,
       background: theme.palette.blue?.light || "#dbeafe",
     }))
     contributorCards.push(...finance)
@@ -233,6 +233,67 @@ const ManagementCapsSection = ({
 
   return (
     <Container maxWidth="xl" sx={{ py: 2 }}>
+      {contributor.tasks && (
+        <Fade in timeout={2000}>
+          <SectionContainer>
+            <SectionTitle variant="h5">
+              <TrendingUp sx={{ fontSize: 28 }} />
+              Your Personal Contributions
+            </SectionTitle>
+
+            <Grow in timeout={1400}>
+              <ChartsGrid>
+                {contributor.accounts && (
+                  <Fade in timeout={1800}>
+                    <div>
+                      <ChartToggleCard
+                        title="Ownership Analysis"
+                        pieData={projectOwnershipChartData}
+                        lineData={contributor.accounts.ownership.forecastedBalance || {}}
+                        isMobile={isMobile}
+                      />
+                    </div>
+                  </Fade>
+                )}
+                {contributor.accounts?.finance?.length > 0 && (
+                  <Fade in timeout={2000}>
+                    <div>
+                      <LineChartCard
+                        title="Financial Forecast"
+                        data={
+                          contributor.accounts.finance.find((f) => f.currency === selectedFinanceCurrency)
+                            ?.forecastedBalance || {}
+                        }
+                        isMobile={isMobile}
+                        currencies={contributor.accounts.finance.map((f) => f.currency)}
+                        selectedCurrency={selectedFinanceCurrency}
+                        onCurrencyChange={handleFinanceCurrencyChange}
+                      />
+                    </div>
+                  </Fade>
+                )}
+              </ChartsGrid>
+            </Grow>
+            <Grow in timeout={2200}>
+              <CardsGrid>
+                {contributorCards.map((card, index) => (
+                  <Fade in timeout={2400 + index * 100} key={index}>
+                    <div>
+                      <StatCard
+                        label={card.label}
+                        value={card.value}
+                        background={card.background}
+                        subtext={card.subtext}
+                      />
+                    </div>
+                  </Fade>
+                ))}
+              </CardsGrid>
+            </Grow>
+          </SectionContainer>
+        </Fade>
+      )}
+
       <Fade in timeout={800}>
         <SectionContainer>
           <SectionTitle variant="h4">
@@ -267,67 +328,10 @@ const ManagementCapsSection = ({
                   </div>
                 </Fade>
               )}
-              {contributor.accounts && (
-                <Fade in timeout={1800}>
-                  <div>
-                    <ChartToggleCard
-                      title="Ownership Analysis"
-                      pieData={projectOwnershipChartData}
-                      lineData={contributor.accounts.ownership.forecastedBalance || {}}
-                      isMobile={isMobile}
-                    />
-                  </div>
-                </Fade>
-              )}
-              {contributor.accounts?.finance?.length > 0 && (
-                <Fade in timeout={2000}>
-                  <div>
-                    <LineChartCard
-                      title="Financial Forecast"
-                      data={
-                        contributor.accounts.finance.find((f) => f.currency === selectedFinanceCurrency)
-                          ?.forecastedBalance || {}
-                      }
-                      isMobile={isMobile}
-                      currencies={contributor.accounts.finance.map((f) => f.currency)}
-                      selectedCurrency={selectedFinanceCurrency}
-                      onCurrencyChange={handleFinanceCurrencyChange}
-                    />
-                  </div>
-                </Fade>
-              )}
             </ChartsGrid>
           </Grow>
         </SectionContainer>
       </Fade>
-
-      {contributor.tasks && (
-        <Fade in timeout={2000}>
-          <SectionContainer>
-            <SectionTitle variant="h5">
-              <TrendingUp sx={{ fontSize: 28 }} />
-              Your Personal Contributions
-            </SectionTitle>
-
-            <Grow in timeout={2200}>
-              <CardsGrid>
-                {contributorCards.map((card, index) => (
-                  <Fade in timeout={2400 + index * 100} key={index}>
-                    <div>
-                      <StatCard
-                        label={card.label}
-                        value={card.value}
-                        background={card.background}
-                        subtext={card.subtext}
-                      />
-                    </div>
-                  </Fade>
-                ))}
-              </CardsGrid>
-            </Grow>
-          </SectionContainer>
-        </Fade>
-      )}
 
       <Fade in timeout={2600}>
         <SectionContainer>
