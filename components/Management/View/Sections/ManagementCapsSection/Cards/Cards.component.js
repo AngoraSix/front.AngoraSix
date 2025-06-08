@@ -341,7 +341,7 @@ export const LineChartCard = ({ title, data, isMobile, currencies = [], selected
                   textTransform: "uppercase",
                   border: "1px solid rgba(79, 70, 229, 0.3)",
                   "&.Mui-selected": {
-                    backgroundColor: "#4f46e5",
+                    backgroundColor: "#030D16",
                     color: "white",
                   },
                 },
@@ -379,7 +379,7 @@ export const LineChartCard = ({ title, data, isMobile, currencies = [], selected
             series={[
               {
                 dataKey: "value",
-                color: "#4f46e5",
+                color: "#FE5F55",
                 curve: "catmullRom",
                 showMark: true,
                 markSize: 6,
@@ -452,9 +452,9 @@ export const ChartToggleCard = ({
                 px: 1,
                 py: 0.5,
                 minWidth: 40,
-                border: "1px solid rgba(79, 70, 229, 0.3)",
+                border: "1px solid rgba(3, 13, 22, 0.3)",
                 "&.Mui-selected": {
-                  backgroundColor: "#4f46e5",
+                  backgroundColor: "#030D16",
                   color: "white",
                 },
               },
@@ -487,9 +487,9 @@ export const ChartToggleCard = ({
                   fontSize: "0.75rem",
                   fontWeight: 600,
                   textTransform: "uppercase",
-                  border: "1px solid rgba(79, 70, 229, 0.3)",
+                  border: "1px solid rgba(3, 13, 22, 0.3)",
                   "&.Mui-selected": {
-                    backgroundColor: "#4f46e5",
+                    backgroundColor: "#030D16",
                     color: "white",
                   },
                 },
@@ -566,7 +566,7 @@ export const ChartToggleCard = ({
               series={[
                 {
                   dataKey: "value",
-                  color: "#4f46e5",
+                  color: "#FE5F55",
                   curve: "catmullRom",
                   showMark: true,
                   markSize: 6,

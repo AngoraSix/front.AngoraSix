@@ -14,7 +14,6 @@ class ProjectManagementAccountingAPI {
       config.api.serverBaseURL
     );
 
-    console.log("ACCOUNT000");
     const { data } = await this.axios.get(
       `/project-management/${projectManagementId}/stats`,
       {

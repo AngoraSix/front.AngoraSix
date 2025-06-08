@@ -185,7 +185,7 @@ const ManagementCapsSection = ({
         contributor?.accounts?.ownership.balance,
         project.accounts?.ownership.balance,
       )}%`,
-      color: "#4f46e5",
+      color: "#030D16",
     },
     {
       id: getRandomId(),
@@ -197,7 +197,7 @@ const ManagementCapsSection = ({
         project.accounts?.ownership.balance - contributor?.accounts?.ownership.balance,
         project.accounts?.ownership.balance,
       )}%`,
-      color: "#e2e8f0",
+      color: "#AFC1D6",
     },
   ]
 
@@ -209,7 +209,7 @@ const ManagementCapsSection = ({
         project.tasks?.tasks.assignedCount,
         project.tasks?.tasks.totalCount,
       )}%`,
-      color: "#f59e0b",
+      color: "#AFC1D6",
     },
     {
       id: getRandomId(),
@@ -218,7 +218,7 @@ const ManagementCapsSection = ({
         project.tasks?.tasks.completedCount,
         project.tasks?.tasks.totalCount,
       )}%`,
-      color: "#10b981",
+      color: "#030D16",
     },
     {
       id: getRandomId(),
@@ -227,11 +227,10 @@ const ManagementCapsSection = ({
         project.tasks?.tasks.pendingCount,
         project.tasks?.tasks.totalCount,
       )}%`,
-      color: "#ef4444",
+      color: "#7D99BA",
     },
   ]
 
-  console.log("GERGERGER", project.accounts, project.accounts?.finance?.length)
   return (
     <Container maxWidth="xl" sx={{ py: 2 }}>
       <Fade in timeout={800}>
