@@ -3,9 +3,10 @@ import useMediaQuery from "@mui/material/useMediaQuery"
 import { Box, Typography, useTheme, Container, Fade, Grow } from "@mui/material"
 import { styled } from "@mui/system"
 import ContributorsDetails from "./ContributorsDetails"
-import { StatCard, PieChartCard } from "./Cards"
+import { StatCard, PieChartCard, LineChartCard, ChartToggleCard } from "./Cards"
 import { Assessment, TrendingUp, Group } from "@mui/icons-material"
 import PropTypes from "prop-types"
+import { useState } from "react"
 
 const SectionContainer = styled(Box)(({ theme }) => ({
   background: "linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)",
@@ -21,7 +22,7 @@ const SectionContainer = styled(Box)(({ theme }) => ({
     left: 0,
     right: 0,
     height: 4,
-    background: "linear-gradient(90deg, #4f46e5 0%, #7c3aed 50%, #ec4899 100%)",
+    background: "linear-gradient(90deg, #0A2239, #7D99BA 100%)",
   },
 }))
 
@@ -30,6 +31,10 @@ const CardsGrid = styled(Box)(({ theme }) => ({
   gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
   gap: theme.spacing(3),
   marginBottom: theme.spacing(4),
+  [theme.breakpoints.down("md")]: {
+    gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+    gap: theme.spacing(2),
+  },
   [theme.breakpoints.down("sm")]: {
     gridTemplateColumns: "1fr",
     gap: theme.spacing(2),
@@ -41,8 +46,13 @@ const ChartsGrid = styled(Box)(({ theme }) => ({
   gridTemplateColumns: "repeat(auto-fit, minmax(350px, 1fr))",
   gap: theme.spacing(4),
   marginBottom: theme.spacing(4),
+  [theme.breakpoints.down("lg")]: {
+    gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+    gap: theme.spacing(3),
+  },
   [theme.breakpoints.down("md")]: {
     gridTemplateColumns: "1fr",
+    gap: theme.spacing(2),
   },
 }))
 
@@ -68,6 +78,14 @@ const ManagementCapsSection = ({
   const { t } = useTranslation("management.view")
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"))
+
+  const [selectedFinanceCurrency, setSelectedFinanceCurrency] = useState("usd")
+
+  const handleFinanceCurrencyChange = (event, newCurrency) => {
+    if (newCurrency !== null) {
+      setSelectedFinanceCurrency(newCurrency)
+    }
+  }
 
   const project = {
     tasks: projectManagementTasksStats.project,
@@ -213,6 +231,7 @@ const ManagementCapsSection = ({
     },
   ]
 
+  console.log("GERGERGER", project.accounts, project.accounts?.finance?.length)
   return (
     <Container maxWidth="xl" sx={{ py: 2 }}>
       <Fade in timeout={800}>
@@ -252,7 +271,29 @@ const ManagementCapsSection = ({
               {contributor.accounts && (
                 <Fade in timeout={1800}>
                   <div>
-                    <PieChartCard title="Ownership Split" data={projectOwnershipChartData} isMobile={isMobile} />
+                    <ChartToggleCard
+                      title="Ownership Analysis"
+                      pieData={projectOwnershipChartData}
+                      lineData={contributor.accounts.ownership.forecastedBalance || {}}
+                      isMobile={isMobile}
+                    />
+                  </div>
+                </Fade>
+              )}
+              {project.accounts?.finance?.length > 0 && (
+                <Fade in timeout={2000}>
+                  <div>
+                    <LineChartCard
+                      title="Financial Forecast"
+                      data={
+                        project.accounts.finance.find((f) => f.currency === selectedFinanceCurrency)
+                          ?.forecastedBalance || {}
+                      }
+                      isMobile={isMobile}
+                      currencies={project.accounts.finance.map((f) => f.currency)}
+                      selectedCurrency={selectedFinanceCurrency}
+                      onCurrencyChange={handleFinanceCurrencyChange}
+                    />
                   </div>
                 </Fade>
               )}

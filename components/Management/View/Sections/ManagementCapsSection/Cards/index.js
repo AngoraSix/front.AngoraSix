@@ -1,3 +1,3 @@
-import { StatCard, PieChartCard } from './Cards.component';
+import { StatCard, PieChartCard, LineChartCard, ChartToggleCard } from "./Cards.component"
 
-export { StatCard, PieChartCard };
+export { StatCard, PieChartCard, LineChartCard, ChartToggleCard }

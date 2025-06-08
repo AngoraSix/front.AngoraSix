@@ -20,7 +20,7 @@ const StyledCard = styled(Card)(({ theme }) => ({
     left: 0,
     right: 0,
     height: 4,
-    background: "linear-gradient(90deg, #4f46e5 0%, #7c3aed 50%, #ec4899 100%)",
+    background: "linear-gradient(90deg, #0A2239, #7D99BA 100%)",
   },
 }))
 

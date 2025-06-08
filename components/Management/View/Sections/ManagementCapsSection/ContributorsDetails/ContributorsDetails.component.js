@@ -128,7 +128,7 @@ const ContributorsDetails = ({ contributors = [] }) => {
                         sx={{
                           width: 40,
                           height: 40,
-                          background: "linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%)",
+                          background: "linear-gradient(135deg, #0A2239, #7D99BA 100%)",
                           fontWeight: 600,
                         }}
                       >
