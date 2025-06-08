@@ -1,8 +1,8 @@
-import { Box, Grid, Typography, Card, CardContent, Chip } from "@mui/material"
+import { AccountBalance, CheckCircle, Gavel, Info, Schedule, Warning } from "@mui/icons-material"
+import { Box, Card, CardContent, Chip, Grid, Typography } from "@mui/material"
 import { useTheme } from "@mui/material/styles"
 import { styled } from "@mui/system"
 import { useTranslation } from "next-i18next"
-import { CheckCircle, Schedule, Warning, Info, Gavel, AccountBalance } from "@mui/icons-material"
 import PropTypes from "prop-types"
 
 const StyledCard = styled(Card)(({ theme }) => ({
@@ -97,6 +97,27 @@ const ManagementCoreSection = ({ project, projectManagement }) => {
   const theme = useTheme()
   const statusColors = getStatusColor(projectManagement.status)
 
+  const generateBylawChip = (scope, definition) => (<Chip
+    label={translateOrValue(
+      t,
+      i18n,
+      `management.view.bylaws.${scope}.${definition}`,
+      definition,
+    )}
+    size="small"
+    sx={{
+      margin: "auto 0.15rem",
+      backgroundColor: "rgba(255, 255, 255, 0.2)",
+      color: "#ffffff",
+      fontWeight: 500,
+      fontSize: "0.8rem",
+      "& .MuiChip-label": {
+        px: 1.5,
+      },
+    }}
+  />
+  )
+
   return (
     <Box sx={{ p: 2, height: "100%", display: "flex", flexDirection: "column" }}>
       {/* Status Section */}
@@ -181,24 +202,9 @@ const ManagementCoreSection = ({ project, projectManagement }) => {
 
                       {hasValue && (
                         <Box>
-                          <Chip
-                            label={translateOrValue(
-                              t,
-                              i18n,
-                              `management.view.bylaws.${scope}.${bylaw.definition}`,
-                              bylaw.definition,
-                            )}
-                            size="small"
-                            sx={{
-                              backgroundColor: "rgba(255, 255, 255, 0.2)",
-                              color: "#ffffff",
-                              fontWeight: 500,
-                              fontSize: "0.8rem",
-                              "& .MuiChip-label": {
-                                px: 1.5,
-                              },
-                            }}
-                          />
+                          {Array.isArray(bylaw.definition) ? bylaw.definition.map(d => generateBylawChip(scope, d)) : (
+                            generateBylawChip(scope, bylaw.definition)
+                          )}
                         </Box>
                       )}
                     </CardContent>
