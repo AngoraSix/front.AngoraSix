@@ -211,6 +211,7 @@
 /* Scrollbar Styling */
 ::-webkit-scrollbar {
   width: 8px;
+  height: 7px;
 }
 
 ::-webkit-scrollbar-track {
@@ -219,12 +220,12 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(135deg, #0A2239, #7D99BA 100%);
+  background: #0A2239;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(135deg, #0A2239, #7D99BA 100%);
+  background: rgba(10, 34, 57, 0.8);
 }
 
 /* Chart Container Mobile Styles */

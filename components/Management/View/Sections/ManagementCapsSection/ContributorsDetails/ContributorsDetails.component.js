@@ -22,6 +22,7 @@ const StyledTableContainer = styled(TableContainer)(({ theme }) => ({
   border: "1px solid rgba(0, 0, 0, 0.04)",
   overflow: "hidden",
   background: "linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)",
+  overflowX: "auto",
 }))
 
 const StyledTableHead = styled(TableHead)(({ theme }) => ({
@@ -90,7 +91,8 @@ const ContributorsDetails = ({ contributors = [] }) => {
       </Box>
 
       <StyledTableContainer component={Paper}>
-        <Table>
+        <Table
+          sx={{ minWidth: 800 }}>
           <StyledTableHead>
             <TableRow>
               <TableCell>Contributor</TableCell>

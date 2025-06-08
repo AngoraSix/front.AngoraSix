@@ -120,7 +120,7 @@ const ManagementCapsSection = ({
       label: `${t(`management.view.stats.accounts.currency.${project.accounts?.ownership.currency}`, { defaultValue: project.accounts?.ownership.currency })} ${t(
         "management.view.stats.accounts.balance",
       )}`,
-      value: `$${project.accounts?.ownership.balance}`,
+      value: `${project.accounts?.ownership.balance}`,
       background: theme.palette.blue?.light || "#dbeafe",
       trend: "up",
     },
@@ -129,7 +129,7 @@ const ManagementCapsSection = ({
   if (project.accounts?.finance?.length > 0) {
     const finance = project.accounts.finance.map((it) => ({
       label: `${it.currency} ${t("management.view.stats.accounts.balance")}`,
-      value: `$${it.balance}`,
+      value: `${it.currency.toLowerCase() != 'equity'? '$' : ''}${it.balance}`,
       background: theme.palette.blue?.light || "#dbeafe",
       trend: "up",
     }))
@@ -159,7 +159,7 @@ const ManagementCapsSection = ({
     },
     {
       label: `${contributor.accounts?.ownership.currency} ${t("management.view.stats.accounts.balance")}`,
-      value: `$${contributor.accounts?.ownership.balance}`,
+      value: `${contributor.accounts?.ownership.balance}`,
       background: theme.palette.blue?.light || "#dbeafe",
     },
   ]
@@ -167,7 +167,7 @@ const ManagementCapsSection = ({
   if (contributor.accounts?.finance?.length > 0) {
     const finance = contributor.accounts.finance.map((it) => ({
       label: `${it.currency} ${t("management.view.stats.accounts.balance")}`,
-      value: `$${it.balance}`,
+      value: `${it.currency.toLowerCase() != 'equity'? '$' : ''}${it.balance}`,
       background: theme.palette.blue?.light || "#dbeafe",
     }))
     contributorCards.push(...finance)
@@ -279,17 +279,17 @@ const ManagementCapsSection = ({
                   </div>
                 </Fade>
               )}
-              {project.accounts?.finance?.length > 0 && (
+              {contributor.accounts?.finance?.length > 0 && (
                 <Fade in timeout={2000}>
                   <div>
                     <LineChartCard
                       title="Financial Forecast"
                       data={
-                        project.accounts.finance.find((f) => f.currency === selectedFinanceCurrency)
+                        contributor.accounts.finance.find((f) => f.currency === selectedFinanceCurrency)
                           ?.forecastedBalance || {}
                       }
                       isMobile={isMobile}
-                      currencies={project.accounts.finance.map((f) => f.currency)}
+                      currencies={contributor.accounts.finance.map((f) => f.currency)}
                       selectedCurrency={selectedFinanceCurrency}
                       onCurrencyChange={handleFinanceCurrencyChange}
                     />
