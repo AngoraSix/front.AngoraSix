@@ -44,5 +44,6 @@
     "management.view.stats.team.contributors.table.heading.progress": "Progress",
 
 
-    "management.view.stats.accounts.currency.A6_INTERNAL-PROJECTS-OWNERSHIP_CAP": "A6 Caps"
+    "management.view.stats.accounts.currency.A6_INTERNAL-PROJECTS-OWNERSHIP_CAP": "A6 Caps",
+    "management.view.stats.accounts.currency.PROFIT_SHARES": "Profit Shares"
 }

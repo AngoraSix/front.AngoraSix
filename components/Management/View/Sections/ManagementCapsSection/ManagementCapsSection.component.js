@@ -81,7 +81,7 @@ const ManagementCapsSection = ({
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"))
   console.log("projectManagementTasksStats", projectManagementAccountingStats)
 
-  const [selectedFinanceCurrency, setSelectedFinanceCurrency] = useState("equity")
+  const [selectedFinanceCurrency, setSelectedFinanceCurrency] = useState("PROFIT_SHARES")
 
   const handleFinanceCurrencyChange = (event, newCurrency) => {
     if (newCurrency !== null) {
@@ -138,7 +138,7 @@ const ManagementCapsSection = ({
   if (project.accounts?.finance?.length > 0) {
     const finance = project.accounts.finance.map((it) => ({
       label: `${t(`management.view.stats.currencies.${it.currency}`, { defaultValue: it.currency })} - ${t("management.view.stats.accounts.balance")}`,
-      value: `${it.currency.toLowerCase() != 'equity' ? '$' : ''}${it.balance}`,
+      value: `${it.currency.toUpperCase() != 'PROFIT_SHARES' ? '$' : ''}${it.balance}`,
       background: theme.palette.blue?.light || "#dbeafe",
       trend: "up",
     }))
@@ -176,7 +176,7 @@ const ManagementCapsSection = ({
   if (contributor.accounts?.finance?.length > 0) {
     const finance = contributor.accounts.finance.map((it) => ({
       label: `${t(`management.view.stats.currencies.${it.currency}`, { defaultValue: it.currency })} - ${t("management.view.stats.accounts.balance")}`,
-      value: `${it.currency.toLowerCase() != 'equity' ? '$' : ''}${it.balance.toFixed(2)}`,
+      value: `${it.currency.toUpperCase() != 'PROFIT_SHARES' ? '$' : ''}${it.balance.toFixed(2)}`,
       background: theme.palette.blue?.light || "#dbeafe",
     }))
     contributorCards.push(...finance)
