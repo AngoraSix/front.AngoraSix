@@ -21,8 +21,7 @@
     "management.view.status.STARTUP": "Startup",
     "management.view.status.OPERATIONAL": "Operacional",
     "management.view.bylaws.OWNERSHIP_IS_A6MANAGED": "Propiedad compartida por A6",
-    "management.view.bylaws.OWNERSHIP_IS_A6MANAGED.true": "Verdadero",
-    "management.view.bylaws.OWNERSHIP_IS_A6MANAGED.false": "Falso",
+    "management.view.bylaws.FINANCIAL_CURRENCIES": "Monedas financieras",
     "management.view.bylaws.OPERATION_CORE_RETRIBUTION_MODEL": "Modelo de redistribución",
     "management.view.bylaws.OPERATION_CORE_RETRIBUTION_MODEL.CAPS": "Chapitas",
 

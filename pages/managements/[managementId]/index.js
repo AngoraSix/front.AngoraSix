@@ -15,6 +15,7 @@ const ProjectManagementViewPage = ({
   projectManagement,
   projectManagementTasksStats,
   projectManagementAccountingStats,
+  contributorsData,
   projectManagementActions,
   isAdmin,
   session,
@@ -58,6 +59,7 @@ const ProjectManagementViewPage = ({
         projectManagement={projectManagement}
         projectManagementTasksStats={projectManagementTasksStats}
         projectManagementAccountingStats={projectManagementAccountingStats}
+        contributorsData={contributorsData}
         projectManagementActions={projectManagementActions}
         isAdmin={isAdmin}
       />
@@ -85,7 +87,6 @@ export const getServerSideProps = async (ctx) => {
     session?.error !== 'RefreshAccessTokenError' ? session : null;
 
   try {
-    console.log("GERRRR000")
     const projectManagement = await api.projects.getProjectManagement(
       managementId,
       validatedToken
@@ -94,27 +95,26 @@ export const getServerSideProps = async (ctx) => {
     const project = projectManagement.project;
     const projectManagementActions = {};
 
-    console.log("GERRRR1111")
     const projectManagementTasksStats =
       await api.managementTasks.resolveProjectManagementTasks(
         managementId,
         validatedToken
       );
 
-    console.log("GERRRR2222")
-    const projectManagementAccountingStats = 
+    const projectManagementAccountingStats =
       await api.managementAccounting.resolveProjectManagementAccounting(
         managementId,
         validatedToken
       );
-
-
+    const projectContributorIds = projectManagementTasksStats.project.contributors.map(c => c.contributorId);
+    const contributorsData = await api.contributors.listContributors(projectContributorIds, validatedToken);
     props = {
       ...props,
       project,
       projectManagement,
       projectManagementTasksStats,
       projectManagementAccountingStats,
+      contributorsData,
       projectManagementActions,
       isAdmin: isA6ResourceAdmin(session?.user?.id, projectManagement),
     };

@@ -24,8 +24,9 @@ class ContributorAccounting {
 }
 
 class Account {
-  constructor({ currency, balance }) {
+  constructor({ currency, balance, forecastedBalance }) {
     this.currency = currency;
     this.balance = balance;
+    this.forecastedBalance = forecastedBalance;
   }
 }

@@ -1,63 +1,266 @@
+/* Enhanced Modern Styles */
 .ProjectManagementView__Container {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  flex-grow: 1;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+  position: relative;
+}
+
+.ProjectManagementView__Container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background: radial-gradient(circle at 20% 80%, rgba(79, 70, 229, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(124, 58, 237, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
 }
 
 .ProjectManagementView__Sections {
   display: flex;
-  flex-direction: row;
-  gap: 15px;
-  flex-grow: 1;
+  gap: 24px;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+  padding: 24px;
 }
 
 .ProjectManagementView__Section.Main {
-  flex-grow: 3;
+  flex: 1 1 70%;
+  min-width: 0;
 }
 
 .ProjectManagementView__Section.Side {
-  flex-grow: 1;
+  flex: 1 1 30%;
+  max-width: 400px;
+  min-width: 320px;
 }
 
-.ProjectManagementView__SectionsDrawer__Drawer.MuiDrawer-root > .MuiPaper-root {
+/* Enhanced Mobile Responsive */
+@media (max-width: 1200px) {
+  .ProjectManagementView__Section.Side {
+    max-width: 350px;
+    min-width: 300px;
+  }
+}
+
+@media (max-width: 960px) {
+  .ProjectManagementView__Sections {
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+  }
+
+  .ProjectManagementView__Section.Side {
+    max-width: none;
+    min-width: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .ProjectManagementView__Sections {
+    padding: 12px;
+    gap: 12px;
+  }
+}
+
+/* Drawer Enhancements */
+.ProjectManagementView__SectionsDrawer__Drawer .MuiDrawer-paper {
   overflow: visible;
   height: calc(75% - 56px);
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.2);
 }
 
 .ProjectManagementView__SectionsDrawer__Puller {
-  height: 5vh;
+  height: 56px;
   z-index: 1;
   position: absolute;
-  border-top-left-radius: 18px;
-  border-top-right-radius: 18px;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
   visibility: visible;
   right: 0;
   left: 0;
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(0, 0, 0, 0.1);
 }
 
-/* Main Caps Mgmt Section */
+.ProjectManagementView__SectionsDrawer__Puller:hover {
+  background: rgba(0, 0, 0, 0.15);
+}
 
+/* Management Core Section Enhancements */
 .ManagementCoreSection__Container {
-  padding-top: 25px;
+  padding: 24px;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 24px;
   height: 100%;
-  border-radius: 5px;
-  min-width: 150px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 600px) {
+  .ManagementCoreSection__Container {
+    padding: 16px;
+    gap: 16px;
+    border-radius: 16px;
+  }
+}
+
+.ManagementCoreSection__Container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #0A2239, #7D99BA 100%);
 }
 
 .ManagementCoreSection__Field {
-  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 16px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
 }
 
-@media (min-width: 600px) {
+@media (max-width: 600px) {
+  .ManagementCoreSection__Field {
+    padding: 12px;
+  }
+}
+
+.ManagementCoreSection__Field:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Cards Grid Enhancements */
+.ManagementCapsSection__CardsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+@media (max-width: 768px) {
+  .ManagementCapsSection__CardsContainer {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  .ManagementCapsSection__CardsContainer {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+/* Animation Classes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.slide-in-right {
+  animation: slideInRight 0.6s ease-out forwards;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0A2239;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(10, 34, 57, 0.8);
+}
+
+/* Chart Container Mobile Styles */
+@media (max-width: 600px) {
+  .MuiCardContent-root {
+    padding: 16px !important;
+  }
+
+  .MuiTypography-h6 {
+    font-size: 1.1rem !important;
+  }
+
+  .MuiToggleButtonGroup-root {
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+}
+
+/* Mobile-specific chart adjustments */
+@media (max-width: 600px) {
+  .MuiCard-root {
+    margin-bottom: 16px;
+  }
+
+  .MuiCardContent-root {
+    padding: 12px !important;
+  }
+
+  .MuiToggleButton-root {
+    min-width: 36px !important;
+    padding: 6px 8px !important;
+  }
+
+  .MuiChip-root {
+    font-size: 0.7rem !important;
+    height: 24px !important;
+  }
 }
