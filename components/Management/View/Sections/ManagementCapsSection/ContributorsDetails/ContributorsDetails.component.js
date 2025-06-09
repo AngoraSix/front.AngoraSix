@@ -1,20 +1,20 @@
-import { useTranslation } from "next-i18next"
+import { CheckCircle, Person, Schedule, TrendingUp } from "@mui/icons-material"
 import {
+  Avatar,
   Box,
+  Chip,
+  LinearProgress,
+  Paper,
   Table,
   TableBody,
   TableCell,
   TableContainer,
   TableHead,
   TableRow,
-  Paper,
-  Avatar,
-  Chip,
   Typography,
-  LinearProgress,
 } from "@mui/material"
 import { styled } from "@mui/system"
-import { Person, CheckCircle, Schedule, TrendingUp } from "@mui/icons-material"
+import { useTranslation } from "next-i18next"
 
 const StyledTableContainer = styled(TableContainer)(({ theme }) => ({
   borderRadius: 16,
@@ -56,7 +56,7 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
   fontWeight: 500,
 }))
 
-const ContributorsDetails = ({ contributors = [] }) => {
+const ContributorsDetails = ({ contributors = [], contributorsData = [] }) => {
   const { t } = useTranslation("management.view")
 
   const getCompletionRate = (completed, total) => {
@@ -83,10 +83,10 @@ const ContributorsDetails = ({ contributors = [] }) => {
             mb: 1,
           }}
         >
-          Team Performance Overview
+          {t("management.view.stats.team.contributors.title")}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          Detailed breakdown of contributor statistics and performance metrics
+          {t("management.view.stats.team.contributors.description")}
         </Typography>
       </Box>
 
@@ -95,38 +95,38 @@ const ContributorsDetails = ({ contributors = [] }) => {
           sx={{ minWidth: 800 }}>
           <StyledTableHead>
             <TableRow>
-              <TableCell>Contributor</TableCell>
+              <TableCell>{t("management.view.stats.team.contributors.table.heading.contributor")}</TableCell>
               <TableCell align="center">
                 <Box display="flex" alignItems="center" justifyContent="center" gap={1}>
-                  <Schedule sx={{ fontSize: 18 }} />
-                  {t("management.view.stats.tasks.total")}
+                  <Schedule sx={{ fontSize: 18 }} />{t("management.view.stats.team.contributors.table.heading.totaltasks")}
                 </Box>
               </TableCell>
               <TableCell align="center">
                 <Box display="flex" alignItems="center" justifyContent="center" gap={1}>
                   <TrendingUp sx={{ fontSize: 18 }} />
-                  {t("management.view.stats.tasks.invested_effort")}
+                  {t("management.view.stats.team.contributors.table.heading.investedeffort")}
                 </Box>
               </TableCell>
               <TableCell align="center">
                 <Box display="flex" alignItems="center" justifyContent="center" gap={1}>
-                  <CheckCircle sx={{ fontSize: 18 }} />
-                  {t("management.view.stats.tasks.completed")}
+                  <CheckCircle sx={{ fontSize: 18 }} />{t("management.view.stats.team.contributors.table.heading.taskscompleted")}
                 </Box>
               </TableCell>
-              <TableCell align="center">Recent Activity</TableCell>
-              <TableCell align="center">Progress</TableCell>
+              <TableCell align="center">{t("management.view.stats.team.contributors.table.heading.recentactivity")}</TableCell>
+              <TableCell align="center">{t("management.view.stats.team.contributors.table.heading.progress")}</TableCell>
             </TableRow>
           </StyledTableHead>
           <TableBody>
-            {contributors.map((contributor, index) => {
+            {contributors.map(c => ({ ...c, data: (contributorsData.find(cd => cd.id === c.contributorId)) })).map((contributor, index) => {
               const completionRate = getCompletionRate(contributor.tasks.completedCount, contributor.tasks.totalCount)
-
+              const thumbnailUrl = contributor.data?.profileMedia?.thumbnailUrl
               return (
                 <StyledTableRow key={contributor.contributorId}>
                   <StyledTableCell>
                     <Box display="flex" alignItems="center" gap={2}>
-                      <Avatar
+                      {thumbnailUrl ? (
+                        <Avatar src={thumbnailUrl} />
+                      ) : (<Avatar
                         sx={{
                           width: 40,
                           height: 40,
@@ -135,13 +135,10 @@ const ContributorsDetails = ({ contributors = [] }) => {
                         }}
                       >
                         <Person />
-                      </Avatar>
+                      </Avatar>)}
                       <Box>
                         <Typography variant="subtitle2" fontWeight={600}>
-                          Contributor #{index + 1}
-                        </Typography>
-                        <Typography variant="caption" color="text.secondary">
-                          ID: {contributor.contributorId.slice(0, 8)}...
+                          {contributor.data.fullName || `${index + 1}`}
                         </Typography>
                       </Box>
                     </Box>

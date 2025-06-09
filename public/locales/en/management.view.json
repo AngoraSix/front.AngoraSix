@@ -16,7 +16,8 @@
     "management.view.stats.tasks.label.ASSIGNED": "Assigned",
     "management.view.stats.tasks.label.DONE": "Done",
     "management.view.stats.tasks.label.PENDING": "Pending",
-    "management.view.stats.tasks.label.YOU": "You",
+    "management.view.stats.tasks.label.you": "You",
+    "management.view.stats.tasks.label.others": "Others",
     "management.view.stats.tasks.total": "Total Tasks",
     "management.view.stats.tasks.completed": "Completed Tasks",
     "management.view.stats.tasks.recently_completed": "Recently Completed Tasks",
@@ -26,6 +27,20 @@
     "management.view.stats.title": "Project Overview",
     "management.view.stats.contributors.details": "Contributors Details",
     "management.view.contributor": "Contributor",
+
+    "management.view.stats.personal.title": "Your Personal Contributions",
+    "management.view.stats.personal.ownership.title": "Ownership Analysis",
+    "management.view.stats.personal.financialforecast.title": "Financial Forecast",
+    "management.view.stats.personal.taskdistribution.title": "Task Distribution",
+    "management.view.stats.team.contributors.title": "Team Performance Overview",
+    "management.view.stats.team.contributors.description": "Detailed breakdown of contributor statistics and performance metrics",
+    "management.view.stats.team.contributors.table.heading.contributor": "Contributor",
+    "management.view.stats.team.contributors.table.heading.totaltasks": "Total Tasks",
+    "management.view.stats.team.contributors.table.heading.investedeffort": "Invested Effort",
+    "management.view.stats.team.contributors.table.heading.taskscompleted": "Tasks Completed",
+    "management.view.stats.team.contributors.table.heading.recentactivity": "Recent Activity",
+    "management.view.stats.team.contributors.table.heading.progress": "Progress",
+
 
     "management.view.stats.accounts.currency.A6_INTERNAL-PROJECTS-OWNERSHIP_CAP": "A6 Caps"
 }

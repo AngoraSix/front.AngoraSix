@@ -93,6 +93,7 @@ const ProjectManagementView = ({
   projectManagement,
   projectManagementTasksStats,
   projectManagementAccountingStats,
+  contributorsData
 }) => {
   const theme = useTheme()
   const [openDrawer, setOpenDrawer] = useState(false)
@@ -112,6 +113,7 @@ const ProjectManagementView = ({
                 projectManagement={projectManagement}
                 projectManagementTasksStats={projectManagementTasksStats}
                 projectManagementAccountingStats={projectManagementAccountingStats}
+                contributorsData={contributorsData}
               />
             </MainSection>
 

@@ -76,7 +76,7 @@ class ProjectManagementAccountingAPI {
         },
         finance: [
           {
-            currency: 'Equity',
+            currency: 'equity',
             forecastedBalance: {
               "06-2025": 28.04,
               "07-2025": 56.08,
@@ -137,7 +137,7 @@ class ProjectManagementAccountingAPI {
         },
         finance: [
           {
-            currency: 'Equity',
+            currency: 'equity',
             forecastedBalance: {
               "06-2025": 20,
               "07-2025": 40,

@@ -98,6 +98,7 @@ const ManagementCoreSection = ({ project, projectManagement }) => {
   const statusColors = getStatusColor(projectManagement.status)
 
   const generateBylawChip = (scope, definition) => (<Chip
+    key={`${scope}-${definition}`}
     label={translateOrValue(
       t,
       i18n,

@@ -74,12 +74,14 @@ const ManagementCapsSection = ({
   projectManagement,
   projectManagementTasksStats,
   projectManagementAccountingStats,
+  contributorsData
 }) => {
   const { t } = useTranslation("management.view")
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"))
+  console.log("projectManagementTasksStats", projectManagementAccountingStats)
 
-  const [selectedFinanceCurrency, setSelectedFinanceCurrency] = useState("usd")
+  const [selectedFinanceCurrency, setSelectedFinanceCurrency] = useState("equity")
 
   const handleFinanceCurrencyChange = (event, newCurrency) => {
     if (newCurrency !== null) {
@@ -108,6 +110,13 @@ const ManagementCapsSection = ({
       label: t("management.view.stats.tasks.completed"),
       value: project.tasks?.tasks.completedCount,
       background: theme.palette.green?.light || "#dcfce7",
+      trend: "up",
+    },
+    
+    {
+      label: t("management.view.stats.tasks.pending"),
+      value: project.tasks?.tasks.pendingCount,
+      background: theme.palette.yellow?.light || "#fefce8",
       trend: "up",
     },
     {
@@ -181,7 +190,7 @@ const ManagementCapsSection = ({
     {
       id: getRandomId(),
       value: toPercentage(contributor?.accounts?.ownership.balance, project.accounts?.ownership.balance),
-      label: `${t("management.view.stats.tasks.label.YOU")} ${toPercentage(
+      label: `${t("management.view.stats.tasks.label.you")} ${toPercentage(
         contributor?.accounts?.ownership.balance,
         project.accounts?.ownership.balance,
       )}%`,
@@ -193,7 +202,7 @@ const ManagementCapsSection = ({
         project.accounts?.ownership.balance - contributor?.accounts?.ownership.balance,
         project.accounts?.ownership.balance,
       ),
-      label: `Others ${toPercentage(
+      label: `${t("management.view.stats.tasks.label.others")} ${toPercentage(
         project.accounts?.ownership.balance - contributor?.accounts?.ownership.balance,
         project.accounts?.ownership.balance,
       )}%`,
@@ -233,12 +242,13 @@ const ManagementCapsSection = ({
 
   return (
     <Container maxWidth="xl" sx={{ py: 2 }}>
+      {/* Personal Contributor subsection */}
       {contributor.tasks && (
         <Fade in timeout={2000}>
           <SectionContainer>
             <SectionTitle variant="h5">
               <TrendingUp sx={{ fontSize: 28 }} />
-              Your Personal Contributions
+              {t("management.view.stats.personal.title")}
             </SectionTitle>
 
             <Grow in timeout={1400}>
@@ -247,7 +257,7 @@ const ManagementCapsSection = ({
                   <Fade in timeout={1800}>
                     <div>
                       <ChartToggleCard
-                        title="Ownership Analysis"
+                        title={t("management.view.stats.personal.ownership.title")}
                         pieData={projectOwnershipChartData}
                         lineData={contributor.accounts.ownership.forecastedBalance || {}}
                         isMobile={isMobile}
@@ -259,7 +269,7 @@ const ManagementCapsSection = ({
                   <Fade in timeout={2000}>
                     <div>
                       <LineChartCard
-                        title="Financial Forecast"
+                        title={t("management.view.stats.personal.financialforecast.title")}
                         data={
                           contributor.accounts.finance.find((f) => f.currency === selectedFinanceCurrency)
                             ?.forecastedBalance || {}
@@ -294,6 +304,7 @@ const ManagementCapsSection = ({
         </Fade>
       )}
 
+      {/* General Project subsection */}
       <Fade in timeout={800}>
         <SectionContainer>
           <SectionTitle variant="h4">
@@ -305,7 +316,7 @@ const ManagementCapsSection = ({
             <CardsGrid>
               {projectCards.map((card, index) => (
                 <Fade in timeout={1200 + index * 100} key={index}>
-                  <div>
+                  <Box>
                     <StatCard
                       label={card.label}
                       value={card.value}
@@ -313,7 +324,7 @@ const ManagementCapsSection = ({
                       subtext={card.subtext}
                       trend={card.trend}
                     />
-                  </div>
+                  </Box>
                 </Fade>
               ))}
             </CardsGrid>
@@ -324,7 +335,7 @@ const ManagementCapsSection = ({
               {project.tasks?.tasks.totalCount > 0 && (
                 <Fade in timeout={1600}>
                   <div>
-                    <PieChartCard title="Task Distribution" data={projectTasksChartData} isMobile={isMobile} />
+                    <PieChartCard title={t("management.view.stats.personal.taskdistribution.title")} data={projectTasksChartData} isMobile={isMobile} />
                   </div>
                 </Fade>
               )}
@@ -333,6 +344,7 @@ const ManagementCapsSection = ({
         </SectionContainer>
       </Fade>
 
+      { /* Contributors Statistics subsection */}
       <Fade in timeout={2600}>
         <SectionContainer>
           <SectionTitle variant="h5">
@@ -341,9 +353,9 @@ const ManagementCapsSection = ({
           </SectionTitle>
 
           <Grow in timeout={2800}>
-            <div>
-              <ContributorsDetails contributors={project.tasks.contributors} />
-            </div>
+            <Box>
+              <ContributorsDetails contributors={project.tasks.contributors} contributorsData={contributorsData} />
+            </Box>
           </Grow>
         </SectionContainer>
       </Fade>
