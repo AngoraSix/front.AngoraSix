@@ -13,6 +13,8 @@
     "management.view.bylaws.OPERATION_CORE_RETRIBUTION_MODEL.CAPS": "Chapitas",
     "management.view.bylaws.A6_INTERNAL-PROJECTS-OWNERSHIP_CAP--STARTUP_RETRIBUTION_PERIOD": "Período retribución Startup",
 
+    "management.view.stats.currencies.A6_INTERNAL-PROJECTS-OWNERSHIP_CAP": "A6 Chapitas Propiedad",
+
     "management.view.stats.tasks.label.ASSIGNED": "Asignadas",
     "management.view.stats.tasks.label.DONE": "Completadas",
     "management.view.stats.tasks.label.PENDING": "Pendientes",

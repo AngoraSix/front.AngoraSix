@@ -112,7 +112,7 @@ const ManagementCapsSection = ({
       background: theme.palette.green?.light || "#dcfce7",
       trend: "up",
     },
-    
+
     {
       label: t("management.view.stats.tasks.pending"),
       value: project.tasks?.tasks.pendingCount,
@@ -126,10 +126,10 @@ const ManagementCapsSection = ({
       trend: "up",
     },
     {
-      label: `${t(`management.view.stats.accounts.currency.${project.accounts?.ownership.currency}`, { defaultValue: project.accounts?.ownership.currency })} ${t(
+      label: `${t(`management.view.stats.currencies.${project.accounts?.ownership.currency}`, { defaultValue: project.accounts?.ownership.currency })} - ${t(
         "management.view.stats.accounts.balance",
       )}`,
-      value: `${project.accounts?.ownership.balance}`,
+      value: `${project.accounts?.ownership.balance.toFixed(4)}`,
       background: theme.palette.blue?.light || "#dbeafe",
       trend: "up",
     },
@@ -137,7 +137,7 @@ const ManagementCapsSection = ({
 
   if (project.accounts?.finance?.length > 0) {
     const finance = project.accounts.finance.map((it) => ({
-      label: `${it.currency} ${t("management.view.stats.accounts.balance")}`,
+      label: `${t(`management.view.stats.currencies.${it.currency}`, { defaultValue: it.currency })} - ${t("management.view.stats.accounts.balance")}`,
       value: `${it.currency.toLowerCase() != 'equity' ? '$' : ''}${it.balance}`,
       background: theme.palette.blue?.light || "#dbeafe",
       trend: "up",
@@ -167,16 +167,16 @@ const ManagementCapsSection = ({
       background: theme.palette.red?.light || "#fef2f2",
     },
     {
-      label: `${contributor.accounts?.ownership.currency} ${t("management.view.stats.accounts.balance")}`,
-      value: `${contributor.accounts?.ownership.balance}`,
+      label: `${t(`management.view.stats.currencies.${contributor.accounts?.ownership.currency}`, { defaultValue: contributor.accounts?.ownership.currency })} - ${t("management.view.stats.accounts.balance")}`,
+      value: `${contributor.accounts?.ownership.balance.toFixed(4)}`,
       background: theme.palette.blue?.light || "#dbeafe",
     },
   ]
 
   if (contributor.accounts?.finance?.length > 0) {
     const finance = contributor.accounts.finance.map((it) => ({
-      label: `${it.currency} ${t("management.view.stats.accounts.balance")}`,
-      value: `${it.currency.toLowerCase() != 'equity' ? '$' : ''}${it.balance}`,
+      label: `${t(`management.view.stats.currencies.${it.currency}`, { defaultValue: it.currency })} - ${t("management.view.stats.accounts.balance")}`,
+      value: `${it.currency.toLowerCase() != 'equity' ? '$' : ''}${it.balance.toFixed(2)}`,
       background: theme.palette.blue?.light || "#dbeafe",
     }))
     contributorCards.push(...finance)
