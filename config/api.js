@@ -6,9 +6,11 @@ class Api {
     this.browserBaseURL =
       getFromEnvsOrElse(env, 'A6_PUBLIC_APP_API_BROWSER_BASE_URL', 'https://gerbrowser.com.ar/')
     this.servicesOverrideBaseURLs = {
-      projects: getFromEnvsOrElse(env, 'A6_APP_API_PROJECTS_SERVER_BASE_URL', null)
+      projects: getFromEnvsOrElse(env, 'A6_APP_API_PROJECTS_SERVER_BASE_URL', null),
+      surveys: getFromEnvsOrElse(env, 'A6_APP_API_SURVEYS_SERVER_BASE_URL', null),
     };
     this.servicesAPIGatewayPath = {
+      surveys: getFromEnvsOrElse(env, 'A6_APP_API_SURVEYS_SERVER_APIGATEWAY_PATH', '/surveys'),
       projects: getFromEnvsOrElse(env, 'A6_APP_API_PROJECTS_SERVER_APIGATEWAY_PATH', '/projects'),
       managementIntegrations: getFromEnvsOrElse(env, 'A6_APP_API_MANAGEMENTINTEGRATIONS_SERVER_APIGATEWAY_PATH', '/management/integrations'),
       managementTasks: getFromEnvsOrElse(env, 'A6_APP_API_MANAGEMENTTASKS_SERVER_APIGATEWAY_PATH', '/management/tasks'),

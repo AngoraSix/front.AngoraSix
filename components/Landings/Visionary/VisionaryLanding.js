@@ -1,4 +1,8 @@
+"use client"
+
 import { useState } from "react"
+import { useSession, signIn } from "next-auth/react"
+import { useTranslation } from "next-i18next"
 import Head from "next/head"
 import { Box, Typography, Button, Container, Grid, Card, CardContent, TextField, Fade, Zoom } from "@mui/material"
 import {
@@ -11,9 +15,15 @@ import {
   AutoAwesome,
   Handshake,
 } from "@mui/icons-material"
-import { useInView } from "../../../hooks/useInViews";
+import { useInView } from "../../../hooks/useInViews"
+import VisionaryNavbar from "./VisionaryNavbar"
+import { ROUTES } from "../../../constants/constants"
+import { useRouter } from "next/router"
 
 const VisionaryLanding = () => {
+  const { t } = useTranslation("welcome.visionaries")
+  const { data: session } = useSession()
+  const router = useRouter()
   const [email, setEmail] = useState("")
   const [isSubmitted, setIsSubmitted] = useState(false)
 
@@ -30,52 +40,60 @@ const VisionaryLanding = () => {
     setTimeout(() => setIsSubmitted(false), 3000)
   }
 
+  const handleStartBuilding = () => {
+    if (session) {
+      router.push(ROUTES.projects.management.landing)
+    } else {
+      signIn("angorasixspring")
+    }
+  }
+
   const problems = [
     {
       icon: <RocketLaunch sx={{ fontSize: 40, color: "#FE5F55" }} />,
-      title: "Lack of clear structure",
-      description: "You've tried launching before, but without proper guidance and framework.",
+      title: t("problems.items.structure.title"),
+      description: t("problems.items.structure.description"),
     },
     {
       icon: <Groups sx={{ fontSize: 40, color: "#FE5F55" }} />,
-      title: "No shared vision or fair retribution",
-      description: "Co-founder dynamics failed. Contributions weren't tracked fairly.",
+      title: t("problems.items.vision.title"),
+      description: t("problems.items.vision.description"),
     },
     {
       icon: <Psychology sx={{ fontSize: 40, color: "#FE5F55" }} />,
-      title: "Co-founder burnout or admin overload",
-      description: "You've pitched. You've recruited. You've burned out managing everything.",
+      title: t("problems.items.burnout.title"),
+      description: t("problems.items.burnout.description"),
     },
     {
       icon: <TrendingUp sx={{ fontSize: 40, color: "#FE5F55" }} />,
-      title: "Repeating the same mistakes again",
-      description: "Without learning from past failures, you're stuck in the same cycle.",
+      title: t("problems.items.mistakes.title"),
+      description: t("problems.items.mistakes.description"),
     },
   ]
 
   const solutions = [
     {
       icon: <AutoAwesome sx={{ fontSize: 48, color: "#1B5993" }} />,
-      title: "AI Support",
-      description: "Knows your context. Offers next steps. Your intelligent project assistant.",
+      title: t("solutions.items.ai.title"),
+      description: t("solutions.items.ai.description"),
       gradient: "linear-gradient(135deg, #1B5993 0%, #0A2239 100%)",
     },
     {
       icon: <AccountBalance sx={{ fontSize: 48, color: "#1B5993" }} />,
-      title: "Effort Ledger",
-      description: "Every task tracked transparently. No more guesswork about contributions.",
+      title: t("solutions.items.ledger.title"),
+      description: t("solutions.items.ledger.description"),
       gradient: "linear-gradient(135deg, #AFC1D6 0%, #7D99BA 100%)",
     },
     {
       icon: <Handshake sx={{ fontSize: 48, color: "#1B5993" }} />,
-      title: "Ownership & Profit Shares",
-      description: "Rewards follow contribution. Fair equity distribution built-in.",
+      title: t("solutions.items.ownership.title"),
+      description: t("solutions.items.ownership.description"),
       gradient: "linear-gradient(135deg, #FE5F55 0%, #FF8A80 100%)",
     },
     {
       icon: <Psychology sx={{ fontSize: 48, color: "#1B5993" }} />,
-      title: "Clarity & Guidance",
-      description: "You focus on vision, we handle structure. Built-in startup incubation logic.",
+      title: t("solutions.items.guidance.title"),
+      description: t("solutions.items.guidance.description"),
       gradient: "linear-gradient(135deg, #DCE7EA 0%, #AFC1D6 100%)",
     },
   ]
@@ -83,29 +101,33 @@ const VisionaryLanding = () => {
   return (
     <>
       <Head>
-        <title>AngoraSix - Great Ideas Need Help</title>
-        <meta
-          name="description"
-          content="Stop failing. Start building with structure, AI guidance, and transparent collaboration."
-        />
+        <title>{t("page.title")}</title>
+        <meta name="description" content={t("page.description")} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
-      <Box className="visionary-landing">
+      <VisionaryNavbar />
+
+      <Box className="visionary-landing" sx={{ pt: 7 }}>
         {/* Hero Section */}
         <Box ref={heroRef} className="hero-section">
           <Container maxWidth="lg">
             <Fade in={heroInView} timeout={1000}>
               <Box className="hero-content">
                 <Typography variant="h1" className="hero-title">
-                  Great ideas need help.
+                  {t("hero.title")}
                 </Typography>
                 <Typography variant="h4" className="hero-subtitle">
-                  We've been there. This time, start smart—with structure, guidance, and transparency to bring your idea
-                  to life.
+                  {t("hero.subtitle")}
                 </Typography>
-                <Button variant="contained" size="large" className="hero-cta" startIcon={<RocketLaunch />}>
-                  Start Building
+                <Button
+                  variant="contained"
+                  size="large"
+                  className="hero-cta"
+                  startIcon={<RocketLaunch />}
+                  onClick={handleStartBuilding}
+                >
+                  {t("hero.cta")}
                 </Button>
               </Box>
             </Fade>
@@ -118,12 +140,10 @@ const VisionaryLanding = () => {
             <Fade in={problemInView} timeout={1000}>
               <Box className="section-header">
                 <Typography variant="h2" className="section-title">
-                  Why It's Hard Alone
+                  {t("problems.title")}
                 </Typography>
                 <Typography variant="h6" className="section-subtitle">
-                  You've tried launching before. You've pitched. You've recruited. You've burned out.
-                  <br />
-                  You don't need to go through that again.
+                  {t("problems.subtitle")}
                 </Typography>
               </Box>
             </Fade>
@@ -156,10 +176,10 @@ const VisionaryLanding = () => {
             <Fade in={solutionInView} timeout={1000}>
               <Box className="section-header">
                 <Typography variant="h2" className="section-title">
-                  This Time, You Have Us
+                  {t("solutions.title")}
                 </Typography>
                 <Typography variant="h6" className="section-subtitle">
-                  You don't need to do it alone.
+                  {t("solutions.subtitle")}
                 </Typography>
               </Box>
             </Fade>
@@ -192,10 +212,10 @@ const VisionaryLanding = () => {
             <Fade in={previewInView} timeout={1000}>
               <Box className="section-header">
                 <Typography variant="h2" className="section-title">
-                  See AngoraSix in Action
+                  {t("preview.title")}
                 </Typography>
                 <Typography variant="h6" className="section-subtitle">
-                  From idea chaos to organized success
+                  {t("preview.subtitle")}
                 </Typography>
               </Box>
             </Fade>
@@ -209,23 +229,21 @@ const VisionaryLanding = () => {
                       <span></span>
                       <span></span>
                     </Box>
-                    <Typography variant="caption">AngoraSix Dashboard</Typography>
+                    <Typography variant="caption">{t("preview.dashboard")}</Typography>
                   </Box>
                   <Box className="mockup-content">
                     <Grid container spacing={2}>
                       <Grid item xs={8}>
                         <Box className="mockup-chart">
-                          <Typography variant="subtitle2">Project Ownership</Typography>
+                          <Typography variant="subtitle2">{t("preview.ownership")}</Typography>
                           <Box className="chart-placeholder"></Box>
                         </Box>
                       </Grid>
                       <Grid item xs={4}>
                         <Box className="mockup-ai">
-                          <Typography variant="subtitle2">AI Assistant</Typography>
+                          <Typography variant="subtitle2">{t("preview.assistant")}</Typography>
                           <Box className="ai-message">
-                            <Typography variant="caption">
-                              "Based on your progress, I suggest focusing on user research next."
-                            </Typography>
+                            <Typography variant="caption">{t("preview.aiMessage")}</Typography>
                           </Box>
                         </Box>
                       </Grid>
@@ -242,7 +260,7 @@ const VisionaryLanding = () => {
           <Container maxWidth="md">
             <Box className="section-header">
               <Typography variant="h2" className="section-title">
-                Built for Visionaries Like You
+                {t("audience.title")}
               </Typography>
             </Box>
 
@@ -250,25 +268,25 @@ const VisionaryLanding = () => {
               <Grid item xs={12} md={4}>
                 <Box className="audience-item">
                   <CheckCircle sx={{ fontSize: 32, color: "#1B5993", mb: 2 }} />
-                  <Typography variant="h6">Solo founders with unfinished projects</Typography>
+                  <Typography variant="h6">{t("audience.items.solo")}</Typography>
                 </Box>
               </Grid>
               <Grid item xs={12} md={4}>
                 <Box className="audience-item">
                   <CheckCircle sx={{ fontSize: 32, color: "#1B5993", mb: 2 }} />
-                  <Typography variant="h6">Technical/creative duos with no manager</Typography>
+                  <Typography variant="h6">{t("audience.items.teams")}</Typography>
                 </Box>
               </Grid>
               <Grid item xs={12} md={4}>
                 <Box className="audience-item">
                   <CheckCircle sx={{ fontSize: 32, color: "#1B5993", mb: 2 }} />
-                  <Typography variant="h6">Visionaries who've hit roadblocks</Typography>
+                  <Typography variant="h6">{t("audience.items.visionaries")}</Typography>
                 </Box>
               </Grid>
             </Grid>
 
             <Typography variant="h6" className="audience-tagline">
-              AngoraSix is your operations partner, your productivity system, and your co-creation tool.
+              {t("audience.tagline")}
             </Typography>
           </Container>
         </Box>
@@ -279,11 +297,10 @@ const VisionaryLanding = () => {
             <Card className="story-card">
               <CardContent>
                 <Typography variant="h5" className="story-quote">
-                  "Marcos had 3 previous projects that never made it past the planning stage. With AngoraSix, he
-                  launched his idea, distributed roles fairly, and is now working with a team of 4, fully aligned."
+                  {t("story.quote")}
                 </Typography>
                 <Typography variant="subtitle1" className="story-attribution">
-                  — Real AngoraSix Success Story
+                  {t("story.attribution")}
                 </Typography>
               </CardContent>
             </Card>
@@ -295,17 +312,17 @@ const VisionaryLanding = () => {
           <Container maxWidth="md">
             <Box className="cta-content">
               <Typography variant="h2" className="cta-title">
-                Ready to Create Again?
+                {t("cta.title")}
               </Typography>
               <Typography variant="h6" className="cta-subtitle">
-                If you're ready to create again—with confidence—AngoraSix is ready for you.
+                {t("cta.subtitle")}
               </Typography>
 
               <Box component="form" onSubmit={handleSubmit} className="cta-form">
                 <TextField
                   fullWidth
                   variant="outlined"
-                  placeholder="Enter your email for early access"
+                  placeholder={t("cta.placeholder")}
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="cta-input"
@@ -319,12 +336,12 @@ const VisionaryLanding = () => {
                   className="cta-button"
                   disabled={isSubmitted}
                 >
-                  {isSubmitted ? "Welcome to AngoraSix!" : "Get Early Access"}
+                  {isSubmitted ? t("cta.submitted") : t("cta.button")}
                 </Button>
               </Box>
 
               <Typography variant="body2" className="cta-note">
-                We built this because we needed it too. Join other founders who are building with clarity.
+                {t("cta.note")}
               </Typography>
             </Box>
           </Container>

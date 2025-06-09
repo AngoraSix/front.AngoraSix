@@ -1,5 +1,90 @@
 {
-    "welcome.visionaries.page.title": "AngoraSix - Great Ideas Need Help",
-    "welcome.visionaries.page.description": "Stop failing. Start building with structure, AI guidance, and transparent collaboration. Built for founders who've tried before and want to succeed this time."
-    
+  "page": {
+    "title": "AngoraSix - Great Ideas Need Help",
+    "description": "Stop failing. Start building with structure, AI guidance, and transparent collaboration. Built for founders who've tried before and want to succeed this time."
+  },
+  "hero": {
+    "title": "Great ideas need help.",
+    "subtitle": "We've been there. This time, start smart—with structure, guidance, and transparency to bring your idea to life.",
+    "cta": "Start Building"
+  },
+  "problems": {
+    "title": "Why It's Hard Alone",
+    "subtitle": "You've tried launching before. You've pitched. You've recruited. You've burned out.\nYou don't need to go through that again.",
+    "items": {
+      "structure": {
+        "title": "Lack of clear structure",
+        "description": "You've tried launching before, but without proper guidance and framework."
+      },
+      "vision": {
+        "title": "No shared vision or fair retribution",
+        "description": "Co-founder dynamics failed. Contributions weren't tracked fairly."
+      },
+      "burnout": {
+        "title": "Co-founder burnout or admin overload",
+        "description": "You've pitched. You've recruited. You've burned out managing everything."
+      },
+      "mistakes": {
+        "title": "Repeating the same mistakes again",
+        "description": "Without learning from past failures, you're stuck in the same cycle."
+      }
+    }
+  },
+  "solutions": {
+    "title": "This Time, You Have Us",
+    "subtitle": "You don't need to do it alone.",
+    "items": {
+      "ai": {
+        "title": "AI Support",
+        "description": "Knows your context. Offers next steps. Your intelligent project assistant."
+      },
+      "ledger": {
+        "title": "Effort Ledger",
+        "description": "Every task tracked transparently. No more guesswork about contributions."
+      },
+      "ownership": {
+        "title": "Ownership & Profit Shares",
+        "description": "Rewards follow contribution. Fair equity distribution built-in."
+      },
+      "guidance": {
+        "title": "Clarity & Guidance",
+        "description": "You focus on vision, we handle structure. Built-in startup incubation logic."
+      }
+    }
+  },
+  "preview": {
+    "title": "See AngoraSix in Action",
+    "subtitle": "From idea chaos to organized success",
+    "dashboard": "AngoraSix Dashboard",
+    "ownership": "Project Ownership",
+    "assistant": "AI Assistant",
+    "aiMessage": "Based on your progress, I suggest focusing on user research next."
+  },
+  "audience": {
+    "title": "Built for Visionaries Like You",
+    "items": {
+      "solo": "Solo or duo founders with unfinished projects",
+      "teams": "Small teams striving to keep everything aligned",
+      "visionaries": "Visionaries who've hit roadblocks"
+    },
+    "tagline": "AngoraSix is your operations partner, your productivity system, and your co-creation tool."
+  },
+  "story": {
+    "quote": "Marcos had 3 previous projects that never made it past the planning stage. With AngoraSix, he launched his idea, distributed roles fairly, and is now working with a team of 4, fully aligned.",
+    "attribution": "— Real AngoraSix Success Story"
+  },
+  "cta": {
+    "title": "Ready to Create Again?",
+    "subtitle": "If you're ready to create again—with confidence—AngoraSix is ready for you.",
+    "placeholder": "Enter your email for early access",
+    "button": "Get Early Access",
+    "submitted": "Welcome to AngoraSix!",
+    "note": "We built this because we needed it too. Join other founders who are building with clarity."
+  },
+  "navbar": {
+    "login": "Sign In",
+    "logout": "Sign Out",
+    "dashboard": "Dashboard",
+    "profile": "Profile"
+  }
 }

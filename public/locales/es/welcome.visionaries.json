@@ -1,5 +1,90 @@
 {
-    "welcome.visionaries.page.title": "AngoraSix - Las grandes ideas necesitan ayuda",
-    "welcome.visionaries.page.description": "Deja de fallar. Comienza a construir con estructura, orientación de IA y colaboración transparente. Diseñado para fundadores que han intentado antes y quieren tener éxito esta vez."
-    
+  "page": {
+    "title": "AngoraSix - Las Grandes Ideas Necesitan Ayuda",
+    "description": "Deja de fallar. Empieza a construir con estructura, guía de IA y colaboración transparente. Construido para fundadores que lo han intentado antes y quieren tener éxito esta vez."
+  },
+  "hero": {
+    "title": "Las grandes ideas necesitan ayuda.",
+    "subtitle": "Hemos estado ahí. Esta vez, empieza inteligentemente—con estructura, guía y transparencia para dar vida a tu idea.",
+    "cta": "Empezar a Construir"
+  },
+  "problems": {
+    "title": "Por Qué Es Difícil Solo",
+    "subtitle": "Has intentado lanzar antes. Has presentado. Has reclutado. Te has quemado.\nNo necesitas pasar por eso otra vez.",
+    "items": {
+      "structure": {
+        "title": "Falta de estructura clara",
+        "description": "Has intentado lanzar antes, pero sin la guía y el marco adecuados."
+      },
+      "vision": {
+        "title": "Sin visión compartida o retribución justa",
+        "description": "La dinámica de cofundadores falló. Las contribuciones no se rastrearon de manera justa."
+      },
+      "burnout": {
+        "title": "Agotamiento de cofundadores o sobrecarga administrativa",
+        "description": "Has presentado. Has reclutado. Te has quemado gestionando todo."
+      },
+      "mistakes": {
+        "title": "Repitiendo los mismos errores otra vez",
+        "description": "Sin aprender de los fracasos pasados, estás atrapado en el mismo ciclo."
+      }
+    }
+  },
+  "solutions": {
+    "title": "Esta Vez, Nos Tienes a Nosotros",
+    "subtitle": "No necesitas hacerlo solo.",
+    "items": {
+      "ai": {
+        "title": "Soporte de IA",
+        "description": "Conoce tu contexto. Ofrece próximos pasos. Tu asistente inteligente de proyecto."
+      },
+      "ledger": {
+        "title": "Registro de Esfuerzo",
+        "description": "Cada tarea rastreada transparentemente. No más conjeturas sobre contribuciones."
+      },
+      "ownership": {
+        "title": "Propiedad y Participación en Beneficios",
+        "description": "Las recompensas siguen la contribución. Distribución equitativa de capital integrada."
+      },
+      "guidance": {
+        "title": "Claridad y Guía",
+        "description": "Te enfocas en la visión, nosotros manejamos la estructura. Lógica de incubación de startups integrada."
+      }
+    }
+  },
+  "preview": {
+    "title": "Ve AngoraSix en Acción",
+    "subtitle": "Del caos de ideas al éxito organizado",
+    "dashboard": "Panel de AngoraSix",
+    "ownership": "Propiedad del Proyecto",
+    "assistant": "Asistente de IA",
+    "aiMessage": "Basado en tu progreso, sugiero enfocarse en investigación de usuarios a continuación."
+  },
+  "audience": {
+    "title": "Construido para Visionarios Como Tú",
+    "items": {
+      "solo": "Fundadores solitarios con proyectos sin terminar",
+      "teams": "Pequeños equipos que luchan por mantener todo bajo control",
+      "visionaries": "Visionarios que han encontrado obstáculos"
+    },
+    "tagline": "AngoraSix es tu socio de operaciones, tu sistema de productividad y tu herramienta de co-creación."
+  },
+  "story": {
+    "quote": "Marcos tuvo 3 proyectos anteriores que nunca pasaron de la etapa de planificación. Con AngoraSix, lanzó su idea, distribuyó roles de manera justa, y ahora está trabajando con un equipo de 4, completamente alineado.",
+    "attribution": "— Historia Real de Éxito de AngoraSix"
+  },
+  "cta": {
+    "title": "¿Listo para Crear de Nuevo?",
+    "subtitle": "Si estás listo para crear de nuevo—con confianza—AngoraSix está listo para ti.",
+    "placeholder": "Ingresa tu email para acceso temprano",
+    "button": "Obtener Acceso Temprano",
+    "submitted": "¡Bienvenido a AngoraSix!",
+    "note": "Construimos esto porque también lo necesitábamos. Únete a otros fundadores que están construyendo con claridad."
+  },
+  "navbar": {
+    "login": "Iniciar Sesión",
+    "logout": "Cerrar Sesión",
+    "dashboard": "Panel",
+    "profile": "Perfil"
+  }
 }

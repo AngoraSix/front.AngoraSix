@@ -9,7 +9,7 @@
 /* Hero Section */
 .hero-section {
   background: linear-gradient(135deg, #0a2239 0%, #1b5993 50%, #afc1d6 100%);
-  min-height: 100vh;
+  min-height: 75vh;
   display: flex;
   align-items: center;
   position: relative;

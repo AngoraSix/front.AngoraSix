@@ -135,6 +135,12 @@ class FrontAPI {
       });
     return data;
   }
+
+  //any object passed as the 'surveyResponseBody' will be persisted as is, no particular structure enforced  
+  async saveSurveyResponse(surveyResponseBody, surveyKey) {
+    const { data } = await this.axios.post(`api/surveys/${surveyKey}/responses`, surveyResponseBody);
+    return data;
+  }
 }
 
 export default FrontAPI;
