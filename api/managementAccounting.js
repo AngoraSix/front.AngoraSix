@@ -43,11 +43,11 @@ class ProjectManagementAccountingAPI {
     //         "05-2026": 158.42,
     //         "06-2026": 158.42
     //       },
-    //       currency: 'caps',
+    //       currency: 'A6_INTERNAL-PROJECTS-OWNERSHIP_CAP',
     //     },
     //     finance: [
     //       {
-    //         currency: 'equity',
+    //         currency: 'PROFIT_SHARES',
     //         forecastedBalance: {
     //           "06-2025": 28.04,
     //           "07-2025": 56.08,
@@ -104,11 +104,11 @@ class ProjectManagementAccountingAPI {
     //         "05-2026": 113,
     //         "06-2026": 113
     //       },
-    //       currency: 'caps',
+    //       currency: 'A6_INTERNAL-PROJECTS-OWNERSHIP_CAP',
     //     },
     //     finance: [
     //       {
-    //         currency: 'equity',
+    //         currency: 'PROFIT_SHARES',
     //         forecastedBalance: {
     //           "06-2025": 20,
     //           "07-2025": 40,
