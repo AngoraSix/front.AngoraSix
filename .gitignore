@@ -37,6 +37,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# v0
+publikz
+
 ### OSX ###
 .DS_Store
 .java-version
