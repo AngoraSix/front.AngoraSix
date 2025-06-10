@@ -1,0 +1,45 @@
+{
+  "page": {
+    "title": "Welcome! - AngoraSix",
+    "description": "Thank you for joining AngoraSix. Get ready to manage your projects like never before."
+  },
+  "welcome": {
+    "title": "Thank you for joining!",
+    "subtitle": "Very soon you'll be able to manage your projects like never before. We'll let you know when everything is ready."
+  },
+  "countdown": {
+    "title": "Only left:"
+  },
+  "calendar": {
+    "button": "Add to Calendar",
+    "description": "Get an automatic reminder of the launch"
+  },
+  "contact": {
+    "title": "Do you have any questions?",
+    "description": "We're here for whatever you need: real and human contact.",
+    "placeholder": "Tell us what you'd like to know or any suggestions...",
+    "button": "Send Message",
+    "chatbot": "Interactive FAQ / Chatbot",
+    "email": "You can also write to us directly",
+    "success": "Message sent! We'll respond soon."
+  },
+  "steps": {
+    "title": "Next Steps",
+    "notifications": {
+      "title": "We'll Notify You",
+      "description": "You'll receive an email when AngoraSix is ready to use"
+    },
+    "community": {
+      "title": "Join the Community",
+      "description": "Connect with other visionaries and share ideas before launch"
+    },
+    "setup": {
+      "title": "Prepare Your Profile",
+      "description": "When we launch, you'll be able to set up your profile and create your first project"
+    }
+  },
+  "social": {
+    "title": "Stay Connected",
+    "description": "Follow us on our social networks to receive updates and meet other members of the AngoraSix community."
+  }
+}

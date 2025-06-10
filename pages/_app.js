@@ -20,6 +20,7 @@ import '../styles/Notifications.css';
 import '../styles/ProjectManagementForm.css';
 import '../styles/ProjectManagementView.css';
 import '../styles/WelcomeVisionaries.css';
+import "../styles/CountdownTimer.css"
 import '../styles/globals.css';
 import { getPublicEnv, removeSecrets } from '../utils/env';
 global.EventSource = require('eventsource');

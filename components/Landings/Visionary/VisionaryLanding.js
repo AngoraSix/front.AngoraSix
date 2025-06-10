@@ -16,9 +16,11 @@ import {
   Handshake,
 } from "@mui/icons-material"
 import { useInView } from "../../../hooks/useInViews"
-import VisionaryNavbar from "./VisionaryNavbar"
+import SharedNavbar from "../../common/SharedNavbar"
 import { ROUTES } from "../../../constants/constants"
 import { useRouter } from "next/router"
+import CountdownTimer from "../../common/CountdownTimer"
+import { trackEvent } from "../../../utils/analytics"
 
 const VisionaryLanding = () => {
   const { t } = useTranslation("welcome.visionaries")
@@ -26,6 +28,8 @@ const VisionaryLanding = () => {
   const router = useRouter()
   const [email, setEmail] = useState("")
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const launchDate = new Date()
+  launchDate.setDate(launchDate.getDate() + 30) // 30 days from now
 
   // Intersection observer hooks for animations
   const [heroRef, heroInView] = useInView({ threshold: 0.1, triggerOnce: true })
@@ -33,14 +37,53 @@ const VisionaryLanding = () => {
   const [solutionRef, solutionInView] = useInView({ threshold: 0.1, triggerOnce: true })
   const [previewRef, previewInView] = useInView({ threshold: 0.1, triggerOnce: true })
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    // Handle form submission here
-    setIsSubmitted(true)
-    setTimeout(() => setIsSubmitted(false), 3000)
+
+    trackEvent("email_captured", {
+      event_category: "lead_generation",
+      event_label: "cta_section",
+    })
+
+    try {
+      const response = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          source: "landing_cta",
+          planType: "early-bird",
+        }),
+      })
+
+      const result = await response.json()
+
+      if (result.success) {
+        setIsSubmitted(true)
+        setTimeout(() => {
+          router.push("/welcome/post-registration")
+        }, 2000)
+      } else {
+        console.error("Subscription failed:", result.error)
+        setIsSubmitted(true)
+        setTimeout(() => setIsSubmitted(false), 3000)
+      }
+    } catch (error) {
+      console.error("Subscription error:", error)
+      setIsSubmitted(true)
+      setTimeout(() => setIsSubmitted(false), 3000)
+    }
   }
 
   const handleStartBuilding = () => {
+    trackEvent("cta_click", {
+      event_category: "engagement",
+      event_label: "start_building",
+      location: "hero_section",
+    })
+
     if (session) {
       router.push(ROUTES.projects.management.landing)
     } else {
@@ -106,12 +149,26 @@ const VisionaryLanding = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
-      <VisionaryNavbar />
+      <SharedNavbar />
 
       <Box className="visionary-landing" sx={{ pt: 7 }}>
         {/* Hero Section */}
         <Box ref={heroRef} className="hero-section">
           <Container maxWidth="lg">
+            {/* Countdown Banner */}
+            <Box sx={{ mb: 4 }}>
+              <CountdownTimer
+                targetDate={launchDate.toISOString()}
+                variant="banner"
+                onComplete={() => {
+                  trackEvent("countdown_completed", {
+                    event_category: "engagement",
+                    event_label: "hero_section",
+                  })
+                }}
+              />
+            </Box>
+
             <Fade in={heroInView} timeout={1000}>
               <Box className="hero-content">
                 <Typography variant="h1" className="hero-title">
@@ -120,15 +177,38 @@ const VisionaryLanding = () => {
                 <Typography variant="h4" className="hero-subtitle">
                   {t("hero.subtitle")}
                 </Typography>
-                <Button
-                  variant="contained"
-                  size="large"
-                  className="hero-cta"
-                  startIcon={<RocketLaunch />}
-                  onClick={handleStartBuilding}
-                >
-                  {t("hero.cta")}
-                </Button>
+                <Box sx={{ display: "flex", gap: 2, justifyContent: "center", flexWrap: "wrap" }}>
+                  <Button
+                    variant="contained"
+                    size="large"
+                    className="hero-cta"
+                    startIcon={<RocketLaunch />}
+                    onClick={handleStartBuilding}
+                  >
+                    {t("hero.cta")}
+                  </Button>
+                  <Button
+                    variant="outlined"
+                    size="large"
+                    onClick={() => {
+                      trackEvent("pricing_click", {
+                        event_category: "navigation",
+                        event_label: "hero_section",
+                      })
+                      router.push("/pricing")
+                    }}
+                    sx={{
+                      borderColor: "#1B5993",
+                      color: "#1B5993",
+                      "&:hover": {
+                        backgroundColor: "#1B5993",
+                        color: "white",
+                      },
+                    }}
+                  >
+                    Ver Planes
+                  </Button>
+                </Box>
               </Box>
             </Fade>
           </Container>

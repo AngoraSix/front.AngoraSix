@@ -1,0 +1,54 @@
+{
+  "page": {
+    "title": "Precios de AngoraSix - Planes Free y Plus",
+    "description": "Descubre nuestros planes de precios. Plan Free permanente y Plan Plus gratuito para usuarios Early Bird. ¡Reserva tu acceso ahora!"
+  },
+  "header": {
+    "title": "Elige tu Plan",
+    "subtitle": "Comienza gratis y escala cuando estés listo. Los usuarios Early Bird obtienen acceso gratuito al Plan Plus."
+  },
+  "plans": {
+    "free": {
+      "title": "Plan Free",
+      "price": "$0",
+      "period": "Para siempre",
+      "cta": "Empezar Gratis",
+      "features": {
+        "basic": "Gestión básica de proyectos",
+        "contributors": "Hasta 5 colaboradores",
+        "tasks": "Tareas y seguimiento ilimitado",
+        "notifications": "Notificaciones en tiempo real",
+        "support": "Soporte por email"
+      }
+    },
+    "plus": {
+      "title": "Plan Plus",
+      "regularPrice": "$29/mes",
+      "earlyBirdPrice": "$0",
+      "earlyBirdLabel": "Early Bird",
+      "badge": "Más Popular",
+      "cta": "Reservar Acceso",
+      "features": {
+        "all": "Todo del Plan Free",
+        "unlimited": "Colaboradores ilimitados",
+        "ai": "Asistente IA para proyectos",
+        "ownership": "Gestión de participaciones",
+        "integrations": "Integraciones avanzadas",
+        "workflows": "Flujos de trabajo personalizados",
+        "support": "Soporte prioritario",
+        "beta": "Acceso a funciones beta"
+      }
+    }
+  },
+  "faq": {
+    "title": "Preguntas Frecuentes",
+    "earlyBird": {
+      "question": "¿Qué significa ser Early Bird?",
+      "answer": "Los usuarios Early Bird obtienen acceso gratuito permanente al Plan Plus durante el período de lanzamiento. Es nuestra forma de agradecer a quienes confían en nosotros desde el principio."
+    },
+    "changePlan": {
+      "question": "¿Puedo cambiar de plan más tarde?",
+      "answer": "Sí, puedes actualizar o cambiar tu plan en cualquier momento desde tu panel de control. Los usuarios Early Bird mantendrán sus beneficios especiales."
+    }
+  }
+}

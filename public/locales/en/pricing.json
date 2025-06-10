@@ -1,0 +1,54 @@
+{
+  "page": {
+    "title": "AngoraSix Pricing - Free and Plus Plans",
+    "description": "Discover our pricing plans. Permanent Free plan and free Plus plan for Early Bird users. Reserve your access now!"
+  },
+  "header": {
+    "title": "Choose Your Plan",
+    "subtitle": "Start free and scale when you're ready. Early Bird users get free access to the Plus Plan."
+  },
+  "plans": {
+    "free": {
+      "title": "Free Plan",
+      "price": "$0",
+      "period": "Forever",
+      "cta": "Start Free",
+      "features": {
+        "basic": "Basic project management",
+        "contributors": "Up to 5 contributors",
+        "tasks": "Unlimited tasks and tracking",
+        "notifications": "Real-time notifications",
+        "support": "Email support"
+      }
+    },
+    "plus": {
+      "title": "Plus Plan",
+      "regularPrice": "$29/month",
+      "earlyBirdPrice": "$0",
+      "earlyBirdLabel": "Early Bird",
+      "badge": "Most Popular",
+      "cta": "Reserve Access",
+      "features": {
+        "all": "Everything in Free Plan",
+        "unlimited": "Unlimited contributors",
+        "ai": "AI assistant for projects",
+        "ownership": "Equity management",
+        "integrations": "Advanced integrations",
+        "workflows": "Custom workflows",
+        "support": "Priority support",
+        "beta": "Beta features access"
+      }
+    }
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "earlyBird": {
+      "question": "What does being an Early Bird mean?",
+      "answer": "Early Bird users get permanent free access to the Plus Plan during the launch period. It's our way of thanking those who trust us from the beginning."
+    },
+    "changePlan": {
+      "question": "Can I change plans later?",
+      "answer": "Yes, you can upgrade or change your plan anytime from your dashboard. Early Bird users will maintain their special benefits."
+    }
+  }
+}

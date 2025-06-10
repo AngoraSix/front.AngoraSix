@@ -1,0 +1,92 @@
+{
+  "page": {
+    "title": "About Us - AngoraSix",
+    "description": "Learn about AngoraSix's story, vision and values. A cooperative platform for creating and managing projects in a decentralized way."
+  },
+  "hero": {
+    "title": "Redefining Collaboration",
+    "subtitle": "A platform where we are all owners, where transparency guides our decisions and where every project has the potential to change the world."
+  },
+  "story": {
+    "title": "Our Story",
+    "paragraph1": "AngoraSix was born from the frustration of seeing great ideas fall by the wayside due to lack of structure, inadequate tools and unfair distribution of generated value.",
+    "paragraph2": "We believe there is a better way to create solutions: cooperatively, transparently and decentralized, where every person who contributes is valued fairly.",
+    "birth": "This is how AngoraSix was born",
+    "imageAlt": "AngoraSix story"
+  },
+  "vision": {
+    "title": "Vision",
+    "content": "Redefine the way we create solutions, promoting comprehensive development both personal and social."
+  },
+  "mission": {
+    "title": "Mission",
+    "content": "We present to the world an alternative management model to the traditional one, which allows creating and carrying out great ideas in a cooperative and decentralized way, enhancing human value and encouraging people to develop more deeply."
+  },
+  "values": {
+    "title": "Our Values",
+    "subtitle": "The principles that guide every decision we make",
+    "transparency": {
+      "title": "Trust and Transparency",
+      "description": "To grow, trust is necessary - in the platform, in people, in projects. Transparency is the foundation of every solid relationship."
+    },
+    "purpose": {
+      "title": "Meaning and Purpose",
+      "description": "We want to allow people to dedicate their time and effort to something that is worthwhile for them. Every project must have a clear purpose."
+    },
+    "community": {
+      "title": "Community",
+      "description": "Being part of something, with a common goal, worked cooperatively and healthily, connecting in a more natural way."
+    },
+    "evolution": {
+      "title": "Evolution and Originality",
+      "description": "A different paradigm, an alternative path. Progress and growth, but not through the path associated with traditional 'progress'."
+    },
+    "trust": {
+      "title": "Invitation to Create",
+      "description": "We want to inspire, motivate to undertake, innovate or move by ideals, dreams and principles. Look at the sky, not the ground."
+    },
+    "simplicity": {
+      "title": "Simplicity",
+      "description": "Return to simpler values of relating to each other. Change unbridled material ambition for a sense of appreciation and peace."
+    }
+  },
+  "team": {
+    "title": "Our Team",
+    "subtitle": "The people behind AngoraSix",
+    "founder": {
+      "name": "Founding Team",
+      "role": "Visionaries and Creators",
+      "description": "Experienced founders who have lived firsthand the challenges of creating innovative projects. Their experience and passion are the driving force of AngoraSix."
+    },
+    "developers": {
+      "name": "Development Team",
+      "role": "Technology Architects",
+      "description": "Developers committed to creating tools that really work for real teams, prioritizing usability and user experience."
+    }
+  },
+  "community": {
+    "title": "Our Community",
+    "subtitle": "Some of the members who are part of AngoraSix",
+    "philosophy": "At AngoraSix there are no founders or employees. We are all owners and contribute according to our abilities and passions.",
+    "member1": {
+      "name": "Member 1",
+      "role": "Co-creator",
+      "description": "Passionate about technology and social innovation."
+    },
+    "member2": {
+      "name": "Member 2",
+      "role": "Co-creator",
+      "description": "Specialist in cooperative management and human development."
+    },
+    "member3": {
+      "name": "Member 3",
+      "role": "Co-creator",
+      "description": "Expert in experience design and communication."
+    },
+    "member4": {
+      "name": "Member 4",
+      "role": "Co-creator",
+      "description": "Focused on sustainability and social impact."
+    }
+  }
+}

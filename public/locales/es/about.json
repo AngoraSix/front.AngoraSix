@@ -1,0 +1,78 @@
+{
+  "page": {
+    "title": "Nosotros - AngoraSix",
+    "description": "Conoce la historia, visión y valores de AngoraSix. Una plataforma cooperativa para crear y gestionar proyectos de manera descentralizada."
+  },
+  "hero": {
+    "title": "Redefiniendo la Colaboración",
+    "subtitle": "Una plataforma donde todos somos dueños, donde la transparencia guía nuestras decisiones y donde cada proyecto tiene el potencial de cambiar el mundo."
+  },
+  "story": {
+    "title": "Nuestra Historia",
+    "paragraph1": "AngoraSix nació de la frustración de ver grandes ideas quedarse en el camino por falta de estructura, herramientas inadecuadas y distribución injusta del valor generado.",
+    "paragraph2": "Creemos que existe una mejor manera de crear soluciones: de forma cooperativa, transparente y descentralizada, donde cada persona que contribuye es valorada justamente.",
+    "birth": "Así nació AngoraSix",
+    "imageAlt": "Historia de AngoraSix"
+  },
+  "vision": {
+    "title": "Visión",
+    "content": "Redefinir la forma en que creamos soluciones, promoviendo un desarrollo integral tanto personal como social."
+  },
+  "mission": {
+    "title": "Misión",
+    "content": "Le presentamos al mundo un modelo de gestión alternativo al tradicional, que permita crear y llevar adelante las grandes ideas de una manera cooperativa y descentralizada, potenciando el valor humano e incentivando a las personas a desarrollarse más profundamente."
+  },
+  "values": {
+    "title": "Nuestros Valores",
+    "subtitle": "Los principios que guían cada decisión que tomamos",
+    "transparency": {
+      "title": "Confianza y Transparencia",
+      "description": "Para poder crecer es necesaria la confianza, en la plataforma, en las personas, en los proyectos. La transparencia es la base de toda relación sólida."
+    },
+    "purpose": {
+      "title": "Sentido y Propósito",
+      "description": "Queremos permitir que la gente dedique su tiempo y esfuerzo a algo que para ellos valga la pena. Cada proyecto debe tener un propósito claro."
+    },
+    "community": {
+      "title": "Comunidad",
+      "description": "Formar parte, con un objetivo común, trabajado de forma cooperativa y sanamente, conectar de una forma más natural."
+    },
+    "evolution": {
+      "title": "Evolución y Originalidad",
+      "description": "Un paradigma diferente, un camino alternativo. Avance y crecimiento, pero no por el camino asociado al 'progreso' tradicional."
+    },
+    "trust": {
+      "title": "Invitación a Crear",
+      "description": "Queremos inspirar, motivar a emprender, innovar o a moverse por ideales, sueños y principios. Mirar el cielo, no el suelo."
+    },
+    "simplicity": {
+      "title": "Sencillez",
+      "description": "Volver a valores más simples de relacionarnos. Cambiar la ambición material desenfrenada por un sentido de valoración y paz."
+    }
+  },
+  "community": {
+    "title": "Nuestra Comunidad",
+    "subtitle": "Algunos de los miembros que forman parte de AngoraSix",
+    "philosophy": "En AngoraSix no hay fundadores ni empleados. Todos somos dueños y contribuimos según nuestras capacidades y pasiones.",
+    "member1": {
+      "name": "Miembro 1",
+      "role": "Co-creador",
+      "description": "Apasionado por la tecnología y la innovación social."
+    },
+    "member2": {
+      "name": "Miembro 2",
+      "role": "Co-creador",
+      "description": "Especialista en gestión cooperativa y desarrollo humano."
+    },
+    "member3": {
+      "name": "Miembro 3",
+      "role": "Co-creador",
+      "description": "Experto en diseño de experiencias y comunicación."
+    },
+    "member4": {
+      "name": "Miembro 4",
+      "role": "Co-creador",
+      "description": "Enfocado en sostenibilidad y impacto social."
+    }
+  }
+}

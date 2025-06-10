@@ -41,4 +41,3 @@ export const getServerSideProps = async (ctx) => {
 };
 
 export default VisionaryFounderLanding;
-
