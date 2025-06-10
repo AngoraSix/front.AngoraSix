@@ -141,6 +141,19 @@ class FrontAPI {
     const { data } = await this.axios.post(`api/surveys/${surveyKey}/responses`, surveyResponseBody);
     return data;
   }
+
+  async suscribe(email) {
+    const response = await this.axios.post(`api/subscribe`, {
+      email,
+      source: "landing_cta",
+      planType: "early-bird",
+    }, {
+      validateStatus: (status) => {
+        return status < 500; // 4xx will be handled
+      },
+    });
+    return response;
+  }
 }
 
 export default FrontAPI;

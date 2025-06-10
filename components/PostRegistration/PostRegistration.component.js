@@ -1,23 +1,23 @@
 "use client"
 
-import { useState } from "react"
-import { useTranslation } from "next-i18next"
-import Head from "next/head"
+import { CalendarMonth, Chat, CheckCircle, Email, Group, Notifications, Send, Settings } from "@mui/icons-material"
 import {
+  Alert,
   Box,
-  Typography,
   Button,
-  Container,
-  TextField,
   Card,
   CardContent,
-  Grid,
+  Container,
   Divider,
-  Snackbar,
-  Alert,
+  Grid,
   Paper,
+  Snackbar,
+  TextField,
+  Typography,
 } from "@mui/material"
-import { CalendarMonth, Email, Send, CheckCircle, Notifications, Group, Settings, Chat } from "@mui/icons-material"
+import { useTranslation } from "next-i18next"
+import Head from "next/head"
+import { useState } from "react"
 import CountdownTimer from "../common/CountdownTimer"
 import SharedNavbar from "../common/SharedNavbar"
 
@@ -65,10 +65,11 @@ const PostRegistrationComponent = () => {
     const endDate = new Date(launchDate.getTime() + 2 * 60 * 60 * 1000) // 2 hours later
     const formattedEndDate = endDate.toISOString().replace(/-|:|\.\d+/g, "")
 
+    console.log("TODO UPDATE FECHA here");
     const calendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(
-      "Lanzamiento de AngoraSix",
+      t("post-registration.calendar.template.title"),
     )}&dates=${formattedDate}/${formattedEndDate}&details=${encodeURIComponent(
-      "¡AngoraSix estará disponible! Accede a tu cuenta para comenzar a utilizar todas las funcionalidades.",
+      t("post-registration.calendar.template.description"),
     )}&location=${encodeURIComponent("https://angorasix.com")}`
 
     window.open(calendarUrl, "_blank")
@@ -147,14 +148,24 @@ const PostRegistrationComponent = () => {
             {/* Left Column - Countdown */}
             <Grid item xs={12} md={6}>
               <Card sx={{ height: "100%", borderRadius: "12px" }}>
-                <CardContent sx={{ p: 4 }}>
-                  <Typography variant="h5" sx={{ mb: 3, color: "#1B5993", fontWeight: "bold", textAlign: "center" }}>
+                <CardContent sx={{ p: { xs: 2, sm: 4 } }}>
+                  <Typography
+                    variant="h5"
+                    sx={{
+                      mb: 3,
+                      color: "#1B5993",
+                      fontWeight: "bold",
+                      textAlign: "center",
+                      fontSize: { xs: "1.3rem", sm: "1.5rem" },
+                    }}
+                  >
                     {t("countdown.title")}
                   </Typography>
 
                   <CountdownTimer
                     targetDate={launchDate.toISOString()}
                     variant="card"
+                    compact={true}
                     onComplete={() => {
                       if (typeof window !== "undefined" && typeof window.gtag !== "undefined") {
                         window.gtag("event", "countdown_completed", {
@@ -187,8 +198,16 @@ const PostRegistrationComponent = () => {
             {/* Right Column - Contact Options */}
             <Grid item xs={12} md={6}>
               <Card sx={{ height: "100%", borderRadius: "12px" }}>
-                <CardContent sx={{ p: 4 }}>
-                  <Typography variant="h5" sx={{ mb: 3, color: "#1B5993", fontWeight: "bold" }}>
+                <CardContent sx={{ p: { xs: 2, sm: 4 } }}>
+                  <Typography
+                    variant="h5"
+                    sx={{
+                      mb: 3,
+                      color: "#1B5993",
+                      fontWeight: "bold",
+                      fontSize: { xs: "1.3rem", sm: "1.5rem" },
+                    }}
+                  >
                     {t("contact.title")}
                   </Typography>
                   <Typography variant="body1" sx={{ mb: 3 }}>
@@ -233,13 +252,14 @@ const PostRegistrationComponent = () => {
                   >
                     {t("contact.chatbot")}
                   </Button>
-
-                  <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-                    <Email sx={{ mr: 1, color: "#1B5993" }} />
-                    <Typography variant="body2" color="text.secondary">
-                      {t("contact.email")}
-                    </Typography>
-                  </Box>
+                  <a href="mailto:team@angorasix.com" style={{ textDecoration: 'none', color: 'inherit' }}>
+                    <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+                      <Email sx={{ mr: 1, color: "#1B5993" }} />
+                      <Typography variant="body2" color="text.secondary">
+                        {t("contact.email")}
+                      </Typography>
+                    </Box>
+                  </a>
                 </CardContent>
               </Card>
             </Grid>
@@ -247,8 +267,17 @@ const PostRegistrationComponent = () => {
 
           {/* Next Steps Section */}
           <Card sx={{ mt: 4, borderRadius: "12px" }}>
-            <CardContent sx={{ p: 4 }}>
-              <Typography variant="h5" sx={{ mb: 4, color: "#1B5993", fontWeight: "bold", textAlign: "center" }}>
+            <CardContent sx={{ p: { xs: 2, sm: 4 } }}>
+              <Typography
+                variant="h5"
+                sx={{
+                  mb: 4,
+                  color: "#1B5993",
+                  fontWeight: "bold",
+                  textAlign: "center",
+                  fontSize: { xs: "1.3rem", sm: "1.5rem" },
+                }}
+              >
                 {t("steps.title")}
               </Typography>
 

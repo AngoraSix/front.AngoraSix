@@ -5,7 +5,7 @@ import { Box, Typography, Paper } from "@mui/material"
 import { AccessTime } from "@mui/icons-material"
 import { useTranslation } from "next-i18next"
 
-const CountdownTimer = ({ targetDate, variant = "default", onComplete }) => {
+const CountdownTimer = ({ targetDate, variant = "default", onComplete, compact = false }) => {
   const { t } = useTranslation("common")
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
@@ -87,7 +87,7 @@ const CountdownTimer = ({ targetDate, variant = "default", onComplete }) => {
         <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
           <AccessTime sx={{ fontSize: 24 }} />
           <Typography variant="h6" sx={{ fontWeight: "bold" }}>
-            {t("banner.title")}
+            {t("banner.message")}
           </Typography>
         </Box>
         <Box sx={{ display: "flex", gap: { xs: 1, md: 2 } }}>
@@ -105,21 +105,36 @@ const CountdownTimer = ({ targetDate, variant = "default", onComplete }) => {
       <Paper
         elevation={2}
         sx={{
-          p: 3,
+          p: compact ? 2 : 3,
           borderRadius: "12px",
           textAlign: "center",
           backgroundColor: "#f8f9fa",
           border: "1px solid #e0e0e0",
         }}
       >
-        <Typography variant="h6" sx={{ mb: 2, color: "#1B5993", fontWeight: "bold" }}>
+        <Typography
+          variant={compact ? "subtitle1" : "h6"}
+          sx={{
+            mb: 2,
+            color: "#1B5993",
+            fontWeight: "bold",
+            fontSize: compact ? "1rem" : undefined,
+          }}
+        >
           {t("card.title")}
         </Typography>
-        <Box sx={{ display: "flex", justifyContent: "center", gap: 3 }}>
-          <CountdownUnit value={timeLeft.days} label={t("units.days")} large />
-          <CountdownUnit value={timeLeft.hours} label={t("units.hours")} large />
-          <CountdownUnit value={timeLeft.minutes} label={t("units.minutes")} large />
-          <CountdownUnit value={timeLeft.seconds} label={t("units.seconds")} large />
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            gap: compact ? 1.5 : 3,
+            flexWrap: "wrap",
+          }}
+        >
+          <CountdownUnit value={timeLeft.days} label={t("units.days")} large={!compact} compact={compact} />
+          <CountdownUnit value={timeLeft.hours} label={t("units.hours")} large={!compact} compact={compact} />
+          <CountdownUnit value={timeLeft.minutes} label={t("units.minutes")} large={!compact} compact={compact} />
+          <CountdownUnit value={timeLeft.seconds} label={t("units.seconds")} large={!compact} compact={compact} />
         </Box>
       </Paper>
     )
@@ -136,7 +151,7 @@ const CountdownTimer = ({ targetDate, variant = "default", onComplete }) => {
   )
 }
 
-const CountdownUnit = ({ value, label, large = false }) => (
+const CountdownUnit = ({ value, label, large = false, compact = false }) => (
   <Box
     sx={{
       display: "flex",
@@ -149,27 +164,29 @@ const CountdownUnit = ({ value, label, large = false }) => (
       sx={{
         backgroundColor: large ? "white" : "rgba(255, 255, 255, 0.2)",
         borderRadius: "8px",
-        p: large ? 2 : 1,
-        minWidth: large ? 60 : 40,
+        p: compact ? 1 : large ? 2 : 1,
+        minWidth: compact ? 35 : large ? 60 : 40,
         boxShadow: large ? "0 4px 12px rgba(0,0,0,0.1)" : "none",
       }}
     >
       <Typography
-        variant={large ? "h4" : "h6"}
+        variant={compact ? "h6" : large ? "h4" : "h6"}
         sx={{
           fontWeight: "bold",
           color: large ? "#FE5F55" : "inherit",
+          fontSize: compact ? "1.1rem" : undefined,
         }}
       >
         {value < 10 ? `0${value}` : value}
       </Typography>
     </Box>
     <Typography
-      variant={large ? "body1" : "caption"}
+      variant={compact ? "caption" : large ? "body1" : "caption"}
       sx={{
         mt: 0.5,
         color: large ? "text.secondary" : "inherit",
         opacity: large ? 1 : 0.8,
+        fontSize: compact ? "0.7rem" : undefined,
       }}
     >
       {label}

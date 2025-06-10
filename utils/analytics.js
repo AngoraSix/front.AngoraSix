@@ -1,4 +1,5 @@
 // Utility functions for Google Analytics and Google Ads tracking
+import config from "../config";
 
 /**
  * Track a page view in Google Analytics
@@ -6,7 +7,7 @@
  */
 export const trackPageView = (url) => {
   if (typeof window !== "undefined" && typeof window.gtag !== "undefined") {
-    window.gtag("config", process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID, {
+    window.gtag("config", config.google.measurementId, {
       page_path: url,
     })
   }
@@ -27,14 +28,14 @@ export const trackEvent = (action, params = {}) => {
  * Track a conversion in Google Ads
  * @param {string} conversionLabel - The conversion label
  */
-export const trackConversion = (conversionLabel = process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL) => {
+export const trackConversion = (conversionLabel = config.google.conversionLabel) => {
   if (
     typeof window !== "undefined" &&
     typeof window.gtag !== "undefined" &&
-    process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID
+    config.google.conversionId
   ) {
     window.gtag("event", "conversion", {
-      send_to: `${process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID}/${conversionLabel}`,
+      send_to: `${config.google.conversionId}/${conversionLabel}`,
     })
   }
 }
@@ -43,7 +44,7 @@ export const trackConversion = (conversionLabel = process.env.NEXT_PUBLIC_GOOGLE
  * Track a signup conversion
  */
 export const trackSignupConversion = () => {
-  trackConversion(process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL)
+  trackConversion(config.google.conversionLabel)
   trackEvent("sign_up", {
     method: "Google",
     event_category: "engagement",

@@ -39,6 +39,9 @@ export const ROUTES = {
   },
   profile: {
     view: '/profile/:profileId',
+  },
+  landings: {
+    postRegistration: '/welcome/post-registration',
   }
 };
 

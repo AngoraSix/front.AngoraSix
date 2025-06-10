@@ -1,3 +1,4 @@
+import config from "../../../config"
 import { formatMergeFields } from "../../../utils/mailchimp"
 
 export default async function handler(req, res) {
@@ -21,16 +22,11 @@ export default async function handler(req, res) {
       merge_fields: formatMergeFields(additionalFields),
     }
 
-    // Mailchimp API endpoint
-    const LIST_ID = process.env.MAILCHIMP_AUDIENCE_ID
-    const API_KEY = process.env.MAILCHIMP_API_KEY
-    const DATACENTER = process.env.MAILCHIMP_SERVER_PREFIX
-
     // Make request to Mailchimp API
-    const response = await fetch(`https://${DATACENTER}.api.mailchimp.com/3.0/lists/${LIST_ID}/members`, {
+    const response = await fetch(`https://${config.mailchimp.serverPrefix}.api.mailchimp.com/3.0/lists/${config.mailchimp.audienceId}/members`, {
       method: "POST",
       headers: {
-        Authorization: `apikey ${API_KEY}`,
+        Authorization: `apikey ${config.mailchimp.apiKey}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),

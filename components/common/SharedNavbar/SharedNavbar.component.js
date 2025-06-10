@@ -101,7 +101,7 @@ const SharedNavbar = () => {
               {/* Navigation Links */}
               <Link href="/welcome/visionaries" style={{ textDecoration: "none" }}>
                 <Button color="primary" sx={{ textTransform: "none" }}>
-                  {t("navbar.shared.home")}
+                  {t("navbar.shared.forvisionaries")}
                 </Button>
               </Link>
               <Link href="/pricing" style={{ textDecoration: "none" }}>
@@ -163,12 +163,6 @@ const SharedNavbar = () => {
                     anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
                     transformOrigin={{ vertical: "top", horizontal: "right" }}
                   >
-                    <Link
-                      href={ROUTES.projects.management.landing}
-                      style={{ textDecoration: "none", color: "inherit" }}
-                    >
-                      <MenuItem onClick={handleCloseUserMenu}>{t("navbar.menu.projects")}</MenuItem>
-                    </Link>
                     <MenuItem onClick={() => signOut()}>{t("navbar.settings.menu.logout")}</MenuItem>
                   </Menu>
                 </>
@@ -223,7 +217,7 @@ const SharedNavbar = () => {
                 transformOrigin={{ vertical: "top", horizontal: "right" }}
               >
                 <Link href="/welcome/visionaries" style={{ textDecoration: "none", color: "inherit" }}>
-                  <MenuItem onClick={handleCloseNavMenu}>{t("navbar.shared.home")}</MenuItem>
+                  <MenuItem onClick={handleCloseNavMenu}>{t("navbar.shared.forvisionaries")}</MenuItem>
                 </Link>
                 <Link href="/pricing" style={{ textDecoration: "none", color: "inherit" }}>
                   <MenuItem onClick={handleCloseNavMenu}>{t("navbar.shared.pricing")}</MenuItem>
@@ -233,13 +227,6 @@ const SharedNavbar = () => {
                 </Link>
                 {session ? (
                   [
-                    <Link
-                      key="dashboard"
-                      href={ROUTES.projects.management.landing}
-                      style={{ textDecoration: "none", color: "inherit" }}
-                    >
-                      <MenuItem onClick={handleCloseNavMenu}>{t("navbar.menu.projects")}</MenuItem>
-                    </Link>,
                     <MenuItem key="logout" onClick={() => signOut()}>
                       {t("navbar.settings.menu.logout")}
                     </MenuItem>,

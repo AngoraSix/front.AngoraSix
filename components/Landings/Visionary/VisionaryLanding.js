@@ -1,26 +1,27 @@
 "use client"
 
-import { useState } from "react"
-import { useSession, signIn } from "next-auth/react"
+import {
+  AccountBalance,
+  AutoAwesome,
+  CheckCircle,
+  Groups,
+  Handshake,
+  Psychology,
+  RocketLaunch,
+  TrendingUp,
+} from "@mui/icons-material"
+import { Box, Button, Card, CardContent, Container, Fade, Grid, TextField, Typography, Zoom } from "@mui/material"
+import { signIn, useSession } from "next-auth/react"
 import { useTranslation } from "next-i18next"
 import Head from "next/head"
-import { Box, Typography, Button, Container, Grid, Card, CardContent, TextField, Fade, Zoom } from "@mui/material"
-import {
-  RocketLaunch,
-  Psychology,
-  AccountBalance,
-  Groups,
-  TrendingUp,
-  CheckCircle,
-  AutoAwesome,
-  Handshake,
-} from "@mui/icons-material"
-import { useInView } from "../../../hooks/useInViews"
-import SharedNavbar from "../../common/SharedNavbar"
-import { ROUTES } from "../../../constants/constants"
 import { useRouter } from "next/router"
-import CountdownTimer from "../../common/CountdownTimer"
+import { useState } from "react"
+import api from "../../../api"
+import { ROUTES } from "../../../constants/constants"
+import { useInView } from "../../../hooks/useInViews"
 import { trackEvent } from "../../../utils/analytics"
+import CountdownTimer from "../../common/CountdownTimer"
+import SharedNavbar from "../../common/SharedNavbar"
 
 const VisionaryLanding = () => {
   const { t } = useTranslation("welcome.visionaries")
@@ -46,30 +47,11 @@ const VisionaryLanding = () => {
     })
 
     try {
-      const response = await fetch("/api/subscribe", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email,
-          source: "landing_cta",
-          planType: "early-bird",
-        }),
-      })
-
-      const result = await response.json()
-
-      if (result.success) {
-        setIsSubmitted(true)
-        setTimeout(() => {
-          router.push("/welcome/post-registration")
-        }, 2000)
-      } else {
-        console.error("Subscription failed:", result.error)
-        setIsSubmitted(true)
-        setTimeout(() => setIsSubmitted(false), 3000)
-      }
+      const data = await api.front.suscribe(email);
+      setIsSubmitted(true)
+      setTimeout(() => {
+        router.push(ROUTES.landings.postRegistration)
+      }, 2000)
     } catch (error) {
       console.error("Subscription error:", error)
       setIsSubmitted(true)
@@ -85,9 +67,9 @@ const VisionaryLanding = () => {
     })
 
     if (session) {
-      router.push(ROUTES.projects.management.landing)
+      router.push(ROUTES.landings.postRegistration)
     } else {
-      signIn("angorasixspring")
+      signIn("angorasixspring", { callbackUrl: ROUTES.landings.postRegistration })
     }
   }
 
@@ -119,7 +101,7 @@ const VisionaryLanding = () => {
       icon: <AutoAwesome sx={{ fontSize: 48, color: "#1B5993" }} />,
       title: t("solutions.items.ai.title"),
       description: t("solutions.items.ai.description"),
-      gradient: "linear-gradient(135deg, #1B5993 0%, #0A2239 100%)",
+      gradient: "linear-gradient(135deg, #b3c9dd 0%, #1B5993 100%)",
     },
     {
       icon: <AccountBalance sx={{ fontSize: 48, color: "#1B5993" }} />,
@@ -151,7 +133,7 @@ const VisionaryLanding = () => {
 
       <SharedNavbar />
 
-      <Box className="visionary-landing" sx={{ pt: 7 }}>
+      <Box className="visionary-landing" sx={{ pt: 7, overflow: "hidden" }}>
         {/* Hero Section */}
         <Box ref={heroRef} className="hero-section">
           <Container maxWidth="lg">
@@ -171,19 +153,63 @@ const VisionaryLanding = () => {
 
             <Fade in={heroInView} timeout={1000}>
               <Box className="hero-content">
-                <Typography variant="h1" className="hero-title">
+                <Typography
+                  variant="h1"
+                  className="hero-title"
+                  sx={{
+                    fontSize: {
+                      xs: "2.5rem", // Mobile: 40px
+                      sm: "3.5rem", // Small tablet: 56px
+                      md: "4rem", // Medium: 64px
+                      lg: "4.5rem", // Large: 72px
+                      xl: "5rem", // Extra large: 80px
+                    },
+                    lineHeight: {
+                      xs: 1.2,
+                      sm: 1.1,
+                      md: 1.1,
+                    },
+                    wordBreak: "break-word",
+                    hyphens: "auto",
+                  }}
+                >
                   {t("hero.title")}
                 </Typography>
-                <Typography variant="h4" className="hero-subtitle">
+                <Typography
+                  variant="h4"
+                  className="hero-subtitle"
+                  sx={{
+                    fontSize: {
+                      xs: "1.1rem", // Mobile
+                      sm: "1.3rem", // Small tablet
+                      md: "1.5rem", // Medium
+                      lg: "1.75rem", // Large
+                    },
+                    lineHeight: 1.4,
+                    wordBreak: "break-word",
+                  }}
+                >
                   {t("hero.subtitle")}
                 </Typography>
-                <Box sx={{ display: "flex", gap: 2, justifyContent: "center", flexWrap: "wrap" }}>
+                <Box
+                  sx={{
+                    display: "flex",
+                    gap: 2,
+                    justifyContent: "center",
+                    flexWrap: "wrap",
+                    flexDirection: { xs: "column", sm: "row" },
+                    alignItems: "center",
+                  }}
+                >
                   <Button
                     variant="contained"
                     size="large"
                     className="hero-cta"
                     startIcon={<RocketLaunch />}
                     onClick={handleStartBuilding}
+                    sx={{
+                      minWidth: { xs: "280px", sm: "auto" },
+                    }}
                   >
                     {t("hero.cta")}
                   </Button>
@@ -200,13 +226,15 @@ const VisionaryLanding = () => {
                     sx={{
                       borderColor: "#1B5993",
                       color: "#1B5993",
+                      backgroundColor: "rgba(175, 193, 214, 0.8)",
+                      minWidth: { xs: "280px", sm: "auto" },
                       "&:hover": {
                         backgroundColor: "#1B5993",
                         color: "white",
                       },
                     }}
                   >
-                    Ver Planes
+                    {t("hero.viewplans")}
                   </Button>
                 </Box>
               </Box>

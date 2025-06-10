@@ -28,7 +28,7 @@
   "common.temp.landing-page.title": "Coming soon",
   "common.temp.landing-page.text": "Site under construction :)",
   "common.interactions.in-progress.text": "Processing. Hold on a minute...",
-  "navbar.shared.home": "Home",
+  "navbar.shared.forvisionaries": "For Visionaries",
   "navbar.shared.about": "About Us",
   "navbar.shared.pricing": "Pricing",
   "navbar.shared.contact": "Contact",
@@ -43,13 +43,11 @@
   "common.email.invalid": "Please enter a valid email address",
   "common.subscription.success": "Successfully subscribed!",
   "common.subscription.error": "Error subscribing. Please try again.",
-  "common.calendar.add-to-calendar": "Add to Calendar",
   "common.contact.support": "Contact Support",
   "common.early-bird": "Early Bird",
-  "common.beta-access": "Beta Access",
   "common.coming-soon": "Coming Soon",
   "banner": {
-    "title": "🎉 AngoraSix will be available in:",
+    "message": "🎉 AngoraSix will be available in:",
     "subtitle": "Reserve your Early Bird access now!",
     "cta": "Reserve Access"
   },

@@ -28,7 +28,7 @@
   "common.temp.landing-page.title": "Vuelva pronto",
   "common.temp.landing-page.text": "Sitio en construcción :)",
   "common.interactions.in-progress.text": "Procesando. Aguarde un minuto...",
-  "navbar.shared.home": "Inicio",
+  "navbar.shared.forvisionaries": "Para Visionarios",
   "navbar.shared.about": "Nosotros",
   "navbar.shared.pricing": "Precios",
   "navbar.shared.contact": "Contacto",
@@ -49,7 +49,7 @@
   "common.beta-access": "Acceso Beta",
   "common.coming-soon": "Próximamente",
   "banner": {
-    "title": "🎉 AngoraSix estará disponible en:",
+    "message": "🎉 AngoraSix estará disponible en:",
     "subtitle": "¡Reserva tu acceso Early Bird ahora!",
     "cta": "Reservar Acceso"
   },

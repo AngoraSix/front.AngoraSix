@@ -91,7 +91,7 @@ const AboutComponent = () => {
           <Container maxWidth="lg">
             <Fade in={heroInView} timeout={1000}>
               <Box sx={{ textAlign: "center" }}>
-                <Typography variant="h2" className="about-title" sx={{ mb: 4, fontWeight: "bold" }}>
+                <Typography variant="h4" className="about-title" sx={{ mb: 4, fontWeight: "bold" }}>
                   {t("hero.title")}
                 </Typography>
                 <Typography variant="h5" sx={{ mb: 6, color: "text.secondary", maxWidth: 800, mx: "auto" }}>
@@ -110,7 +110,7 @@ const AboutComponent = () => {
                 <Grid item xs={12} md={6}>
                   <Box sx={{ position: "relative", height: 400 }}>
                     <img
-                      src="/placeholder.svg?height=400&width=600"
+                      src="/images/recalculando.jpg?height=400&width=600"
                       alt={t("story.imageAlt")}
                       style={{
                         width: "100%",

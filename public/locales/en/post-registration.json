@@ -41,5 +41,13 @@
   "social": {
     "title": "Stay Connected",
     "description": "Follow us on our social networks to receive updates and meet other members of the AngoraSix community."
+  },
+  "post-registration": {
+    "calendar": {
+      "template": {
+        "title": "AngoraSix Launch",
+        "description": "AngoraSix will be available! Access your account to start using all the features."
+      }
+    }
   }
 }
