@@ -10,16 +10,14 @@ import {
   RocketLaunch,
   TrendingUp,
 } from "@mui/icons-material"
-import { Box, Button, Card, CardContent, Container, Fade, Grid, TextField, Typography, Zoom } from "@mui/material"
+import { Box, Button, Card, CardContent, Container, Fade, Grid, Typography, Zoom } from "@mui/material"
 import { signIn, useSession } from "next-auth/react"
 import { useTranslation } from "next-i18next"
 import Head from "next/head"
 import { useRouter } from "next/router"
-import { useState } from "react"
-import api from "../../../api"
 import { ROUTES } from "../../../constants/constants"
 import { useInView } from "../../../hooks/useInViews"
-import { trackEvent } from "../../../utils/analytics"
+import { trackEvent, trackSignupConversion } from "../../../utils/analytics"
 import CountdownTimer from "../../common/CountdownTimer"
 import SharedNavbar from "../../common/SharedNavbar"
 
@@ -27,8 +25,6 @@ const VisionaryLanding = () => {
   const { t } = useTranslation("welcome.visionaries")
   const { data: session } = useSession()
   const router = useRouter()
-  const [email, setEmail] = useState("")
-  const [isSubmitted, setIsSubmitted] = useState(false)
   const launchDate = new Date()
   launchDate.setDate(launchDate.getDate() + 30) // 30 days from now
 
@@ -38,33 +34,30 @@ const VisionaryLanding = () => {
   const [solutionRef, solutionInView] = useInView({ threshold: 0.1, triggerOnce: true })
   const [previewRef, previewInView] = useInView({ threshold: 0.1, triggerOnce: true })
 
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-
-    trackEvent("email_captured", {
-      event_category: "lead_generation",
-      event_label: "cta_section",
-    })
-
-    try {
-      const data = await api.front.suscribe(email);
-      setIsSubmitted(true)
-      setTimeout(() => {
-        router.push(ROUTES.landings.postRegistration)
-      }, 2000)
-    } catch (error) {
-      console.error("Subscription error:", error)
-      setIsSubmitted(true)
-      setTimeout(() => setIsSubmitted(false), 3000)
-    }
-  }
-
   const handleStartBuilding = () => {
     trackEvent("cta_click", {
       event_category: "engagement",
       event_label: "start_building",
       location: "hero_section",
     })
+
+    trackSignupConversion()
+
+    if (session) {
+      router.push(ROUTES.landings.postRegistration)
+    } else {
+      signIn("angorasixspring", { callbackUrl: ROUTES.landings.postRegistration })
+    }
+  }
+
+  const handleJoinNow = () => {
+    trackEvent("cta_click", {
+      event_category: "engagement",
+      event_label: "join_now",
+      location: "cta_section",
+    })
+
+    trackSignupConversion()
 
     if (session) {
       router.push(ROUTES.landings.postRegistration)
@@ -330,34 +323,36 @@ const VisionaryLanding = () => {
 
             <Zoom in={previewInView} timeout={1200}>
               <Box className="platform-preview">
-                <Box className="preview-mockup">
-                  <Box className="mockup-header">
-                    <Box className="mockup-dots">
-                      <span></span>
-                      <span></span>
-                      <span></span>
-                    </Box>
-                    <Typography variant="caption">{t("preview.dashboard")}</Typography>
-                  </Box>
-                  <Box className="mockup-content">
-                    <Grid container spacing={2}>
-                      <Grid item xs={8}>
-                        <Box className="mockup-chart">
-                          <Typography variant="subtitle2">{t("preview.ownership")}</Typography>
-                          <Box className="chart-placeholder"></Box>
-                        </Box>
-                      </Grid>
-                      <Grid item xs={4}>
-                        <Box className="mockup-ai">
-                          <Typography variant="subtitle2">{t("preview.assistant")}</Typography>
-                          <Box className="ai-message">
-                            <Typography variant="caption">{t("preview.aiMessage")}</Typography>
-                          </Box>
-                        </Box>
-                      </Grid>
-                    </Grid>
-                  </Box>
-                </Box>
+                <Card
+                  sx={{
+                    maxWidth: "100%",
+                    borderRadius: 3,
+                    boxShadow: "0 20px 40px rgba(0,0,0,0.1)",
+                    overflow: "hidden",
+                  }}
+                >
+                  <Box
+                    component="img"
+                    src="/images/dashboard-preview.png"
+                    alt={t("preview.dashboard")}
+                    sx={{
+                      width: "100%",
+                      height: "auto",
+                      display: "block",
+                    }}
+                  />
+                </Card>
+                <Typography
+                  variant="body2"
+                  sx={{
+                    textAlign: "center",
+                    mt: 2,
+                    color: "text.secondary",
+                    fontStyle: "italic",
+                  }}
+                >
+                  {t("preview.realDashboard")}
+                </Typography>
               </Box>
             </Zoom>
           </Container>
@@ -415,41 +410,39 @@ const VisionaryLanding = () => {
           </Container>
         </Box>
 
-        {/* CTA Section */}
+        {/* CTA Section - Changed from newsletter to login/register */}
         <Box className="cta-section">
           <Container maxWidth="md">
             <Box className="cta-content">
               <Typography variant="h2" className="cta-title">
-                {t("cta.title")}
+                {t("cta.joinTitle")}
               </Typography>
               <Typography variant="h6" className="cta-subtitle">
-                {t("cta.subtitle")}
+                {t("cta.joinSubtitle")}
               </Typography>
 
-              <Box component="form" onSubmit={handleSubmit} className="cta-form">
-                <TextField
-                  fullWidth
-                  variant="outlined"
-                  placeholder={t("cta.placeholder")}
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="cta-input"
-                  sx={{ mb: 2 }}
-                />
+              <Box sx={{ mt: 4 }}>
                 <Button
-                  type="submit"
                   variant="contained"
                   size="large"
                   fullWidth
                   className="cta-button"
-                  disabled={isSubmitted}
+                  startIcon={<RocketLaunch />}
+                  onClick={handleJoinNow}
+                  sx={{
+                    py: 2,
+                    fontSize: "1.2rem",
+                    maxWidth: "400px",
+                    mx: "auto",
+                    display: "block",
+                  }}
                 >
-                  {isSubmitted ? t("cta.submitted") : t("cta.button")}
+                  {session ? t("cta.continueButton") : t("cta.joinButton")}
                 </Button>
               </Box>
 
-              <Typography variant="body2" className="cta-note">
-                {t("cta.note")}
+              <Typography variant="body2" className="cta-note" sx={{ mt: 3 }}>
+                {t("cta.joinNote")}
               </Typography>
             </Box>
           </Container>

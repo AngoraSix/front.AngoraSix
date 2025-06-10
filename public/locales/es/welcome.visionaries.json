@@ -1,91 +1,85 @@
 {
   "page": {
-    "title": "AngoraSix - Las Grandes Ideas Necesitan Ayuda",
-    "description": "Deja de fallar. Empieza a construir con estructura, guía de IA y colaboración transparente. Construido para fundadores que lo han intentado antes y quieren tener éxito esta vez."
+    "title": "AngoraSix - Plataforma para Visionarios",
+    "description": "Transforma tus ideas en proyectos exitosos con AngoraSix. Gestión cooperativa, transparencia total y distribución justa del valor."
   },
   "hero": {
-    "title": "Las grandes ideas necesitan ayuda.",
-    "subtitle": "Hemos estado ahí. Esta vez, empieza inteligentemente—con estructura, guía y transparencia para dar vida a tu idea.",
+    "title": "Transforma tus ideas en proyectos exitosos",
+    "subtitle": "La primera plataforma que combina gestión cooperativa, transparencia total y distribución justa del valor para hacer realidad tus visiones.",
     "cta": "Empezar a Construir",
     "viewplans": "Ver Planes"
   },
   "problems": {
-    "title": "Por Qué Es Difícil Solo",
-    "subtitle": "Has intentado lanzar antes. Has presentado. Has reclutado. Te has quemado.\nNo necesitas pasar por eso otra vez.",
+    "title": "¿Te resulta familiar?",
+    "subtitle": "Los desafíos que enfrentan los visionarios al intentar materializar sus ideas",
     "items": {
       "structure": {
-        "title": "Falta de estructura clara",
-        "description": "Has intentado lanzar antes, pero sin la guía y el marco adecuados."
+        "title": "Falta de estructura",
+        "description": "Las ideas brillantes se pierden sin un marco organizacional claro que guíe el desarrollo."
       },
       "vision": {
-        "title": "Sin visión compartida o retribución justa",
-        "description": "La dinámica de cofundadores falló. Las contribuciones no se rastrearon de manera justa."
+        "title": "Visión no compartida",
+        "description": "Dificultad para alinear equipos y mantener a todos enfocados en los objetivos comunes."
       },
       "burnout": {
-        "title": "Agotamiento de cofundadores o sobrecarga administrativa",
-        "description": "Has presentado. Has reclutado. Te has quemado gestionando todo."
+        "title": "Agotamiento del fundador",
+        "description": "Llevar todo el peso del proyecto genera estrés y limita el crecimiento sostenible."
       },
       "mistakes": {
-        "title": "Repitiendo los mismos errores otra vez",
-        "description": "Sin aprender de los fracasos pasados, estás atrapado en el mismo ciclo."
+        "title": "Errores costosos",
+        "description": "Decisiones tomadas sin suficiente información o experiencia pueden ser devastadoras."
       }
     }
   },
   "solutions": {
-    "title": "Esta Vez, Nos Tienes a Nosotros",
-    "subtitle": "No necesitas hacerlo solo.",
+    "title": "Nuestra Solución",
+    "subtitle": "AngoraSix te proporciona las herramientas y el marco necesario para el éxito",
     "items": {
       "ai": {
-        "title": "Soporte de IA",
-        "description": "Conoce tu contexto. Ofrece próximos pasos. Tu asistente inteligente de proyecto."
+        "title": "Asistente IA",
+        "description": "Guía inteligente que te ayuda a tomar decisiones informadas en cada etapa del proyecto."
       },
       "ledger": {
-        "title": "Registro de Esfuerzo",
-        "description": "Cada tarea rastreada transparentemente. No más conjeturas sobre contribuciones."
+        "title": "Contabilidad Transparente",
+        "description": "Sistema de registro inmutable que garantiza transparencia total en todas las transacciones."
       },
       "ownership": {
-        "title": "Propiedad y Participación en Beneficios",
-        "description": "Las recompensas siguen la contribución. Distribución equitativa de capital integrada."
+        "title": "Propiedad Cooperativa",
+        "description": "Distribución justa y automática del valor generado entre todos los contribuyentes."
       },
       "guidance": {
-        "title": "Claridad y Guía",
-        "description": "Te enfocas en la visión, nosotros manejamos la estructura. Lógica de incubación de startups integrada."
+        "title": "Orientación Experta",
+        "description": "Metodologías probadas y mejores prácticas para guiar tu proyecto hacia el éxito."
       }
     }
   },
   "preview": {
     "title": "Ve AngoraSix en Acción",
-    "subtitle": "Del caos de ideas al éxito organizado",
-    "dashboard": "Panel de AngoraSix",
-    "ownership": "Propiedad del Proyecto",
-    "assistant": "Asistente de IA",
-    "aiMessage": "Basado en tu progreso, sugiero enfocarse en investigación de usuarios a continuación."
+    "subtitle": "Descubre cómo nuestra plataforma transforma la gestión de proyectos",
+    "dashboard": "Dashboard de Proyecto Colaborativo",
+    "ownership": "Análisis de Propiedad",
+    "assistant": "Asistente IA",
+    "aiMessage": "Te sugiero revisar la distribución de tareas...",
+    "realDashboard": "Dashboard real de un proyecto en AngoraSix"
   },
   "audience": {
-    "title": "Construido para Visionarios Como Tú",
+    "title": "¿Para quién es AngoraSix?",
     "items": {
-      "solo": "Fundadores solitarios con proyectos sin terminar",
-      "teams": "Pequeños equipos que luchan por mantener todo bajo control",
-      "visionaries": "Visionarios que han encontrado obstáculos"
+      "solo": "Emprendedores individuales",
+      "teams": "Equipos colaborativos",
+      "visionaries": "Visionarios con grandes ideas"
     },
-    "tagline": "AngoraSix es tu socio de operaciones, tu sistema de productividad y tu herramienta de co-creación."
+    "tagline": "Si tienes una visión y quieres hacerla realidad de manera justa y transparente, AngoraSix es para ti."
   },
   "story": {
-    "quote": "Marcos tuvo 3 proyectos anteriores que nunca pasaron de la etapa de planificación. Con AngoraSix, lanzó su idea, distribuyó roles de manera justa, y ahora está trabajando con un equipo de 4, completamente alineado.",
-    "attribution": "— Historia Real de Éxito de AngoraSix"
+    "quote": "\"Después de varios proyectos fallidos, encontré en AngoraSix la estructura y transparencia que necesitaba. Ahora mi equipo está alineado y todos sabemos exactamente cuál es nuestra participación.\"",
+    "attribution": "- María González, Fundadora de TechStart"
   },
   "cta": {
-    "title": "¿Listo para Crear de Nuevo?",
-    "subtitle": "Si estás listo para crear de nuevo—con confianza—AngoraSix está listo para ti.",
-    "placeholder": "Ingresa tu email para acceso temprano",
-    "button": "Obtener Acceso Temprano",
-    "submitted": "¡Bienvenido a AngoraSix!",
-    "note": "Construimos esto porque también lo necesitábamos. Únete a otros fundadores que están construyendo con claridad."
-  },
-  "navbar": {
-    "login": "Iniciar Sesión",
-    "logout": "Cerrar Sesión",
-    "dashboard": "Panel",
-    "profile": "Perfil"
+    "joinTitle": "¿Listo para transformar tus ideas?",
+    "joinSubtitle": "Únete a AngoraSix y comienza a construir el futuro de manera cooperativa y transparente.",
+    "joinButton": "Unirse Ahora",
+    "continueButton": "Continuar al Dashboard",
+    "joinNote": "Acceso gratuito durante el período Early Bird. Sin compromisos."
   }
 }

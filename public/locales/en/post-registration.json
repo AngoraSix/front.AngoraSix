@@ -1,53 +1,56 @@
 {
   "page": {
-    "title": "Welcome! - AngoraSix",
-    "description": "Thank you for joining AngoraSix. Get ready to manage your projects like never before."
+    "title": "Welcome to AngoraSix!",
+    "description": "Thank you for joining AngoraSix. We're excited to have you in our community."
   },
   "welcome": {
-    "title": "Thank you for joining!",
+    "title": "Thanks for joining!",
     "subtitle": "Very soon you'll be able to manage your projects like never before. We'll let you know when everything is ready."
   },
   "countdown": {
     "title": "Only left:"
   },
+  "newsletter": {
+    "title": "Stay informed",
+    "description": "Receive updates about the launch, new features, and exclusive tips for visionaries.",
+    "emailPlaceholder": "your@email.com",
+    "subscribe": "Subscribe",
+    "subscribing": "Subscribing...",
+    "consent": "I agree to receive informational emails from AngoraSix",
+    "success": "Perfect! We'll keep you informed about all the news."
+  },
   "calendar": {
-    "button": "Add to Calendar",
-    "description": "Get an automatic reminder of the launch"
+    "addToCalendar": "Add to Calendar",
+    "eventTitle": "AngoraSix Launch",
+    "eventDescription": "The day AngoraSix will be available to transform your ideas into successful projects."
   },
   "contact": {
-    "title": "Do you have any questions?",
-    "description": "We're here for whatever you need: real and human contact.",
-    "placeholder": "Tell us what you'd like to know or any suggestions...",
-    "button": "Send Message",
-    "chatbot": "Interactive FAQ / Chatbot",
-    "email": "You can also write to us directly",
+    "title": "Have any questions?",
+    "description": "We're here to help you. Send us a message and we'll respond personally.",
+    "messagePlaceholder": "Tell us what you'd like to know or how we can help you...",
+    "send": "Send Message",
+    "sending": "Sending...",
     "success": "Message sent! We'll respond soon."
   },
-  "steps": {
+  "support": {
+    "title": "Immediate Support",
+    "description": "Need quick answers? Try our intelligent assistant or check the frequently asked questions.",
+    "chatbot": "Intelligent Chatbot",
+    "faq": "Frequently Asked Questions"
+  },
+  "nextSteps": {
     "title": "Next Steps",
-    "notifications": {
-      "title": "We'll Notify You",
-      "description": "You'll receive an email when AngoraSix is ready to use"
+    "step1": {
+      "title": "We'll notify you",
+      "description": "You'll receive an email when AngoraSix is ready to use."
     },
-    "community": {
-      "title": "Join the Community",
-      "description": "Connect with other visionaries and share ideas before launch"
+    "step2": {
+      "title": "Mark your calendar",
+      "description": "Add the launch date so you don't miss the moment."
     },
-    "setup": {
-      "title": "Prepare Your Profile",
-      "description": "When we launch, you'll be able to set up your profile and create your first project"
-    }
-  },
-  "social": {
-    "title": "Stay Connected",
-    "description": "Follow us on our social networks to receive updates and meet other members of the AngoraSix community."
-  },
-  "post-registration": {
-    "calendar": {
-      "template": {
-        "title": "AngoraSix Launch",
-        "description": "AngoraSix will be available! Access your account to start using all the features."
-      }
+    "step3": {
+      "title": "Start building",
+      "description": "You'll be able to create your first cooperative project immediately."
     }
   }
 }

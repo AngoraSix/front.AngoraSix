@@ -1,7 +1,7 @@
 {
   "page": {
-    "title": "¡Bienvenido! - AngoraSix",
-    "description": "Gracias por unirte a AngoraSix. Prepárate para gestionar tus proyectos como nunca antes."
+    "title": "¡Bienvenido a AngoraSix!",
+    "description": "Gracias por unirte a AngoraSix. Estamos emocionados de tenerte en nuestra comunidad."
   },
   "welcome": {
     "title": "¡Gracias por unirte!",
@@ -10,44 +10,47 @@
   "countdown": {
     "title": "Faltan solo:"
   },
+  "newsletter": {
+    "title": "Mantente informado",
+    "description": "Recibe actualizaciones sobre el lanzamiento, nuevas funcionalidades y consejos exclusivos para visionarios.",
+    "emailPlaceholder": "tu@email.com",
+    "subscribe": "Suscribirse",
+    "subscribing": "Suscribiendo...",
+    "consent": "Acepto recibir emails informativos de AngoraSix",
+    "success": "¡Perfecto! Te mantendremos informado sobre todas las novedades."
+  },
   "calendar": {
-    "button": "Agregar al Calendario",
-    "description": "Recibe un recordatorio automático del lanzamiento"
+    "addToCalendar": "Agregar al Calendario",
+    "eventTitle": "Lanzamiento de AngoraSix",
+    "eventDescription": "El día que AngoraSix estará disponible para transformar tus ideas en proyectos exitosos."
   },
   "contact": {
     "title": "¿Tienes alguna pregunta?",
-    "description": "Estamos aquí para lo que necesites: contacto real y humano.",
-    "placeholder": "Cuéntanos qué te gustaría saber o cualquier sugerencia...",
-    "button": "Enviar Mensaje",
-    "chatbot": "FAQ Interactivo / Chatbot",
-    "email": "También puedes escribirnos directamente",
+    "description": "Estamos aquí para ayudarte. Envíanos un mensaje y te responderemos personalmente.",
+    "messagePlaceholder": "Cuéntanos qué te gustaría saber o cómo podemos ayudarte...",
+    "send": "Enviar Mensaje",
+    "sending": "Enviando...",
     "success": "¡Mensaje enviado! Te responderemos pronto."
   },
-  "steps": {
+  "support": {
+    "title": "Soporte Inmediato",
+    "description": "¿Necesitas respuestas rápidas? Prueba nuestro asistente inteligente o consulta las preguntas frecuentes.",
+    "chatbot": "Chatbot Inteligente",
+    "faq": "Preguntas Frecuentes"
+  },
+  "nextSteps": {
     "title": "Próximos Pasos",
-    "notifications": {
-      "title": "Te Notificaremos",
-      "description": "Recibirás un email cuando AngoraSix esté listo para usar"
+    "step1": {
+      "title": "Te notificaremos",
+      "description": "Recibirás un email cuando AngoraSix esté listo para usar."
     },
-    "community": {
-      "title": "Únete a la Comunidad",
-      "description": "Conecta con otros visionarios y comparte ideas antes del lanzamiento"
+    "step2": {
+      "title": "Marca tu calendario",
+      "description": "Agrega la fecha de lanzamiento para no perderte el momento."
     },
-    "setup": {
-      "title": "Prepara tu Perfil",
-      "description": "Cuando lancemos, podrás configurar tu perfil y crear tu primer proyecto"
-    }
-  },
-  "social": {
-    "title": "Mantente Conectado",
-    "description": "Síguenos en nuestras redes sociales para recibir actualizaciones y conocer a otros miembros de la comunidad AngoraSix."
-  },
-  "post-registration": {
-    "calendar": {
-      "template": {
-        "title": "Lanzamiento de AngoraSix",
-        "description": "¡AngoraSix estará disponible! Accede a tu cuenta para comenzar a utilizar todas las funcionalidades."
-      }
+    "step3": {
+      "title": "Comienza a construir",
+      "description": "Podrás crear tu primer proyecto cooperativo inmediatamente."
     }
   }
 }
