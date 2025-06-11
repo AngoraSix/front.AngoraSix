@@ -38,7 +38,7 @@ yarn-error.log*
 .vercel
 
 # v0
-publikz
+files.txt
 
 ### OSX ###
 .DS_Store

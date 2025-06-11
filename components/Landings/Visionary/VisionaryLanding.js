@@ -333,7 +333,7 @@ const VisionaryLanding = () => {
                 >
                   <Box
                     component="img"
-                    src="/images/dashboard-preview.png"
+                    src="/images/project-stats.png"
                     alt={t("preview.dashboard")}
                     sx={{
                       width: "100%",
