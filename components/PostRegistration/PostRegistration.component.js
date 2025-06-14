@@ -149,9 +149,6 @@ const PostRegistration = () => {
         <meta name="description" content={t("page.description")} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-
-      <SharedNavbar />
-
       <Box sx={{ pt: 7, pb: 8, minHeight: "100vh", backgroundColor: "#f8f9fa" }}>
         <Container maxWidth="lg">
           <Grid container spacing={4} sx={{ mt: 2 }}>

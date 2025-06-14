@@ -1,14 +1,15 @@
 import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 import About from "../../components/About"
+import LandingLayout from "../../layouts/LandingLayout"
 
 const AboutPage = () => {
-  return <About />
+  return <LandingLayout><About /></LandingLayout>
 }
 
 export const getServerSideProps = async (ctx) => {
   return {
     props: {
-      ...(await serverSideTranslations(ctx.locale || "en", ["common", "about"])),
+      ...(await serverSideTranslations(ctx.locale || "en", ["common", "common.legal", "about"])),
     },
   }
 }

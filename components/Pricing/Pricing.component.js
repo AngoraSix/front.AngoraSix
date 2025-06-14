@@ -82,9 +82,6 @@ const PricingComponent = () => {
         <title>{t("page.title")}</title>
         <meta name="description" content={t("page.description")} />
       </Head>
-
-      <SharedNavbar />
-
       <Box className="pricing-page" sx={{ pt: 10, pb: 8 }}>
         {/* Countdown Banner */}
         <Container maxWidth="lg" sx={{ mb: 6 }}>

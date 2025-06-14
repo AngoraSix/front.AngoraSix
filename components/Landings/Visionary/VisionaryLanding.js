@@ -19,7 +19,6 @@ import { ROUTES } from "../../../constants/constants"
 import { useInView } from "../../../hooks/useInViews"
 import { trackEvent, trackSignupConversion } from "../../../utils/analytics"
 import CountdownTimer from "../../common/CountdownTimer"
-import SharedNavbar from "../../common/SharedNavbar"
 
 const VisionaryLanding = () => {
   const { t } = useTranslation("welcome.visionaries")
@@ -123,15 +122,12 @@ const VisionaryLanding = () => {
         <meta name="description" content={t("page.description")} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-
-      <SharedNavbar />
-
-      <Box className="visionary-landing" sx={{ pt: 7, overflow: "hidden" }}>
+      <Box className="visionary-landing" sx={{ pt: 8, overflow: "hidden" }}>
         {/* Hero Section */}
-        <Box ref={heroRef} className="hero-section">
+        <Box ref={heroRef} sx={{ pt: 2 }} className="hero-section">
           <Container maxWidth="lg">
             {/* Countdown Banner */}
-            <Box sx={{ mb: 4 }}>
+            <Box >
               <CountdownTimer
                 targetDate={launchDate.toISOString()}
                 variant="banner"
@@ -147,15 +143,15 @@ const VisionaryLanding = () => {
             <Fade in={heroInView} timeout={1000}>
               <Box className="hero-content">
                 <Typography
-                  variant="h1"
+                  variant="h2"
                   className="hero-title"
                   sx={{
                     fontSize: {
                       xs: "2.5rem", // Mobile: 40px
                       sm: "3.5rem", // Small tablet: 56px
                       md: "4rem", // Medium: 64px
-                      lg: "4.5rem", // Large: 72px
-                      xl: "5rem", // Extra large: 80px
+                      lg: "4rem", // Large: 72px
+                      xl: "4rem", // Extra large: 80px
                     },
                     lineHeight: {
                       xs: 1.2,

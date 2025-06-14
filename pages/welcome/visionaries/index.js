@@ -34,6 +34,7 @@ export const getServerSideProps = async (ctx) => {
       ...props,
       ...(await serverSideTranslations(ctx.locale, [
         'common',
+        "common.legal",
         'welcome.visionaries',
       ])),
     },

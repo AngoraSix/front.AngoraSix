@@ -1,3 +1,6 @@
+import Footer from "../../components/common/Footer"
+import CookieConsent from "../../components/common/CookieConsent"
+import SharedNavbar from "../../components/common/SharedNavbar"
 import Head from "next/head"
 import { Box } from "@mui/material"
 
@@ -36,9 +39,12 @@ const LandingLayout = ({ children, title, description }) => {
         />
       </Head>
 
+      <SharedNavbar />
       <Box component="main" sx={{ minHeight: "100vh" }}>
         {children}
       </Box>
+      <Footer />
+      <CookieConsent />
     </>
   )
 }

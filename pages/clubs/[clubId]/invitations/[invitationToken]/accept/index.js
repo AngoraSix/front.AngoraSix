@@ -93,6 +93,7 @@ export const getServerSideProps = async (ctx) => {
       session,
       ...(await serverSideTranslations(ctx.locale, [
         'common',
+        "common.legal",
         'club.invitations',
       ])),
     },

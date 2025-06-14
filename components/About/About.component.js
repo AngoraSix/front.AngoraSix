@@ -82,9 +82,6 @@ const AboutComponent = () => {
         <title>{t("page.title")}</title>
         <meta name="description" content={t("page.description")} />
       </Head>
-
-      <SharedNavbar />
-
       <Box className="about-page" sx={{ pt: 10, pb: 8 }}>
         {/* Hero Section */}
         <Box ref={heroRef} className="about-hero" sx={{ mb: 10 }}>

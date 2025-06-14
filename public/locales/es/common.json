@@ -67,5 +67,20 @@
     "title": "¡Ya está disponible!",
     "subtitle": "AngoraSix ya está listo para usar",
     "cta": "Comenzar Ahora"
+  },
+  "footer": {
+    "description": "Transforma tus proyectos colaborativos con gestión inteligente y seguimiento transparente de propiedad.",
+    "poweredBy": "Desarrollado por AngoraSix",
+    "sitemap": "Mapa del Sitio",
+    "contact": "Contacto",
+    "contactDescription": "¿Preguntas o soporte? Estamos aquí para ayudar.",
+    "copyright": "© {{year}} AngoraSix. Todos los derechos reservados.",
+    "links": {
+      "home": "Inicio",
+      "pricing": "Precios",
+      "about": "Nosotros",
+      "terms": "Términos y Condiciones",
+      "privacy": "Política de Privacidad"
+    }
   }
 }
