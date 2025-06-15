@@ -1,19 +1,7 @@
 "use client"
 
 import { Language as LanguageIcon, Login as LoginIcon, Menu as MenuIcon } from "@mui/icons-material"
-import {
-  AppBar,
-  Avatar,
-  Box,
-  Button,
-  Container,
-  IconButton,
-  Menu,
-  MenuItem,
-  Toolbar,
-  Tooltip,
-  Typography,
-} from "@mui/material"
+import { AppBar, Avatar, Box, Button, Container, IconButton, Menu, MenuItem, Toolbar, Typography, Tooltip } from "@mui/material"
 import { useTheme } from "@mui/material/styles"
 import useMediaQuery from "@mui/material/useMediaQuery"
 import Cookies from "js-cookie"
@@ -24,9 +12,8 @@ import Link from "next/link"
 import { useRouter } from "next/router"
 import { useState } from "react"
 import config from "../../../config"
-import { ROUTES } from "../../../constants/constants"
 
-const SharedNavbar = () => {
+const SharedNavbar = ({ variant = "default" }) => {
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down("md"))
   const { data: session } = useSession()
@@ -57,6 +44,41 @@ const SharedNavbar = () => {
 
   const otherLocales = locales?.filter((l) => l !== locale) || []
 
+  // Define navigation items based on variant
+  const getNavigationItems = () => {
+    const baseItems = [
+      {
+        href: "/pricing",
+        label: t("navbar.shared.pricing"),
+      },
+      {
+        href: "/about",
+        label: t("navbar.shared.about"),
+      },
+    ]
+
+    if (variant === "team") {
+      return [
+        {
+          href: "/welcome/visionaries",
+          label: t("navbar.shared.forvisionaries"),
+        },
+        ...baseItems,
+      ]
+    }
+
+    return [
+      {
+        href: "/welcome/visionaries",
+        label: t("navbar.shared.forvisionaries"),
+      },
+      ...baseItems,
+    ]
+  }
+
+  const navigationItems = getNavigationItems()
+  const logoHref = variant === "team" ? "/welcome/team" : "/"
+
   return (
     <AppBar
       position="fixed"
@@ -70,7 +92,7 @@ const SharedNavbar = () => {
       <Container maxWidth="lg">
         <Toolbar sx={{ justifyContent: "space-between", py: 1 }}>
           {/* Logo */}
-          <Link href="/" style={{ textDecoration: "none" }}>
+          <Link href={logoHref} style={{ textDecoration: "none" }}>
             <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
               <Box sx={{ position: "relative", width: 40, height: 40 }}>
                 <Image
@@ -99,21 +121,13 @@ const SharedNavbar = () => {
           {!isMobile && (
             <Box sx={{ display: "flex", alignItems: "center", gap: 3 }}>
               {/* Navigation Links */}
-              <Link href="/welcome/visionaries" style={{ textDecoration: "none" }}>
-                <Button color="primary" sx={{ textTransform: "none" }}>
-                  {t("navbar.shared.forvisionaries")}
-                </Button>
-              </Link>
-              <Link href="/pricing" style={{ textDecoration: "none" }}>
-                <Button color="primary" sx={{ textTransform: "none" }}>
-                  {t("navbar.shared.pricing")}
-                </Button>
-              </Link>
-              <Link href="/about" style={{ textDecoration: "none" }}>
-                <Button color="primary" sx={{ textTransform: "none" }}>
-                  {t("navbar.shared.about")}
-                </Button>
-              </Link>
+              {navigationItems.map((item) => (
+                <Link href={item.href} style={{ textDecoration: "none" }} key={item.href}>
+                  <Button color="primary" sx={{ textTransform: "none" }}>
+                    {item.label}
+                  </Button>
+                </Link>
+              ))}
 
               {/* Language Selector */}
               {locales && locales.length > 1 && (
@@ -216,15 +230,11 @@ const SharedNavbar = () => {
                 anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
                 transformOrigin={{ vertical: "top", horizontal: "right" }}
               >
-                <Link href="/welcome/visionaries" style={{ textDecoration: "none", color: "inherit" }}>
-                  <MenuItem onClick={handleCloseNavMenu}>{t("navbar.shared.forvisionaries")}</MenuItem>
-                </Link>
-                <Link href="/pricing" style={{ textDecoration: "none", color: "inherit" }}>
-                  <MenuItem onClick={handleCloseNavMenu}>{t("navbar.shared.pricing")}</MenuItem>
-                </Link>
-                <Link href="/about" style={{ textDecoration: "none", color: "inherit" }}>
-                  <MenuItem onClick={handleCloseNavMenu}>{t("navbar.shared.about")}</MenuItem>
-                </Link>
+                {navigationItems.map((item) => (
+                  <Link href={item.href} style={{ textDecoration: "none", color: "inherit" }} key={item.href}>
+                    <MenuItem onClick={handleCloseNavMenu}>{item.label}</MenuItem>
+                  </Link>
+                ))}
                 {session ? (
                   [
                     <MenuItem key="logout" onClick={() => signOut()}>

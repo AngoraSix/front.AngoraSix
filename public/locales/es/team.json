@@ -1,0 +1,62 @@
+{
+  "page": {
+    "title": "AngoraSix Equipo - Llevá tu proyecto al siguiente nivel",
+    "description": "Tu emprendimiento está creciendo. Llevá tu equipo al siguiente nivel con una metodología innovadora, transparente y adaptada a las nuevas formas de crear."
+  },
+  "hero": {
+    "title": {
+      "part1": "Tu emprendimiento está creciendo.",
+      "highlight": "Lleválo al siguiente nivel"
+    },
+    "subtitle": "Gestión sobre blockchain. Único. Reglas claras, control distribuido y seguimiento transparente. Sin complicaciones técnicas, para que tu equipo se enfoque en crear.",
+    "subtitle2": "El apoyo que tu proyecto necesita para seguir creciendo.",
+    "cta": "Empezar Gratis"
+  },
+  "problems": {
+    "title": "¿Esto te suena?",
+    "subtitle": "Preguntas comunes de quienes quieren construir bien en equipo",
+    "unequal": "¿Cómo aseguramos que todos estemos comprometidos y aportando equitativamente?",
+    "unclear": "¿Cómo definimos reglas y decisiones para evitar malentendidos más adelante?",
+    "starting": "¿Cómo arrancamos con claridad sin tener que reinventar la rueda?",
+    "management": "¿Cómo evito desgastarme en la gestión y enfoco mi energía en lo importante?"
+  },
+  "solutions": {
+    "title": "Tu nuevo marco de trabajo",
+    "subtitle": "Todo lo que necesitás para ordenar tu proyecto y enfocarte en avanzar",
+    "rules": {
+      "title": "Guía para Acordar Reglas Claras",
+      "description": "Una estructura simple para definir roles, decisiones y contribuciones que todos comprendan y respeten."
+    },
+    "multisig": {
+      "title": "Cuenta Multi-firma Integrada",
+      "description": "Una cuenta compartida sobre blockchain conectada a tus reglas y tareas, que asegura que cada decisión financiera esté alineada con lo acordado."
+    },
+    "transparency": {
+      "title": "Registro Automático de Contribuciones",
+      "description": "Seguimos las tareas realizadas desde tus herramientas y construimos un historial objetivo que permite decisiones justas y claras."
+    }
+  },
+  "useCases": {
+    "title": "¿En qué momento está tu equipo?",
+    "partners": {
+      "title": "Dos Socios en Etapa Inicial",
+      "description": "Quieren avanzar con claridad y confianza mutua, sin dejar cabos sueltos."
+    },
+    "newTeam": {
+      "title": "Un Equipo Formándose",
+      "description": "Buscan empezar con herramientas modernas y una cultura sana desde el principio."
+    },
+    "startup": {
+      "title": "Startup en Expansión",
+      "description": "Necesitan mantener claridad y armonía mientras suman más personas al equipo."
+    }
+  },
+  "finalCta": {
+    "title": {
+      "part1": "Tu proyecto necesita una estructura que lo ayude a",
+      "highlight": "crecer sin fricciones"
+    },
+    "subtitle": "Formá parte de los equipos que ya están creando con herramientas de la próxima generación.",
+    "cta": "Empezar Gratis"
+  }
+}

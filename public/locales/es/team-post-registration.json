@@ -1,0 +1,39 @@
+{
+  "page": {
+    "title": "Bienvenido al Beta de AngoraSix Equipo",
+    "description": "Gracias por unirte a nuestro programa beta enfocado en equipos. Prepárate para transformar cómo colabora tu equipo."
+  },
+  "welcome": {
+    "title": "¡Bienvenido al Equipo!",
+    "subtitle": "Ahora eres parte de nuestro programa beta exclusivo para equipos emprendedores."
+  },
+  "beta": {
+    "title": "Únete a Nuestro Programa Beta",
+    "description": "Obtén acceso temprano a funciones de colaboración en equipo, billeteras multi-firma y seguimiento de contribuciones diseñado específicamente para equipos emprendedores.",
+    "cta": "Unirse al Beta",
+    "success": "¡Estás dentro! Te contactaremos pronto con acceso al beta."
+  },
+  "countdown": {
+    "title": "Cuenta Regresiva del Lanzamiento Beta"
+  },
+  "expectations": {
+    "title": "Qué Esperar",
+    "demo": "Demo Personal",
+    "setup": "Configuración del Equipo",
+    "launch": "Lanzamiento Beta"
+  },
+  "feedback": {
+    "title": "Comparte Tu Visión",
+    "description": "Cuéntanos sobre los mayores desafíos de colaboración de tu equipo. Tu aporte da forma a nuestro desarrollo.",
+    "placeholder": "¿Cuál es el mayor desafío de tu equipo al trabajar juntos?",
+    "send": "Compartir Feedback",
+    "sending": "Enviando...",
+    "success": "¡Gracias por tu feedback!"
+  },
+  "resources": {
+    "title": "Recursos para Equipos",
+    "description": "Prepara a tu equipo para el lanzamiento beta con nuestras guías y mejores prácticas.",
+    "guide": "Guía de Configuración de Equipo",
+    "faq": "FAQ del Beta"
+  }
+}
