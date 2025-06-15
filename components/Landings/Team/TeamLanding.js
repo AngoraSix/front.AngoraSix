@@ -57,7 +57,7 @@ const TeamLanding = () => {
       keywords: ["rules", "decisions", "misunderstandings"],
     },
     {
-      text: t("problems.starting"),
+      text: t("problems.distribution"),
       icon: <RocketLaunch sx={{ color: theme.palette.secondary.main }} />,
       keywords: ["clarity", "reinventing"],
     },

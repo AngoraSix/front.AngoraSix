@@ -13,50 +13,50 @@
     "cta": "Empezar Gratis"
   },
   "problems": {
-    "title": "¿Esto te suena?",
-    "subtitle": "Preguntas comunes de quienes quieren construir bien en equipo",
-    "unequal": "¿Cómo aseguramos que todos estemos comprometidos y aportando equitativamente?",
-    "unclear": "¿Cómo definimos reglas y decisiones para evitar malentendidos más adelante?",
-    "starting": "¿Cómo arrancamos con claridad sin tener que reinventar la rueda?",
-    "management": "¿Cómo evito desgastarme en la gestión y enfoco mi energía en lo importante?"
+    "title": "¿Tu modelo de gestión puede acompañar el crecimiento de tu emprendimiento?",
+    "subtitle": "Preguntas clave si querés que tu equipo empuje siempre para el mismo lado.",
+    "unequal": "¿Cómo aseguramos que todos sigan comprometidos y aportando según lo pactado?",
+    "unclear": "¿Cómo acordamos reglas claras que eviten conflictos y no generen incomodidad para cumplirse?",
+    "distribution": "¿Cómo resolvemos una distribución justa de ingresos que todos consideren legítima?",
+    "management": "¿Cómo reducir la carga de gestión para enfocarme en lo que realmente mueve el proyecto?"
   },
-  "solutions": {
-    "title": "Tu nuevo marco de trabajo",
-    "subtitle": "Todo lo que necesitás para ordenar tu proyecto y enfocarte en avanzar",
-    "rules": {
-      "title": "Guía para Acordar Reglas Claras",
-      "description": "Una estructura simple para definir roles, decisiones y contribuciones que todos comprendan y respeten."
+    "solutions": {
+      "title": "El soporte que tu equipo necesita para llevar tu proyecto al siguiente nivel",
+      "subtitle": "Avancen enfocados, con confianza y claridad, sin fricciones",
+      "rules": {
+        "title": "Un marco para acordar reglas claras",
+        "description": "Guía y una estructura para definir los puntos clave de tu proyecto, prevenir conflictos y construir en equipo sin ambigüedades."
+      },
+      "transparency": {
+        "title": "Registro automático de contribuciones",
+        "description": "Nos integramos con tus herramientas de gestión para registrar automáticamente el aporte real de cada persona."
+      },
+      "multisig": {
+        "title": "Wallet multi-firma integrada",
+        "description": "Una cuenta compartida sobre blockchain conectada a tus reglas y tareas, que asegura que cada decisión financiera esté alineada con lo acordado."
+      }
     },
-    "multisig": {
-      "title": "Cuenta Multi-firma Integrada",
-      "description": "Una cuenta compartida sobre blockchain conectada a tus reglas y tareas, que asegura que cada decisión financiera esté alineada con lo acordado."
-    },
-    "transparency": {
-      "title": "Registro Automático de Contribuciones",
-      "description": "Seguimos las tareas realizadas desde tus herramientas y construimos un historial objetivo que permite decisiones justas y claras."
-    }
-  },
   "useCases": {
-    "title": "¿En qué momento está tu equipo?",
+    "title": "Una solución adecuada para tu equipo",
     "partners": {
-      "title": "Dos Socios en Etapa Inicial",
+      "title": "Dos socios en etapa inicial",
       "description": "Quieren avanzar con claridad y confianza mutua, sin dejar cabos sueltos."
     },
     "newTeam": {
-      "title": "Un Equipo Formándose",
+      "title": "Un equipo formándose",
       "description": "Buscan empezar con herramientas modernas y una cultura sana desde el principio."
     },
     "startup": {
-      "title": "Startup en Expansión",
+      "title": "Startup en expansión",
       "description": "Necesitan mantener claridad y armonía mientras suman más personas al equipo."
     }
   },
   "finalCta": {
     "title": {
-      "part1": "Tu proyecto necesita una estructura que lo ayude a",
-      "highlight": "crecer sin fricciones"
+      "part1": "No pongas en riesgo el futuro de tu emprendimiento.",
+      "highlight": "Gestioná con claridad desde el principio"
     },
-    "subtitle": "Formá parte de los equipos que ya están creando con herramientas de la próxima generación.",
+    "subtitle": "Sumate a los equipos que ya están construyendo con herramientas de nueva generación.",
     "cta": "Empezar Gratis"
   }
 }
