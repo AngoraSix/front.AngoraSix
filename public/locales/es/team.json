@@ -1,15 +1,15 @@
 {
   "page": {
-    "title": "AngoraSix Equipo - Llevá tu proyecto al siguiente nivel",
-    "description": "Tu emprendimiento está creciendo. Llevá tu equipo al siguiente nivel con una metodología innovadora, transparente y adaptada a las nuevas formas de crear."
+    "title": "AngoraSix - Llevá tu proyecto al siguiente nivel",
+    "description": "Tu emprendimiento está creciendo. Apoyate en una metodología innovadora, transparente y adaptada a las nuevas formas de crear."
   },
   "hero": {
     "title": {
       "part1": "Tu emprendimiento está creciendo.",
-      "highlight": "Lleválo al siguiente nivel"
+      "highlight": "Garantizá que siga así"
     },
-    "subtitle": "Gestión sobre blockchain. Único. Reglas claras, control distribuido y seguimiento transparente. Sin complicaciones técnicas, para que tu equipo se enfoque en crear.",
-    "subtitle2": "El apoyo que tu proyecto necesita para seguir creciendo.",
+    "subtitle": "Potenciá tu gestión con blockchain, sin complicaciones: Acuerdos internos transparentes y trackeo de aportes, todo integrado con una wallet compartida.",
+    "subtitle2": "Consenso claro. Sin conflictos. Sencillo y compatible con las herramientas que ya usás.",
     "cta": "Empezar Gratis"
   },
   "problems": {
