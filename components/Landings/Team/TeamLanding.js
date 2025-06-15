@@ -73,19 +73,19 @@ const TeamLanding = () => {
       title: t("solutions.rules.title"),
       description: t("solutions.rules.description"),
       icon: <Groups sx={{ fontSize: 40, color: "white" }} />,
-      gradient: "linear-gradient(135deg, #1B5993 0%, #AFC1D6 100%)",
+      gradient: "linear-gradient(135deg, #1B5993 0%, #0A2239 100%)",
     },
     {
       title: t("solutions.transparency.title"),
       description: t("solutions.transparency.description"),
       icon: <Visibility sx={{ fontSize: 40, color: "white" }} />,
-      gradient: "linear-gradient(135deg, #AFC1D6 0%, #0A2239 100%)",
+      gradient: "linear-gradient(135deg, #1B5993 0%, #0A2239 100%)",
     },
     {
       title: t("solutions.multisig.title"),
       description: t("solutions.multisig.description"),
       icon: <AccountBalance sx={{ fontSize: 40, color: "white" }} />,
-      gradient: "linear-gradient(135deg, #0A2239 0%, #1B5993 100%)",
+      gradient: "linear-gradient(135deg, #1B5993 0%, #0A2239 100%)",
     },
   ]
 
@@ -119,6 +119,41 @@ const TeamLanding = () => {
     return <span dangerouslySetInnerHTML={{ __html: result }} />
   }
 
+  // Generate multiple flowing lines for 3D effect
+  const generateFlowingLines = (count, colors, speeds) => {
+    const lines = []
+    for (let i = 0; i < count; i++) {
+      const yOffset = (i * 600) / count
+      const amplitude = 30 + (i % 3) * 20
+      const frequency = 0.8 + (i % 4) * 0.3
+      const phase = (i * Math.PI) / 4
+      const speed = speeds[i % speeds.length]
+      const color = colors[i % colors.length]
+      const opacity = 0.1 + (i % 3) * 0.05
+
+      lines.push(
+        <path
+          key={i}
+          d={`M0,${yOffset} Q300,${yOffset - amplitude} 600,${yOffset} T1200,${yOffset}`}
+          stroke={color}
+          strokeWidth="1"
+          fill="none"
+          opacity={opacity}
+        >
+          <animate
+            attributeName="d"
+            values={`M0,${yOffset} Q300,${yOffset - amplitude} 600,${yOffset} T1200,${yOffset};
+                     M0,${yOffset + amplitude * Math.sin(phase)} Q300,${yOffset + amplitude * Math.sin(phase + frequency)} 600,${yOffset - amplitude * Math.sin(phase + frequency * 2)} T1200,${yOffset + amplitude * Math.sin(phase + frequency * 3)};
+                     M0,${yOffset} Q300,${yOffset - amplitude} 600,${yOffset} T1200,${yOffset}`}
+            dur={`${speed}s`}
+            repeatCount="indefinite"
+          />
+        </path>,
+      )
+    }
+    return lines
+  }
+
   return (
     <>
       <Head>
@@ -138,30 +173,29 @@ const TeamLanding = () => {
           color: "white",
           position: "relative",
           overflow: "hidden",
-          "&::before": {
-            content: '""',
-            position: "absolute",
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            background: `radial-gradient(circle at 20% 80%, ${theme.palette.secondary.main}50 0%, transparent 50%), 
-                        radial-gradient(circle at 80% 20%, ${theme.palette.primary.main2}40 0%, transparent 50%),
-                        radial-gradient(circle at 40% 40%, ${theme.palette.secondary.main}30 0%, transparent 70%)`,
-            animation: "heroFloat 8s ease-in-out infinite",
-          },
-          "&::after": {
-            content: '""',
-            position: "absolute",
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            background: `radial-gradient(circle at 60% 70%, ${theme.palette.primary.main2}35 0%, transparent 60%)`,
-            animation: "heroFloat 10s ease-in-out infinite reverse",
-          },
         }}
       >
+        {/* 3D Flowing Lines Background */}
+        <Box
+          sx={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            opacity: 0.6,
+            zIndex: 0,
+          }}
+        >
+          <svg width="100%" height="100%" viewBox="0 0 1200 800" preserveAspectRatio="none">
+            {generateFlowingLines(
+              80,
+              [theme.palette.secondary.main, theme.palette.primary.main2, theme.palette.primary.light],
+              [8, 12, 15, 10, 18, 6],
+            )}
+          </svg>
+        </Box>
+
         <Container maxWidth="lg">
           <Box sx={{ textAlign: "center", position: "relative", zIndex: 1 }}>
             <Fade in timeout={1000}>
@@ -242,18 +276,29 @@ const TeamLanding = () => {
           backgroundColor: "white",
           position: "relative",
           overflow: "hidden",
-          "&::before": {
-            content: '""',
+        }}
+      >
+        {/* Harmonic Lines Pattern */}
+        <Box
+          sx={{
             position: "absolute",
             top: 0,
             left: 0,
             right: 0,
             bottom: 0,
-            background: `radial-gradient(circle at 90% 10%, ${theme.palette.primary.light2}50 0%, transparent 50%)`,
-            animation: "sectionFloat 12s ease-in-out infinite",
-          },
-        }}
-      >
+            opacity: 0.3,
+            zIndex: 0,
+          }}
+        >
+          <svg width="100%" height="100%" viewBox="0 0 1200 600" preserveAspectRatio="none">
+            {generateFlowingLines(
+              60,
+              [theme.palette.primary.light2, theme.palette.primary.main2],
+              [12, 16, 20, 14, 18],
+            )}
+          </svg>
+        </Box>
+
         <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
           <Fade in={visibleSections.problems} timeout={1000}>
             <Box sx={{ textAlign: "center", mb: 6 }}>
@@ -354,19 +399,29 @@ const TeamLanding = () => {
           background: `linear-gradient(135deg, ${theme.palette.primary.main2} 0%, ${theme.palette.primary.light2} 100%)`,
           position: "relative",
           overflow: "hidden",
-          "&::before": {
-            content: '""',
+        }}
+      >
+        {/* Complex Harmonic Pattern */}
+        <Box
+          sx={{
             position: "absolute",
             top: 0,
             left: 0,
             right: 0,
             bottom: 0,
-            background: `radial-gradient(circle at 30% 70%, ${theme.palette.secondary.main}35 0%, transparent 50%),
-                        radial-gradient(circle at 70% 30%, ${theme.palette.primary.main}30 0%, transparent 60%)`,
-            animation: "sectionFloat 10s ease-in-out infinite reverse",
-          },
-        }}
-      >
+            opacity: 0.4,
+            zIndex: 0,
+          }}
+        >
+          <svg width="100%" height="100%" viewBox="0 0 1200 600" preserveAspectRatio="none">
+            {generateFlowingLines(
+              100,
+              [theme.palette.secondary.main, theme.palette.primary.main, theme.palette.primary.light],
+              [10, 14, 18, 22, 8, 16, 12],
+            )}
+          </svg>
+        </Box>
+
         <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
           <Fade in={visibleSections.solutions} timeout={1000}>
             <Box sx={{ textAlign: "center", mb: 8 }}>
@@ -474,18 +529,29 @@ const TeamLanding = () => {
           backgroundColor: "white",
           position: "relative",
           overflow: "hidden",
-          "&::before": {
-            content: '""',
+        }}
+      >
+        {/* Gentle Flowing Pattern */}
+        <Box
+          sx={{
             position: "absolute",
             top: 0,
             left: 0,
             right: 0,
             bottom: 0,
-            background: `radial-gradient(circle at 10% 90%, ${theme.palette.secondary.main}20 0%, transparent 50%),
-                  radial-gradient(circle at 90% 10%, ${theme.palette.primary.light2}30 0%, transparent 50%)`,
-          },
-        }}
-      >
+            opacity: 0.25,
+            zIndex: 0,
+          }}
+        >
+          <svg width="100%" height="100%" viewBox="0 0 1200 600" preserveAspectRatio="none">
+            {generateFlowingLines(
+              70,
+              [theme.palette.secondary.main, theme.palette.primary.light2],
+              [15, 20, 25, 18, 12],
+            )}
+          </svg>
+        </Box>
+
         <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
           <Fade in={visibleSections.usecases} timeout={1000}>
             <Box sx={{ textAlign: "center", mb: 8 }}>
@@ -575,19 +641,25 @@ const TeamLanding = () => {
           color: "white",
           position: "relative",
           overflow: "hidden",
-          "&::before": {
-            content: '""',
+        }}
+      >
+        {/* Final Harmonic Pattern */}
+        <Box
+          sx={{
             position: "absolute",
             top: 0,
             left: 0,
             right: 0,
             bottom: 0,
-            background: `radial-gradient(circle at 70% 30%, ${theme.palette.secondary.main}45 0%, transparent 50%),
-                        radial-gradient(circle at 30% 70%, ${theme.palette.primary.main2}40 0%, transparent 60%)`,
-            animation: "heroFloat 8s ease-in-out infinite reverse",
-          },
-        }}
-      >
+            opacity: 0.5,
+            zIndex: 0,
+          }}
+        >
+          <svg width="100%" height="100%" viewBox="0 0 1200 400" preserveAspectRatio="none">
+            {generateFlowingLines(50, [theme.palette.secondary.main, theme.palette.primary.main2], [12, 16, 20, 14])}
+          </svg>
+        </Box>
+
         <Container maxWidth="md">
           <Box sx={{ textAlign: "center", position: "relative", zIndex: 1 }}>
             <Typography
@@ -634,32 +706,6 @@ const TeamLanding = () => {
       </Box>
 
       <style jsx>{`
-        @keyframes heroFloat {
-          0%, 100% { 
-            transform: translateY(0px) rotate(0deg) scale(1); 
-            opacity: 0.8;
-          }
-          33% { 
-            transform: translateY(-40px) rotate(1deg) scale(1.08); 
-            opacity: 1;
-          }
-          66% { 
-            transform: translateY(-20px) rotate(-1deg) scale(0.95); 
-            opacity: 0.9;
-          }
-        }
-        
-        @keyframes sectionFloat {
-          0%, 100% { 
-            transform: translateX(0px) translateY(0px) scale(1); 
-            opacity: 0.6;
-          }
-          50% { 
-            transform: translateX(30px) translateY(-30px) scale(1.15); 
-            opacity: 0.8;
-          }
-        }
-        
         @keyframes pulse {
           0%, 100% { opacity: 1; }
           50% { opacity: 0.7; }
@@ -671,20 +717,6 @@ const TeamLanding = () => {
           }
           50% { 
             filter: brightness(1.3) drop-shadow(0 0 5px rgba(254, 95, 85, 0.5));
-          }
-        }
-
-        @keyframes timelineFlow {
-          0% { 
-            transform: translateY(-100%);
-            opacity: 0;
-          }
-          50% { 
-            opacity: 1;
-          }
-          100% { 
-            transform: translateY(100%);
-            opacity: 0;
           }
         }
       `}</style>
