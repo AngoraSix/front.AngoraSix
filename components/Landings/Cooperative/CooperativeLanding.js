@@ -1,6 +1,13 @@
 "use client"
 
-import { Groups, Visibility, AltRoute as Eco, FavoriteBorder as FavoriteOutlined, Public as PublicOutlined, Stars } from "@mui/icons-material"
+import {
+  Groups,
+  ChecklistRtl,
+  Merge,
+  Public,
+  TouchApp,
+  Stars,
+} from "@mui/icons-material"
 import { Box, Button, Card, Container, Grid, Typography, useMediaQuery, useTheme, Fade, Grow } from "@mui/material"
 import { useTranslation } from "next-i18next"
 import Head from "next/head"
@@ -68,19 +75,19 @@ const CooperativeLanding = () => {
     {
       title: t("solutions.authentic.title"),
       description: t("solutions.authentic.description"),
-      icon: <Eco sx={{ fontSize: 40, color: "white" }} />,
+      icon: <Merge sx={{ fontSize: 40, color: "white" }} />,
       gradient: "linear-gradient(135deg, #1B5993 0%, #0A2239 100%)",
     },
     {
       title: t("solutions.transparency.title"),
       description: t("solutions.transparency.description"),
-      icon: <Visibility sx={{ fontSize: 40, color: "white" }} />,
+      icon: <ChecklistRtl sx={{ fontSize: 40, color: "white" }} />,
       gradient: "linear-gradient(135deg, #1B5993 0%, #0A2239 100%)",
     },
     {
       title: t("solutions.decentralized.title"),
       description: t("solutions.decentralized.description"),
-      icon: <PublicOutlined sx={{ fontSize: 40, color: "white" }} />,
+      icon: <TouchApp sx={{ fontSize: 40, color: "white" }} />,
       gradient: "linear-gradient(135deg, #1B5993 0%, #0A2239 100%)",
     },
   ]
@@ -92,14 +99,14 @@ const CooperativeLanding = () => {
       icon: <Groups sx={{ fontSize: 18, color: "white" }} />,
     },
     {
-      title: t("useCases.cooperative.title"),
-      description: t("useCases.cooperative.description"),
-      icon: <FavoriteOutlined sx={{ fontSize: 18, color: "white" }} />,
-    },
-    {
       title: t("useCases.social.title"),
       description: t("useCases.social.description"),
       icon: <Stars sx={{ fontSize: 18, color: "white" }} />,
+    },
+    {
+      title: t("useCases.cooperative.title"),
+      description: t("useCases.cooperative.description"),
+      icon: <Public sx={{ fontSize: 18, color: "white" }} />,
     },
   ]
 
@@ -113,38 +120,6 @@ const CooperativeLanding = () => {
     })
 
     return <span dangerouslySetInnerHTML={{ __html: result }} />
-  }
-
-  // Generate breathing effect circles
-  const generateBreathingCircles = (count, colors, sizes) => {
-    const circles = []
-    for (let i = 0; i < count; i++) {
-      const x = Math.random() * 100
-      const y = Math.random() * 100
-      const size = sizes[i % sizes.length]
-      const color = colors[i % colors.length]
-      const delay = Math.random() * 4
-
-      circles.push(
-        <circle key={i} cx={`${x}%`} cy={`${y}%`} r={size} fill={color} opacity="0.1">
-          <animate
-            attributeName="r"
-            values={`${size};${size * 1.5};${size}`}
-            dur="6s"
-            begin={`${delay}s`}
-            repeatCount="indefinite"
-          />
-          <animate
-            attributeName="opacity"
-            values="0.05;0.15;0.05"
-            dur="6s"
-            begin={`${delay}s`}
-            repeatCount="indefinite"
-          />
-        </circle>,
-      )
-    }
-    return circles
   }
 
   return (
@@ -169,25 +144,11 @@ const CooperativeLanding = () => {
         }}
       >
         {/* Breathing Effect Background */}
-        <Box
-          sx={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            opacity: 0.6,
-            zIndex: 0,
-          }}
-        >
-          <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
-            {generateBreathingCircles(
-              25,
-              [theme.palette.secondary.main, theme.palette.primary.main2, theme.palette.primary.light],
-              [2, 3, 4, 5],
-            )}
-          </svg>
-        </Box>
+        <div className="breathing-container breathing-strong">
+          <div className="breathing-layer breathing-layer-1"></div>
+          <div className="breathing-layer breathing-layer-2"></div>
+          <div className="breathing-layer breathing-layer-3"></div>
+        </div>
 
         <Container maxWidth="lg">
           <Box sx={{ textAlign: "center", position: "relative", zIndex: 1 }}>
@@ -199,10 +160,6 @@ const CooperativeLanding = () => {
                   fontWeight: 700,
                   mb: 3,
                   lineHeight: 1.1,
-                  "& .highlight": {
-                    color: theme.palette.secondary.main,
-                    animation: "breathe 4s ease-in-out infinite",
-                  },
                 }}
               >
                 {t("hero.title.part1")} <span className="highlight">{t("hero.title.highlight")}</span>.
@@ -271,23 +228,6 @@ const CooperativeLanding = () => {
           overflow: "hidden",
         }}
       >
-        {/* Gentle Breathing Pattern */}
-        <Box
-          sx={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            opacity: 0.3,
-            zIndex: 0,
-          }}
-        >
-          <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
-            {generateBreathingCircles(15, [theme.palette.primary.light2, theme.palette.primary.main2], [1.5, 2, 2.5])}
-          </svg>
-        </Box>
-
         <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
           <Fade in={visibleSections.problems} timeout={1000}>
             <Box sx={{ textAlign: "center", mb: 6 }}>
@@ -360,14 +300,6 @@ const CooperativeLanding = () => {
                       color: theme.palette.primary.main,
                       fontWeight: 500,
                       lineHeight: 1.6,
-                      "& .glow-text": {
-                        background: `linear-gradient(45deg, ${theme.palette.secondary.main}, ${theme.palette.primary.light})`,
-                        backgroundClip: "text",
-                        WebkitBackgroundClip: "text",
-                        WebkitTextFillColor: "transparent",
-                        fontWeight: 600,
-                        animation: "textGlow 3s ease-in-out infinite",
-                      },
                     }}
                   >
                     {renderTextWithGlow(problem.text, problem.keywords)}
@@ -390,26 +322,12 @@ const CooperativeLanding = () => {
           overflow: "hidden",
         }}
       >
-        {/* Complex Breathing Pattern */}
-        <Box
-          sx={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            opacity: 0.4,
-            zIndex: 0,
-          }}
-        >
-          <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
-            {generateBreathingCircles(
-              30,
-              [theme.palette.secondary.main, theme.palette.primary.main, theme.palette.primary.light],
-              [1, 2, 3, 4],
-            )}
-          </svg>
-        </Box>
+        {/* Medium Breathing Pattern */}
+        <div className="breathing-container breathing-medium">
+          <div className="breathing-layer breathing-layer-1"></div>
+          <div className="breathing-layer breathing-layer-2"></div>
+          <div className="breathing-layer breathing-layer-3"></div>
+        </div>
 
         <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
           <Fade in={visibleSections.solutions} timeout={1000}>
@@ -494,27 +412,6 @@ const CooperativeLanding = () => {
           overflow: "hidden",
         }}
       >
-        {/* Gentle Breathing Pattern */}
-        <Box
-          sx={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            opacity: 0.25,
-            zIndex: 0,
-          }}
-        >
-          <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
-            {generateBreathingCircles(
-              20,
-              [theme.palette.secondary.main, theme.palette.primary.light2],
-              [1.5, 2.5, 3.5],
-            )}
-          </svg>
-        </Box>
-
         <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
           <Fade in={visibleSections.usecases} timeout={1000}>
             <Box sx={{ textAlign: "center", mb: 8 }}>
@@ -606,22 +503,12 @@ const CooperativeLanding = () => {
           overflow: "hidden",
         }}
       >
-        {/* Final Breathing Pattern */}
-        <Box
-          sx={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            opacity: 0.5,
-            zIndex: 0,
-          }}
-        >
-          <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
-            {generateBreathingCircles(15, [theme.palette.secondary.main, theme.palette.primary.main2], [2, 3, 4])}
-          </svg>
-        </Box>
+        {/* Strong Breathing Pattern */}
+        <div className="breathing-container breathing-strong">
+          <div className="breathing-layer breathing-layer-1"></div>
+          <div className="breathing-layer breathing-layer-2"></div>
+          <div className="breathing-layer breathing-layer-3"></div>
+        </div>
 
         <Container maxWidth="md">
           <Box sx={{ textAlign: "center", position: "relative", zIndex: 1 }}>
@@ -631,9 +518,6 @@ const CooperativeLanding = () => {
                 fontSize: { xs: "2rem", md: "2.5rem" },
                 fontWeight: 700,
                 mb: 3,
-                "& .highlight": {
-                  color: theme.palette.secondary.main,
-                },
               }}
             >
               {t("finalCta.title.part1")} <span className="highlight">{t("finalCta.title.highlight")}</span>.
@@ -667,28 +551,6 @@ const CooperativeLanding = () => {
           </Box>
         </Container>
       </Box>
-
-      <style jsx>{`
-        @keyframes breathe {
-          0%, 100% { 
-            opacity: 1; 
-            transform: scale(1);
-          }
-          50% { 
-            opacity: 0.7; 
-            transform: scale(1.05);
-          }
-        }
-
-        @keyframes textGlow {
-          0%, 100% { 
-            filter: brightness(1);
-          }
-          50% { 
-            filter: brightness(1.3) drop-shadow(0 0 5px rgba(254, 95, 85, 0.5));
-          }
-        }
-      `}</style>
     </>
   )
 }

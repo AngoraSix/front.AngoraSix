@@ -1,0 +1,217 @@
+/* Cooperative Landing Subtle Breathing Animations */
+
+.breathing-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.breathing-layer {
+  position: absolute;
+  top: 2%;
+  left: 2%;
+  right: 2%;
+  bottom: 2%;
+  border-radius: 12px;
+  filter: blur(8px);
+}
+
+/* Subtle rectangular breathing shapes that follow section form */
+.breathing-layer-1 {
+  background: linear-gradient(
+    135deg,
+    rgba(254, 95, 85, 0.08) 0%,
+    rgba(27, 89, 147, 0.12) 50%,
+    rgba(175, 193, 214, 0.08) 100%
+  );
+  animation: breatheSection1 8s ease-in-out infinite;
+  border-radius: 20px 8px 16px 12px;
+}
+
+.breathing-layer-2 {
+  background: linear-gradient(45deg, rgba(27, 89, 147, 0.06) 0%, rgba(254, 95, 85, 0.09) 60%, transparent 100%);
+  animation: breatheSection2 10s ease-in-out infinite 2s;
+  border-radius: 8px 20px 12px 16px;
+  top: 5%;
+  left: 5%;
+  right: 5%;
+  bottom: 5%;
+}
+
+.breathing-layer-3 {
+  background: radial-gradient(
+    ellipse 80% 60% at center,
+    rgba(175, 193, 214, 0.05) 0%,
+    rgba(27, 89, 147, 0.08) 40%,
+    transparent 80%
+  );
+  animation: breatheSection3 12s ease-in-out infinite 4s;
+  border-radius: 16px 12px 20px 8px;
+  top: 3%;
+  left: 3%;
+  right: 3%;
+  bottom: 3%;
+}
+
+/* Strong intensity for hero and CTA sections */
+.breathing-strong .breathing-layer-1 {
+  background: linear-gradient(
+    135deg,
+    rgba(254, 95, 85, 0.15) 0%,
+    rgba(27, 89, 147, 0.22) 50%,
+    rgba(175, 193, 214, 0.15) 100%
+  );
+  filter: blur(12px);
+}
+
+.breathing-strong .breathing-layer-2 {
+  background: linear-gradient(45deg, rgba(27, 89, 147, 0.12) 0%, rgba(254, 95, 85, 0.18) 60%, transparent 100%);
+  filter: blur(10px);
+}
+
+.breathing-strong .breathing-layer-3 {
+  background: radial-gradient(
+    ellipse 80% 60% at center,
+    rgba(175, 193, 214, 0.1) 0%,
+    rgba(27, 89, 147, 0.15) 40%,
+    transparent 80%
+  );
+  filter: blur(14px);
+}
+
+/* Medium intensity for solutions section */
+.breathing-medium .breathing-layer-1 {
+  background: linear-gradient(
+    135deg,
+    rgba(254, 95, 85, 0.08) 0%,
+    rgba(27, 89, 147, 0.14) 50%,
+    rgba(175, 193, 214, 0.08) 100%
+  );
+  filter: blur(10px);
+}
+
+.breathing-medium .breathing-layer-2 {
+  background: linear-gradient(45deg, rgba(27, 89, 147, 0.07) 0%, rgba(254, 95, 85, 0.12) 60%, transparent 100%);
+  filter: blur(8px);
+}
+
+.breathing-medium .breathing-layer-3 {
+  background: radial-gradient(
+    ellipse 80% 60% at center,
+    rgba(175, 193, 214, 0.06) 0%,
+    rgba(27, 89, 147, 0.1) 40%,
+    transparent 80%
+  );
+  filter: blur(12px);
+}
+
+/* Subtle section breathing animations - More pronounced */
+@keyframes breatheSection1 {
+  0% {
+    transform: scale(0.985) translateY(1px);
+    opacity: 0.4;
+  }
+  30% {
+    transform: scale(1.012) translateY(-2px);
+    opacity: 0.9;
+  }
+  60% {
+    transform: scale(1.025) translateY(-4px);
+    opacity: 1;
+  }
+  70% {
+    transform: scale(1.025) translateY(-4px);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.985) translateY(1px);
+    opacity: 0.4;
+  }
+}
+
+@keyframes breatheSection2 {
+  0% {
+    transform: scale(0.988) translateX(1px);
+    opacity: 0.3;
+  }
+  35% {
+    transform: scale(1.018) translateX(-2px);
+    opacity: 0.8;
+  }
+  65% {
+    transform: scale(1.032) translateX(-3px);
+    opacity: 0.95;
+  }
+  75% {
+    transform: scale(1.032) translateX(-3px);
+    opacity: 0.95;
+  }
+  100% {
+    transform: scale(0.988) translateX(1px);
+    opacity: 0.3;
+  }
+}
+
+@keyframes breatheSection3 {
+  0% {
+    transform: scale(0.992) translate(0.5px, 1px);
+    opacity: 0.25;
+  }
+  40% {
+    transform: scale(1.008) translate(-1px, -1px);
+    opacity: 0.7;
+  }
+  70% {
+    transform: scale(1.018) translate(-2px, -2px);
+    opacity: 0.85;
+  }
+  80% {
+    transform: scale(1.018) translate(-2px, -2px);
+    opacity: 0.85;
+  }
+  100% {
+    transform: scale(0.992) translate(0.5px, 1px);
+    opacity: 0.25;
+  }
+}
+
+/* Text animations - more subtle */
+@keyframes breathe {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes textGlow {
+  0%,
+  100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.2) drop-shadow(0 0 3px rgba(254, 95, 85, 0.3));
+  }
+}
+
+.glow-text {
+  background: linear-gradient(45deg, #fe5f55, #afc1d6);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+  animation: textGlow 4s ease-in-out infinite;
+}
+
+.highlight {
+  color: #fe5f55;
+  animation: breathe 6s ease-in-out infinite;
+}

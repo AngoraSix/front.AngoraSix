@@ -13,41 +13,41 @@
     "cta": "Empezar a Construir"
   },
   "problems": {
-    "title": "¿El sistema actual no se alinea con tus valores?",
-    "subtitle": "Los desafíos que enfrentan quienes quieren crear con propósito y autenticidad",
-    "misalignment": "Cuesta encontrar alineación en un mundo de negocios que solo busca hacer dinero, sin considerar valores o propósito.",
-    "findingAllies": "Es difícil encontrar personas que se alineen con mi pensamiento y visión para crear algo significativo.",
-    "internalConflicts": "Los conflictos internos del equipo y desacuerdos drenan energía que debería ir hacia la misión del proyecto.",
-    "authenticity": "El mundo habla de descentralización, pero parece inauténtica - los mismos vicios de siempre por debajo, sin un camino alternativo real."
+    "title": "¿Sentís que el mundo empresarial no encaja con la solución que querés brindar?",
+    "subtitle": "Los desafíos que enfrentan quienes quieren crear con sentido, sin resignar sus valores",
+    "misalignment": "En un mundo obsesionado con la rentabilidad, cuesta encontrar espacios donde los valores, el propósito y lo humano sean lo central.",
+    "findingAllies": "No es fácil conectar con personas que compartan tu visión y tus ganas de crear algo que realmente importe.",
+    "internalConflicts": "Cuando no hay reglas claras, los conflictos internos y las tensiones desgastan al equipo y desvían el foco de lo importante.",
+    "authenticity": "Hay promesas de descentralización, pero rara vez se traducen en prácticas claras y visibles. Hace falta un modelo auténtico."
   },
   "solutions": {
-    "title": "Un marco para la creación auténtica",
-    "subtitle": "Tecnología y valores trabajando juntos para apoyar una nueva forma de construir",
+    "title": "Un marco de gestión cooperativo para emprender diferente",
+    "subtitle": "Tecnología diseñada para facilitar una colaboración genuina, sin fricciones ni jerarquías",
     "authentic": {
-      "title": "Modelo Alternativo Auténtico",
-      "description": "Una alternativa genuina y original al capitalismo tradicional. Seria, bien formulada, con fundamentos claros y buenas intenciones."
+      "title": "Reglas claras desde el inicio",
+      "description": "Guía y una estructura para definir cómo se va a gestionar el proyecto. Roles, responsabilidades y acuerdos claros, visibles para todos."
     },
     "transparency": {
-      "title": "Seguimiento Transparente de Contribuciones",
-      "description": "Reglas claras apoyadas en tecnología blockchain de vanguardia y descentralizada. Herramientas simples y amigables para quienes comparten estos valores."
+      "title": "Registro automático de aportes",
+      "description": "Nos integramos con tus herramientas de gestión para registrar el trabajo que cada uno aporta. Todo transparente para los que forman parte del proyecto."
     },
     "decentralized": {
-      "title": "Verdadera Descentralización",
-      "description": "Descentralizado desde el núcleo: decisiones, ingresos, distribución, transparencia. Construido para el futuro, diseñado para las personas."
+      "title": "Fondos y decisiones descentralizadas",
+      "description": "Integración con herramientas de gobernanza y con una cuenta compartida sobre blockchain, multi-firma y arbitrada por AngoraSix."
     }
   },
   "useCases": {
-    "title": "¿Para quién es esto?",
+    "title": "No es para cualquiera.",
     "opensource": {
-      "title": "Proyectos de Código Abierto",
+      "title": "Proyectos de código abierto",
       "description": "Equipos de desarrollo con financiamiento o flujo de ingresos que quieren mantener su espíritu colaborativo mientras crecen profesionalmente."
     },
     "cooperative": {
-      "title": "Cooperativas Emergentes",
+      "title": "Grupos cooperativos emergentes",
       "description": "Grupos cooperativos y colectivos sociales que quieren profesionalizarse sin perder su esencia y valores."
     },
     "social": {
-      "title": "Innovación Social",
+      "title": "Innovación emprendedora con impacto",
       "description": "Emprendimientos con causa que quieren crecer armónicamente manteniendo su misión y enfoque de impacto."
     }
   },
@@ -56,7 +56,7 @@
       "part1": "Sumate a quienes ya están construyendo el futuro.",
       "highlight": "Con herramientas reales. Con propósito"
     },
-    "subtitle": "Este es el camino hacia adelante. Te ayudamos a empujar en esta dirección. Creá algo en lo que realmente creés.",
+    "subtitle": "¿Qué es lo mejor que podés hacer por este mundo? Nosotros te ayudamos.",
     "cta": "Empezar a Construir"
   }
 }
