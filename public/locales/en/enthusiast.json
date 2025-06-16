@@ -1,0 +1,71 @@
+{
+  "page": {
+    "title": "AngoraSix - For Enthusiasts | Work with Purpose and Freedom",
+    "description": "Join projects where your time and effort have real value. Freedom, purpose, and belonging from day one."
+  },
+  "hero": {
+    "title": {
+      "part1": "Live Your Dreams. Be Part of the Project You Always",
+      "highlight": "Imagined"
+    },
+    "subtitle": "Join projects where your time and effort have real value. Freedom, purpose, and belonging from day one.",
+    "subtitle2": "Build your path with clarity and transparency.",
+    "cta": "Start Creating"
+  },
+  "problems": {
+    "title": "Tired of the Same Old Work Story?",
+    "subtitle": "We understand the frustration of working without purpose or fair recognition.",
+    "meaningless": "You're tired of dedicating time to jobs that don't make sense to you.",
+    "exploitation": "You feel like your effort isn't valued and you're not getting what you deserve.",
+    "uncertainty": "You don't see your work future or retirement guaranteed with the current system.",
+    "mismatch": "You feel your work doesn't match what you do best or what you're passionate about.",
+    "income": "You want to earn better and have more financial stability and growth opportunities.",
+    "time": "You feel you don't have time to do the things you enjoy or that truly matter to you."
+  },
+  "solutions": {
+    "title": "A New Way to Work and Live",
+    "subtitle": "Discover how AngoraSix transforms the way you work, giving you control, purpose, and real participation.",
+    "freedom": {
+      "title": "Work When and How You Want",
+      "description": "Freedom to work on what you want, when you want. You choose the projects and set your own schedule."
+    },
+    "purpose": {
+      "title": "Choose Projects with Meaning",
+      "description": "Join initiatives you believe in. Work on something that makes sense to you and aligns with your values."
+    },
+    "transparency": {
+      "title": "Clear and Transparent Rules",
+      "description": "Know exactly how decisions are made and funds are managed. Everything is clear from day one."
+    },
+    "ownership": {
+      "title": "Earn Shares and Ownership",
+      "description": "Be part and owner of what you're helping to create. Participate in decisions and share in the success."
+    }
+  },
+  "useCases": {
+    "title": "Stories of People Like You",
+    "freelancer": {
+      "title": "The Freelancer Seeking Stability",
+      "description": "Looking for something more stable but with the freedom to choose projects and clients.",
+      "quote": "I want the security of belonging to something bigger, but without losing my independence."
+    },
+    "careerChange": {
+      "title": "Starting a New Path",
+      "description": "Someone who wants to begin a new career path with purpose and clear opportunities for growth.",
+      "quote": "I'm ready for a change, but I want to do it with support and in something that makes sense."
+    },
+    "collaborator": {
+      "title": "More Than a Service Provider",
+      "description": "A collaborator who wants to be more than just a 'service provider' and truly participate in projects.",
+      "quote": "I want to be part of the decisions and success, not just execute tasks."
+    }
+  },
+  "finalCta": {
+    "title": {
+      "part1": "Join a New Way of",
+      "highlight": "Working"
+    },
+    "subtitle": "Be part of the change. Sign up for our waitlist and start creating differently.",
+    "cta": "Join Waitlist"
+  }
+}
