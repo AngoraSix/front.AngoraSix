@@ -1,0 +1,62 @@
+{
+  "page": {
+    "title": "AngoraSix Cooperativo - Construyendo el futuro juntos",
+    "description": "Creá con propósito, transparencia y descentralización auténtica. Sumate a quienes ya están construyendo el futuro."
+  },
+  "hero": {
+    "title": {
+      "part1": "Que emprender",
+      "highlight": "signifique algo"
+    },
+    "subtitle": "Un camino alternativo para llevar adelante tu idea. Colaborativamente, descentralizado, usando un modelo de gestión abierto y tecnología de próxima generación.",
+    "subtitle2": "Sumate a quienes ya están construyendo el futuro. Con herramientas reales. Con propósito.",
+    "cta": "Empezar a Construir"
+  },
+  "problems": {
+    "title": "¿El sistema actual no se alinea con tus valores?",
+    "subtitle": "Los desafíos que enfrentan quienes quieren crear con propósito y autenticidad",
+    "misalignment": "Cuesta encontrar alineación en un mundo de negocios que solo busca hacer dinero, sin considerar valores o propósito.",
+    "findingAllies": "Es difícil encontrar personas que se alineen con mi pensamiento y visión para crear algo significativo.",
+    "internalConflicts": "Los conflictos internos del equipo y desacuerdos drenan energía que debería ir hacia la misión del proyecto.",
+    "authenticity": "El mundo habla de descentralización, pero parece inauténtica - los mismos vicios de siempre por debajo, sin un camino alternativo real."
+  },
+  "solutions": {
+    "title": "Un marco para la creación auténtica",
+    "subtitle": "Tecnología y valores trabajando juntos para apoyar una nueva forma de construir",
+    "authentic": {
+      "title": "Modelo Alternativo Auténtico",
+      "description": "Una alternativa genuina y original al capitalismo tradicional. Seria, bien formulada, con fundamentos claros y buenas intenciones."
+    },
+    "transparency": {
+      "title": "Seguimiento Transparente de Contribuciones",
+      "description": "Reglas claras apoyadas en tecnología blockchain de vanguardia y descentralizada. Herramientas simples y amigables para quienes comparten estos valores."
+    },
+    "decentralized": {
+      "title": "Verdadera Descentralización",
+      "description": "Descentralizado desde el núcleo: decisiones, ingresos, distribución, transparencia. Construido para el futuro, diseñado para las personas."
+    }
+  },
+  "useCases": {
+    "title": "¿Para quién es esto?",
+    "opensource": {
+      "title": "Proyectos de Código Abierto",
+      "description": "Equipos de desarrollo con financiamiento o flujo de ingresos que quieren mantener su espíritu colaborativo mientras crecen profesionalmente."
+    },
+    "cooperative": {
+      "title": "Cooperativas Emergentes",
+      "description": "Grupos cooperativos y colectivos sociales que quieren profesionalizarse sin perder su esencia y valores."
+    },
+    "social": {
+      "title": "Innovación Social",
+      "description": "Emprendimientos con causa que quieren crecer armónicamente manteniendo su misión y enfoque de impacto."
+    }
+  },
+  "finalCta": {
+    "title": {
+      "part1": "Sumate a quienes ya están construyendo el futuro.",
+      "highlight": "Con herramientas reales. Con propósito"
+    },
+    "subtitle": "Este es el camino hacia adelante. Te ayudamos a empujar en esta dirección. Creá algo en lo que realmente creés.",
+    "cta": "Empezar a Construir"
+  }
+}

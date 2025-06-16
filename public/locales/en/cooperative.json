@@ -1,0 +1,62 @@
+{
+  "page": {
+    "title": "AngoraSix Cooperative - Building the Future Together",
+    "description": "A real alternative to traditional capitalism. Create with purpose, transparency, and authentic decentralization. Join those who are already building the future."
+  },
+  "hero": {
+    "title": {
+      "part1": "Let entrepreneurship",
+      "highlight": "mean something"
+    },
+    "subtitle": "A real alternative to the traditional capitalist model. Build with purpose using cutting-edge technology, clear rules, and authentic decentralization. Simple, friendly, and designed for those who want to change the world.",
+    "subtitle2": "Join those who are already building the future. With real tools. With purpose.",
+    "cta": "Start Building"
+  },
+  "problems": {
+    "title": "The current system doesn't align with your values?",
+    "subtitle": "Common challenges for those who want to create with purpose and authenticity",
+    "misalignment": "Hard to find alignment in a business world that only seeks to make money, without considering values or purpose.",
+    "findingAllies": "Difficult to find people who align with my thinking and vision for creating something meaningful.",
+    "internalConflicts": "Internal team conflicts and disagreements drain energy that should go toward the project's mission.",
+    "authenticity": "The world talks about decentralization, but it seems inauthentic - the same old vices underneath, with no real alternative path."
+  },
+  "solutions": {
+    "title": "A framework for authentic creation",
+    "subtitle": "Technology and values working together to support a new way of building",
+    "authentic": {
+      "title": "Authentic Alternative Model",
+      "description": "A genuine, original alternative to traditional capitalism. Serious, well-formulated, with clear foundations and good intentions."
+    },
+    "transparency": {
+      "title": "Transparent Contribution Tracking",
+      "description": "Clear rules supported by cutting-edge, decentralized blockchain technology. Simple and friendly tools for those who share these values."
+    },
+    "decentralized": {
+      "title": "True Decentralization",
+      "description": "Decentralized from the core: decisions, income, distribution, transparency. Built for the future, designed for people."
+    }
+  },
+  "useCases": {
+    "title": "Who is this for?",
+    "opensource": {
+      "title": "Open Source Projects",
+      "description": "Development teams with funding or revenue flow who want to maintain their collaborative spirit while growing professionally."
+    },
+    "cooperative": {
+      "title": "Emerging Cooperatives",
+      "description": "Cooperative groups and social collectives who want to professionalize without losing their essence and values."
+    },
+    "social": {
+      "title": "Social Innovation",
+      "description": "Purpose-driven ventures that want to grow harmoniously while maintaining their mission and impact focus."
+    }
+  },
+  "finalCta": {
+    "title": {
+      "part1": "Join those who are already building the future.",
+      "highlight": "With real tools. With purpose"
+    },
+    "subtitle": "This is the path forward. Help us push in this direction. Create something you truly believe in.",
+    "cta": "Start Building"
+  }
+}
