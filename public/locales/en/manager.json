@@ -1,0 +1,71 @@
+{
+  "page": {
+    "title": "AngoraSix - Manager: Delegate Without Losing Control",
+    "description": "Blockchain-powered management delegation. Maintain total control while delegating tasks efficiently with AI assistance and transparent collaboration."
+  },
+  "hero": {
+    "title": {
+      "part1": "Delegate without",
+      "highlight": "losing control"
+    },
+    "subtitle": "Blockchain-powered management – an innovative foundation to delegate tasks with total control and no complications.",
+    "cta": "Get Started Free",
+    "subtitle2": "Decentralized management with total control"
+  },
+  "problems": {
+    "title": "Sound Familiar?",
+    "subtitle": "The most common challenges of traditional management",
+    "delegation": "I want to delegate without micromanaging everything",
+    "trust": "I don't trust centralizing tasks in one person",
+    "energy": "Operational management drains my energy",
+    "ai": "I want AI to help me, but don't know where to start",
+    "transparency": "I need total transparency in payments",
+    "automation": "I want to automate without losing control"
+  },
+  "solutions": {
+    "title": "Your Integral Solution",
+    "subtitle": "Decentralized management with total control",
+    "workBag": {
+      "title": "Work pool with clear rules",
+      "description": "Define a work pool with automatic rules and maintain final supervision over all decisions."
+    },
+    "blockchain": {
+      "title": "Multi-signature blockchain account",
+      "description": "Automatic linking between tasks and payments with total transparency and guaranteed blockchain security."
+    },
+    "aiAssistant": {
+      "title": "AI assistant for management",
+      "description": "AI that helps you configure rules, suggest payments, send alerts and generate reports automatically."
+    },
+    "motivation": {
+      "title": "Motivated and committed team",
+      "description": "More motivated collaborators by seeing that their contribution is accounted for and rewarded transparently."
+    }
+  },
+  "useCases": {
+    "title": "Who Can Benefit?",
+    "entrepreneur": {
+      "title": "Entrepreneur with team",
+      "description": "You want to delegate operational tasks but maintain total control over decisions and payments.",
+      "quote": "Now I can focus on strategy while my team self-manages"
+    },
+    "founder": {
+      "title": "Startup founder",
+      "description": "You need to scale your operation without losing transparency or financial control.",
+      "quote": "Blockchain transparency gives me the confidence I needed"
+    },
+    "director": {
+      "title": "Project director",
+      "description": "You seek to automate management with AI while maintaining human supervision.",
+      "quote": "AI helps me manage without losing personal control"
+    }
+  },
+  "finalCta": {
+    "title": {
+      "part1": "Manage your venture",
+      "highlight": "without losing focus"
+    },
+    "subtitle": "Want to delegate with confidence and maintain total control?",
+    "cta": "Start Free"
+  }
+}
