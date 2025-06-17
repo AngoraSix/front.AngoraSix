@@ -1,0 +1,26 @@
+{
+  "welcome": {
+    "title": "Bienvenido a AngoraSix",
+    "subtitle": "¿Querés que te muestre de qué se trata?",
+    "footer": "Elegí tu camino y construyamos algo significativo juntos"
+  },
+  "paths": {
+    "visionary": {
+      "title": "Tengo una idea y quiero llevarla adelante con buenas prácticas",
+      "description": "Transformá tu visión en realidad con guía estructurada, metodologías probadas y soporte experto."
+    },
+    "cooperative": {
+      "title": "Quiero sumarme a algo que represente una forma diferente de crear",
+      "description": "Sé parte de un movimiento colaborativo que valora la transparencia, la propiedad compartida y el crecimiento colectivo."
+    },
+    "enthusiast": {
+      "title": "Quiero dedicar mi tiempo a algo que me inspire y me haga bien",
+      "description": "Encontrá trabajo significativo que se alinee con tus valores y contribuya a proyectos que importen."
+    }
+  },
+  "quickActions": {
+    "language": "Cambiar idioma",
+    "pricing": "Ver precios",
+    "about": "Quién está detrás del proyecto"
+  }
+}
