@@ -1,34 +1,21 @@
 "use client"
 
 import { useState } from "react"
-import { Container, Typography, Box, IconButton, Menu, MenuItem, Fade } from "@mui/material"
+import { Container, Typography, Box, Fade } from "@mui/material"
 import { useTranslation } from "next-i18next"
 import { useRouter } from "next/router"
-import {
-  LightbulbOutlined,
-  GroupsOutlined,
-  FavoriteOutlined,
-  AttachMoneyOutlined,
-  PeopleOutlined,
-  LanguageOutlined,
-} from "@mui/icons-material"
+import { LightbulbOutlined, GroupsOutlined, FavoriteOutlined } from "@mui/icons-material"
 
 const WelcomeLanding = () => {
   const { t } = useTranslation("welcome")
   const router = useRouter()
   const [hoveredCard, setHoveredCard] = useState(null)
-  const [languageAnchor, setLanguageAnchor] = useState(null)
 
   const handlePathSelect = (path) => {
     // Smooth transition before navigation
     setTimeout(() => {
       router.push(path)
     }, 300)
-  }
-
-  const handleLanguageChange = (locale) => {
-    router.push(router.asPath, router.asPath, { locale })
-    setLanguageAnchor(null)
   }
 
   const pathOptions = [
@@ -58,56 +45,20 @@ const WelcomeLanding = () => {
     },
   ]
 
-  const quickActions = [
-    {
-      id: "language",
-      label: t("quickActions.language"),
-      icon: LanguageOutlined,
-      action: (event) => setLanguageAnchor(event.currentTarget),
-    },
-    {
-      id: "pricing",
-      label: t("quickActions.pricing"),
-      icon: AttachMoneyOutlined,
-      action: () => router.push("/pricing"),
-    },
-    {
-      id: "about",
-      label: t("quickActions.about"),
-      icon: PeopleOutlined,
-      action: () => router.push("/about"),
-    },
-  ]
-
-  const languages = [
-    { code: "en", name: "English" },
-    { code: "es", name: "Español" },
-  ]
-
   return (
     <Box className="welcome-landing">
-      {/* Animated Background with Traveling Lines */}
-      {/* Breathing Effect Background */}
+      {/* Flowing Lines Background - Same as TeamLanding */}
       <Box className="welcome-background">
-        <div className="breathing-container">
-          <div className="breathing-layer breathing-layer-1"></div>
-          <div className="breathing-layer breathing-layer-2"></div>
-          <div className="breathing-layer breathing-layer-3"></div>
+        <div className="flowing-lines">
+          <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+            <path d="M0,400 Q300,200 600,400 T1200,400" />
+            <path d="M0,300 Q400,100 800,300 T1200,300" />
+            <path d="M0,500 Q200,300 400,500 T1200,500" />
+          </svg>
         </div>
       </Box>
 
       <Container maxWidth="lg" className="welcome-container">
-        {/* Header with Quick Actions */}
-        <Box className="welcome-header">
-          <Box className="quick-actions">
-            {quickActions.map((action) => (
-              <IconButton key={action.id} className="quick-action-btn" onClick={action.action} title={action.label}>
-                <action.icon />
-              </IconButton>
-            ))}
-          </Box>
-        </Box>
-
         {/* Main Content */}
         <Box className="welcome-content">
           {/* Welcome Message */}
@@ -158,35 +109,6 @@ const WelcomeLanding = () => {
           </Box>
         </Box>
       </Container>
-
-      {/* Language Menu */}
-      <Menu
-        anchorEl={languageAnchor}
-        open={Boolean(languageAnchor)}
-        onClose={() => setLanguageAnchor(null)}
-        PaperProps={{
-          style: {
-            background: "#0a2239",
-            border: "1px solid rgba(220, 231, 234, 0.2)",
-            borderRadius: "12px",
-            backdropFilter: "blur(10px)",
-          },
-        }}
-      >
-        {languages.map((lang) => (
-          <MenuItem
-            key={lang.code}
-            onClick={() => handleLanguageChange(lang.code)}
-            selected={router.locale === lang.code}
-            style={{
-              color: router.locale === lang.code ? "#fe5f55" : "#dce7ea",
-              backgroundColor: router.locale === lang.code ? "rgba(254, 95, 85, 0.1)" : "transparent",
-            }}
-          >
-            {lang.name}
-          </MenuItem>
-        ))}
-      </Menu>
     </Box>
   )
 }

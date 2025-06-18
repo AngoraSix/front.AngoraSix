@@ -181,7 +181,7 @@ const ManagerLanding = () => {
                   lineHeight: 1.1,
                 }}
               >
-                {t("hero.title.part1")} <span className="highlight">{t("hero.title.highlight")}</span>.
+                {t("hero.title.part1")}<span className="highlight">{t("hero.title.highlight")}</span>.
               </Typography>
             </Fade>
 

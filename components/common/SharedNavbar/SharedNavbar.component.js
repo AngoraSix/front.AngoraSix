@@ -1,7 +1,19 @@
 "use client"
 
 import { Language as LanguageIcon, Login as LoginIcon, Menu as MenuIcon } from "@mui/icons-material"
-import { AppBar, Avatar, Box, Button, Container, IconButton, Menu, MenuItem, Toolbar, Typography, Tooltip } from "@mui/material"
+import {
+  AppBar,
+  Avatar,
+  Box,
+  Button,
+  Container,
+  IconButton,
+  Menu,
+  MenuItem,
+  Toolbar,
+  Typography,
+  Tooltip,
+} from "@mui/material"
 import { useTheme } from "@mui/material/styles"
 import useMediaQuery from "@mui/material/useMediaQuery"
 import Cookies from "js-cookie"
@@ -83,20 +95,21 @@ const SharedNavbar = ({ variant = "default" }) => {
     <AppBar
       position="fixed"
       sx={{
-        backgroundColor: "rgba(255, 255, 255, 0.95)",
-        backdropFilter: "blur(10px)",
-        boxShadow: "0 2px 20px rgba(0,0,0,0.1)",
-        color: "#1B5993",
+        background: "linear-gradient(135deg, rgba(10, 34, 57, 0.95) 0%, rgba(27, 89, 147, 0.95) 100%)",
+        backdropFilter: "blur(20px)",
+        borderBottom: "1px solid rgba(220, 231, 234, 0.1)",
+        boxShadow: "0 4px 20px rgba(0, 0, 0, 0.15)",
+        color: "#ffffff",
       }}
     >
       <Container maxWidth="lg">
-        <Toolbar sx={{ justifyContent: "space-between", py: 1 }}>
+        <Toolbar sx={{ justifyContent: "space-between", py: 1, minHeight: "70px" }}>
           {/* Logo */}
           <Link href={logoHref} style={{ textDecoration: "none" }}>
             <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
               <Box sx={{ position: "relative", width: 40, height: 40 }}>
                 <Image
-                  src={config.site.head.image.logoDark || "/placeholder.svg"}
+                  src={config.site.head.image.logoLight || config.site.head.image.logo || "/placeholder.svg"}
                   alt="AngoraSix"
                   fill
                   style={{ objectFit: "contain" }}
@@ -108,8 +121,9 @@ const SharedNavbar = ({ variant = "default" }) => {
                   sx={{
                     fontWeight: 700,
                     textDecoration: "none",
+                    color: "#ffffff",
+                    fontSize: "1.4rem",
                   }}
-                  color="primary"
                 >
                   AngoraSix
                 </Typography>
@@ -123,7 +137,22 @@ const SharedNavbar = ({ variant = "default" }) => {
               {/* Navigation Links */}
               {navigationItems.map((item) => (
                 <Link href={item.href} style={{ textDecoration: "none" }} key={item.href}>
-                  <Button color="primary" sx={{ textTransform: "none" }}>
+                  <Button
+                    sx={{
+                      textTransform: "none",
+                      color: "#DCE7EA",
+                      fontSize: "1rem",
+                      fontWeight: 500,
+                      padding: "8px 16px",
+                      borderRadius: "8px",
+                      transition: "all 0.3s ease",
+                      "&:hover": {
+                        backgroundColor: "rgba(254, 95, 85, 0.1)",
+                        color: "#FE5F55",
+                        transform: "translateY(-1px)",
+                      },
+                    }}
+                  >
                     {item.label}
                   </Button>
                 </Link>
@@ -136,8 +165,20 @@ const SharedNavbar = ({ variant = "default" }) => {
                     <Button
                       onClick={handleOpenLanguageMenu}
                       startIcon={<LanguageIcon />}
-                      sx={{ textTransform: "uppercase" }}
-                      color="primary"
+                      sx={{
+                        textTransform: "uppercase",
+                        color: "#DCE7EA",
+                        fontSize: "0.9rem",
+                        fontWeight: 500,
+                        padding: "8px 12px",
+                        borderRadius: "8px",
+                        minWidth: "auto",
+                        transition: "all 0.3s ease",
+                        "&:hover": {
+                          backgroundColor: "rgba(175, 193, 214, 0.1)",
+                          color: "#AFC1D6",
+                        },
+                      }}
                     >
                       {locale}
                     </Button>
@@ -148,9 +189,29 @@ const SharedNavbar = ({ variant = "default" }) => {
                     onClose={handleCloseLanguageMenu}
                     anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
                     transformOrigin={{ vertical: "top", horizontal: "right" }}
+                    PaperProps={{
+                      sx: {
+                        background: "linear-gradient(135deg, #0A2239 0%, #1B5993 100%)",
+                        border: "1px solid rgba(220, 231, 234, 0.2)",
+                        borderRadius: "12px",
+                        backdropFilter: "blur(10px)",
+                        mt: 1,
+                      },
+                    }}
                   >
                     {otherLocales.map((l) => (
-                      <MenuItem key={l} onClick={() => handleLanguageChange(l)} sx={{ textTransform: "uppercase" }}>
+                      <MenuItem
+                        key={l}
+                        onClick={() => handleLanguageChange(l)}
+                        sx={{
+                          textTransform: "uppercase",
+                          color: "#DCE7EA",
+                          "&:hover": {
+                            backgroundColor: "rgba(254, 95, 85, 0.1)",
+                            color: "#FE5F55",
+                          },
+                        }}
+                      >
                         {l}
                       </MenuItem>
                     ))}
@@ -162,7 +223,18 @@ const SharedNavbar = ({ variant = "default" }) => {
               {session ? (
                 <>
                   <Tooltip title={t("navbar.settings.tooltip")}>
-                    <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                    <IconButton
+                      onClick={handleOpenUserMenu}
+                      sx={{
+                        p: 0,
+                        border: "2px solid rgba(254, 95, 85, 0.3)",
+                        transition: "all 0.3s ease",
+                        "&:hover": {
+                          borderColor: "#FE5F55",
+                          transform: "scale(1.05)",
+                        },
+                      }}
+                    >
                       <Avatar
                         src={session.user?.imageThumbnail || session.user?.image}
                         alt={session.user?.name}
@@ -176,8 +248,28 @@ const SharedNavbar = ({ variant = "default" }) => {
                     onClose={handleCloseUserMenu}
                     anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
                     transformOrigin={{ vertical: "top", horizontal: "right" }}
+                    PaperProps={{
+                      sx: {
+                        background: "linear-gradient(135deg, #0A2239 0%, #1B5993 100%)",
+                        border: "1px solid rgba(220, 231, 234, 0.2)",
+                        borderRadius: "12px",
+                        backdropFilter: "blur(10px)",
+                        mt: 1,
+                      },
+                    }}
                   >
-                    <MenuItem onClick={() => signOut()}>{t("navbar.settings.menu.logout")}</MenuItem>
+                    <MenuItem
+                      onClick={() => signOut()}
+                      sx={{
+                        color: "#DCE7EA",
+                        "&:hover": {
+                          backgroundColor: "rgba(254, 95, 85, 0.1)",
+                          color: "#FE5F55",
+                        },
+                      }}
+                    >
+                      {t("navbar.settings.menu.logout")}
+                    </MenuItem>
                   </Menu>
                 </>
               ) : (
@@ -186,11 +278,20 @@ const SharedNavbar = ({ variant = "default" }) => {
                   variant="outlined"
                   startIcon={<LoginIcon />}
                   sx={{
-                    borderColor: "#1B5993",
-                    color: "#1B5993",
+                    borderColor: "#FE5F55",
+                    color: "#FE5F55",
+                    fontWeight: 600,
+                    padding: "10px 20px",
+                    borderRadius: "8px",
+                    textTransform: "none",
+                    fontSize: "1rem",
+                    transition: "all 0.3s ease",
                     "&:hover": {
-                      backgroundColor: "#1B5993",
-                      color: "white",
+                      backgroundColor: "#FE5F55",
+                      color: "#ffffff",
+                      borderColor: "#FE5F55",
+                      transform: "translateY(-2px)",
+                      boxShadow: "0 4px 12px rgba(254, 95, 85, 0.3)",
                     },
                   }}
                 >
@@ -206,12 +307,44 @@ const SharedNavbar = ({ variant = "default" }) => {
               {/* Language Selector */}
               {locales && locales.length > 1 && (
                 <>
-                  <IconButton onClick={handleOpenLanguageMenu} sx={{ color: "#1B5993" }}>
+                  <IconButton
+                    onClick={handleOpenLanguageMenu}
+                    sx={{
+                      color: "#DCE7EA",
+                      "&:hover": {
+                        backgroundColor: "rgba(175, 193, 214, 0.1)",
+                        color: "#AFC1D6",
+                      },
+                    }}
+                  >
                     <LanguageIcon />
                   </IconButton>
-                  <Menu anchorEl={anchorElLanguage} open={Boolean(anchorElLanguage)} onClose={handleCloseLanguageMenu}>
+                  <Menu
+                    anchorEl={anchorElLanguage}
+                    open={Boolean(anchorElLanguage)}
+                    onClose={handleCloseLanguageMenu}
+                    PaperProps={{
+                      sx: {
+                        background: "linear-gradient(135deg, #0A2239 0%, #1B5993 100%)",
+                        border: "1px solid rgba(220, 231, 234, 0.2)",
+                        borderRadius: "12px",
+                        backdropFilter: "blur(10px)",
+                      },
+                    }}
+                  >
                     {otherLocales.map((l) => (
-                      <MenuItem key={l} onClick={() => handleLanguageChange(l)} sx={{ textTransform: "uppercase" }}>
+                      <MenuItem
+                        key={l}
+                        onClick={() => handleLanguageChange(l)}
+                        sx={{
+                          textTransform: "uppercase",
+                          color: "#DCE7EA",
+                          "&:hover": {
+                            backgroundColor: "rgba(254, 95, 85, 0.1)",
+                            color: "#FE5F55",
+                          },
+                        }}
+                      >
                         {l}
                       </MenuItem>
                     ))}
@@ -220,7 +353,16 @@ const SharedNavbar = ({ variant = "default" }) => {
               )}
 
               {/* Menu Button */}
-              <IconButton onClick={handleOpenNavMenu} sx={{ color: "#1B5993" }}>
+              <IconButton
+                onClick={handleOpenNavMenu}
+                sx={{
+                  color: "#DCE7EA",
+                  "&:hover": {
+                    backgroundColor: "rgba(254, 95, 85, 0.1)",
+                    color: "#FE5F55",
+                  },
+                }}
+              >
                 <MenuIcon />
               </IconButton>
               <Menu
@@ -229,20 +371,61 @@ const SharedNavbar = ({ variant = "default" }) => {
                 onClose={handleCloseNavMenu}
                 anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
                 transformOrigin={{ vertical: "top", horizontal: "right" }}
+                PaperProps={{
+                  sx: {
+                    background: "linear-gradient(135deg, #0A2239 0%, #1B5993 100%)",
+                    border: "1px solid rgba(220, 231, 234, 0.2)",
+                    borderRadius: "12px",
+                    backdropFilter: "blur(10px)",
+                    mt: 1,
+                  },
+                }}
               >
                 {navigationItems.map((item) => (
                   <Link href={item.href} style={{ textDecoration: "none", color: "inherit" }} key={item.href}>
-                    <MenuItem onClick={handleCloseNavMenu}>{item.label}</MenuItem>
+                    <MenuItem
+                      onClick={handleCloseNavMenu}
+                      sx={{
+                        color: "#DCE7EA",
+                        "&:hover": {
+                          backgroundColor: "rgba(254, 95, 85, 0.1)",
+                          color: "#FE5F55",
+                        },
+                      }}
+                    >
+                      {item.label}
+                    </MenuItem>
                   </Link>
                 ))}
                 {session ? (
                   [
-                    <MenuItem key="logout" onClick={() => signOut()}>
+                    <MenuItem
+                      key="logout"
+                      onClick={() => signOut()}
+                      sx={{
+                        color: "#DCE7EA",
+                        "&:hover": {
+                          backgroundColor: "rgba(254, 95, 85, 0.1)",
+                          color: "#FE5F55",
+                        },
+                      }}
+                    >
                       {t("navbar.settings.menu.logout")}
                     </MenuItem>,
                   ]
                 ) : (
-                  <MenuItem onClick={() => signIn("angorasixspring")}>{t("navbar.shared.login")}</MenuItem>
+                  <MenuItem
+                    onClick={() => signIn("angorasixspring")}
+                    sx={{
+                      color: "#DCE7EA",
+                      "&:hover": {
+                        backgroundColor: "rgba(254, 95, 85, 0.1)",
+                        color: "#FE5F55",
+                      },
+                    }}
+                  >
+                    {t("navbar.shared.login")}
+                  </MenuItem>
                 )}
               </Menu>
             </Box>
