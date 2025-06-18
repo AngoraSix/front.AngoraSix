@@ -17,8 +17,8 @@ import { useState, useEffect } from "react"
 import { trackEvent } from "../../../utils/analytics"
 import SharedNavbar from "../../common/SharedNavbar"
 
-const EnthusiastLanding = () => {
-  const { t } = useTranslation("enthusiast")
+const ContributorLanding = () => {
+  const { t } = useTranslation("welcome.contributor")
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down("md"))
   const router = useRouter()
@@ -49,11 +49,11 @@ const EnthusiastLanding = () => {
   }, [])
 
   const handleJoinWaitlist = () => {
-    trackEvent("enthusiast_join_waitlist_clicked", {
+    trackEvent("contributor_join_waitlist_clicked", {
       event_category: "conversion",
-      event_label: "enthusiast_landing",
+      event_label: "contributor_landing",
     })
-    router.push("/welcome/enthusiast/post-registration")
+    router.push("/welcome/contributor/post-registration")
   }
 
   const problems = [
@@ -151,7 +151,7 @@ const EnthusiastLanding = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
-      <SharedNavbar variant="enthusiast" />
+      <SharedNavbar variant="contributor" />
 
       {/* Hero Section */}
       <Box
@@ -602,4 +602,4 @@ const EnthusiastLanding = () => {
   )
 }
 
-export default EnthusiastLanding
+export default ContributorLanding

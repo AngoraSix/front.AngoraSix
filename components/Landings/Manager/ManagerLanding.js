@@ -18,7 +18,7 @@ import { trackEvent } from "../../../utils/analytics"
 import SharedNavbar from "../../common/SharedNavbar"
 
 const ManagerLanding = () => {
-  const { t } = useTranslation("manager")
+  const { t } = useTranslation("welcome.manager")
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down("md"))
   const router = useRouter()

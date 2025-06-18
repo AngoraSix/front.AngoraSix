@@ -13,7 +13,7 @@ const CooperativeLandingPage = () => {
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ["common", "cooperative"])),
+      ...(await serverSideTranslations(locale, ["common", "welcome.cooperative"])),
     },
   }
 }

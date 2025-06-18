@@ -10,7 +10,7 @@ import { trackEvent } from "../../../utils/analytics"
 import SharedNavbar from "../../common/SharedNavbar"
 
 const TeamLanding = () => {
-  const { t } = useTranslation("team")
+  const { t } = useTranslation("welcome.team")
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down("md"))
   const router = useRouter()

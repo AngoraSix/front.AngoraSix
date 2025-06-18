@@ -17,8 +17,8 @@ import { useState } from "react"
 import { useRouter } from "next/router"
 import { trackEvent } from "../../utils/analytics"
 
-const EnthusiastPostRegistration = () => {
-  const { t } = useTranslation("enthusiast-post-registration")
+const ContributorPostRegistration = () => {
+  const { t } = useTranslation("welcome.contributor.post-registration")
   const router = useRouter()
   const [formData, setFormData] = useState({
     email: "",
@@ -44,9 +44,9 @@ const EnthusiastPostRegistration = () => {
 
     setIsSubmitting(true)
     try {
-      trackEvent("enthusiast_waitlist_submitted", {
+      trackEvent("contributor_waitlist_submitted", {
         event_category: "conversion",
-        event_label: "enthusiast_post_registration",
+        event_label: "contributor_post_registration",
         email: formData.email,
         joinBeta: formData.joinBeta,
       })
@@ -62,7 +62,7 @@ const EnthusiastPostRegistration = () => {
   }
 
   const handleBackToLanding = () => {
-    router.push("/welcome/enthusiast")
+    router.push("/welcome/contributor")
   }
 
   if (submitted) {
@@ -307,4 +307,4 @@ const EnthusiastPostRegistration = () => {
   )
 }
 
-export default EnthusiastPostRegistration
+export default ContributorPostRegistration

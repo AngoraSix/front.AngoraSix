@@ -13,7 +13,7 @@ const ManagerLandingPage = () => {
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ["common", "common.legal", "manager"])),
+      ...(await serverSideTranslations(locale, ["common", "common.legal", "welcome.manager"])),
     },
   }
 }

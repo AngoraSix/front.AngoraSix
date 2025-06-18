@@ -13,7 +13,7 @@ const TeamLandingPage = () => {
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ["common", "team"])),
+      ...(await serverSideTranslations(locale, ["common", "welcome.team"])),
     },
   }
 }

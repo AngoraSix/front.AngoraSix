@@ -19,9 +19,8 @@ import '../styles/Navbar.css';
 import '../styles/Notifications.css';
 import '../styles/ProjectManagementForm.css';
 import '../styles/ProjectManagementView.css';
-import '../styles/WelcomeVisionaries.css';
 import '../styles/WelcomeCooperative.css';
-import '../styles/WelcomeEnthusiast.css';
+import '../styles/WelcomeContributor.css';
 import '../styles/WelcomeLanding.css';
 import '../styles/WelcomeManager.css';
 import "../styles/CountdownTimer.css"

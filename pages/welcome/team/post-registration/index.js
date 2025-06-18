@@ -13,7 +13,7 @@ const TeamPostRegistrationPage = () => {
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ["common", "team-post-registration"])),
+      ...(await serverSideTranslations(locale, ["common", "welcome.team.post-registration"])),
     },
   }
 }
