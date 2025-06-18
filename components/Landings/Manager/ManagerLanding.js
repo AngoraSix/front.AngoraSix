@@ -63,10 +63,6 @@ const ManagerLanding = () => {
       keywords: ["confío", "centralizar", "persona"],
     },
     {
-      text: t("problems.energy"),
-      keywords: ["gestión", "consume", "energía"],
-    },
-    {
       text: t("problems.ai"),
       keywords: ["IA", "ayude", "arrancar"],
     },

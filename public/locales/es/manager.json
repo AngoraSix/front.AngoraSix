@@ -15,57 +15,56 @@
   "problems": {
     "title": "¿Te suena familiar?",
     "subtitle": "Los desafíos más comunes de la gestión tradicional",
-    "delegation": "Quiero delegar sin estar encima de todo",
-    "trust": "No confío en centralizar tareas en una sola persona",
-    "energy": "La gestión operativa consume mi energía",
-    "ai": "Quiero IA que me ayude, pero no sé por dónde arrancar",
-    "transparency": "Necesito transparencia total en los pagos",
-    "automation": "Quiero automatizar sin perder control"
+    "delegation": "Quiero enfocarme en lo importante, pero delegar solo me suma más trabajo.",
+    "trust": "No puedo desentenderme del todo, no puede quedar todo centralizado en una sola persona",
+    "ai": "Sé que la IA puede ayudarme, pero me faltan herramientas claras para empezar.",
+    "transparency": "Sin control sobre los fondos, no puedo soltar la gestión.",
+    "automation": "Quiero eficiencia, pero no tengo ni el tiempo ni el presupuesto para sistemas a medida."
   },
   "solutions": {
     "title": "Tu solución integral",
     "subtitle": "Gestión descentralizada con control total",
     "workBag": {
-      "title": "Bolsa de trabajo con reglas claras",
-      "description": "Definís una bolsa de trabajo con reglas automáticas y mantenés supervisión final sobre todas las decisiones."
+      "title": "Sub-proyectos con reglas claras",
+      "description": "Definís una bolsa de trabajo, establecés las reglas de pago por tarea, y el equipo puede autoadministrarse con el acompañamiento de AngoraSix."
     },
     "blockchain": {
-      "title": "Cuenta multi-firma blockchain",
-      "description": "Vinculación automática entre tareas y pagos con transparencia total y seguridad blockchain garantizada."
+      "title": "Cuenta multi-firma sobre blockchain",
+      "description": "A partir de las tareas realizadas y las reglas definidas, la plataforma calcula los pagos, vos los aprobás y te despreocupás. Transparencia total y seguridad garantizada."
     },
     "aiAssistant": {
       "title": "Asistente IA para gestión",
-      "description": "IA que te ayuda a configurar reglas, sugerir pagos, enviar alertas y generar reportes automáticamente."
+      "description": "Te ayuda a configurar reglas, detectar gastos inusuales, enviar alertas y generar reportes automáticos para facilitar tu seguimiento."
     },
     "motivation": {
       "title": "Equipo motivado y comprometido",
-      "description": "Colaboradores más motivados al ver que su aporte es contabilizado y recompensado transparentemente."
+      "description": "Personas más comprometidas al tener autonomía real y ver con claridad el beneficio directo de su trabajo. Podés pagar con participación de ganancias futuras."
     }
   },
   "useCases": {
     "title": "¿Quién puede beneficiarse?",
     "entrepreneur": {
       "title": "Emprendedor con equipo",
-      "description": "Querés delegar tareas operativas pero mantener control total sobre decisiones y pagos.",
-      "quote": "Ahora puedo enfocarme en la estrategia mientras mi equipo se autogestiona"
+      "description": "Querés delegar tareas operativas sin perder visibilidad ni control sobre las decisiones y los pagos.",
+      "quote": "Ahora puedo enfocarme en lo estratégico mientras mi equipo se autogestiona."
     },
     "founder": {
       "title": "Fundador de startup",
-      "description": "Necesitás escalar tu operación sin perder transparencia ni control financiero.",
-      "quote": "La transparencia blockchain me da la confianza que necesitaba"
+      "description": "Necesitás escalar con eficiencia, motivando a tu equipo sin depender de rondas de inversión.",
+      "quote": "Ganamos agilidad, y el equipo está motivado trabajando por profit shares."
     },
     "director": {
       "title": "Director de proyecto",
-      "description": "Buscás automatizar la gestión con IA pero manteniendo supervisión humana.",
-      "quote": "La IA me ayuda a gestionar sin perder el control personal"
+      "description": "Buscás automatizar procesos con IA, optimizar recursos y mantener siempre el control final.",
+      "quote": "La IA me ayuda a gestionar y delegar con confianza, sin perder el control"
     }
   },
   "finalCta": {
     "title": {
-      "part1": "Gestioná tu emprendimiento",
-      "highlight": "sin perder el foco"
+      "part1": "Llevá tu gestión al siguiente nivel",
+      "highlight": "con control total y sin fricciones"
     },
-    "subtitle": "¿Querés delegar con confianza y mantener el control total?",
+    "subtitle": "Implementá una forma innovadora de delegar tareas, con reglas claras, control de gastos y transparencia desde el inicio.",
     "cta": "Arrancá Gratis"
   }
 }
