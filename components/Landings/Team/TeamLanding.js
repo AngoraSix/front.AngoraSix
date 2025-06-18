@@ -165,28 +165,9 @@ const TeamLanding = () => {
       <SharedNavbar variant="team" />
 
       {/* Hero Section */}
-      <Box
-        sx={{
-          pt: { xs: 12, md: 16 },
-          pb: { xs: 8, md: 12 },
-          background: `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${theme.palette.primary.light} 100%)`,
-          color: "white",
-          position: "relative",
-          overflow: "hidden",
-        }}
-      >
+      <Box className="hero-section">
         {/* 3D Flowing Lines Background */}
-        <Box
-          sx={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            opacity: 0.6,
-            zIndex: 0,
-          }}
-        >
+        <Box className="flowing-lines-background">
           <svg width="100%" height="100%" viewBox="0 0 1200 800" preserveAspectRatio="none">
             {generateFlowingLines(
               80,
@@ -197,70 +178,28 @@ const TeamLanding = () => {
         </Box>
 
         <Container maxWidth="lg">
-          <Box sx={{ textAlign: "center", position: "relative", zIndex: 1 }}>
+          <Box className="hero-content">
             <Fade in timeout={1000}>
-              <Typography
-                variant="h1"
-                sx={{
-                  fontSize: { xs: "2.5rem", md: "4rem" },
-                  fontWeight: 700,
-                  mb: 3,
-                  lineHeight: 1.1,
-                  "& .highlight": {
-                    color: theme.palette.secondary.main,
-                    animation: "pulse 2s ease-in-out infinite",
-                  },
-                }}
-              >
+              <Typography variant="h1" className="hero-title">
                 {t("hero.title.part1")} <span className="highlight">{t("hero.title.highlight")}</span>.
               </Typography>
             </Fade>
 
             <Fade in timeout={1500}>
-              <Typography
-                variant="h5"
-                sx={{
-                  mb: 4,
-                  lineHeight: 1.6,
-                  fontWeight: 400,
-                  maxWidth: "800px",
-                  mx: "auto",
-                  opacity: 0.95,
-                }}
-              >
+              <Typography variant="h5" className="hero-subtitle">
                 {t("hero.subtitle")}
               </Typography>
             </Fade>
 
             <Fade in timeout={2000}>
-              <Box sx={{ mb: 4 }}>
-                <Button
-                  variant="contained"
-                  size="large"
-                  onClick={handleStartBuilding}
-                  sx={{
-                    backgroundColor: theme.palette.secondary.main,
-                    color: "white",
-                    px: 6,
-                    py: 2,
-                    fontSize: "1.2rem",
-                    fontWeight: 600,
-                    textTransform: "none",
-                    borderRadius: 2,
-                    boxShadow: "0 6px 25px rgba(254, 95, 85, 0.4)",
-                    "&:hover": {
-                      backgroundColor: theme.palette.secondary.main,
-                      transform: "translateY(-3px)",
-                      boxShadow: "0 8px 30px rgba(254, 95, 85, 0.5)",
-                    },
-                  }}
-                >
+              <Box className="hero-cta-box">
+                <Button variant="contained" size="large" onClick={handleStartBuilding} className="hero-cta-button">
                   {t("hero.cta")}
                 </Button>
               </Box>
             </Fade>
 
-            <Typography variant="body1" sx={{ opacity: 0.8, fontStyle: "italic" }}>
+            <Typography variant="body1" className="hero-subtitle2">
               {t("hero.subtitle2")}
             </Typography>
           </Box>
@@ -268,28 +207,9 @@ const TeamLanding = () => {
       </Box>
 
       {/* Problems Section - Checklist Style */}
-      <Box
-        id="problems"
-        data-animate
-        sx={{
-          py: { xs: 8, md: 12 },
-          backgroundColor: "white",
-          position: "relative",
-          overflow: "hidden",
-        }}
-      >
+      <Box id="problems" data-animate className="problems-section">
         {/* Harmonic Lines Pattern */}
-        <Box
-          sx={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            opacity: 0.3,
-            zIndex: 0,
-          }}
-        >
+        <Box className="harmonic-lines-pattern">
           <svg width="100%" height="100%" viewBox="0 0 1200 600" preserveAspectRatio="none">
             {generateFlowingLines(
               60,
@@ -299,88 +219,24 @@ const TeamLanding = () => {
           </svg>
         </Box>
 
-        <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
+        <Container maxWidth="lg" className="problems-container">
           <Fade in={visibleSections.problems} timeout={1000}>
-            <Box sx={{ textAlign: "center", mb: 6 }}>
-              <Typography
-                variant="h2"
-                sx={{
-                  fontSize: { xs: "2rem", md: "2.5rem" },
-                  fontWeight: 700,
-                  color: theme.palette.primary.main,
-                  mb: 3,
-                }}
-              >
+            <Box className="problems-title-box">
+              <Typography variant="h2" className="problems-title">
                 {t("problems.title")}
               </Typography>
-              <Typography variant="h6" sx={{ color: theme.palette.primary.dark2, maxWidth: "600px", mx: "auto" }}>
+              <Typography variant="h6" className="problems-subtitle">
                 {t("problems.subtitle")}
               </Typography>
             </Box>
           </Fade>
 
-          <Box sx={{ maxWidth: "800px", mx: "auto" }}>
+          <Box className="problems-list">
             {problems.map((problem, index) => (
               <Grow in={visibleSections.problems} timeout={1000 + index * 200} key={index}>
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "flex-start",
-                    gap: 3,
-                    mb: 4,
-                    p: 3,
-                    borderRadius: 3,
-                    backgroundColor: "white",
-                    border: `2px solid ${theme.palette.primary.light2}`,
-                    transition: "all 0.3s ease",
-                    "&:hover": {
-                      transform: "translateX(10px)",
-                      boxShadow: "0 8px 30px rgba(0,0,0,0.12)",
-                      backgroundColor: `${theme.palette.primary.light2}15`,
-                      "& .problem-check": {
-                        backgroundColor: theme.palette.secondary.main,
-                        transform: "scale(1.1)",
-                      },
-                    },
-                  }}
-                >
-                  <Box
-                    className="problem-check"
-                    sx={{
-                      width: 24,
-                      height: 24,
-                      borderRadius: "50%",
-                      backgroundColor: theme.palette.primary.light2,
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      flexShrink: 0,
-                      mt: 0.5,
-                      transition: "all 0.3s ease",
-                      "&::after": {
-                        content: '"?"',
-                        color: "white",
-                        fontSize: "14px",
-                        fontWeight: "bold",
-                      },
-                    }}
-                  />
-                  <Typography
-                    variant="body1"
-                    sx={{
-                      color: theme.palette.primary.main,
-                      fontWeight: 500,
-                      lineHeight: 1.6,
-                      "& .glow-text": {
-                        background: `linear-gradient(45deg, ${theme.palette.secondary.main}, ${theme.palette.primary.light})`,
-                        backgroundClip: "text",
-                        WebkitBackgroundClip: "text",
-                        WebkitTextFillColor: "transparent",
-                        fontWeight: 600,
-                        animation: "textGlow 3s ease-in-out infinite",
-                      },
-                    }}
-                  >
+                <Box className="problem-item">
+                  <Box className="problem-check" />
+                  <Typography variant="body1" className="problem-text">
                     {renderTextWithGlow(problem.text, problem.keywords)}
                   </Typography>
                 </Box>
@@ -391,28 +247,9 @@ const TeamLanding = () => {
       </Box>
 
       {/* Solutions Section - Gradient Cards with Snake Line */}
-      <Box
-        id="solutions"
-        data-animate
-        sx={{
-          py: { xs: 8, md: 12 },
-          background: `linear-gradient(135deg, ${theme.palette.primary.main2} 0%, ${theme.palette.primary.light2} 100%)`,
-          position: "relative",
-          overflow: "hidden",
-        }}
-      >
+      <Box id="solutions" data-animate className="solutions-section">
         {/* Complex Harmonic Pattern */}
-        <Box
-          sx={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            opacity: 0.4,
-            zIndex: 0,
-          }}
-        >
+        <Box className="complex-harmonic-pattern">
           <svg width="100%" height="100%" viewBox="0 0 1200 600" preserveAspectRatio="none">
             {generateFlowingLines(
               100,
@@ -422,41 +259,20 @@ const TeamLanding = () => {
           </svg>
         </Box>
 
-        <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
+        <Container maxWidth="lg" className="solutions-container">
           <Fade in={visibleSections.solutions} timeout={1000}>
-            <Box sx={{ textAlign: "center", mb: 8 }}>
-              <Typography
-                variant="h2"
-                sx={{
-                  fontSize: { xs: "2rem", md: "2.5rem" },
-                  fontWeight: 700,
-                  color: theme.palette.primary.main,
-                  mb: 3,
-                }}
-              >
+            <Box className="solutions-title-box">
+              <Typography variant="h2" className="solutions-title">
                 {t("solutions.title")}
               </Typography>
-              <Typography
-                variant="h6"
-                sx={{ color: theme.palette.primary.main, maxWidth: "600px", mx: "auto", fontWeight: 500 }}
-              >
+              <Typography variant="h6" className="solutions-subtitle">
                 {t("solutions.subtitle")}
               </Typography>
             </Box>
           </Fade>
 
           {/* Snake Line SVG */}
-          <Box
-            sx={{
-              position: "absolute",
-              top: "50%",
-              left: "10%",
-              right: "10%",
-              height: "2px",
-              zIndex: 0,
-              display: { xs: "none", md: "block" },
-            }}
-          >
+          <Box className="snake-line-svg">
             <svg width="100%" height="100px" style={{ position: "absolute", top: "-50px" }}>
               <path
                 d="M0,50 Q200,20 400,50 T800,50"
@@ -471,45 +287,16 @@ const TeamLanding = () => {
             </svg>
           </Box>
 
-          <Grid container spacing={4} sx={{ position: "relative", zIndex: 1 }}>
+          <Grid container spacing={4} className="solutions-grid">
             {solutions.map((solution, index) => (
               <Grid item xs={12} md={4} key={index}>
                 <Grow in={visibleSections.solutions} timeout={1000 + index * 300}>
-                  <Card
-                    sx={{
-                      p: 4,
-                      height: "100%",
-                      textAlign: "center",
-                      border: "none",
-                      boxShadow: "0 4px 20px rgba(0,0,0,0.08)",
-                      borderRadius: 3,
-                      background: solution.gradient,
-                      color: "white",
-                      transition: "all 0.3s ease",
-                      "&:hover": {
-                        transform: "translateY(-12px) scale(1.02)",
-                        boxShadow: "0 15px 50px rgba(0,0,0,0.2)",
-                        "& .solution-icon": {
-                          transform: "scale(1.2) rotate(10deg)",
-                          filter: "drop-shadow(0 0 10px rgba(255,255,255,0.5))",
-                        },
-                      },
-                    }}
-                  >
-                    <Box
-                      className="solution-icon"
-                      sx={{
-                        mb: 3,
-                        transition: "all 0.4s ease",
-                        color: "white",
-                      }}
-                    >
-                      {solution.icon}
-                    </Box>
-                    <Typography variant="h5" sx={{ fontWeight: 600, mb: 2, color: "white" }}>
+                  <Card className="solution-card" style={{ background: solution.gradient }}>
+                    <Box className="solution-icon">{solution.icon}</Box>
+                    <Typography variant="h5" className="solution-card-title">
                       {solution.title}
                     </Typography>
-                    <Typography variant="body1" sx={{ lineHeight: 1.6, color: "rgba(255,255,255,0.9)" }}>
+                    <Typography variant="body1" className="solution-card-description">
                       {solution.description}
                     </Typography>
                   </Card>
@@ -521,28 +308,9 @@ const TeamLanding = () => {
       </Box>
 
       {/* Use Cases Section - Simple Cards with Graphics */}
-      <Box
-        id="usecases"
-        data-animate
-        sx={{
-          py: { xs: 8, md: 12 },
-          backgroundColor: "white",
-          position: "relative",
-          overflow: "hidden",
-        }}
-      >
+      <Box id="usecases" data-animate className="use-cases-section">
         {/* Gentle Flowing Pattern */}
-        <Box
-          sx={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            opacity: 0.25,
-            zIndex: 0,
-          }}
-        >
+        <Box className="gentle-flowing-pattern">
           <svg width="100%" height="100%" viewBox="0 0 1200 600" preserveAspectRatio="none">
             {generateFlowingLines(
               70,
@@ -552,76 +320,26 @@ const TeamLanding = () => {
           </svg>
         </Box>
 
-        <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
+        <Container maxWidth="lg" className="use-cases-container">
           <Fade in={visibleSections.usecases} timeout={1000}>
-            <Box sx={{ textAlign: "center", mb: 8 }}>
-              <Typography
-                variant="h2"
-                sx={{
-                  fontSize: { xs: "2rem", md: "2.5rem" },
-                  fontWeight: 700,
-                  color: theme.palette.primary.main,
-                  mb: 3,
-                }}
-              >
+            <Box className="use-cases-title-box">
+              <Typography variant="h2" className="use-cases-title">
                 {t("useCases.title")}
               </Typography>
             </Box>
           </Fade>
 
-          <Grid container spacing={4} sx={{ position: "relative", zIndex: 1 }}>
+          <Grid container spacing={4} className="use-cases-grid">
             {useCases.map((useCase, index) => (
               <Grid item xs={12} md={4} key={index}>
                 <Grow in={visibleSections.usecases} timeout={1000 + index * 200}>
-                  <Card
-                    sx={{
-                      p: 4,
-                      height: "100%",
-                      textAlign: "center",
-                      border: `2px solid ${theme.palette.primary.light2}`,
-                      borderRadius: 3,
-                      backgroundColor: "white",
-                      position: "relative",
-                      overflow: "hidden",
-                      "&::before": {
-                        content: '""',
-                        position: "absolute",
-                        top: -20,
-                        right: -20,
-                        width: 60,
-                        height: 60,
-                        borderRadius: "50%",
-                        backgroundColor: `${theme.palette.secondary.main}15`,
-                      },
-                    }}
-                  >
-                    <Box
-                      sx={{
-                        position: "absolute",
-                        top: 16,
-                        right: 16,
-                        width: 32,
-                        height: 32,
-                        borderRadius: "50%",
-                        backgroundColor: theme.palette.secondary.main,
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        zIndex: 2,
-                      }}
-                    >
-                      {useCase.icon}
-                    </Box>
-                    <Box
-                      sx={{
-                        position: "relative",
-                        zIndex: 1,
-                      }}
-                    >
-                      <Typography variant="h6" sx={{ fontWeight: 600, color: theme.palette.primary.main, mb: 2 }}>
+                  <Card className="use-case-card">
+                    <Box className="use-case-icon-box">{useCase.icon}</Box>
+                    <Box className="use-case-content">
+                      <Typography variant="h6" className="use-case-card-title">
                         {useCase.title}
                       </Typography>
-                      <Typography variant="body2" sx={{ color: theme.palette.primary.dark2, lineHeight: 1.6 }}>
+                      <Typography variant="body2" className="use-case-card-description">
                         {useCase.description}
                       </Typography>
                     </Box>
@@ -634,92 +352,28 @@ const TeamLanding = () => {
       </Box>
 
       {/* Final CTA */}
-      <Box
-        sx={{
-          py: { xs: 8, md: 12 },
-          background: `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${theme.palette.primary.light} 100%)`,
-          color: "white",
-          position: "relative",
-          overflow: "hidden",
-        }}
-      >
+      <Box className="final-cta-section">
         {/* Final Harmonic Pattern */}
-        <Box
-          sx={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            opacity: 0.5,
-            zIndex: 0,
-          }}
-        >
+        <Box className="final-harmonic-pattern">
           <svg width="100%" height="100%" viewBox="0 0 1200 400" preserveAspectRatio="none">
             {generateFlowingLines(50, [theme.palette.secondary.main, theme.palette.primary.main2], [12, 16, 20, 14])}
           </svg>
         </Box>
 
         <Container maxWidth="md">
-          <Box sx={{ textAlign: "center", position: "relative", zIndex: 1 }}>
-            <Typography
-              variant="h2"
-              sx={{
-                fontSize: { xs: "2rem", md: "2.5rem" },
-                fontWeight: 700,
-                mb: 3,
-                "& .highlight": {
-                  color: theme.palette.secondary.main,
-                },
-              }}
-            >
+          <Box className="final-cta-content">
+            <Typography variant="h2" className="final-cta-title">
               {t("finalCta.title.part1")} <span className="highlight">{t("finalCta.title.highlight")}</span>.
             </Typography>
-            <Typography variant="h6" sx={{ mb: 4, opacity: 0.9 }}>
+            <Typography variant="h6" className="final-cta-subtitle">
               {t("finalCta.subtitle")}
             </Typography>
-            <Button
-              variant="contained"
-              size="large"
-              onClick={handleStartBuilding}
-              sx={{
-                backgroundColor: theme.palette.secondary.main,
-                color: "white",
-                px: 6,
-                py: 2,
-                fontSize: "1.2rem",
-                fontWeight: 600,
-                textTransform: "none",
-                borderRadius: 2,
-                boxShadow: "0 6px 25px rgba(254, 95, 85, 0.4)",
-                "&:hover": {
-                  backgroundColor: theme.palette.secondary.main,
-                  transform: "translateY(-3px)",
-                  boxShadow: "0 8px 30px rgba(254, 95, 85, 0.5)",
-                },
-              }}
-            >
+            <Button variant="contained" size="large" onClick={handleStartBuilding} className="final-cta-button">
               {t("finalCta.cta")}
             </Button>
           </Box>
         </Container>
       </Box>
-
-      <style jsx>{`
-        @keyframes pulse {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0.7; }
-        }
-
-        @keyframes textGlow {
-          0%, 100% { 
-            filter: brightness(1);
-          }
-          50% { 
-            filter: brightness(1.3) drop-shadow(0 0 5px rgba(254, 95, 85, 0.5));
-          }
-        }
-      `}</style>
     </>
   )
 }

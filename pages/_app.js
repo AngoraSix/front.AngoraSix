@@ -10,21 +10,22 @@ import reducers from '../store/reducers';
 import '../styles/App.css';
 import '../styles/ClubInvitations.css';
 import '../styles/Commons.css';
+import "../styles/CountdownTimer.css";
+import '../styles/globals.css';
 import '../styles/IntegrationSourceSync.css';
-import '../styles/ManagementCapsSection.css';
 import '../styles/Layouts.css';
+import '../styles/ManagementCapsSection.css';
 import '../styles/ManagementContributorsList.css';
 import '../styles/ManagementIntegrationList.css';
 import '../styles/Navbar.css';
 import '../styles/Notifications.css';
 import '../styles/ProjectManagementForm.css';
 import '../styles/ProjectManagementView.css';
-import '../styles/WelcomeCooperative.css';
 import '../styles/WelcomeContributor.css';
+import '../styles/WelcomeCooperative.css';
 import '../styles/WelcomeLanding.css';
 import '../styles/WelcomeManager.css';
-import "../styles/CountdownTimer.css"
-import '../styles/globals.css';
+import '../styles/WelcomeTeam.css';
 import { getPublicEnv, removeSecrets } from '../utils/env';
 global.EventSource = require('eventsource');
 
