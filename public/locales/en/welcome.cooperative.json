@@ -1,62 +1,62 @@
 {
   "page": {
     "title": "AngoraSix Cooperative - Building the Future Together",
-    "description": "A real alternative to traditional capitalism. Create with purpose, transparency, and authentic decentralization. Join those who are already building the future."
+    "description": "Create with purpose, transparency, and authentic decentralization. Join those already building the future."
   },
   "hero": {
     "title": {
-      "part1": "Let entrepreneurship",
-      "highlight": "mean something"
+      "part1": "A new kind of entrepreneurship.",
+      "highlight": "One that matters."
     },
-    "subtitle": "A real alternative to the traditional capitalist model. Build with purpose using cutting-edge technology, clear rules, and authentic decentralization. Simple, friendly, and designed for those who want to change the world.",
-    "subtitle2": "Join those who are already building the future. With real tools. With purpose.",
+    "subtitle": "A real alternative to build with meaning. Collaborative, decentralized, leveraging open management models and next-gen technology.",
+    "subtitle2": "Join those already shaping the future. Real tools. Real purpose.",
     "cta": "Start Building"
   },
   "problems": {
-    "title": "The current system doesn't align with your values?",
-    "subtitle": "Common challenges for those who want to create with purpose and authenticity",
-    "misalignment": "Hard to find alignment in a business world that only seeks to make money, without considering values or purpose.",
-    "findingAllies": "Difficult to find people who align with my thinking and vision for creating something meaningful.",
-    "internalConflicts": "Internal team conflicts and disagreements drain energy that should go toward the project's mission.",
-    "authenticity": "The world talks about decentralization, but it seems inauthentic - the same old vices underneath, with no real alternative path."
+    "title": "Struggling to fit your vision into the business world?",
+    "subtitle": "Challenges faced by those aiming to create meaningfully, without compromising values.",
+    "misalignment": "In a profit-obsessed world, finding spaces where values, purpose, and humanity are central can be tough.",
+    "findingAllies": "Connecting with people who share your vision and enthusiasm isn’t easy.",
+    "internalConflicts": "Unclear rules breed tension. Energy fades. Focus is lost.",
+    "authenticity": "There are many promises of decentralization, but most lack transparency and real practice. We need an authentic model."
   },
   "solutions": {
-    "title": "A framework for authentic creation",
-    "subtitle": "Technology and values working together to support a new way of building",
+    "title": "A cooperative management framework to build differently",
+    "subtitle": "Technology designed to enable genuine collaboration, without friction or hierarchy.",
     "authentic": {
-      "title": "Authentic Alternative Model",
-      "description": "A genuine, original alternative to traditional capitalism. Serious, well-formulated, with clear foundations and good intentions."
+      "title": "Clear rules from day one",
+      "description": "A simple structure to define how the project will be managed — with clear roles, responsibilities, and shared agreements."
     },
     "transparency": {
-      "title": "Transparent Contribution Tracking",
-      "description": "Clear rules supported by cutting-edge, decentralized blockchain technology. Simple and friendly tools for those who share these values."
+      "title": "Automatic contribution tracking",
+      "description": "We integrate with your existing tools to transparently record each member's contributions. Visible and clear for everyone involved."
     },
     "decentralized": {
-      "title": "True Decentralization",
-      "description": "Decentralized from the core: decisions, income, distribution, transparency. Built for the future, designed for people."
+      "title": "Decentralized decisions and funds",
+      "description": "Integrated governance tools and a blockchain-based, multi-signature account — mediated by AngoraSix."
     }
   },
   "useCases": {
-    "title": "Who is this for?",
+    "title": "It's not for everyone.",
     "opensource": {
-      "title": "Open Source Projects",
-      "description": "Development teams with funding or revenue flow who want to maintain their collaborative spirit while growing professionally."
+      "title": "Open source projects",
+      "description": "Developer teams with funding or revenue streams that want to maintain their collaborative spirit as they grow."
     },
     "cooperative": {
-      "title": "Emerging Cooperatives",
-      "description": "Cooperative groups and social collectives who want to professionalize without losing their essence and values."
+      "title": "Emerging cooperative groups",
+      "description": "Cooperatives and social collectives wanting to professionalize without losing their core values and essence."
     },
     "social": {
-      "title": "Social Innovation",
-      "description": "Purpose-driven ventures that want to grow harmoniously while maintaining their mission and impact focus."
+      "title": "Impact-driven entrepreneurship",
+      "description": "Purpose-driven ventures seeking balanced growth while preserving their mission and impact."
     }
   },
   "finalCta": {
     "title": {
-      "part1": "Join those who are already building the future.",
-      "highlight": "With real tools. With purpose"
+      "part1": "Join those already building the future.",
+      "highlight": "Real tools. Real purpose"
     },
-    "subtitle": "This is the path forward. Help us push in this direction. Create something you truly believe in.",
+    "subtitle": "What's the best you can do for this world? We're here to help you.",
     "cta": "Start Building"
   }
 }

@@ -5,7 +5,7 @@
   },
   "hero": {
     "title": {
-      "part1": "Una nueva gestión: proyectos auto-administrados",
+      "part1": "Una nueva gestión: proyectos auto-administrados ",
       "highlight": "con control total"
     },
     "subtitle": "Definí las reglas y delegá sin complicaciones — nuestro marco de gestión descentralizada se encarga de todo con transparencia, para que no tengas que ocuparte de los detalles.",
@@ -18,7 +18,7 @@
     "delegation": "Quiero enfocarme en lo importante, pero delegar solo me suma más trabajo.",
     "trust": "No puedo desentenderme del todo, no puede quedar todo centralizado en una sola persona",
     "ai": "Sé que la IA puede ayudarme, pero me faltan herramientas claras para empezar.",
-    "transparency": "Sin control sobre los fondos, no puedo soltar la gestión.",
+    "transparency": "No puedo soltar la gestión sin perder control sobre los fondos.",
     "automation": "Quiero eficiencia, pero no tengo ni el tiempo ni el presupuesto para sistemas a medida."
   },
   "solutions": {

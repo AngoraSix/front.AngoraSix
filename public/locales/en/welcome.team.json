@@ -1,64 +1,62 @@
 {
   "page": {
-    "title": "AngoraSix Team - Take your project to the next level",
-    "description": "Your venture is growing. Take your team to the next level with an innovative, transparent methodology designed for the new ways of building."
+    "title": "AngoraSix - Take Your Project to the Next Level",
+    "description": "Your venture is growing. Leverage an innovative, transparent approach tailored to modern ways of building."
   },
   "hero": {
     "title": {
       "part1": "Your venture is growing.",
-      "highlight": "Take it to the next level",
-      "part2": "with next-generation tools"
+      "highlight": "Make sure it stays that way"
     },
-    "subtitle": "Unique blockchain-powered management. Clear rules, distributed control and transparent tracking. No technical hassle, so your team can focus on building.",
-    "subtitle2": "The support your project needs to keep growing.",
+    "subtitle": "Enhance your management with blockchain, hassle-free: Transparent internal agreements and contribution tracking, all integrated into a shared wallet.",
+    "subtitle2": "Clear consensus. Conflict-free. Simple and compatible with the tools you already use.",
     "cta": "Start Free"
   },
   "problems": {
-    "title": "Does this sound familiar?",
-    "subtitle": "Common questions from teams that want to build the right way",
-    "unequal": "How can we ensure everyone is equally committed and contributing?",
-    "unclear": "How do we define rules and decisions to avoid misunderstandings later on?",
-    "starting": "How do we start with clarity without reinventing the wheel?",
-    "management": "How can I avoid burning out on management and focus on what really matters?"
+    "title": "Can your management model keep up with your growing venture?",
+    "subtitle": "Key questions to ensure your team always pulls in the same direction.",
+    "unequal": "How do we ensure everyone stays committed and contributes as agreed?",
+    "unclear": "How do we establish clear rules to prevent conflicts without creating friction to enforce them?",
+    "distribution": "How do we fairly distribute income in a way everyone considers legitimate?",
+    "management": "How can I reduce management overhead and focus on what truly drives the project?"
   },
   "solutions": {
-    "title": "Your new team framework",
-    "subtitle": "Everything you need to organize your project and keep moving forward",
+    "title": "The support your team needs to reach the next level",
+    "subtitle": "Move forward with focus, clarity, and confidence—friction-free.",
     "rules": {
-      "title": "Guided Setup for Clear Rules",
-      "description": "A simple structure to define roles, decisions, and contributions everyone understands and supports."
-    },
-    "multisig": {
-      "title": "Integrated Multi-signature Wallet",
-      "description": "A shared blockchain wallet linked to your team’s rules and tasks, ensuring financial decisions are always aligned."
+      "title": "A Framework for Clear Agreements",
+      "description": "A straightforward structure to define your project's key aspects, avoid conflicts, and build collaboratively without ambiguity."
     },
     "transparency": {
       "title": "Automatic Contribution Tracking",
-      "description": "We track completed tasks from your existing tools and build an objective history that supports fair, transparent decisions."
+      "description": "We integrate with your existing management tools to automatically track the real contributions of each team member."
+    },
+    "multisig": {
+      "title": "Integrated Multi-Signature Wallet",
+      "description": "A shared blockchain account linked to your rules and tasks, ensuring every financial decision aligns with what's agreed upon."
     }
   },
   "useCases": {
-    "title": "Where is your team at?",
+    "title": "A suitable solution for your team",
     "partners": {
-      "title": "Two Founders in Early Stage",
-      "description": "They want to move forward with clarity and mutual trust, leaving no loose ends."
+      "title": "Two partners at an early stage",
+      "description": "They want to move forward clearly and confidently, leaving nothing to chance."
     },
     "newTeam": {
-      "title": "A Team Just Forming",
-      "description": "Looking to start with modern tools and a healthy team culture from day one."
+      "title": "A newly forming team",
+      "description": "Looking to start with modern tools and a healthy culture from day one."
     },
     "startup": {
-      "title": "Scaling Startup",
-      "description": "Needs to maintain clarity and harmony while new people join the team."
+      "title": "Expanding startup",
+      "description": "They need clarity and harmony as they grow and add more team members."
     }
   },
   "finalCta": {
     "title": {
-      "part1": "Your project needs a structure to help it",
-      "highlight": "grow friction-free",
-      "part2": "while keeping relationships strong."
+      "part1": "Don't risk your venture's future.",
+      "highlight": "Manage clearly from the start"
     },
-    "subtitle": "Join teams that are already creating with clarity, transparency, and next-gen tools.",
+    "subtitle": "Join teams already building with next-generation tools.",
     "cta": "Start Free"
   }
 }

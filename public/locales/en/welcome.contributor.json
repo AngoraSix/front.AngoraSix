@@ -1,71 +1,71 @@
 {
   "page": {
-    "title": "AngoraSix - For Contributors | Work with Purpose and Freedom",
-    "description": "Join projects where your time and effort have real value. Freedom, purpose, and belonging from day one."
+    "title": "AngoraSix - For Enthusiasts | Work with Purpose and Freedom",
+    "description": "Join projects where your work has real meaning and recognition. Choose how to contribute, with freedom, transparency, and participation from day one."
   },
   "hero": {
     "title": {
-      "part1": "Live Your Dreams. Be Part of the Project You Always",
-      "highlight": "Imagined"
+      "part1": "Work with purpose.",
+      "highlight": "Be part of what you create"
     },
-    "subtitle": "Join projects where your time and effort have real value. Freedom, purpose, and belonging from day one.",
-    "subtitle2": "Build your path with clarity and transparency.",
-    "cta": "Start Creating"
+    "subtitle": "Choose projects you believe in and truly belong to. Your contributions are rewarded with ownership, decision-making power, and immediate payments.",
+    "subtitle2": "Freedom, transparency, belonging. Secure, with real guarantees.",
+    "cta": "Join Now"
   },
   "problems": {
-    "title": "Tired of the Same Old Work Story?",
-    "subtitle": "We understand the frustration of working without purpose or fair recognition.",
-    "meaningless": "You're tired of dedicating time to jobs that don't make sense to you.",
-    "exploitation": "You feel like your effort isn't valued and you're not getting what you deserve.",
-    "uncertainty": "You don't see your work future or retirement guaranteed with the current system.",
-    "mismatch": "You feel your work doesn't match what you do best or what you're passionate about.",
-    "income": "You want to earn better and have more financial stability and growth opportunities.",
-    "time": "You feel you don't have time to do the things you enjoy or that truly matter to you."
+    "title": "Tired of working for others?",
+    "subtitle": "We’ve been there too.",
+    "meaningless": "You're tired of dedicating time to unmotivating and unfulfilling work.",
+    "exploitation": "You feel your effort isn’t valued, receiving less than you deserve.",
+    "uncertainty": "The way work is set up today doesn’t feel like a safe path forward.",
+    "mismatch": "Your talent isn’t being put to good use — you know you could do more.",
+    "income": "You want better earnings without sacrificing freedom or values.",
+    "time": "You don't have enough time for yourself or what truly matters."
   },
   "solutions": {
-    "title": "A New Way to Work and Live",
-    "subtitle": "Discover how AngoraSix transforms the way you work, giving you control, purpose, and real participation.",
+    "title": "Find work that feels right",
+    "subtitle": "AngoraSix connects you with meaningful projects, securely and confidently.",
+    "ownership": {
+      "title": "You're part of what you create",
+      "description": "Contribute to projects where ownership, decision-making, and profit are shared by those who make it happen."
+    },
     "freedom": {
-      "title": "Work When and How You Want",
-      "description": "Freedom to work on what you want, when you want. You choose the projects and set your own schedule."
+      "title": "Your time, your rules",
+      "description": "Work on what you enjoy, the way you prefer. Choose projects and manage your schedule comfortably."
     },
     "purpose": {
-      "title": "Choose Projects with Meaning",
-      "description": "Join initiatives you believe in. Work on something that makes sense to you and aligns with your values."
+      "title": "Meaningful projects",
+      "description": "Help purpose-driven projects grow and succeed. Work passionately alongside like-minded individuals."
     },
     "transparency": {
-      "title": "Clear and Transparent Rules",
-      "description": "Know exactly how decisions are made and funds are managed. Everything is clear from day one."
-    },
-    "ownership": {
-      "title": "Earn Shares and Ownership",
-      "description": "Be part and owner of what you're helping to create. Participate in decisions and share in the success."
+      "title": "Transparent and secure",
+      "description": "Clear rules integrated with decision-making tools and a shared multi-signature wallet — all supported and mediated by AngoraSix."
     }
   },
   "useCases": {
-    "title": "Stories of People Like You",
+    "title": "Stories like yours",
     "freelancer": {
-      "title": "The Freelancer Seeking Stability",
-      "description": "Looking for something more stable but with the freedom to choose projects and clients.",
-      "quote": "I want the security of belonging to something bigger, but without losing my independence."
+      "title": "Freelancer seeking stability and freedom",
+      "description": "Keep your freelance freedom while building a future on your own terms.",
+      "quote": "I want freedom—but my future shouldn't depend on someone else's decisions."
     },
     "careerChange": {
-      "title": "Starting a New Path",
-      "description": "Someone who wants to begin a new career path with purpose and clear opportunities for growth.",
-      "quote": "I'm ready for a change, but I want to do it with support and in something that makes sense."
+      "title": "Professional reinventing themselves",
+      "description": "Put your best skills to work. Join projects that value what you bring.",
+      "quote": "I’m ready for something where my skills truly count."
     },
     "collaborator": {
-      "title": "More Than a Service Provider",
-      "description": "A collaborator who wants to be more than just a 'service provider' and truly participate in projects.",
-      "quote": "I want to be part of the decisions and success, not just execute tasks."
+      "title": "Visionary seeking real impact",
+      "description": "Join impactful projects driven by shared values and purpose.",
+      "quote": "I’m done settling for ‘whatever’s out there.’ I want to help build something that really matters."
     }
   },
   "finalCta": {
     "title": {
-      "part1": "Join a New Way of",
-      "highlight": "Working"
+      "part1": "What's the best you can do?",
+      "highlight": "The right project is waiting"
     },
-    "subtitle": "Be part of the change. Sign up for our waitlist and start creating differently.",
-    "cta": "Join Waitlist"
+    "subtitle": "Make your time count—doing work that feels right, alongside people on the same mission.",
+    "cta": "Sign Up"
   }
 }

@@ -1,21 +1,27 @@
 {
   "welcome": {
     "title": "Bienvenido a AngoraSix",
-    "subtitle": "¿Querés que te muestre de qué se trata?",
-    "footer": "Elegí tu camino y construyamos algo significativo juntos"
+    "subtitle": "Elegí tu camino y construyamos algo significativo juntos",
+    "footer": "Transformá tu visión en realidad colaborativa",
+    "exploreOptions": "Explorá Tus Opciones",
+    "chooseYourPath": "Elegí Tu Camino"
   },
   "paths": {
-    "visionary": {
-      "title": "Tengo una idea y quiero llevarla adelante con buenas prácticas",
-      "description": "Transformá tu visión en realidad con guía estructurada, metodologías probadas y soporte experto."
+    "manager": {
+      "title": "Gestión Tradicional con Delegación Cooperativa",
+      "description": "Mantenés el control general mientras delegás tareas específicas a equipos cooperativos. Vos definís reglas, pagos y firmás todo."
+    },
+    "team": {
+      "title": "Equipos Emprendedores & Socios",
+      "description": "Establecé claridad y seriedad en procesos internos para asegurar que todos estén alineados y el proyecto avance sin complicaciones."
+    },
+    "contributor": {
+      "title": "Trabajo Significativo & Vida Digna",
+      "description": "Trabajá en proyectos que te inspiren, sentite verdaderamente parte de algo significativo y viví bien de eso."
     },
     "cooperative": {
-      "title": "Quiero sumarme a algo que represente una forma diferente de crear",
-      "description": "Sé parte de un movimiento colaborativo que valora la transparencia, la propiedad compartida y el crecimiento colectivo."
-    },
-    "enthusiast": {
-      "title": "Quiero dedicar mi tiempo a algo que me inspire y me haga bien",
-      "description": "Encontrá trabajo significativo que se alinee con tus valores y contribuya a proyectos que importen."
+      "title": "Espíritu Cooperativo & Cambio de Paradigma",
+      "description": "Sumate a un movimiento que valora crear sanamente antes que el lucro, la transparencia y cambiar paradigmas tradicionales."
     }
   },
   "quickActions": {
