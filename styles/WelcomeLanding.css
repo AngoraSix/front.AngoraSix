@@ -1,22 +1,41 @@
-/* Welcome Landing Styles - Matching TeamLanding Design System */
+/* Welcome Landing Styles - Fixed Issues */
 .welcome-landing {
-  min-height: 100vh;
+  height: 180vh; /* Two sections with overlap */
   background: linear-gradient(135deg, #0a2239 0%, #1b5993 100%);
   position: relative;
-  overflow: hidden;
-  padding-top: 80px; /* Account for fixed navbar */
+  overflow-x: hidden; /* Only hide horizontal scroll */
+  overflow-y: auto; /* Allow vertical scroll but prevent double scrollbar */
+  scroll-behavior: smooth;
+}
+
+/* Remove any potential scrollbar issues */
+.welcome-landing::-webkit-scrollbar {
+  width: 8px;
+}
+
+.welcome-landing::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.welcome-landing::-webkit-scrollbar-thumb {
+  background: rgba(254, 95, 85, 0.3);
+  border-radius: 4px;
+}
+
+.welcome-landing::-webkit-scrollbar-thumb:hover {
+  background: rgba(254, 95, 85, 0.5);
 }
 
 /* Flowing Lines Background - Same as TeamLanding */
 .welcome-background {
-  position: absolute;
+  position: fixed; /* Fixed to stay during scroll */
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   pointer-events: none;
   overflow: hidden;
-  z-index: 0;
+  z-index: 0; /* Lowest z-index */
 }
 
 .flowing-lines {
@@ -64,10 +83,10 @@
 
 /* Language Switcher */
 .welcome-header {
-  position: absolute;
+  position: fixed;
   top: 2rem;
   right: 2rem;
-  z-index: 10;
+  z-index: 100; /* Highest z-index */
 }
 
 .language-switcher {
@@ -89,37 +108,28 @@
   transform: translateY(-2px) !important;
 }
 
-/* Container */
-.welcome-container {
-  position: relative;
-  z-index: 2;
-  min-height: calc(100vh - 80px);
+/* FIRST SECTION - Hero with Logo (Higher z-index) */
+.welcome-hero-section {
+  height: 80vh; /* Reduced from 100vh to allow overlap */
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
-  padding: 2rem 0;
-}
-
-/* Main Content */
-.welcome-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4rem;
+  position: relative;
+  z-index: 10; /* Higher than second section */
   text-align: center;
+  padding: 2rem;
 }
 
-/* Logo Container */
-.logos-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 3rem;
-  margin-bottom: 2rem;
+/* A6 Logo Container - Restored */
+.a6-logo-container {
+  margin-bottom: 3rem;
   animation: fadeInUp 1s ease-out;
+  position: relative;
+  z-index: 11; /* Higher than section */
 }
 
-/* A6 Logo with Eclipse Effect - PRIMER LOGO */
+/* A6 Logo with Eclipse Effect - Restored */
 .a6-logo-eclipse {
   width: 120px;
   height: 120px;
@@ -183,63 +193,6 @@
   animation: logoFadeIn 1s ease-out 0.5s forwards;
 }
 
-/* A6 Logo with Shooting Star Effect - SEGUNDO LOGO */
-.a6-logo-sparkle {
-  width: 120px;
-  height: 120px;
-  margin: 0 auto;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  overflow: visible;
-}
-
-/* Shooting Star - Mucho más cerca del logo (3/5 del radio actual) */
-.a6-logo-sparkle::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 8px;
-  height: 8px;
-  background: radial-gradient(circle, rgba(254, 95, 85, 1) 0%, rgba(254, 95, 85, 0.9) 30%, transparent 100%);
-  border-radius: 50%;
-  transform-origin: 50% 50%;
-  transform: translate(-50%, -50%) rotate(0deg) translateY(-81px); /* Radio reducido: 135px * 3/5 = 81px */
-  animation: shootingStarClose 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 2s forwards;
-  z-index: 3;
-  opacity: 0;
-  box-shadow: 0 0 20px rgba(254, 95, 85, 1), 0 0 40px rgba(254, 95, 85, 0.7);
-}
-
-/* Subtle glow for second logo */
-.a6-logo-sparkle::after {
-  content: "";
-  position: absolute;
-  top: -15px;
-  left: -15px;
-  right: -15px;
-  bottom: -15px;
-  background: radial-gradient(circle, rgba(254, 95, 85, 0.1) 0%, transparent 70%);
-  border-radius: 50%;
-  z-index: 1;
-  opacity: 0;
-  animation: finalGlow 1s ease-out 3.2s forwards;
-}
-
-.a6-logo-sparkle img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  position: relative;
-  z-index: 2;
-  filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.3));
-  opacity: 0;
-  animation: logoFadeIn 1s ease-out 1.8s forwards;
-}
-
 /* Eclipse Circular Animation - Desde 11:00 (330°) hasta 4:00 (120°) */
 @keyframes eclipseCircular {
   0% {
@@ -255,24 +208,6 @@
   100% {
     transform: translate(-50%, -50%) rotate(120deg) translateY(-100px); /* 4:00 y se queda ahí */
     opacity: 0.3; /* Se queda visible pero tenue */
-  }
-}
-
-/* Shooting Star Animation - Más cerca del logo */
-@keyframes shootingStarClose {
-  0% {
-    transform: translate(-50%, -50%) rotate(0deg) translateY(-81px);
-    opacity: 0;
-  }
-  8% {
-    opacity: 1;
-  }
-  92% {
-    opacity: 1;
-  }
-  100% {
-    transform: translate(-50%, -50%) rotate(180deg) translateY(-81px); /* Media vuelta más cerca */
-    opacity: 0;
   }
 }
 
@@ -298,10 +233,13 @@
   }
 }
 
-/* Welcome Message */
-.welcome-message {
+/* Welcome Message - Hero Section */
+.welcome-hero-message {
   max-width: 800px;
   animation: fadeInUp 1s ease-out 2.5s both;
+  margin-bottom: 3rem;
+  z-index: 11; /* Higher than section */
+  position: relative;
 }
 
 .welcome-title {
@@ -320,27 +258,137 @@
   font-size: 1.3rem !important;
 }
 
-/* Path Selection */
-.path-selection {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2rem;
-  max-width: 1200px;
-  width: 100%;
-  animation: fadeInUp 1s ease-out 3s both;
+/* Scroll Down Indicator */
+.scroll-indicator {
+  animation: fadeInUp 1s ease-out 4s both;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 11; /* Higher than section */
+  position: relative;
 }
 
+.scroll-indicator:hover {
+  transform: translateY(-5px);
+}
+
+.scroll-button {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 2px solid rgba(254, 95, 85, 0.3) !important;
+  color: #fe5f55 !important;
+  backdrop-filter: blur(10px) !important;
+  border-radius: 50px !important;
+  padding: 12px 24px !important;
+  font-weight: 500 !important;
+  text-transform: none !important;
+  transition: all 0.4s ease !important;
+  margin-bottom: 1rem !important;
+}
+
+.scroll-button:hover {
+  background: rgba(254, 95, 85, 0.1) !important;
+  border-color: rgba(254, 95, 85, 0.6) !important;
+  color: #ffffff !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 10px 25px rgba(254, 95, 85, 0.2) !important;
+}
+
+.scroll-arrow {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  animation: bounce 2s infinite;
+}
+
+.scroll-arrow svg {
+  color: #fe5f55;
+  font-size: 2rem;
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+/* SECOND SECTION - Path Selection (Lower z-index, Compact) */
+.welcome-paths-section {
+  height: 100vh; /* Exactly 100vh */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 5; /* Lower than first section */
+  padding: 1.5rem; /* Reduced padding */
+  /* Position starts at 80vh to create overlap */
+  margin-top: 0; /* No margin, natural flow from first section */
+}
+
+/* Animated Title - Initially hidden, Smaller */
+.paths-title {
+  color: #ffffff !important;
+  font-weight: 300 !important;
+  margin-bottom: 2rem !important; /* Reduced from 3rem */
+  text-align: center !important;
+  font-size: 2.2rem !important; /* Reduced from 2.5rem */
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 6; /* Higher than section but lower than first section */
+  position: relative;
+}
+
+/* Title visible state - triggered by intersection observer */
+.paths-title.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Path Selection Grid - Compact */
+.path-selection {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem; /* Reduced from 2rem */
+  max-width: 900px; /* Reduced from 1000px */
+  width: 100%;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 0.3s; /* Delay after title */
+  z-index: 6; /* Higher than section but lower than first section */
+  position: relative;
+}
+
+/* Cards visible state - triggered by intersection observer */
+.path-selection.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Compact Cards */
 .path-card {
   background: rgba(255, 255, 255, 0.05) !important;
   border: 1px solid rgba(220, 231, 234, 0.2) !important;
-  border-radius: 16px !important;
-  padding: 2.5rem 2rem !important;
+  border-radius: 12px !important; /* Reduced from 16px */
+  padding: 1.5rem 1.2rem !important; /* Significantly reduced padding */
   cursor: pointer !important;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
   backdrop-filter: blur(10px) !important;
   position: relative !important;
   overflow: hidden !important;
   text-align: center !important;
+  height: auto !important; /* Let content determine height */
+  min-height: 200px !important; /* Set minimum height instead of fixed */
 }
 
 .path-card::before {
@@ -360,16 +408,17 @@
 
 .path-card:hover,
 .path-card.hovered {
-  transform: translateY(-8px) scale(1.02) !important;
+  transform: translateY(-6px) scale(1.01) !important; /* Reduced movement */
   border-color: rgba(254, 95, 85, 0.4) !important;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3) !important;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3) !important; /* Reduced shadow */
   background: rgba(255, 255, 255, 0.08) !important;
 }
 
+/* Compact Icons */
 .path-icon {
-  width: 80px !important;
-  height: 80px !important;
-  margin: 0 auto 2rem !important;
+  width: 60px !important; /* Reduced from 70px */
+  height: 60px !important;
+  margin: 0 auto 1.2rem !important; /* Reduced margin */
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -380,7 +429,7 @@
 }
 
 .path-icon svg {
-  font-size: 2.5rem !important;
+  font-size: 2rem !important; /* Reduced from 2.2rem */
   color: #fe5f55 !important;
   transition: all 0.3s ease !important;
   z-index: 2 !important;
@@ -395,10 +444,10 @@
 .path-card:hover .path-icon::before {
   content: "";
   position: absolute;
-  top: -10px;
-  left: -10px;
-  right: -10px;
-  bottom: -10px;
+  top: -8px; /* Reduced from -10px */
+  left: -8px;
+  right: -8px;
+  bottom: -8px;
   background: rgba(254, 95, 85, 0.3);
   border-radius: 50%;
   animation: glowPulse 2s ease-in-out infinite;
@@ -421,19 +470,20 @@
   }
 }
 
+/* Compact Text */
 .path-title {
   color: #ffffff !important;
   font-weight: 600 !important;
-  margin-bottom: 1rem !important;
+  margin-bottom: 0.8rem !important; /* Reduced from 1rem */
   line-height: 1.3 !important;
-  font-size: 1.5rem !important;
+  font-size: 1.2rem !important; /* Reduced from 1.3rem */
 }
 
 .path-description {
   color: #afc1d6 !important;
-  line-height: 1.6 !important;
-  margin-bottom: 2rem !important;
-  font-size: 1rem !important;
+  line-height: 1.4 !important; /* Tighter line height */
+  margin-bottom: 1.2rem !important; /* Reduced from 1.5rem */
+  font-size: 0.9rem !important; /* Reduced from 0.95rem */
 }
 
 .path-arrow {
@@ -444,26 +494,13 @@
 
 .path-arrow .MuiTypography-root {
   color: #fe5f55 !important;
-  font-size: 1.5rem !important;
+  font-size: 1.2rem !important; /* Reduced from 1.3rem */
   font-weight: bold !important;
 }
 
 .path-card:hover .path-arrow {
   opacity: 1 !important;
   transform: translateX(0) !important;
-}
-
-/* Footer */
-.welcome-footer {
-  text-align: center;
-  animation: fadeInUp 1s ease-out 3.5s both;
-  margin-top: 3rem;
-}
-
-.footer-text {
-  color: #7d99ba !important;
-  font-style: italic !important;
-  font-size: 1rem !important;
 }
 
 /* Animations */
@@ -481,7 +518,7 @@
 /* Responsive Design */
 @media (max-width: 900px) {
   .welcome-landing {
-    padding-top: 70px;
+    height: 180vh; /* Maintain proportional height */
   }
 
   .welcome-header {
@@ -494,21 +531,16 @@
     font-size: 0.9rem !important;
   }
 
-  .welcome-container {
-    min-height: calc(100vh - 70px);
-    padding: 1rem 0;
+  .welcome-hero-section {
+    height: 80vh; /* Maintain proportion */
+    padding: 1rem;
   }
 
-  .welcome-content {
-    gap: 3rem;
+  .welcome-paths-section {
+    padding: 1rem;
   }
 
-  .logos-container {
-    gap: 2rem;
-  }
-
-  .a6-logo-eclipse,
-  .a6-logo-sparkle {
+  .a6-logo-eclipse {
     width: 80px;
     height: 80px;
   }
@@ -516,24 +548,16 @@
   .a6-logo-eclipse::before {
     width: 60px;
     height: 60px;
-    transform: translate(-50%, -50%) rotate(330deg) translateY(-67px); /* Radio proporcional */
+    transform: translate(-50%, -50%) rotate(330deg) translateY(-67px);
   }
 
-  .a6-logo-eclipse::after,
-  .a6-logo-sparkle::after {
+  .a6-logo-eclipse::after {
     top: -10px;
     left: -10px;
     right: -10px;
     bottom: -10px;
   }
 
-  .a6-logo-sparkle::before {
-    width: 6px;
-    height: 6px;
-    transform: translate(-50%, -50%) rotate(0deg) translateY(-54px); /* 81px * 80/120 = 54px */
-  }
-
-  /* Ajustar keyframes para mobile */
   @keyframes eclipseCircular {
     0% {
       transform: translate(-50%, -50%) rotate(330deg) translateY(-67px);
@@ -551,23 +575,6 @@
     }
   }
 
-  @keyframes shootingStarClose {
-    0% {
-      transform: translate(-50%, -50%) rotate(0deg) translateY(-54px);
-      opacity: 0;
-    }
-    8% {
-      opacity: 1;
-    }
-    92% {
-      opacity: 1;
-    }
-    100% {
-      transform: translate(-50%, -50%) rotate(180deg) translateY(-54px);
-      opacity: 0;
-    }
-  }
-
   .welcome-title {
     font-size: 2.5rem !important;
   }
@@ -576,32 +583,38 @@
     font-size: 1.1rem !important;
   }
 
-  .path-selection {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    max-width: 400px;
-  }
-
-  .path-card {
-    padding: 2rem 1.5rem !important;
-  }
-
-  .path-icon {
-    width: 60px !important;
-    height: 60px !important;
+  .paths-title {
+    font-size: 1.8rem !important; /* Reduced */
     margin-bottom: 1.5rem !important;
   }
 
+  .path-selection {
+    grid-template-columns: 1fr;
+    gap: 1.2rem; /* Reduced gap */
+    max-width: 350px; /* Reduced max width */
+  }
+
+  .path-card {
+    padding: 1.3rem 1rem !important; /* Reduced padding */
+    min-height: 180px !important; /* Reduced min height */
+  }
+
+  .path-icon {
+    width: 50px !important; /* Reduced */
+    height: 50px !important;
+    margin-bottom: 1rem !important;
+  }
+
   .path-icon svg {
-    font-size: 2rem !important;
+    font-size: 1.8rem !important; /* Reduced */
   }
 
   .path-title {
-    font-size: 1.3rem !important;
+    font-size: 1.1rem !important; /* Reduced */
   }
 
   .path-description {
-    font-size: 0.95rem !important;
+    font-size: 0.85rem !important; /* Reduced */
   }
 
   /* Hide flowing lines on mobile for performance */
@@ -616,8 +629,15 @@
     right: 0.5rem;
   }
 
-  .a6-logo-eclipse,
-  .a6-logo-sparkle {
+  .welcome-hero-section {
+    height: 75vh; /* Slightly shorter on mobile */
+  }
+
+  .welcome-paths-section {
+    padding: 0.8rem; /* Even more compact */
+  }
+
+  .a6-logo-eclipse {
     width: 60px;
     height: 60px;
   }
@@ -625,24 +645,16 @@
   .a6-logo-eclipse::before {
     width: 45px;
     height: 45px;
-    transform: translate(-50%, -50%) rotate(330deg) translateY(-50px); /* Radio proporcional */
+    transform: translate(-50%, -50%) rotate(330deg) translateY(-50px);
   }
 
-  .a6-logo-eclipse::after,
-  .a6-logo-sparkle::after {
+  .a6-logo-eclipse::after {
     top: -8px;
     left: -8px;
     right: -8px;
     bottom: -8px;
   }
 
-  .a6-logo-sparkle::before {
-    width: 5px;
-    height: 5px;
-    transform: translate(-50%, -50%) rotate(0deg) translateY(-40px); /* 81px * 60/120 = 40px */
-  }
-
-  /* Ajustar keyframes para mobile pequeño */
   @keyframes eclipseCircular {
     0% {
       transform: translate(-50%, -50%) rotate(330deg) translateY(-50px);
@@ -660,23 +672,6 @@
     }
   }
 
-  @keyframes shootingStarClose {
-    0% {
-      transform: translate(-50%, -50%) rotate(0deg) translateY(-40px);
-      opacity: 0;
-    }
-    8% {
-      opacity: 1;
-    }
-    92% {
-      opacity: 1;
-    }
-    100% {
-      transform: translate(-50%, -50%) rotate(180deg) translateY(-40px);
-      opacity: 0;
-    }
-  }
-
   .welcome-title {
     font-size: 2rem !important;
   }
@@ -685,11 +680,36 @@
     font-size: 1rem !important;
   }
 
+  .paths-title {
+    font-size: 1.6rem !important; /* Reduced */
+    margin-bottom: 1.2rem !important;
+  }
+
   .path-card {
-    padding: 1.5rem 1rem !important;
+    padding: 1.2rem 0.8rem !important; /* Very compact */
+    min-height: 160px !important; /* Reduced min height */
   }
 
   .path-selection {
-    max-width: 320px;
+    max-width: 300px;
+    gap: 1rem; /* Reduced gap */
+  }
+
+  .path-icon {
+    width: 45px !important; /* Reduced */
+    height: 45px !important;
+  }
+
+  .path-icon svg {
+    font-size: 1.6rem !important; /* Reduced */
+  }
+
+  .path-title {
+    font-size: 1rem !important; /* Reduced */
+  }
+
+  .path-description {
+    font-size: 0.8rem !important; /* Reduced */
+    margin-bottom: 1rem !important;
   }
 }
