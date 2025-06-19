@@ -4,53 +4,62 @@
     "description": "Gracias por unirte a AngoraSix. Estamos emocionados de tenerte en nuestra comunidad."
   },
   "welcome": {
-    "title": "¡Gracias por unirte!",
-    "subtitle": "Muy pronto podrás gestionar tus proyectos como nunca antes. Te avisaremos cuando esté todo listo."
+    "title": "¡Bienvenido a AngoraSix!",
+    "subtitle": "Ahora eres parte de nuestra comunidad. Prepárate para transformar cómo gestionas proyectos colaborativos."
   },
-  "countdown": {
-    "title": "Faltan solo:"
+  "beta": {
+    "title": "Únete a Nuestro Programa Beta",
+    "description": "Sé uno de los primeros en probar AngoraSix y ayuda a dar forma a su desarrollo.",
+    "benefits": {
+      "exclusive": "Acceso Temprano",
+      "influence": "Influir Funciones",
+      "priority": "Soporte Directo",
+      "lifetime": "Beneficios Especiales"
+    },
+    "countdown": {
+      "title": "El Programa Beta Comienza En:",
+      "days": "Días",
+      "hours": "Horas",
+      "minutes": "Minutos",
+      "seconds": "Segundos"
+    },
+    "apply": "Postularse para Beta",
+    "success": "¡Postulación Enviada!"
+  },
+  "betaDialog": {
+    "title": "Postulación al Programa Beta",
+    "subtitle": "Cuéntanos sobre ti y por qué serías un gran beta tester",
+    "fields": {
+      "name": "Nombre Completo",
+      "email": "Dirección de Email",
+      "company": "Empresa/Organización",
+      "role": "Tu Rol",
+      "experience": "Experiencia en Gestión de Proyectos",
+      "experiencePlaceholder": "Cuéntanos sobre tu experiencia con herramientas de gestión de proyectos...",
+      "motivation": "¿Por qué quieres unirte a nuestro programa beta?",
+      "motivationPlaceholder": "¿Qué te emociona de AngoraSix? ¿Cómo lo usarías?"
+    },
+    "cancel": "Cancelar",
+    "submit": "Enviar Postulación",
+    "submitting": "Enviando..."
   },
   "newsletter": {
-    "title": "Mantente informado",
-    "description": "Recibe actualizaciones sobre el lanzamiento, nuevas funcionalidades y consejos exclusivos para visionarios.",
+    "title": "Mantente Actualizado",
     "emailPlaceholder": "tu@email.com",
     "subscribe": "Suscribirse",
     "subscribing": "Suscribiendo...",
-    "consent": "Acepto recibir emails informativos de AngoraSix",
-    "success": "¡Perfecto! Te mantendremos informado sobre todas las novedades."
-  },
-  "calendar": {
-    "addToCalendar": "Agregar al Calendario",
-    "eventTitle": "Lanzamiento de AngoraSix",
-    "eventDescription": "El día que AngoraSix estará disponible para transformar tus ideas en proyectos exitosos."
+    "consent": "Acepto recibir actualizaciones",
+    "success": "¡Suscrito!"
   },
   "contact": {
-    "title": "¿Tienes alguna pregunta?",
-    "description": "Estamos aquí para ayudarte. Envíanos un mensaje y te responderemos personalmente.",
-    "messagePlaceholder": "Cuéntanos qué te gustaría saber o cómo podemos ayudarte...",
-    "send": "Enviar Mensaje",
+    "title": "Ponte en Contacto",
+    "messagePlaceholder": "Tu mensaje...",
+    "send": "Enviar",
     "sending": "Enviando...",
-    "success": "¡Mensaje enviado! Te responderemos pronto."
+    "success": "¡Mensaje enviado!"
   },
-  "support": {
-    "title": "Soporte Inmediato",
-    "description": "¿Necesitas respuestas rápidas? Prueba nuestro asistente inteligente o consulta las preguntas frecuentes.",
-    "chatbot": "Chatbot Inteligente",
-    "faq": "Preguntas Frecuentes"
-  },
-  "nextSteps": {
-    "title": "Próximos Pasos",
-    "step1": {
-      "title": "Te notificaremos",
-      "description": "Recibirás un email cuando AngoraSix esté listo para usar."
-    },
-    "step2": {
-      "title": "Marca tu calendario",
-      "description": "Agrega la fecha de lanzamiento para no perderte el momento."
-    },
-    "step3": {
-      "title": "Comienza a construir",
-      "description": "Podrás crear tu primer proyecto cooperativo inmediatamente."
-    }
+  "social": {
+    "title": "Síguenos",
+    "description": "Mantente conectado en todas las plataformas."
   }
 }

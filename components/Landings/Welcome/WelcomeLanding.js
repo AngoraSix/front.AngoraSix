@@ -85,7 +85,7 @@ const WelcomeLanding = () => {
       title: t("paths.team.title"),
       description: t("paths.team.description"),
       icon: LightbulbOutlined,
-      path: "/welcome/team",
+      path: "/welcome/venture",
       color: "primary",
     },
     {

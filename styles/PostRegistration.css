@@ -1,0 +1,613 @@
+/* Post Registration Landing - Fixed Layout with Proper Spacing */
+.post-registration-landing {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0a2239 0%, #1b5993 100%);
+  position: relative;
+  overflow-x: hidden;
+  display: flex;
+  align-items: center;
+  padding: 2rem 0;
+  padding-top: 5rem; /* Space for navbar */
+}
+
+/* Flowing Lines Background - Same as WelcomeLanding */
+.post-registration-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.flowing-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.1;
+}
+
+.flowing-lines svg {
+  width: 100%;
+  height: 100%;
+}
+
+.flowing-lines path {
+  stroke: #fe5f55;
+  stroke-width: 2;
+  fill: none;
+  stroke-dasharray: 5, 10;
+  animation: flowingLine 20s linear infinite;
+}
+
+.flowing-lines path:nth-child(2) {
+  stroke: #afc1d6;
+  animation-delay: -5s;
+  animation-duration: 25s;
+}
+
+.flowing-lines path:nth-child(3) {
+  stroke: #dce7ea;
+  animation-delay: -10s;
+  animation-duration: 30s;
+}
+
+@keyframes flowingLine {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 100;
+  }
+}
+
+/* Container */
+.post-registration-container {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 1400px;
+  margin-top: 2.5rem; /* Space for navbar */
+}
+
+.main-layout {
+  align-items: stretch;
+  justify-content: space-between;
+}
+
+/* Left Column - Welcome + Beta (Narrower - 7/12) */
+.left-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  height: 100%;
+}
+
+/* Welcome Section - Now with proper space allocation */
+.welcome-section {
+  animation: fadeInUp 1s ease-out;
+  margin-bottom: 1.5rem;
+  padding: 1rem 0;
+  text-align: center;
+}
+
+.welcome-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.celebration-icon {
+  font-size: 2.5rem !important;
+  color: #fe5f55 !important;
+  margin-bottom: 0 !important;
+  display: block;
+  align-self: center;
+}
+
+.welcome-title {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  margin-bottom: 0 !important;
+  font-size: 2rem !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  line-height: 1.2;
+}
+
+.welcome-subtitle {
+  color: #afc1d6 !important;
+  font-size: 1.1rem !important;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+  max-width: 600px;
+  line-height: 1.4;
+  margin-bottom: 0 !important;
+}
+
+/* Beta Panel - More compact */
+.beta-panel {
+  background: #ffffff !important;
+  border-radius: 20px !important;
+  padding: 1.5rem !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Beta Section */
+.beta-section {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.beta-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.beta-icon {
+  font-size: 2.5rem !important;
+  color: #fe5f55 !important;
+  margin-bottom: 0.75rem !important;
+}
+
+.beta-title {
+  color: #0a2239 !important;
+  font-weight: 700 !important;
+  margin-bottom: 0.75rem !important;
+  font-size: 1.7rem !important;
+}
+
+.beta-description {
+  color: #1b5993 !important;
+  font-size: 0.95rem !important;
+  max-width: 500px !important;
+  margin: 0 auto !important;
+}
+
+/* Beta Benefits - Smaller and more compact */
+.beta-benefits {
+  margin-bottom: 1.25rem;
+}
+
+.benefit-item {
+  text-align: center;
+  padding: 0.75rem 0.5rem;
+  background: #f8fafe;
+  border-radius: 12px;
+  border: 1px solid #e3f2fd;
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.benefit-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(27, 89, 147, 0.15);
+  background: #f0f6fc;
+}
+
+.benefit-icon {
+  font-size: 1.3rem !important;
+  color: #1b5993 !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.benefit-text {
+  color: #0a2239 !important;
+  font-weight: 600 !important;
+  font-size: 0.75rem !important;
+  line-height: 1.2;
+}
+
+/* Beta Countdown - Smaller */
+.beta-countdown {
+  background: linear-gradient(135deg, #1b5993 0%, #0a2239 100%);
+  border-radius: 12px;
+  padding: 1rem;
+  margin: 1rem 0;
+  color: white;
+}
+
+.countdown-title {
+  font-weight: 600 !important;
+  margin-bottom: 1rem !important;
+  text-align: center !important;
+  font-size: 0.9rem !important;
+}
+
+.countdown-unit {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  padding: 0.5rem 0.25rem;
+  backdrop-filter: blur(10px);
+}
+
+.countdown-number {
+  font-size: 1.1rem !important;
+  font-weight: 700 !important;
+  font-family: monospace !important;
+  line-height: 1 !important;
+}
+
+.countdown-label {
+  font-size: 0.6rem !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  opacity: 0.9 !important;
+  margin-top: 0.25rem !important;
+}
+
+/* Beta CTA - Moved to top for visibility */
+.beta-cta-top {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  padding: 1rem 0;
+}
+
+/* Beta CTA - Moved up, more prominent */
+/* Remove the old .beta-cta styles and update responsive */
+
+.beta-button {
+  background: linear-gradient(135deg, #fe5f55 0%, #e54a41 100%) !important;
+  color: white !important;
+  padding: 0.9rem 2.5rem !important;
+  font-size: 1.1rem !important;
+  font-weight: 700 !important;
+  border-radius: 50px !important;
+  box-shadow: 0 8px 25px rgba(254, 95, 85, 0.4) !important;
+  transition: all 0.3s ease !important;
+}
+
+.beta-button:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 12px 35px rgba(254, 95, 85, 0.5) !important;
+}
+
+.beta-success {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  background: #e8f5e8;
+  border: 2px solid #4caf50;
+  border-radius: 12px;
+  padding: 1.25rem;
+  color: #2e7d32;
+  font-weight: 600;
+  max-width: 350px;
+  margin: 0 auto;
+}
+
+/* Side Panels (Right Column - Same width 3/12) */
+.side-panels {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  height: 100%;
+}
+
+/* Social Panel - Better alignment */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin: auto;
+  padding-top: 0.5rem;
+}
+
+.side-panel {
+  background: #ffffff !important;
+  border-radius: 16px !important;
+  padding: 1.25rem !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  display: flex;
+  flex-direction: column;
+  min-height: 200px;
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.panel-icon {
+  font-size: 1.25rem !important;
+  color: #1b5993 !important;
+}
+
+.panel-title {
+  color: #0a2239 !important;
+  font-weight: 700 !important;
+  font-size: 0.9rem !important;
+}
+
+.panel-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.panel-description {
+  color: #1b5993 !important;
+  margin-bottom: 1rem !important;
+  font-size: 0.8rem !important;
+}
+
+.panel-button {
+  border-color: #1b5993 !important;
+  color: #1b5993 !important;
+  font-weight: 600 !important;
+  border-radius: 20px !important;
+  margin-top: auto !important;
+  font-size: 0.8rem !important;
+}
+
+.panel-button:hover {
+  background: #1b5993 !important;
+  color: white !important;
+}
+
+.panel-success {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: #e8f5e8;
+  border-radius: 8px;
+  padding: 0.75rem;
+  color: #2e7d32;
+  font-weight: 600;
+  margin-top: auto;
+  font-size: 0.8rem;
+}
+
+.panel-success svg {
+  color: #4caf50;
+  font-size: 1rem;
+}
+
+/* Social Links */
+
+.social-icon {
+  background: rgba(27, 89, 147, 0.1) !important;
+  color: #1b5993 !important;
+  transition: all 0.3s ease !important;
+  width: 32px !important;
+  height: 32px !important;
+}
+
+.social-icon:hover {
+  transform: translateY(-2px);
+  background: #1b5993 !important;
+  color: white !important;
+}
+
+/* Dialog Styles */
+.beta-dialog .MuiPaper-root {
+  border-radius: 16px;
+}
+
+.dialog-title {
+  color: #0a2239 !important;
+  font-weight: 700 !important;
+  text-align: center !important;
+  font-size: 1.3rem !important;
+}
+
+.dialog-subtitle {
+  color: #1b5993 !important;
+  text-align: center !important;
+  margin-top: 0.5rem !important;
+}
+
+.dialog-cancel {
+  color: #1b5993 !important;
+}
+
+.dialog-submit {
+  background: #fe5f55 !important;
+  color: white !important;
+}
+
+.dialog-submit:hover {
+  background: #e54a41 !important;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 960px) {
+  .post-registration-landing {
+    padding: 1rem 0;
+    padding-top: 4rem;
+  }
+
+  .main-layout {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .welcome-content {
+    align-items: center;
+    text-align: center;
+  }
+
+  .left-column {
+    gap: 1rem;
+  }
+
+  .welcome-section {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .side-panels {
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  .side-panel {
+    flex: 1;
+    padding: 1rem !important;
+  }
+
+  .welcome-title {
+    font-size: 1.6rem !important;
+  }
+
+  .beta-title {
+    font-size: 1.5rem !important;
+  }
+
+  .beta-icon {
+    font-size: 2.2rem !important;
+  }
+
+  .beta-panel {
+    padding: 1.25rem !important;
+  }
+
+  /* Hide flowing lines on mobile for performance */
+  .flowing-lines {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .post-registration-landing {
+    padding-top: 3rem;
+  }
+
+  .side-panels {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .benefit-item {
+    padding: 0.6rem 0.4rem;
+  }
+
+  .benefit-icon {
+    font-size: 1.1rem !important;
+  }
+
+  .benefit-text {
+    font-size: 0.7rem !important;
+  }
+
+  .countdown-unit {
+    padding: 0.4rem 0.2rem;
+  }
+
+  .countdown-number {
+    font-size: 1rem !important;
+  }
+
+  .countdown-label {
+    font-size: 0.55rem !important;
+  }
+
+  .beta-button {
+    padding: 0.75rem 2rem !important;
+    font-size: 1rem !important;
+  }
+
+  .welcome-title {
+    font-size: 1.4rem !important;
+  }
+
+  .welcome-subtitle {
+    font-size: 0.9rem !important;
+  }
+
+  .celebration-icon {
+    font-size: 1.8rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .post-registration-container {
+    padding: 0 0.5rem;
+  }
+
+  .beta-panel {
+    padding: 1rem !important;
+    border-radius: 12px !important;
+  }
+
+  .side-panel {
+    padding: 0.75rem !important;
+    border-radius: 12px !important;
+  }
+
+  .welcome-title {
+    font-size: 1.2rem !important;
+  }
+
+  .welcome-subtitle {
+    font-size: 0.85rem !important;
+  }
+
+  .beta-title {
+    font-size: 1.3rem !important;
+  }
+
+  .celebration-icon {
+    font-size: 1.6rem !important;
+  }
+
+  .beta-icon {
+    font-size: 2rem !important;
+  }
+
+  .countdown-unit {
+    padding: 0.3rem 0.15rem;
+  }
+
+  .countdown-number {
+    font-size: 0.9rem !important;
+  }
+
+  .countdown-label {
+    font-size: 0.5rem !important;
+  }
+
+  .panel-title {
+    font-size: 0.8rem !important;
+  }
+
+  .panel-description {
+    font-size: 0.75rem !important;
+  }
+
+  .social-icon {
+    width: 28px !important;
+    height: 28px !important;
+  }
+}

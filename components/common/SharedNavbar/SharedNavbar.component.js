@@ -11,8 +11,8 @@ import {
   Menu,
   MenuItem,
   Toolbar,
-  Typography,
   Tooltip,
+  Typography,
 } from "@mui/material"
 import { useTheme } from "@mui/material/styles"
 import useMediaQuery from "@mui/material/useMediaQuery"
@@ -69,27 +69,18 @@ const SharedNavbar = ({ variant = "default" }) => {
       },
     ]
 
-    if (variant === "team") {
-      return [
+    return session ? 
+    [
         {
-          href: "/welcome/visionaries",
-          label: t("navbar.shared.forvisionaries"),
+          href: "/welcome/post-registration",
+          label: t("navbar.shared.access"),
         },
         ...baseItems,
-      ]
-    }
-
-    return [
-      {
-        href: "/welcome/visionaries",
-        label: t("navbar.shared.forvisionaries"),
-      },
-      ...baseItems,
-    ]
+      ] : baseItems;
   }
 
   const navigationItems = getNavigationItems()
-  const logoHref = variant === "team" ? "/welcome/team" : "/"
+  const logoHref = variant === "team" ? "/welcome/venture" : "/"
 
   return (
     <AppBar

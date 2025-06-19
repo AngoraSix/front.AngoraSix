@@ -42,7 +42,7 @@ const TeamLanding = () => {
       event_category: "conversion",
       event_label: "team_landing",
     })
-    router.push("/welcome/team/post-registration")
+    router.push("/welcome/post-registration")
   }
 
   const problems = [
