@@ -159,7 +159,7 @@ const ManagerLanding = () => {
           <div className="sparkle sparkle-8"></div>
         </div>
 
-        <Container maxWidth="lg">
+        <Container className="manager-landing-container" maxWidth="lg">
           <Box sx={{ textAlign: "center", position: "relative", zIndex: 1 }}>
             <Fade in timeout={1000}>
               <Typography

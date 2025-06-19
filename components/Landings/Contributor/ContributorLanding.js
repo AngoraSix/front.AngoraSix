@@ -163,7 +163,7 @@ const ContributorLanding = () => {
           <div className="tunnel-circle tunnel-circle-5"></div>
         </div>
 
-        <Container maxWidth="lg">
+        <Container className="contributor-landing-container" maxWidth="lg">
           <Box sx={{ textAlign: "center", position: "relative", zIndex: 1 }}>
             <Fade in timeout={1000}>
               <Typography

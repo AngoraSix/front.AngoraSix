@@ -133,7 +133,7 @@ const CooperativeLanding = () => {
           <div className="breathing-layer breathing-layer-3"></div>
         </div>
 
-        <Container maxWidth="lg">
+        <Container className="cooperative-landing-container" maxWidth="lg">
           <Box sx={{ textAlign: "center", position: "relative", zIndex: 1 }}>
             <Fade in timeout={1000}>
               <Typography

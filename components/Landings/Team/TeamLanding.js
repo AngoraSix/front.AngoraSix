@@ -176,7 +176,7 @@ const TeamLanding = () => {
           </svg>
         </Box>
 
-        <Container maxWidth="lg">
+        <Container className="team-landing-container" maxWidth="lg">
           <Box className="hero-content">
             <Fade in timeout={1000}>
               <Typography variant="h1" className="hero-title">

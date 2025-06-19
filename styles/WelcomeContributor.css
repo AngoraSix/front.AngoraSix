@@ -196,6 +196,10 @@
   }
 }
 
+.contributor-landing-container {
+  margin-top: 2.5rem;
+}
+
 /* Section Backgrounds */
 .contributor-hero-section {
   padding-top: 96px;

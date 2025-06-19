@@ -1,6 +1,6 @@
 /* Welcome Landing Styles - Fixed Issues */
 .welcome-landing {
-  height: 180vh; /* Two sections with overlap */
+  min-height: 200vh; /* Two sections with overlap */
   background: linear-gradient(135deg, #0a2239 0%, #1b5993 100%);
   position: relative;
   overflow-x: hidden; /* Only hide horizontal scroll */
@@ -110,7 +110,7 @@
 
 /* FIRST SECTION - Hero with Logo (Higher z-index) */
 .welcome-hero-section {
-  height: 80vh; /* Reduced from 100vh to allow overlap */
+  min-height: 100vh; /* Reduced from 100vh to allow overlap */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -322,7 +322,7 @@
 
 /* SECOND SECTION - Path Selection (Lower z-index, Compact) */
 .welcome-paths-section {
-  height: 100vh; /* Exactly 100vh */
+  min-height: 100vh; /* Exactly 100vh */
   display: flex;
   flex-direction: column;
   align-items: center;

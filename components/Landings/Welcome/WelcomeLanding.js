@@ -66,7 +66,7 @@ const WelcomeLanding = () => {
 
   const scrollToSection = () => {
     window.scrollTo({
-      top: window.innerHeight * 0.8, // Scroll to 80vh where second section starts
+      top: window.innerHeight * 1, // Scroll to 100vh where second section starts
       behavior: "smooth",
     })
   }

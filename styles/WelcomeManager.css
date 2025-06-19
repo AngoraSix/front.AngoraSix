@@ -239,6 +239,10 @@
   }
 }
 
+.manager-landing-container {
+  margin-top: 2.5rem;
+}
+
 /* Section Backgrounds - Using our palette */
 .manager-hero-section {
   padding-top: 96px;
