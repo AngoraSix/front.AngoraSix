@@ -62,6 +62,33 @@
   }
 }
 
+/* Language Switcher */
+.welcome-header {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  z-index: 10;
+}
+
+.language-switcher {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(220, 231, 234, 0.2) !important;
+  color: #dce7ea !important;
+  backdrop-filter: blur(10px) !important;
+  border-radius: 8px !important;
+  padding: 8px 16px !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  transition: all 0.3s ease !important;
+}
+
+.language-switcher:hover {
+  background: rgba(254, 95, 85, 0.1) !important;
+  border-color: rgba(254, 95, 85, 0.3) !important;
+  color: #fe5f55 !important;
+  transform: translateY(-2px) !important;
+}
+
 /* Container */
 .welcome-container {
   position: relative;
@@ -82,10 +109,199 @@
   text-align: center;
 }
 
+/* Logo Container */
+.logos-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  margin-bottom: 2rem;
+  animation: fadeInUp 1s ease-out;
+}
+
+/* A6 Logo with Eclipse Effect - PRIMER LOGO */
+.a6-logo-eclipse {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  overflow: hidden; /* El logo tapa la luz */
+}
+
+/* Eclipse Light - Trayectoria circular real desde 11:00 hasta 4:00 */
+.a6-logo-eclipse::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 90px; /* Más grande y notable */
+  height: 90px;
+  background: radial-gradient(
+    circle,
+    rgba(254, 95, 85, 0.9) 0%,
+    rgba(254, 95, 85, 0.7) 25%,
+    rgba(254, 95, 85, 0.4) 50%,
+    rgba(254, 95, 85, 0.2) 75%,
+    transparent 100%
+  );
+  border-radius: 50%;
+  transform-origin: 50% 50%;
+  transform: translate(-50%, -50%) rotate(330deg) translateY(-100px); /* Posición inicial 11:00 */
+  animation: eclipseCircular 4s ease-out 1.5s forwards;
+  z-index: 1; /* Detrás del logo */
+  opacity: 0;
+  filter: blur(12px); /* Más difuso */
+}
+
+/* Subtle Final Glow */
+.a6-logo-eclipse::after {
+  content: "";
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  right: -15px;
+  bottom: -15px;
+  background: radial-gradient(circle, rgba(254, 95, 85, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  z-index: 1;
+  opacity: 0;
+  animation: finalGlow 1s ease-out 5.5s forwards;
+}
+
+.a6-logo-eclipse img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  position: relative;
+  z-index: 3; /* Encima de la luz para crear el eclipse */
+  filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.3));
+  opacity: 0;
+  animation: logoFadeIn 1s ease-out 0.5s forwards;
+}
+
+/* A6 Logo with Shooting Star Effect - SEGUNDO LOGO */
+.a6-logo-sparkle {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  overflow: visible;
+}
+
+/* Shooting Star - Mucho más cerca del logo (3/5 del radio actual) */
+.a6-logo-sparkle::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle, rgba(254, 95, 85, 1) 0%, rgba(254, 95, 85, 0.9) 30%, transparent 100%);
+  border-radius: 50%;
+  transform-origin: 50% 50%;
+  transform: translate(-50%, -50%) rotate(0deg) translateY(-81px); /* Radio reducido: 135px * 3/5 = 81px */
+  animation: shootingStarClose 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 2s forwards;
+  z-index: 3;
+  opacity: 0;
+  box-shadow: 0 0 20px rgba(254, 95, 85, 1), 0 0 40px rgba(254, 95, 85, 0.7);
+}
+
+/* Subtle glow for second logo */
+.a6-logo-sparkle::after {
+  content: "";
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  right: -15px;
+  bottom: -15px;
+  background: radial-gradient(circle, rgba(254, 95, 85, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  z-index: 1;
+  opacity: 0;
+  animation: finalGlow 1s ease-out 3.2s forwards;
+}
+
+.a6-logo-sparkle img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.3));
+  opacity: 0;
+  animation: logoFadeIn 1s ease-out 1.8s forwards;
+}
+
+/* Eclipse Circular Animation - Desde 11:00 (330°) hasta 4:00 (120°) */
+@keyframes eclipseCircular {
+  0% {
+    transform: translate(-50%, -50%) rotate(330deg) translateY(-100px); /* 11:00 */
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(120deg) translateY(-100px); /* 4:00 y se queda ahí */
+    opacity: 0.3; /* Se queda visible pero tenue */
+  }
+}
+
+/* Shooting Star Animation - Más cerca del logo */
+@keyframes shootingStarClose {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg) translateY(-81px);
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  92% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(180deg) translateY(-81px); /* Media vuelta más cerca */
+    opacity: 0;
+  }
+}
+
+/* Logo Fade In */
+@keyframes logoFadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Final Subtle Glow */
+@keyframes finalGlow {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 /* Welcome Message */
 .welcome-message {
   max-width: 800px;
-  animation: fadeInUp 1s ease-out;
+  animation: fadeInUp 1s ease-out 2.5s both;
 }
 
 .welcome-title {
@@ -111,7 +327,7 @@
   gap: 2rem;
   max-width: 1200px;
   width: 100%;
-  animation: fadeInUp 1s ease-out 0.3s both;
+  animation: fadeInUp 1s ease-out 3s both;
 }
 
 .path-card {
@@ -240,7 +456,7 @@
 /* Footer */
 .welcome-footer {
   text-align: center;
-  animation: fadeInUp 1s ease-out 0.6s both;
+  animation: fadeInUp 1s ease-out 3.5s both;
   margin-top: 3rem;
 }
 
@@ -248,15 +464,6 @@
   color: #7d99ba !important;
   font-style: italic !important;
   font-size: 1rem !important;
-}
-
-/* Quick Actions - Removed since we're using SharedNavbar */
-.welcome-header {
-  display: none;
-}
-
-.quick-actions {
-  display: none;
 }
 
 /* Animations */
@@ -277,6 +484,16 @@
     padding-top: 70px;
   }
 
+  .welcome-header {
+    top: 1rem;
+    right: 1rem;
+  }
+
+  .language-switcher {
+    padding: 6px 12px !important;
+    font-size: 0.9rem !important;
+  }
+
   .welcome-container {
     min-height: calc(100vh - 70px);
     padding: 1rem 0;
@@ -284,6 +501,71 @@
 
   .welcome-content {
     gap: 3rem;
+  }
+
+  .logos-container {
+    gap: 2rem;
+  }
+
+  .a6-logo-eclipse,
+  .a6-logo-sparkle {
+    width: 80px;
+    height: 80px;
+  }
+
+  .a6-logo-eclipse::before {
+    width: 60px;
+    height: 60px;
+    transform: translate(-50%, -50%) rotate(330deg) translateY(-67px); /* Radio proporcional */
+  }
+
+  .a6-logo-eclipse::after,
+  .a6-logo-sparkle::after {
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+  }
+
+  .a6-logo-sparkle::before {
+    width: 6px;
+    height: 6px;
+    transform: translate(-50%, -50%) rotate(0deg) translateY(-54px); /* 81px * 80/120 = 54px */
+  }
+
+  /* Ajustar keyframes para mobile */
+  @keyframes eclipseCircular {
+    0% {
+      transform: translate(-50%, -50%) rotate(330deg) translateY(-67px);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      transform: translate(-50%, -50%) rotate(120deg) translateY(-67px);
+      opacity: 0.3;
+    }
+  }
+
+  @keyframes shootingStarClose {
+    0% {
+      transform: translate(-50%, -50%) rotate(0deg) translateY(-54px);
+      opacity: 0;
+    }
+    8% {
+      opacity: 1;
+    }
+    92% {
+      opacity: 1;
+    }
+    100% {
+      transform: translate(-50%, -50%) rotate(180deg) translateY(-54px);
+      opacity: 0;
+    }
   }
 
   .welcome-title {
@@ -329,6 +611,72 @@
 }
 
 @media (max-width: 480px) {
+  .welcome-header {
+    top: 0.5rem;
+    right: 0.5rem;
+  }
+
+  .a6-logo-eclipse,
+  .a6-logo-sparkle {
+    width: 60px;
+    height: 60px;
+  }
+
+  .a6-logo-eclipse::before {
+    width: 45px;
+    height: 45px;
+    transform: translate(-50%, -50%) rotate(330deg) translateY(-50px); /* Radio proporcional */
+  }
+
+  .a6-logo-eclipse::after,
+  .a6-logo-sparkle::after {
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+  }
+
+  .a6-logo-sparkle::before {
+    width: 5px;
+    height: 5px;
+    transform: translate(-50%, -50%) rotate(0deg) translateY(-40px); /* 81px * 60/120 = 40px */
+  }
+
+  /* Ajustar keyframes para mobile pequeño */
+  @keyframes eclipseCircular {
+    0% {
+      transform: translate(-50%, -50%) rotate(330deg) translateY(-50px);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      transform: translate(-50%, -50%) rotate(120deg) translateY(-50px);
+      opacity: 0.3;
+    }
+  }
+
+  @keyframes shootingStarClose {
+    0% {
+      transform: translate(-50%, -50%) rotate(0deg) translateY(-40px);
+      opacity: 0;
+    }
+    8% {
+      opacity: 1;
+    }
+    92% {
+      opacity: 1;
+    }
+    100% {
+      transform: translate(-50%, -50%) rotate(180deg) translateY(-40px);
+      opacity: 0;
+    }
+  }
+
   .welcome-title {
     font-size: 2rem !important;
   }

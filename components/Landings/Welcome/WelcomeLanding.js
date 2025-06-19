@@ -1,21 +1,27 @@
 "use client"
 
 import { useState } from "react"
-import { Container, Typography, Box, Fade } from "@mui/material"
+import { Container, Typography, Box, Fade, Button, Menu, MenuItem } from "@mui/material"
 import { useTranslation } from "next-i18next"
 import { useRouter } from "next/router"
-import { LightbulbOutlined, GroupsOutlined, FavoriteOutlined } from "@mui/icons-material"
+import { LightbulbOutlined, GroupsOutlined, FavoriteOutlined, Language as LanguageIcon } from "@mui/icons-material"
 
 const WelcomeLanding = () => {
   const { t } = useTranslation("welcome")
   const router = useRouter()
   const [hoveredCard, setHoveredCard] = useState(null)
+  const [languageAnchor, setLanguageAnchor] = useState(null)
 
   const handlePathSelect = (path) => {
     // Smooth transition before navigation
     setTimeout(() => {
       router.push(path)
     }, 300)
+  }
+
+  const handleLanguageChange = (locale) => {
+    router.push(router.asPath, router.asPath, { locale })
+    setLanguageAnchor(null)
   }
 
   const pathOptions = [
@@ -45,8 +51,51 @@ const WelcomeLanding = () => {
     },
   ]
 
+  const languages = [
+    { code: "en", name: "English" },
+    { code: "es", name: "Español" },
+  ]
+
   return (
     <Box className="welcome-landing">
+      {/* Language Switcher */}
+      <Box className="welcome-header">
+        <Button
+          className="language-switcher"
+          startIcon={<LanguageIcon />}
+          onClick={(event) => setLanguageAnchor(event.currentTarget)}
+        >
+          {router.locale}
+        </Button>
+        <Menu
+          anchorEl={languageAnchor}
+          open={Boolean(languageAnchor)}
+          onClose={() => setLanguageAnchor(null)}
+          PaperProps={{
+            style: {
+              background: "linear-gradient(135deg, #0a2239 0%, #1b5993 100%)",
+              border: "1px solid rgba(220, 231, 234, 0.2)",
+              borderRadius: "12px",
+              backdropFilter: "blur(10px)",
+            },
+          }}
+        >
+          {languages.map((lang) => (
+            <MenuItem
+              key={lang.code}
+              onClick={() => handleLanguageChange(lang.code)}
+              selected={router.locale === lang.code}
+              style={{
+                color: router.locale === lang.code ? "#fe5f55" : "#dce7ea",
+                backgroundColor: router.locale === lang.code ? "rgba(254, 95, 85, 0.1)" : "transparent",
+              }}
+            >
+              {lang.name}
+            </MenuItem>
+          ))}
+        </Menu>
+      </Box>
+
       {/* Flowing Lines Background - Same as TeamLanding */}
       <Box className="welcome-background">
         <div className="flowing-lines">
@@ -61,6 +110,29 @@ const WelcomeLanding = () => {
       <Container maxWidth="lg" className="welcome-container">
         {/* Main Content */}
         <Box className="welcome-content">
+          {/* Logos Container with Both Effects */}
+          <Box className="logos-container">
+            {/* Primer Logo - Eclipse Effect */}
+            <Box>
+              <div className="a6-logo-eclipse">
+                <img src="/logos/a6-white-500.png" alt="AngoraSix Logo - Eclipse Effect" />
+              </div>
+              <Typography variant="caption" style={{ color: "#7d99ba", marginTop: "0.5rem", display: "block" }}>
+                Eclipse Effect
+              </Typography>
+            </Box>
+
+            {/* Segundo Logo - Sparkle Effect */}
+            <Box>
+              <div className="a6-logo-sparkle">
+                <img src="/logos/a6-white-500.png" alt="AngoraSix Logo - Sparkle Effect" />
+              </div>
+              <Typography variant="caption" style={{ color: "#7d99ba", marginTop: "0.5rem", display: "block" }}>
+                Sparkle Effect
+              </Typography>
+            </Box>
+          </Box>
+
           {/* Welcome Message */}
           <Box className="welcome-message">
             <Typography variant="h2" className="welcome-title">
