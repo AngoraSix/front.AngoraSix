@@ -308,7 +308,7 @@ const TeamLanding = () => {
             <Box className="angorasix-action-image-container">
               <Box
                 component="img"
-                src="/images/project-stats.png"
+                src="/images/contributor-stats.png"
                 alt={t("angorasixInAction.imageAlt")}
                 className="angorasix-action-image"
               />

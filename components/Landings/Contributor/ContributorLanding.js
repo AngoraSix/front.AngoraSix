@@ -446,7 +446,7 @@ const ContributorLanding = () => {
             >
               <Box
                 component="img"
-                src="/images/project-stats.png"
+                src="/images/contributor-stats.png"
                 alt={t("angorasixInAction.imageAlt")}
                 sx={{
                   maxWidth: "100%",
