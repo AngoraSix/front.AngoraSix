@@ -146,18 +146,8 @@ const ManagerLanding = () => {
 
       <SharedNavbar variant="manager" />
 
-      {/* Hero Section */}
-      <Box
-        sx={{
-          pt: { xs: 12, md: 16 },
-          pb: { xs: 8, md: 12 },
-          background: `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${theme.palette.primary.light} 100%)`,
-          color: "white",
-          position: "relative",
-          overflow: "hidden",
-        }}
-      >
-        {/* Sparkles Effect Background */}
+      {/* Hero Section - Dark Gradient + Strong Sparkles */}
+      <Box className="manager-hero-section">
         <div className="sparkles-container sparkles-strong">
           <div className="sparkle sparkle-1"></div>
           <div className="sparkle sparkle-2"></div>
@@ -181,7 +171,7 @@ const ManagerLanding = () => {
                   lineHeight: 1.1,
                 }}
               >
-                {t("hero.title.part1")}<span className="highlight">{t("hero.title.highlight")}</span>.
+                {t("hero.title.part1")} <span className="highlight">{t("hero.title.highlight")}</span>.
               </Typography>
             </Fade>
 
@@ -236,17 +226,15 @@ const ManagerLanding = () => {
         </Container>
       </Box>
 
-      {/* Problems Section */}
-      <Box
-        id="problems"
-        data-animate
-        sx={{
-          py: { xs: 8, md: 12 },
-          backgroundColor: "white",
-          position: "relative",
-          overflow: "hidden",
-        }}
-      >
+      {/* Problems Section - White + Subtle Sparkles */}
+      <Box id="problems" data-animate className="manager-problems-section">
+        <div className="sparkles-container sparkles-subtle">
+          <div className="sparkle sparkle-1"></div>
+          <div className="sparkle sparkle-2"></div>
+          <div className="sparkle sparkle-3"></div>
+          <div className="sparkle sparkle-4"></div>
+        </div>
+
         <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
           <Fade in={visibleSections.problems} timeout={1000}>
             <Box sx={{ textAlign: "center", mb: 6 }}>
@@ -330,18 +318,8 @@ const ManagerLanding = () => {
         </Container>
       </Box>
 
-      {/* Solutions Section */}
-      <Box
-        id="solutions"
-        data-animate
-        sx={{
-          py: { xs: 8, md: 12 },
-          background: `linear-gradient(135deg, ${theme.palette.primary.main2} 0%, ${theme.palette.primary.light2} 100%)`,
-          position: "relative",
-          overflow: "hidden",
-        }}
-      >
-        {/* Sparkles Effect Background */}
+      {/* Solutions Section - Light Gradient + Medium Sparkles */}
+      <Box id="solutions" data-animate className="manager-solutions-section">
         <div className="sparkles-container sparkles-medium">
           <div className="sparkle sparkle-1"></div>
           <div className="sparkle sparkle-2"></div>
@@ -349,8 +327,6 @@ const ManagerLanding = () => {
           <div className="sparkle sparkle-4"></div>
           <div className="sparkle sparkle-5"></div>
           <div className="sparkle sparkle-6"></div>
-          <div className="sparkle sparkle-7"></div>
-          <div className="sparkle sparkle-8"></div>
         </div>
 
         <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
@@ -425,17 +401,76 @@ const ManagerLanding = () => {
         </Container>
       </Box>
 
-      {/* Use Cases Section */}
-      <Box
-        id="usecases"
-        data-animate
-        sx={{
-          py: { xs: 8, md: 12 },
-          backgroundColor: "white",
-          position: "relative",
-          overflow: "hidden",
-        }}
-      >
+      {/* AngoraSix in Action Section - Light Blue + Soft Sparkles */}
+      <Box id="angorasix-action" data-animate className="manager-angorasix-section">
+        <div className="sparkles-container sparkles-soft">
+          <div className="sparkle sparkle-1"></div>
+          <div className="sparkle sparkle-2"></div>
+          <div className="sparkle sparkle-3"></div>
+          <div className="sparkle sparkle-4"></div>
+        </div>
+
+        <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
+          <Fade in={visibleSections["angorasix-action"]} timeout={1000}>
+            <Box sx={{ textAlign: "center", mb: 6 }}>
+              <Typography
+                variant="h2"
+                sx={{
+                  fontSize: { xs: "2rem", md: "2.5rem" },
+                  fontWeight: 700,
+                  color: theme.palette.primary.main,
+                  mb: 3,
+                }}
+              >
+                {t("angorasixInAction.title")}
+              </Typography>
+              <Typography
+                variant="h6"
+                sx={{ color: theme.palette.primary.dark2, maxWidth: "600px", mx: "auto", mb: 6 }}
+              >
+                {t("angorasixInAction.subtitle")}
+              </Typography>
+            </Box>
+          </Fade>
+
+          <Grow in={visibleSections["angorasix-action"]} timeout={1500}>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                position: "relative",
+                zIndex: 1,
+              }}
+            >
+              <Box
+                component="img"
+                src="/images/project-stats.png"
+                alt={t("angorasixInAction.imageAlt")}
+                sx={{
+                  maxWidth: "100%",
+                  height: "auto",
+                  borderRadius: 3,
+                  boxShadow: "0 12px 40px rgba(0,0,0,0.15)",
+                  transition: "all 0.3s ease",
+                  "&:hover": {
+                    transform: "scale(1.02)",
+                    boxShadow: "0 20px 60px rgba(0,0,0,0.2)",
+                  },
+                }}
+              />
+            </Box>
+          </Grow>
+        </Container>
+      </Box>
+
+      {/* Use Cases Section - White + Minimal Sparkles */}
+      <Box id="usecases" data-animate className="manager-usecases-section">
+        <div className="sparkles-container sparkles-minimal">
+          <div className="sparkle sparkle-1"></div>
+          <div className="sparkle sparkle-2"></div>
+        </div>
+
         <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
           <Fade in={visibleSections.usecases} timeout={1000}>
             <Box sx={{ textAlign: "center", mb: 8 }}>
@@ -524,7 +559,7 @@ const ManagerLanding = () => {
                             fontWeight: 500,
                           }}
                         >
-                          "{useCase.quote}"
+                          {`"${useCase.quote}"`}
                         </Typography>
                       </Box>
                     </Box>
@@ -536,17 +571,8 @@ const ManagerLanding = () => {
         </Container>
       </Box>
 
-      {/* Final CTA */}
-      <Box
-        sx={{
-          py: { xs: 8, md: 12 },
-          background: `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${theme.palette.primary.light} 100%)`,
-          color: "white",
-          position: "relative",
-          overflow: "hidden",
-        }}
-      >
-        {/* Sparkles Effect Background */}
+      {/* Final CTA - Dark Gradient + Strong Sparkles */}
+      <Box className="manager-final-cta-section">
         <div className="sparkles-container sparkles-strong">
           <div className="sparkle sparkle-1"></div>
           <div className="sparkle sparkle-2"></div>

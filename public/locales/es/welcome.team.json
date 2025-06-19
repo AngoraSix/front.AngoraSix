@@ -20,22 +20,26 @@
     "distribution": "¿Cómo resolvemos una distribución justa de ingresos que todos consideren legítima?",
     "management": "¿Cómo reducir la carga de gestión para enfocarme en lo que realmente mueve el proyecto?"
   },
-    "solutions": {
-      "title": "El soporte que tu equipo necesita para llevar tu proyecto al siguiente nivel",
-      "subtitle": "Avancen enfocados, con confianza y claridad, sin fricciones",
-      "rules": {
-        "title": "Un marco para acordar reglas claras",
-        "description": "Guía y una estructura para definir los puntos clave de tu proyecto, prevenir conflictos y construir en equipo sin ambigüedades."
-      },
-      "transparency": {
-        "title": "Registro automático de contribuciones",
-        "description": "Nos integramos con tus herramientas de gestión para registrar automáticamente el aporte real de cada persona."
-      },
-      "multisig": {
-        "title": "Wallet multi-firma integrada",
-        "description": "Una cuenta compartida sobre blockchain conectada a tus reglas y tareas, que asegura que cada decisión financiera esté alineada con lo acordado."
-      }
+  "solutions": {
+    "title": "El soporte que tu equipo necesita para llevar tu proyecto al siguiente nivel",
+    "subtitle": "Avancen enfocados, con confianza y claridad, sin fricciones",
+    "rules": {
+      "title": "Un marco para acordar reglas claras",
+      "description": "Guía y una estructura para definir los puntos clave de tu proyecto, prevenir conflictos y construir en equipo sin ambigüedades."
     },
+    "transparency": {
+      "title": "Registro automático de contribuciones",
+      "description": "Nos integramos con tus herramientas de gestión para registrar automáticamente el aporte real de cada persona."
+    },
+    "multisig": {
+      "title": "Wallet multi-firma integrada",
+      "description": "Una cuenta compartida sobre blockchain conectada a tus reglas y tareas, que asegura que cada decisión financiera esté alineada con lo acordado."
+    }
+  },
+  "angorasixInAction": {
+    "title": "Descubrí AngoraSix",
+    "subtitle": "Conocé cómo podemos simplificar tu operación diaria con reglas claras y automatización"
+  },
   "useCases": {
     "title": "Una solución adecuada para tu equipo",
     "partners": {

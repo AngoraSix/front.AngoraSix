@@ -153,18 +153,8 @@ const ContributorLanding = () => {
 
       <SharedNavbar variant="contributor" />
 
-      {/* Hero Section */}
-      <Box
-        sx={{
-          pt: { xs: 12, md: 16 },
-          pb: { xs: 8, md: 12 },
-          background: `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${theme.palette.primary.light} 100%)`,
-          color: "white",
-          position: "relative",
-          overflow: "hidden",
-        }}
-      >
-        {/* Tunnel Effect Background */}
+      {/* Hero Section - Dark Gradient + Strong Tunnel */}
+      <Box className="contributor-hero-section">
         <div className="tunnel-container tunnel-strong">
           <div className="tunnel-circle tunnel-circle-1"></div>
           <div className="tunnel-circle tunnel-circle-2"></div>
@@ -240,17 +230,14 @@ const ContributorLanding = () => {
         </Container>
       </Box>
 
-      {/* Problems Section */}
-      <Box
-        id="problems"
-        data-animate
-        sx={{
-          py: { xs: 8, md: 12 },
-          backgroundColor: "white",
-          position: "relative",
-          overflow: "hidden",
-        }}
-      >
+      {/* Problems Section - White + Subtle Tunnel */}
+      <Box id="problems" data-animate className="contributor-problems-section">
+        <div className="tunnel-container tunnel-subtle">
+          <div className="tunnel-circle tunnel-circle-1"></div>
+          <div className="tunnel-circle tunnel-circle-2"></div>
+          <div className="tunnel-circle tunnel-circle-3"></div>
+        </div>
+
         <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
           <Fade in={visibleSections.problems} timeout={1000}>
             <Box sx={{ textAlign: "center", mb: 6 }}>
@@ -334,18 +321,8 @@ const ContributorLanding = () => {
         </Container>
       </Box>
 
-      {/* Solutions Section */}
-      <Box
-        id="solutions"
-        data-animate
-        sx={{
-          py: { xs: 8, md: 12 },
-          background: `linear-gradient(135deg, ${theme.palette.primary.main2} 0%, ${theme.palette.primary.light2} 100%)`,
-          position: "relative",
-          overflow: "hidden",
-        }}
-      >
-        {/* Tunnel Effect Background */}
+      {/* Solutions Section - Light Gradient + Medium Tunnel */}
+      <Box id="solutions" data-animate className="contributor-solutions-section">
         <div className="tunnel-container tunnel-medium">
           <div className="tunnel-circle tunnel-circle-1"></div>
           <div className="tunnel-circle tunnel-circle-2"></div>
@@ -426,17 +403,75 @@ const ContributorLanding = () => {
         </Container>
       </Box>
 
-      {/* Use Cases Section */}
-      <Box
-        id="usecases"
-        data-animate
-        sx={{
-          py: { xs: 8, md: 12 },
-          backgroundColor: "white",
-          position: "relative",
-          overflow: "hidden",
-        }}
-      >
+      {/* AngoraSix in Action Section - Light Blue + Soft Tunnel */}
+      <Box id="angorasix-action" data-animate className="contributor-angorasix-section">
+        <div className="tunnel-container tunnel-soft">
+          <div className="tunnel-circle tunnel-circle-1"></div>
+          <div className="tunnel-circle tunnel-circle-2"></div>
+          <div className="tunnel-circle tunnel-circle-3"></div>
+        </div>
+
+        <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
+          <Fade in={visibleSections["angorasix-action"]} timeout={1000}>
+            <Box sx={{ textAlign: "center", mb: 6 }}>
+              <Typography
+                variant="h2"
+                sx={{
+                  fontSize: { xs: "2rem", md: "2.5rem" },
+                  fontWeight: 700,
+                  color: theme.palette.primary.main,
+                  mb: 3,
+                }}
+              >
+                {t("angorasixInAction.title")}
+              </Typography>
+              <Typography
+                variant="h6"
+                sx={{ color: theme.palette.primary.dark2, maxWidth: "600px", mx: "auto", mb: 6 }}
+              >
+                {t("angorasixInAction.subtitle")}
+              </Typography>
+            </Box>
+          </Fade>
+
+          <Grow in={visibleSections["angorasix-action"]} timeout={1500}>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                position: "relative",
+                zIndex: 1,
+              }}
+            >
+              <Box
+                component="img"
+                src="/images/project-stats.png"
+                alt={t("angorasixInAction.imageAlt")}
+                sx={{
+                  maxWidth: "100%",
+                  height: "auto",
+                  borderRadius: 3,
+                  boxShadow: "0 12px 40px rgba(0,0,0,0.15)",
+                  transition: "all 0.3s ease",
+                  "&:hover": {
+                    transform: "scale(1.02)",
+                    boxShadow: "0 20px 60px rgba(0,0,0,0.2)",
+                  },
+                }}
+              />
+            </Box>
+          </Grow>
+        </Container>
+      </Box>
+
+      {/* Use Cases Section - White + Minimal Tunnel */}
+      <Box id="usecases" data-animate className="contributor-usecases-section">
+        <div className="tunnel-container tunnel-minimal">
+          <div className="tunnel-circle tunnel-circle-1"></div>
+          <div className="tunnel-circle tunnel-circle-2"></div>
+        </div>
+
         <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
           <Fade in={visibleSections.usecases} timeout={1000}>
             <Box sx={{ textAlign: "center", mb: 8 }}>
@@ -525,7 +560,7 @@ const ContributorLanding = () => {
                             fontWeight: 500,
                           }}
                         >
-                          "{useCase.quote}"
+                          {`"${useCase.quote}"`}
                         </Typography>
                       </Box>
                     </Box>
@@ -537,17 +572,8 @@ const ContributorLanding = () => {
         </Container>
       </Box>
 
-      {/* Final CTA */}
-      <Box
-        sx={{
-          py: { xs: 8, md: 12 },
-          background: `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${theme.palette.primary.light} 100%)`,
-          color: "white",
-          position: "relative",
-          overflow: "hidden",
-        }}
-      >
-        {/* Tunnel Effect Background */}
+      {/* Final CTA - Dark Gradient + Strong Tunnel */}
+      <Box className="contributor-final-cta-section">
         <div className="tunnel-container tunnel-strong">
           <div className="tunnel-circle tunnel-circle-1"></div>
           <div className="tunnel-circle tunnel-circle-2"></div>

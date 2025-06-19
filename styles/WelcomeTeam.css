@@ -21,8 +21,38 @@
   }
 }
 
-/* Hero Section */
-.hero-section {
+/* Flowing Lines Intensities */
+.flowing-lines-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+}
+
+.flowing-lines-strong {
+  opacity: 0.6;
+}
+
+.flowing-lines-medium {
+  opacity: 0.4;
+}
+
+.flowing-lines-subtle {
+  opacity: 0.3;
+}
+
+.flowing-lines-soft {
+  opacity: 0.35;
+}
+
+.flowing-lines-minimal {
+  opacity: 0.25;
+}
+
+/* Section Backgrounds - Using our palette */
+.team-hero-section {
   padding-top: 96px;
   padding-bottom: 64px;
   background: linear-gradient(135deg, #0a2239 0%, #1b5993 100%);
@@ -32,22 +62,79 @@
 }
 
 @media (max-width: 900px) {
-  .hero-section {
+  .team-hero-section {
     padding-top: 48px;
     padding-bottom: 32px;
   }
 }
 
-.flowing-lines-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  opacity: 0.6;
-  z-index: 0;
+.team-problems-section {
+  padding: 96px 0;
+  background-color: white;
+  position: relative;
+  overflow: hidden;
 }
 
+@media (max-width: 900px) {
+  .team-problems-section {
+    padding: 64px 0;
+  }
+}
+
+.team-solutions-section {
+  padding: 96px 0;
+  background: linear-gradient(135deg, #afc1d6 0%, #dce7ea 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 900px) {
+  .team-solutions-section {
+    padding: 64px 0;
+  }
+}
+
+.team-angorasix-section {
+  padding: 96px 0;
+  background: linear-gradient(135deg, #f8fafe 0%, #f0f6fc 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 900px) {
+  .team-angorasix-section {
+    padding: 64px 0;
+  }
+}
+
+.team-usecases-section {
+  padding: 96px 0;
+  background-color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 900px) {
+  .team-usecases-section {
+    padding: 64px 0;
+  }
+}
+
+.team-final-cta-section {
+  padding: 96px 0;
+  background: linear-gradient(135deg, #0a2239 0%, #1b5993 100%);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 900px) {
+  .team-final-cta-section {
+    padding: 64px 0;
+  }
+}
+
+/* Hero Content */
 .hero-content {
   text-align: center;
   position: relative;
@@ -109,26 +196,12 @@
 }
 
 /* Problems Section */
-.problems-section {
-  padding: 96px 0;
-  background-color: white;
-  position: relative;
-  overflow: hidden;
-}
-
-@media (max-width: 900px) {
-  .problems-section {
-    padding: 64px 0;
-  }
-}
-
 .harmonic-lines-pattern {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  opacity: 0.3;
   z-index: 0;
 }
 
@@ -225,26 +298,12 @@
 }
 
 /* Solutions Section */
-.solutions-section {
-  padding: 96px 0;
-  background: linear-gradient(135deg, #afc1d6 0%, #dce7ea 100%);
-  position: relative;
-  overflow: hidden;
-}
-
-@media (max-width: 900px) {
-  .solutions-section {
-    padding: 64px 0;
-  }
-}
-
 .complex-harmonic-pattern {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  opacity: 0.4;
   z-index: 0;
 }
 
@@ -276,22 +335,6 @@
   max-width: 600px;
   margin: 0 auto;
   font-weight: 500 !important;
-}
-
-.snake-line-svg {
-  position: absolute;
-  top: 50%;
-  left: 10%;
-  right: 10%;
-  height: 2px;
-  z-index: 0;
-  display: block;
-}
-
-@media (max-width: 900px) {
-  .snake-line-svg {
-    display: none;
-  }
 }
 
 .solutions-grid {
@@ -337,30 +380,67 @@
   color: rgba(255, 255, 255, 0.9) !important;
 }
 
-/* Use Cases Section */
-.use-cases-section {
-  padding: 96px 0;
-  background-color: white;
-  position: relative;
-  overflow: hidden;
-}
-
-@media (max-width: 900px) {
-  .use-cases-section {
-    padding: 64px 0;
-  }
-}
-
+/* AngoraSix in Action Section */
 .gentle-flowing-pattern {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  opacity: 0.25;
   z-index: 0;
 }
 
+.angorasix-action-container {
+  position: relative;
+  z-index: 1;
+}
+
+.angorasix-action-title-box {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.angorasix-action-title {
+  font-size: 2.5rem !important;
+  font-weight: 700 !important;
+  color: #0a2239 !important;
+  margin-bottom: 24px !important;
+}
+
+@media (max-width: 900px) {
+  .angorasix-action-title {
+    font-size: 2rem !important;
+  }
+}
+
+.angorasix-action-subtitle {
+  color: #7d99ba !important;
+  max-width: 600px;
+  margin: 0 auto 48px auto;
+}
+
+.angorasix-action-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.angorasix-action-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.angorasix-action-image:hover {
+  transform: scale(1.02);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+/* Use Cases Section */
 .use-cases-container {
   position: relative;
   z-index: 1;
@@ -442,27 +522,12 @@
 }
 
 /* Final CTA Section */
-.final-cta-section {
-  padding: 96px 0;
-  background: linear-gradient(135deg, #0a2239 0%, #1b5993 100%);
-  color: white;
-  position: relative;
-  overflow: hidden;
-}
-
-@media (max-width: 900px) {
-  .final-cta-section {
-    padding: 64px 0;
-  }
-}
-
 .final-harmonic-pattern {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  opacity: 0.5;
   z-index: 0;
 }
 

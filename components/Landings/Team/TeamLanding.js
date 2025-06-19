@@ -164,10 +164,9 @@ const TeamLanding = () => {
 
       <SharedNavbar variant="team" />
 
-      {/* Hero Section */}
-      <Box className="hero-section">
-        {/* 3D Flowing Lines Background */}
-        <Box className="flowing-lines-background">
+      {/* Hero Section - Dark Gradient + Strong Flowing Lines */}
+      <Box className="team-hero-section">
+        <Box className="flowing-lines-background flowing-lines-strong">
           <svg width="100%" height="100%" viewBox="0 0 1200 800" preserveAspectRatio="none">
             {generateFlowingLines(
               80,
@@ -206,16 +205,11 @@ const TeamLanding = () => {
         </Container>
       </Box>
 
-      {/* Problems Section - Checklist Style */}
-      <Box id="problems" data-animate className="problems-section">
-        {/* Harmonic Lines Pattern */}
-        <Box className="harmonic-lines-pattern">
+      {/* Problems Section - White + Subtle Flowing Lines */}
+      <Box id="problems" data-animate className="team-problems-section">
+        <Box className="harmonic-lines-pattern flowing-lines-subtle">
           <svg width="100%" height="100%" viewBox="0 0 1200 600" preserveAspectRatio="none">
-            {generateFlowingLines(
-              60,
-              [theme.palette.primary.light2, theme.palette.primary.main2],
-              [12, 16, 20, 14, 18],
-            )}
+            {generateFlowingLines(40, [theme.palette.primary.light2, theme.palette.primary.main2], [15, 20, 25, 18])}
           </svg>
         </Box>
 
@@ -246,15 +240,14 @@ const TeamLanding = () => {
         </Container>
       </Box>
 
-      {/* Solutions Section - Gradient Cards with Snake Line */}
-      <Box id="solutions" data-animate className="solutions-section">
-        {/* Complex Harmonic Pattern */}
-        <Box className="complex-harmonic-pattern">
+      {/* Solutions Section - Light Gradient + Medium Flowing Lines */}
+      <Box id="solutions" data-animate className="team-solutions-section">
+        <Box className="complex-harmonic-pattern flowing-lines-medium">
           <svg width="100%" height="100%" viewBox="0 0 1200 600" preserveAspectRatio="none">
             {generateFlowingLines(
-              100,
+              70,
               [theme.palette.secondary.main, theme.palette.primary.main, theme.palette.primary.light],
-              [10, 14, 18, 22, 8, 16, 12],
+              [12, 16, 20, 14, 18],
             )}
           </svg>
         </Box>
@@ -270,22 +263,6 @@ const TeamLanding = () => {
               </Typography>
             </Box>
           </Fade>
-
-          {/* Snake Line SVG */}
-          <Box className="snake-line-svg">
-            <svg width="100%" height="100px" style={{ position: "absolute", top: "-50px" }}>
-              <path
-                d="M0,50 Q200,20 400,50 T800,50"
-                stroke={theme.palette.secondary.main}
-                strokeWidth="3"
-                fill="none"
-                strokeDasharray="10,5"
-                opacity="0.6"
-              >
-                <animate attributeName="stroke-dashoffset" values="0;-30" dur="3s" repeatCount="indefinite" />
-              </path>
-            </svg>
-          </Box>
 
           <Grid container spacing={4} className="solutions-grid">
             {solutions.map((solution, index) => (
@@ -307,16 +284,44 @@ const TeamLanding = () => {
         </Container>
       </Box>
 
-      {/* Use Cases Section - Simple Cards with Graphics */}
-      <Box id="usecases" data-animate className="use-cases-section">
-        {/* Gentle Flowing Pattern */}
-        <Box className="gentle-flowing-pattern">
+      {/* AngoraSix in Action Section - Light Blue + Soft Flowing Lines */}
+      <Box id="angorasix-action" data-animate className="team-angorasix-section">
+        <Box className="gentle-flowing-pattern flowing-lines-soft">
           <svg width="100%" height="100%" viewBox="0 0 1200 600" preserveAspectRatio="none">
-            {generateFlowingLines(
-              70,
-              [theme.palette.secondary.main, theme.palette.primary.light2],
-              [15, 20, 25, 18, 12],
-            )}
+            {generateFlowingLines(50, [theme.palette.secondary.main, theme.palette.primary.light2], [18, 22, 25, 20])}
+          </svg>
+        </Box>
+
+        <Container maxWidth="lg" className="angorasix-action-container">
+          <Fade in={visibleSections["angorasix-action"]} timeout={1000}>
+            <Box className="angorasix-action-title-box">
+              <Typography variant="h2" className="angorasix-action-title">
+                {t("angorasixInAction.title")}
+              </Typography>
+              <Typography variant="h6" className="angorasix-action-subtitle">
+                {t("angorasixInAction.subtitle")}
+              </Typography>
+            </Box>
+          </Fade>
+
+          <Grow in={visibleSections["angorasix-action"]} timeout={1500}>
+            <Box className="angorasix-action-image-container">
+              <Box
+                component="img"
+                src="/images/project-stats.png"
+                alt={t("angorasixInAction.imageAlt")}
+                className="angorasix-action-image"
+              />
+            </Box>
+          </Grow>
+        </Container>
+      </Box>
+
+      {/* Use Cases Section - White + Minimal Flowing Lines */}
+      <Box id="usecases" data-animate className="team-usecases-section">
+        <Box className="gentle-flowing-pattern flowing-lines-minimal">
+          <svg width="100%" height="100%" viewBox="0 0 1200 600" preserveAspectRatio="none">
+            {generateFlowingLines(30, [theme.palette.secondary.main, theme.palette.primary.light2], [20, 25, 30, 22])}
           </svg>
         </Box>
 
@@ -351,12 +356,11 @@ const TeamLanding = () => {
         </Container>
       </Box>
 
-      {/* Final CTA */}
-      <Box className="final-cta-section">
-        {/* Final Harmonic Pattern */}
-        <Box className="final-harmonic-pattern">
+      {/* Final CTA - Dark Gradient + Strong Flowing Lines */}
+      <Box className="team-final-cta-section">
+        <Box className="final-harmonic-pattern flowing-lines-strong">
           <svg width="100%" height="100%" viewBox="0 0 1200 400" preserveAspectRatio="none">
-            {generateFlowingLines(50, [theme.palette.secondary.main, theme.palette.primary.main2], [12, 16, 20, 14])}
+            {generateFlowingLines(60, [theme.palette.secondary.main, theme.palette.primary.main2], [12, 16, 20, 14])}
           </svg>
         </Box>
 

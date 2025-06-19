@@ -1,13 +1,6 @@
 "use client"
 
-import {
-  Groups,
-  ChecklistRtl,
-  Merge,
-  Public,
-  TouchApp,
-  Stars,
-} from "@mui/icons-material"
+import { Groups, ChecklistRtl, Merge, Public, TouchApp, Stars } from "@mui/icons-material"
 import { Box, Button, Card, Container, Grid, Typography, useMediaQuery, useTheme, Fade, Grow } from "@mui/material"
 import { useTranslation } from "next-i18next"
 import Head from "next/head"
@@ -132,18 +125,8 @@ const CooperativeLanding = () => {
 
       <SharedNavbar variant="cooperative" />
 
-      {/* Hero Section */}
-      <Box
-        sx={{
-          pt: { xs: 12, md: 16 },
-          pb: { xs: 8, md: 12 },
-          background: `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${theme.palette.primary.light} 100%)`,
-          color: "white",
-          position: "relative",
-          overflow: "hidden",
-        }}
-      >
-        {/* Breathing Effect Background */}
+      {/* Hero Section - Dark Gradient + Strong Breathing */}
+      <Box className="cooperative-hero-section">
         <div className="breathing-container breathing-strong">
           <div className="breathing-layer breathing-layer-1"></div>
           <div className="breathing-layer breathing-layer-2"></div>
@@ -217,17 +200,13 @@ const CooperativeLanding = () => {
         </Container>
       </Box>
 
-      {/* Problems Section - Checklist Style */}
-      <Box
-        id="problems"
-        data-animate
-        sx={{
-          py: { xs: 8, md: 12 },
-          backgroundColor: "white",
-          position: "relative",
-          overflow: "hidden",
-        }}
-      >
+      {/* Problems Section - White + Subtle Breathing */}
+      <Box id="problems" data-animate className="cooperative-problems-section">
+        <div className="breathing-container breathing-subtle">
+          <div className="breathing-layer breathing-layer-1"></div>
+          <div className="breathing-layer breathing-layer-2"></div>
+        </div>
+
         <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
           <Fade in={visibleSections.problems} timeout={1000}>
             <Box sx={{ textAlign: "center", mb: 6 }}>
@@ -311,18 +290,8 @@ const CooperativeLanding = () => {
         </Container>
       </Box>
 
-      {/* Solutions Section - Gradient Cards */}
-      <Box
-        id="solutions"
-        data-animate
-        sx={{
-          py: { xs: 8, md: 12 },
-          background: `linear-gradient(135deg, ${theme.palette.primary.main2} 0%, ${theme.palette.primary.light2} 100%)`,
-          position: "relative",
-          overflow: "hidden",
-        }}
-      >
-        {/* Medium Breathing Pattern */}
+      {/* Solutions Section - Light Gradient + Medium Breathing */}
+      <Box id="solutions" data-animate className="cooperative-solutions-section">
         <div className="breathing-container breathing-medium">
           <div className="breathing-layer breathing-layer-1"></div>
           <div className="breathing-layer breathing-layer-2"></div>
@@ -401,17 +370,73 @@ const CooperativeLanding = () => {
         </Container>
       </Box>
 
-      {/* Use Cases Section - Simple Cards with Graphics */}
-      <Box
-        id="usecases"
-        data-animate
-        sx={{
-          py: { xs: 8, md: 12 },
-          backgroundColor: "white",
-          position: "relative",
-          overflow: "hidden",
-        }}
-      >
+      {/* AngoraSix in Action Section - Light Green + Soft Breathing */}
+      <Box id="angorasix-action" data-animate className="cooperative-angorasix-section">
+        <div className="breathing-container breathing-soft">
+          <div className="breathing-layer breathing-layer-1"></div>
+          <div className="breathing-layer breathing-layer-2"></div>
+        </div>
+
+        <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
+          <Fade in={visibleSections["angorasix-action"]} timeout={1000}>
+            <Box sx={{ textAlign: "center", mb: 6 }}>
+              <Typography
+                variant="h2"
+                sx={{
+                  fontSize: { xs: "2rem", md: "2.5rem" },
+                  fontWeight: 700,
+                  color: theme.palette.primary.main,
+                  mb: 3,
+                }}
+              >
+                {t("angorasixInAction.title")}
+              </Typography>
+              <Typography
+                variant="h6"
+                sx={{ color: theme.palette.primary.dark2, maxWidth: "600px", mx: "auto", mb: 6 }}
+              >
+                {t("angorasixInAction.subtitle")}
+              </Typography>
+            </Box>
+          </Fade>
+
+          <Grow in={visibleSections["angorasix-action"]} timeout={1500}>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                position: "relative",
+                zIndex: 1,
+              }}
+            >
+              <Box
+                component="img"
+                src="/images/project-stats.png"
+                alt={t("angorasixInAction.imageAlt")}
+                sx={{
+                  maxWidth: "100%",
+                  height: "auto",
+                  borderRadius: 3,
+                  boxShadow: "0 12px 40px rgba(0,0,0,0.15)",
+                  transition: "all 0.3s ease",
+                  "&:hover": {
+                    transform: "scale(1.02)",
+                    boxShadow: "0 20px 60px rgba(0,0,0,0.2)",
+                  },
+                }}
+              />
+            </Box>
+          </Grow>
+        </Container>
+      </Box>
+
+      {/* Use Cases Section - White + Minimal Breathing */}
+      <Box id="usecases" data-animate className="cooperative-usecases-section">
+        <div className="breathing-container breathing-minimal">
+          <div className="breathing-layer breathing-layer-1"></div>
+        </div>
+
         <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
           <Fade in={visibleSections.usecases} timeout={1000}>
             <Box sx={{ textAlign: "center", mb: 8 }}>
@@ -493,17 +518,8 @@ const CooperativeLanding = () => {
         </Container>
       </Box>
 
-      {/* Final CTA */}
-      <Box
-        sx={{
-          py: { xs: 8, md: 12 },
-          background: `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${theme.palette.primary.light} 100%)`,
-          color: "white",
-          position: "relative",
-          overflow: "hidden",
-        }}
-      >
-        {/* Strong Breathing Pattern */}
+      {/* Final CTA - Dark Gradient + Strong Breathing */}
+      <Box className="cooperative-final-cta-section">
         <div className="breathing-container breathing-strong">
           <div className="breathing-layer breathing-layer-1"></div>
           <div className="breathing-layer breathing-layer-2"></div>

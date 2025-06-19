@@ -109,6 +109,49 @@
   filter: blur(12px);
 }
 
+/* Subtle intensity for problems section */
+.breathing-subtle .breathing-layer-1 {
+  background: linear-gradient(
+    135deg,
+    rgba(175, 193, 214, 0.04) 0%,
+    rgba(27, 89, 147, 0.06) 50%,
+    rgba(220, 231, 234, 0.04) 100%
+  );
+  filter: blur(8px);
+}
+
+.breathing-subtle .breathing-layer-2 {
+  background: linear-gradient(45deg, rgba(27, 89, 147, 0.03) 0%, rgba(175, 193, 214, 0.05) 60%, transparent 100%);
+  filter: blur(10px);
+}
+
+/* Soft intensity for AngoraSix section - using our palette colors */
+.breathing-soft .breathing-layer-1 {
+  background: linear-gradient(
+    135deg,
+    rgba(175, 193, 214, 0.08) 0%,
+    rgba(220, 231, 234, 0.12) 50%,
+    rgba(27, 89, 147, 0.06) 100%
+  );
+  filter: blur(6px);
+}
+
+.breathing-soft .breathing-layer-2 {
+  background: linear-gradient(45deg, rgba(220, 231, 234, 0.06) 0%, rgba(175, 193, 214, 0.08) 60%, transparent 100%);
+  filter: blur(8px);
+}
+
+/* Minimal intensity for use cases section */
+.breathing-minimal .breathing-layer-1 {
+  background: linear-gradient(
+    135deg,
+    rgba(220, 231, 234, 0.03) 0%,
+    rgba(175, 193, 214, 0.04) 50%,
+    rgba(27, 89, 147, 0.02) 100%
+  );
+  filter: blur(6px);
+}
+
 /* Subtle section breathing animations - More pronounced */
 @keyframes breatheSection1 {
   0% {
@@ -176,6 +219,89 @@
   100% {
     transform: scale(0.992) translate(0.5px, 1px);
     opacity: 0.25;
+  }
+}
+
+/* Section Backgrounds - Using our palette */
+.cooperative-hero-section {
+  padding-top: 96px;
+  padding-bottom: 64px;
+  background: linear-gradient(135deg, #0a2239 0%, #1b5993 100%);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .cooperative-hero-section {
+    padding-top: 48px;
+    padding-bottom: 32px;
+  }
+}
+
+.cooperative-problems-section {
+  padding: 96px 0;
+  background-color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .cooperative-problems-section {
+    padding: 64px 0;
+  }
+}
+
+.cooperative-solutions-section {
+  padding: 96px 0;
+  background: linear-gradient(135deg, #afc1d6 0%, #dce7ea 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .cooperative-solutions-section {
+    padding: 64px 0;
+  }
+}
+
+.cooperative-angorasix-section {
+  padding: 96px 0;
+  background: linear-gradient(135deg, #f8fafe 0%, #f0f6fc 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .cooperative-angorasix-section {
+    padding: 64px 0;
+  }
+}
+
+.cooperative-usecases-section {
+  padding: 96px 0;
+  background-color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .cooperative-usecases-section {
+    padding: 64px 0;
+  }
+}
+
+.cooperative-final-cta-section {
+  padding: 96px 0;
+  background: linear-gradient(135deg, #0a2239 0%, #1b5993 100%);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .cooperative-final-cta-section {
+    padding: 64px 0;
   }
 }
 

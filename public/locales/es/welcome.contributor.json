@@ -42,6 +42,10 @@
             "description": "Una estructura con reglas claras, integradas con herramientas de decision y una wallet compartida multi-firma, arbitrada por AngoraSix"
         }
     },
+    "angorasixInAction": {
+        "title": "Descubrí AngoraSix",
+        "subtitle": "Conocé cómo simplificamos la gestión de proyectos colaborativos."
+    },
     "useCases": {
         "title": "Historias como la tuya",
         "freelancer": {

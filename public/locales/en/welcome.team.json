@@ -36,6 +36,10 @@
       "description": "A shared blockchain account linked to your rules and tasks, ensuring every financial decision aligns with what's agreed upon."
     }
   },
+  "angorasixInAction":{
+    "title": "AngoraSix in action",
+    "subtitle": "Discover how our platform transforms project management and collaboration."
+  },
   "useCases": {
     "title": "A suitable solution for your team",
     "partners": {

@@ -6,7 +6,7 @@
   "hero": {
     "title": {
       "part1": "A new kind of entrepreneurship.",
-      "highlight": "One that matters."
+      "highlight": "One that matters"
     },
     "subtitle": "A real alternative to build with meaning. Collaborative, decentralized, leveraging open management models and next-gen technology.",
     "subtitle2": "Join those already shaping the future. Real tools. Real purpose.",
@@ -35,6 +35,10 @@
       "title": "Decentralized decisions and funds",
       "description": "Integrated governance tools and a blockchain-based, multi-signature account — mediated by AngoraSix."
     }
+  },
+  "angorasixInAction":{
+    "title": "AngoraSix in action",
+    "subtitle": "Discover how our platform transforms project management and collaboration."
   },
   "useCases": {
     "title": "It's not for everyone.",

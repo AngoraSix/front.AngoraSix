@@ -42,6 +42,10 @@
       "description": "Clear rules integrated with decision-making tools and a shared multi-signature wallet — all supported and mediated by AngoraSix."
     }
   },
+  "angorasixInAction":{
+    "title": "AngoraSix in action",
+    "subtitle": "Discover how our platform transforms project management and collaboration."
+  },
   "useCases": {
     "title": "Stories like yours",
     "freelancer": {

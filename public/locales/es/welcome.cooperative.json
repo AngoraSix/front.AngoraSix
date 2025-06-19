@@ -36,6 +36,10 @@
       "description": "Integración con herramientas de gobernanza y con una cuenta compartida sobre blockchain, multi-firma y arbitrada por AngoraSix."
     }
   },
+  "angorasixInAction": {
+    "title": "Descubrí AngoraSix",
+    "subtitle": "Conocé cómo simplificamos la gestión de proyectos colaborativos."
+  },
   "useCases": {
     "title": "No es para cualquiera.",
     "opensource": {

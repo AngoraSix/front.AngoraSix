@@ -146,19 +146,47 @@
 }
 
 .sparkles-medium::before {
-  background-image: radial-gradient(2px 2px at 30px 40px, rgba(10, 34, 57, 0.6), transparent),
-    radial-gradient(1px 1px at 50px 80px, rgba(27, 89, 147, 0.5), transparent),
-    radial-gradient(2px 2px at 100px 50px, rgba(175, 193, 214, 0.7), transparent),
+  background-image: radial-gradient(2px 2px at 30px 40px, rgba(27, 89, 147, 0.6), transparent),
+    radial-gradient(1px 1px at 50px 80px, rgba(175, 193, 214, 0.5), transparent),
+    radial-gradient(2px 2px at 100px 50px, rgba(220, 231, 234, 0.7), transparent),
     radial-gradient(1px 1px at 140px 90px, rgba(254, 95, 85, 0.4), transparent),
-    radial-gradient(2px 2px at 170px 40px, rgba(10, 34, 57, 0.8), transparent),
-    radial-gradient(1px 1px at 210px 70px, rgba(27, 89, 147, 0.6), transparent),
-    radial-gradient(2px 2px at 250px 100px, rgba(175, 193, 214, 0.5), transparent),
-    radial-gradient(1px 1px at 290px 30px, rgba(10, 34, 57, 0.7), transparent),
-    radial-gradient(2px 2px at 330px 60px, rgba(27, 89, 147, 0.4), transparent),
-    radial-gradient(1px 1px at 370px 90px, rgba(175, 193, 214, 0.6), transparent);
+    radial-gradient(2px 2px at 170px 40px, rgba(27, 89, 147, 0.8), transparent),
+    radial-gradient(1px 1px at 210px 70px, rgba(175, 193, 214, 0.6), transparent),
+    radial-gradient(2px 2px at 250px 100px, rgba(220, 231, 234, 0.5), transparent),
+    radial-gradient(1px 1px at 290px 30px, rgba(27, 89, 147, 0.7), transparent),
+    radial-gradient(2px 2px at 330px 60px, rgba(175, 193, 214, 0.4), transparent),
+    radial-gradient(1px 1px at 370px 90px, rgba(220, 231, 234, 0.6), transparent);
   background-repeat: repeat;
   background-size: 200px 100px;
   animation: sparkles 8s linear infinite;
+}
+
+.sparkles-subtle::before {
+  background-image: radial-gradient(1px 1px at 35px 45px, rgba(175, 193, 214, 0.4), transparent),
+    radial-gradient(1px 1px at 55px 85px, rgba(220, 231, 234, 0.3), transparent),
+    radial-gradient(1px 1px at 105px 55px, rgba(27, 89, 147, 0.3), transparent),
+    radial-gradient(1px 1px at 145px 95px, rgba(175, 193, 214, 0.2), transparent);
+  background-repeat: repeat;
+  background-size: 200px 100px;
+  animation: sparkles 12s linear infinite;
+}
+
+.sparkles-soft::before {
+  background-image: radial-gradient(2px 2px at 40px 50px, rgba(175, 193, 214, 0.5), transparent),
+    radial-gradient(1px 1px at 60px 90px, rgba(220, 231, 234, 0.4), transparent),
+    radial-gradient(1px 1px at 110px 60px, rgba(27, 89, 147, 0.4), transparent),
+    radial-gradient(2px 2px at 150px 100px, rgba(175, 193, 214, 0.3), transparent);
+  background-repeat: repeat;
+  background-size: 200px 100px;
+  animation: sparkles 10s linear infinite;
+}
+
+.sparkles-minimal::before {
+  background-image: radial-gradient(1px 1px at 45px 55px, rgba(220, 231, 234, 0.3), transparent),
+    radial-gradient(1px 1px at 115px 65px, rgba(175, 193, 214, 0.2), transparent);
+  background-repeat: repeat;
+  background-size: 200px 100px;
+  animation: sparkles 15s linear infinite;
 }
 
 /* Main sparkles animation */
@@ -208,6 +236,89 @@
   100% {
     opacity: 0;
     transform: translateY(-45px) scale(0.7);
+  }
+}
+
+/* Section Backgrounds - Using our palette */
+.manager-hero-section {
+  padding-top: 96px;
+  padding-bottom: 64px;
+  background: linear-gradient(135deg, #0a2239 0%, #1b5993 100%);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .manager-hero-section {
+    padding-top: 48px;
+    padding-bottom: 32px;
+  }
+}
+
+.manager-problems-section {
+  padding: 96px 0;
+  background-color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .manager-problems-section {
+    padding: 64px 0;
+  }
+}
+
+.manager-solutions-section {
+  padding: 96px 0;
+  background: linear-gradient(135deg, #afc1d6 0%, #dce7ea 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .manager-solutions-section {
+    padding: 64px 0;
+  }
+}
+
+.manager-angorasix-section {
+  padding: 96px 0;
+  background: linear-gradient(135deg, #f8fafe 0%, #f0f6fc 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .manager-angorasix-section {
+    padding: 64px 0;
+  }
+}
+
+.manager-usecases-section {
+  padding: 96px 0;
+  background-color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .manager-usecases-section {
+    padding: 64px 0;
+  }
+}
+
+.manager-final-cta-section {
+  padding: 96px 0;
+  background: linear-gradient(135deg, #0a2239 0%, #1b5993 100%);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .manager-final-cta-section {
+    padding: 64px 0;
   }
 }
 

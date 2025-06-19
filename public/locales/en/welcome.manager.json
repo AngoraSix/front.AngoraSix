@@ -41,6 +41,10 @@
       "description": "Employees more committed thanks to real autonomy and clear visibility of the direct benefits of their contributions. Profit-sharing as a flexible payment option."
     }
   },
+  "angorasixInAction":{
+    "title": "AngoraSix in action",
+    "subtitle": "Discover how our platform transforms project management and collaboration."
+  },
   "useCases": {
     "title": "Who benefits?",
     "entrepreneur": {
