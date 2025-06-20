@@ -25,6 +25,25 @@ class SurveysAPI {
     );
     return savedSurvey;
   }
+
+  async fetchSurveyResponse(surveyKey) {
+    const headers = this.axios.getCommonHeaders();
+    const infraHeaders = await obtainInfraHeaders(
+      config.infra,
+      this.axios.getBaseURL()
+    );
+
+    const { data: persistedSurvey } = await this.axios.get(
+      `/${surveyKey}/responses`,
+      {
+        headers: {
+          ...headers,
+          ...infraHeaders,
+        },
+      }
+    );
+    return persistedSurvey;
+  }
 }
 
 export default SurveysAPI;

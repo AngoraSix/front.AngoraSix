@@ -142,6 +142,12 @@ class FrontAPI {
     return data;
   }
 
+  //any object passed as the 'surveyResponseBody' will be persisted as is, no particular structure enforced  
+  async getSurveyResponse(surveyKey) {
+    const { data } = await this.axios.get(`api/surveys/${surveyKey}/responses`);
+    return data;
+  }
+
   async suscribe(email, source = "general", planType = "regular") {
     const response = await this.axios.post(`api/subscribe`, {
       email,
