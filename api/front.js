@@ -142,11 +142,11 @@ class FrontAPI {
     return data;
   }
 
-  async suscribe(email) {
+  async suscribe(email, source = "general", planType = "regular") {
     const response = await this.axios.post(`api/subscribe`, {
       email,
-      source: "landing_cta",
-      planType: "early-bird",
+      source,
+      planType
     }, {
       validateStatus: (status) => {
         return status < 500; // 4xx will be handled

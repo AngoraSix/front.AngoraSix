@@ -2,9 +2,9 @@ import { getFromEnvsOrElse } from "../utils/config";
 
 class MailChimp {
   constructor(env) {
-    this.audienceId = getFromEnvsOrElse(env, 'MAILCHIMP_AUDIENCE_ID', 'mailchimp-audience-id');
-    this.apiKey = getFromEnvsOrElse(env, 'MAILCHIMP_API_KEY', 'mailchimp-api-key');
-    this.serverPrefix = getFromEnvsOrElse(env, 'MAILCHIMP_SERVER_PREFIX', 'mailchimp-server-prefix');
+    this.audienceId = getFromEnvsOrElse(env, 'A6_APP_MAILCHIMP_AUDIENCE_ID', 'mailchimp-audience-id');
+    this.apiKey = getFromEnvsOrElse(env, 'A6_APP_MAILCHIMP_API_KEY', 'mailchimp-api-key');
+    this.serverPrefix = getFromEnvsOrElse(env, 'A6_APP_MAILCHIMP_SERVER_PREFIX', 'mailchimp-server-prefix');
   }
 }
 
