@@ -1,6 +1,8 @@
 import { SessionProvider as NextAuthProvider } from 'next-auth/react';
 import { appWithTranslation } from 'next-i18next';
+import { useRouter } from "next/router";
 import PropTypes from 'prop-types';
+import { useEffect } from 'react';
 import { Provider as ReduxProvider } from 'react-redux';
 import { createStore } from 'redux';
 import api from '../api';
@@ -27,6 +29,7 @@ import '../styles/WelcomeCooperative.css';
 import '../styles/WelcomeLanding.css';
 import '../styles/WelcomeManager.css';
 import '../styles/WelcomeTeam.css';
+import { trackPageView } from "../utils/analytics";
 import { getPublicEnv, removeSecrets } from '../utils/env';
 global.EventSource = require('eventsource');
 
@@ -35,6 +38,24 @@ const AngoraSixWebApp = ({ Component, pageProps, preloadedState, env }) => {
 
   config.applyEnvConfig(env);
   api.applyEnvConfig(env);
+
+  const router = useRouter()
+
+  useEffect(() => {
+    const handleRouteChange = (url) => {
+      trackPageView(url)
+    }
+
+    // Track initial page load
+    trackPageView(router.asPath)
+
+    // Track route changes
+    router.events.on("routeChangeComplete", handleRouteChange)
+
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChange)
+    }
+  }, [router.events, router.asPath])
 
   return (
     <ReduxProvider store={store}>

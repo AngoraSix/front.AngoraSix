@@ -1,11 +1,9 @@
-import { getFromEnvsOrElse } from "../utils/config";
+import { getFromEnvsOrElse } from "../utils/config"
 
 class Google {
-    constructor(env) {
-        this.measurementId = getFromEnvsOrElse(env, 'NEXT_PUBLIC_GA_MEASUREMENT_ID', 'google-measurement-id');
-        this.conversionLabel = getFromEnvsOrElse(env, 'NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL', 'google-conversion-label');
-        this.conversionId = getFromEnvsOrElse(env, 'NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID', 'google-conversion-id');
-    }
+  constructor(env) {
+    this.analyticsPropertyId = getFromEnvsOrElse(env, "A6_PUBLIC_APP_GOOGLE_GA_PROPERTY_ID", "google-analytics-property-id")
+  }
 }
 
-export default Google;
+export default Google
