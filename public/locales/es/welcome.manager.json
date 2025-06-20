@@ -1,6 +1,6 @@
 {
   "page": {
-    "title": "AngoraSix - Una nueva gestión: proyectos auto-administrados con control total",
+    "title": "AngoraSix — Una nueva gestión: proyectos auto-administrados con control total",
     "description": "Definí las reglas y delegá sin complicaciones — nuestro marco de gestión descentralizada se encarga de todo con transparencia, para que no tengas que ocuparte de los detalles."
   },
   "hero": {
@@ -9,7 +9,7 @@
       "highlight": "con control total"
     },
     "subtitle": "Definí las reglas y delegá sin complicaciones — nuestro marco de gestión descentralizada se encarga de todo con transparencia, para que no tengas que ocuparte de los detalles.",
-    "cta": "Empezá Gratis",
+    "cta": "Empezá gratis",
     "subtitle2": "Administrá sin supervisar"
   },
   "problems": {
@@ -69,6 +69,6 @@
       "highlight": "con control total y sin fricciones"
     },
     "subtitle": "Implementá una forma innovadora de delegar tareas, con reglas claras, control de gastos y transparencia desde el inicio.",
-    "cta": "Arrancá Gratis"
+    "cta": "Probar gratis"
   }
 }

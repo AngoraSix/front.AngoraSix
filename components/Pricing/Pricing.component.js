@@ -24,7 +24,7 @@ import {
 import { Check, Star, RocketLaunch, AutoAwesome } from "@mui/icons-material"
 import CountdownTimer from "../common/CountdownTimer"
 import { ROUTES } from "../../constants/constants"
-import SharedNavbar from "../common/SharedNavbar"
+import { trackFreePlanClick, trackPlusPlanClick } from "../../utils/analytics"
 
 const PricingComponent = () => {
   const { t } = useTranslation("pricing")
@@ -37,13 +37,11 @@ const PricingComponent = () => {
   launchDate.setDate(launchDate.getDate() + 30)
 
   const handlePlanSelect = (planType) => {
-    // Track event for analytics
-    if (typeof window !== "undefined" && typeof window.gtag !== "undefined") {
-      window.gtag("event", "plan_selected", {
-        event_category: "pricing",
-        event_label: planType,
-        value: planType === "plus" ? 1 : 0,
-      })
+    // Track plan selection before redirect
+    if (planType === "free") {
+      trackFreePlanClick()
+    } else if (planType === "plus") {
+      trackPlusPlanClick()
     }
 
     setSelectedPlan(planType)

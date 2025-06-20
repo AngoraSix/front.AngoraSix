@@ -12,6 +12,7 @@ import {
   Language as LanguageIcon,
   KeyboardArrowDown,
 } from "@mui/icons-material"
+import { trackExploreOptionsClick } from "../../../utils/analytics"
 
 const WelcomeLanding = () => {
   const { t } = useTranslation("welcome")
@@ -65,6 +66,9 @@ const WelcomeLanding = () => {
   }
 
   const scrollToSection = () => {
+    // Track explore options click
+    trackExploreOptionsClick()
+
     window.scrollTo({
       top: window.innerHeight * 1, // Scroll to 100vh where second section starts
       behavior: "smooth",

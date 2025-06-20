@@ -1,18 +1,17 @@
 "use client"
 
-import { Groups, Security, Visibility, AccountBalance, RocketLaunch, People, Diversity3 } from "@mui/icons-material"
-import { Box, Button, Card, Container, Grid, Typography, useMediaQuery, useTheme, Fade, Grow } from "@mui/material"
+import { AccountBalance, Diversity3, Groups, People, RocketLaunch, Security, Visibility } from "@mui/icons-material"
+import { Box, Button, Card, Container, Fade, Grid, Grow, Typography, useTheme } from "@mui/material"
 import { useTranslation } from "next-i18next"
 import Head from "next/head"
 import { useRouter } from "next/router"
-import { useState, useEffect } from "react"
-import { trackEvent } from "../../../utils/analytics"
+import { useEffect, useState } from "react"
+import { trackLandingCTAClick } from "../../../utils/analytics"
 import SharedNavbar from "../../common/SharedNavbar"
 
 const TeamLanding = () => {
   const { t } = useTranslation("welcome.team")
   const theme = useTheme()
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"))
   const router = useRouter()
   const [visibleSections, setVisibleSections] = useState({})
 
@@ -37,11 +36,11 @@ const TeamLanding = () => {
     return () => observer.disconnect()
   }, [])
 
-  const handleStartBuilding = () => {
-    trackEvent("team_start_building_clicked", {
-      event_category: "conversion",
-      event_label: "team_landing",
-    })
+
+  const handleRegister = (ctaText) => () => {
+    // Track CTA click before redirect
+    trackLandingCTAClick("venture", ctaText)
+
     router.push("/welcome/post-registration")
   }
 
@@ -192,7 +191,7 @@ const TeamLanding = () => {
 
             <Fade in timeout={2000}>
               <Box className="hero-cta-box">
-                <Button variant="contained" size="large" onClick={handleStartBuilding} className="hero-cta-button">
+                <Button variant="contained" size="large" onClick={handleRegister(t("hero.cta"))} className="hero-cta-button">
                   {t("hero.cta")}
                 </Button>
               </Box>
@@ -372,7 +371,7 @@ const TeamLanding = () => {
             <Typography variant="h6" className="final-cta-subtitle">
               {t("finalCta.subtitle")}
             </Typography>
-            <Button variant="contained" size="large" onClick={handleStartBuilding} className="final-cta-button">
+            <Button variant="contained" size="large" onClick={handleRegister(t("finalCta.cta"))} className="final-cta-button">
               {t("finalCta.cta")}
             </Button>
           </Box>

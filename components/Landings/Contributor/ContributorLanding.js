@@ -14,18 +14,14 @@ import { useTranslation } from "next-i18next"
 import Head from "next/head"
 import { useRouter } from "next/router"
 import { useState, useEffect } from "react"
-import { trackEvent } from "../../../utils/analytics"
+import { trackLandingCTAClick } from "../../../utils/analytics"
 import SharedNavbar from "../../common/SharedNavbar"
 
 const ContributorLanding = () => {
   const { t } = useTranslation("welcome.contributor")
   const theme = useTheme()
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"))
   const router = useRouter()
   const [visibleSections, setVisibleSections] = useState({})
-  const [email, setEmail] = useState("")
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitted, setSubmitted] = useState(false)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -48,12 +44,11 @@ const ContributorLanding = () => {
     return () => observer.disconnect()
   }, [])
 
-  const handleJoinWaitlist = () => {
-    trackEvent("contributor_join_waitlist_clicked", {
-      event_category: "conversion",
-      event_label: "contributor_landing",
-    })
-    router.push("/welcome/contributor/post-registration")
+  const handleRegister = (ctaText) => () => {
+    // Track CTA click before redirect
+    trackLandingCTAClick("contributor", ctaText)
+
+    router.push("/welcome/post-registration")
   }
 
   const problems = [
@@ -200,7 +195,7 @@ const ContributorLanding = () => {
                 <Button
                   variant="contained"
                   size="large"
-                  onClick={handleJoinWaitlist}
+                  onClick={handleRegister(t("hero.cta"))}
                   sx={{
                     backgroundColor: theme.palette.secondary.main,
                     color: "white",
@@ -601,7 +596,7 @@ const ContributorLanding = () => {
             <Button
               variant="contained"
               size="large"
-              onClick={handleJoinWaitlist}
+              onClick={handleRegister(t("finalCta.cta"))}
               sx={{
                 backgroundColor: theme.palette.secondary.main,
                 color: "white",

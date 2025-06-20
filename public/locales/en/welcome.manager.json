@@ -1,7 +1,7 @@
 {
   "page": {
-    "title": "AngoraSix - Manager: Delegate Without Losing Control",
-    "description": "Blockchain-based management to delegate tasks while retaining full control, with AI assistance and transparent collaboration."
+    "title": "AngoraSix — A new way to manage: self-running projects — On your terms",
+    "description": "Define the rules and delegate effortlessly — our decentralized management framework handles everything transparently, freeing you from the details."
   },
   "hero": {
     "title": {
@@ -9,7 +9,7 @@
       "highlight": "On your terms"
     },
     "subtitle": "Define the rules and delegate effortlessly — our decentralized management framework handles everything transparently, freeing you from the details.",
-    "cta": "Start free",
+    "cta": "Start Free",
     "subtitle2": "Manage without micromanaging"
   },
   "problems": {
@@ -69,6 +69,6 @@
       "highlight": "with total control and no friction"
     },
     "subtitle": "Implement an innovative approach to delegating tasks with clear rules, spending control, and transparency from day one.",
-    "cta": "Start Free"
+    "cta": "Try It Free"
   }
 }

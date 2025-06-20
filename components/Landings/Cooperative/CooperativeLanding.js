@@ -1,18 +1,17 @@
 "use client"
 
-import { Groups, ChecklistRtl, Merge, Public, TouchApp, Stars } from "@mui/icons-material"
-import { Box, Button, Card, Container, Grid, Typography, useMediaQuery, useTheme, Fade, Grow } from "@mui/material"
+import { ChecklistRtl, Groups, Merge, Public, Stars, TouchApp } from "@mui/icons-material"
+import { Box, Button, Card, Container, Fade, Grid, Grow, Typography, useTheme } from "@mui/material"
 import { useTranslation } from "next-i18next"
 import Head from "next/head"
 import { useRouter } from "next/router"
-import { useState, useEffect } from "react"
-import { trackEvent } from "../../../utils/analytics"
+import { useEffect, useState } from "react"
+import { trackLandingCTAClick } from "../../../utils/analytics"
 import SharedNavbar from "../../common/SharedNavbar"
 
 const CooperativeLanding = () => {
   const { t } = useTranslation("welcome.cooperative")
   const theme = useTheme()
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"))
   const router = useRouter()
   const [visibleSections, setVisibleSections] = useState({})
 
@@ -37,12 +36,11 @@ const CooperativeLanding = () => {
     return () => observer.disconnect()
   }, [])
 
-  const handleStartBuilding = () => {
-    trackEvent("cooperative_start_building_clicked", {
-      event_category: "conversion",
-      event_label: "cooperative_landing",
-    })
-    router.push("/welcome/cooperative/post-registration")
+  const handleRegister = (ctaText) => () => {
+    // Track CTA click before redirect
+    trackLandingCTAClick("cooperative", ctaText)
+
+    router.push("/welcome/post-registration")
   }
 
   const problems = [
@@ -170,7 +168,7 @@ const CooperativeLanding = () => {
                 <Button
                   variant="contained"
                   size="large"
-                  onClick={handleStartBuilding}
+                  onClick={handleRegister(t("hero.cta"))}
                   sx={{
                     backgroundColor: theme.palette.secondary.main,
                     color: "white",
@@ -544,7 +542,7 @@ const CooperativeLanding = () => {
             <Button
               variant="contained"
               size="large"
-              onClick={handleStartBuilding}
+              onClick={handleRegister(t("finalCta.cta"))}
               sx={{
                 backgroundColor: theme.palette.secondary.main,
                 color: "white",

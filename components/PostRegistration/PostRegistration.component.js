@@ -22,9 +22,9 @@ import {
   Checkbox,
   Container,
   Dialog,
-  DialogActions,
-  DialogContent,
-  DialogTitle,
+  DialogActions, // Added DialogActions import
+  DialogContent, // Added DialogContent import
+  DialogTitle, // Added DialogTitle import
   FormControlLabel,
   Grid,
   IconButton,
@@ -36,7 +36,13 @@ import { useTranslation } from "next-i18next"
 import Head from "next/head"
 import { useEffect, useState } from "react"
 import api from "../../api"
-import { trackEvent } from "../../utils/analytics"
+import {
+  trackBetaDialogOpen,
+  trackBetaFormSubmit,
+  trackNewsletterSignupClick,
+  trackContactMessageSubmit,
+  trackSocialFollowClick,
+} from "../../utils/analytics"
 
 const PostRegistration = () => {
   const { t } = useTranslation("post-registration")
@@ -89,11 +95,10 @@ const PostRegistration = () => {
     e.preventDefault()
     if (!subscribeNewsletter) return
 
+    // Track newsletter signup click
+    trackNewsletterSignupClick()
+
     setIsSubmittingNewsletter(true)
-    trackEvent("newsletter_subscribed", {
-      event_category: "engagement",
-      event_label: "post_registration",
-    })
 
     try {
       await api.front.suscribe(email)
@@ -109,10 +114,8 @@ const PostRegistration = () => {
     e.preventDefault()
     setIsSubmittingMessage(true)
 
-    trackEvent("contact_message_sent", {
-      event_category: "engagement",
-      event_label: "post_registration",
-    })
+    // Track contact message submit
+    trackContactMessageSubmit()
 
     try {
       await api.surveys.create({
@@ -132,14 +135,18 @@ const PostRegistration = () => {
     }
   }
 
+  const handleBetaDialogOpenClick = () => {
+    // Track beta dialog opening
+    trackBetaDialogOpen()
+    setBetaDialogOpen(true)
+  }
+
   const handleBetaSubmit = async (e) => {
     e.preventDefault()
     setIsSubmittingBeta(true)
 
-    trackEvent("beta_program_applied", {
-      event_category: "engagement",
-      event_label: "post_registration",
-    })
+    // Track beta form submission
+    trackBetaFormSubmit()
 
     try {
       await api.surveys.create({
@@ -157,6 +164,11 @@ const PostRegistration = () => {
     } finally {
       setIsSubmittingBeta(false)
     }
+  }
+
+  const handleSocialClick = (platform) => {
+    // Track social follow click
+    trackSocialFollowClick(platform.toLowerCase())
   }
 
   const socialLinks = [
@@ -241,7 +253,7 @@ const PostRegistration = () => {
                         <Button
                           variant="contained"
                           size="large"
-                          onClick={() => setBetaDialogOpen(true)}
+                          onClick={handleBetaDialogOpenClick}
                           className="beta-button"
                           startIcon={<Star />}
                         >
@@ -402,12 +414,7 @@ const PostRegistration = () => {
                           rel="noopener noreferrer"
                           className="social-icon"
                           size="small"
-                          onClick={() =>
-                            trackEvent("social_link_clicked", {
-                              event_category: "engagement",
-                              event_label: social.name.toLowerCase(),
-                            })
-                          }
+                          onClick={() => handleSocialClick(social.name)}
                         >
                           {social.icon}
                         </IconButton>

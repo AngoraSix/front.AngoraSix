@@ -1,6 +1,6 @@
 {
   "page": {
-    "title": "AngoraSix Cooperativo - Que emprender signifique algo",
+    "title": "AngoraSix — Que emprender signifique algo",
     "description": "Un camino alternativo para llevar adelante tu idea. Colaborativamente, descentralizado, usando un modelo de gestión abierto y tecnología de próxima generación."
   },
   "hero": {
@@ -10,7 +10,7 @@
     },
     "subtitle": "Un camino alternativo para llevar adelante tu idea. Colaborativamente, descentralizado, usando un modelo de gestión abierto y tecnología de próxima generación.",
     "subtitle2": "Sumate a quienes ya están construyendo el futuro. Con herramientas reales. Con propósito.",
-    "cta": "Empezar a Construir"
+    "cta": "Empezar a construir"
   },
   "problems": {
     "title": "¿Sentís que el mundo empresarial no encaja con la solución que querés brindar?",
@@ -61,6 +61,6 @@
       "highlight": "Con herramientas reales. Con propósito"
     },
     "subtitle": "¿Qué es lo mejor que podés hacer por este mundo? Nosotros te ayudamos.",
-    "cta": "Empezar a Construir"
+    "cta": "Me sumo"
   }
 }

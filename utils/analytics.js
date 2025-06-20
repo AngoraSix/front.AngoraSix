@@ -1,4 +1,4 @@
-// Enhanced utility functions for Google Analytics and Google Ads tracking
+// Utility functions for Google Analytics GA4 tracking
 import config from "../config"
 
 /**
@@ -6,7 +6,7 @@ import config from "../config"
  * @param {string} url - The URL to track
  */
 export const trackPageView = (url) => {
-  if (typeof window !== "undefined" && typeof window.gtag !== "undefined") {
+  if (typeof window !== "undefined" && typeof window.gtag !== "undefined" && config.google.analyticsPropertyId) {
     window.gtag("config", config.google.analyticsPropertyId, {
       page_path: url,
     })
@@ -19,221 +19,121 @@ export const trackPageView = (url) => {
  * @param {object} parameters - Event parameters
  */
 export const trackEvent = (eventName, parameters = {}) => {
-  if (typeof window !== "undefined" && typeof window.gtag !== "undefined") {
+  if (typeof window !== "undefined" && typeof window.gtag !== "undefined" && config.google.analyticsPropertyId) {
     window.gtag("event", eventName, parameters)
   }
 }
 
-/**
- * Track a conversion in Google Ads
- * @param {string} conversionLabel - The conversion label
- */
-export const trackConversion = (conversionLabel = config.google.conversionLabel) => {
-  if (typeof window !== "undefined" && typeof window.gtag !== "undefined" && config.google.conversionId) {
-    window.gtag("event", "conversion", {
-      send_to: `${config.google.conversionId}/${conversionLabel}`,
-    })
-  }
-}
+// ===== WELCOME LANDING EVENTS =====
 
 /**
- * Track a signup conversion
+ * Track explore options button click
  */
-export const trackSignupConversion = () => {
-  trackConversion(config.google.conversionLabel)
-  trackEvent("sign_up", {
-    method: "Google",
+export const trackExploreOptionsClick = () => {
+  trackEvent("explore_options_click", {
     event_category: "engagement",
+    event_label: "welcome_landing",
+    page_location: "hero_section",
   })
 }
 
-/**
- * Track a countdown interaction
- * @param {string} location - Where the countdown is located
- */
-export const trackCountdownInteraction = (location) => {
-  trackEvent("countdown_interaction", {
-    event_category: "engagement",
-    event_label: location,
-  })
-}
+// ===== LANDING PAGES EVENTS =====
 
 /**
- * Track a CTA click
- * @param {string} ctaText - The text of the CTA
- * @param {string} location - Where the CTA is located
+ * Track CTA clicks that lead to registration/login
+ * @param {string} landingType - Type of landing (contributor, cooperative, manager, team)
+ * @param {string} ctaText - Text of the CTA button
  */
-export const trackCTAClick = (ctaText, location) => {
-  trackEvent("cta_click", {
-    event_category: "engagement",
-    event_label: ctaText,
-    location: location,
-  })
-}
-
-/**
- * Track form submissions
- * @param {string} formName - Name of the form
- * @param {string} formLocation - Where the form is located
- */
-export const trackFormSubmission = (formName, formLocation) => {
-  trackEvent("form_submit", {
-    event_category: "engagement",
-    event_label: formName,
-    form_location: formLocation,
-  })
-}
-
-/**
- * Track newsletter signups
- * @param {string} location - Where the signup occurred
- */
-export const trackNewsletterSignup = (location) => {
-  trackEvent("newsletter_signup", {
-    event_category: "engagement",
-    event_label: "newsletter",
-    signup_location: location,
-  })
-}
-
-/**
- * Track beta program applications
- * @param {string} location - Where the application occurred
- */
-export const trackBetaApplication = (location) => {
-  trackEvent("beta_application", {
-    event_category: "engagement",
-    event_label: "beta_program",
-    application_location: location,
-  })
-}
-
-/**
- * Track social media clicks
- * @param {string} platform - Social media platform
- * @param {string} location - Where the click occurred
- */
-export const trackSocialClick = (platform, location) => {
-  trackEvent("social_click", {
-    event_category: "engagement",
-    event_label: platform,
-    click_location: location,
-  })
-}
-
-/**
- * Track landing page interactions
- * @param {string} landingType - Type of landing page (contributor, manager, etc.)
- * @param {string} action - Action taken
- */
-export const trackLandingInteraction = (landingType, action) => {
-  trackEvent("landing_interaction", {
-    event_category: "landing_pages",
+export const trackLandingCTAClick = (landingType, ctaText) => {
+  trackEvent("landing_cta_click", {
+    event_category: "conversion",
     event_label: landingType,
-    action: action,
+    cta_text: ctaText,
+    conversion_intent: "registration",
+  })
+}
+
+// ===== PRICING EVENTS =====
+
+/**
+ * Track free plan selection
+ */
+export const trackFreePlanClick = () => {
+  trackEvent("plan_selection", {
+    event_category: "conversion",
+    event_label: "free_plan",
+    plan_type: "free",
+    conversion_intent: "registration",
   })
 }
 
 /**
- * Track authentication events
- * @param {string} action - Auth action (login, logout, register)
- * @param {string} method - Auth method (google, email, etc.)
+ * Track plus/premium plan selection
  */
-export const trackAuthEvent = (action, method = "unknown") => {
-  trackEvent(action, {
-    event_category: "authentication",
-    method: method,
+export const trackPlusPlanClick = () => {
+  trackEvent("plan_selection", {
+    event_category: "conversion",
+    event_label: "plus_plan",
+    plan_type: "plus",
+    conversion_intent: "registration",
+  })
+}
+
+// ===== POST-REGISTRATION EVENTS =====
+
+/**
+ * Track beta dialog opening
+ */
+export const trackBetaDialogOpen = () => {
+  trackEvent("beta_dialog_open", {
+    event_category: "engagement",
+    event_label: "post_registration",
+    dialog_type: "beta_program",
   })
 }
 
 /**
- * Track project management actions
- * @param {string} action - Management action
- * @param {string} projectType - Type of project
+ * Track beta form submission
  */
-export const trackProjectManagement = (action, projectType) => {
-  trackEvent("project_management", {
-    event_category: "project_actions",
-    event_label: action,
-    project_type: projectType,
+export const trackBetaFormSubmit = () => {
+  trackEvent("beta_form_submit", {
+    event_category: "conversion",
+    event_label: "post_registration",
+    form_type: "beta_application",
   })
 }
 
 /**
- * Track integration events
- * @param {string} integration - Integration type (trello, github, etc.)
- * @param {string} action - Action taken
+ * Track newsletter signup click
  */
-export const trackIntegrationEvent = (integration, action) => {
-  trackEvent("integration_event", {
-    event_category: "integrations",
-    event_label: integration,
-    action: action,
+export const trackNewsletterSignupClick = () => {
+  trackEvent("newsletter_signup_click", {
+    event_category: "engagement",
+    event_label: "post_registration",
+    signup_type: "newsletter",
   })
 }
 
 /**
- * Track user engagement time
- * @param {number} timeSpent - Time spent in seconds
- * @param {string} page - Page where time was spent
+ * Track contact message submit
  */
-export const trackEngagementTime = (timeSpent, page) => {
-  trackEvent("engagement_time", {
-    event_category: "user_engagement",
-    value: timeSpent,
-    custom_parameter_page: page,
+export const trackContactMessageSubmit = () => {
+  trackEvent("contact_message_submit", {
+    event_category: "engagement",
+    event_label: "post_registration",
+    form_type: "contact_message",
   })
 }
 
 /**
- * Track scroll depth
- * @param {number} scrollPercentage - Percentage scrolled
- * @param {string} page - Page where scrolling occurred
+ * Track social media follow clicks
+ * @param {string} platform - Social platform (linkedin, instagram, github, youtube)
  */
-export const trackScrollDepth = (scrollPercentage, page) => {
-  trackEvent("scroll", {
-    event_category: "user_engagement",
-    event_label: `${scrollPercentage}%`,
-    page: page,
-  })
-}
-
-/**
- * Track file downloads
- * @param {string} fileName - Name of downloaded file
- * @param {string} fileType - Type of file
- */
-export const trackFileDownload = (fileName, fileType) => {
-  trackEvent("file_download", {
-    event_category: "downloads",
-    event_label: fileName,
-    file_type: fileType,
-  })
-}
-
-/**
- * Track search events
- * @param {string} searchTerm - What was searched
- * @param {string} location - Where search occurred
- */
-export const trackSearch = (searchTerm, location) => {
-  trackEvent("search", {
-    event_category: "site_search",
-    search_term: searchTerm,
-    search_location: location,
-  })
-}
-
-/**
- * Track error events
- * @param {string} errorType - Type of error
- * @param {string} errorMessage - Error message
- * @param {string} page - Page where error occurred
- */
-export const trackError = (errorType, errorMessage, page) => {
-  trackEvent("exception", {
-    description: `${errorType}: ${errorMessage}`,
-    fatal: false,
-    page: page,
+export const trackSocialFollowClick = (platform) => {
+  trackEvent("social_follow_click", {
+    event_category: "engagement",
+    event_label: "post_registration",
+    social_platform: platform,
+    action_type: "follow",
   })
 }

@@ -1,20 +1,20 @@
 "use client"
 
 import {
+  AutoAwesome,
   FavoriteBorder as FavoriteOutlined,
+  Handshake,
+  Psychology,
+  Security,
   TrendingUp,
   WorkspacePremium,
-  Handshake,
-  Security,
-  Psychology,
-  AutoAwesome,
 } from "@mui/icons-material"
-import { Box, Button, Container, Grid, Typography, useMediaQuery, useTheme, Fade, Grow } from "@mui/material"
+import { Box, Button, Container, Fade, Grid, Grow, Typography, useMediaQuery, useTheme } from "@mui/material"
 import { useTranslation } from "next-i18next"
 import Head from "next/head"
 import { useRouter } from "next/router"
-import { useState, useEffect } from "react"
-import { trackEvent } from "../../../utils/analytics"
+import { useEffect, useState } from "react"
+import { trackLandingCTAClick } from "../../../utils/analytics"
 import SharedNavbar from "../../common/SharedNavbar"
 
 const ManagerLanding = () => {
@@ -45,12 +45,11 @@ const ManagerLanding = () => {
     return () => observer.disconnect()
   }, [])
 
-  const handleJoinWaitlist = () => {
-    trackEvent("manager_join_waitlist_clicked", {
-      event_category: "conversion",
-      event_label: "manager_landing",
-    })
-    router.push("/welcome/manager/post-registration")
+  const handleRegister = (ctaText) => () => {
+    // Track CTA click before redirect
+    trackLandingCTAClick("manager", ctaText)
+
+    router.push("/welcome/post-registration")
   }
 
   const problems = [
@@ -196,7 +195,7 @@ const ManagerLanding = () => {
                 <Button
                   variant="contained"
                   size="large"
-                  onClick={handleJoinWaitlist}
+                  onClick={handleRegister(t("hero.cta"))}
                   sx={{
                     backgroundColor: theme.palette.secondary.main,
                     color: "white",
@@ -603,7 +602,7 @@ const ManagerLanding = () => {
             <Button
               variant="contained"
               size="large"
-              onClick={handleJoinWaitlist}
+              onClick={handleRegister(t("finalCta.cta"))}
               sx={{
                 backgroundColor: theme.palette.secondary.main,
                 color: "white",

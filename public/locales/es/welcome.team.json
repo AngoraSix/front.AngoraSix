@@ -1,6 +1,6 @@
 {
   "page": {
-    "title": "AngoraSix - Tu emprendimiento está creciendo.Garantizá que siga así",
+    "title": "AngoraSix — Tu emprendimiento está creciendo. Garantizá que siga así",
     "description": "Potenciá tu gestión con blockchain, sin complicaciones: Acuerdos internos transparentes y trackeo de aportes, todo integrado con una wallet compartida."
   },
   "hero": {
@@ -10,7 +10,7 @@
     },
     "subtitle": "Potenciá tu gestión con blockchain, sin complicaciones: Acuerdos internos transparentes y trackeo de aportes, todo integrado con una wallet compartida.",
     "subtitle2": "Consenso claro. Sin conflictos. Sencillo y compatible con las herramientas que ya usás.",
-    "cta": "Empezar Gratis"
+    "cta": "Empezar gratis"
   },
   "problems": {
     "title": "¿Tu modelo de gestión puede acompañar el crecimiento de tu emprendimiento?",
@@ -61,6 +61,6 @@
       "highlight": "Gestioná con claridad desde el principio"
     },
     "subtitle": "Sumate a los equipos que ya están construyendo con herramientas de nueva generación.",
-    "cta": "Empezar Gratis"
+    "cta": "Empezar a construir"
   }
 }

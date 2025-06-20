@@ -1,7 +1,7 @@
 {
   "page": {
-    "title": "AngoraSix - Take Your Project to the Next Level",
-    "description": "Your venture is growing. Leverage an innovative, transparent approach tailored to modern ways of building."
+    "title": "AngoraSix — Your venture is growing. Make sure it stays that way",
+    "description": "Enhance your management with blockchain, hassle-free: Transparent internal agreements and contribution tracking, all integrated into a shared wallet."
   },
   "hero": {
     "title": {
@@ -61,6 +61,6 @@
       "highlight": "Manage clearly from the start"
     },
     "subtitle": "Join teams already building with next-generation tools.",
-    "cta": "Start Free"
+    "cta": "Start Building"
   }
 }
