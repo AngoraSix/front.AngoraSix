@@ -24,24 +24,64 @@
       "seconds": "Seconds"
     },
     "apply": "Apply for Beta",
-    "success": "Application Submitted!"
+    "success": "Application Submitted!",
+    "alreadyApplied": "Thanks for applying! We'll be in touch soon."
   },
   "betaDialog": {
     "title": "Beta Program Application",
-    "subtitle": "Tell us about yourself and why you'd be a great beta tester",
+    "subtitle": "Tell us about your interest in AngoraSix to see if you're a good fit for our beta program",
     "fields": {
-      "name": "Full Name",
-      "email": "Email Address",
-      "company": "Company/Organization",
-      "role": "Your Role",
-      "experience": "Project Management Experience",
-      "experiencePlaceholder": "Tell us about your experience with project management tools...",
-      "motivation": "Why do you want to join our beta program?",
-      "motivationPlaceholder": "What excites you about AngoraSix? How would you use it?"
+      "interests": "What interests you about using AngoraSix?",
+      "description": "Tell us more about your case to see if you match our Beta program",
+      "descriptionPlaceholder": "Tell us about your situation, why you want to join the beta program, your expectations with AngoraSix, what type of projects you work on, etc.",
+      "contactMethod": "How would you like us to contact you?",
+      "phoneNumber": "Phone Number",
+      "phonePlaceholder": "+1 (555) 123-4567",
+      "otherInterest": "Please specify your other interest",
+      "consent": "I agree to be contacted for updates and to participate in the Beta program"
+    },
+    "interests": {
+      "entrepreneur": {
+        "title": "Entrepreneurship",
+        "description": "I'm starting a business and want a clear, transparent way to organize my team."
+      },
+      "collaboration": {
+        "title": "Fair Collaboration",
+        "description": "I'm interested in creating or participating in a more fair and decentralized collaboration model."
+      },
+      "contributor": {
+        "title": "Meaningful Work",
+        "description": "I want to join meaningful projects and make a living from it, with clear rules."
+      },
+      "management": {
+        "title": "Efficient Management",
+        "description": "I want to delegate and organize efficiently, without losing control over management."
+      },
+      "curious": {
+        "title": "Explore AngoraSix",
+        "description": "I'm curious about AngoraSix's approach and want to explore it."
+      },
+      "other": {
+        "title": "Other",
+        "description": "I have a different reason (please specify below)"
+      }
+    },
+    "contact": {
+      "email": "Email",
+      "phone": "Phone Call",
+      "whatsapp": "WhatsApp"
+    },
+    "errors": {
+      "interestsRequired": "Please select at least one interest",
+      "otherInterestRequired": "Please specify your other interest",
+      "descriptionRequired": "Please tell us more about your case",
+      "phoneRequired": "Phone number is required for this contact method",
+      "consentRequired": "You must agree to be contacted to participate in the beta program"
     },
     "cancel": "Cancel",
     "submit": "Submit Application",
-    "submitting": "Submitting..."
+    "submitting": "Submitting...",
+    "successMessage": "Thanks for applying! We'll be in touch soon."
   },
   "newsletter": {
     "title": "Stay Updated",

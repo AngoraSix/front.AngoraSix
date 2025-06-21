@@ -6,11 +6,12 @@ class SurveysAPI {
     this.axios = axiosInstance;
   }
 
-  async saveSurveyResponse(surveyResponse, surveyKey) {
+  async saveSurveyResponse(surveyResponse, surveyKey, token) {
     const headers = this.axios.getCommonHeaders();
+    const authHeaders = this.axios.getAuthorizationHeaders(token, false);
     const infraHeaders = await obtainInfraHeaders(
       config.infra,
-      this.axios.getBaseURL()
+      config.api.serverBaseURL
     );
 
     const { data: savedSurvey } = await this.axios.post(
@@ -19,6 +20,7 @@ class SurveysAPI {
       {
         headers: {
           ...headers,
+          ...authHeaders,
           ...infraHeaders,
         },
       }
@@ -26,11 +28,12 @@ class SurveysAPI {
     return savedSurvey;
   }
 
-  async fetchSurveyResponse(surveyKey) {
+  async fetchSurveyResponse(surveyKey, token) {
     const headers = this.axios.getCommonHeaders();
+    const authHeaders = this.axios.getAuthorizationHeaders(token, false);
     const infraHeaders = await obtainInfraHeaders(
       config.infra,
-      this.axios.getBaseURL()
+      config.api.serverBaseURL
     );
 
     const { data: persistedSurvey } = await this.axios.get(
@@ -38,6 +41,7 @@ class SurveysAPI {
       {
         headers: {
           ...headers,
+          ...authHeaders,
           ...infraHeaders,
         },
       }

@@ -1,65 +1,105 @@
 {
   "page": {
     "title": "¡Bienvenido a AngoraSix!",
-    "description": "Gracias por unirte a AngoraSix. Estamos emocionados de tenerte en nuestra comunidad."
+    "description": "Gracias por unirte a AngoraSix. Nos alegra tenerte en nuestra comunidad."
   },
   "welcome": {
     "title": "¡Bienvenido a AngoraSix!",
-    "subtitle": "Ahora eres parte de nuestra comunidad. Prepárate para transformar cómo gestionas proyectos colaborativos."
+    "subtitle": "Ahora sos parte de nuestra comunidad. Preparate para transformar la forma en que gestionás proyectos colaborativos."
   },
   "beta": {
-    "title": "Únete a Nuestro Programa Beta",
-    "description": "Sé uno de los primeros en probar AngoraSix y ayuda a dar forma a su desarrollo.",
+    "title": "Sumate al Programa Beta",
+    "description": "Sé de las primeras personas en probar AngoraSix y ayudanos a mejorar la plataforma.",
     "benefits": {
-      "exclusive": "Acceso Temprano",
-      "influence": "Influir Funciones",
+      "exclusive": "Acceso Anticipado",
+      "influence": "Ayudá a Definir Funcionalidades",
       "priority": "Soporte Directo",
       "lifetime": "Beneficios Especiales"
     },
     "countdown": {
-      "title": "El Programa Beta Comienza En:",
+      "title": "El Programa Beta Comienza en:",
       "days": "Días",
       "hours": "Horas",
       "minutes": "Minutos",
       "seconds": "Segundos"
     },
-    "apply": "Postularse para Beta",
-    "success": "¡Postulación Enviada!"
+    "apply": "Postularme al Beta",
+    "success": "¡Postulación enviada!",
+    "alreadyApplied": "¡Gracias por postularte! Nos pondremos en contacto pronto."
   },
   "betaDialog": {
     "title": "Postulación al Programa Beta",
-    "subtitle": "Cuéntanos sobre ti y por qué serías un gran beta tester",
+    "subtitle": "Contanos por qué te interesa AngoraSix para ver si encajás con nuestro programa beta.",
     "fields": {
-      "name": "Nombre Completo",
-      "email": "Dirección de Email",
-      "company": "Empresa/Organización",
-      "role": "Tu Rol",
-      "experience": "Experiencia en Gestión de Proyectos",
-      "experiencePlaceholder": "Cuéntanos sobre tu experiencia con herramientas de gestión de proyectos...",
-      "motivation": "¿Por qué quieres unirte a nuestro programa beta?",
-      "motivationPlaceholder": "¿Qué te emociona de AngoraSix? ¿Cómo lo usarías?"
+      "interests": "¿Qué te interesa de usar AngoraSix?",
+      "description": "Contanos más sobre tu caso para ver si coincidís con el programa Beta",
+      "descriptionPlaceholder": "Contanos tu situación, por qué querés participar del programa, qué esperás de AngoraSix, en qué tipo de proyectos trabajás, etc.",
+      "contactMethod": "¿Cómo preferís que te contactemos?",
+      "phoneNumber": "Número de Teléfono",
+      "phonePlaceholder": "+54 9 11 1234-5678",
+      "otherInterest": "Por favor especificá tu otro interés",
+      "consent": "Acepto ser contactado para recibir novedades y participar del programa Beta"
+    },
+    "interests": {
+      "entrepreneur": {
+        "title": "Emprendimiento",
+        "description": "Estoy lanzando un proyecto y quiero una forma clara y transparente de organizar a mi equipo."
+      },
+      "collaboration": {
+        "title": "Colaboración Justa",
+        "description": "Me interesa crear o participar en un modelo de colaboración más justo y descentralizado."
+      },
+      "contributor": {
+        "title": "Trabajo con Sentido",
+        "description": "Quiero sumarme a proyectos significativos y poder vivir de eso, con reglas claras."
+      },
+      "management": {
+        "title": "Gestión Eficiente",
+        "description": "Quiero delegar y organizarme con eficiencia, sin perder el control de la gestión."
+      },
+      "curious": {
+        "title": "Explorar AngoraSix",
+        "description": "Tengo curiosidad por la propuesta de AngoraSix y quiero conocerla mejor."
+      },
+      "other": {
+        "title": "Otro",
+        "description": "Tengo otro motivo (especificar abajo)"
+      }
+    },
+    "contact": {
+      "email": "Correo Electrónico",
+      "phone": "Llamada Telefónica",
+      "whatsapp": "WhatsApp"
+    },
+    "errors": {
+      "interestsRequired": "Por favor seleccioná al menos un interés",
+      "otherInterestRequired": "Por favor especificá tu otro interés",
+      "descriptionRequired": "Contanos más sobre tu caso",
+      "phoneRequired": "El número de teléfono es obligatorio para este método de contacto",
+      "consentRequired": "Debés aceptar ser contactado para participar en el programa Beta"
     },
     "cancel": "Cancelar",
     "submit": "Enviar Postulación",
-    "submitting": "Enviando..."
+    "submitting": "Enviando...",
+    "successMessage": "¡Gracias por postularte! Nos pondremos en contacto pronto."
   },
   "newsletter": {
-    "title": "Mantente Actualizado",
+    "title": "Recibí Novedades",
     "emailPlaceholder": "tu@email.com",
-    "subscribe": "Suscribirse",
+    "subscribe": "Suscribirme",
     "subscribing": "Suscribiendo...",
-    "consent": "Acepto recibir actualizaciones",
-    "success": "¡Suscrito!"
+    "consent": "Acepto recibir novedades",
+    "success": "¡Suscripción confirmada!"
   },
   "contact": {
-    "title": "Ponte en Contacto",
+    "title": "Escribinos",
     "messagePlaceholder": "Tu mensaje...",
     "send": "Enviar",
     "sending": "Enviando...",
     "success": "¡Mensaje enviado!"
   },
   "social": {
-    "title": "Síguenos",
-    "description": "Mantente conectado en todas las plataformas."
+    "title": "Seguinos",
+    "description": "Conectate con nosotros en todas nuestras plataformas."
   }
 }

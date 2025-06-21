@@ -1,33 +1,50 @@
 "use client"
 
 import {
+  Add,
+  Business,
   Celebration,
+  CheckCircle,
+  Diamond,
+  Email,
+  Error as ErrorIcon,
+  Explore,
   GitHub,
+  Group,
   Instagram,
   LinkedIn,
-  Send,
-  Star,
-  YouTube,
-  Email,
   Message,
-  Group,
+  People,
+  Phone,
+  Send,
+  Settings,
   Speed,
+  Star,
   Support,
-  Diamond,
+  WhatsApp,
+  Work,
+  YouTube,
 } from "@mui/icons-material"
 import {
+  Alert,
   Box,
   Button,
   Card,
   Checkbox,
   Container,
   Dialog,
-  DialogActions, // Added DialogActions import
-  DialogContent, // Added DialogContent import
-  DialogTitle, // Added DialogTitle import
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+  FormControl,
   FormControlLabel,
+  FormHelperText,
+  FormLabel,
   Grid,
   IconButton,
+  Radio,
+  RadioGroup,
+  Snackbar,
   TextField,
   Typography,
 } from "@mui/material"
@@ -39,12 +56,12 @@ import api from "../../api"
 import {
   trackBetaDialogOpen,
   trackBetaFormSubmit,
-  trackNewsletterSignupClick,
   trackContactMessageSubmit,
+  trackNewsletterSignupClick,
   trackSocialFollowClick,
 } from "../../utils/analytics"
 
-const PostRegistration = () => {
+const PostRegistration = ({ existingBetaApplication }) => {
   const { t } = useTranslation("post-registration")
   const { data: session, status } = useSession()
   const [email, setEmail] = useState("")
@@ -56,19 +73,68 @@ const PostRegistration = () => {
   const [messageSubmitted, setMessageSubmitted] = useState(false)
   const [betaDialogOpen, setBetaDialogOpen] = useState(false)
   const [betaFormData, setBetaFormData] = useState({
-    name: "",
-    email: "",
-    company: "",
-    role: "",
-    experience: "",
-    motivation: "",
+    interests: [],
+    otherInterest: "",
+    description: "",
+    contactMethod: "email",
+    phoneNumber: "",
+    consent: false,
   })
+  const [betaFormErrors, setBetaFormErrors] = useState({})
   const [isSubmittingBeta, setIsSubmittingBeta] = useState(false)
-  const [betaSubmitted, setBetaSubmitted] = useState(false)
+  const [betaSubmitted, setBetaSubmitted] = useState(!!existingBetaApplication)
+  const [showSuccessSnackbar, setShowSuccessSnackbar] = useState(false)
 
   // Beta program launch date (30 days from now)
   const betaLaunchDate = new Date()
   betaLaunchDate.setDate(betaLaunchDate.getDate() + 30)
+
+  // Interest options
+  const interestOptions = [
+    {
+      id: "entrepreneur",
+      icon: <Business />,
+      title: t("betaDialog.interests.entrepreneur.title"),
+      description: t("betaDialog.interests.entrepreneur.description"),
+    },
+    {
+      id: "collaboration",
+      icon: <People />,
+      title: t("betaDialog.interests.collaboration.title"),
+      description: t("betaDialog.interests.collaboration.description"),
+    },
+    {
+      id: "contributor",
+      icon: <Work />,
+      title: t("betaDialog.interests.contributor.title"),
+      description: t("betaDialog.interests.contributor.description"),
+    },
+    {
+      id: "management",
+      icon: <Settings />,
+      title: t("betaDialog.interests.management.title"),
+      description: t("betaDialog.interests.management.description"),
+    },
+    {
+      id: "curious",
+      icon: <Explore />,
+      title: t("betaDialog.interests.curious.title"),
+      description: t("betaDialog.interests.curious.description"),
+    },
+    {
+      id: "other",
+      icon: <Add />,
+      title: t("betaDialog.interests.other.title"),
+      description: t("betaDialog.interests.other.description"),
+    },
+  ]
+
+  // Contact method options
+  const contactMethods = [
+    { id: "email", icon: <Email />, label: t("betaDialog.contact.email") },
+    { id: "phone", icon: <Phone />, label: t("betaDialog.contact.phone") },
+    { id: "whatsapp", icon: <WhatsApp />, label: t("betaDialog.contact.whatsapp") },
+  ]
 
   // Redirect to login if not authenticated
   useEffect(() => {
@@ -79,11 +145,6 @@ const PostRegistration = () => {
     }
     if (session?.user?.email) {
       setEmail(session.user.email)
-      setBetaFormData((prev) => ({
-        ...prev,
-        email: session.user.email,
-        name: session.user.name || "",
-      }))
     }
   }, [session, status])
 
@@ -91,17 +152,45 @@ const PostRegistration = () => {
     return null
   }
 
+  const validateBetaForm = () => {
+    const errors = {}
+
+    if (betaFormData.interests.length === 0) {
+      errors.interests = t("betaDialog.errors.interestsRequired")
+    }
+
+    if (betaFormData.interests.includes("other") && !betaFormData.otherInterest.trim()) {
+      errors.otherInterest = t("betaDialog.errors.otherInterestRequired")
+    }
+
+    if (!betaFormData.description.trim()) {
+      errors.description = t("betaDialog.errors.descriptionRequired")
+    }
+
+    if (
+      (betaFormData.contactMethod === "phone" || betaFormData.contactMethod === "whatsapp") &&
+      !betaFormData.phoneNumber.trim()
+    ) {
+      errors.phoneNumber = t("betaDialog.errors.phoneRequired")
+    }
+
+    if (!betaFormData.consent) {
+      errors.consent = t("betaDialog.errors.consentRequired")
+    }
+
+    setBetaFormErrors(errors)
+    return Object.keys(errors).length === 0
+  }
+
   const handleNewsletterSubmit = async (e) => {
     e.preventDefault()
     if (!subscribeNewsletter) return
 
-    // Track newsletter signup click
     trackNewsletterSignupClick()
-
     setIsSubmittingNewsletter(true)
 
     try {
-      await api.front.suscribe(email)
+      await api.front.suscribe(email, "post_registration", "newsletter")
       setNewsletterSubmitted(true)
     } catch (error) {
       console.error("Error subscribing to newsletter:", error)
@@ -114,18 +203,17 @@ const PostRegistration = () => {
     e.preventDefault()
     setIsSubmittingMessage(true)
 
-    // Track contact message submit
     trackContactMessageSubmit()
 
     try {
-      await api.surveys.create({
-        type: "CONTACT_MESSAGE",
-        data: {
+      await api.front.saveSurveyResponse(
+        {
           message,
           source: "post_registration",
           userEmail: session?.user?.email,
         },
-      })
+        "contact-messages",
+      )
       setMessageSubmitted(true)
       setMessage("")
     } catch (error) {
@@ -136,29 +224,63 @@ const PostRegistration = () => {
   }
 
   const handleBetaDialogOpenClick = () => {
-    // Track beta dialog opening
     trackBetaDialogOpen()
     setBetaDialogOpen(true)
   }
 
+  const handleInterestToggle = (interestId) => {
+    setBetaFormData((prev) => ({
+      ...prev,
+      interests: prev.interests.includes(interestId)
+        ? prev.interests.filter((id) => id !== interestId)
+        : [...prev.interests, interestId],
+    }))
+    // Clear errors when user makes changes
+    if (betaFormErrors.interests) {
+      setBetaFormErrors((prev) => ({ ...prev, interests: null }))
+    }
+  }
+
   const handleBetaSubmit = async (e) => {
     e.preventDefault()
-    setIsSubmittingBeta(true)
 
-    // Track beta form submission
+    if (!validateBetaForm()) {
+      return
+    }
+
+    setIsSubmittingBeta(true)
     trackBetaFormSubmit()
 
     try {
-      await api.surveys.create({
-        type: "BETA_PROGRAM_APPLICATION",
-        data: {
-          ...betaFormData,
+      // Save to survey system
+      await api.front.saveSurveyResponse(
+        {
+          interests: betaFormData.interests,
+          otherInterest: betaFormData.otherInterest,
+          description: betaFormData.description,
+          contactMethod: betaFormData.contactMethod,
+          phoneNumber: betaFormData.phoneNumber,
+          consent: betaFormData.consent,
           source: "post_registration",
           userEmail: session?.user?.email,
+          userName: session?.user?.name,
         },
-      })
+        "beta-applications",
+      )
+
+      // Subscribe to beta list in Mailchimp
+      if (betaFormData.consent) {
+        await api.front.suscribe(session.user.email, "beta_program", "beta")
+      }
+
       setBetaSubmitted(true)
       setBetaDialogOpen(false)
+      setShowSuccessSnackbar(true)
+
+      // Auto-close snackbar after 4 seconds
+      setTimeout(() => {
+        setShowSuccessSnackbar(false)
+      }, 4000)
     } catch (error) {
       console.error("Error submitting beta application:", error)
     } finally {
@@ -167,7 +289,6 @@ const PostRegistration = () => {
   }
 
   const handleSocialClick = (platform) => {
-    // Track social follow click
     trackSocialFollowClick(platform.toLowerCase())
   }
 
@@ -203,7 +324,7 @@ const PostRegistration = () => {
       </Head>
 
       <Box className="post-registration-landing">
-        {/* Flowing Lines Background - Same as WelcomeLanding */}
+        {/* Flowing Lines Background */}
         <Box className="post-registration-background">
           <div className="flowing-lines">
             <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
@@ -216,10 +337,10 @@ const PostRegistration = () => {
 
         <Container className="post-registration-container">
           <Grid container spacing={{ xs: 2, md: 3 }} className="main-layout">
-            {/* Left Column - Welcome + Beta Program (Better width) */}
+            {/* Left Column - Welcome + Beta Program */}
             <Grid item xs={12} sm={12} md={8} lg={9}>
               <Box className="left-column">
-                {/* Welcome Section - Now with proper space and better alignment */}
+                {/* Welcome Section */}
                 <Box className="welcome-section">
                   <Box className="welcome-content">
                     <Celebration className="celebration-icon" />
@@ -235,7 +356,6 @@ const PostRegistration = () => {
                 {/* Beta Program Panel */}
                 <Card className="beta-panel">
                   <Box className="beta-section">
-                    {/* Countdown - After benefits */}
                     <BetaCountdown targetDate={betaLaunchDate.toISOString()} />
                     <Box className="beta-header">
                       <Star className="beta-icon" />
@@ -247,7 +367,7 @@ const PostRegistration = () => {
                       </Typography>
                     </Box>
 
-                    {/* CTA - Moved here for visibility */}
+                    {/* CTA */}
                     <Box className="beta-cta-top">
                       {!betaSubmitted ? (
                         <Button
@@ -261,13 +381,13 @@ const PostRegistration = () => {
                         </Button>
                       ) : (
                         <Box className="beta-success">
-                          <Celebration />
-                          <Typography>{t("beta.success")}</Typography>
+                          <CheckCircle />
+                          <Typography>{t("beta.alreadyApplied")}</Typography>
                         </Box>
                       )}
                     </Box>
 
-                    {/* Beta Benefits - After CTA */}
+                    {/* Beta Benefits */}
                     <Grid container spacing={1} className="beta-benefits">
                       <Grid item xs={6} sm={3}>
                         <Box className="benefit-item">
@@ -299,7 +419,7 @@ const PostRegistration = () => {
               </Box>
             </Grid>
 
-            {/* Right Column - Side Panels (Better positioned) */}
+            {/* Right Column - Side Panels */}
             <Grid item xs={12} sm={12} md={4} lg={3}>
               <Box className="side-panels">
                 {/* Newsletter Panel */}
@@ -431,7 +551,7 @@ const PostRegistration = () => {
         <Dialog
           open={betaDialogOpen}
           onClose={() => setBetaDialogOpen(false)}
-          maxWidth="sm"
+          maxWidth="md"
           fullWidth
           className="beta-dialog"
         >
@@ -444,73 +564,141 @@ const PostRegistration = () => {
             </Typography>
           </DialogTitle>
           <DialogContent>
-            <Box component="form" onSubmit={handleBetaSubmit} sx={{ mt: 1 }}>
-              <Grid container spacing={2}>
-                <Grid item xs={12} sm={6}>
-                  <TextField
-                    fullWidth
-                    size="small"
-                    label={t("betaDialog.fields.name")}
-                    value={betaFormData.name}
-                    onChange={(e) => setBetaFormData({ ...betaFormData, name: e.target.value })}
-                    required
-                  />
+            <Box component="form" onSubmit={handleBetaSubmit} sx={{ mt: 2 }}>
+              {/* Interest Selection */}
+              <FormControl component="fieldset" fullWidth sx={{ mb: 3 }}>
+                <FormLabel component="legend" sx={{ mb: 2, fontWeight: 600 }}>
+                  {t("betaDialog.fields.interests")} *
+                </FormLabel>
+                <Grid container spacing={2}>
+                  {interestOptions.map((option) => (
+                    <Grid item xs={12} sm={6} key={option.id}>
+                      <Card
+                        className={`interest-card ${betaFormData.interests.includes(option.id) ? "selected" : ""}`}
+                        onClick={() => handleInterestToggle(option.id)}
+                        sx={{
+                          cursor: "pointer",
+                          p: 2,
+                          border: betaFormData.interests.includes(option.id)
+                            ? "2px solid #fe5f55"
+                            : "1px solid #e0e0e0",
+                        }}
+                      >
+                        <Box display="flex" alignItems="flex-start" gap={1}>
+                          <Box sx={{ color: betaFormData.interests.includes(option.id) ? "#fe5f55" : "#1b5993" }}>
+                            {option.icon}
+                          </Box>
+                          <Box flex={1}>
+                            <Typography variant="subtitle2" fontWeight={600} sx={{ mb: 0.5 }}>
+                              {option.title}
+                            </Typography>
+                            <Typography variant="body2" color="text.secondary" fontSize="0.8rem">
+                              {option.description}
+                            </Typography>
+                          </Box>
+                          {betaFormData.interests.includes(option.id) && (
+                            <CheckCircle sx={{ color: "#fe5f55", fontSize: "1.2rem" }} />
+                          )}
+                        </Box>
+                      </Card>
+                    </Grid>
+                  ))}
                 </Grid>
-                <Grid item xs={12} sm={6}>
-                  <TextField
-                    fullWidth
-                    size="small"
-                    label={t("betaDialog.fields.email")}
-                    type="email"
-                    value={betaFormData.email}
-                    onChange={(e) => setBetaFormData({ ...betaFormData, email: e.target.value })}
-                    required
+                {betaFormErrors.interests && (
+                  <FormHelperText error sx={{ mt: 1 }}>
+                    <ErrorIcon sx={{ fontSize: "1rem", mr: 0.5 }} />
+                    {betaFormErrors.interests}
+                  </FormHelperText>
+                )}
+              </FormControl>
+
+              {/* Other Interest Field */}
+              {betaFormData.interests.includes("other") && (
+                <TextField
+                  fullWidth
+                  size="small"
+                  label={t("betaDialog.fields.otherInterest")}
+                  value={betaFormData.otherInterest}
+                  onChange={(e) => setBetaFormData({ ...betaFormData, otherInterest: e.target.value })}
+                  error={!!betaFormErrors.otherInterest}
+                  helperText={betaFormErrors.otherInterest}
+                  sx={{ mb: 3 }}
+                />
+              )}
+
+              {/* Description Field */}
+              <TextField
+                fullWidth
+                label={t("betaDialog.fields.description")}
+                multiline
+                rows={4}
+                value={betaFormData.description}
+                onChange={(e) => setBetaFormData({ ...betaFormData, description: e.target.value })}
+                placeholder={t("betaDialog.fields.descriptionPlaceholder")}
+                error={!!betaFormErrors.description}
+                helperText={betaFormErrors.description}
+                required
+                sx={{ mb: 3 }}
+              />
+
+              {/* Contact Method */}
+              <FormControl component="fieldset" fullWidth sx={{ mb: 3 }}>
+                <FormLabel component="legend" sx={{ mb: 2, fontWeight: 600 }}>
+                  {t("betaDialog.fields.contactMethod")} *
+                </FormLabel>
+                <RadioGroup
+                  value={betaFormData.contactMethod}
+                  onChange={(e) => setBetaFormData({ ...betaFormData, contactMethod: e.target.value })}
+                >
+                  {contactMethods.map((method) => (
+                    <FormControlLabel
+                      key={method.id}
+                      value={method.id}
+                      control={<Radio />}
+                      label={
+                        <Box display="flex" alignItems="center" gap={1}>
+                          {method.icon}
+                          {method.label}
+                        </Box>
+                      }
+                    />
+                  ))}
+                </RadioGroup>
+              </FormControl>
+
+              {/* Phone Number Field */}
+              {(betaFormData.contactMethod === "phone" || betaFormData.contactMethod === "whatsapp") && (
+                <TextField
+                  fullWidth
+                  size="small"
+                  label={t("betaDialog.fields.phoneNumber")}
+                  value={betaFormData.phoneNumber}
+                  onChange={(e) => setBetaFormData({ ...betaFormData, phoneNumber: e.target.value })}
+                  placeholder={t("betaDialog.fields.phonePlaceholder")}
+                  error={!!betaFormErrors.phoneNumber}
+                  helperText={betaFormErrors.phoneNumber}
+                  required
+                  sx={{ mb: 3 }}
+                />
+              )}
+
+              {/* Consent Checkbox */}
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={betaFormData.consent}
+                    onChange={(e) => setBetaFormData({ ...betaFormData, consent: e.target.checked })}
                   />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <TextField
-                    fullWidth
-                    size="small"
-                    label={t("betaDialog.fields.company")}
-                    value={betaFormData.company}
-                    onChange={(e) => setBetaFormData({ ...betaFormData, company: e.target.value })}
-                  />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <TextField
-                    fullWidth
-                    size="small"
-                    label={t("betaDialog.fields.role")}
-                    value={betaFormData.role}
-                    onChange={(e) => setBetaFormData({ ...betaFormData, role: e.target.value })}
-                  />
-                </Grid>
-                <Grid item xs={12}>
-                  <TextField
-                    fullWidth
-                    size="small"
-                    label={t("betaDialog.fields.experience")}
-                    multiline
-                    rows={2}
-                    value={betaFormData.experience}
-                    onChange={(e) => setBetaFormData({ ...betaFormData, experience: e.target.value })}
-                    placeholder={t("betaDialog.fields.experiencePlaceholder")}
-                  />
-                </Grid>
-                <Grid item xs={12}>
-                  <TextField
-                    fullWidth
-                    size="small"
-                    label={t("betaDialog.fields.motivation")}
-                    multiline
-                    rows={2}
-                    value={betaFormData.motivation}
-                    onChange={(e) => setBetaFormData({ ...betaFormData, motivation: e.target.value })}
-                    placeholder={t("betaDialog.fields.motivationPlaceholder")}
-                    required
-                  />
-                </Grid>
-              </Grid>
+                }
+                label={t("betaDialog.fields.consent")}
+                sx={{ mb: 2 }}
+              />
+              {betaFormErrors.consent && (
+                <FormHelperText error sx={{ mt: -1, mb: 2 }}>
+                  <ErrorIcon sx={{ fontSize: "1rem", mr: 0.5 }} />
+                  {betaFormErrors.consent}
+                </FormHelperText>
+              )}
             </Box>
           </DialogContent>
           <DialogActions sx={{ p: 2 }}>
@@ -520,19 +708,31 @@ const PostRegistration = () => {
             <Button
               onClick={handleBetaSubmit}
               variant="contained"
-              disabled={isSubmittingBeta || !betaFormData.name || !betaFormData.email || !betaFormData.motivation}
+              disabled={isSubmittingBeta}
               className="dialog-submit"
             >
               {isSubmittingBeta ? t("betaDialog.submitting") : t("betaDialog.submit")}
             </Button>
           </DialogActions>
         </Dialog>
+
+        {/* Success Snackbar */}
+        <Snackbar
+          open={showSuccessSnackbar}
+          autoHideDuration={4000}
+          onClose={() => setShowSuccessSnackbar(false)}
+          anchorOrigin={{ vertical: "top", horizontal: "center" }}
+        >
+          <Alert onClose={() => setShowSuccessSnackbar(false)} severity="success" sx={{ width: "100%" }}>
+            {t("betaDialog.successMessage")}
+          </Alert>
+        </Snackbar>
       </Box>
     </>
   )
 }
 
-// Beta Countdown Component - Smaller
+// Beta Countdown Component
 const BetaCountdown = ({ targetDate }) => {
   const { t } = useTranslation("post-registration")
   const [timeLeft, setTimeLeft] = useState({
