@@ -1,54 +1,52 @@
 {
   "page": {
-    "title": "Precios de AngoraSix - Planes Free y Plus",
-    "description": "Descubre nuestros planes de precios. Plan Free permanente y Plan Plus gratuito para usuarios Early Bird. ¡Reserva tu acceso ahora!"
+    "title": "Precios - AngoraSix",
+    "description": "Elegí tu plan de AngoraSix y empezá a construir sin fricciones."
   },
-  "header": {
-    "title": "Elige tu Plan",
-    "subtitle": "Comienza gratis y escala cuando estés listo. Los usuarios Early Bird obtienen acceso gratuito al Plan Plus."
+  "hero": {
+    "title": "Elegí tu plan y empezá a construir sin fricciones",
+    "subtitle": "Todos los planes están diseñados para acompañarte en cada etapa del proyecto."
+  },
+  "betaProgram": {
+    "title": "Programa de Usuarios Beta de AngoraSix",
+    "description": "Unite a nuestro exclusivo Programa de Usuarios Beta y sé parte del futuro de la gestión de proyectos. Obtené acceso anticipado a funciones premium y ayudanos a dar forma a nuestra plataforma.",
+    "benefits": {
+      "premium": "Acceso a funcionalidades premium sin costo",
+      "evolution": "Participación en la evolución del sistema",
+      "priority": "Prioridad para nuevas funciones y soporte"
+    },
+    "cta": "Postularme al Programa Beta"
   },
   "plans": {
     "free": {
-      "title": "Plan Free",
+      "title": "Free",
       "price": "$0",
-      "period": "Para siempre",
-      "cta": "Empezar Gratis",
+      "period": "Plan gratuito de por vida con funcionalidades esenciales",
+      "cta": "Empezar gratis",
       "features": {
-        "basic": "Gestión básica de proyectos",
-        "contributors": "Hasta 5 colaboradores",
-        "tasks": "Tareas y seguimiento ilimitado",
-        "notifications": "Notificaciones en tiempo real",
-        "support": "Soporte por email"
+        "contributors": "Hasta X colaboradores",
+        "tasks": "Seguimiento de tareas básicas",
+        "notifications": "Notificaciones esenciales",
+        "support": "Soporte por email",
+        "workspace": "Espacio personal de trabajo"
       }
     },
     "plus": {
-      "title": "Plan Plus",
-      "regularPrice": "$29/mes",
-      "earlyBirdPrice": "$0",
-      "earlyBirdLabel": "Early Bird",
-      "badge": "Más Popular",
-      "cta": "Reservar Acceso",
+      "badge": "Programa Beta",
+      "title": "Plus",
+      "regularPrice": "$60",
+      "currentPrice": "$0",
+      "subtitle": "Actualmente solo disponible para usuarios Beta por $0",
+      "cta": "Acceder como Beta",
       "features": {
-        "all": "Todo del Plan Free",
-        "unlimited": "Colaboradores ilimitados",
-        "ai": "Asistente IA para proyectos",
-        "ownership": "Gestión de participaciones",
-        "integrations": "Integraciones avanzadas",
-        "workflows": "Flujos de trabajo personalizados",
-        "support": "Soporte prioritario",
-        "beta": "Acceso a funciones beta"
+        "all": "Todo lo incluido en el plan Free",
+        "unlimited": "Colaboradores y proyectos ilimitados",
+        "ai": "Asistencia con IA",
+        "tracking": "Seguimiento y trazabilidad de aportes",
+        "integrations": "Integraciones con otras herramientas",
+        "workflows": "Workflows personalizados",
+        "support": "Soporte prioritario"
       }
-    }
-  },
-  "faq": {
-    "title": "Preguntas Frecuentes",
-    "earlyBird": {
-      "question": "¿Qué significa ser Early Bird?",
-      "answer": "Los usuarios Early Bird obtienen acceso gratuito permanente al Plan Plus durante el período de lanzamiento. Es nuestra forma de agradecer a quienes confían en nosotros desde el principio."
-    },
-    "changePlan": {
-      "question": "¿Puedo cambiar de plan más tarde?",
-      "answer": "Sí, puedes actualizar o cambiar tu plan en cualquier momento desde tu panel de control. Los usuarios Early Bird mantendrán sus beneficios especiales."
     }
   }
 }

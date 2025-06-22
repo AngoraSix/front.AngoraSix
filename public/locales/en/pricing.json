@@ -1,54 +1,52 @@
 {
   "page": {
-    "title": "AngoraSix Pricing - Free and Plus Plans",
-    "description": "Discover our pricing plans. Permanent Free plan and free Plus plan for Early Bird users. Reserve your access now!"
+    "title": "Pricing - AngoraSix",
+    "description": "Choose your AngoraSix plan and start building without friction."
   },
-  "header": {
-    "title": "Choose Your Plan",
-    "subtitle": "Start free and scale when you're ready. Early Bird users get free access to the Plus Plan."
+  "hero": {
+    "title": "Choose your plan and start building without friction",
+    "subtitle": "All plans are designed to support you at every stage of the project."
+  },
+  "betaProgram": {
+    "title": "AngoraSix Beta User Program",
+    "description": "Join our exclusive Beta User Program and be part of the future of project management. Get early access to premium features and help shape our platform.",
+    "benefits": {
+      "premium": "Access to premium features at no cost",
+      "evolution": "Participation in system evolution",
+      "priority": "Priority for new features and support"
+    },
+    "cta": "Apply for Beta Program"
   },
   "plans": {
     "free": {
-      "title": "Free Plan",
+      "title": "Free",
       "price": "$0",
-      "period": "Forever",
-      "cta": "Start Free",
+      "period": "Lifetime free plan with essential features",
+      "cta": "Start for free",
       "features": {
-        "basic": "Basic project management",
-        "contributors": "Up to 5 contributors",
-        "tasks": "Unlimited tasks and tracking",
-        "notifications": "Real-time notifications",
-        "support": "Email support"
+        "contributors": "Up to X collaborators",
+        "tasks": "Basic task tracking",
+        "notifications": "Essential notifications",
+        "support": "Email support",
+        "workspace": "Personal workspace"
       }
     },
     "plus": {
-      "title": "Plus Plan",
-      "regularPrice": "$29/month",
-      "earlyBirdPrice": "$0",
-      "earlyBirdLabel": "Early Bird",
-      "badge": "Most Popular",
-      "cta": "Reserve Access",
+      "badge": "Beta Program",
+      "title": "Plus",
+      "regularPrice": "$60",
+      "currentPrice": "$0",
+      "subtitle": "Currently only available for Beta users at ",
+      "cta": "Access as Beta",
       "features": {
-        "all": "Everything in Free Plan",
-        "unlimited": "Unlimited contributors",
-        "ai": "AI assistant for projects",
-        "ownership": "Equity management",
-        "integrations": "Advanced integrations",
+        "all": "All features included in the Free plan",
+        "unlimited": "Unlimited collaborators and projects",
+        "ai": "AI assistance",
+        "tracking": "Contribution tracking and traceability",
+        "integrations": "Integrations with other tools",
         "workflows": "Custom workflows",
-        "support": "Priority support",
-        "beta": "Beta features access"
+        "support": "Priority support"
       }
-    }
-  },
-  "faq": {
-    "title": "Frequently Asked Questions",
-    "earlyBird": {
-      "question": "What does being an Early Bird mean?",
-      "answer": "Early Bird users get permanent free access to the Plus Plan during the launch period. It's our way of thanking those who trust us from the beginning."
-    },
-    "changePlan": {
-      "question": "Can I change plans later?",
-      "answer": "Yes, you can upgrade or change your plan anytime from your dashboard. Early Bird users will maintain their special benefits."
     }
   }
 }

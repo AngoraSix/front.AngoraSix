@@ -230,15 +230,15 @@
 
 /* Chart Container Mobile Styles */
 @media (max-width: 600px) {
-  .MuiCardContent-root {
+  .ProjectManagementView .MuiCardContent-root {
     padding: 16px !important;
   }
 
-  .MuiTypography-h6 {
+  .ProjectManagementView .MuiTypography-h6 {
     font-size: 1.1rem !important;
   }
 
-  .MuiToggleButtonGroup-root {
+  .ProjectManagementView .MuiToggleButtonGroup-root {
     flex-wrap: wrap;
     gap: 4px;
   }
@@ -246,20 +246,20 @@
 
 /* Mobile-specific chart adjustments */
 @media (max-width: 600px) {
-  .MuiCard-root {
+  .ProjectManagementView .MuiCard-root {
     margin-bottom: 16px;
   }
 
-  .MuiCardContent-root {
+  .ProjectManagementView .MuiCardContent-root {
     padding: 12px !important;
   }
 
-  .MuiToggleButton-root {
+  .ProjectManagementView .MuiToggleButton-root {
     min-width: 36px !important;
     padding: 6px 8px !important;
   }
 
-  .MuiChip-root {
+  .ProjectManagementView .MuiChip-root {
     font-size: 0.7rem !important;
     height: 24px !important;
   }

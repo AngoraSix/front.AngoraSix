@@ -22,6 +22,7 @@ import '../styles/ManagementIntegrationList.css';
 import '../styles/Navbar.css';
 import '../styles/Notifications.css';
 import '../styles/PostRegistration.css';
+import '../styles/Pricing.css';
 import '../styles/ProjectManagementForm.css';
 import '../styles/ProjectManagementView.css';
 import '../styles/WelcomeContributor.css';

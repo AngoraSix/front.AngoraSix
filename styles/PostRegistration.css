@@ -71,7 +71,7 @@
   z-index: 10;
   width: 100%;
   max-width: 1400px;
-  margin-top: 2.5rem; /* Space for navbar */
+  margin-top: 0; /* Remove space for navbar */
 }
 
 .main-layout {
@@ -129,7 +129,7 @@
 }
 
 /* Beta Panel - More compact */
-.beta-panel {
+.post-registration-landing .beta-panel {
   background: #ffffff !important;
   border-radius: 20px !important;
   padding: 1.5rem !important;
@@ -142,31 +142,31 @@
 }
 
 /* Beta Section */
-.beta-section {
+.post-registration-landing .beta-section {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
 }
 
-.beta-header {
+.post-registration-landing .beta-header {
   text-align: center;
   margin-bottom: 1.5rem;
 }
 
-.beta-icon {
+.post-registration-landing .beta-icon {
   font-size: 2.5rem !important;
   color: #fe5f55 !important;
   margin-bottom: 0.75rem !important;
 }
 
-.beta-title {
+.post-registration-landing .beta-title {
   color: #0a2239 !important;
   font-weight: 700 !important;
   margin-bottom: 0.75rem !important;
   font-size: 1.7rem !important;
 }
 
-.beta-description {
+.post-registration-landing .beta-description {
   color: #1b5993 !important;
   font-size: 0.95rem !important;
   max-width: 500px !important;
@@ -174,7 +174,7 @@
 }
 
 /* Beta Benefits - Smaller and more compact */
-.beta-benefits {
+.post-registration-landing .beta-benefits {
   margin-bottom: 1.25rem;
 }
 
@@ -208,7 +208,7 @@
 }
 
 /* Beta Countdown - Smaller */
-.beta-countdown {
+.post-registration-landing .beta-countdown {
   background: linear-gradient(135deg, #1b5993 0%, #0a2239 100%);
   border-radius: 12px;
   padding: 1rem;
@@ -247,13 +247,13 @@
 }
 
 /* Beta CTA - Moved to top for visibility */
-.beta-cta-top {
+.post-registration-landing .beta-cta-top {
   text-align: center;
   margin-bottom: 1.5rem;
   padding: 1rem 0;
 }
 
-.beta-button {
+.post-registration-landing .beta-button {
   background: linear-gradient(135deg, #fe5f55 0%, #e54a41 100%) !important;
   color: white !important;
   padding: 0.9rem 2.5rem !important;
@@ -264,12 +264,12 @@
   transition: all 0.3s ease !important;
 }
 
-.beta-button:hover {
+.post-registration-landing .beta-button:hover {
   transform: translateY(-3px) !important;
   box-shadow: 0 12px 35px rgba(254, 95, 85, 0.5) !important;
 }
 
-.beta-success {
+.post-registration-landing .beta-success {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -396,7 +396,7 @@
 }
 
 /* Dialog Styles */
-.beta-dialog .MuiPaper-root {
+.post-registration-landing .beta-dialog .MuiPaper-root {
   border-radius: 16px;
   max-height: 95vh;
 }
@@ -511,17 +511,17 @@ Add this block at the end of the file or near .tool-card styles: */
 }
 
 /* Dialog improvements */
-.beta-dialog .MuiDialogContent-root {
+.post-registration-landing .beta-dialog .MuiDialogContent-root {
   padding: 1rem 1.5rem !important;
   overflow-y: auto;
 }
 
-.beta-dialog .MuiFormLabel-root {
+.post-registration-landing .beta-dialog .MuiFormLabel-root {
   color: #0a2239 !important;
   font-size: 0.95rem !important;
 }
 
-.beta-dialog .MuiFormHelperText-root.Mui-error {
+.post-registration-landing .beta-dialog .MuiFormHelperText-root.Mui-error {
   display: flex;
   align-items: center;
   margin-top: 0.5rem;
@@ -529,32 +529,32 @@ Add this block at the end of the file or near .tool-card styles: */
 }
 
 /* Radio buttons and checkboxes */
-.beta-dialog .MuiFormControlLabel-root {
+.post-registration-landing .beta-dialog .MuiFormControlLabel-root {
   margin-bottom: 0.5rem;
 }
 
-.beta-dialog .MuiRadio-root {
+.post-registration-landing .beta-dialog .MuiRadio-root {
   color: #1b5993 !important;
 }
 
-.beta-dialog .MuiRadio-root.Mui-checked {
+.post-registration-landing .beta-dialog .MuiRadio-root.Mui-checked {
   color: #fe5f55 !important;
 }
 
-.beta-dialog .MuiCheckbox-root {
+.post-registration-landing .beta-dialog .MuiCheckbox-root {
   color: #1b5993 !important;
 }
 
-.beta-dialog .MuiCheckbox-root.Mui-checked {
+.post-registration-landing .beta-dialog .MuiCheckbox-root.Mui-checked {
   color: #fe5f55 !important;
 }
 
 /* Dividers and chips */
-.beta-dialog .MuiDivider-root {
+.post-registration-landing .beta-dialog .MuiDivider-root {
   margin: 1.5rem 0 !important;
 }
 
-.beta-dialog .MuiChip-root {
+.post-registration-landing .beta-dialog .MuiChip-root {
   background: #f8fafe !important;
   color: #1b5993 !important;
   font-weight: 600 !important;
@@ -617,15 +617,15 @@ Add this block at the end of the file or near .tool-card styles: */
     font-size: 1.6rem !important;
   }
 
-  .beta-title {
+  .post-registration-landing .beta-title {
     font-size: 1.5rem !important;
   }
 
-  .beta-icon {
+  .post-registration-landing .beta-icon {
     font-size: 2.2rem !important;
   }
 
-  .beta-panel {
+  .post-registration-landing .beta-panel {
     padding: 1.25rem !important;
   }
 
@@ -635,7 +635,7 @@ Add this block at the end of the file or near .tool-card styles: */
   }
 
   /* Dialog responsive */
-  .beta-dialog .MuiDialog-paper {
+  .post-registration-landing .beta-dialog .MuiDialog-paper {
     margin: 1rem;
     max-height: calc(100vh - 2rem);
   }
@@ -679,7 +679,7 @@ Add this block at the end of the file or near .tool-card styles: */
     font-size: 0.55rem !important;
   }
 
-  .beta-button {
+  .post-registration-landing .beta-button {
     padding: 0.75rem 2rem !important;
     font-size: 1rem !important;
   }
@@ -697,7 +697,7 @@ Add this block at the end of the file or near .tool-card styles: */
   }
 
   /* Dialog mobile improvements */
-  .beta-dialog .MuiDialogContent-root {
+  .post-registration-landing .beta-dialog .MuiDialogContent-root {
     padding: 0.75rem 1rem !important;
   }
 
@@ -717,9 +717,10 @@ Add this block at the end of the file or near .tool-card styles: */
 @media (max-width: 480px) {
   .post-registration-container {
     padding: 0 0.5rem;
+    margin-top: 2.5rem; /* Remove space for navbar */
   }
 
-  .beta-panel {
+  .post-registration-landing .beta-panel {
     padding: 1rem !important;
     border-radius: 12px !important;
   }
@@ -737,7 +738,7 @@ Add this block at the end of the file or near .tool-card styles: */
     font-size: 0.85rem !important;
   }
 
-  .beta-title {
+  .post-registration-landing .beta-title {
     font-size: 1.3rem !important;
   }
 
@@ -745,7 +746,7 @@ Add this block at the end of the file or near .tool-card styles: */
     font-size: 1.6rem !important;
   }
 
-  .beta-icon {
+  .post-registration-landing .beta-icon {
     font-size: 2rem !important;
   }
 
@@ -775,7 +776,7 @@ Add this block at the end of the file or near .tool-card styles: */
   }
 
   /* Dialog mobile */
-  .beta-dialog .MuiDialog-paper {
+  .post-registration-landing .beta-dialog .MuiDialog-paper {
     margin: 0.5rem;
     max-height: calc(100vh - 1rem);
   }

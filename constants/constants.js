@@ -40,7 +40,7 @@ export const ROUTES = {
   profile: {
     view: '/profile/:profileId',
   },
-  landings: {
+  welcome: {
     postRegistration: '/welcome/post-registration',
   }
 };

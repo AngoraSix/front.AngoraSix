@@ -137,3 +137,13 @@ export const trackSocialFollowClick = (platform) => {
     action_type: "follow",
   })
 }
+
+export const trackBetaProgramClick = () => {
+  if (typeof window !== "undefined" && typeof window.gtag !== "undefined") {
+    window.gtag("event", "beta_program_click", {
+      event_category: "engagement",
+      event_label: "pricing_page",
+      value: 1,
+    })
+  }
+}

@@ -554,7 +554,7 @@ const PostRegistration = ({ existingBetaApplication }) => {
         <Container className="post-registration-container">
           <Grid container spacing={{ xs: 2, md: 3 }} className="main-layout">
             {/* Left Column - Welcome + Beta Program */}
-            <Grid item xs={12} sm={12} md={8} lg={9}>
+            <Grid item xs={12} sm={12} md={12} lg={12}>
               <Box className="left-column">
                 {/* Welcome Section */}
                 <Box className="welcome-section">
@@ -568,8 +568,11 @@ const PostRegistration = ({ existingBetaApplication }) => {
                     </Typography>
                   </Box>
                 </Box>
-
-                {/* Beta Program Panel */}
+              </Box>
+            </Grid>
+            {/* Left Column - Welcome + Beta Program */}
+            <Grid item xs={12} sm={12} md={8} lg={9}>
+              <Box className="left-column">{/* Beta Program Panel */}
                 <Card className="beta-panel">
                   <Box className="beta-section">
                     <BetaCountdown targetDate={betaLaunchDate.toISOString()} />
