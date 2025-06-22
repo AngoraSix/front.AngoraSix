@@ -87,6 +87,11 @@
       "name": "Member 4",
       "role": "Co-creator",
       "description": "Focused on sustainability and social impact."
+    },
+    "member5": {
+      "name": "Member 5",
+      "role": "Co-creator",
+      "description": "Focused on sustainability and social impact."
     }
   }
 }

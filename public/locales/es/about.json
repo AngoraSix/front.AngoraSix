@@ -55,24 +55,29 @@
     "subtitle": "Algunos de los miembros que forman parte de AngoraSix",
     "philosophy": "En AngoraSix no hay fundadores ni empleados. Todos somos dueños y contribuimos según nuestras capacidades y pasiones.",
     "member1": {
-      "name": "Miembro 1",
-      "role": "Co-creador",
+      "name": "Ger",
+      "role": "Product Owner, Desarrollo",
       "description": "Apasionado por la tecnología y la innovación social."
     },
     "member2": {
-      "name": "Miembro 2",
-      "role": "Co-creador",
+      "name": "Jor",
+      "role": "Analisis de Negocio",
       "description": "Especialista en gestión cooperativa y desarrollo humano."
     },
     "member3": {
-      "name": "Miembro 3",
-      "role": "Co-creador",
+      "name": "Juli",
+      "role": "Diseño, Comunicación",
       "description": "Experto en diseño de experiencias y comunicación."
     },
     "member4": {
-      "name": "Miembro 4",
-      "role": "Co-creador",
+      "name": "Marcos",
+      "role": "Desarollo",
       "description": "Enfocado en sostenibilidad y impacto social."
+    },
+    "member5": {
+      "name": "Tomi",
+      "role": "UX",
+      "description": "Otra cosa por aca"
     }
   }
 }

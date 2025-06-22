@@ -74,6 +74,12 @@ const AboutComponent = () => {
       description: t("community.member4.description"),
       avatar: "/placeholder.svg?height=120&width=120",
     },
+    {
+      name: t("community.member5.name"),
+      role: t("community.member5.role"),
+      description: t("community.member5.description"),
+      avatar: "/placeholder.svg?height=120&width=120",
+    },
   ]
 
   return (
@@ -246,9 +252,9 @@ const AboutComponent = () => {
               </Box>
             </Fade>
 
-            <Grid container spacing={4} justifyContent="center">
+            <Grid container spacing={2} justifyContent="center">
               {communityMembers.map((member, index) => (
-                <Grid item xs={12} sm={6} md={3} key={index}>
+                <Grid item xs={12} sm={6} md={2} key={index}>
                   <Zoom in={communityInView} timeout={1200 + index * 200}>
                     <Card
                       sx={{
