@@ -9,6 +9,7 @@ import api from '../api';
 import A6App from '../components/App';
 import config from '../config';
 import reducers from '../store/reducers';
+import '../styles/About.css';
 import '../styles/App.css';
 import '../styles/ClubInvitations.css';
 import '../styles/Commons.css';

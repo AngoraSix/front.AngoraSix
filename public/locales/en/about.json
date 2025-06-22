@@ -39,7 +39,7 @@
     },
     "evolution": {
       "title": "Evolution and Originality",
-      "description": "A different paradigm, an alternative path. Progress and growth, but not through the path associated with traditional 'progress'."
+      "description": "A different paradigm, an new path. Progress and growth, but not through the path associated with traditional 'progress'."
     },
     "trust": {
       "title": "Invitation to Create",
@@ -48,20 +48,6 @@
     "simplicity": {
       "title": "Simplicity",
       "description": "Return to simpler values of relating to each other. Change unbridled material ambition for a sense of appreciation and peace."
-    }
-  },
-  "team": {
-    "title": "Our Team",
-    "subtitle": "The people behind AngoraSix",
-    "founder": {
-      "name": "Founding Team",
-      "role": "Visionaries and Creators",
-      "description": "Experienced founders who have lived firsthand the challenges of creating innovative projects. Their experience and passion are the driving force of AngoraSix."
-    },
-    "developers": {
-      "name": "Development Team",
-      "role": "Technology Architects",
-      "description": "Developers committed to creating tools that really work for real teams, prioritizing usability and user experience."
     }
   },
   "community": {
@@ -93,5 +79,12 @@
       "role": "Co-creator",
       "description": "Focused on sustainability and social impact."
     }
+  },
+  "followUs": {
+    "title": "Connect with Us"
+  },
+  "finalCta": {
+    "quote": "\"The best way to predict the future is to create it.\"",
+    "button": "Join AngoraSix"
   }
 }

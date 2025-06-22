@@ -185,7 +185,7 @@ const PricingComponent = () => {
         <Container maxWidth="lg" className="pricing-container">
           {/* Hero Section */}
           <Box className="pricing-hero">
-            <Typography variant="h1" className="pricing-hero-title">
+            <Typography variant="h3" className="pricing-hero-title">
               {t("hero.title")}
             </Typography>
             <Typography variant="h6" className="pricing-hero-subtitle">

@@ -79,5 +79,12 @@
       "role": "UX",
       "description": "Otra cosa por aca"
     }
+  },
+  "followUs": {
+    "title": "Conéctate con Nosotros"
+  },
+  "finalCta": {
+    "quote": "\"La mejor forma de predecir el futuro es crearlo.\"",
+    "button": "Únete a AngoraSix"
   }
 }

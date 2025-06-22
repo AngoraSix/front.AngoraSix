@@ -70,13 +70,13 @@ const Footer = () => {
               {t("footer.contactDescription")}
             </Typography>
             <Link
-              href="mailto:info@angorasix.com"
+              href="mailto:team@angorasix.com"
               color="primary"
               underline="hover"
               variant="body2"
               sx={{ fontWeight: "medium" }}
             >
-              info@angorasix.com
+              team@angorasix.com
             </Link>
           </Grid>
         </Grid>
