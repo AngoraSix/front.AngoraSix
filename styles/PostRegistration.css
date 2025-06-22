@@ -253,9 +253,6 @@
   padding: 1rem 0;
 }
 
-/* Beta CTA - Moved up, more prominent */
-/* Remove the old .beta-cta styles and update responsive */
-
 .beta-button {
   background: linear-gradient(135deg, #fe5f55 0%, #e54a41 100%) !important;
   color: white !important;
@@ -384,7 +381,6 @@
 }
 
 /* Social Links */
-
 .social-icon {
   background: rgba(27, 89, 147, 0.1) !important;
   color: #1b5993 !important;
@@ -402,6 +398,7 @@
 /* Dialog Styles */
 .beta-dialog .MuiPaper-root {
   border-radius: 16px;
+  max-height: 95vh;
 }
 
 .dialog-title {
@@ -428,6 +425,144 @@
 
 .dialog-submit:hover {
   background: #e54a41 !important;
+}
+
+/* Profile Type Cards */
+.profile-type-card {
+  transition: all 0.3s ease !important;
+  border-radius: 16px !important;
+  min-height: 180px;
+}
+
+.profile-type-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(27, 89, 147, 0.2) !important;
+}
+
+.profile-type-card.selected {
+  background: rgba(254, 95, 85, 0.05) !important;
+  border-color: #fe5f55 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(254, 95, 85, 0.2) !important;
+}
+
+/* Tool Cards */
+.tool-card {
+  transition: all 0.3s ease !important;
+  border-radius: 12px !important;
+  min-height: 80px;
+}
+
+.tool-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(27, 89, 147, 0.15) !important;
+}
+
+.tool-card.selected {
+  background: rgba(254, 95, 85, 0.05) !important;
+  border-color: #fe5f55 !important;
+}
+
+/* Add styling for the new SVG icons in tool cards
+Add this block at the end of the file or near .tool-card styles: */
+.tool-card .tool-logo {
+  width: 24px;
+  height: 24px;
+  filter: invert(20%) sepia(100%) saturate(1000%) hue-rotate(190deg) brightness(90%) contrast(90%); /* Default blue color */
+  transition: filter 0.3s ease;
+}
+
+.tool-card.selected .tool-logo {
+  filter: invert(40%) sepia(100%) saturate(1000%) hue-rotate(330deg) brightness(100%) contrast(100%); /* Orange color when selected */
+}
+
+/* Interest Cards */
+.interest-card {
+  transition: all 0.3s ease !important;
+  border-radius: 12px !important;
+  min-height: 90px;
+}
+
+.interest-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(27, 89, 147, 0.15) !important;
+}
+
+.interest-card.selected {
+  background: rgba(254, 95, 85, 0.05) !important;
+  border-color: #fe5f55 !important;
+}
+
+/* Contact Method Cards */
+.contact-method-card {
+  transition: all 0.3s ease !important;
+  border-radius: 12px !important;
+  min-height: 100px;
+}
+
+.contact-method-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(27, 89, 147, 0.15) !important;
+}
+
+.contact-method-card.selected {
+  background: rgba(254, 95, 85, 0.05) !important;
+  border-color: #fe5f55 !important;
+}
+
+/* Dialog improvements */
+.beta-dialog .MuiDialogContent-root {
+  padding: 1rem 1.5rem !important;
+  overflow-y: auto;
+}
+
+.beta-dialog .MuiFormLabel-root {
+  color: #0a2239 !important;
+  font-size: 0.95rem !important;
+}
+
+.beta-dialog .MuiFormHelperText-root.Mui-error {
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+}
+
+/* Radio buttons and checkboxes */
+.beta-dialog .MuiFormControlLabel-root {
+  margin-bottom: 0.5rem;
+}
+
+.beta-dialog .MuiRadio-root {
+  color: #1b5993 !important;
+}
+
+.beta-dialog .MuiRadio-root.Mui-checked {
+  color: #fe5f55 !important;
+}
+
+.beta-dialog .MuiCheckbox-root {
+  color: #1b5993 !important;
+}
+
+.beta-dialog .MuiCheckbox-root.Mui-checked {
+  color: #fe5f55 !important;
+}
+
+/* Dividers and chips */
+.beta-dialog .MuiDivider-root {
+  margin: 1.5rem 0 !important;
+}
+
+.beta-dialog .MuiChip-root {
+  background: #f8fafe !important;
+  color: #1b5993 !important;
+  font-weight: 600 !important;
+}
+
+/* Success snackbar */
+.MuiSnackbar-root {
+  z-index: 2000 !important;
 }
 
 /* Animations */
@@ -498,6 +633,16 @@
   .flowing-lines {
     display: none;
   }
+
+  /* Dialog responsive */
+  .beta-dialog .MuiDialog-paper {
+    margin: 1rem;
+    max-height: calc(100vh - 2rem);
+  }
+
+  .profile-type-card {
+    min-height: 140px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -549,6 +694,23 @@
 
   .celebration-icon {
     font-size: 1.8rem !important;
+  }
+
+  /* Dialog mobile improvements */
+  .beta-dialog .MuiDialogContent-root {
+    padding: 0.75rem 1rem !important;
+  }
+
+  .tool-card {
+    min-height: 70px;
+  }
+
+  .interest-card {
+    min-height: 80px;
+  }
+
+  .contact-method-card {
+    min-height: 90px;
   }
 }
 
@@ -611,83 +773,26 @@
     width: 28px !important;
     height: 28px !important;
   }
-}
 
-/* Interest Cards */
-.interest-card {
-  transition: all 0.3s ease !important;
-  border-radius: 12px !important;
-}
-
-.interest-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(27, 89, 147, 0.15) !important;
-}
-
-.interest-card.selected {
-  background: rgba(254, 95, 85, 0.05) !important;
-  border-color: #fe5f55 !important;
-}
-
-/* Dialog improvements */
-.beta-dialog .MuiDialog-paper {
-  border-radius: 16px !important;
-  max-height: 90vh;
-}
-
-.beta-dialog .MuiDialogContent-root {
-  padding: 1rem 1.5rem !important;
-}
-
-.beta-dialog .MuiFormLabel-root {
-  color: #0a2239 !important;
-  font-size: 0.95rem !important;
-}
-
-.beta-dialog .MuiFormHelperText-root.Mui-error {
-  display: flex;
-  align-items: center;
-  margin-top: 0.5rem;
-  font-size: 0.8rem;
-}
-
-/* Contact method radio buttons */
-.beta-dialog .MuiFormControlLabel-root {
-  margin-bottom: 0.5rem;
-}
-
-.beta-dialog .MuiRadio-root {
-  color: #1b5993 !important;
-}
-
-.beta-dialog .MuiRadio-root.Mui-checked {
-  color: #fe5f55 !important;
-}
-
-/* Success snackbar */
-.MuiSnackbar-root {
-  z-index: 2000 !important;
-}
-
-/* Responsive improvements for dialog */
-@media (max-width: 768px) {
-  .beta-dialog .MuiDialog-paper {
-    margin: 1rem;
-    max-height: calc(100vh - 2rem);
-  }
-
-  .interest-card {
-    padding: 1rem !important;
-  }
-
-  .beta-dialog .MuiDialogContent-root {
-    padding: 0.75rem 1rem !important;
-  }
-}
-
-@media (max-width: 480px) {
+  /* Dialog mobile */
   .beta-dialog .MuiDialog-paper {
     margin: 0.5rem;
     max-height: calc(100vh - 1rem);
+  }
+
+  .profile-type-card {
+    min-height: 120px;
+  }
+
+  .tool-card {
+    min-height: 60px;
+  }
+
+  .interest-card {
+    min-height: 70px;
+  }
+
+  .contact-method-card {
+    min-height: 80px;
   }
 }

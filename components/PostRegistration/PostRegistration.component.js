@@ -2,29 +2,34 @@
 
 import {
   Add,
-  Business,
   Celebration,
   CheckCircle,
   Diamond,
   Email,
   Error as ErrorIcon,
-  Explore,
   GitHub,
   Group,
   Instagram,
   LinkedIn,
   Message,
-  People,
   Phone,
   Send,
-  Settings,
   Speed,
   Star,
   Support,
   WhatsApp,
-  Work,
   YouTube,
+  Code,
+  Campaign,
+  Psychology,
+  AdminPanelSettings,
+  AccountBalance,
+  Business,
+  Person,
 } from "@mui/icons-material"
+import DesignServices from "@mui/icons-material/DesignServices" // Keep this one if still used elsewhere or for consistency
+import Build from "@mui/icons-material/Build" // Keep this one if still used elsewhere or for consistency
+import Close from "@mui/icons-material/Close" // Keep this one if still used elsewhere or for consistency
 import {
   Alert,
   Box,
@@ -47,6 +52,9 @@ import {
   Snackbar,
   TextField,
   Typography,
+  SvgIcon,
+  Chip,
+  Divider,
 } from "@mui/material"
 import { signIn, useSession } from "next-auth/react"
 import { useTranslation } from "next-i18next"
@@ -61,6 +69,14 @@ import {
   trackSocialFollowClick,
 } from "../../utils/analytics"
 
+// Import SVG logos
+import TrelloLogo from "../../public/logos/thirdparty/trello.svg"
+import JiraLogo from "../../public/logos/thirdparty/jira.svg"
+import NotionLogo from "../../public/logos/thirdparty/notion.svg"
+import AsanaLogo from "../../public/logos/thirdparty/asana.svg"
+import ClickUpLogo from "../../public/logos/thirdparty/clickup.svg"
+import SpreadsheetLogo from "../../public/logos/thirdparty/spreadsheet.svg"
+
 const PostRegistration = ({ existingBetaApplication }) => {
   const { t } = useTranslation("post-registration")
   const { data: session, status } = useSession()
@@ -73,11 +89,25 @@ const PostRegistration = ({ existingBetaApplication }) => {
   const [messageSubmitted, setMessageSubmitted] = useState(false)
   const [betaDialogOpen, setBetaDialogOpen] = useState(false)
   const [betaFormData, setBetaFormData] = useState({
-    interests: [],
-    otherInterest: "",
-    description: "",
+    profileType: "",
+    otherProfileType: "",
+    // Project owner fields
+    projectStage: "",
+    teamSize: "",
+    role: [],
+    otherRole: "",
+    managementTools: [],
+    otherManagementTool: "",
+    otherTools: "",
+    // Contributor fields
+    workInterests: [],
+    otherWorkInterest: "",
+    dedicationLevel: "",
+    currentWork: "",
+    // Common fields
+    expectations: "",
     contactMethod: "email",
-    phoneNumber: "",
+    contactValue: "",
     consent: false,
   })
   const [betaFormErrors, setBetaFormErrors] = useState({})
@@ -89,44 +119,116 @@ const PostRegistration = ({ existingBetaApplication }) => {
   const betaLaunchDate = new Date()
   betaLaunchDate.setDate(betaLaunchDate.getDate() + 30)
 
-  // Interest options
-  const interestOptions = [
+  // Profile type options
+  const profileTypeOptions = [
     {
-      id: "entrepreneur",
+      id: "project_owner",
       icon: <Business />,
-      title: t("betaDialog.interests.entrepreneur.title"),
-      description: t("betaDialog.interests.entrepreneur.description"),
-    },
-    {
-      id: "collaboration",
-      icon: <People />,
-      title: t("betaDialog.interests.collaboration.title"),
-      description: t("betaDialog.interests.collaboration.description"),
+      title: t("betaDialog.profileTypes.projectOwner.title"),
+      description: t("betaDialog.profileTypes.projectOwner.description"),
     },
     {
       id: "contributor",
-      icon: <Work />,
-      title: t("betaDialog.interests.contributor.title"),
-      description: t("betaDialog.interests.contributor.description"),
-    },
-    {
-      id: "management",
-      icon: <Settings />,
-      title: t("betaDialog.interests.management.title"),
-      description: t("betaDialog.interests.management.description"),
-    },
-    {
-      id: "curious",
-      icon: <Explore />,
-      title: t("betaDialog.interests.curious.title"),
-      description: t("betaDialog.interests.curious.description"),
+      icon: <Person />,
+      title: t("betaDialog.profileTypes.contributor.title"),
+      description: t("betaDialog.profileTypes.contributor.description"),
     },
     {
       id: "other",
       icon: <Add />,
-      title: t("betaDialog.interests.other.title"),
-      description: t("betaDialog.interests.other.description"),
+      title: t("betaDialog.profileTypes.other.title"),
+      description: t("betaDialog.profileTypes.other.description"),
     },
+  ]
+
+  // Project stage options
+  const projectStageOptions = [
+    { id: "idea", label: t("betaDialog.projectStage.idea") },
+    { id: "building_team", label: t("betaDialog.projectStage.buildingTeam") },
+    { id: "working", label: t("betaDialog.projectStage.working") },
+    { id: "has_users", label: t("betaDialog.projectStage.hasUsers") },
+    { id: "other", label: t("betaDialog.projectStage.other") },
+  ]
+
+  // Team size options
+  const teamSizeOptions = [
+    { id: "solo", label: t("betaDialog.teamSize.solo") },
+    { id: "small", label: t("betaDialog.teamSize.small") },
+    { id: "medium", label: t("betaDialog.teamSize.medium") },
+    { id: "large", label: t("betaDialog.teamSize.large") },
+  ]
+
+  // Role options
+  const roleOptions = [
+    { id: "founder", label: t("betaDialog.role.founder"), icon: <Business /> },
+    { id: "partner", label: t("betaDialog.role.partner"), icon: <Group /> },
+    { id: "coordinator", label: t("betaDialog.role.coordinator"), icon: <AdminPanelSettings /> },
+    { id: "developer", label: t("betaDialog.role.developer"), icon: <Code /> },
+    { id: "designer", label: t("betaDialog.role.designer"), icon: <DesignServices /> },
+    { id: "other", label: t("betaDialog.role.other"), icon: <Add /> },
+  ]
+
+  // Management tools options
+  const managementToolsOptions = [
+    {
+      id: "trello",
+      icon: <SvgIcon className="tool-logo" sx={{ fontSize: 22 }} component={TrelloLogo} viewBox="0 0 24 24" />,
+      label: "Trello",
+    },
+    {
+      id: "jira",
+      icon: <SvgIcon className="tool-logo" sx={{ fontSize: 22 }} component={JiraLogo} viewBox="0 0 24 24" />,
+      label: "Jira",
+    },
+    {
+      id: "notion",
+      icon: <SvgIcon className="tool-logo" sx={{ fontSize: 22 }} component={NotionLogo} viewBox="0 0 24 24" />,
+      label: "Notion",
+    },
+    {
+      id: "asana",
+      icon: <SvgIcon className="tool-logo" sx={{ fontSize: 22 }} component={AsanaLogo} viewBox="0 0 24 24" />,
+      label: "Asana",
+    },
+    {
+      id: "clickup",
+      icon: <SvgIcon className="tool-logo" sx={{ fontSize: 22 }} component={ClickUpLogo} viewBox="0 0 24 24" />,
+      label: "ClickUp",
+    },
+    {
+      id: "excel",
+      icon: <SvgIcon className="tool-logo" sx={{ fontSize: 22 }} component={SpreadsheetLogo} viewBox="0 0 24 24" />,
+      label: "Excel / Google Sheets",
+    },
+    { id: "other", icon: <Build className="tool-logo" />, label: t("betaDialog.managementTools.other") },
+    { id: "none", icon: <Close className="tool-logo" />, label: t("betaDialog.managementTools.none") },
+  ]
+
+  // Work interests options
+  const workInterestsOptions = [
+    { id: "development", icon: <Code />, label: t("betaDialog.workInterests.development") },
+    { id: "design", icon: <DesignServices />, label: t("betaDialog.workInterests.design") },
+    { id: "communication", icon: <Campaign />, label: t("betaDialog.workInterests.communication") },
+    { id: "strategy", icon: <Psychology />, label: t("betaDialog.workInterests.strategy") },
+    { id: "organization", icon: <AdminPanelSettings />, label: t("betaDialog.workInterests.organization") },
+    { id: "finance", icon: <AccountBalance />, label: t("betaDialog.workInterests.finance") },
+    { id: "other", icon: <Add />, label: t("betaDialog.workInterests.other") },
+  ]
+
+  // Dedication level options
+  const dedicationLevelOptions = [
+    { id: "few_hours", label: t("betaDialog.dedicationLevel.fewHours") },
+    { id: "part_time", label: t("betaDialog.dedicationLevel.partTime") },
+    { id: "full_time", label: t("betaDialog.dedicationLevel.fullTime") },
+    { id: "not_sure", label: t("betaDialog.dedicationLevel.notSure") },
+  ]
+
+  // Current work options
+  const currentWorkOptions = [
+    { id: "fixed_job", label: t("betaDialog.currentWork.fixedJob") },
+    { id: "freelancer", label: t("betaDialog.currentWork.freelancer") },
+    { id: "looking", label: t("betaDialog.currentWork.looking") },
+    { id: "prefer_not_answer", label: t("betaDialog.currentWork.preferNotAnswer") },
   ]
 
   // Contact method options
@@ -145,6 +247,10 @@ const PostRegistration = ({ existingBetaApplication }) => {
     }
     if (session?.user?.email) {
       setEmail(session.user.email)
+      setBetaFormData((prev) => ({
+        ...prev,
+        contactValue: session.user.email,
+      }))
     }
   }, [session, status])
 
@@ -155,23 +261,59 @@ const PostRegistration = ({ existingBetaApplication }) => {
   const validateBetaForm = () => {
     const errors = {}
 
-    if (betaFormData.interests.length === 0) {
-      errors.interests = t("betaDialog.errors.interestsRequired")
+    if (!betaFormData.profileType) {
+      errors.profileType = t("betaDialog.errors.profileTypeRequired")
     }
 
-    if (betaFormData.interests.includes("other") && !betaFormData.otherInterest.trim()) {
-      errors.otherInterest = t("betaDialog.errors.otherInterestRequired")
+    if (betaFormData.profileType === "other" && !betaFormData.otherProfileType.trim()) {
+      errors.otherProfileType = t("betaDialog.errors.otherProfileTypeRequired")
     }
 
-    if (!betaFormData.description.trim()) {
-      errors.description = t("betaDialog.errors.descriptionRequired")
+    // Project owner validations
+    if (betaFormData.profileType === "project_owner") {
+      if (!betaFormData.projectStage) {
+        errors.projectStage = t("betaDialog.errors.projectStageRequired")
+      }
+      if (!betaFormData.teamSize) {
+        errors.teamSize = t("betaDialog.errors.teamSizeRequired")
+      }
+      if (betaFormData.role.length === 0) {
+        errors.role = t("betaDialog.errors.roleRequired")
+      }
+      if (betaFormData.role.includes("other") && !betaFormData.otherRole.trim()) {
+        errors.otherRole = t("betaDialog.errors.otherRoleRequired")
+      }
+      if (betaFormData.managementTools.length === 0) {
+        errors.managementTools = t("betaDialog.errors.managementToolsRequired")
+      }
+      if (betaFormData.managementTools.includes("other") && !betaFormData.otherManagementTool.trim()) {
+        errors.otherManagementTool = t("betaDialog.errors.otherManagementToolRequired")
+      }
     }
 
-    if (
-      (betaFormData.contactMethod === "phone" || betaFormData.contactMethod === "whatsapp") &&
-      !betaFormData.phoneNumber.trim()
-    ) {
-      errors.phoneNumber = t("betaDialog.errors.phoneRequired")
+    // Contributor validations
+    if (betaFormData.profileType === "contributor") {
+      if (betaFormData.workInterests.length === 0) {
+        errors.workInterests = t("betaDialog.errors.workInterestsRequired")
+      }
+      if (betaFormData.workInterests.includes("other") && !betaFormData.otherWorkInterest.trim()) {
+        errors.otherWorkInterest = t("betaDialog.errors.otherWorkInterestRequired")
+      }
+      if (!betaFormData.dedicationLevel) {
+        errors.dedicationLevel = t("betaDialog.errors.dedicationLevelRequired")
+      }
+      if (!betaFormData.currentWork) {
+        errors.currentWork = t("betaDialog.errors.currentWorkRequired")
+      }
+    }
+
+    // Common validations
+    if (!betaFormData.expectations.trim()) {
+      errors.expectations = t("betaDialog.errors.expectationsRequired")
+    }
+
+    if (!betaFormData.contactValue.trim()) {
+      errors.contactValue = t("betaDialog.errors.contactValueRequired")
     }
 
     if (!betaFormData.consent) {
@@ -228,16 +370,95 @@ const PostRegistration = ({ existingBetaApplication }) => {
     setBetaDialogOpen(true)
   }
 
-  const handleInterestToggle = (interestId) => {
+  const handleProfileTypeSelect = (profileType) => {
     setBetaFormData((prev) => ({
       ...prev,
-      interests: prev.interests.includes(interestId)
-        ? prev.interests.filter((id) => id !== interestId)
-        : [...prev.interests, interestId],
+      profileType,
+      // Reset conditional fields when changing profile type
+      projectStage: "",
+      teamSize: "",
+      role: [],
+      otherRole: "",
+      managementTools: [],
+      otherManagementTool: "",
+      otherTools: "",
+      workInterests: [],
+      otherWorkInterest: "",
+      dedicationLevel: "",
+      currentWork: "",
     }))
     // Clear errors when user makes changes
-    if (betaFormErrors.interests) {
-      setBetaFormErrors((prev) => ({ ...prev, interests: null }))
+    if (betaFormErrors.profileType) {
+      setBetaFormErrors((prev) => ({ ...prev, profileType: null }))
+    }
+  }
+
+  const handleRoleToggle = (roleId) => {
+    setBetaFormData((prev) => ({
+      ...prev,
+      role: prev.role.includes(roleId) ? prev.role.filter((id) => id !== roleId) : [...prev.role, roleId],
+    }))
+    if (betaFormErrors.role) {
+      setBetaFormErrors((prev) => ({ ...prev, role: null }))
+    }
+  }
+
+  const handleManagementToolToggle = (toolId) => {
+    setBetaFormData((prev) => ({
+      ...prev,
+      managementTools: prev.managementTools.includes(toolId)
+        ? prev.managementTools.filter((id) => id !== toolId)
+        : [...prev.managementTools, toolId],
+    }))
+    if (betaFormErrors.managementTools) {
+      setBetaFormErrors((prev) => ({ ...prev, managementTools: null }))
+    }
+  }
+
+  const handleWorkInterestToggle = (interestId) => {
+    setBetaFormData((prev) => ({
+      ...prev,
+      workInterests: prev.workInterests.includes(interestId)
+        ? prev.workInterests.filter((id) => id !== interestId)
+        : [...prev.workInterests, interestId],
+    }))
+    if (betaFormErrors.workInterests) {
+      setBetaFormErrors((prev) => ({ ...prev, workInterests: null }))
+    }
+  }
+
+  const handleContactMethodChange = (method) => {
+    let placeholder = ""
+    let value = ""
+
+    switch (method) {
+      case "email":
+        placeholder = session?.user?.email || "tu@email.com"
+        value = session?.user?.email || ""
+        break
+      case "phone":
+      case "whatsapp":
+        placeholder = "+54 9 11 1234-5678"
+        value = ""
+        break
+    }
+
+    setBetaFormData((prev) => ({
+      ...prev,
+      contactMethod: method,
+      contactValue: value,
+    }))
+  }
+
+  const getContactPlaceholder = () => {
+    switch (betaFormData.contactMethod) {
+      case "email":
+        return session?.user?.email || "tu@email.com"
+      case "phone":
+      case "whatsapp":
+        return "+54 9 11 1234-5678"
+      default:
+        return ""
     }
   }
 
@@ -255,12 +476,7 @@ const PostRegistration = ({ existingBetaApplication }) => {
       // Save to survey system
       await api.front.saveSurveyResponse(
         {
-          interests: betaFormData.interests,
-          otherInterest: betaFormData.otherInterest,
-          description: betaFormData.description,
-          contactMethod: betaFormData.contactMethod,
-          phoneNumber: betaFormData.phoneNumber,
-          consent: betaFormData.consent,
+          ...betaFormData,
           source: "post_registration",
           userEmail: session?.user?.email,
           userName: session?.user?.name,
@@ -551,7 +767,7 @@ const PostRegistration = ({ existingBetaApplication }) => {
         <Dialog
           open={betaDialogOpen}
           onClose={() => setBetaDialogOpen(false)}
-          maxWidth="md"
+          maxWidth="lg"
           fullWidth
           className="beta-dialog"
         >
@@ -565,140 +781,455 @@ const PostRegistration = ({ existingBetaApplication }) => {
           </DialogTitle>
           <DialogContent>
             <Box component="form" onSubmit={handleBetaSubmit} sx={{ mt: 2 }}>
-              {/* Interest Selection */}
-              <FormControl component="fieldset" fullWidth sx={{ mb: 3 }}>
-                <FormLabel component="legend" sx={{ mb: 2, fontWeight: 600 }}>
-                  {t("betaDialog.fields.interests")} *
+              {/* Step 1: Profile Type Selection */}
+              <FormControl component="fieldset" fullWidth sx={{ mb: 4 }}>
+                <FormLabel component="legend" sx={{ mb: 2, fontWeight: 600, fontSize: "1.1rem" }}>
+                  {t("betaDialog.fields.profileType")} *
                 </FormLabel>
                 <Grid container spacing={2}>
-                  {interestOptions.map((option) => (
-                    <Grid item xs={12} sm={6} key={option.id}>
+                  {profileTypeOptions.map((option) => (
+                    <Grid item xs={12} sm={4} key={option.id}>
                       <Card
-                        className={`interest-card ${betaFormData.interests.includes(option.id) ? "selected" : ""}`}
-                        onClick={() => handleInterestToggle(option.id)}
+                        className={`profile-type-card ${betaFormData.profileType === option.id ? "selected" : ""}`}
+                        onClick={() => handleProfileTypeSelect(option.id)}
                         sx={{
                           cursor: "pointer",
                           p: 2,
-                          border: betaFormData.interests.includes(option.id)
-                            ? "2px solid #fe5f55"
-                            : "1px solid #e0e0e0",
+                          height: "100%",
+                          border: betaFormData.profileType === option.id ? "2px solid #fe5f55" : "1px solid #e0e0e0",
                         }}
                       >
-                        <Box display="flex" alignItems="flex-start" gap={1}>
-                          <Box sx={{ color: betaFormData.interests.includes(option.id) ? "#fe5f55" : "#1b5993" }}>
+                        <Box display="flex" flexDirection="column" alignItems="center" textAlign="center" gap={1}>
+                          <Box
+                            sx={{
+                              color: betaFormData.profileType === option.id ? "#fe5f55" : "#1b5993",
+                              fontSize: "2rem",
+                            }}
+                          >
                             {option.icon}
                           </Box>
-                          <Box flex={1}>
-                            <Typography variant="subtitle2" fontWeight={600} sx={{ mb: 0.5 }}>
-                              {option.title}
-                            </Typography>
-                            <Typography variant="body2" color="text.secondary" fontSize="0.8rem">
-                              {option.description}
-                            </Typography>
-                          </Box>
-                          {betaFormData.interests.includes(option.id) && (
-                            <CheckCircle sx={{ color: "#fe5f55", fontSize: "1.2rem" }} />
+                          <Typography variant="subtitle1" fontWeight={600}>
+                            {option.title}
+                          </Typography>
+                          <Typography variant="body2" color="text.secondary" fontSize="0.85rem">
+                            {option.description}
+                          </Typography>
+                          {betaFormData.profileType === option.id && (
+                            <CheckCircle sx={{ color: "#fe5f55", fontSize: "1.5rem", mt: 1 }} />
                           )}
                         </Box>
                       </Card>
                     </Grid>
                   ))}
                 </Grid>
-                {betaFormErrors.interests && (
+                {betaFormErrors.profileType && (
                   <FormHelperText error sx={{ mt: 1 }}>
                     <ErrorIcon sx={{ fontSize: "1rem", mr: 0.5 }} />
-                    {betaFormErrors.interests}
+                    {betaFormErrors.profileType}
                   </FormHelperText>
                 )}
               </FormControl>
 
-              {/* Other Interest Field */}
-              {betaFormData.interests.includes("other") && (
+              {/* Other Profile Type Field */}
+              {betaFormData.profileType === "other" && (
                 <TextField
                   fullWidth
                   size="small"
-                  label={t("betaDialog.fields.otherInterest")}
-                  value={betaFormData.otherInterest}
-                  onChange={(e) => setBetaFormData({ ...betaFormData, otherInterest: e.target.value })}
-                  error={!!betaFormErrors.otherInterest}
-                  helperText={betaFormErrors.otherInterest}
+                  label={t("betaDialog.fields.otherProfileType")}
+                  value={betaFormData.otherProfileType}
+                  onChange={(e) => setBetaFormData({ ...betaFormData, otherProfileType: e.target.value })}
+                  error={!!betaFormErrors.otherProfileType}
+                  helperText={betaFormErrors.otherProfileType}
                   sx={{ mb: 3 }}
                 />
               )}
 
-              {/* Description Field */}
-              <TextField
-                fullWidth
-                label={t("betaDialog.fields.description")}
-                multiline
-                rows={4}
-                value={betaFormData.description}
-                onChange={(e) => setBetaFormData({ ...betaFormData, description: e.target.value })}
-                placeholder={t("betaDialog.fields.descriptionPlaceholder")}
-                error={!!betaFormErrors.description}
-                helperText={betaFormErrors.description}
-                required
-                sx={{ mb: 3 }}
-              />
+              {/* Branch A: Project Owner Fields */}
+              {betaFormData.profileType === "project_owner" && (
+                <>
+                  <Divider sx={{ my: 3 }}>
+                    <Chip label={t("betaDialog.sections.projectDetails")} />
+                  </Divider>
 
-              {/* Contact Method */}
-              <FormControl component="fieldset" fullWidth sx={{ mb: 3 }}>
-                <FormLabel component="legend" sx={{ mb: 2, fontWeight: 600 }}>
-                  {t("betaDialog.fields.contactMethod")} *
-                </FormLabel>
-                <RadioGroup
-                  value={betaFormData.contactMethod}
-                  onChange={(e) => setBetaFormData({ ...betaFormData, contactMethod: e.target.value })}
-                >
-                  {contactMethods.map((method) => (
-                    <FormControlLabel
-                      key={method.id}
-                      value={method.id}
-                      control={<Radio />}
-                      label={
-                        <Box display="flex" alignItems="center" gap={1}>
-                          {method.icon}
-                          {method.label}
-                        </Box>
-                      }
+                  {/* Project Stage */}
+                  <FormControl component="fieldset" fullWidth sx={{ mb: 3 }}>
+                    <FormLabel component="legend" sx={{ mb: 2, fontWeight: 600 }}>
+                      {t("betaDialog.fields.projectStage")} *
+                    </FormLabel>
+                    <RadioGroup
+                      value={betaFormData.projectStage}
+                      onChange={(e) => setBetaFormData({ ...betaFormData, projectStage: e.target.value })}
+                    >
+                      {projectStageOptions.map((option) => (
+                        <FormControlLabel key={option.id} value={option.id} control={<Radio />} label={option.label} />
+                      ))}
+                    </RadioGroup>
+                    {betaFormErrors.projectStage && (
+                      <FormHelperText error>
+                        <ErrorIcon sx={{ fontSize: "1rem", mr: 0.5 }} />
+                        {betaFormErrors.projectStage}
+                      </FormHelperText>
+                    )}
+                  </FormControl>
+
+                  {/* Team Size */}
+                  <FormControl component="fieldset" fullWidth sx={{ mb: 3 }}>
+                    <FormLabel component="legend" sx={{ mb: 2, fontWeight: 600 }}>
+                      {t("betaDialog.fields.teamSize")} *
+                    </FormLabel>
+                    <RadioGroup
+                      value={betaFormData.teamSize}
+                      onChange={(e) => setBetaFormData({ ...betaFormData, teamSize: e.target.value })}
+                    >
+                      {teamSizeOptions.map((option) => (
+                        <FormControlLabel key={option.id} value={option.id} control={<Radio />} label={option.label} />
+                      ))}
+                    </RadioGroup>
+                    {betaFormErrors.teamSize && (
+                      <FormHelperText error>
+                        <ErrorIcon sx={{ fontSize: "1rem", mr: 0.5 }} />
+                        {betaFormErrors.teamSize}
+                      </FormHelperText>
+                    )}
+                  </FormControl>
+
+                  {/* Role */}
+                  <FormControl component="fieldset" fullWidth sx={{ mb: 3 }}>
+                    <FormLabel component="legend" sx={{ mb: 2, fontWeight: 600 }}>
+                      {t("betaDialog.fields.role")} *
+                    </FormLabel>
+                    <Grid container spacing={1}>
+                      {roleOptions.map((option) => (
+                        <Grid item xs={6} sm={4} key={option.id}>
+                          <Card
+                            className={`tool-card ${betaFormData.role.includes(option.id) ? "selected" : ""}`}
+                            onClick={() => handleRoleToggle(option.id)}
+                            sx={{
+                              cursor: "pointer",
+                              p: 1.5,
+                              textAlign: "center",
+                              border: betaFormData.role.includes(option.id) ? "2px solid #fe5f55" : "1px solid #e0e0e0",
+                            }}
+                          >
+                            <Box display="flex" flexDirection="column" alignItems="center" gap={0.5}>
+                              <Box sx={{ color: betaFormData.role.includes(option.id) ? "#fe5f55" : "#1b5993" }}>
+                                {option.icon}
+                              </Box>
+                              <Typography variant="caption" fontWeight={600} fontSize="0.7rem">
+                                {option.label}
+                              </Typography>
+                              {betaFormData.role.includes(option.id) && (
+                                <CheckCircle sx={{ color: "#fe5f55", fontSize: "1rem" }} />
+                              )}
+                            </Box>
+                          </Card>
+                        </Grid>
+                      ))}
+                    </Grid>
+                    {betaFormErrors.role && (
+                      <FormHelperText error sx={{ mt: 1 }}>
+                        <ErrorIcon sx={{ fontSize: "1rem", mr: 0.5 }} />
+                        {betaFormErrors.role}
+                      </FormHelperText>
+                    )}
+                  </FormControl>
+
+                  {/* Other Role Field */}
+                  {betaFormData.role.includes("other") && (
+                    <TextField
+                      fullWidth
+                      size="small"
+                      label={t("betaDialog.fields.otherRole")}
+                      value={betaFormData.otherRole}
+                      onChange={(e) => setBetaFormData({ ...betaFormData, otherRole: e.target.value })}
+                      error={!!betaFormErrors.otherRole}
+                      helperText={betaFormErrors.otherRole}
+                      sx={{ mb: 3 }}
                     />
-                  ))}
-                </RadioGroup>
-              </FormControl>
+                  )}
 
-              {/* Phone Number Field */}
-              {(betaFormData.contactMethod === "phone" || betaFormData.contactMethod === "whatsapp") && (
-                <TextField
-                  fullWidth
-                  size="small"
-                  label={t("betaDialog.fields.phoneNumber")}
-                  value={betaFormData.phoneNumber}
-                  onChange={(e) => setBetaFormData({ ...betaFormData, phoneNumber: e.target.value })}
-                  placeholder={t("betaDialog.fields.phonePlaceholder")}
-                  error={!!betaFormErrors.phoneNumber}
-                  helperText={betaFormErrors.phoneNumber}
-                  required
-                  sx={{ mb: 3 }}
-                />
-              )}
+                  {/* Management Tools */}
+                  <FormControl component="fieldset" fullWidth sx={{ mb: 3 }}>
+                    <FormLabel component="legend" sx={{ mb: 2, fontWeight: 600 }}>
+                      {t("betaDialog.fields.managementTools")} *
+                    </FormLabel>
+                    <Grid container spacing={1}>
+                      {managementToolsOptions.map((tool) => (
+                        <Grid item xs={6} sm={4} md={3} key={tool.id}>
+                          <Card
+                            className={`tool-card ${betaFormData.managementTools.includes(tool.id) ? "selected" : ""}`}
+                            onClick={() => handleManagementToolToggle(tool.id)}
+                            sx={{
+                              cursor: "pointer",
+                              p: 1.5,
+                              textAlign: "center",
+                              border: betaFormData.managementTools.includes(tool.id)
+                                ? "2px solid #fe5f55"
+                                : "1px solid #e0e0e0",
+                            }}
+                          >
+                            <Box display="flex" flexDirection="column" alignItems="center" gap={0.5}>
+                              <Box
+                                sx={{
+                                  width: 24,
+                                  height: 24,
+                                  display: "flex",
+                                  alignItems: "center",
+                                  justifyContent: "center",
+                                }}
+                              >
+                                {tool.icon}
+                              </Box>
+                              <Typography variant="caption" fontWeight={600} fontSize="0.7rem">
+                                {tool.label}
+                              </Typography>
+                              {betaFormData.managementTools.includes(tool.id) && (
+                                <CheckCircle sx={{ color: "#fe5f55", fontSize: "1rem" }} />
+                              )}
+                            </Box>
+                          </Card>
+                        </Grid>
+                      ))}
+                    </Grid>
+                    {betaFormErrors.managementTools && (
+                      <FormHelperText error sx={{ mt: 1 }}>
+                        <ErrorIcon sx={{ fontSize: "1rem", mr: 0.5 }} />
+                        {betaFormErrors.managementTools}
+                      </FormHelperText>
+                    )}
+                  </FormControl>
 
-              {/* Consent Checkbox */}
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    checked={betaFormData.consent}
-                    onChange={(e) => setBetaFormData({ ...betaFormData, consent: e.target.checked })}
+                  {/* Other Management Tool Field */}
+                  {betaFormData.managementTools.includes("other") && (
+                    <TextField
+                      fullWidth
+                      size="small"
+                      label={t("betaDialog.fields.otherManagementTool")}
+                      value={betaFormData.otherManagementTool}
+                      onChange={(e) => setBetaFormData({ ...betaFormData, otherManagementTool: e.target.value })}
+                      error={!!betaFormErrors.otherManagementTool}
+                      helperText={betaFormErrors.otherManagementTool}
+                      sx={{ mb: 3 }}
+                    />
+                  )}
+
+                  {/* Other Tools */}
+                  <TextField
+                    fullWidth
+                    size="small"
+                    label={t("betaDialog.fields.otherTools")}
+                    placeholder={t("betaDialog.fields.otherToolsPlaceholder")}
+                    value={betaFormData.otherTools}
+                    onChange={(e) => setBetaFormData({ ...betaFormData, otherTools: e.target.value })}
+                    sx={{ mb: 3 }}
                   />
-                }
-                label={t("betaDialog.fields.consent")}
-                sx={{ mb: 2 }}
-              />
-              {betaFormErrors.consent && (
-                <FormHelperText error sx={{ mt: -1, mb: 2 }}>
-                  <ErrorIcon sx={{ fontSize: "1rem", mr: 0.5 }} />
-                  {betaFormErrors.consent}
-                </FormHelperText>
+                </>
               )}
+
+              {/* Branch B: Contributor Fields */}
+              {betaFormData.profileType === "contributor" && (
+                <>
+                  <Divider sx={{ my: 3 }}>
+                    <Chip label={t("betaDialog.sections.contributorDetails")} />
+                  </Divider>
+
+                  {/* Work Interests */}
+                  <FormControl component="fieldset" fullWidth sx={{ mb: 3 }}>
+                    <FormLabel component="legend" sx={{ mb: 2, fontWeight: 600 }}>
+                      {t("betaDialog.fields.workInterests")} *
+                    </FormLabel>
+                    <Grid container spacing={1}>
+                      {workInterestsOptions.map((interest) => (
+                        <Grid item xs={6} sm={4} key={interest.id}>
+                          <Card
+                            className={`interest-card ${betaFormData.workInterests.includes(interest.id) ? "selected" : ""}`}
+                            onClick={() => handleWorkInterestToggle(interest.id)}
+                            sx={{
+                              cursor: "pointer",
+                              p: 1.5,
+                              textAlign: "center",
+                              border: betaFormData.workInterests.includes(interest.id)
+                                ? "2px solid #fe5f55"
+                                : "1px solid #e0e0e0",
+                            }}
+                          >
+                            <Box display="flex" flexDirection="column" alignItems="center" gap={0.5}>
+                              <Box
+                                sx={{ color: betaFormData.workInterests.includes(interest.id) ? "#fe5f55" : "#1b5993" }}
+                              >
+                                {interest.icon}
+                              </Box>
+                              <Typography variant="caption" fontWeight={600} fontSize="0.75rem">
+                                {interest.label}
+                              </Typography>
+                              {betaFormData.workInterests.includes(interest.id) && (
+                                <CheckCircle sx={{ color: "#fe5f55", fontSize: "1rem" }} />
+                              )}
+                            </Box>
+                          </Card>
+                        </Grid>
+                      ))}
+                    </Grid>
+                    {betaFormErrors.workInterests && (
+                      <FormHelperText error sx={{ mt: 1 }}>
+                        <ErrorIcon sx={{ fontSize: "1rem", mr: 0.5 }} />
+                        {betaFormErrors.workInterests}
+                      </FormHelperText>
+                    )}
+                  </FormControl>
+
+                  {/* Other Work Interest Field */}
+                  {betaFormData.workInterests.includes("other") && (
+                    <TextField
+                      fullWidth
+                      size="small"
+                      label={t("betaDialog.fields.otherWorkInterest")}
+                      value={betaFormData.otherWorkInterest}
+                      onChange={(e) => setBetaFormData({ ...betaFormData, otherWorkInterest: e.target.value })}
+                      error={!!betaFormErrors.otherWorkInterest}
+                      helperText={betaFormErrors.otherWorkInterest}
+                      sx={{ mb: 3 }}
+                    />
+                  )}
+
+                  {/* Dedication Level */}
+                  <FormControl component="fieldset" fullWidth sx={{ mb: 3 }}>
+                    <FormLabel component="legend" sx={{ mb: 2, fontWeight: 600 }}>
+                      {t("betaDialog.fields.dedicationLevel")} *
+                    </FormLabel>
+                    <RadioGroup
+                      value={betaFormData.dedicationLevel}
+                      onChange={(e) => setBetaFormData({ ...betaFormData, dedicationLevel: e.target.value })}
+                    >
+                      {dedicationLevelOptions.map((option) => (
+                        <FormControlLabel key={option.id} value={option.id} control={<Radio />} label={option.label} />
+                      ))}
+                    </RadioGroup>
+                    {betaFormErrors.dedicationLevel && (
+                      <FormHelperText error>
+                        <ErrorIcon sx={{ fontSize: "1rem", mr: 0.5 }} />
+                        {betaFormErrors.dedicationLevel}
+                      </FormHelperText>
+                    )}
+                  </FormControl>
+
+                  {/* Current Work */}
+                  <FormControl component="fieldset" fullWidth sx={{ mb: 3 }}>
+                    <FormLabel component="legend" sx={{ mb: 2, fontWeight: 600 }}>
+                      {t("betaDialog.fields.currentWork")} *
+                    </FormLabel>
+                    <RadioGroup
+                      value={betaFormData.currentWork}
+                      onChange={(e) => setBetaFormData({ ...betaFormData, currentWork: e.target.value })}
+                    >
+                      {currentWorkOptions.map((option) => (
+                        <FormControlLabel key={option.id} value={option.id} control={<Radio />} label={option.label} />
+                      ))}
+                    </RadioGroup>
+                    {betaFormErrors.currentWork && (
+                      <FormHelperText error>
+                        <ErrorIcon sx={{ fontSize: "1rem", mr: 0.5 }} />
+                        {betaFormErrors.currentWork}
+                      </FormHelperText>
+                    )}
+                  </FormControl>
+                </>
+              )}
+
+              {/* Common Fields */}
+              {(betaFormData.profileType === "project_owner" ||
+                betaFormData.profileType === "contributor" ||
+                betaFormData.profileType === "other") &&
+                betaFormData.profileType && (
+                  <>
+                    <Divider sx={{ my: 3 }}>
+                      <Chip label={t("betaDialog.sections.commonFields")} />
+                    </Divider>
+
+                    {/* Expectations */}
+                    <TextField
+                      fullWidth
+                      label={t("betaDialog.fields.expectations")}
+                      multiline
+                      rows={4}
+                      value={betaFormData.expectations}
+                      onChange={(e) => setBetaFormData({ ...betaFormData, expectations: e.target.value })}
+                      placeholder={t("betaDialog.fields.expectationsPlaceholder")}
+                      error={!!betaFormErrors.expectations}
+                      helperText={betaFormErrors.expectations}
+                      required
+                      sx={{ mb: 3 }}
+                    />
+
+                    {/* Contact Method */}
+                    <FormControl component="fieldset" fullWidth sx={{ mb: 3 }}>
+                      <FormLabel component="legend" sx={{ mb: 2, fontWeight: 600 }}>
+                        {t("betaDialog.fields.contactMethod")} *
+                      </FormLabel>
+                      <Grid container spacing={2}>
+                        {contactMethods.map((method) => (
+                          <Grid item xs={4} key={method.id}>
+                            <Card
+                              className={`contact-method-card ${betaFormData.contactMethod === method.id ? "selected" : ""}`}
+                              onClick={() => handleContactMethodChange(method.id)}
+                              sx={{
+                                cursor: "pointer",
+                                p: 2,
+                                textAlign: "center",
+                                border:
+                                  betaFormData.contactMethod === method.id ? "2px solid #fe5f55" : "1px solid #e0e0e0",
+                              }}
+                            >
+                              <Box display="flex" flexDirection="column" alignItems="center" gap={1}>
+                                <Box sx={{ color: betaFormData.contactMethod === method.id ? "#fe5f55" : "#1b5993" }}>
+                                  {method.icon}
+                                </Box>
+                                <Typography variant="body2" fontWeight={600}>
+                                  {method.label}
+                                </Typography>
+                                {betaFormData.contactMethod === method.id && (
+                                  <CheckCircle sx={{ color: "#fe5f55", fontSize: "1.2rem" }} />
+                                )}
+                              </Box>
+                            </Card>
+                          </Grid>
+                        ))}
+                      </Grid>
+                    </FormControl>
+
+                    {/* Contact Value */}
+                    <TextField
+                      fullWidth
+                      size="small"
+                      label={t("betaDialog.fields.contactValue")}
+                      value={betaFormData.contactValue}
+                      onChange={(e) => setBetaFormData({ ...betaFormData, contactValue: e.target.value })}
+                      placeholder={getContactPlaceholder()}
+                      error={!!betaFormErrors.contactValue}
+                      helperText={betaFormErrors.contactValue}
+                      required
+                      sx={{ mb: 3 }}
+                    />
+
+                    {/* Consent Checkbox */}
+                    <FormControlLabel
+                      control={
+                        <Checkbox
+                          checked={betaFormData.consent}
+                          onChange={(e) => setBetaFormData({ ...betaFormData, consent: e.target.checked })}
+                        />
+                      }
+                      label={t("betaDialog.fields.consent")}
+                      sx={{ mb: 2 }}
+                    />
+                    {betaFormErrors.consent && (
+                      <FormHelperText error sx={{ mt: -1, mb: 2 }}>
+                        <ErrorIcon sx={{ fontSize: "1rem", mr: 0.5 }} />
+                        {betaFormErrors.consent}
+                      </FormHelperText>
+                    )}
+                  </>
+                )}
             </Box>
           </DialogContent>
           <DialogActions sx={{ p: 2 }}>

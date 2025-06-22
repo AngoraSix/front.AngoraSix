@@ -5,78 +5,138 @@
   },
   "welcome": {
     "title": "¡Bienvenido a AngoraSix!",
-    "subtitle": "Ahora sos parte de nuestra comunidad. Preparate para transformar la forma en que gestionás proyectos colaborativos."
+    "subtitle": "Ya sos parte de nuestra comunidad. Preparate para transformar la forma en que gestionás proyectos colaborativos."
   },
   "beta": {
-    "title": "Sumate al Programa Beta",
-    "description": "Sé de las primeras personas en probar AngoraSix y ayudanos a mejorar la plataforma.",
+    "title": "Sumate a nuestro Programa Beta",
+    "description": "Sé de las primeras personas en probar AngoraSix y ayudanos a darle forma a su desarrollo.",
     "benefits": {
-      "exclusive": "Acceso Anticipado",
-      "influence": "Ayudá a Definir Funcionalidades",
-      "priority": "Soporte Directo",
-      "lifetime": "Beneficios Especiales"
+      "exclusive": "Acceso anticipado",
+      "influence": "Ayudá a definir funciones",
+      "priority": "Soporte directo",
+      "lifetime": "Beneficios especiales"
     },
     "countdown": {
-      "title": "El Programa Beta Comienza en:",
+      "title": "El programa Beta comienza en:",
       "days": "Días",
       "hours": "Horas",
       "minutes": "Minutos",
       "seconds": "Segundos"
     },
-    "apply": "Postularme al Beta",
+    "apply": "Postularse al Beta",
     "success": "¡Postulación enviada!",
     "alreadyApplied": "¡Gracias por postularte! Nos pondremos en contacto pronto."
   },
   "betaDialog": {
     "title": "Postulación al Programa Beta",
-    "subtitle": "Contanos por qué te interesa AngoraSix para ver si encajás con nuestro programa beta.",
-    "fields": {
-      "interests": "¿Qué te interesa de usar AngoraSix?",
-      "description": "Contanos más sobre tu caso para ver si coincidís con el programa Beta",
-      "descriptionPlaceholder": "Contanos tu situación, por qué querés participar del programa, qué esperás de AngoraSix, en qué tipo de proyectos trabajás, etc.",
-      "contactMethod": "¿Cómo preferís que te contactemos?",
-      "phoneNumber": "Número de Teléfono",
-      "phonePlaceholder": "+54 9 11 1234-5678",
-      "otherInterest": "Por favor especificá tu otro interés",
-      "consent": "Acepto ser contactado para recibir novedades y participar del programa Beta"
+    "subtitle": "Contanos sobre vos para ver si el programa Beta es una buena oportunidad para tu caso",
+    "sections": {
+      "projectDetails": "Detalles del Proyecto",
+      "contributorDetails": "Perfil como Contribuyente",
+      "commonFields": "Información adicional"
     },
-    "interests": {
-      "entrepreneur": {
-        "title": "Emprendimiento",
-        "description": "Estoy lanzando un proyecto y quiero una forma clara y transparente de organizar a mi equipo."
-      },
-      "collaboration": {
-        "title": "Colaboración Justa",
-        "description": "Me interesa crear o participar en un modelo de colaboración más justo y descentralizado."
+    "fields": {
+      "profileType": "¿Cuál de estas opciones te representa mejor?",
+      "otherProfileType": "Especificá tu perfil",
+      "projectStage": "¿En qué etapa está tu proyecto?",
+      "teamSize": "Tamaño actual del equipo",
+      "role": "¿Cuál es tu rol dentro del proyecto?",
+      "otherRole": "Especificá tu rol",
+      "managementTools": "¿Qué herramientas de gestión usás actualmente?",
+      "otherManagementTool": "Especificá la herramienta",
+      "otherTools": "¿Qué otros tipos de herramientas usás?",
+      "otherToolsPlaceholder": "Ej.: Slack, Figma, Airtable, Discord...",
+      "workInterests": "¿Qué tipo de tareas o áreas te interesan?",
+      "otherWorkInterest": "Especificá tu interés",
+      "dedicationLevel": "¿Qué nivel de dedicación podrías tener?",
+      "currentWork": "¿Tenés actualmente un ingreso fijo o actividad laboral activa?",
+      "expectations": "¿Qué esperás de AngoraSix? ¿Por qué querés participar del Beta?",
+      "expectationsPlaceholder": "Contanos tus expectativas, necesidades, visión, motivaciones, en qué tipo de proyectos trabajás, etc.",
+      "contactMethod": "¿Cómo preferís que te contactemos?",
+      "contactValue": "Información de contacto",
+      "consent": "Acepto ser contactado/a con novedades del programa y noticias del proyecto"
+    },
+    "profileTypes": {
+      "projectOwner": {
+        "title": "Tengo un proyecto o emprendimiento",
+        "description": "En marcha o en etapa de idea"
       },
       "contributor": {
-        "title": "Trabajo con Sentido",
-        "description": "Quiero sumarme a proyectos significativos y poder vivir de eso, con reglas claras."
-      },
-      "management": {
-        "title": "Gestión Eficiente",
-        "description": "Quiero delegar y organizarme con eficiencia, sin perder el control de la gestión."
-      },
-      "curious": {
-        "title": "Explorar AngoraSix",
-        "description": "Tengo curiosidad por la propuesta de AngoraSix y quiero conocerla mejor."
+        "title": "Quiero sumarme como colaborador/a",
+        "description": "Busco oportunidades de trabajo con sentido"
       },
       "other": {
         "title": "Otro",
-        "description": "Tengo otro motivo (especificar abajo)"
+        "description": "Tengo una situación distinta"
       }
     },
+    "projectStage": {
+      "idea": "Es solo una idea",
+      "buildingTeam": "Estoy armando el equipo",
+      "working": "Ya estamos trabajando en el proyecto",
+      "hasUsers": "El proyecto ya tiene usuarios/clientes",
+      "other": "Otro"
+    },
+    "teamSize": {
+      "solo": "Estoy solo/a",
+      "small": "2-3 personas",
+      "medium": "4-7 personas",
+      "large": "Más de 7 personas"
+    },
+    "role": {
+      "founder": "Fundador/a",
+      "partner": "Socio/a",
+      "coordinator": "Coordinador/a o Gestor/a",
+      "developer": "Desarrollador/a",
+      "designer": "Diseñador/a",
+      "other": "Otro"
+    },
+    "managementTools": {
+      "other": "Otra / Propia",
+      "none": "No usamos herramientas"
+    },
+    "workInterests": {
+      "development": "Desarrollo de Software",
+      "design": "Diseño UX/UI",
+      "communication": "Comunicación / Contenido",
+      "strategy": "Estrategia / Producto",
+      "organization": "Organización / Facilitación",
+      "finance": "Finanzas / Administración",
+      "other": "Otro"
+    },
+    "dedicationLevel": {
+      "fewHours": "Unas pocas horas por semana",
+      "partTime": "Part-time",
+      "fullTime": "Full-time",
+      "notSure": "Todavía no estoy seguro/a"
+    },
+    "currentWork": {
+      "fixedJob": "Sí, tengo un trabajo fijo o actividad estable",
+      "freelancer": "Trabajo como freelancer",
+      "looking": "No, estoy buscando oportunidades",
+      "preferNotAnswer": "Prefiero no responder"
+    },
     "contact": {
-      "email": "Correo Electrónico",
+      "email": "Email",
       "phone": "Llamada Telefónica",
       "whatsapp": "WhatsApp"
     },
     "errors": {
-      "interestsRequired": "Por favor seleccioná al menos un interés",
-      "otherInterestRequired": "Por favor especificá tu otro interés",
-      "descriptionRequired": "Contanos más sobre tu caso",
-      "phoneRequired": "El número de teléfono es obligatorio para este método de contacto",
-      "consentRequired": "Debés aceptar ser contactado para participar en el programa Beta"
+      "profileTypeRequired": "Seleccioná un perfil",
+      "otherProfileTypeRequired": "Especificá tu perfil",
+      "projectStageRequired": "Seleccioná la etapa del proyecto",
+      "teamSizeRequired": "Seleccioná el tamaño del equipo",
+      "roleRequired": "Seleccioná al menos un rol",
+      "otherRoleRequired": "Especificá tu rol",
+      "managementToolsRequired": "Seleccioná al menos una herramienta de gestión",
+      "otherManagementToolRequired": "Especificá la herramienta de gestión",
+      "workInterestsRequired": "Seleccioná al menos un área de interés",
+      "otherWorkInterestRequired": "Especificá tu interés",
+      "dedicationLevelRequired": "Seleccioná tu nivel de dedicación",
+      "currentWorkRequired": "Seleccioná tu situación laboral actual",
+      "expectationsRequired": "Contanos tus expectativas",
+      "contactValueRequired": "Completá tu información de contacto",
+      "consentRequired": "Debés aceptar ser contactado para participar del programa Beta"
     },
     "cancel": "Cancelar",
     "submit": "Enviar Postulación",
@@ -100,6 +160,6 @@
   },
   "social": {
     "title": "Seguinos",
-    "description": "Conectate con nosotros en todas nuestras plataformas."
+    "description": "Conectate con nosotros en todas las plataformas."
   }
 }

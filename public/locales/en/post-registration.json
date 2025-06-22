@@ -29,42 +29,92 @@
   },
   "betaDialog": {
     "title": "Beta Program Application",
-    "subtitle": "Tell us about your interest in AngoraSix to see if you're a good fit for our beta program",
-    "fields": {
-      "interests": "What interests you about using AngoraSix?",
-      "description": "Tell us more about your case to see if you match our Beta program",
-      "descriptionPlaceholder": "Tell us about your situation, why you want to join the beta program, your expectations with AngoraSix, what type of projects you work on, etc.",
-      "contactMethod": "How would you like us to contact you?",
-      "phoneNumber": "Phone Number",
-      "phonePlaceholder": "+1 (555) 123-4567",
-      "otherInterest": "Please specify your other interest",
-      "consent": "I agree to be contacted for updates and to participate in the Beta program"
+    "subtitle": "Tell us about yourself to see if you're a good fit for our beta program",
+    "sections": {
+      "projectDetails": "Project Details",
+      "contributorDetails": "Contributor Details",
+      "commonFields": "Additional Information"
     },
-    "interests": {
-      "entrepreneur": {
-        "title": "Entrepreneurship",
-        "description": "I'm starting a business and want a clear, transparent way to organize my team."
-      },
-      "collaboration": {
-        "title": "Fair Collaboration",
-        "description": "I'm interested in creating or participating in a more fair and decentralized collaboration model."
+    "fields": {
+      "profileType": "Which of these options best describes you?",
+      "otherProfileType": "Please specify your situation",
+      "projectStage": "What stage is your project in?",
+      "teamSize": "Current team size",
+      "role": "What is your role within the project?",
+      "otherRole": "Please specify your role",
+      "managementTools": "What management tools do you currently use?",
+      "otherManagementTool": "Please specify the tool",
+      "otherTools": "Apart from management tools, what other types of tools do you use?",
+      "otherToolsPlaceholder": "e.g., Slack, Figma, Airtable, Discord...",
+      "workInterests": "What type of work or tasks interest you?",
+      "otherWorkInterest": "Please specify your work interest",
+      "dedicationLevel": "What level of dedication could you have?",
+      "currentWork": "Do you currently have a fixed income source or active work activity?",
+      "expectations": "What do you expect from AngoraSix? Why are you interested in participating in the Beta program?",
+      "expectationsPlaceholder": "Tell us about your expectations, needs, vision, motivations, etc.",
+      "contactMethod": "How would you prefer us to contact you?",
+      "contactValue": "Contact information",
+      "consent": "I agree to be contacted with program updates and project news"
+    },
+    "profileTypes": {
+      "projectOwner": {
+        "title": "I have a project or startup",
+        "description": "In progress or just an idea"
       },
       "contributor": {
-        "title": "Meaningful Work",
-        "description": "I want to join meaningful projects and make a living from it, with clear rules."
-      },
-      "management": {
-        "title": "Efficient Management",
-        "description": "I want to delegate and organize efficiently, without losing control over management."
-      },
-      "curious": {
-        "title": "Explore AngoraSix",
-        "description": "I'm curious about AngoraSix's approach and want to explore it."
+        "title": "I want to join a project as a collaborator",
+        "description": "Looking for meaningful work opportunities"
       },
       "other": {
         "title": "Other",
-        "description": "I have a different reason (please specify below)"
+        "description": "I have a different situation"
       }
+    },
+    "projectStage": {
+      "idea": "It's just an idea",
+      "buildingTeam": "I'm building the team",
+      "working": "We're already working on the project",
+      "hasUsers": "The project already has users/clients",
+      "other": "Other"
+    },
+    "teamSize": {
+      "solo": "I'm alone",
+      "small": "2-3 people",
+      "medium": "4-7 people",
+      "large": "More than 7 people"
+    },
+    "role": {
+      "founder": "Founder",
+      "partner": "Partner",
+      "coordinator": "Coordinator / Manager",
+      "developer": "Developer",
+      "designer": "Designer",
+      "other": "Other"
+    },
+    "managementTools": {
+      "other": "Other / Custom",
+      "none": "We don't use tools"
+    },
+    "workInterests": {
+      "development": "Software Development",
+      "design": "UX/UI Design",
+      "communication": "Communication / Content",
+      "strategy": "Strategy / Product",
+      "organization": "Organization / Facilitation",
+      "finance": "Finance / Administration",
+      "other": "Other"
+    },
+    "dedicationLevel": {
+      "fewHours": "Just a few hours per week",
+      "partTime": "Part time",
+      "fullTime": "Full time",
+      "notSure": "I'm not sure yet"
+    },
+    "currentWork": {
+      "fixedJob": "Yes, I have a fixed job/activity",
+      "freelancer": "I work as a freelancer",
+      "looking": "No, I'm looking for opportunities",
+      "preferNotAnswer": "I prefer not to answer"
     },
     "contact": {
       "email": "Email",
@@ -72,10 +122,20 @@
       "whatsapp": "WhatsApp"
     },
     "errors": {
-      "interestsRequired": "Please select at least one interest",
-      "otherInterestRequired": "Please specify your other interest",
-      "descriptionRequired": "Please tell us more about your case",
-      "phoneRequired": "Phone number is required for this contact method",
+      "profileTypeRequired": "Please select a profile type",
+      "otherProfileTypeRequired": "Please specify your profile type",
+      "projectStageRequired": "Please select the project stage",
+      "teamSizeRequired": "Please select the team size",
+      "roleRequired": "Please select at least one role",
+      "otherRoleRequired": "Please specify your role",
+      "managementToolsRequired": "Please select at least one management tool",
+      "otherManagementToolRequired": "Please specify the management tool",
+      "workInterestsRequired": "Please select at least one work interest",
+      "otherWorkInterestRequired": "Please specify your work interest",
+      "dedicationLevelRequired": "Please select your dedication level",
+      "currentWorkRequired": "Please select your current work situation",
+      "expectationsRequired": "Please tell us about your expectations",
+      "contactValueRequired": "Please provide your contact information",
       "consentRequired": "You must agree to be contacted to participate in the beta program"
     },
     "cancel": "Cancel",
