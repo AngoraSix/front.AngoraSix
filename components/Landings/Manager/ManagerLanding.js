@@ -55,23 +55,23 @@ const ManagerLanding = () => {
   const problems = [
     {
       text: t("problems.delegation"),
-      keywords: ["delegar", "encima", "todo"],
+      keywords: [],
     },
     {
       text: t("problems.trust"),
-      keywords: ["confío", "centralizar", "persona"],
+      keywords: [],
     },
     {
       text: t("problems.ai"),
-      keywords: ["IA", "ayude", "arrancar"],
+      keywords: [],
     },
     {
       text: t("problems.transparency"),
-      keywords: ["transparencia", "total", "pagos"],
+      keywords: [],
     },
     {
       text: t("problems.automation"),
-      keywords: ["automatizar", "perder", "control"],
+      keywords: [],
     },
   ]
 
