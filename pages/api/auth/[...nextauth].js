@@ -80,7 +80,7 @@ async function refreshAccessToken(token) {
   }
 }
 
-const oauthConfig = {
+export const oauthConfig = {
   providers: [oauthProviderConfig],
   callbacks: oauthCallbacksConfig,
   ...oauthFrameworkConfig,

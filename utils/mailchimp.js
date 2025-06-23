@@ -4,49 +4,41 @@
  * @param {object} additionalFields - Additional fields to send to Mailchimp
  * @returns {Promise} - Promise resolving to the Mailchimp API response
  */
-export const subscribeToMailchimp = async (email, additionalFields = {}) => {
-  try {
-    const response = await fetch("/api/subscribe", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email,
-        ...additionalFields,
-      }),
-    })
-
-    const data = await response.json()
-    return data
-  } catch (error) {
-    console.error("Error subscribing to Mailchimp:", error)
-    throw error
-  }
-}
 
 /**
  * Format Mailchimp merge fields
  * @param {object} fields - Fields to format
  * @returns {object} - Formatted merge fields
  */
-export const formatMergeFields = (fields) => {
+export const formatMergeFields = (fields, user) => {
+  if (!user) {
+    throw new Error("User object is required to register mailchimp subscription");
+  }
   const mergeFields = {}
+  console.log("Formatting merge fields:", fields, user)
 
-  if (fields.firstName) {
-    mergeFields.FNAME = fields.firstName
+  if (fields.firstName || user?.givenName) {
+    mergeFields.FNAME = fields.firstName || user?.givenName
   }
 
-  if (fields.lastName) {
-    mergeFields.LNAME = fields.lastName
-  }
-
-  if (fields.planType) {
-    mergeFields.PLANTYPE = fields.planType
+  if (fields.lastName || user?.familyName) {
+    mergeFields.LNAME = fields.lastName || user?.familyName
   }
 
   if (fields.source) {
     mergeFields.SOURCE = fields.source
+  }
+
+  if (user) {
+    mergeFields.CONTR_ID = user.id
+  }
+
+  if (fields.newsletterList) {
+    mergeFields.L_NEWS = "YES"
+  }
+
+  if (fields.betaList) {
+    mergeFields.L_BETA = "YES"
   }
 
   return mergeFields
