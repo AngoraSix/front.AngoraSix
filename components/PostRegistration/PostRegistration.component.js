@@ -1,9 +1,14 @@
 "use client"
 
 import {
+  AccountBalance,
   Add,
+  AdminPanelSettings,
+  Business,
+  Campaign,
   Celebration,
   CheckCircle,
+  Code,
   Diamond,
   Email,
   Error as ErrorIcon,
@@ -12,35 +17,32 @@ import {
   Instagram,
   LinkedIn,
   Message,
+  Person,
   Phone,
+  Psychology,
   Send,
   Speed,
   Star,
   Support,
   WhatsApp,
   YouTube,
-  Code,
-  Campaign,
-  Psychology,
-  AdminPanelSettings,
-  AccountBalance,
-  Business,
-  Person,
-} from "@mui/icons-material"
-import DesignServices from "@mui/icons-material/DesignServices" // Keep this one if still used elsewhere or for consistency
-import Build from "@mui/icons-material/Build" // Keep this one if still used elsewhere or for consistency
-import Close from "@mui/icons-material/Close" // Keep this one if still used elsewhere or for consistency
+} from "@mui/icons-material";
+import Build from "@mui/icons-material/Build"; // Keep this one if still used elsewhere or for consistency
+import Close from "@mui/icons-material/Close"; // Keep this one if still used elsewhere or for consistency
+import DesignServices from "@mui/icons-material/DesignServices"; // Keep this one if still used elsewhere or for consistency
 import {
   Alert,
   Box,
   Button,
   Card,
   Checkbox,
+  Chip,
   Container,
   Dialog,
   DialogActions,
   DialogContent,
   DialogTitle,
+  Divider,
   FormControl,
   FormControlLabel,
   FormHelperText,
@@ -50,32 +52,30 @@ import {
   Radio,
   RadioGroup,
   Snackbar,
+  SvgIcon,
   TextField,
   Typography,
-  SvgIcon,
-  Chip,
-  Divider,
-} from "@mui/material"
-import { signIn, useSession } from "next-auth/react"
-import { useTranslation } from "next-i18next"
-import Head from "next/head"
-import { useEffect, useState } from "react"
-import api from "../../api"
+} from "@mui/material";
+import { signIn, useSession } from "next-auth/react";
+import { useTranslation } from "next-i18next";
+import Head from "next/head";
+import { useEffect, useState } from "react";
+import api from "../../api";
 import {
   trackBetaDialogOpen,
   trackBetaFormSubmit,
   trackContactMessageSubmit,
   trackNewsletterSignupClick,
   trackSocialFollowClick,
-} from "../../utils/analytics"
+} from "../../utils/analytics";
 
 // Import SVG logos
-import TrelloLogo from "../../public/logos/thirdparty/trello.svg"
-import JiraLogo from "../../public/logos/thirdparty/jira.svg"
-import NotionLogo from "../../public/logos/thirdparty/notion.svg"
-import AsanaLogo from "../../public/logos/thirdparty/asana.svg"
-import ClickUpLogo from "../../public/logos/thirdparty/clickup.svg"
-import SpreadsheetLogo from "../../public/logos/thirdparty/spreadsheet.svg"
+import AsanaLogo from "../../public/logos/thirdparty/asana.svg";
+import ClickUpLogo from "../../public/logos/thirdparty/clickup.svg";
+import JiraLogo from "../../public/logos/thirdparty/jira.svg";
+import NotionLogo from "../../public/logos/thirdparty/notion.svg";
+import SpreadsheetLogo from "../../public/logos/thirdparty/spreadsheet.svg";
+import TrelloLogo from "../../public/logos/thirdparty/trello.svg";
 
 const PostRegistration = ({ existingBetaApplication }) => {
   const { t } = useTranslation("post-registration")
@@ -331,7 +331,10 @@ const PostRegistration = ({ existingBetaApplication }) => {
     setIsSubmittingNewsletter(true)
 
     try {
-      await api.front.suscribe(email, "post_registration", "newsletter")
+      await api.front.suscribe(email, {
+        newsletterList: true,
+        source: "post_registration",
+      })
       setNewsletterSubmitted(true)
     } catch (error) {
       console.error("Error subscribing to newsletter:", error)
@@ -485,7 +488,10 @@ const PostRegistration = ({ existingBetaApplication }) => {
 
       // Subscribe to beta list in Mailchimp
       if (betaFormData.consent) {
-        await api.front.suscribe(session.user.email, "beta_program", "beta")
+        await api.front.suscribe(session.user.email, {
+          betaList: true,
+          source: "post_registration",
+        })
       }
 
       setBetaSubmitted(true)

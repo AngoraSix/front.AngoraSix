@@ -1,13 +1,22 @@
-import config from "../../../config"
-import { formatMergeFields } from "../../../utils/mailchimp"
+import { getServerSession } from "next-auth/next";
+import config from "../../../config";
+import { formatMergeFields } from "../../../utils/mailchimp";
+import { oauthConfig } from "../auth/[...nextauth]"; // Adjust path if needed
 
 export default async function handler(req, res) {
+  const session = await getServerSession(req, res, oauthConfig)
+  if (!session) {
+    return res.status(401).json({ error: "Unauthorized" })
+  }
+
   // Only allow POST requests
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" })
   }
 
+
   const { email, ...additionalFields } = req.body
+  const user = session.user
 
   // Validate email
   if (!email || !email.includes("@")) {
@@ -19,7 +28,7 @@ export default async function handler(req, res) {
     const data = {
       email_address: email,
       status: "subscribed",
-      merge_fields: formatMergeFields(additionalFields),
+      merge_fields: formatMergeFields(additionalFields, user),
     }
 
     // Make request to Mailchimp API
