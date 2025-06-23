@@ -44,7 +44,7 @@
       "otherRole": "Especificá tu rol",
       "managementTools": "¿Qué herramientas de gestión usás actualmente?",
       "otherManagementTool": "Especificá la herramienta",
-      "otherTools": "¿Qué otros tipos de herramientas usás?",
+      "otherTools": "Fuera de las de gestión, ¿Qué otros tipos de herramientas usás?",
       "otherToolsPlaceholder": "Ej.: Slack, Figma, Airtable, Discord...",
       "workInterests": "¿Qué tipo de tareas o áreas te interesan?",
       "otherWorkInterest": "Especificá tu interés",
@@ -52,7 +52,7 @@
       "currentWork": "¿Tenés actualmente un ingreso fijo o actividad laboral activa?",
       "expectations": "¿Qué esperás de AngoraSix? ¿Por qué querés participar del Beta?",
       "expectationsPlaceholder": "Contanos tus expectativas, necesidades, visión, motivaciones, en qué tipo de proyectos trabajás, etc.",
-      "contactMethod": "¿Cómo preferís que te contactemos?",
+      "contactMethod": "Además de recibir novedades por mail ¿Cómo preferís que te contactemos?",
       "contactValue": "Información de contacto",
       "consent": "Acepto ser contactado/a con novedades del programa y noticias del proyecto"
     },

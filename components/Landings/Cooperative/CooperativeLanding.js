@@ -46,19 +46,19 @@ const CooperativeLanding = () => {
   const problems = [
     {
       text: t("problems.misalignment"),
-      keywords: ["dinero", "alineación", "valores"],
+      keywords: [],
     },
     {
       text: t("problems.findingAllies"),
-      keywords: ["personas", "visión", "pensamiento"],
+      keywords: [],
     },
     {
       text: t("problems.internalConflicts"),
-      keywords: ["conflictos", "desacuerdos", "equipo"],
+      keywords: [],
     },
     {
       text: t("problems.authenticity"),
-      keywords: ["descentralización", "auténtica", "alternativo"],
+      keywords: [],
     },
   ]
 

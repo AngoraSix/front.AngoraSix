@@ -48,22 +48,22 @@ const TeamLanding = () => {
     {
       text: t("problems.unequal"),
       icon: <Groups sx={{ color: theme.palette.secondary.main }} />,
-      keywords: ["equally", "committed", "contributing"],
+      keywords: [],
     },
     {
       text: t("problems.unclear"),
       icon: <Visibility sx={{ color: theme.palette.secondary.main }} />,
-      keywords: ["rules", "decisions", "misunderstandings"],
+      keywords: [],
     },
     {
       text: t("problems.distribution"),
       icon: <RocketLaunch sx={{ color: theme.palette.secondary.main }} />,
-      keywords: ["clarity", "reinventing"],
+      keywords: [],
     },
     {
       text: t("problems.management"),
       icon: <Security sx={{ color: theme.palette.secondary.main }} />,
-      keywords: ["burning out", "management", "focus"],
+      keywords: [],
     },
   ]
 
