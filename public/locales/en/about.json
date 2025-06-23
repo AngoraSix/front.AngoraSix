@@ -1,0 +1,90 @@
+{
+  "page": {
+    "title": "About Us - AngoraSix",
+    "description": "Learn about the story, vision, and values behind AngoraSix — a cooperative platform to create and manage projects in a decentralized way."
+  },
+  "hero": {
+    "title": "Redefining Collaboration",
+    "subtitle": "A platform where we all share ownership, where transparency guides decisions, and where every project has the potential to change the world."
+  },
+  "story": {
+    "title": "Our Story",
+    "paragraph1": "AngoraSix was born out of frustration—watching great ideas fade away for lack of support or being reshaped to meet investor demands.",
+    "paragraph2": "We believe there’s a better way to build solutions: cooperatively, transparently, and in a decentralized manner—without arbitrary hierarchies and where every contributor is fairly valued.",
+    "birth": "This is how AngoraSix came to life",
+    "imageAlt": "The story of AngoraSix"
+  },
+  "vision": {
+    "title": "Vision",
+    "content": "To redefine how we create solutions by promoting holistic development—both personal and social."
+  },
+  "mission": {
+    "title": "Mission",
+    "content": "We want to show the world an alternative to traditional project management—a model that enables people to bring great ideas to life in a cooperative, decentralized way, while uplifting human value and encouraging deeper personal growth."
+  },
+  "values": {
+    "title": "Our Values",
+    "subtitle": "The principles that guide every decision we make",
+    "transparency": {
+      "title": "Trust & Transparency",
+      "description": "To grow, we need trust—in the platform, in people, and in the projects themselves. Transparency is the foundation of every strong relationship."
+    },
+    "purpose": {
+      "title": "Meaning & Purpose",
+      "description": "We want people to dedicate their time and energy to things that truly matter to them. Every project should have a clear purpose."
+    },
+    "community": {
+      "title": "Community",
+      "description": "Being part of something bigger, working toward a shared goal cooperatively and sustainably. A more human, natural way to connect."
+    },
+    "evolution": {
+      "title": "Evolution & Originality",
+      "description": "A different paradigm, an alternative path. Progress and growth—but not by blindly following the traditional model of 'success'."
+    },
+    "trust": {
+      "title": "Invitation to Create",
+      "description": "We want to inspire people to start, to innovate, and to act from ideals, dreams, and values. To look up—not down."
+    },
+    "simplicity": {
+      "title": "Simplicity",
+      "description": "Returning to simpler ways of relating. Replacing material ambition with a sense of meaning and peace."
+    }
+  },
+  "community": {
+    "title": "Our Community",
+    "subtitle": "Meet some of the people who are part of AngoraSix",
+    "philosophy": "At AngoraSix, there are no hierarchies or employees. We are co-creators contributing based on our own skills and passions.",
+    "ger": {
+      "name": "Ger",
+      "role": "Product Owner, Development",
+      "description": "What's the best you can do for this world?"
+    },
+    "jor": {
+      "name": "Jor",
+      "role": "Business Analysis",
+      "description": "Passionate about entrepreneurship and social innovation."
+    },
+    "juli": {
+      "name": "Juli",
+      "role": "Design, Communication",
+      "description": "Passionate about mindful design. Moving toward sustainable futures."
+    },
+    "marcos": {
+      "name": "Marcos",
+      "role": "Development",
+      "description": "Building solutions that improve the world."
+    },
+    "tomi": {
+      "name": "Tomi",
+      "role": "UX",
+      "description": "Creating a better world through design, music, and food (they all make people smile)."
+    }
+  },
+  "followUs": {
+    "title": "Let’s Connect"
+  },
+  "finalCta": {
+    "quote": "\"At AngoraSix we create mindfully, so that others can create mindfully too.\"",
+    "button": "Let’s Create"
+  }
+}

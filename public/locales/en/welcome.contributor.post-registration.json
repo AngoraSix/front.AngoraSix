@@ -1,0 +1,22 @@
+{
+  "form": {
+    "title": "Join the Contributor Waitlist",
+    "subtitle": "Be the first to know when we launch and get exclusive early access.",
+    "fields": {
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email Address",
+      "joinBeta": "I want to join the Beta program and help test new features",
+      "acceptTerms": "I accept the terms and conditions and privacy policy"
+    },
+    "submit": "Join Waitlist",
+    "submitting": "Joining...",
+    "back_to_landing": "← Back to Landing"
+  },
+  "success": {
+    "title": "Welcome to the Waitlist!",
+    "message": "Thank you for joining our community of enthusiasts.",
+    "next_steps": "We'll keep you updated on our progress and notify you as soon as we're ready to launch. Get ready to work with purpose and freedom!",
+    "back_button": "Back to Landing"
+  }
+}

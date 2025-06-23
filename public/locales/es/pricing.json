@@ -1,0 +1,64 @@
+{
+  "page": {
+    "title": "Precios - AngoraSix",
+    "description": "Elegí tu plan de AngoraSix y empezá a construir de una mejor manera."
+  },
+  "hero": {
+    "title": "Elegí tu plan y empezá a construir de una mejor manera.",
+    "subtitle": "Planes pensados para acompañarte en cada etapa."
+  },
+  "betaProgram": {
+    "title": "Programa de Usuarios Beta de AngoraSix",
+    "description": "Unite a nuestro exclusivo Programa de Usuarios Beta y sé parte del futuro de la gestión de proyectos. Obtené acceso anticipado a funciones premium y ayudanos a dar forma a nuestra plataforma.",
+    "benefits": {
+      "premium": "Acceso a funcionalidades premium sin costo",
+      "evolution": "Participación en la evolución del sistema",
+      "priority": "Prioridad para nuevas funciones y soporte"
+    },
+    "cta": "Postularme al programa Beta"
+  },
+  "plans": {
+    "free": {
+      "title": "Free",
+      "price": "$0",
+      "period": "Gratis para siempre. Ideal para empezar sin complicaciones.",
+      "cta": "Empezar gratis",
+      "features": {
+        "contributors": "Hasta 4 colaboradores activos",
+        "tasks": "Registro ilimitado de tareas y aportes",
+        "notifications": "Definición clara de las reglas del proyecto",
+        "support": "Seguimiento de ownership y cuentas monetarias",
+        "workspace": "1 proyecto incluido"
+      }
+    },
+    "plus": {
+      "badge": "Programa Beta",
+      "title": "Plus",
+      "regularPrice": "$60",
+      "currentPrice": "$0",
+      "subtitle": "Actualmente solo disponible para usuarios Beta por",
+      "cta": "Acceder como Beta",
+      "features": {
+        "all": "Todo lo incluido en el plan Free",
+        "unlimited": "Hasta 30 colaboradores y 5 proyectos",
+        "ai": "Asistente inteligente para facilitar decisiones y organización",
+        "tracking": "Reglas y aportes vinculados a wallet compartida",
+        "integrations": "Posibilidad de respaldar reglas con blockchain",
+        "workflows": "Prioridad en conexiones y búsquedas de proyectos",
+        "support": "Soporte humano personalizado"
+      }
+      },
+      "custom": {
+        "title": "Custom",
+        "price": "Consultá",
+        "cta": "Hablemos",
+        "features": {
+          "all": "Incluye todas las funcionalidades del plan Plus",
+          "tailored": "Soluciones personalizadas para tu equipo o proyecto",
+          "dedicated": "Horas de asesoramiento personalizado incluidas",
+          "advanced": "Reportes y análisis sobre tu mercado o sector",
+          "enterprise": "Beneficios y descuentos exclusivos con herramientas del ecosistema AngoraSix"
+        }
+      }
+  }
+}

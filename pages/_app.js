@@ -1,25 +1,37 @@
 import { SessionProvider as NextAuthProvider } from 'next-auth/react';
 import { appWithTranslation } from 'next-i18next';
+import { useRouter } from "next/router";
 import PropTypes from 'prop-types';
+import { useEffect } from 'react';
 import { Provider as ReduxProvider } from 'react-redux';
 import { createStore } from 'redux';
 import api from '../api';
 import A6App from '../components/App';
 import config from '../config';
 import reducers from '../store/reducers';
+import '../styles/About.css';
 import '../styles/App.css';
 import '../styles/ClubInvitations.css';
 import '../styles/Commons.css';
+import "../styles/CountdownTimer.css";
+import '../styles/globals.css';
 import '../styles/IntegrationSourceSync.css';
-import '../styles/ManagementCapsSection.css';
 import '../styles/Layouts.css';
+import '../styles/ManagementCapsSection.css';
 import '../styles/ManagementContributorsList.css';
 import '../styles/ManagementIntegrationList.css';
 import '../styles/Navbar.css';
 import '../styles/Notifications.css';
+import '../styles/PostRegistration.css';
+import '../styles/Pricing.css';
 import '../styles/ProjectManagementForm.css';
 import '../styles/ProjectManagementView.css';
-import '../styles/globals.css';
+import '../styles/WelcomeContributor.css';
+import '../styles/WelcomeCooperative.css';
+import '../styles/WelcomeLanding.css';
+import '../styles/WelcomeManager.css';
+import '../styles/WelcomeTeam.css';
+import { trackPageView } from "../utils/analytics";
 import { getPublicEnv, removeSecrets } from '../utils/env';
 global.EventSource = require('eventsource');
 
@@ -28,6 +40,24 @@ const AngoraSixWebApp = ({ Component, pageProps, preloadedState, env }) => {
 
   config.applyEnvConfig(env);
   api.applyEnvConfig(env);
+
+  const router = useRouter()
+
+  useEffect(() => {
+    const handleRouteChange = (url) => {
+      trackPageView(url)
+    }
+
+    // Track initial page load
+    trackPageView(router.asPath)
+
+    // Track route changes
+    router.events.on("routeChangeComplete", handleRouteChange)
+
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChange)
+    }
+  }, [router.events, router.asPath])
 
   return (
     <ReduxProvider store={store}>

@@ -1,0 +1,26 @@
+{
+  "welcome": {
+    "title": "Bienvenido a AngoraSix",
+    "subtitle": "¿Cuál es tu camino para crear con propósito?",
+    "exploreOptions": "AngoraSix te acompaña",
+    "chooseYourPath": "No solo crear. Creemos bien."
+  },
+  "paths": {
+    "manager": {
+      "title": "Gestión tradicional con equipos auto-organizados",
+      "description": "Delegás con confianza, apoyado por un sistema que permite a los equipos autogestionarse bajo un esquema basado en tus propias reglas."
+    },
+    "team": {
+      "title": "Equipos emprendedores & socios",
+      "description": "Establezcan una base común con reglas claras y un marco objetivo para avanzar con confianza y de forma cooperativa."
+    },
+    "contributor": {
+      "title": "Vivir de proyectos con sentido",
+      "description": "Trabajá en proyectos que te inspiren, formá parte real de algo con propósito y proyectá estabilidad para tu futuro."
+    },
+    "cooperative": {
+      "title": "Espíritu cooperativo & cambio de paradigma",
+      "description": "Sumate a un movimiento que impulsa crear sanamente, con transparencia, descentralización y vocación cooperativa."
+    }
+  }
+}

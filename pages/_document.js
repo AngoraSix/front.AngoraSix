@@ -1,8 +1,10 @@
-import { Head, Html, Main, NextScript } from 'next/document';
-import config from '../config';
+import { Head, Html, Main, NextScript } from "next/document"
+import config from "../config"
 
 export default function Document() {
-  const head = config.site.head;
+  const head = config.site.head
+  const analyticsId = config.google.analyticsPropertyId
+
   return (
     <Html>
       <Head>
@@ -10,23 +12,31 @@ export default function Document() {
         <link rel="icon" href="/favicon.ico" />
         <link rel="stylesheet" href="/fonts/Lato.css" />
         <meta property="og:title" key="og.title" content={head.title} />
-        <meta
-          property="og:description"
-          key="og.description"
-          content={head.description}
-        />
-        <meta
-          property="og:image"
-          itemProp="image"
-          key="og.image"
-          content={head.image.logo}
-        />
-        <meta property="fb:app_id" key="fb.id" content={head.facebookAppId}/>
+        <meta property="og:description" key="og.description" content={head.description} />
+        <meta property="og:image" itemProp="image" key="og.image" content={head.image.logo} />
+        <meta property="fb:app_id" key="fb.id" content={head.facebookAppId} />
+
+        {/* Google Analytics GA4 */}
+        {analyticsId && analyticsId !== "google-analytics-property-id" && (
+          <>
+            <script async src={`https://www.googletagmanager.com/gtag/js?id=${analyticsId}`} />
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', '${analyticsId}');
+                `,
+              }}
+            />
+          </>
+        )}
       </Head>
       <body>
         <Main />
         <NextScript />
       </body>
     </Html>
-  );
+  )
 }

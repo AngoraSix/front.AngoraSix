@@ -1,0 +1,577 @@
+/* Team Landing Styles */
+
+/* Keyframe Animations */
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes textGlow {
+  0%,
+  100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.3) drop-shadow(0 0 5px rgba(254, 95, 85, 0.5));
+  }
+}
+
+/* Flowing Lines Intensities */
+.flowing-lines-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+}
+
+.flowing-lines-strong {
+  opacity: 0.6;
+}
+
+.flowing-lines-medium {
+  opacity: 0.4;
+}
+
+.flowing-lines-subtle {
+  opacity: 0.3;
+}
+
+.flowing-lines-soft {
+  opacity: 0.35;
+}
+
+.flowing-lines-minimal {
+  opacity: 0.25;
+}
+
+.team-landing-container {
+  margin-top: 2.5rem;
+}
+
+/* Section Backgrounds - Using our palette */
+.team-hero-section {
+  padding-top: 96px;
+  padding-bottom: 64px;
+  background: linear-gradient(135deg, #0a2239 0%, #1b5993 100%);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 900px) {
+  .team-hero-section {
+    padding-top: 48px;
+    padding-bottom: 32px;
+  }
+}
+
+.team-problems-section {
+  padding: 96px 0;
+  background-color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 900px) {
+  .team-problems-section {
+    padding: 64px 0;
+  }
+}
+
+.team-solutions-section {
+  padding: 96px 0;
+  background: linear-gradient(135deg, #afc1d6 0%, #dce7ea 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 900px) {
+  .team-solutions-section {
+    padding: 64px 0;
+  }
+}
+
+.team-angorasix-section {
+  padding: 96px 0;
+  background: linear-gradient(135deg, #f8fafe 0%, #f0f6fc 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 900px) {
+  .team-angorasix-section {
+    padding: 64px 0;
+  }
+}
+
+.team-usecases-section {
+  padding: 96px 0;
+  background-color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 900px) {
+  .team-usecases-section {
+    padding: 64px 0;
+  }
+}
+
+.team-final-cta-section {
+  padding: 96px 0;
+  background: linear-gradient(135deg, #0a2239 0%, #1b5993 100%);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 900px) {
+  .team-final-cta-section {
+    padding: 64px 0;
+  }
+}
+
+/* Hero Content */
+.hero-content {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-title {
+  font-size: 4rem !important;
+  font-weight: 700 !important;
+  margin-bottom: 24px !important;
+  line-height: 1.1 !important;
+}
+
+@media (max-width: 900px) {
+  .hero-title {
+    font-size: 2.5rem !important;
+  }
+}
+
+.hero-title .highlight {
+  color: #fe5f55;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.hero-subtitle {
+  margin-bottom: 32px !important;
+  line-height: 1.6 !important;
+  font-weight: 400 !important;
+  max-width: 800px;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  opacity: 0.95;
+}
+
+.hero-cta-box {
+  margin-bottom: 32px;
+}
+
+.hero-cta-button {
+  background-color: #fe5f55 !important;
+  color: white !important;
+  padding: 16px 48px !important;
+  font-size: 1.2rem !important;
+  font-weight: 600 !important;
+  text-transform: none !important;
+  border-radius: 8px !important;
+  box-shadow: 0 6px 25px rgba(254, 95, 85, 0.4) !important;
+}
+
+.hero-cta-button:hover {
+  background-color: #fe5f55 !important;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(254, 95, 85, 0.5) !important;
+}
+
+.hero-subtitle2 {
+  opacity: 0.8;
+  font-style: italic;
+}
+
+/* Problems Section */
+.harmonic-lines-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+}
+
+.problems-container {
+  position: relative;
+  z-index: 1;
+}
+
+.problems-title-box {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.problems-title {
+  font-size: 2.5rem !important;
+  font-weight: 700 !important;
+  color: #0a2239 !important;
+  margin-bottom: 24px !important;
+}
+
+@media (max-width: 900px) {
+  .problems-title {
+    font-size: 2rem !important;
+  }
+}
+
+.problems-subtitle {
+  color: #7d99ba !important;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.problems-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.problem-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  margin-bottom: 32px;
+  padding: 24px;
+  border-radius: 12px;
+  background-color: white;
+  border: 2px solid #dce7ea;
+  transition: all 0.3s ease;
+}
+
+.problem-item:hover {
+  transform: translateX(10px);
+  background-color: rgba(220, 231, 234, 0.15);
+}
+
+.problem-item:hover .problem-check {
+  background-color: #fe5f55;
+  transform: scale(1.1);
+}
+
+.problem-check {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #dce7ea;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 4px;
+  transition: all 0.3s ease;
+}
+
+.problem-check::after {
+  content: "?";
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.problem-text {
+  color: #0a2239 !important;
+  font-weight: 500 !important;
+  line-height: 1.6 !important;
+}
+
+.problem-text .glow-text {
+  background: linear-gradient(45deg, #fe5f55, #1b5993);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+  animation: textGlow 3s ease-in-out infinite;
+}
+
+/* Solutions Section */
+.complex-harmonic-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+}
+
+.solutions-container {
+  position: relative;
+  z-index: 1;
+}
+
+.solutions-title-box {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.solutions-title {
+  font-size: 2.5rem !important;
+  font-weight: 700 !important;
+  color: #0a2239 !important;
+  margin-bottom: 24px !important;
+}
+
+@media (max-width: 900px) {
+  .solutions-title {
+    font-size: 2rem !important;
+  }
+}
+
+.solutions-subtitle {
+  color: #0a2239 !important;
+  max-width: 600px;
+  margin: 0 auto;
+  font-weight: 500 !important;
+}
+
+.solutions-grid {
+  position: relative;
+  z-index: 1;
+}
+
+.solution-card {
+  padding: 32px !important;
+  height: 100%;
+  text-align: center;
+  border: none !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+  border-radius: 12px !important;
+  color: white !important;
+  transition: all 0.3s ease;
+}
+
+.solution-card:hover {
+  transform: translateY(-12px) scale(1.02);
+}
+
+.solution-card:hover .solution-icon {
+  transform: scale(1.2) rotate(10deg);
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+}
+
+.solution-icon {
+  margin-bottom: 24px;
+  transition: all 0.4s ease;
+  color: white;
+}
+
+.solution-card-title {
+  font-weight: 600 !important;
+  margin-bottom: 16px !important;
+  color: white !important;
+}
+
+.solution-card-description {
+  line-height: 1.6 !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* AngoraSix in Action Section */
+.gentle-flowing-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+}
+
+.angorasix-action-container {
+  position: relative;
+  z-index: 1;
+}
+
+.angorasix-action-title-box {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.angorasix-action-title {
+  font-size: 2.5rem !important;
+  font-weight: 700 !important;
+  color: #0a2239 !important;
+  margin-bottom: 24px !important;
+}
+
+@media (max-width: 900px) {
+  .angorasix-action-title {
+    font-size: 2rem !important;
+  }
+}
+
+.angorasix-action-subtitle {
+  color: #7d99ba !important;
+  max-width: 600px;
+  margin: 0 auto 48px auto;
+}
+
+.angorasix-action-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.angorasix-action-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.angorasix-action-image:hover {
+  transform: scale(1.02);
+}
+
+/* Use Cases Section */
+.use-cases-container {
+  position: relative;
+  z-index: 1;
+}
+
+.use-cases-title-box {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.use-cases-title {
+  font-size: 2.5rem !important;
+  font-weight: 700 !important;
+  color: #0a2239 !important;
+  margin-bottom: 24px !important;
+}
+
+@media (max-width: 900px) {
+  .use-cases-title {
+    font-size: 2rem !important;
+  }
+}
+
+.use-cases-grid {
+  position: relative;
+  z-index: 1;
+}
+
+.use-case-card {
+  padding: 32px !important;
+  height: 100%;
+  text-align: center;
+  border: 2px solid #dce7ea !important;
+  border-radius: 12px !important;
+  background-color: white !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.use-case-card::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: rgba(254, 95, 85, 0.15);
+}
+
+.use-case-icon-box {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #fe5f55;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.use-case-content {
+  position: relative;
+  z-index: 1;
+}
+
+.use-case-card-title {
+  font-weight: 600 !important;
+  color: #0a2239 !important;
+  margin-bottom: 16px !important;
+}
+
+.use-case-card-description {
+  color: #7d99ba !important;
+  line-height: 1.6 !important;
+}
+
+/* Final CTA Section */
+.final-harmonic-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+}
+
+.final-cta-content {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.final-cta-title {
+  font-size: 2.5rem !important;
+  font-weight: 700 !important;
+  margin-bottom: 24px !important;
+}
+
+@media (max-width: 900px) {
+  .final-cta-title {
+    font-size: 2rem !important;
+  }
+}
+
+.final-cta-title .highlight {
+  color: #fe5f55;
+}
+
+.final-cta-subtitle {
+  margin-bottom: 32px !important;
+  opacity: 0.9;
+}
+
+.final-cta-button {
+  background-color: #fe5f55 !important;
+  color: white !important;
+  padding: 16px 48px !important;
+  font-size: 1.2rem !important;
+  font-weight: 600 !important;
+  text-transform: none !important;
+  border-radius: 8px !important;
+  box-shadow: 0 6px 25px rgba(254, 95, 85, 0.4) !important;
+}
+
+.final-cta-button:hover {
+  background-color: #fe5f55 !important;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(254, 95, 85, 0.5) !important;
+}

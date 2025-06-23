@@ -1,7 +1,9 @@
 import { Box, Paper } from '@mui/material';
+import SharedNavbar from "../../components/common/SharedNavbar"
 import Head from 'next/head';
 import PropTypes from 'prop-types';
-import React from 'react';
+import CookieConsent from "../../components/common/CookieConsent";
+import Footer from "../../components/common/Footer";
 import Navbar from '../../components/Navbar';
 import config from '../../config';
 
@@ -33,6 +35,8 @@ const DefaultLayout = ({ children, className, headData, contained = true }) => {
       <ChildrenContainer className={`${className}__Body`}>
         {children}
       </ChildrenContainer>
+      <Footer />
+      <CookieConsent />
     </Box>
   );
 };

@@ -105,7 +105,7 @@ const ProjectManagementView = ({
 
   return (
     <MainContainer>
-      <Container maxWidth="xl" sx={{ py: 3, height: "100%" }}>
+      <Container className="ProjectManagementView" maxWidth="xl" sx={{ py: 3, height: "100%" }}>
         <Fade in timeout={600}>
           <ContentWrapper>
             <MainSection>

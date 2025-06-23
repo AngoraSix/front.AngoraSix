@@ -8,6 +8,7 @@ import ManagementAccountingAPI from './managementAccounting';
 import ProjectsAPI from './projects';
 import NotificationsAPI from './notifications';
 import ManagementTasksAPI from './managementTasks';
+import SurveysAPI from './surveys';
 
 class API {
   constructor() {
@@ -16,6 +17,10 @@ class API {
 
   get front() {
     return this.frontAPI;
+  }
+
+  get surveys() {
+    return this.SurveysAPI;
   }
 
   get projects() {
@@ -70,6 +75,7 @@ class API {
     this.notificationsAPI = new NotificationsAPI(
       _getServiceAPI('notifications', this.axios)
     );
+    this.SurveysAPI = new SurveysAPI(_getServiceAPI('surveys', this.axios));
   }
 }
 

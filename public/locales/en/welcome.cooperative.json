@@ -1,0 +1,66 @@
+{
+  "page": {
+    "title": "AngoraSix — A new kind of entrepreneurship. One that matters",
+    "description": "A real alternative to build with meaning. Collaborative, decentralized, leveraging open management models and next-gen technology."
+  },
+  "hero": {
+    "title": {
+      "part1": "A new kind of entrepreneurship.",
+      "highlight": "One that matters"
+    },
+    "subtitle": "A real alternative to build with meaning. Collaborative, decentralized, leveraging open management models and next-gen technology.",
+    "subtitle2": "Join those already shaping the future. Real tools. Real purpose.",
+    "cta": "Start Building"
+  },
+  "problems": {
+    "title": "Struggling to fit your vision into the business world?",
+    "subtitle": "Challenges faced by those aiming to create meaningfully, without compromising values.",
+    "misalignment": "In a profit-obsessed world, finding spaces where values, purpose, and humanity are central can be tough.",
+    "findingAllies": "Connecting with people who share your vision and enthusiasm isn’t easy.",
+    "internalConflicts": "Unclear rules breed tension. Energy fades. Focus is lost.",
+    "authenticity": "There are many promises of decentralization, but most lack transparency and real practice. We need an authentic model."
+  },
+  "solutions": {
+    "title": "A cooperative management framework to build differently",
+    "subtitle": "Technology designed to enable genuine collaboration, without friction or hierarchy.",
+    "authentic": {
+      "title": "Clear rules from day one",
+      "description": "A simple structure to define how the project will be managed — with clear roles, responsibilities, and shared agreements."
+    },
+    "transparency": {
+      "title": "Automatic contribution tracking",
+      "description": "We integrate with your existing tools to transparently record each member's contributions. Visible and clear for everyone involved."
+    },
+    "decentralized": {
+      "title": "Decentralized decisions and funds",
+      "description": "Integrated governance tools and a blockchain-based, multi-signature account — mediated by AngoraSix."
+    }
+  },
+  "angorasixInAction":{
+    "title": "AngoraSix in action",
+    "subtitle": "Discover how our platform transforms project management and collaboration."
+  },
+  "useCases": {
+    "title": "It's not for everyone.",
+    "opensource": {
+      "title": "Open source projects",
+      "description": "Developer teams with funding or revenue streams that want to maintain their collaborative spirit as they grow."
+    },
+    "cooperative": {
+      "title": "Emerging cooperative groups",
+      "description": "Cooperatives and social collectives wanting to professionalize without losing their core values and essence."
+    },
+    "social": {
+      "title": "Impact-driven entrepreneurship",
+      "description": "Purpose-driven ventures seeking balanced growth while preserving their mission and impact."
+    }
+  },
+  "finalCta": {
+    "title": {
+      "part1": "Join those already building the future.",
+      "highlight": "Real tools. Real purpose"
+    },
+    "subtitle": "What's the best you can do for this world? We're here to help you.",
+    "cta": "Count Me In"
+  }
+}

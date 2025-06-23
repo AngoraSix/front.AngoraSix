@@ -1,0 +1,390 @@
+/* ===== PRICING PAGE STYLES ===== */
+
+.pricing-page {
+  min-height: 100vh;
+  padding-top: 80px;
+  padding-bottom: 60px;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+}
+
+.pricing-container {
+  max-width: 1200px;
+}
+
+/* ===== HERO SECTION ===== */
+.pricing-hero {
+  text-align: center;
+  margin-bottom: 60px;
+  padding: 0 20px;
+}
+
+.pricing-hero-title {
+  font-weight: 700 !important;
+  color: #0a2239 !important;
+  margin-bottom: 20px !important;
+  line-height: 1.2 !important;
+}
+
+.pricing-hero-subtitle {
+  font-size: 1.25rem !important;
+  color: #64748b !important;
+  font-weight: 400 !important;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ===== BETA PROGRAM PANEL ===== */
+.pricing-beta-panel {
+  background: linear-gradient(135deg, #1b5993 0%, #0a2239 100%);
+  border-radius: 20px;
+  padding: 40px;
+  margin-bottom: 60px;
+  box-shadow: 0 20px 40px rgba(10, 34, 57, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.beta-panel-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.beta-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.beta-panel-icon {
+  font-size: 2.5rem !important;
+  color: #fe5f55 !important;
+}
+
+.beta-panel-title {
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  font-size: 2rem !important;
+}
+
+.beta-panel-description {
+  color: #afc1d6 !important;
+  font-size: 1.1rem !important;
+  margin-bottom: 30px !important;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pricing-page .beta-benefits {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.pricing-page .beta-benefit {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #dce7ea;
+}
+
+.pricing-page .beta-benefit-icon {
+  font-size: 1.2rem !important;
+  color: #fe5f55 !important;
+}
+
+.pricing-page .beta-panel-cta {
+  background: #fe5f55 !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  padding: 15px 40px !important;
+  border-radius: 12px !important;
+  font-size: 1.1rem !important;
+  text-transform: none !important;
+  box-shadow: 0 8px 20px rgba(254, 95, 85, 0.3) !important;
+  transition: all 0.3s ease !important;
+}
+
+.beta-panel-cta:hover {
+  background: #e54a41 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(254, 95, 85, 0.4) !important;
+}
+
+/* ===== PLANS SECTION ===== */
+.pricing-plans-section {
+  margin-top: 40px;
+}
+
+.pricing-plans-grid {
+  justify-content: center;
+}
+
+.pricing-plans-swiper {
+  padding: 20px 0 60px 0;
+}
+
+.pricing-plans-swiper .swiper-pagination {
+  bottom: 20px;
+}
+
+.pricing-plans-swiper .swiper-pagination-bullet {
+  background: #1b5993;
+  opacity: 0.3;
+}
+
+.pricing-plans-swiper .swiper-pagination-bullet-active {
+  opacity: 1;
+  background: #fe5f55;
+}
+
+/* ===== PLAN CARDS ===== */
+.pricing-plan-card {
+  height: 100%;
+  border-radius: 20px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+  transition: all 0.3s ease !important;
+  position: relative;
+  overflow: visible;
+  border: 2px solid transparent !important;
+}
+
+.pricing-plan-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15) !important;
+}
+
+.pricing-plan-free {
+  background: #ffffff !important;
+}
+
+.pricing-plan-free:hover {
+  border-color: #1b5993 !important;
+}
+
+.pricing-plan-plus {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%) !important;
+  border-color: #fe5f55 !important;
+  transform: scale(1.05);
+}
+
+.pricing-plan-plus:hover {
+  transform: scale(1.08) translateY(-8px);
+  border-color: #e54a41 !important;
+}
+
+.pricing-beta-badge {
+  position: absolute !important;
+  top: -10px; /* Adjust as needed */
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fe5f55 !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  z-index: 2;
+  padding: 8px 20px !important;
+  border-radius: 20px !important;
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+/* Add responsive adjustments if necessary */
+@media (max-width: 768px) {
+  .pricing-beta-badge {
+    padding: 6px 15px !important; /* Slightly smaller padding for mobile */
+    font-size: 0.85rem !important; /* Adjust font size */
+  }
+}
+
+.pricing-plan-content {
+  padding: 40px 30px 20px 30px !important;
+}
+
+.pricing-plan-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.pricing-plan-icon {
+  font-size: 3rem !important;
+  margin-bottom: 15px;
+}
+
+.pricing-plan-icon.free {
+  color: #1b5993 !important;
+}
+
+.pricing-plan-icon.plus {
+  color: #fe5f55 !important;
+}
+
+.pricing-plan-title {
+  font-weight: 700 !important;
+  color: #0a2239 !important;
+  margin-bottom: 20px !important;
+}
+
+.pricing-plan-price {
+  margin-bottom: 10px;
+}
+
+.pricing-price-main {
+  font-weight: 800 !important;
+  color: #0a2239 !important;
+  line-height: 1 !important;
+}
+
+.pricing-plan-plus .pricing-price-main {
+  color: #fe5f55 !important;
+}
+
+.pricing-price-subtitle {
+  color: #64748b !important;
+  margin-top: 8px !important;
+  font-size: 0.95rem !important;
+}
+
+.pricing-price-period {
+  color: #64748b !important;
+  margin-top: 5px !important;
+}
+
+.pricing-plan-divider {
+  margin: 30px 0 !important;
+  background-color: #e2e8f0 !important;
+}
+
+.pricing-features-list {
+  padding: 0 !important;
+}
+
+.pricing-feature-item {
+  padding: 8px 0 !important;
+  align-items: flex-start;
+}
+
+.pricing-feature-icon {
+  min-width: 32px !important;
+  margin-top: 2px;
+}
+
+.feature-icon {
+  font-size: 1.2rem !important;
+}
+
+.feature-icon.free {
+  color: #1b5993 !important;
+}
+
+.feature-icon.plus {
+  color: #fe5f55 !important;
+}
+
+.pricing-plan-actions {
+  padding: 20px 30px 30px 30px !important;
+}
+
+.pricing-plan-cta {
+  padding: 15px 0 !important;
+  font-weight: 600 !important;
+  font-size: 1.1rem !important;
+  text-transform: none !important;
+  border-radius: 12px !important;
+  transition: all 0.3s ease !important;
+}
+
+.cta-free {
+  border-color: #1b5993 !important;
+  color: #1b5993 !important;
+}
+
+.cta-free:hover {
+  background: #1b5993 !important;
+  color: #ffffff !important;
+  transform: translateY(-2px);
+}
+
+.cta-plus {
+  background: #fe5f55 !important;
+  color: #ffffff !important;
+  box-shadow: 0 8px 20px rgba(254, 95, 85, 0.3) !important;
+}
+
+.cta-plus:hover {
+  background: #e54a41 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(254, 95, 85, 0.4) !important;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+  .pricing-hero-title {
+    font-size: 2.5rem !important;
+  }
+
+  .pricing-hero-subtitle {
+    font-size: 1.1rem !important;
+  }
+
+  .pricing-beta-panel {
+    padding: 30px 20px;
+    margin-bottom: 40px;
+  }
+
+  .beta-panel-header {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .beta-panel-title {
+    font-size: 1.5rem !important;
+  }
+
+  .pricing-page .beta-benefits {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
+
+  .pricing-plan-plus {
+    transform: none;
+  }
+
+  .pricing-plan-plus:hover {
+    transform: translateY(-8px);
+  }
+
+  .pricing-plan-content {
+    padding: 2.5rem 20px 15px 20px !important;
+  }
+
+  .pricing-plan-actions {
+    padding: 15px 20px 25px 20px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .pricing-hero-title {
+    font-size: 2rem !important;
+  }
+
+  .beta-panel-description {
+    font-size: 1rem !important;
+  }
+
+  .pricing-plan-icon {
+    font-size: 2.5rem !important;
+  }
+
+  .pricing-plan-title {
+    font-size: 1.8rem !important;
+  }
+
+  .pricing-price-main {
+    font-size: 2.5rem !important;
+  }
+}

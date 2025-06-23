@@ -1,0 +1,332 @@
+/* General styles for the About page */
+.about-page {
+    background-color: #ffffff;
+    padding-top: 80px;
+    /* Adjust for fixed navbar if any */
+}
+
+/* Section Paddings - Standardized for no gaps */
+.about-hero {
+    text-align: center;
+    margin-bottom: 60px;
+    padding: 0 20px;
+}
+
+.about-story {
+    padding: 0 0 40px;
+    background-color: #ffffff;
+}
+
+.about-vision-mission {
+    padding: 80px 0;
+    background-color: #1b5993;
+    color: white;
+}
+
+.about-values {
+    padding: 80px 0;
+    background-color: #f8f9fa;
+}
+
+.about-community {
+    padding: 80px 0 20px;
+    background-color: #ffffff;
+}
+
+.about-follow-us {
+    padding: 5px 0 30px;
+    /* Slightly less padding for this section */
+    background-color: #ffffff;
+    /* White background */
+}
+
+.about-follow-us .about-follow-us-title{
+    margin-bottom: 12px;
+}
+
+.about-final-cta {
+    padding: 40px 0;
+    /* Reduced padding for a smaller section */
+    background: linear-gradient(135deg, #0a2239 0%, #1b5993 100%);
+    /* Dark gradient from TeamLanding */
+    color: white;
+    /* Ensure text is visible on dark background */
+}
+
+/* Hero Section */
+.about-hero .about-title {
+    font-weight: 700 !important;
+    color: #0a2239 !important;
+    margin-bottom: 20px !important;
+    line-height: 1.2 !important;
+}
+
+.about-hero .about-subtitle {
+    font-size: 1.25rem !important;
+    color: #64748b !important;
+    font-weight: 400 !important;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Story Section */
+.about-story img {
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Vision & Mission Section */
+
+/* Values Section */
+.about-values .value-card {
+    height: 100%;
+    transition: none;
+    /* Remove all hover effects */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    /* Static subtle shadow */
+}
+
+.about-values .value-icon-wrapper svg {
+    transition: transform 0.3s ease;
+}
+
+.about-values .value-card:hover .value-icon-wrapper svg {
+    transform: scale(1.1);
+}
+
+/* Community Section */
+.about-community .member-card {
+    height: 100%;
+    box-shadow: none;
+    /* No shadow to avoid clickable appearance */
+    border: 1px solid #e0e0e0;
+    /* Subtle border instead */
+    transition: none;
+    /* Remove hover effects */
+}
+
+.about-community .member-card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Center content horizontally */
+    text-align: center;
+    /* Center text */
+    height: 100%;
+    justify-content: space-between;
+    /* Distribute content vertically */
+}
+
+.about-community .member-avatar-wrapper {
+    position: relative;
+    display: inline-block;
+    border-radius: 50%;
+    margin-bottom: 16px;
+    /* Space below avatar */
+}
+
+.about-community .member-avatar-wrapper::before {
+    content: "";
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #afc1d6, #1b5993, #dce7ea, #7d99ba);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.about-community .member-card:hover .member-avatar-wrapper::before {
+    opacity: 0.3;
+    /* Very subtle effect */
+}
+
+.about-community .member-avatar {
+    border: 3px solid #1b5993 !important;
+    /* Keep initial border */
+    transition: border-color 0.6s ease;
+}
+
+.about-community .member-card:hover .member-avatar {
+    border-color: #7D99BA !important;
+    /* Darker blue on hover */
+}
+
+.about-community .member-social-links {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: auto;
+    /* Push to bottom if content is short */
+}
+
+.about-community .member-social-links .social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #7d99ba;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    padding: 2px;
+    /* Minimal padding */
+}
+
+.about-community .member-social-links .social-link svg {
+    font-size: 18px;
+    /* Small and subtle */
+}
+
+.about-community .member-social-links .social-link:hover {
+    color: #fe5f55;
+    /* Orange on hover */
+    background: none;
+    /* No background change */
+}
+
+/* Follow Us Section */
+.about-follow-us .follow-social-links {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    /* 0.75rem from PostRegistration.css */
+    flex-wrap: wrap;
+}
+
+.about-follow-us .follow-icon-button {
+    background: rgba(27, 89, 147, 0.1) !important;
+    /* Light blue background */
+    color: #1b5993 !important;
+    /* Primary light color */
+    transition: all 0.3s ease !important;
+    width: 32px !important;
+    height: 32px !important;
+    padding: 0;
+    /* Remove default padding from IconButton */
+}
+
+.about-follow-us .follow-icon-button svg {
+    font-size: 20px;
+    /* Adjust icon size to fit 32px button */
+}
+
+.about-follow-us .follow-icon-button:hover {
+    transform: translateY(-2px) !important;
+    background: #1b5993 !important;
+    /* Primary light color on hover */
+    color: white !important;
+}
+
+/* Final CTA Section */
+.about-final-cta .final-cta-quote {
+    text-align: center;
+    color: #afc1d6;
+    /* Light blue for quote on dark background */
+    font-style: italic;
+    margin-bottom: 0;
+    /* Remove default margin-bottom from Typography */
+}
+
+.about-final-cta .final-cta-button {
+    background-color: #fe5f55;
+    color: #000000;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    padding: 6px 16px;
+    /* Even smaller padding */
+    font-size: 0.85rem;
+    /* Smaller font size */
+    border-radius: 8px;
+    /* Match TeamLanding button border-radius */
+    box-shadow: 0 4px 15px rgba(254, 95, 85, 0.3);
+    /* Subtle shadow */
+}
+
+.about-final-cta .final-cta-button:hover {
+    background-color: #e04e44;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(254, 95, 85, 0.4);
+    /* Slightly more pronounced shadow on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+
+    .about-hero .about-title {
+        font-size: 2.5rem !important;
+    }
+
+    .about-hero .about-subtitle {
+        font-size: 1.1rem !important;
+    }
+
+    .about-page {
+        padding-top: 80px;
+        /* Remove top padding on smaller screens if navbar is not fixed or smaller */
+    }
+
+    .about-hero,
+    .about-story,
+    .about-vision-mission,
+    .about-values,
+    .about-community {
+        padding: 60px 0;
+    }
+
+    .about-follow-us {
+        padding: 40px 0;
+    }
+
+    .about-final-cta {
+        padding: 30px 0;
+    }
+
+    .about-final-cta .final-cta-quote {
+        text-align: center;
+        /* Center quote on mobile */
+        margin-bottom: 16px;
+        /* Add some space below quote on mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .about-hero .about-title {
+        font-size: 2rem !important;
+    }
+
+    .about-hero .about-subtitle {
+        font-size: 1rem !important;
+    }
+
+    .about-hero {
+        padding: 0;
+    }
+
+    .about-story {
+        padding: 0 0 40px;
+    }
+
+    .about-vision-mission,
+    .about-values,
+    .about-community {
+        padding: 40px 0;
+    }
+
+    .about-follow-us {
+        padding: 20px 0;
+    }
+
+    .about-final-cta {
+        padding: 20px 0;
+    }
+
+    .about-follow-us .follow-icon-button {
+        width: 28px !important;
+        height: 28px !important;
+    }
+
+    .about-follow-us .follow-icon-button svg {
+        font-size: 18px;
+    }
+}

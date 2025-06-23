@@ -1,0 +1,26 @@
+{
+  "welcome": {
+    "title": "Welcome to AngoraSix",
+    "subtitle": "What’s your path to building with purpose?",
+    "exploreOptions": "AngoraSix is here for you",
+    "chooseYourPath": "Don’t just build. Let’s build better."
+  },
+  "paths": {
+    "manager": {
+      "title": "Traditional Management with Self-Organized Teams",
+      "description": "Delegate with confidence, supported by a system that enables teams to self-manage within a structure based on your own rules."
+    },
+    "team": {
+      "title": "Entrepreneurial Teams & Partners",
+      "description": "Establish a shared foundation with clear rules and an objective framework to move forward with confidence and cooperation."
+    },
+    "contributor": {
+      "title": "Make a Living from Meaningful Projects",
+      "description": "Work on projects that inspire you, become part of something with purpose, and build long-term stability for your future."
+    },
+    "cooperative": {
+      "title": "Cooperative Spirit & Paradigm Shift",
+      "description": "Join a movement that promotes healthy creation—transparent, decentralized, and rooted in cooperative values."
+    }
+  }
+}

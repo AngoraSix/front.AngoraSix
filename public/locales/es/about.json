@@ -1,0 +1,90 @@
+{
+  "page": {
+    "title": "Nosotros - AngoraSix",
+    "description": "Conocé la historia, visión y valores de AngoraSix. Una plataforma cooperativa para crear y gestionar proyectos de forma descentralizada."
+  },
+  "hero": {
+    "title": "Redefiniendo la colaboración",
+    "subtitle": "Una plataforma donde todos somos dueños, donde la transparencia guía nuestras decisiones y donde cada proyecto tiene el potencial de cambiar el mundo."
+  },
+  "story": {
+    "title": "Nuestra historia",
+    "paragraph1": "AngoraSix nació de la frustración de ver cómo grandes ideas quedaban en el camino por falta de soporte o por tener que adaptarse a las exigencias de inversores.",
+    "paragraph2": "Creemos que hay una mejor forma de crear soluciones: de manera cooperativa, transparente y descentralizada, sin jerarquías arbitrarias y donde cada persona que aporta valor sea reconocida justamente.",
+    "birth": "Así nació AngoraSix",
+    "imageAlt": "Historia de AngoraSix"
+  },
+  "vision": {
+    "title": "Visión",
+    "content": "Redefinir la forma en que creamos soluciones, promoviendo un desarrollo integral tanto personal como social."
+  },
+  "mission": {
+    "title": "Misión",
+    "content": "Queremos mostrarle al mundo un modelo de gestión alternativo al tradicional, que permita crear y llevar adelante las grandes ideas de una manera cooperativa y descentralizada, potenciando el valor humano e incentivando a las personas a desarrollarse más profundamente."
+  },
+  "values": {
+    "title": "Nuestros valores",
+    "subtitle": "Los principios que guían cada decisión que tomamos",
+    "transparency": {
+      "title": "Confianza y transparencia",
+      "description": "Para poder crecer es necesaria la confianza: en la plataforma, en las personas, en los proyectos. La transparencia es la base de toda relación sólida."
+    },
+    "purpose": {
+      "title": "Sentido y propósito",
+      "description": "Queremos permitir que la gente dedique su tiempo y esfuerzo a algo que para ellos valga la pena. Cada proyecto debe tener un propósito claro."
+    },
+    "community": {
+      "title": "Comunidad",
+      "description": "Formar parte, con un objetivo común, trabajado de forma cooperativa y sanamente. Conectar de una forma más humana y natural."
+    },
+    "evolution": {
+      "title": "Evolución y originalidad",
+      "description": "Un paradigma diferente, un camino alternativo. Avanzar y crecer sin seguir ciegamente la lógica del 'progreso' tradicional."
+    },
+    "trust": {
+      "title": "Invitación a crear",
+      "description": "Queremos inspirar y motivar a emprender, innovar y actuar guiados por ideales, sueños y principios. Mirar el cielo, no el suelo."
+    },
+    "simplicity": {
+      "title": "Sencillez",
+      "description": "Volver a valores más simples en la forma de vincularnos. Cambiar la ambición material por una sensación de valoración y paz."
+    }
+  },
+  "community": {
+    "title": "Nuestra comunidad",
+    "subtitle": "Algunos de los miembros que formamos parte de AngoraSix",
+    "philosophy": "En AngoraSix no hay jerarquías ni empleados. Somos co-creadores que aportamos según nuestras capacidades y pasiones.",
+    "ger": {
+      "name": "Ger",
+      "role": "Product Owner, Desarrollo",
+      "description": "¿Qué es lo mejor que podés hacer por este mundo?"
+    },
+    "jor": {
+      "name": "Jor",
+      "role": "Analisis de Negocio",
+      "description": "Apasionado por los emprendimientos y la innovación social."
+    },
+    "juli": {
+      "name": "Juli",
+      "role": "Diseño, Comunicación",
+      "description": "Pasión por el diseño consciente. Rumbo a desarrollos sostenibles."
+    },
+    "marcos": {
+      "name": "Marcos",
+      "role": "Desarrollo",
+      "description": "Creando soluciones que mejoren el mundo."
+    },
+    "tomi": {
+      "name": "Tomi",
+      "role": "UX",
+      "description": "Creating a better world through design, music, and food (they all make people smile)."
+    }
+  },
+  "followUs": {
+    "title": "Conectemos"
+  },
+  "finalCta": {
+    "quote": "\"En AngoraSix creamos sanamente, para que otros puedan crear sanamente.\"",
+    "button": "Creemos"
+  }
+}

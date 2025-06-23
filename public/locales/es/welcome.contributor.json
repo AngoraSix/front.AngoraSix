@@ -1,0 +1,75 @@
+{
+    "page": {
+        "title": "AngoraSix — Trabajá con sentido. Viví de lo que sabés y amás hacer",
+        "description": "Elegí proyectos en los que creés y sé parte de verdad. Tu aporte se retribuye con poder de decisión, participación en las ganancias y pagos inmediatos."
+    },
+    "hero": {
+        "title": {
+            "part1": "Trabajá con sentido.",
+            "highlight": "Viví de lo que sabés y amás hacer"
+        },
+        "subtitle": "Elegí proyectos en los que creés y sé parte de verdad. Tu aporte se retribuye con poder de decisión, participación en las ganancias y pagos inmediatos.",
+        "subtitle2": "Libertad, transparencia y pertenencia. Seguro, con garantías reales.",
+        "cta": "Unirme"
+    },
+    "problems": {
+        "title": "¿Te cansaste de trabajar para otros?",
+        "subtitle": "Lo que sentimos quienes buscamos algo distinto",
+        "meaningless": "Estás cansado de dedicarle tiempo a trabajos que no te motivan ni te representan.",
+        "exploitation": "Sentís que das mucho más de lo que recibís, y que tu esfuerzo no se termina de valorar.",
+        "uncertainty": "No confiás en que el sistema laboral actual garantice tu futuro o estabilidad.",
+        "mismatch": "Tu talento no está siendo aprovechado. Sentís que podrías estar aportando en algo mejor.",
+        "income": "Querés ganar mejor, sin tener que resignar tu libertad o tus valores.",
+        "time": "No tenés tiempo para vos ni para lo que realmente te importa."
+    },
+    "solutions": {
+        "title": "Una forma de trabajar pensada para vos",
+        "subtitle": "AngoraSix es una plataforma que te conecta con proyectos de los cuales podes formar parte con tranquilidad y confianza.",
+        "ownership": {
+            "title": "Sos parte de lo que creás",
+            "description": "Acá vas a encontrar proyectos descentralizados, donde los únicos dueños son quienes aportan valor. Vas a poder participar de las decisiones y compartir las ganancias."
+        },
+        "freedom": {
+            "title": "Tu tiempo es tuyo",
+            "description": "Trabajá en lo que te gusta, bajo la modalidad que te funcione. Elegí tus proyectos y organizate como mejor te quede."
+        },
+        "purpose": {
+            "title": "Proyectos con sentido",
+            "description": "Ayudá a esos proyectos a crecer y alcanzar el éxito. Trabajás en lo que te apasiona, con personas que comparten tus valores."
+        },
+        "transparency": {
+            "title": "Transparente y seguro",
+            "description": "Una estructura con reglas claras, integradas con herramientas de decision y una wallet compartida multi-firma, arbitrada por AngoraSix"
+        }
+    },
+    "angorasixInAction": {
+        "title": "Descubrí AngoraSix",
+        "subtitle": "Conocé cómo simplificamos la gestión de proyectos colaborativos."
+    },
+    "useCases": {
+        "title": "Historias como la tuya",
+        "freelancer": {
+            "title": "Freelancer buscando estabilidad y libertad",
+            "description": "Querés seguir eligiendo cómo y cuándo trabajar, pero también construir algo más estable a futuro, con ingresos reales y previsibles.",
+            "quote": "Busco libertad, sí. Pero mi futuro no puede depender de cómo gestione otro."
+        },
+        "careerChange": {
+            "title": "Profesional en reinvención",
+            "description": "Querés aportar donde tus habilidades se aprovechen al 100%. Elegir proyectos donde puedas dar lo mejor de vos — y disfrutarlo.",
+            "quote": "Estoy listo para algo donde pueda aportar todo lo que sé. Donde valga la pena."
+        },
+        "collaborator": {
+            "title": "Visionario con ganas de ser parte de algo más grande",
+            "description": "Tenés ideas, energía, propósito. Querés sumarte a algo con impacto real, construido sobre valores que compartís.",
+            "quote": "Ya no quiero hacer 'lo que hay'. Quiero ser parte de un cambio real."
+        }
+    },
+    "finalCta": {
+        "title": {
+            "part1": "¿Qué es lo mejor que podés hacer?",
+            "highlight": "Tu próximo proyecto te está esperando"
+        },
+        "subtitle": "Sumate para empezar a crear distinto. Con libertad, transparencia y pertenencia.",
+        "cta": "Registrarme"
+    }
+}

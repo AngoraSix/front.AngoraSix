@@ -1,0 +1,64 @@
+{
+  "page": {
+    "title": "Pricing - AngoraSix",
+    "description": "Choose your AngoraSix plan and start building in a better way."
+  },
+  "hero": {
+    "title": "Choose your plan and start building in a better way.",
+    "subtitle": "Plans designed to support you at every stage."
+  },
+  "betaProgram": {
+    "title": "AngoraSix Beta User Program",
+    "description": "Join our exclusive Beta User Program and help shape the future of project management. Get early access to premium features and contribute to the platform’s evolution.",
+    "benefits": {
+      "premium": "Access to premium features at no cost",
+      "evolution": "Be part of the platform’s growth and evolution",
+      "priority": "Priority access to new features and support"
+    },
+    "cta": "Apply for Beta Program"
+  },
+  "plans": {
+    "free": {
+      "title": "Free",
+      "price": "$0",
+      "period": "Free forever. Perfect to get started without hassle.",
+      "cta": "Start for Free",
+      "features": {
+        "contributors": "Up to 4 active collaborators",
+        "tasks": "Unlimited tracking of tasks and contributions",
+        "notifications": "Clear project rule definitions",
+        "support": "Ownership and financial tracking tools",
+        "workspace": "Includes 1 project"
+      }
+    },
+    "plus": {
+      "badge": "Beta Program",
+      "title": "Plus",
+      "regularPrice": "$60",
+      "currentPrice": "$0",
+      "subtitle": "Currently available only for Beta users",
+      "cta": "Join as Beta",
+      "features": {
+        "all": "Everything included in the Free plan",
+        "unlimited": "Up to 30 collaborators and 5 projects",
+        "ai": "Smart assistant to help with decisions and organization",
+        "tracking": "Rules and contributions linked to a shared wallet",
+        "integrations": "Option to back rules with blockchain",
+        "workflows": "Priority in project matchmaking and visibility",
+        "support": "Personalized human support"
+      }
+    },
+    "custom": {
+      "title": "Custom",
+      "price": "Let’s Talk",
+      "cta": "Contact Us",
+      "features": {
+        "all": "Includes everything from the Plus plan",
+        "tailored": "Custom solutions tailored to your team or project",
+        "dedicated": "Hours of personalized strategic guidance included",
+        "advanced": "Reports and insights on your market or sector",
+        "enterprise": "Exclusive benefits and discounts with ecosystem tools"
+      }
+    }
+  }
+}

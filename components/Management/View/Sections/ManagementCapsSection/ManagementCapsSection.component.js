@@ -79,7 +79,6 @@ const ManagementCapsSection = ({
   const { t } = useTranslation("management.view")
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"))
-  console.log("projectManagementTasksStats", projectManagementAccountingStats)
 
   const [selectedFinanceCurrency, setSelectedFinanceCurrency] = useState("PROFIT_SHARES")
 
