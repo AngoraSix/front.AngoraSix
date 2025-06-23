@@ -25,7 +25,7 @@ HomePage.propTypes = {};
 export const getServerSideProps = async (ctx) => {
   // const session = await getSession(ctx);
   let props = {
-    ...(await serverSideTranslations(ctx.locale, ['common', 'welcome'])),
+    ...(await serverSideTranslations(ctx.locale, ['common', 'welcome', 'common.legal'])),
   };
 
   return {
