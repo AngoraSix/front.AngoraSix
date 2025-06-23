@@ -178,7 +178,7 @@
   margin-bottom: 1.25rem;
 }
 
-.benefit-item {
+.post-registration-landing .benefit-item {
   text-align: center;
   padding: 0.75rem 0.5rem;
   background: #f8fafe;
@@ -188,19 +188,13 @@
   height: 100%;
 }
 
-.benefit-item:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(27, 89, 147, 0.15);
-  background: #f0f6fc;
-}
-
-.benefit-icon {
+.post-registration-landing .benefit-icon {
   font-size: 1.3rem !important;
   color: #1b5993 !important;
   margin-bottom: 0.5rem !important;
 }
 
-.benefit-text {
+.post-registration-landing .benefit-text {
   color: #0a2239 !important;
   font-weight: 600 !important;
   font-size: 0.75rem !important;
@@ -655,15 +649,15 @@ Add this block at the end of the file or near .tool-card styles: */
     gap: 1rem;
   }
 
-  .benefit-item {
+  .post-registration-landing .benefit-item {
     padding: 0.6rem 0.4rem;
   }
 
-  .benefit-icon {
+  .post-registration-landing .benefit-icon {
     font-size: 1.1rem !important;
   }
 
-  .benefit-text {
+  .post-registration-landing .benefit-text {
     font-size: 0.7rem !important;
   }
 

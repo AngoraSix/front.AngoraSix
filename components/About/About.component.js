@@ -1,34 +1,36 @@
 "use client"
 
 import {
-  Box,
-  Typography,
-  Container,
-  Grid,
-  Card,
-  CardContent,
-  Avatar,
-  Fade,
-  Zoom,
-  Button,
-  IconButton,
-} from "@mui/material"
-import {
-  Psychology,
-  Groups,
   AccountBalance,
-  Handshake,
   AutoAwesome,
   Diversity3,
-  LinkedIn,
   GitHub,
+  Groups,
+  Handshake,
   Instagram,
+  LinkedIn,
   Link as LinkIcon,
+  Psychology,
   YouTube,
 } from "@mui/icons-material"
-import { useInView } from "../../hooks/useInViews"
+import {
+  Avatar,
+  Box,
+  Button,
+  Card,
+  CardContent,
+  Container,
+  Fade,
+  Grid,
+  IconButton,
+  SvgIcon,
+  Typography,
+  Zoom,
+} from "@mui/material"
 import { useTranslation } from "next-i18next"
 import Head from "next/head"
+import { THIRD_PARTY } from "../../constants/constants"
+import { useInView } from "../../hooks/useInViews"
 import { trackLandingCTAClick } from "../../utils/analytics"
 
 const AboutComponent = () => {
@@ -75,60 +77,53 @@ const AboutComponent = () => {
 
   const communityMembers = [
     {
-      name: t("community.member1.name"),
-      role: t("community.member1.role"),
-      description: t("community.member1.description"),
-      avatar: "/placeholder.svg?height=120&width=120",
+      name: t("community.ger.name"),
+      role: t("community.ger.role"),
+      description: t("community.ger.description"),
+      avatar: "images/members/ger.jpg?height=120&width=120",
       social: {
-        linkedin: "https://linkedin.com/in/member1",
-        github: "https://github.com/member1",
-        instagram: "https://instagram.com/member1",
-        personal: "https://member1.com",
+        linkedin: "https://www.linkedin.com/in/rozagerardo/",
+        github: "https://github.com/rozagerardo",
+        instagram: "https://www.instagram.com/gerroza/",
+        stackoverflow: "https://stackoverflow.com/users/6661361/gerardo-roza",
       },
     },
     {
-      name: t("community.member2.name"),
-      role: t("community.member2.role"),
-      description: t("community.member2.description"),
+      name: t("community.jor.name"),
+      role: t("community.jor.role"),
+      description: t("community.jor.description"),
       avatar: "/placeholder.svg?height=120&width=120",
       social: {
-        linkedin: "https://linkedin.com/in/member2",
-        instagram: "https://instagram.com/member2",
       },
     },
     {
-      name: t("community.member3.name"),
-      role: t("community.member3.role"),
-      description: t("community.member3.description"),
-      avatar: "/placeholder.svg?height=120&width=120",
+      name: t("community.juli.name"),
+      role: t("community.juli.role"),
+      description: t("community.juli.description"),
+      avatar: "images/members/juli.jpg?height=120&width=120",
       social: {
-        linkedin: "https://linkedin.com/in/member3",
-        github: "https://github.com/member3",
-        personal: "https://member3.com",
+        linkedin: "https://www.linkedin.com/in/julieta-arquitecta/",
+        instagram: "https://www.instagram.com/julieta_arquitecta",
       },
     },
     {
-      name: t("community.member4.name"),
-      role: t("community.member4.role"),
-      description: t("community.member4.description"),
-      avatar: "/placeholder.svg?height=120&width=120",
+      name: t("community.marcos.name"),
+      role: t("community.marcos.role"),
+      description: t("community.marcos.description"),
+      avatar: "images/members/marcos.jpg?height=120&width=120",
       social: {
-        linkedin: "https://linkedin.com/in/member4",
-        github: "https://github.com/member4",
-        instagram: "https://instagram.com/member4",
-        personal: "https://member4.com",
+        linkedin: "https://www.linkedin.com/in/marcos-raimondi/",
+        github: "https://github.com/marcosraimondi1",
       },
     },
     {
-      name: t("community.member5.name"),
-      role: t("community.member5.role"),
-      description: t("community.member5.description"),
-      avatar: "/placeholder.svg?height=120&width=120",
+      name: t("community.tomi.name"),
+      role: t("community.tomi.role"),
+      description: t("community.tomi.description"),
+      avatar: "images/members/tomi.jpg?height=120&width=120",
       social: {
-        linkedin: "https://linkedin.com/in/member5",
-        github: "https://github.com/member5",
-        instagram: "https://instagram.com/member5",
-        personal: "https://member5.com",
+        linkedin: "https://www.linkedin.com/in/tomasales/",
+        personal: "https://thankstomas.com/index.html",
       },
     },
   ]
@@ -359,6 +354,17 @@ const AboutComponent = () => {
                                 <Instagram />
                               </a>
                             )}
+                            {member.social.stackoverflow && (
+                              <a
+                                href={member.social.stackoverflow}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="Stackoverflow"
+                                className="social-link"
+                              >
+                                <SvgIcon sx={{ fontSize: 22 }} component={THIRD_PARTY.stackoverflow.logo} viewBox="0 0 24 24" />
+                              </a>
+                            )}
                             {member.social.personal && (
                               <a
                                 href={member.social.personal}
@@ -417,7 +423,7 @@ const AboutComponent = () => {
                   <GitHub />
                 </IconButton>
                 <IconButton
-                  href="https://youtube.com/angorasix"
+                  href="https://www.youtube.com/@angorasix"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="YouTube"

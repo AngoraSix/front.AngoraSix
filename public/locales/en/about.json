@@ -54,30 +54,30 @@
     "title": "Our Community",
     "subtitle": "Some of the members who are part of AngoraSix",
     "philosophy": "At AngoraSix there are no founders or employees. We are all owners and contribute according to our abilities and passions.",
-    "member1": {
-      "name": "Member 1",
-      "role": "Co-creator",
-      "description": "Passionate about technology and social innovation."
+    "ger": {
+      "name": "Ger",
+      "role": "Product Owner, Desarrollo",
+      "description": "Apasionado por la tecnología y la innovación social."
     },
-    "member2": {
-      "name": "Member 2",
-      "role": "Co-creator",
-      "description": "Specialist in cooperative management and human development."
+    "jor": {
+      "name": "Jor",
+      "role": "Analisis de Negocio",
+      "description": "Especialista en gestión cooperativa y desarrollo humano."
     },
-    "member3": {
-      "name": "Member 3",
-      "role": "Co-creator",
-      "description": "Expert in experience design and communication."
+    "juli": {
+      "name": "Juli",
+      "role": "Diseño, Comunicación",
+      "description": "Experto en diseño de experiencias y comunicación."
     },
-    "member4": {
-      "name": "Member 4",
-      "role": "Co-creator",
-      "description": "Focused on sustainability and social impact."
+    "marcos": {
+      "name": "Marcos",
+      "role": "Desarollo",
+      "description": "Enfocado en sostenibilidad y impacto social."
     },
-    "member5": {
-      "name": "Member 5",
-      "role": "Co-creator",
-      "description": "Focused on sustainability and social impact."
+    "tomi": {
+      "name": "Tomi",
+      "role": "UX",
+      "description": "Otra cosa por aca"
     }
   },
   "followUs": {

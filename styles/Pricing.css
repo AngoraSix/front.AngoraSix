@@ -78,7 +78,7 @@
   margin-right: auto;
 }
 
-.beta-benefits {
+.pricing-page .beta-benefits {
   display: flex;
   justify-content: center;
   gap: 30px;
@@ -86,19 +86,19 @@
   flex-wrap: wrap;
 }
 
-.beta-benefit {
+.pricing-page .beta-benefit {
   display: flex;
   align-items: center;
   gap: 8px;
   color: #dce7ea;
 }
 
-.beta-benefit-icon {
+.pricing-page .beta-benefit-icon {
   font-size: 1.2rem !important;
   color: #fe5f55 !important;
 }
 
-.beta-panel-cta {
+.pricing-page .beta-panel-cta {
   background: #fe5f55 !important;
   color: #ffffff !important;
   font-weight: 600 !important;
@@ -344,7 +344,7 @@
     font-size: 1.5rem !important;
   }
 
-  .beta-benefits {
+  .pricing-page .beta-benefits {
     flex-direction: column;
     gap: 15px;
     align-items: center;

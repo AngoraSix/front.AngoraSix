@@ -241,7 +241,6 @@ const CooperativeLanding = () => {
                     transition: "all 0.3s ease",
                     "&:hover": {
                       transform: "translateX(10px)",
-                      boxShadow: "0 8px 30px rgba(0,0,0,0.12)",
                       backgroundColor: `${theme.palette.primary.light2}15`,
                       "& .problem-check": {
                         backgroundColor: theme.palette.secondary.main,
@@ -336,7 +335,6 @@ const CooperativeLanding = () => {
                       transition: "all 0.3s ease",
                       "&:hover": {
                         transform: "translateY(-12px) scale(1.02)",
-                        boxShadow: "0 15px 50px rgba(0,0,0,0.2)",
                         "& .solution-icon": {
                           transform: "scale(1.2) rotate(10deg)",
                           filter: "drop-shadow(0 0 10px rgba(255,255,255,0.5))",
@@ -420,7 +418,6 @@ const CooperativeLanding = () => {
                   transition: "all 0.3s ease",
                   "&:hover": {
                     transform: "scale(1.02)",
-                    boxShadow: "0 20px 60px rgba(0,0,0,0.2)",
                   },
                 }}
               />

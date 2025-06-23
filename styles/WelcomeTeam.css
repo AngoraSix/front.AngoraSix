@@ -257,7 +257,6 @@
 
 .problem-item:hover {
   transform: translateX(10px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
   background-color: rgba(220, 231, 234, 0.15);
 }
 
@@ -359,7 +358,6 @@
 
 .solution-card:hover {
   transform: translateY(-12px) scale(1.02);
-  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2) !important;
 }
 
 .solution-card:hover .solution-icon {
@@ -441,7 +439,6 @@
 
 .angorasix-action-image:hover {
   transform: scale(1.02);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
 }
 
 /* Use Cases Section */
