@@ -1,27 +1,26 @@
 {
   "welcome": {
     "title": "Bienvenido a AngoraSix",
-    "subtitle": "Elegí tu camino y construyamos algo significativo juntos",
-    "footer": "Transformá tu visión en realidad colaborativa",
-    "exploreOptions": "Explorá Tus Opciones",
-    "chooseYourPath": "Elegí Tu Camino"
+    "subtitle": "¿Cuál es tu camino para crear con propósito?",
+    "exploreOptions": "AngoraSix te acompaña",
+    "chooseYourPath": "No solo crear. Creemos bien."
   },
   "paths": {
     "manager": {
-      "title": "Gestión Tradicional con Delegación Cooperativa",
-      "description": "Mantenés el control general mientras delegás tareas específicas a equipos cooperativos. Vos definís reglas, pagos y firmás todo."
+      "title": "Gestión tradicional con equipos auto-organizados",
+      "description": "Delegás con confianza, apoyado por un sistema que permite a los equipos autogestionarse bajo un esquema basado en tus propias reglas."
     },
     "team": {
-      "title": "Equipos Emprendedores & Socios",
-      "description": "Establecé claridad y seriedad en procesos internos para asegurar que todos estén alineados y el proyecto avance sin complicaciones."
+      "title": "Equipos emprendedores & socios",
+      "description": "Establezcan una base común con reglas claras y un marco objetivo para avanzar con confianza y de forma cooperativa."
     },
     "contributor": {
-      "title": "Trabajo Significativo & Vida Digna",
-      "description": "Trabajá en proyectos que te inspiren, sentite verdaderamente parte de algo significativo y viví bien de eso."
+      "title": "Vivir de proyectos con sentido",
+      "description": "Trabajá en proyectos que te inspiren, formá parte real de algo con propósito y proyectá estabilidad para tu futuro."
     },
     "cooperative": {
-      "title": "Espíritu Cooperativo & Cambio de Paradigma",
-      "description": "Sumate a un movimiento que valora crear sanamente antes que el lucro, la transparencia y cambiar paradigmas tradicionales."
+      "title": "Espíritu cooperativo & cambio de paradigma",
+      "description": "Sumate a un movimiento que impulsa crear sanamente, con transparencia, descentralización y vocación cooperativa."
     }
   }
 }

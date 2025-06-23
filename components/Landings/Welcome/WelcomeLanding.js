@@ -7,7 +7,7 @@ import { useRouter } from "next/router"
 import {
   BusinessCenterOutlined,
   LightbulbOutlined,
-  PersonOutlined,
+  AccessibilityNewOutlined,
   GroupsOutlined,
   Language as LanguageIcon,
   KeyboardArrowDown,
@@ -93,19 +93,19 @@ const WelcomeLanding = () => {
       color: "primary",
     },
     {
-      id: "contributor",
-      title: t("paths.contributor.title"),
-      description: t("paths.contributor.description"),
-      icon: PersonOutlined,
-      path: "/welcome/contributor",
-      color: "secondary",
-    },
-    {
       id: "cooperative",
       title: t("paths.cooperative.title"),
       description: t("paths.cooperative.description"),
       icon: GroupsOutlined,
       path: "/welcome/cooperative",
+      color: "secondary",
+    },
+    {
+      id: "contributor",
+      title: t("paths.contributor.title"),
+      description: t("paths.contributor.description"),
+      icon: AccessibilityNewOutlined,
+      path: "/welcome/contributor",
       color: "secondary",
     },
   ]

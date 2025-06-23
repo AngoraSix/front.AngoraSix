@@ -1,27 +1,26 @@
 {
   "welcome": {
     "title": "Welcome to AngoraSix",
-    "subtitle": "Choose your path and let's build something meaningful together",
-    "footer": "Transform your vision into collaborative reality",
-    "exploreOptions": "Explore Your Options",
-    "chooseYourPath": "Choose Your Path"
+    "subtitle": "What’s your path to building with purpose?",
+    "exploreOptions": "AngoraSix is here for you",
+    "chooseYourPath": "Don’t just build. Let’s build better."
   },
   "paths": {
     "manager": {
-      "title": "Traditional Management with Cooperative Delegation",
-      "description": "Maintain overall control while delegating specific tasks to cooperative teams. You define rules, payments, and sign everything."
+      "title": "Traditional Management with Self-Organized Teams",
+      "description": "Delegate with confidence, supported by a system that enables teams to self-manage within a structure based on your own rules."
     },
     "team": {
       "title": "Entrepreneurial Teams & Partners",
-      "description": "Establish clarity and seriousness in internal processes to ensure everyone is aligned and the project advances smoothly."
+      "description": "Establish a shared foundation with clear rules and an objective framework to move forward with confidence and cooperation."
     },
     "contributor": {
-      "title": "Meaningful Work & Fair Living",
-      "description": "Work on projects that inspire you, feel truly part of something meaningful, and earn a good living from it."
+      "title": "Make a Living from Meaningful Projects",
+      "description": "Work on projects that inspire you, become part of something with purpose, and build long-term stability for your future."
     },
     "cooperative": {
-      "title": "Cooperative Spirit & Paradigm Change",
-      "description": "Join a movement that values healthy creation over profit, transparency, and changing traditional management paradigms."
+      "title": "Cooperative Spirit & Paradigm Shift",
+      "description": "Join a movement that promotes healthy creation—transparent, decentralized, and rooted in cooperative values."
     }
   }
 }

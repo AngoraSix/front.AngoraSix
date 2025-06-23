@@ -1,11 +1,11 @@
 {
   "page": {
     "title": "Precios - AngoraSix",
-    "description": "Elegí tu plan de AngoraSix y empezá a construir sin fricciones."
+    "description": "Elegí tu plan de AngoraSix y empezá a construir de una mejor manera."
   },
   "hero": {
-    "title": "Elegí tu plan y empezá a construir sin fricciones",
-    "subtitle": "Todos los planes están diseñados para acompañarte en cada etapa del proyecto."
+    "title": "Elegí tu plan y empezá a construir de una mejor manera.",
+    "subtitle": "Planes pensados para acompañarte en cada etapa."
   },
   "betaProgram": {
     "title": "Programa de Usuarios Beta de AngoraSix",
@@ -15,38 +15,38 @@
       "evolution": "Participación en la evolución del sistema",
       "priority": "Prioridad para nuevas funciones y soporte"
     },
-    "cta": "Postularme al Programa Beta"
+    "cta": "Postularme al programa Beta"
   },
   "plans": {
-    "free": {
-      "title": "Free",
-      "price": "$0",
-      "period": "Plan gratuito de por vida con funcionalidades esenciales",
-      "cta": "Empezar gratis",
-      "features": {
-        "contributors": "Hasta X colaboradores",
-        "tasks": "Seguimiento de tareas básicas",
-        "notifications": "Notificaciones esenciales",
-        "support": "Soporte por email",
-        "workspace": "Espacio personal de trabajo"
-      }
-    },
-    "plus": {
-      "badge": "Programa Beta",
-      "title": "Plus",
-      "regularPrice": "$60",
-      "currentPrice": "$0",
-      "subtitle": "Actualmente solo disponible para usuarios Beta por $0",
-      "cta": "Acceder como Beta",
-      "features": {
-        "all": "Todo lo incluido en el plan Free",
-        "unlimited": "Colaboradores y proyectos ilimitados",
-        "ai": "Asistencia con IA",
-        "tracking": "Seguimiento y trazabilidad de aportes",
-        "integrations": "Integraciones con otras herramientas",
-        "workflows": "Workflows personalizados",
-        "support": "Soporte prioritario"
-      }
+  "free": {
+    "title": "Free",
+    "price": "$0",
+    "period": "Gratis para siempre. Ideal para empezar sin complicaciones.",
+    "cta": "Empezar gratis",
+    "features": {
+      "contributors": "Hasta 4 colaboradores activos",
+      "tasks": "Registro ilimitado de tareas y aportes",
+      "notifications": "Definición clara de las reglas del proyecto",
+      "support": "Seguimiento de ownership y cuentas monetarias",
+      "workspace": "1 proyecto incluido"
+    }
+  },
+  "plus": {
+    "badge": "Programa Beta",
+    "title": "Plus",
+    "regularPrice": "$60",
+    "currentPrice": "$0",
+    "subtitle": "Actualmente solo disponible para usuarios Beta por",
+    "cta": "Acceder como Beta",
+    "features": {
+      "all": "Todo lo incluido en el plan Free",
+      "unlimited": "Hasta 30 colaboradores y 5 proyectos",
+      "ai": "Asistente inteligente para facilitar decisiones y organización",
+      "tracking": "Reglas y aportes vinculados a wallet compartida",
+      "integrations": "Registro de reglas respaldado con blockchain",
+      "workflows": "Prioridad en conexiones y búsquedas de proyectos",
+      "support": "Soporte humano personalizado"
     }
   }
+}
 }
