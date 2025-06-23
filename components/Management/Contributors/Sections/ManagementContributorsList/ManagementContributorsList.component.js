@@ -15,7 +15,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTranslation } from 'next-i18next';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { ListSkeleton } from '../../../../common/Skeletons/ListSkeleton.component';
+import ListSkeleton from '../../../../common/Skeletons/ListSkeleton.component';
 
 const ManagementContributorsList = ({
     contributorsClub, isLoading }) => {
