@@ -18,35 +18,47 @@
     "cta": "Postularme al programa Beta"
   },
   "plans": {
-  "free": {
-    "title": "Free",
-    "price": "$0",
-    "period": "Gratis para siempre. Ideal para empezar sin complicaciones.",
-    "cta": "Empezar gratis",
-    "features": {
-      "contributors": "Hasta 4 colaboradores activos",
-      "tasks": "Registro ilimitado de tareas y aportes",
-      "notifications": "Definición clara de las reglas del proyecto",
-      "support": "Seguimiento de ownership y cuentas monetarias",
-      "workspace": "1 proyecto incluido"
-    }
-  },
-  "plus": {
-    "badge": "Programa Beta",
-    "title": "Plus",
-    "regularPrice": "$60",
-    "currentPrice": "$0",
-    "subtitle": "Actualmente solo disponible para usuarios Beta por",
-    "cta": "Acceder como Beta",
-    "features": {
-      "all": "Todo lo incluido en el plan Free",
-      "unlimited": "Hasta 30 colaboradores y 5 proyectos",
-      "ai": "Asistente inteligente para facilitar decisiones y organización",
-      "tracking": "Reglas y aportes vinculados a wallet compartida",
-      "integrations": "Registro de reglas respaldado con blockchain",
-      "workflows": "Prioridad en conexiones y búsquedas de proyectos",
-      "support": "Soporte humano personalizado"
-    }
+    "free": {
+      "title": "Free",
+      "price": "$0",
+      "period": "Gratis para siempre. Ideal para empezar sin complicaciones.",
+      "cta": "Empezar gratis",
+      "features": {
+        "contributors": "Hasta 4 colaboradores activos",
+        "tasks": "Registro ilimitado de tareas y aportes",
+        "notifications": "Definición clara de las reglas del proyecto",
+        "support": "Seguimiento de ownership y cuentas monetarias",
+        "workspace": "1 proyecto incluido"
+      }
+    },
+    "plus": {
+      "badge": "Programa Beta",
+      "title": "Plus",
+      "regularPrice": "$60",
+      "currentPrice": "$0",
+      "subtitle": "Actualmente solo disponible para usuarios Beta por",
+      "cta": "Acceder como Beta",
+      "features": {
+        "all": "Todo lo incluido en el plan Free",
+        "unlimited": "Hasta 30 colaboradores y 5 proyectos",
+        "ai": "Asistente inteligente para facilitar decisiones y organización",
+        "tracking": "Reglas y aportes vinculados a wallet compartida",
+        "integrations": "Posibilidad de respaldar reglas con blockchain",
+        "workflows": "Prioridad en conexiones y búsquedas de proyectos",
+        "support": "Soporte humano personalizado"
+      }
+      },
+      "custom": {
+        "title": "Custom",
+        "price": "Consultá",
+        "cta": "Hablemos",
+        "features": {
+          "all": "Incluye todas las funcionalidades del plan Plus",
+          "tailored": "Soluciones personalizadas para tu equipo o proyecto",
+          "dedicated": "Horas de asesoramiento personalizado incluidas",
+          "advanced": "Reportes y análisis sobre tu mercado o sector",
+          "enterprise": "Beneficios y descuentos exclusivos con herramientas del ecosistema AngoraSix"
+        }
+      }
   }
-}
 }

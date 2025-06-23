@@ -21,14 +21,29 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material"
-import { Check, Star, RocketLaunch, AutoAwesome, Science, TrendingUp, Support, Verified } from "@mui/icons-material"
+import {
+  Check,
+  Star,
+  RocketLaunch,
+  AutoAwesome,
+  Science,
+  TrendingUp,
+  Support,
+  Verified,
+  Handshake,
+} from "@mui/icons-material" // Added Handshake icon
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Navigation, Pagination } from "swiper/modules"
 import "swiper/css"
 import "swiper/css/navigation"
 import "swiper/css/pagination"
 import { ROUTES } from "../../constants/constants"
-import { trackFreePlanClick, trackPlusPlanClick, trackBetaProgramClick } from "../../utils/analytics"
+import {
+  trackFreePlanClick,
+  trackPlusPlanClick,
+  trackBetaProgramClick,
+  trackCustomPlanClick,
+} from "../../utils/analytics" // Added trackCustomPlanClick
 
 const PricingComponent = () => {
   const { t } = useTranslation("pricing")
@@ -43,6 +58,9 @@ const PricingComponent = () => {
       trackFreePlanClick()
     } else if (planType === "plus") {
       trackPlusPlanClick()
+    } else if (planType === "custom") {
+      // Added custom plan tracking
+      trackCustomPlanClick()
     }
 
     if (session) {
@@ -82,14 +100,29 @@ const PricingComponent = () => {
     t("plans.plus.features.support"),
   ]
 
-  const PlanCard = ({ plan, isPlus = false }) => (
-    <Card className={`pricing-plan-card ${isPlus ? "pricing-plan-plus" : "pricing-plan-free"}`}>
+  const customFeatures = [
+    // New custom features list
+    t("plans.custom.features.all"),
+    t("plans.custom.features.tailored"),
+    t("plans.custom.features.dedicated"),
+    t("plans.custom.features.advanced"),
+    t("plans.custom.features.enterprise"),
+  ]
+
+  const PlanCard = (
+    { plan, isPlus = false, isCustom = false }, // Added isCustom prop
+  ) => (
+    <Card
+      className={`pricing-plan-card ${isPlus ? "pricing-plan-plus" : isCustom ? "pricing-plan-custom" : "pricing-plan-free"}`}
+    >
       {isPlus && <Chip label={t("plans.plus.badge")} className="pricing-beta-badge" />}
 
       <CardContent className="pricing-plan-content">
         <Box className="pricing-plan-header">
           {isPlus ? (
             <AutoAwesome className="pricing-plan-icon plus" />
+          ) : isCustom ? ( // Conditional rendering for custom icon
+            <Handshake className="pricing-plan-icon custom" />
           ) : (
             <RocketLaunch className="pricing-plan-icon free" />
           )}
@@ -105,6 +138,10 @@ const PricingComponent = () => {
                   {plan.regularPrice}
                 </Typography>
               </Box>
+            ) : isCustom ? ( // Conditional rendering for custom price
+              <Typography variant="h2" className="pricing-price-main">
+                {plan.price}
+              </Typography>
             ) : (
               <Typography variant="h2" className="pricing-price-main">
                 {plan.price}
@@ -122,11 +159,12 @@ const PricingComponent = () => {
                 </Typography>
               </Typography>
             )}
-            {!isPlus && (
-              <Typography variant="body2" className="pricing-price-period">
-                {t("plans.free.period")}
-              </Typography>
-            )}
+            {!isPlus &&
+              !isCustom && ( // Conditional rendering for free plan period
+                <Typography variant="body2" className="pricing-price-period">
+                  {t("plans.free.period")}
+                </Typography>
+              )}
           </Box>
         </Box>
 
@@ -136,7 +174,14 @@ const PricingComponent = () => {
           {plan.features.map((feature, index) => (
             <ListItem key={index} className="pricing-feature-item">
               <ListItemIcon className="pricing-feature-icon">
-                {isPlus ? <Star className="feature-icon plus" /> : <Check className="feature-icon free" />}
+                {isPlus ? (
+                  <Star className="feature-icon plus" />
+                ) : isCustom ? (
+                  <Check className="feature-icon custom" />
+                ) : (
+                  <Check className="feature-icon free" />
+                )}{" "}
+                {/* Conditional rendering for custom feature icon */}
               </ListItemIcon>
               <ListItemText primary={feature} />
             </ListItem>
@@ -147,10 +192,10 @@ const PricingComponent = () => {
       <CardActions className="pricing-plan-actions">
         <Button
           fullWidth
-          variant={isPlus ? "contained" : "outlined"}
+          variant={isPlus || isCustom ? "contained" : "outlined"} // Custom plan uses contained variant
           size="large"
-          onClick={() => handlePlanSelect(isPlus ? "plus" : "free")}
-          className={`pricing-plan-cta ${isPlus ? "cta-plus" : "cta-free"}`}
+          onClick={() => handlePlanSelect(isCustom ? "custom" : isPlus ? "plus" : "free")} // Updated onClick for custom plan
+          className={`pricing-plan-cta ${isPlus ? "cta-plus" : isCustom ? "cta-custom" : "cta-free"}`} // Added custom CTA class
         >
           {plan.cta}
         </Button>
@@ -167,10 +212,17 @@ const PricingComponent = () => {
     },
     {
       title: t("plans.plus.title"),
-      regularPrice: t("plans.plus.regularPrice"), // Add this line
+      regularPrice: t("plans.plus.regularPrice"),
       currentPrice: t("plans.plus.currentPrice"),
       cta: t("plans.plus.cta"),
       features: plusFeatures,
+    },
+    {
+      // New Custom Plan
+      title: t("plans.custom.title"),
+      price: t("plans.custom.price"),
+      cta: t("plans.custom.cta"),
+      features: customFeatures,
     },
   ]
 
@@ -242,15 +294,17 @@ const PricingComponent = () => {
               >
                 {plans.map((plan, index) => (
                   <SwiperSlide key={index}>
-                    <PlanCard plan={plan} isPlus={index === 1} />
+                    <PlanCard plan={plan} isPlus={index === 1} isCustom={index === 2} /> {/* Pass isCustom prop */}
                   </SwiperSlide>
                 ))}
               </Swiper>
             ) : (
               <Grid container spacing={4} className="pricing-plans-grid">
                 {plans.map((plan, index) => (
-                  <Grid item xs={12} md={6} key={index}>
-                    <PlanCard plan={plan} isPlus={index === 1} />
+                  <Grid item xs={12} md={4} key={index}>
+                    {" "}
+                    {/* Changed md to 4 for 3 columns */}
+                    <PlanCard plan={plan} isPlus={index === 1} isCustom={index === 2} /> {/* Pass isCustom prop */}
                   </Grid>
                 ))}
               </Grid>

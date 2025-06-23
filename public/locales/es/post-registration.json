@@ -5,7 +5,7 @@
   },
   "welcome": {
     "title": "¡Bienvenido a AngoraSix!",
-    "subtitle": "Ya sos parte de nuestra comunidad. Preparate para transformar la forma en que gestionás proyectos colaborativos."
+    "subtitle": "Ya sos parte de nuestra comunidad. Prepárate para transformar la forma en que creamos soluciones. Postulate al Programa de Usuarios Beta o suscribite a nuestro newsletter para mantenerte al tanto."
   },
   "beta": {
     "title": "Sumate a nuestro Programa Beta",
@@ -23,7 +23,7 @@
       "minutes": "Minutos",
       "seconds": "Segundos"
     },
-    "apply": "Postularse al Beta",
+    "apply": "Postularse a Beta",
     "success": "¡Postulación enviada!",
     "alreadyApplied": "¡Gracias por postularte! Nos pondremos en contacto pronto."
   },

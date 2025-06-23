@@ -1,9 +1,10 @@
 "use client"
 
 import {
-  AccountBalance,
+  AccessibilityNew,
   AutoAwesome,
   Diversity3,
+  ForkLeft,
   GitHub,
   Groups,
   Handshake,
@@ -11,6 +12,7 @@ import {
   LinkedIn,
   Link as LinkIcon,
   Psychology,
+  Spa,
   YouTube,
 } from "@mui/icons-material"
 import {
@@ -49,27 +51,27 @@ const AboutComponent = () => {
       description: t("values.transparency.description"),
     },
     {
-      icon: <Groups sx={{ fontSize: 48, color: "#FE5F55" }} />,
+      icon: <AccessibilityNew sx={{ fontSize: 48, color: "#FE5F55" }} />,
       title: t("values.purpose.title"),
       description: t("values.purpose.description"),
     },
     {
-      icon: <AccountBalance sx={{ fontSize: 48, color: "#1B5993" }} />,
+      icon: <Groups sx={{ fontSize: 48, color: "#1B5993" }} />,
       title: t("values.community.title"),
       description: t("values.community.description"),
     },
     {
-      icon: <AutoAwesome sx={{ fontSize: 48, color: "#FE5F55" }} />,
+      icon: <ForkLeft sx={{ fontSize: 48, color: "#FE5F55" }} />,
       title: t("values.evolution.title"),
       description: t("values.evolution.description"),
     },
     {
-      icon: <Psychology sx={{ fontSize: 48, color: "#1B5993" }} />,
+      icon: <AutoAwesome sx={{ fontSize: 48, color: "#1B5993" }} />,
       title: t("values.trust.title"),
       description: t("values.trust.description"),
     },
     {
-      icon: <Handshake sx={{ fontSize: 48, color: "#FE5F55" }} />,
+      icon: <Spa sx={{ fontSize: 48, color: "#FE5F55" }} />,
       title: t("values.simplicity.title"),
       description: t("values.simplicity.description"),
     },
@@ -80,7 +82,7 @@ const AboutComponent = () => {
       name: t("community.ger.name"),
       role: t("community.ger.role"),
       description: t("community.ger.description"),
-      avatar: "images/members/ger.jpg?height=120&width=120",
+      avatar: "/images/members/ger.jpg?height=120&width=120",
       social: {
         linkedin: "https://www.linkedin.com/in/rozagerardo/",
         github: "https://github.com/rozagerardo",
@@ -92,7 +94,7 @@ const AboutComponent = () => {
       name: t("community.jor.name"),
       role: t("community.jor.role"),
       description: t("community.jor.description"),
-      avatar: "/placeholder.svg?height=120&width=120",
+      avatar: "/images/members/jor.jpg?height=120&width=120",
       social: {
       },
     },
@@ -100,7 +102,7 @@ const AboutComponent = () => {
       name: t("community.juli.name"),
       role: t("community.juli.role"),
       description: t("community.juli.description"),
-      avatar: "images/members/juli.jpg?height=120&width=120",
+      avatar: "/images/members/juli.jpg?height=120&width=120",
       social: {
         linkedin: "https://www.linkedin.com/in/julieta-arquitecta/",
         instagram: "https://www.instagram.com/julieta_arquitecta",
@@ -110,7 +112,7 @@ const AboutComponent = () => {
       name: t("community.marcos.name"),
       role: t("community.marcos.role"),
       description: t("community.marcos.description"),
-      avatar: "images/members/marcos.jpg?height=120&width=120",
+      avatar: "/images/members/marcos.jpg?height=120&width=120",
       social: {
         linkedin: "https://www.linkedin.com/in/marcos-raimondi/",
         github: "https://github.com/marcosraimondi1",
@@ -120,7 +122,7 @@ const AboutComponent = () => {
       name: t("community.tomi.name"),
       role: t("community.tomi.role"),
       description: t("community.tomi.description"),
-      avatar: "images/members/tomi.jpg?height=120&width=120",
+      avatar: "/images/members/tomi.jpg?height=120&width=120",
       social: {
         linkedin: "https://www.linkedin.com/in/tomasales/",
         personal: "https://thankstomas.com/index.html",

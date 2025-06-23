@@ -1,90 +1,90 @@
 {
   "page": {
     "title": "About Us - AngoraSix",
-    "description": "Learn about AngoraSix's story, vision and values. A cooperative platform for creating and managing projects in a decentralized way."
+    "description": "Learn about the story, vision, and values behind AngoraSix — a cooperative platform to create and manage projects in a decentralized way."
   },
   "hero": {
     "title": "Redefining Collaboration",
-    "subtitle": "A platform where we are all owners, where transparency guides our decisions and where every project has the potential to change the world."
+    "subtitle": "A platform where we all share ownership, where transparency guides decisions, and where every project has the potential to change the world."
   },
   "story": {
     "title": "Our Story",
-    "paragraph1": "AngoraSix was born from the frustration of seeing great ideas fall by the wayside due to lack of structure, inadequate tools and unfair distribution of generated value.",
-    "paragraph2": "We believe there is a better way to create solutions: cooperatively, transparently and decentralized, where every person who contributes is valued fairly.",
-    "birth": "This is how AngoraSix was born",
-    "imageAlt": "AngoraSix story"
+    "paragraph1": "AngoraSix was born out of frustration—watching great ideas fade away for lack of support or being reshaped to meet investor demands.",
+    "paragraph2": "We believe there’s a better way to build solutions: cooperatively, transparently, and in a decentralized manner—without arbitrary hierarchies and where every contributor is fairly valued.",
+    "birth": "This is how AngoraSix came to life",
+    "imageAlt": "The story of AngoraSix"
   },
   "vision": {
     "title": "Vision",
-    "content": "Redefine the way we create solutions, promoting comprehensive development both personal and social."
+    "content": "To redefine how we create solutions by promoting holistic development—both personal and social."
   },
   "mission": {
     "title": "Mission",
-    "content": "We present to the world an alternative management model to the traditional one, which allows creating and carrying out great ideas in a cooperative and decentralized way, enhancing human value and encouraging people to develop more deeply."
+    "content": "We want to show the world an alternative to traditional project management—a model that enables people to bring great ideas to life in a cooperative, decentralized way, while uplifting human value and encouraging deeper personal growth."
   },
   "values": {
     "title": "Our Values",
     "subtitle": "The principles that guide every decision we make",
     "transparency": {
-      "title": "Trust and Transparency",
-      "description": "To grow, trust is necessary - in the platform, in people, in projects. Transparency is the foundation of every solid relationship."
+      "title": "Trust & Transparency",
+      "description": "To grow, we need trust—in the platform, in people, and in the projects themselves. Transparency is the foundation of every strong relationship."
     },
     "purpose": {
-      "title": "Meaning and Purpose",
-      "description": "We want to allow people to dedicate their time and effort to something that is worthwhile for them. Every project must have a clear purpose."
+      "title": "Meaning & Purpose",
+      "description": "We want people to dedicate their time and energy to things that truly matter to them. Every project should have a clear purpose."
     },
     "community": {
       "title": "Community",
-      "description": "Being part of something, with a common goal, worked cooperatively and healthily, connecting in a more natural way."
+      "description": "Being part of something bigger, working toward a shared goal cooperatively and sustainably. A more human, natural way to connect."
     },
     "evolution": {
-      "title": "Evolution and Originality",
-      "description": "A different paradigm, an new path. Progress and growth, but not through the path associated with traditional 'progress'."
+      "title": "Evolution & Originality",
+      "description": "A different paradigm, an alternative path. Progress and growth—but not by blindly following the traditional model of 'success'."
     },
     "trust": {
       "title": "Invitation to Create",
-      "description": "We want to inspire, motivate to undertake, innovate or move by ideals, dreams and principles. Look at the sky, not the ground."
+      "description": "We want to inspire people to start, to innovate, and to act from ideals, dreams, and values. To look up—not down."
     },
     "simplicity": {
       "title": "Simplicity",
-      "description": "Return to simpler values of relating to each other. Change unbridled material ambition for a sense of appreciation and peace."
+      "description": "Returning to simpler ways of relating. Replacing material ambition with a sense of meaning and peace."
     }
   },
   "community": {
     "title": "Our Community",
-    "subtitle": "Some of the members who are part of AngoraSix",
-    "philosophy": "At AngoraSix there are no founders or employees. We are all owners and contribute according to our abilities and passions.",
+    "subtitle": "Meet some of the people who are part of AngoraSix",
+    "philosophy": "At AngoraSix, there are no hierarchies or employees. We are co-creators contributing based on our own skills and passions.",
     "ger": {
       "name": "Ger",
-      "role": "Product Owner, Desarrollo",
-      "description": "Apasionado por la tecnología y la innovación social."
+      "role": "Product Owner, Development",
+      "description": "What's the best you can do for this world?"
     },
     "jor": {
       "name": "Jor",
-      "role": "Analisis de Negocio",
-      "description": "Especialista en gestión cooperativa y desarrollo humano."
+      "role": "Business Analysis",
+      "description": "Passionate about entrepreneurship and social innovation."
     },
     "juli": {
       "name": "Juli",
-      "role": "Diseño, Comunicación",
-      "description": "Experto en diseño de experiencias y comunicación."
+      "role": "Design, Communication",
+      "description": "Passionate about mindful design. Moving toward sustainable futures."
     },
     "marcos": {
       "name": "Marcos",
-      "role": "Desarollo",
-      "description": "Enfocado en sostenibilidad y impacto social."
+      "role": "Development",
+      "description": "Building solutions that improve the world."
     },
     "tomi": {
       "name": "Tomi",
       "role": "UX",
-      "description": "Otra cosa por aca"
+      "description": "Creating a better world through design, music, and food (they all make people smile)."
     }
   },
   "followUs": {
-    "title": "Connect with Us"
+    "title": "Let’s Connect"
   },
   "finalCta": {
-    "quote": "\"The best way to predict the future is to create it.\"",
-    "button": "Join AngoraSix"
+    "quote": "\"At AngoraSix we create mindfully, so that others can create mindfully too.\"",
+    "button": "Let’s Create"
   }
 }

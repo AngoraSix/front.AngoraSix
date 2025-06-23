@@ -79,6 +79,17 @@ export const trackPlusPlanClick = () => {
   })
 }
 
+// Add the following function to the "PRICING EVENTS" section
+
+export const trackCustomPlanClick = () => {
+  trackEvent("plan_selection", {
+    event_category: "conversion",
+    event_label: "custom_plan",
+    plan_type: "custom",
+    conversion_intent: "registration",
+  })
+}
+
 // ===== POST-REGISTRATION EVENTS =====
 
 /**

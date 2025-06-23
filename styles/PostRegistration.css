@@ -88,21 +88,21 @@
 }
 
 /* Welcome Section - Now with proper space allocation */
-.welcome-section {
+.post-registration-landing .welcome-section {
   animation: fadeInUp 1s ease-out;
   margin-bottom: 1.5rem;
   padding: 1rem 0;
   text-align: center;
 }
 
-.welcome-content {
+.post-registration-landing .welcome-content {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
 }
 
-.celebration-icon {
+.post-registration-landing .celebration-icon {
   font-size: 2.5rem !important;
   color: #fe5f55 !important;
   margin-bottom: 0 !important;
@@ -110,20 +110,20 @@
   align-self: center;
 }
 
-.welcome-title {
+.post-registration-landing .welcome-title {
   color: #ffffff !important;
   font-weight: 700 !important;
   margin-bottom: 0 !important;
-  font-size: 2rem !important;
+  font-size: 3.5rem !important;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
   line-height: 1.2;
 }
 
-.welcome-subtitle {
+.post-registration-landing .welcome-subtitle {
   color: #afc1d6 !important;
-  font-size: 1.1rem !important;
+  font-size: 1.3rem !important;
   text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
-  max-width: 600px;
+  max-width: 80vw;
   line-height: 1.4;
   margin-bottom: 0 !important;
 }
@@ -210,14 +210,14 @@
   color: white;
 }
 
-.countdown-title {
+.post-registration-landing .countdown-title {
   font-weight: 600 !important;
   margin-bottom: 1rem !important;
   text-align: center !important;
   font-size: 0.9rem !important;
 }
 
-.countdown-unit {
+.post-registration-landing .countdown-unit {
   text-align: center;
   background: rgba(255, 255, 255, 0.15);
   border-radius: 8px;
@@ -225,14 +225,14 @@
   backdrop-filter: blur(10px);
 }
 
-.countdown-number {
+.post-registration-landing .countdown-number {
   font-size: 1.1rem !important;
   font-weight: 700 !important;
   font-family: monospace !important;
   line-height: 1 !important;
 }
 
-.countdown-label {
+.post-registration-landing .countdown-label {
   font-size: 0.6rem !important;
   font-weight: 600 !important;
   text-transform: uppercase !important;
@@ -279,7 +279,7 @@
 }
 
 /* Side Panels (Right Column - Same width 3/12) */
-.side-panels {
+.post-registration-landing .side-panels {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -288,7 +288,7 @@
 }
 
 /* Social Panel - Better alignment */
-.social-links {
+.post-registration-landing .social-links {
   display: flex;
   justify-content: center;
   gap: 0.75rem;
@@ -296,7 +296,7 @@
   padding-top: 0.5rem;
 }
 
-.side-panel {
+.post-registration-landing .side-panel {
   background: #ffffff !important;
   border-radius: 16px !important;
   padding: 1.25rem !important;
@@ -308,7 +308,7 @@
   min-height: 200px;
 }
 
-.panel-header {
+.post-registration-landing .panel-header {
   display: flex;
   align-items: center;
   gap: 0.75rem;
@@ -317,12 +317,12 @@
   border-bottom: 1px solid #f0f0f0;
 }
 
-.panel-icon {
+.post-registration-landing .panel-icon {
   font-size: 1.25rem !important;
   color: #1b5993 !important;
 }
 
-.panel-title {
+.post-registration-landing .panel-title {
   color: #0a2239 !important;
   font-weight: 700 !important;
   font-size: 0.9rem !important;
@@ -678,12 +678,13 @@ Add this block at the end of the file or near .tool-card styles: */
     font-size: 1rem !important;
   }
 
-  .welcome-title {
+  .post-registration-landing .welcome-title {
     font-size: 1.4rem !important;
   }
 
-  .welcome-subtitle {
-    font-size: 0.9rem !important;
+  .post-registration-landing .welcome-subtitle {
+    font-size: 1rem !important;
+    max-width: 95vw;
   }
 
   .celebration-icon {
@@ -724,11 +725,11 @@ Add this block at the end of the file or near .tool-card styles: */
     border-radius: 12px !important;
   }
 
-  .welcome-title {
+  .post-registration-landing .welcome-title {
     font-size: 1.2rem !important;
   }
 
-  .welcome-subtitle {
+  .post-registration-landing .welcome-subtitle {
     font-size: 0.85rem !important;
   }
 

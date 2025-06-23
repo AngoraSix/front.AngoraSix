@@ -242,7 +242,7 @@
   position: relative;
 }
 
-.welcome-title {
+.welcome-landing .welcome-title {
   color: #ffffff !important;
   font-weight: 300 !important;
   margin-bottom: 1.5rem !important;
@@ -250,7 +250,7 @@
   font-size: 3.5rem !important;
 }
 
-.welcome-subtitle {
+.welcome-landing .welcome-subtitle {
   color: #dce7ea !important;
   font-weight: 400 !important;
   opacity: 0.9 !important;
@@ -575,11 +575,11 @@
     }
   }
 
-  .welcome-title {
+  .welcome-landing .welcome-title {
     font-size: 2.5rem !important;
   }
 
-  .welcome-subtitle {
+  .welcome-landing .welcome-subtitle {
     font-size: 1.1rem !important;
   }
 
@@ -672,11 +672,11 @@
     }
   }
 
-  .welcome-title {
+  .welcome-landing .welcome-title {
     font-size: 2rem !important;
   }
 
-  .welcome-subtitle {
+  .welcome-landing .welcome-subtitle {
     font-size: 1rem !important;
   }
 

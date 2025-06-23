@@ -116,8 +116,7 @@ const PostRegistration = ({ existingBetaApplication }) => {
   const [showSuccessSnackbar, setShowSuccessSnackbar] = useState(false)
 
   // Beta program launch date (30 days from now)
-  const betaLaunchDate = new Date()
-  betaLaunchDate.setDate(betaLaunchDate.getDate() + 30)
+  const betaLaunchDate = new Date('2025-08-18T00:00:00')
 
   // Profile type options
   const profileTypeOptions = [
@@ -563,7 +562,7 @@ const PostRegistration = ({ existingBetaApplication }) => {
                     <Typography variant="h3" className="welcome-title">
                       {t("welcome.title")}
                     </Typography>
-                    <Typography variant="h6" className="welcome-subtitle">
+                    <Typography variant="h5" className="welcome-subtitle">
                       {t("welcome.subtitle")}
                     </Typography>
                   </Box>
