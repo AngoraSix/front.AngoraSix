@@ -1,5 +1,5 @@
-import config from '../../Cooperativemos/config';
-import { obtainInfraHeaders } from '../../Cooperativemos/utils/infra';
+import config from '../config';
+import { obtainInfraHeaders } from '../utils/infra';
 
 class SurveysAPI {
   constructor(axiosInstance) {
