@@ -15,7 +15,6 @@ export const formatMergeFields = (fields, user) => {
     throw new Error("User object is required to register mailchimp subscription");
   }
   const mergeFields = {}
-  console.log("Formatting merge fields:", fields, user)
 
   if (fields.firstName || user?.givenName) {
     mergeFields.FNAME = fields.firstName || user?.givenName
@@ -25,21 +24,31 @@ export const formatMergeFields = (fields, user) => {
     mergeFields.LNAME = fields.lastName || user?.familyName
   }
 
-  if (fields.source) {
-    mergeFields.SOURCE = fields.source
-  }
+  mergeFields.SOURCE = "A6"
 
-  if (user) {
-    mergeFields.CONTR_ID = user.id
+  mergeFields.CONTR_ID = user.id
+
+  return mergeFields
+}
+
+/**
+ * Format Mailchimp merge fields
+ * @param {object} fields - Fields to format
+ * @returns {object} - Formatted merge fields
+ */
+export const formatTags = (fields, user) => {
+  if (!user) {
+    throw new Error("User object is required to register mailchimp subscription");
   }
+  const tags = [];
 
   if (fields.newsletterList) {
-    mergeFields.L_NEWS = "YES"
+    tags.push({ name: "newsletter", status: "active" });
   }
 
   if (fields.betaList) {
-    mergeFields.L_BETA = "YES"
+    tags.push({ name: "beta-program", status: "active" });
   }
 
-  return mergeFields
+  return tags
 }

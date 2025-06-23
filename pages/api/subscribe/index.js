@@ -1,6 +1,7 @@
+import md5 from "md5";
 import { getServerSession } from "next-auth/next";
 import config from "../../../config";
-import { formatMergeFields } from "../../../utils/mailchimp";
+import { formatMergeFields, formatTags } from "../../../utils/mailchimp";
 import { oauthConfig } from "../auth/[...nextauth]"; // Adjust path if needed
 
 export default async function handler(req, res) {
@@ -17,6 +18,7 @@ export default async function handler(req, res) {
 
   const { email, ...additionalFields } = req.body
   const user = session.user
+  const hash = md5(email.toLowerCase())
 
   // Validate email
   if (!email || !email.includes("@")) {
@@ -27,18 +29,29 @@ export default async function handler(req, res) {
     // Prepare data for Mailchimp API
     const data = {
       email_address: email,
-      status: "subscribed",
+      status_if_new: "subscribed",
       merge_fields: formatMergeFields(additionalFields, user),
     }
 
     // Make request to Mailchimp API
-    const response = await fetch(`https://${config.mailchimp.serverPrefix}.api.mailchimp.com/3.0/lists/${config.mailchimp.audienceId}/members`, {
-      method: "POST",
+    const response = await fetch(`https://${config.mailchimp.serverPrefix}.api.mailchimp.com/3.0/lists/${config.mailchimp.audienceId}/members/${hash}`, {
+      method: "PUT",
       headers: {
         Authorization: `apikey ${config.mailchimp.apiKey}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
+    })
+
+    const tags = formatTags(additionalFields, user);
+
+    await fetch(`https://${config.mailchimp.serverPrefix}.api.mailchimp.com/3.0/lists/${config.mailchimp.audienceId}/members/${hash}/tags`, {
+      method: "POST",
+      headers: {
+        Authorization: `apikey ${config.mailchimp.apiKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ tags }),
     })
 
     const responseData = await response.json()
