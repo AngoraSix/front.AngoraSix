@@ -1,7 +1,8 @@
-import Head from "next/head"
 import { Box } from "@mui/material"
-import { ThemeProvider } from "@mui/material/styles"
 import CssBaseline from "@mui/material/CssBaseline"
+import { ThemeProvider } from "@mui/material/styles"
+import Head from "next/head"
+import CookieConsent from "../../components/common/CookieConsent"
 import theme from "../../theme"
 
 const RootLayout = ({ children, title, description }) => {
@@ -25,6 +26,7 @@ const RootLayout = ({ children, title, description }) => {
       >
         {children}
       </Box>
+      <CookieConsent />
     </ThemeProvider>
   )
 }
