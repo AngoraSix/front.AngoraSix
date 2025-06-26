@@ -41,7 +41,7 @@ const CooperativeLanding = ({ translationKey }) => {
     // Track CTA click before redirect
     trackLandingCTAClick("cooperative", ctaText)
 
-    router.push("/welcome/post-registration")
+    router.push("/welcome/post-registration?for=cooperative")
   }
 
   const problems = [
@@ -127,8 +127,6 @@ const CooperativeLanding = ({ translationKey }) => {
         <meta property="og:url" key="og.url" content="https://angorasix.com/welcome/cooperative" />
         <meta property="og:type" key="og.type" content="website" />
       </Head>
-
-      <SharedNavbar variant="cooperative" />
 
       {/* Hero Section - Dark Gradient + Strong Breathing */}
       <Box className="cooperative-hero-section">

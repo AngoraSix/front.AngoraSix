@@ -49,7 +49,7 @@ const ContributorLanding = ({ translationKey }) => {
     // Track CTA click before redirect
     trackLandingCTAClick("contributor", ctaText)
 
-    router.push("/welcome/post-registration")
+    router.push("/welcome/post-registration?for=contributor")
   }
 
   const problems = [
@@ -152,8 +152,6 @@ const ContributorLanding = ({ translationKey }) => {
         <meta property="og:url" key="og.url" content="https://angorasix.com/welcome/contributor" />
         <meta property="og:type" key="og.type" content="website" />
       </Head>
-
-      <SharedNavbar variant="contributor" />
 
       {/* Hero Section - Dark Gradient + Strong Tunnel */}
       <Box className="contributor-hero-section">

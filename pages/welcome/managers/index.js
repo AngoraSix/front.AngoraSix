@@ -4,7 +4,7 @@ import LandingLayout from "../../../layouts/LandingLayout"
 
 const Manager2LandingPage = () => {
   return (
-    <LandingLayout>
+    <LandingLayout forProfile="manager">
       <ManagerLanding translationKey="welcome.manager.2"/>
     </LandingLayout>
   )

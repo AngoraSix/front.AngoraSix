@@ -1,7 +1,8 @@
-import { useTranslation } from "next-i18next"
-import { Box, Container, Typography, Link, Grid, Divider } from "@mui/material"
+import { Box, Container, Divider, Grid, Link, Typography } from "@mui/material"
 import { styled } from "@mui/material/styles"
+import { useTranslation } from "next-i18next"
 import Image from "next/image"
+import { ROUTES } from "../../../constants/constants"
 
 const FooterContainer = styled(Box)(({ theme }) => ({
   backgroundColor: theme.palette.grey[50],
@@ -16,11 +17,17 @@ const LogoContainer = styled(Box)({
   marginBottom: 16,
 })
 
-const Footer = () => {
+const resolveNavigationHref = (href, forProfileValue) => {
+  return forProfileValue ? `${href}?for=${forProfileValue}` : href;
+}
+
+const Footer = ({ forProfile }) => {
   const { t } = useTranslation("common")
 
+  const rootHref = ROUTES.welcome[forProfile || "root"] || "/"
+
   const footerLinks = [
-    { key: "home", href: "/" },
+    { key: "home", href: rootHref },
     { key: "pricing", href: "/pricing" },
     { key: "about", href: "/about" },
     { key: "terms", href: "/legal/terms-and-conditions" },
@@ -54,7 +61,7 @@ const Footer = () => {
             </Typography>
             <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
               {footerLinks.map((link) => (
-                <Link key={link.key} href={link.href} color="text.secondary" underline="hover" variant="body2">
+                <Link key={link.key} href={resolveNavigationHref(link.href, forProfile)} color="text.secondary" underline="hover" variant="body2">
                   {t(`footer.links.${link.key}`)}
                 </Link>
               ))}

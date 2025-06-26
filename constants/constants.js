@@ -43,6 +43,11 @@ export const ROUTES = {
   },
   welcome: {
     postRegistration: '/welcome/post-registration',
+    venture: '/welcome/venture',
+    cooperative: '/welcome/cooperative',
+    manager: '/welcome/manager',
+    contributor: '/welcome/contributor',
+    root: "/"
   },
   legal:
   {

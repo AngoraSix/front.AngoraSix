@@ -2,16 +2,19 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 import Pricing from "../../components/Pricing"
 import LandingLayout from "../../layouts/LandingLayout"
 
-const PricingPage = () => {
-  return <LandingLayout>
+const PricingPage = ({ forQueryValue }) => {
+  return <LandingLayout forProfile={forQueryValue}>
     <Pricing />
   </LandingLayout>
 }
 
-export const getServerSideProps = async (ctx) => {
+export async function getServerSideProps({ locale, query }) {
+  const forQueryValue = query.for || null
+
   return {
     props: {
-      ...(await serverSideTranslations(ctx.locale || "en", ["common", "common.legal", "pricing"])),
+      forQueryValue,
+      ...(await serverSideTranslations(locale || "en", ["common", "common.legal", "pricing"])),
     },
   }
 }

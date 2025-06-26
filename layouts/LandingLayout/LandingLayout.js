@@ -4,7 +4,7 @@ import CookieConsent from "../../components/common/CookieConsent"
 import Footer from "../../components/common/Footer"
 import SharedNavbar from "../../components/common/SharedNavbar"
 
-const LandingLayout = ({ children, title, description }) => {
+const LandingLayout = ({ children, title, description, forProfile }) => {
   return (
     <>
       <Head>
@@ -12,11 +12,11 @@ const LandingLayout = ({ children, title, description }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <SharedNavbar />
+      <SharedNavbar forProfile={forProfile} />
       <Box component="main" sx={{ minHeight: "100vh" }}>
         {children}
       </Box>
-      <Footer />
+      <Footer forProfile={forProfile} />
       <CookieConsent />
     </>
   )

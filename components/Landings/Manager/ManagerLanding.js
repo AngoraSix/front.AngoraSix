@@ -50,7 +50,7 @@ const ManagerLanding = ({ translationKey }) => {
     // Track CTA click before redirect
     trackLandingCTAClick("manager", ctaText)
 
-    router.push("/welcome/post-registration")
+    router.push("/welcome/post-registration?for=manager")
   }
 
   const problems = [
@@ -149,8 +149,6 @@ const ManagerLanding = ({ translationKey }) => {
         <meta property="og:url" key="og.url" content="https://angorasix.com/welcome/manager" />
         <meta property="og:type" key="og.type" content="website" />
       </Head>
-
-      <SharedNavbar variant="manager" />
 
       {/* Hero Section - Dark Gradient + Strong Sparkles */}
       <Box className="manager-hero-section">

@@ -25,11 +25,11 @@
       "period": "Free forever. Perfect to get started without hassle.",
       "cta": "Start for Free",
       "features": {
-        "contributors": "Up to 4 active collaborators",
+        "contributors": "Up to 3 active collaborators",
         "tasks": "Unlimited tracking of tasks and contributions",
         "notifications": "Clear project rule definitions",
         "support": "Ownership and financial tracking tools",
-        "workspace": "Includes 1 project"
+        "workspace": "Supports 1 project"
       }
     },
     "plus": {
@@ -41,7 +41,7 @@
       "cta": "Join as Beta",
       "features": {
         "all": "Everything included in the Free plan",
-        "unlimited": "Up to 30 collaborators and 5 projects",
+        "unlimited": "Up to 12 collaborators and 2 projects",
         "ai": "Smart assistant to help with decisions and organization",
         "tracking": "Rules and contributions linked to a shared wallet",
         "integrations": "Option to back rules with blockchain",

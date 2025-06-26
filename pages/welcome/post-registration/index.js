@@ -2,18 +2,24 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 import PostRegistration from "../../../components/PostRegistration"
 import LandingLayout from "../../../layouts/LandingLayout"
 
-const PostRegistrationPage = () => {
+const PostRegistrationPage = ({ forQueryValue }) => {
+  
+  console.log("GERGERGERGER:", forQueryValue);
   return (
-    <LandingLayout>
+    <LandingLayout forProfile={forQueryValue}>
       <PostRegistration />
     </LandingLayout>
   )
 }
 
-export const getServerSideProps = async (ctx) => {
+export async function getServerSideProps({ locale, query }) {
+  const forQueryValue = query.for || null
+  console.log("forQueryValue:", forQueryValue);
+
   return {
     props: {
-      ...(await serverSideTranslations(ctx.locale || "en", ["common", "common.legal", "post-registration"])),
+      forQueryValue,
+      ...(await serverSideTranslations(locale || "en", ["common", "common.legal", "post-registration"])),
     },
   }
 }

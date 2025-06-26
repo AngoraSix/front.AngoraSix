@@ -4,7 +4,7 @@ import LandingLayout from "../../../layouts/LandingLayout"
 
 const CooperativeLandingPage = () => {
   return (
-    <LandingLayout>
+    <LandingLayout forProfile="cooperative">
       <CooperativeLanding translationKey="welcome.cooperative"/>
     </LandingLayout>
   )

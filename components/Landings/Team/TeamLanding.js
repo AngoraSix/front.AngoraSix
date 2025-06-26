@@ -42,7 +42,7 @@ const TeamLanding = ({ translationKey }) => {
     // Track CTA click before redirect
     trackLandingCTAClick("venture", ctaText)
 
-    router.push("/welcome/post-registration")
+    router.push("/welcome/post-registration?for=venture")
   }
 
   const problems = [
@@ -167,8 +167,6 @@ const TeamLanding = ({ translationKey }) => {
         <meta property="og:url" key="og.url" content="https://angorasix.com/welcome/venture" />
         <meta property="og:type" key="og.type" content="website" />
       </Head>
-
-      <SharedNavbar variant="team" />
 
       {/* Hero Section - Dark Gradient + Strong Flowing Lines */}
       <Box className="team-hero-section">
