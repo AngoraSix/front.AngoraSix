@@ -12,7 +12,6 @@ export default function Document() {
         <link rel="icon" href="/favicon.ico" />
         <link rel="stylesheet" href="/fonts/Lato.css" />
         <meta name="robots" content="index, follow" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta property="fb:app_id" key="fb.id" content={head.facebookAppId} />
 
         {/* Google Analytics GA4 */}

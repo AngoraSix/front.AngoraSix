@@ -38,7 +38,7 @@
     },
     "fields": {
       "profileType": "¿Cuál de estas opciones te representa mejor?",
-      "otherProfileType": "Especificá tu perfil",
+      "otherProfileType": "Especificá tu caso",
       "projectStage": "¿En qué etapa está tu proyecto?",
       "teamSize": "Tamaño actual del equipo",
       "role": "¿Cuál es tu rol dentro del proyecto?",

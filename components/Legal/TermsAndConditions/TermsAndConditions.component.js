@@ -1,99 +1,102 @@
+import { Box, Container, Paper, Typography } from "@mui/material"
 import { useTranslation } from "next-i18next"
-import { serverSideTranslations } from "next-i18next/serverSideTranslations"
-import { Container, Typography, Box, Paper } from "@mui/material"
-import LandingLayout from "../../layouts/LandingLayout"
+import Head from "next/head"
+import config from "../../../config"
 
-const PrivacyPolicy = () => {
-  const { t } = useTranslation("legal")
+const TermsAndConditions = () => {
+  const { t } = useTranslation("legal.terms")
 
   return (
-    <LandingLayout>
+    <>
+      <Head>
+        <title>{t("page.title")}</title>
+        <meta name="description" content={t("page.description")} />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <meta property="og:title" key="og.title" content={t("page.title")} />
+        <meta property="og:description" key="og.description" content={t("page.description")} />
+        <meta property="og:image" key="og.image" content={config.site.head.image.logoDark} />
+        <meta property="og:url" key="og.url" content="https://angorasix.com/legal/terms-and-conditions" />
+        <meta property="og:type" key="og.type" content="website" />
+      </Head>
       <Container maxWidth="md" sx={{ py: 8 }}>
         <Paper elevation={1} sx={{ p: 4 }}>
           <Typography variant="h3" component="h1" gutterBottom align="center">
-            {t("privacy.title")}
+            {t("title")}
           </Typography>
 
           <Typography variant="body2" color="text.secondary" align="center" sx={{ mb: 4 }}>
-            {t("privacy.lastUpdated")}
+            {t("lastUpdated")}
           </Typography>
 
           <Box sx={{ "& > *": { mb: 3 } }}>
             <section>
               <Typography variant="h5" component="h2" gutterBottom>
-                {t("privacy.section1.title")}
+                {t("section1.title")}
               </Typography>
               <Typography variant="body1" paragraph>
-                {t("privacy.section1.content")}
+                {t("section1.content")}
               </Typography>
             </section>
 
             <section>
               <Typography variant="h5" component="h2" gutterBottom>
-                {t("privacy.section2.title")}
+                {t("section2.title")}
               </Typography>
               <Typography variant="body1" paragraph>
-                {t("privacy.section2.content")}
+                {t("section2.content")}
               </Typography>
             </section>
 
             <section>
               <Typography variant="h5" component="h2" gutterBottom>
-                {t("privacy.section3.title")}
+                {t("section3.title")}
               </Typography>
               <Typography variant="body1" paragraph>
-                {t("privacy.section3.content")}
+                {t("section3.content")}
               </Typography>
             </section>
 
             <section>
               <Typography variant="h5" component="h2" gutterBottom>
-                {t("privacy.section4.title")}
+                {t("section4.title")}
               </Typography>
               <Typography variant="body1" paragraph>
-                {t("privacy.section4.content")}
+                {t("section4.content")}
               </Typography>
             </section>
 
             <section>
               <Typography variant="h5" component="h2" gutterBottom>
-                {t("privacy.section5.title")}
+                {t("section5.title")}
               </Typography>
               <Typography variant="body1" paragraph>
-                {t("privacy.section5.content")}
+                {t("section5.content")}
               </Typography>
             </section>
 
             <section>
               <Typography variant="h5" component="h2" gutterBottom>
-                {t("privacy.section6.title")}
+                {t("section6.title")}
               </Typography>
               <Typography variant="body1" paragraph>
-                {t("privacy.section6.content")}
+                {t("section6.content")}
               </Typography>
             </section>
 
             <section>
               <Typography variant="h5" component="h2" gutterBottom>
-                {t("privacy.section7.title")}
+                {t("section7.title")}
               </Typography>
               <Typography variant="body1" paragraph>
-                {t("privacy.section7.content")}
+                {t("section7.content")}
               </Typography>
             </section>
           </Box>
         </Paper>
       </Container>
-    </LandingLayout>
+    </>
   )
 }
 
-export async function getStaticProps({ locale }) {
-  return {
-    props: {
-      ...(await serverSideTranslations(locale, ["common", "common.legal", "legal"])),
-    },
-  }
-}
-
-export default PrivacyPolicy
+export default TermsAndConditions

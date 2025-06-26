@@ -1,0 +1,36 @@
+{
+  "page": {
+    "title": "AngoraSix — Privacy Policy & Cookies",
+    "description": "Read our Privacy Policy and Cookie Policy to understand how we handle your data and respect your privacy."
+  },
+  "title": "Privacy Policy & Cookies",
+  "lastUpdated": "Last updated: January 2025",
+  "section1": {
+    "title": "1. Information We Collect",
+    "content": "We collect minimal personal information necessary to provide our services: your name and email address when you register for an account. We do not collect sensitive personal data unless explicitly provided by you for specific features."
+  },
+  "section2": {
+    "title": "2. How We Use Your Information",
+    "content": "We use your information to: (a) provide and maintain your account, (b) communicate with you about our services, (c) send newsletters and updates via Mailchimp (with your consent), and (d) improve our platform based on usage patterns."
+  },
+  "section3": {
+    "title": "3. Cookies and Tracking",
+    "content": "We use essential cookies only to enable login functionality and maintain your session. We do not use tracking cookies for advertising or analytics without your explicit consent. You can manage cookie preferences in your browser settings."
+  },
+  "section4": {
+    "title": "4. Data Sharing",
+    "content": "We do not sell, trade, or rent your personal information to third parties. We may share your email with Mailchimp for newsletter services (only with your consent) and may disclose information if required by law or to protect our rights."
+  },
+  "section5": {
+    "title": "5. Your Rights (GDPR)",
+    "content": "Under GDPR, you have the right to: access your personal data, correct inaccurate information, delete your data, restrict processing, data portability, and withdraw consent. You can exercise these rights by contacting us at team@angorasix.com."
+  },
+  "section6": {
+    "title": "6. Data Security",
+    "content": "We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. However, no internet transmission is 100% secure."
+  },
+  "section7": {
+    "title": "7. Contact Us",
+    "content": "For any privacy-related questions or to exercise your rights, please contact us at team@angorasix.com. We will respond to your request within 30 days as required by applicable privacy laws."
+  }
+}

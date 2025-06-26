@@ -1,0 +1,36 @@
+{
+  "page": {
+    "title": "AngoraSix — Política de Privacidad y Cookies",
+    "description": "Lee nuestra Política de Privacidad y Política de Cookies para entender cómo manejamos tus datos y respetamos tu privacidad."
+  },
+  "title": "Política de Privacidad y Cookies",
+  "lastUpdated": "Última actualización: Enero 2025",
+  "section1": {
+    "title": "1. Información que Recopilamos",
+    "content": "Recopilamos información personal mínima necesaria para proporcionar nuestros servicios: tu nombre y dirección de email cuando te registras para una cuenta. No recopilamos datos personales sensibles a menos que los proporciones explícitamente para funciones específicas."
+  },
+  "section2": {
+    "title": "2. Cómo Usamos tu Información",
+    "content": "Usamos tu información para: (a) proporcionar y mantener tu cuenta, (b) comunicarnos contigo sobre nuestros servicios, (c) enviar newsletters y actualizaciones vía Mailchimp (con tu consentimiento), y (d) mejorar nuestra plataforma basándose en patrones de uso."
+  },
+  "section3": {
+    "title": "3. Cookies y Seguimiento",
+    "content": "Usamos solo cookies esenciales para habilitar la funcionalidad de login y mantener tu sesión. No usamos cookies de seguimiento para publicidad o análisis sin tu consentimiento explícito. Puedes gestionar las preferencias de cookies en la configuración de tu navegador."
+  },
+  "section4": {
+    "title": "4. Compartir Datos",
+    "content": "No vendemos, intercambiamos o alquilamos tu información personal a terceros. Podemos compartir tu email con Mailchimp para servicios de newsletter (solo con tu consentimiento) y podemos divulgar información si es requerido por ley o para proteger nuestros derechos."
+  },
+  "section5": {
+    "title": "5. Tus Derechos (GDPR)",
+    "content": "Bajo GDPR, tienes derecho a: acceder a tus datos personales, corregir información inexacta, eliminar tus datos, restringir el procesamiento, portabilidad de datos y retirar el consentimiento. Puedes ejercer estos derechos contactándonos en team@angorasix.com."
+  },
+  "section6": {
+    "title": "6. Seguridad de Datos",
+    "content": "Implementamos medidas técnicas y organizacionales apropiadas para proteger tu información personal contra acceso no autorizado, alteración, divulgación o destrucción. Sin embargo, ninguna transmisión por internet es 100% segura."
+  },
+  "section7": {
+    "title": "7. Contáctanos",
+    "content": "Para cualquier pregunta relacionada con privacidad o para ejercer tus derechos, por favor contáctanos en team@angorasix.com. Responderemos a tu solicitud dentro de 30 días como requieren las leyes de privacidad aplicables."
+  }
+}
