@@ -11,7 +11,8 @@
     "start": "next start -p 80",
     "start:docker": "next start -p 10700",
     "start:local": "WEBPACK_CONFIG_FILE=all NODE_OPTIONS='--preserve-symlinks-main --preserve-symlinks'  && next dev -p 10700",
-    "start:local:win": "set WEBPACK_CONFIG_FILE=all && set NODE_OPTIONS='--preserve-symlinks-main --preserve-symlinks'  && next dev -p 10700"
+    "start:local:win": "set WEBPACK_CONFIG_FILE=all && set NODE_OPTIONS='--preserve-symlinks-main --preserve-symlinks'  && next dev -p 10700",
+    "postbuild": "next-sitemap"
   },
   "dependencies": {
     "@emotion/react": "^11.11.0",
@@ -36,6 +37,7 @@
     "next-auth": "^4.22.0",
     "next-connect": "^0.11.1",
     "next-i18next": "^12.1.0",
+    "next-sitemap": "^4.2.3",
     "notistack": "^2.0.8",
     "query-string": "^7.1.1",
     "react": "^18.2.0",

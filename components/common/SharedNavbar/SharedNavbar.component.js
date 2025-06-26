@@ -25,7 +25,7 @@ import { useRouter } from "next/router"
 import { useState } from "react"
 import config from "../../../config"
 
-const SharedNavbar = ({ variant = "default" }) => {
+const SharedNavbar = () => {
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down("md"))
   const { data: session } = useSession()
@@ -69,8 +69,8 @@ const SharedNavbar = ({ variant = "default" }) => {
       },
     ]
 
-    return session ? 
-    [
+    return session ?
+      [
         {
           href: "/welcome/post-registration",
           label: t("navbar.shared.access"),
@@ -80,7 +80,6 @@ const SharedNavbar = ({ variant = "default" }) => {
   }
 
   const navigationItems = getNavigationItems()
-  const logoHref = variant === "team" ? "/welcome/venture" : "/"
 
   return (
     <AppBar
@@ -96,7 +95,7 @@ const SharedNavbar = ({ variant = "default" }) => {
       <Container maxWidth="lg">
         <Toolbar sx={{ justifyContent: "space-between", py: 1, minHeight: "70px" }}>
           {/* Logo */}
-          <Link href={logoHref} style={{ textDecoration: "none" }}>
+          <Link href="/" style={{ textDecoration: "none" }}>
             <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
               <Box sx={{ position: "relative", width: 40, height: 40 }}>
                 <Image

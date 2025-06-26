@@ -1,7 +1,7 @@
 import { useTranslation } from "next-i18next"
 import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 import { Container, Typography, Box, Paper } from "@mui/material"
-import LandingLayout from "../../layouts/LandingLayout"
+import LandingLayout from "../../../layouts/LandingLayout"
 
 const TermsAndConditions = () => {
   const { t } = useTranslation("legal")

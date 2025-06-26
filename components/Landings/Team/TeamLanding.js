@@ -8,6 +8,7 @@ import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 import { trackLandingCTAClick } from "../../../utils/analytics"
 import SharedNavbar from "../../common/SharedNavbar"
+import config from "../../../config"
 
 const TeamLanding = ({ translationKey }) => {
   const { t } = useTranslation(translationKey)
@@ -159,6 +160,12 @@ const TeamLanding = ({ translationKey }) => {
         <title>{t("page.title")}</title>
         <meta name="description" content={t("page.description")} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <meta property="og:title" key="og.title" content={t("page.title")} />
+        <meta property="og:description" key="og.description" content={t("page.description")} />
+        <meta property="og:image" key="og.image" content={config.site.head.image.logoDark} />
+        <meta property="og:url" key="og.url" content="https://angorasix.com/welcome/venture" />
+        <meta property="og:type" key="og.type" content="website" />
       </Head>
 
       <SharedNavbar variant="team" />

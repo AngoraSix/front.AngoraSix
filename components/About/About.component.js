@@ -31,6 +31,7 @@ import {
 } from "@mui/material"
 import { useTranslation } from "next-i18next"
 import Head from "next/head"
+import config from "../../config"
 import { THIRD_PARTY } from "../../constants/constants"
 import { useInView } from "../../hooks/useInViews"
 import { trackLandingCTAClick } from "../../utils/analytics"
@@ -135,6 +136,12 @@ const AboutComponent = () => {
       <Head>
         <title>{t("page.title")}</title>
         <meta name="description" content={t("page.description")} />
+
+        <meta property="og:title" key="og.title" content={t("page.title")} />
+        <meta property="og:description" key="og.description" content={t("page.description")} />
+        <meta property="og:image" key="og.image" content={config.site.head.image.logoDark} />
+        <meta property="og:url" key="og.url" content="https://angorasix.com/about" />
+        <meta property="og:type" key="og.type" content="website" />
       </Head>
       <Box className="about-page">
         {/* Hero Section */}

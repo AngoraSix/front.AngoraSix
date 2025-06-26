@@ -1,18 +1,20 @@
 "use client"
 
-import { useState, useEffect, useRef } from "react"
-import { Typography, Box, Button, Menu, MenuItem } from "@mui/material"
-import { useTranslation } from "next-i18next"
-import { useRouter } from "next/router"
 import {
-  BusinessCenterOutlined,
-  LightbulbOutlined,
   AccessibilityNewOutlined,
+  BusinessCenterOutlined,
   GroupsOutlined,
-  Language as LanguageIcon,
   KeyboardArrowDown,
+  Language as LanguageIcon,
+  LightbulbOutlined,
 } from "@mui/icons-material"
+import { Box, Button, Menu, MenuItem, Typography } from "@mui/material"
+import { useTranslation } from "next-i18next"
+import Head from "next/head"
+import { useRouter } from "next/router"
+import { useEffect, useRef, useState } from "react"
 import { trackExploreOptionsClick } from "../../../utils/analytics"
+import config from "../../../config"
 
 const WelcomeLanding = () => {
   const { t } = useTranslation("welcome")
@@ -115,7 +117,18 @@ const WelcomeLanding = () => {
     { code: "es", name: "Español" },
   ]
 
-  return (
+  return (<>
+    <Head>
+      <title>{t("page.title")}</title>
+      <meta name="description" content={t("page.description")} />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+      <meta property="og:title" key="og.title" content={t("page.title")} />
+      <meta property="og:description" key="og.description" content={t("page.description")} />
+      <meta property="og:image" key="og.image" content={config.site.head.image.logoDark} />
+      <meta property="og:url" key="og.url" content="https://angorasix.com" />
+      <meta property="og:type" key="og.type" content="website" />
+    </Head>
     <Box className="welcome-landing">
       {/* Language Switcher */}
       <Box className="welcome-header">
@@ -235,6 +248,7 @@ const WelcomeLanding = () => {
         </Box>
       </Box>
     </Box>
+  </>
   )
 }
 
