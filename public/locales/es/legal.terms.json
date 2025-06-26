@@ -1,36 +1,40 @@
 {
   "page": {
     "title": "AngoraSix — Términos y Condiciones",
-    "description": "Lee nuestros Términos y Condiciones para entender tus derechos y responsabilidades al usar AngoraSix."
+    "description": "Lee los Términos y Condiciones de uso de AngoraSix, incluyendo detalles sobre los planes gratuitos y el programa Beta."
   },
-  "title": "Términos y Condiciones",
-  "lastUpdated": "Última actualización: Enero 2025",
+  "title": "Términos y condiciones de AngoraSix",
+  "lastUpdated": "Última actualización: Junio 2025",
   "section1": {
-    "title": "1. Aceptación de Términos",
-    "content": "Al acceder y usar AngoraSix, aceptas y acuerdas estar sujeto a los términos y disposiciones de este acuerdo. Si no estás de acuerdo con lo anterior, por favor no uses este servicio."
+    "title": "1. Aceptación de los Términos",
+    "content": "Al acceder y utilizar AngoraSix, aceptás y acordás estar sujeto a estos Términos y Condiciones. Si no estás de acuerdo con alguno de los términos, por favor no utilices el servicio."
   },
   "section2": {
     "title": "2. Registro y Cuenta",
-    "content": "Para acceder a ciertas funciones de AngoraSix, debes registrarte para obtener una cuenta. Aceptas proporcionar información precisa, actual y completa durante el proceso de registro y actualizar dicha información para mantenerla precisa, actual y completa. Eres responsable de proteger las credenciales de tu cuenta."
+    "content": "Para acceder a ciertas funcionalidades, deberás registrarte con una cuenta. Es tu responsabilidad: proporcionar información veráz, actualizada y completa; mantener la confidencialidad de tus credenciales; y notificarnos ante cualquier uso no autorizado de tu cuenta."
   },
   "section3": {
-    "title": "3. Planes Gratuitos y Precios",
-    "content": "AngoraSix actualmente ofrece acceso gratuito a nuestra plataforma a través de dos planes: un plan 'Gratuito' permanentemente gratuito y un plan 'Early Bird' temporalmente gratuito. Nos reservamos el derecho de modificar precios, introducir funciones de pago o cambiar estructuras de planes en el futuro con aviso razonable a los usuarios. Los usuarios gratuitos actuales serán notificados de cualquier cambio que pueda afectar su acceso."
+    "title": "3. Planes y Acceso Gratuito",
+    "content": "AngoraSix ofrece actualmente: un Plan Gratuito de acceso permanente sin costo y un Plan Plus (Programa Beta) disponible exclusivamente para usuarios seleccionados, con acceso completo y gratuito durante un período limitado. Podríamos modificar precios, planes o condiciones en el futuro, notificando previamente a los usuarios afectados."
   },
   "section4": {
     "title": "4. Uso del Servicio",
-    "content": "Puedes usar AngoraSix solo para propósitos legales. Aceptas no usar el servicio para violar leyes aplicables, regulaciones o derechos de terceros. Eres responsable de todo el contenido que subas, compartas o crees usando nuestra plataforma."
+    "content": "Podés usar AngoraSix solo con fines legales y respetando los derechos de terceros. Estás de acuerdo en no usar la plataforma para: cargar contenido ilegal, ofensivo o dañino; intentar interferir con el funcionamiento del sistema o con otros usuarios; eludir mecanismos de seguridad o autenticación."
   },
   "section5": {
-    "title": "5. Privacidad y Datos",
-    "content": "Tu privacidad es importante para nosotros. Recopilamos y usamos tu información personal (nombre, email) para gestión de cuenta y propósitos de comunicación, incluyendo a través de nuestro servicio de newsletter vía Mailchimp. Para información detallada sobre nuestras prácticas de datos, por favor revisa nuestra Política de Privacidad."
+    "title": "5. Privacidad y Comunicaciones",
+    "content": "Recopilamos información básica (como nombre y email) para gestión de cuenta y envío de comunicaciones. Utilizamos Mailchimp para nuestras newsletters y actualizaciones. Para más información, consultá nuestra Política de Privacidad."
   },
   "section6": {
-    "title": "6. Limitación de Responsabilidad",
-    "content": "AngoraSix se proporciona 'tal como está' sin garantías, expresas o implícitas. No garantizamos la precisión, completitud o confiabilidad de cualquier información en nuestra plataforma. En la medida máxima permitida por la ley, renunciamos a toda responsabilidad por daños que surjan del uso de nuestro servicio."
+    "title": "6. Programa de Usuarios Beta (Plan Plus)",
+    "content": "El Programa Beta permite acceder al Plan Plus sin costo durante un plazo inicial de tres (3) meses. Este acceso: no implica ningún compromiso de pago; no garantiza permanencia (puede ser cancelado, restringido o extendido por AngoraSix en cualquier momento sin previo aviso); no requiere obligatoriamente brindar feedback (aunque lo valoramos); y no implica garantías funcionales o soporte prioritario. Podemos aceptar nuevos participantes en cualquier momento y sin necesidad de justificar la selección. La disponibilidad es limitada y la selección se realiza según criterios propios."
   },
   "section7": {
     "title": "7. Cambios en los Términos",
-    "content": "Nos reservamos el derecho de modificar estos términos en cualquier momento. Notificaremos a los usuarios de cambios significativos vía email o a través de nuestra plataforma. Tu uso continuado de AngoraSix después de tales modificaciones constituye aceptación de los términos actualizados."
+    "content": "Nos reservamos el derecho de actualizar estos términos. En caso de cambios significativos, lo notificaremos por email o dentro de la plataforma. Tu uso continuo implicará aceptación de los nuevos términos."
+  },
+  "section8": {
+    "title": "8. Contacto",
+    "content": "Para consultas sobre estos términos o el Programa Beta, podés escribirnos a: team@angorasix.com"
   }
 }

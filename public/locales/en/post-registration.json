@@ -54,7 +54,12 @@
       "expectations": "What do you expect from AngoraSix? Why are you interested in participating in the Beta program?",
       "expectationsPlaceholder": "Tell us about your expectations, needs, vision, motivations, etc.",
       "contactMethod": "How would you prefer us to contact you?",
-      "contactValue": "Contact information"
+      "contactValue": "Contact information",
+      "consentCheckboxLabel": {
+        "pre": "I have read and accept the",
+        "linkText": "Beta Program Terms and Conditions",
+        "post": "It implies no commitment or cost."
+      }
     },
     "profileTypes": {
       "projectOwner": {
@@ -136,17 +141,12 @@
       "currentWorkRequired": "Please select your current work situation",
       "expectationsRequired": "Please tell us about your expectations",
       "contactValueRequired": "Please provide your contact information",
-      "consentRequired": "You must agree to be contacted to participate in the beta program"
+      "consentRequired": "You must accept the terms and conditions to participate in the beta program."
     },
     "cancel": "Cancel",
     "submit": "Submit Application",
     "submitting": "Submitting...",
-    "successMessage": "Thanks for applying! We'll be in touch soon.",
-    "consentText": {
-      "pre": "By applying, you agree to be contacted and receive updates about the Beta program. Limited spots. Read the",
-      "post": "for more information."
-    },
-    "termsLinkText": "Beta program Terms"
+    "successMessage": "Thanks for applying! We'll be in touch soon."
   },
   "newsletter": {
     "title": "Stay Updated",

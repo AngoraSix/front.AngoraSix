@@ -1,6 +1,6 @@
 import { serverSideTranslations } from "next-i18next/serverSideTranslations"
-import LandingLayout from "../../layouts/LandingLayout"
-import PrivacyPolicyComponent from "../../components/Legal/PrivacyPolicy"
+import PrivacyPolicyComponent from "../../../components/Legal/PrivacyPolicy"
+import LandingLayout from "../../../layouts/LandingLayout"
 
 const PrivacyPolicyPage = () => {
   return (

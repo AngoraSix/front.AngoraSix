@@ -30,68 +30,16 @@ const TermsAndConditions = () => {
           </Typography>
 
           <Box sx={{ "& > *": { mb: 3 } }}>
-            <section>
-              <Typography variant="h5" component="h2" gutterBottom>
-                {t("section1.title")}
-              </Typography>
-              <Typography variant="body1" paragraph>
-                {t("section1.content")}
-              </Typography>
-            </section>
-
-            <section>
-              <Typography variant="h5" component="h2" gutterBottom>
-                {t("section2.title")}
-              </Typography>
-              <Typography variant="body1" paragraph>
-                {t("section2.content")}
-              </Typography>
-            </section>
-
-            <section>
-              <Typography variant="h5" component="h2" gutterBottom>
-                {t("section3.title")}
-              </Typography>
-              <Typography variant="body1" paragraph>
-                {t("section3.content")}
-              </Typography>
-            </section>
-
-            <section>
-              <Typography variant="h5" component="h2" gutterBottom>
-                {t("section4.title")}
-              </Typography>
-              <Typography variant="body1" paragraph>
-                {t("section4.content")}
-              </Typography>
-            </section>
-
-            <section>
-              <Typography variant="h5" component="h2" gutterBottom>
-                {t("section5.title")}
-              </Typography>
-              <Typography variant="body1" paragraph>
-                {t("section5.content")}
-              </Typography>
-            </section>
-
-            <section>
-              <Typography variant="h5" component="h2" gutterBottom>
-                {t("section6.title")}
-              </Typography>
-              <Typography variant="body1" paragraph>
-                {t("section6.content")}
-              </Typography>
-            </section>
-
-            <section>
-              <Typography variant="h5" component="h2" gutterBottom>
-                {t("section7.title")}
-              </Typography>
-              <Typography variant="body1" paragraph>
-                {t("section7.content")}
-              </Typography>
-            </section>
+            {[1, 2, 3, 4, 5, 6, 7, 8].map((sectionNumber) => (
+              <section key={sectionNumber}>
+                <Typography variant="h5" component="h2" gutterBottom>
+                  {t(`section${sectionNumber}.title`)}
+                </Typography>
+                <Typography variant="body1" paragraph>
+                  {t(`section${sectionNumber}.content`)}
+                </Typography>
+              </section>
+            ))}
           </Box>
         </Paper>
       </Container>

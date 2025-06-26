@@ -118,6 +118,7 @@ const PostRegistration = () => {
   const [betaSubmitted, setBetaSubmitted] = useState(false) // Initialize as false
   const [isLoadingBetaApplication, setIsLoadingBetaApplication] = useState(true) // New loading state
   const [showSuccessSnackbar, setShowSuccessSnackbar] = useState(false)
+  const [consentChecked, setConsentChecked] = useState(false); // New state for consent checkbox
 
   // Beta program launch date (30 days from now)
   const betaLaunchDate = new Date("2025-08-18T00:00:00")
@@ -340,6 +341,10 @@ const PostRegistration = () => {
 
     if (!betaFormData.contactValue.trim()) {
       errors.contactValue = t("betaDialog.errors.contactValueRequired")
+    }
+
+    if (!consentChecked) {
+      errors.consentChecked = t("betaDialog.errors.consentRequired");
     }
 
     setBetaFormErrors(errors)
@@ -1242,27 +1247,44 @@ const PostRegistration = () => {
                       required
                       sx={{ mb: 3 }}
                     />
+
+                    {/* Consent Checkbox */}
+                    <FormControl component="fieldset" fullWidth sx={{ mb: 2 }}>
+                      <FormControlLabel
+                        control={
+                          <Checkbox
+                            checked={consentChecked}
+                            onChange={(e) => setConsentChecked(e.target.checked)}
+                            name="consent"
+                          />
+                        }
+                        label={
+                          <Typography variant="caption" color="text.secondary">
+                            {t("betaDialog.fields.consentCheckboxLabel.pre")}{" "}
+                            <Link
+                              href={ROUTES.legal.termsAndConditions}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              style={{ color: "#fe5f55", textDecoration: "underline" }}
+                            >
+                              {t("betaDialog.fields.consentCheckboxLabel.linkText")}
+                            </Link>
+                            {" " + t("betaDialog.fields.consentCheckboxLabel.post")}
+                          </Typography>
+                        }
+                      />
+                      {betaFormErrors.consentChecked && (
+                        <FormHelperText error sx={{ mt: -1, mb: 2 }}>
+                          <ErrorIcon sx={{ fontSize: "1rem", mr: 0.5 }} />
+                          {betaFormErrors.consentChecked}
+                        </FormHelperText>
+                      )}
+                    </FormControl>
                   </>
                 )}
-              <Typography
-                variant="caption"
-                color="text.secondary"
-                sx={{ mt: 2, display: "block", textAlign: "center" }}
-              >
-                {t("betaDialog.consentText.pre") + " "}
-                <Link
-                  href={ROUTES.legal.termsAndConditions}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ color: "#fe5f55", textDecoration: "underline" }}
-                >
-                  {t("betaDialog.termsLinkText")}
-                </Link>
-                {" " + t("betaDialog.consentText.post")}
-              </Typography>
             </Box>
           </DialogContent>
-          <DialogActions sx={{ p: 2 }}>
+          <DialogActions sx={{ p: 2, justifyContent: "flex-end" }}>
             <Button onClick={() => setBetaDialogOpen(false)} className="dialog-cancel">
               {t("betaDialog.cancel")}
             </Button>

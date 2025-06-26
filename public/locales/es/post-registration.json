@@ -38,7 +38,7 @@
     },
     "fields": {
       "profileType": "¿Cuál de estas opciones te representa mejor?",
-      "otherProfileType": "Especificá tu caso",
+      "otherProfileType": "Especificá tu perfil",
       "projectStage": "¿En qué etapa está tu proyecto?",
       "teamSize": "Tamaño actual del equipo",
       "role": "¿Cuál es tu rol dentro del proyecto?",
@@ -54,7 +54,12 @@
       "expectations": "¿Qué esperás de AngoraSix? ¿Por qué querés participar del Beta?",
       "expectationsPlaceholder": "Contanos tus expectativas, necesidades, visión, motivaciones, en qué tipo de proyectos trabajás, etc.",
       "contactMethod": "Además de recibir novedades por mail ¿Cómo preferís que te contactemos?",
-      "contactValue": "Información de contacto"
+      "contactValue": "Información de contacto",
+      "consentCheckboxLabel": {
+        "pre": "He leído y acepto los",
+        "linkText": "Términos y Condiciones del Programa Beta",
+        "post": "No implica ningún compromiso ni costo."
+      }
     },
     "profileTypes": {
       "projectOwner": {
@@ -136,17 +141,12 @@
       "currentWorkRequired": "Seleccioná tu situación laboral actual",
       "expectationsRequired": "Contanos tus expectativas",
       "contactValueRequired": "Completá tu información de contacto",
-      "consentRequired": "Debés aceptar ser contactado para participar del programa Beta"
+      "consentRequired": "Debes aceptar los términos y condiciones para participar en el programa beta."
     },
     "cancel": "Cancelar",
     "submit": "Enviar Postulación",
     "submitting": "Enviando...",
-    "successMessage": "¡Gracias por postularte! Nos pondremos en contacto pronto.",
-    "consentText": {
-      "pre": "Al postularte, aceptás ser contactado/a y recibir novedades del programa Beta. Cupos limitados. Leé los",
-      "post": "para más información."
-    },
-    "termsLinkText": "Términos del programa Beta"
+    "successMessage": "¡Gracias por postularte! Nos pondremos en contacto pronto."
   },
   "newsletter": {
     "title": "Recibí Novedades",
