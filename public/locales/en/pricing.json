@@ -15,7 +15,8 @@
       "evolution": "Be part of the platform’s growth and evolution",
       "priority": "Priority access to new features and support"
     },
-    "cta": "Apply for Beta Program"
+    "cta": "Apply for Beta Program",
+    "limitedSpots": "Limited spots available."
   },
   "plans": {
     "free": {

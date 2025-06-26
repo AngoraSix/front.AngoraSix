@@ -1,5 +1,5 @@
-import TrelloLogo from '../public/logos/thirdparty/trello.svg';
 import StackoverflowLogo from '../public/logos/thirdparty/stackoverflow.svg';
+import TrelloLogo from '../public/logos/thirdparty/trello.svg';
 
 export const PROFILE_ATTRIBUTES = {
   headImage: {
@@ -43,6 +43,10 @@ export const ROUTES = {
   },
   welcome: {
     postRegistration: '/welcome/post-registration',
+  },
+  legal:
+  {
+    termsAndConditions: '/legal/terms-and-conditions',
   }
 };
 

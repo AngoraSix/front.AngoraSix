@@ -21,7 +21,8 @@
       "days": "Days",
       "hours": "Hours",
       "minutes": "Minutes",
-      "seconds": "Seconds"
+      "seconds": "Seconds",
+      "limitedSpots": "Limited spots available."
     },
     "apply": "Apply for Beta",
     "success": "Application Submitted!",
@@ -53,8 +54,7 @@
       "expectations": "What do you expect from AngoraSix? Why are you interested in participating in the Beta program?",
       "expectationsPlaceholder": "Tell us about your expectations, needs, vision, motivations, etc.",
       "contactMethod": "How would you prefer us to contact you?",
-      "contactValue": "Contact information",
-      "consent": "I agree to be contacted with program updates and project news"
+      "contactValue": "Contact information"
     },
     "profileTypes": {
       "projectOwner": {
@@ -141,7 +141,12 @@
     "cancel": "Cancel",
     "submit": "Submit Application",
     "submitting": "Submitting...",
-    "successMessage": "Thanks for applying! We'll be in touch soon."
+    "successMessage": "Thanks for applying! We'll be in touch soon.",
+    "consentText": {
+      "pre": "By applying, you agree to be contacted and receive updates about the Beta program. Limited spots. Read the",
+      "post": "for more information."
+    },
+    "termsLinkText": "Beta program Terms"
   },
   "newsletter": {
     "title": "Stay Updated",

@@ -13,7 +13,7 @@ module.exports = {
     policies: [
       {
         userAgent: '*',
-        allow: ['/welcome/', '/pricing', '/about', '/legal/'],
+        allow: ['/', '/welcome/', '/pricing', '/about', '/legal/'],
         disallow: ['/api/', '/clubs/', '/projects/', '/managements/', '/welcome/post-registration'],
       },
     ],

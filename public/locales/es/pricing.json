@@ -15,7 +15,8 @@
       "evolution": "Participación en la evolución del sistema",
       "priority": "Prioridad para nuevas funciones y soporte"
     },
-    "cta": "Postularme al programa Beta"
+    "cta": "Postularme al programa Beta",
+    "limitedSpots": "Cupos limitados."
   },
   "plans": {
     "free": {
@@ -47,18 +48,18 @@
         "workflows": "Prioridad en conexiones y búsquedas de proyectos",
         "support": "Soporte humano personalizado"
       }
-      },
-      "custom": {
-        "title": "Custom",
-        "price": "Consultá",
-        "cta": "Hablemos",
-        "features": {
-          "all": "Incluye todas las funcionalidades del plan Plus",
-          "tailored": "Soluciones personalizadas para tu equipo o proyecto",
-          "dedicated": "Horas de asesoramiento personalizado incluidas",
-          "advanced": "Reportes y análisis sobre tu mercado o sector",
-          "enterprise": "Beneficios y descuentos exclusivos con herramientas del ecosistema AngoraSix"
-        }
+    },
+    "custom": {
+      "title": "Custom",
+      "price": "Consultá",
+      "cta": "Hablemos",
+      "features": {
+        "all": "Incluye todas las funcionalidades del plan Plus",
+        "tailored": "Soluciones personalizadas para tu equipo o proyecto",
+        "dedicated": "Horas de asesoramiento personalizado incluidas",
+        "advanced": "Reportes y análisis sobre tu mercado o sector",
+        "enterprise": "Beneficios y descuentos exclusivos con herramientas del ecosistema AngoraSix"
       }
+    }
   }
 }

@@ -21,7 +21,8 @@
       "days": "Días",
       "hours": "Horas",
       "minutes": "Minutos",
-      "seconds": "Segundos"
+      "seconds": "Segundos",
+      "limitedSpots": "Cupos limitados."
     },
     "apply": "Postularse a Beta",
     "success": "¡Postulación enviada!",
@@ -53,8 +54,7 @@
       "expectations": "¿Qué esperás de AngoraSix? ¿Por qué querés participar del Beta?",
       "expectationsPlaceholder": "Contanos tus expectativas, necesidades, visión, motivaciones, en qué tipo de proyectos trabajás, etc.",
       "contactMethod": "Además de recibir novedades por mail ¿Cómo preferís que te contactemos?",
-      "contactValue": "Información de contacto",
-      "consent": "Acepto ser contactado/a con novedades del programa y noticias del proyecto"
+      "contactValue": "Información de contacto"
     },
     "profileTypes": {
       "projectOwner": {
@@ -141,7 +141,12 @@
     "cancel": "Cancelar",
     "submit": "Enviar Postulación",
     "submitting": "Enviando...",
-    "successMessage": "¡Gracias por postularte! Nos pondremos en contacto pronto."
+    "successMessage": "¡Gracias por postularte! Nos pondremos en contacto pronto.",
+    "consentText": {
+      "pre": "Al postularte, aceptás ser contactado/a y recibir novedades del programa Beta. Cupos limitados. Leé los",
+      "post": "para más información."
+    },
+    "termsLinkText": "Términos del programa Beta"
   },
   "newsletter": {
     "title": "Recibí Novedades",

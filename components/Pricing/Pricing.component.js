@@ -9,7 +9,7 @@ import {
   Support,
   TrendingUp,
   Verified,
-} from "@mui/icons-material"; // Added Handshake icon
+} from "@mui/icons-material" // Added Handshake icon
 import {
   Box,
   Button,
@@ -44,7 +44,7 @@ import {
   trackCustomPlanClick,
   trackFreePlanClick,
   trackPlusPlanClick,
-} from "../../utils/analytics"; // Added trackCustomPlanClick
+} from "../../utils/analytics" // Added trackCustomPlanClick
 
 const PricingComponent = () => {
   const { t } = useTranslation("pricing")
@@ -284,6 +284,13 @@ const PricingComponent = () => {
               <Button variant="contained" size="large" onClick={handleBetaProgram} className="beta-panel-cta">
                 {t("betaProgram.cta")}
               </Button>
+              <Typography
+                variant="caption"
+                color="primary.contrastText"
+                sx={{ mt: 1, display: "block", textAlign: "center" }}
+              >
+                {t("betaProgram.limitedSpots")}
+              </Typography>
             </Box>
           </Box>
 
