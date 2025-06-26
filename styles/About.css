@@ -19,7 +19,7 @@
 
 .about-vision-mission {
     padding: 80px 0;
-    background-color: #1b5993;
+    background-color: #0F2F4D;
     color: white;
 }
 
@@ -47,7 +47,7 @@
 .about-final-cta {
     padding: 40px 0;
     /* Reduced padding for a smaller section */
-    background: linear-gradient(135deg, #0a2239 0%, #1b5993 100%);
+    background: linear-gradient(135deg, #030D16 0%, #0F2F4D 100%);
     /* Dark gradient from TeamLanding */
     color: white;
     /* Ensure text is visible on dark background */

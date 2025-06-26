@@ -55,6 +55,7 @@ import {
   SvgIcon,
   TextField,
   Typography,
+  CircularProgress, // Import CircularProgress for the spinner
 } from "@mui/material";
 import { signIn, useSession } from "next-auth/react";
 import { useTranslation } from "next-i18next";
@@ -77,7 +78,7 @@ import NotionLogo from "../../public/logos/thirdparty/notion.svg";
 import SpreadsheetLogo from "../../public/logos/thirdparty/spreadsheet.svg";
 import TrelloLogo from "../../public/logos/thirdparty/trello.svg";
 
-const PostRegistration = ({ existingBetaApplication }) => {
+const PostRegistration = () => { // Removed existingBetaApplication prop
   const { t } = useTranslation("post-registration")
   const { data: session, status } = useSession()
   const [email, setEmail] = useState("")
@@ -112,7 +113,8 @@ const PostRegistration = ({ existingBetaApplication }) => {
   })
   const [betaFormErrors, setBetaFormErrors] = useState({})
   const [isSubmittingBeta, setIsSubmittingBeta] = useState(false)
-  const [betaSubmitted, setBetaSubmitted] = useState(!!existingBetaApplication)
+  const [betaSubmitted, setBetaSubmitted] = useState(false) // Initialize as false
+  const [isLoadingBetaApplication, setIsLoadingBetaApplication] = useState(true); // New loading state
   const [showSuccessSnackbar, setShowSuccessSnackbar] = useState(false)
 
   // Beta program launch date (30 days from now)
@@ -252,6 +254,30 @@ const PostRegistration = ({ existingBetaApplication }) => {
       }))
     }
   }, [session, status])
+
+  // Client-side data fetching for existingBetaApplication
+  useEffect(() => {
+    const fetchBetaApplication = async () => {
+      if (status === "authenticated" && session?.user?.email) {
+        setIsLoadingBetaApplication(true);
+        try {
+          // This call will go to /api/surveys/[surveyKey]/responses/index.js
+          const surveyResponse = await api.front.getSurveyResponse("beta-applications");
+          setBetaSubmitted(!!surveyResponse); // Set betaSubmitted based on response
+        } catch (error) {
+          console.error("Error fetching beta application:", error);
+          setBetaSubmitted(false); // Assume not submitted on error
+        } finally {
+          setIsLoadingBetaApplication(false);
+        }
+      } else if (status === "unauthenticated") {
+        setIsLoadingBetaApplication(false); // Not authenticated, so no existing application to check
+      }
+    };
+
+    fetchBetaApplication();
+  }, [session, status]);
+
 
   if (status === "loading" || !session) {
     return null
@@ -593,7 +619,9 @@ const PostRegistration = ({ existingBetaApplication }) => {
 
                     {/* CTA */}
                     <Box className="beta-cta-top">
-                      {!betaSubmitted ? (
+                      {isLoadingBetaApplication ? (
+                        <CircularProgress size={24} /> // Show spinner while loading
+                      ) : !betaSubmitted ? (
                         <Button
                           variant="contained"
                           size="large"
