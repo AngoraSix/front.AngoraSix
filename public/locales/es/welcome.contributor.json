@@ -1,15 +1,15 @@
 {
     "page": {
-        "title": "AngoraSix — Trabajá con sentido. Viví de lo que sabés y amás hacer",
-        "description": "Elegí proyectos en los que creés y sé parte de verdad. Tu aporte se retribuye con poder de decisión, participación en las ganancias y pagos inmediatos."
+        "title": "AngoraSix — Elegí en qué trabajar y recibí participación societaria.",
+        "description": "Encontrá proyectos con sentido para vos y sé parte de verdad. Tu aporte se retribuye con poder de decisión, participación en las ganancias y pagos inmediatos."
     },
     "hero": {
         "title": {
-            "part1": "Trabajá con sentido.",
-            "highlight": "Viví de lo que sabés y amás hacer"
+            "part1": "Elegí en qué trabajar",
+            "highlight": "y recibí participación societaria"
         },
-        "subtitle": "Elegí proyectos en los que creés y sé parte de verdad. Tu aporte se retribuye con poder de decisión, participación en las ganancias y pagos inmediatos.",
-        "subtitle2": "Libertad, transparencia y pertenencia. Seguro, con garantías reales.",
+        "subtitle": "Encontrá proyectos con sentido para vos y sé parte de verdad. Tu aporte se retribuye con poder de decisión, participación en las ganancias y pagos inmediatos.",
+        "subtitle2": "Lo que ayudas a crear es tuyo. Seguro, con garantías reales.",
         "cta": "Unirme"
     },
     "problems": {

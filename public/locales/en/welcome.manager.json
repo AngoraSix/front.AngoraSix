@@ -1,16 +1,16 @@
 {
   "page": {
-    "title": "AngoraSix — A new way to manage: self-running projects — On your terms",
-    "description": "Define the rules and delegate effortlessly — our decentralized management framework handles everything transparently, freeing you from the details."
+    "title": "AngoraSix — Delegate without losing control. All under your rules.",
+    "description": "Set the goals, the rules, and the terms. AngoraSix ensures your team self-organizes — but you always have the final say."
   },
   "hero": {
     "title": {
-      "part1": "A new way to manage: self-running projects—",
-      "highlight": "On your terms"
+      "part1": "Delegate without losing control.",
+      "highlight": "All under your rules"
     },
-    "subtitle": "Define the rules and delegate effortlessly — our decentralized management framework handles everything transparently, freeing you from the details.",
+    "subtitle": "Set the goals, the rules, and the terms. AngoraSix ensures your team self-organizes — but you always have the final say.",
     "cta": "Start Free",
-    "subtitle2": "Manage without micromanaging"
+    "subtitle2": "Delegate with clarity and efficiency."
   },
   "problems": {
     "title": "Sound familiar?",

@@ -1,16 +1,16 @@
 {
   "page": {
-    "title": "AngoraSix — Una nueva gestión: proyectos auto-administrados con control total",
-    "description": "Definí las reglas y delegá sin complicaciones — nuestro marco de gestión descentralizada se encarga de todo con transparencia, para que no tengas que ocuparte de los detalles."
+    "title": "AngoraSix — Delegá sin perder el control. Todo bajo tus reglas.",
+    "description": "Definí objetivos, reglas y condiciones. AngoraSix se encarga de que tu equipo se auto-organice, pero vos tenés la última palabra."
   },
   "hero": {
     "title": {
-      "part1": "Una nueva gestión: proyectos auto-administrados ",
-      "highlight": "con control total"
+      "part1": "Delegá sin perder el control.",
+      "highlight": "Todo bajo tus reglas"
     },
-    "subtitle": "Definí las reglas y delegá sin complicaciones — nuestro marco de gestión descentralizada se encarga de todo con transparencia, para que no tengas que ocuparte de los detalles.",
+    "subtitle": "Definí objetivos, reglas y condiciones. AngoraSix se encarga de que tu equipo se auto-organice, pero vos tenés la última palabra.",
     "cta": "Empezá gratis",
-    "subtitle2": "Administrá sin supervisar"
+    "subtitle2": "Delegá con eficiencia y claridad."
   },
   "problems": {
     "title": "¿Te suena familiar?",

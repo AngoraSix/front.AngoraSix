@@ -1,15 +1,15 @@
 {
   "page": {
-    "title": "AngoraSix — A new kind of entrepreneurship. One that matters",
-    "description": "A real alternative to build with meaning. Collaborative, decentralized, leveraging open management models and next-gen technology."
+    "title": "AngoraSix — Join a new model of creation — cooperative and decentralized.",
+    "description": "Be part of a community that’s building differently: no hierarchies, clear rules, real participation, and open tools to create together with purpose."
   },
   "hero": {
     "title": {
-      "part1": "A new kind of entrepreneurship.",
-      "highlight": "One that matters"
+      "part1": "Join a new model of creation —",
+      "highlight": "cooperative and decentralized"
     },
-    "subtitle": "A real alternative to build with meaning. Collaborative, decentralized, leveraging open management models and next-gen technology.",
-    "subtitle2": "Join those already shaping the future. Real tools. Real purpose.",
+    "subtitle": "Be part of a community that’s building differently: no hierarchies, clear rules, real participation, and open tools to create together with purpose.",
+    "subtitle2": "A different way to build is possible — find it here.",
     "cta": "Start Building"
   },
   "problems": {

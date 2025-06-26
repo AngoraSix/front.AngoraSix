@@ -1,15 +1,15 @@
 {
   "page": {
-    "title": "AngoraSix — Work with purpose. Be part of what you create",
-    "description": "Choose projects you believe in and truly belong to. Your contributions are rewarded with ownership, decision-making power, and immediate payments."
+    "title": "AngoraSix — Choose what you work on and earn ownership.",
+    "description": "Find meaningful projects and become a true part of them. Your contribution earns you decision power, profit shares, and immediate payments."
   },
   "hero": {
     "title": {
-      "part1": "Work with purpose.",
-      "highlight": "Be part of what you create"
+      "part1": "Choose what you work on",
+      "highlight": "and earn ownership"
     },
-    "subtitle": "Choose projects you believe in and truly belong to. Your contributions are rewarded with ownership, decision-making power, and immediate payments.",
-    "subtitle2": "Freedom, transparency, belonging. Secure, with real guarantees.",
+    "subtitle": "Find meaningful projects and become a true part of them. Your contribution earns you decision power, profit shares, and immediate payments.",
+    "subtitle2": "What you help build belongs to you. Secure, with real guarantees.",
     "cta": "Join Now"
   },
   "problems": {
