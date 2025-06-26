@@ -2,10 +2,10 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 import ManagerLanding from "../../../components/Landings/Manager/ManagerLanding"
 import LandingLayout from "../../../layouts/LandingLayout"
 
-const ManagerLandingPage = () => {
+const Manager2LandingPage = () => {
   return (
     <LandingLayout>
-      <ManagerLanding translationKey="welcome.manager"/>
+      <ManagerLanding translationKey="welcome.manager.2"/>
     </LandingLayout>
   )
 }
@@ -13,9 +13,9 @@ const ManagerLandingPage = () => {
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ["common", "common.legal", "welcome.manager"])),
+      ...(await serverSideTranslations(locale, ["common", "common.legal", "welcome.manager.2"])),
     },
   }
 }
 
-export default ManagerLandingPage
+export default Manager2LandingPage

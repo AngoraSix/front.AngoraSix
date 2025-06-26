@@ -2,10 +2,10 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 import TeamLanding from "../../../components/Landings/Team/TeamLanding"
 import LandingLayout from "../../../layouts/LandingLayout"
 
-const TeamLandingPage = () => {
+const Team2LandingPage = () => {
   return (
     <LandingLayout>
-      <TeamLanding translationKey="welcome.team"/>
+      <TeamLanding translationKey="welcome.team.2"/>
     </LandingLayout>
   )
 }
@@ -13,9 +13,9 @@ const TeamLandingPage = () => {
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ["common", "welcome.team", "common.legal"])),
+      ...(await serverSideTranslations(locale, ["common", "welcome.team.2", "common.legal"])),
     },
   }
 }
 
-export default TeamLandingPage
+export default Team2LandingPage

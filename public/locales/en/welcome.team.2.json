@@ -1,0 +1,66 @@
+{
+  "page": {
+    "title": "AngoraSix — Your venture is growing. Make sure it stays that way",
+    "description": "Enhance your management with blockchain, hassle-free: Transparent internal agreements and contribution tracking, all integrated into a shared wallet."
+  },
+  "hero": {
+    "title": {
+      "part1": "Your venture is growing.",
+      "highlight": "Make sure it stays that way"
+    },
+    "subtitle": "Enhance your management with blockchain, hassle-free: Transparent internal agreements and contribution tracking, all integrated into a shared wallet.",
+    "subtitle2": "Clear consensus. Conflict-free. Simple and compatible with the tools you already use.",
+    "cta": "Start Free"
+  },
+  "problems": {
+    "title": "Can your management model keep up with your growing venture?",
+    "subtitle": "Key questions to ensure your team always pulls in the same direction.",
+    "unequal": "How do we ensure everyone stays committed and contributes as agreed?",
+    "unclear": "How do we establish clear rules to prevent conflicts without creating friction to enforce them?",
+    "distribution": "How do we fairly distribute income in a way everyone considers legitimate?",
+    "management": "How can I reduce management overhead and focus on what truly drives the project?"
+  },
+  "solutions": {
+    "title": "The support your team needs to reach the next level",
+    "subtitle": "Move forward with focus, clarity, and confidence—friction-free.",
+    "rules": {
+      "title": "A Framework for Clear Agreements",
+      "description": "A straightforward structure to define your project's key aspects, avoid conflicts, and build collaboratively without ambiguity."
+    },
+    "transparency": {
+      "title": "Automatic Contribution Tracking",
+      "description": "We integrate with your existing management tools to automatically track the real contributions of each team member."
+    },
+    "multisig": {
+      "title": "Integrated Multi-Signature Wallet",
+      "description": "A shared blockchain account linked to your rules and tasks, ensuring every financial decision aligns with what's agreed upon."
+    }
+  },
+  "angorasixInAction":{
+    "title": "AngoraSix in action",
+    "subtitle": "Discover how our platform transforms project management and collaboration."
+  },
+  "useCases": {
+    "title": "A suitable solution for your team",
+    "partners": {
+      "title": "Two partners at an early stage",
+      "description": "They want to move forward clearly and confidently, leaving nothing to chance."
+    },
+    "newTeam": {
+      "title": "A newly forming team",
+      "description": "Looking to start with modern tools and a healthy culture from day one."
+    },
+    "startup": {
+      "title": "Expanding startup",
+      "description": "They need clarity and harmony as they grow and add more team members."
+    }
+  },
+  "finalCta": {
+    "title": {
+      "part1": "Don't risk your venture's future.",
+      "highlight": "Manage clearly from the start"
+    },
+    "subtitle": "Join teams already building with next-generation tools.",
+    "cta": "Start Building"
+  }
+}

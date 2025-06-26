@@ -1,24 +1,24 @@
 "use client"
 
 import {
-  WorkOutline,
   FavoriteBorder as FavoriteOutlined,
-  TrendingUp,
-  WorkspacePremium,
-  Public,
   Handshake,
+  Public,
   Security,
+  TrendingUp,
+  WorkOutline,
+  WorkspacePremium,
 } from "@mui/icons-material"
-import { Box, Button, Container, Grid, Typography, useMediaQuery, useTheme, Fade, Grow } from "@mui/material"
+import { Box, Button, Container, Fade, Grid, Grow, Typography, useTheme } from "@mui/material"
 import { useTranslation } from "next-i18next"
 import Head from "next/head"
 import { useRouter } from "next/router"
-import { useState, useEffect } from "react"
+import { useEffect, useState } from "react"
 import { trackLandingCTAClick } from "../../../utils/analytics"
 import SharedNavbar from "../../common/SharedNavbar"
 
-const ContributorLanding = () => {
-  const { t } = useTranslation("welcome.contributor")
+const ContributorLanding = ({ translationKey }) => {
+  const { t } = useTranslation(translationKey)
   const theme = useTheme()
   const router = useRouter()
   const [visibleSections, setVisibleSections] = useState({})

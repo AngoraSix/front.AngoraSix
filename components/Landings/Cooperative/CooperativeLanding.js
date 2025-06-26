@@ -9,8 +9,8 @@ import { useEffect, useState } from "react"
 import { trackLandingCTAClick } from "../../../utils/analytics"
 import SharedNavbar from "../../common/SharedNavbar"
 
-const CooperativeLanding = () => {
-  const { t } = useTranslation("welcome.cooperative")
+const CooperativeLanding = ({ translationKey }) => {
+  const { t } = useTranslation(translationKey)
   const theme = useTheme()
   const router = useRouter()
   const [visibleSections, setVisibleSections] = useState({})

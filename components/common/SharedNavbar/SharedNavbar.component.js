@@ -86,7 +86,7 @@ const SharedNavbar = ({ variant = "default" }) => {
     <AppBar
       position="fixed"
       sx={{
-        background: "linear-gradient(135deg, rgba(10, 34, 57, 0.95) 0%, rgba(27, 89, 147, 0.95) 100%)",
+        background: "linear-gradient(135deg, #030D16 0%, #0F2F4D 100%)",
         backdropFilter: "blur(20px)",
         borderBottom: "1px solid rgba(220, 231, 234, 0.1)",
         boxShadow: "0 4px 20px rgba(0, 0, 0, 0.15)",
@@ -182,7 +182,7 @@ const SharedNavbar = ({ variant = "default" }) => {
                     transformOrigin={{ vertical: "top", horizontal: "right" }}
                     PaperProps={{
                       sx: {
-                        background: "linear-gradient(135deg, #0A2239 0%, #1B5993 100%)",
+                        background: "linear-gradient(135deg, #0A2239 0%, #0F2F4D 100%)",
                         border: "1px solid rgba(220, 231, 234, 0.2)",
                         borderRadius: "12px",
                         backdropFilter: "blur(10px)",
@@ -241,7 +241,7 @@ const SharedNavbar = ({ variant = "default" }) => {
                     transformOrigin={{ vertical: "top", horizontal: "right" }}
                     PaperProps={{
                       sx: {
-                        background: "linear-gradient(135deg, #0A2239 0%, #1B5993 100%)",
+                        background: "linear-gradient(135deg, #0A2239 0%, #0F2F4D 100%)",
                         border: "1px solid rgba(220, 231, 234, 0.2)",
                         borderRadius: "12px",
                         backdropFilter: "blur(10px)",
@@ -316,7 +316,7 @@ const SharedNavbar = ({ variant = "default" }) => {
                     onClose={handleCloseLanguageMenu}
                     PaperProps={{
                       sx: {
-                        background: "linear-gradient(135deg, #0A2239 0%, #1B5993 100%)",
+                        background: "linear-gradient(135deg, #0A2239 0%, #0F2F4D 100%)",
                         border: "1px solid rgba(220, 231, 234, 0.2)",
                         borderRadius: "12px",
                         backdropFilter: "blur(10px)",
@@ -364,7 +364,7 @@ const SharedNavbar = ({ variant = "default" }) => {
                 transformOrigin={{ vertical: "top", horizontal: "right" }}
                 PaperProps={{
                   sx: {
-                    background: "linear-gradient(135deg, #0A2239 0%, #1B5993 100%)",
+                    background: "linear-gradient(135deg, #0A2239 0%, #0F2F4D 100%)",
                     border: "1px solid rgba(220, 231, 234, 0.2)",
                     borderRadius: "12px",
                     backdropFilter: "blur(10px)",

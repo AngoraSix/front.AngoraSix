@@ -132,7 +132,7 @@ const WelcomeLanding = () => {
           onClose={() => setLanguageAnchor(null)}
           PaperProps={{
             style: {
-              background: "linear-gradient(135deg, #0a2239 0%, #1b5993 100%)",
+              background: "linear-gradient(135deg, #030D16 0%, #0a2239 100%)",
               border: "1px solid rgba(220, 231, 234, 0.2)",
               borderRadius: "12px",
               backdropFilter: "blur(10px)",

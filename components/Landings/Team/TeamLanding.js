@@ -9,8 +9,8 @@ import { useEffect, useState } from "react"
 import { trackLandingCTAClick } from "../../../utils/analytics"
 import SharedNavbar from "../../common/SharedNavbar"
 
-const TeamLanding = () => {
-  const { t } = useTranslation("welcome.team")
+const TeamLanding = ({ translationKey }) => {
+  const { t } = useTranslation(translationKey)
   const theme = useTheme()
   const router = useRouter()
   const [visibleSections, setVisibleSections] = useState({})
@@ -84,7 +84,7 @@ const TeamLanding = () => {
       title: t("solutions.multisig.title"),
       description: t("solutions.multisig.description"),
       icon: <AccountBalance sx={{ fontSize: 40, color: "white" }} />,
-      gradient: "linear-gradient(135deg, #1B5993 0%, #0A2239 100%)",
+      gradient: "linear-gradient(135deg, #030D16 0%, #0F2F4D 100%)",
     },
   ]
 
@@ -169,7 +169,7 @@ const TeamLanding = () => {
           <svg width="100%" height="100%" viewBox="0 0 1200 800" preserveAspectRatio="none">
             {generateFlowingLines(
               80,
-              [theme.palette.secondary.main, theme.palette.primary.main2, theme.palette.primary.light],
+              [theme.palette.primaryWithBlackContrast.dark],
               [8, 12, 15, 10, 18, 6],
             )}
           </svg>
@@ -208,7 +208,7 @@ const TeamLanding = () => {
       <Box id="problems" data-animate className="team-problems-section">
         <Box className="harmonic-lines-pattern flowing-lines-subtle">
           <svg width="100%" height="100%" viewBox="0 0 1200 600" preserveAspectRatio="none">
-            {generateFlowingLines(40, [theme.palette.primary.light2, theme.palette.primary.main2], [15, 20, 25, 18])}
+            {generateFlowingLines(40, [], [15, 20, 25, 18])}
           </svg>
         </Box>
 
@@ -245,7 +245,7 @@ const TeamLanding = () => {
           <svg width="100%" height="100%" viewBox="0 0 1200 600" preserveAspectRatio="none">
             {generateFlowingLines(
               70,
-              [theme.palette.secondary.main, theme.palette.primary.main, theme.palette.primary.light],
+              [theme.palette.primary.main, theme.palette.primary.dark],
               [12, 16, 20, 14, 18],
             )}
           </svg>
@@ -287,7 +287,7 @@ const TeamLanding = () => {
       <Box id="angorasix-action" data-animate className="team-angorasix-section">
         <Box className="gentle-flowing-pattern flowing-lines-soft">
           <svg width="100%" height="100%" viewBox="0 0 1200 600" preserveAspectRatio="none">
-            {generateFlowingLines(50, [theme.palette.secondary.main, theme.palette.primary.light2], [18, 22, 25, 20])}
+            {generateFlowingLines(50, [theme.palette.primary.light, theme.palette.primaryWithBlackContrast.dark], [18, 22, 25, 20])}
           </svg>
         </Box>
 
@@ -320,7 +320,7 @@ const TeamLanding = () => {
       <Box id="usecases" data-animate className="team-usecases-section">
         <Box className="gentle-flowing-pattern flowing-lines-minimal">
           <svg width="100%" height="100%" viewBox="0 0 1200 600" preserveAspectRatio="none">
-            {generateFlowingLines(30, [theme.palette.secondary.main, theme.palette.primary.light2], [20, 25, 30, 22])}
+            {generateFlowingLines(30, [], [20, 25, 30, 22])}
           </svg>
         </Box>
 
@@ -359,7 +359,7 @@ const TeamLanding = () => {
       <Box className="team-final-cta-section">
         <Box className="final-harmonic-pattern flowing-lines-strong">
           <svg width="100%" height="100%" viewBox="0 0 1200 400" preserveAspectRatio="none">
-            {generateFlowingLines(60, [theme.palette.secondary.main, theme.palette.primary.main2], [12, 16, 20, 14])}
+            {generateFlowingLines(60, [theme.palette.secondary.main, theme.palette.secondary.main], [12, 16, 20, 14])}
           </svg>
         </Box>
 
