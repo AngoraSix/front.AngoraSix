@@ -60,7 +60,7 @@
 }
 
 /* Section Backgrounds - Using our palette */
-.team-hero-section {
+.team-landing-page .team-hero-section {
   padding-top: 96px;
   padding-bottom: 64px;
   background: linear-gradient(135deg, #030D16 0%, #0F2F4D 100%);
@@ -238,7 +238,7 @@
 }
 
 .problems-subtitle {
-  color: #7d99ba !important;
+  color: #1B5993 !important;
   max-width: 600px;
   margin: 0 auto;
 }
@@ -250,19 +250,14 @@
 
 .problem-item {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 24px;
   margin-bottom: 32px;
   padding: 24px;
   border-radius: 12px;
   background-color: white;
-  border: 2px solid #dce7ea;
+  border: 2px solid #1B5993;
   transition: all 0.3s ease;
-}
-
-.problem-item:hover {
-  transform: translateX(10px);
-  background-color: rgba(220, 231, 234, 0.15);
 }
 
 .problem-item:hover .problem-check {
@@ -270,16 +265,15 @@
   transform: scale(1.1);
 }
 
-.problem-check {
+.team-landing-page .problem-check {
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background-color: #dce7ea;
+  background-color: #1B5993;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  margin-top: 4px;
   transition: all 0.3s ease;
 }
 
@@ -421,7 +415,7 @@
 }
 
 .angorasix-action-subtitle {
-  color: #7d99ba !important;
+  color: #1B5993 !important;
   max-width: 600px;
   margin: 0 auto 48px auto;
 }
@@ -523,7 +517,7 @@
 }
 
 .use-case-card-description {
-  color: #7d99ba !important;
+  color: #1B5993 !important;
   line-height: 1.6 !important;
 }
 

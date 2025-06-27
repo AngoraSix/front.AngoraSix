@@ -236,17 +236,15 @@ const CooperativeLanding = ({ translationKey }) => {
                 <Box
                   sx={{
                     display: "flex",
-                    alignItems: "flex-start",
+                    alignItems: "center",
                     gap: 3,
                     mb: 4,
                     p: 3,
                     borderRadius: 3,
                     backgroundColor: "white",
-                    border: `2px solid ${theme.palette.primary.light2}`,
+                    border: `2px solid ${theme.palette.primary.light}`,
                     transition: "all 0.3s ease",
                     "&:hover": {
-                      transform: "translateX(10px)",
-                      backgroundColor: `${theme.palette.primary.light2}15`,
                       "& .problem-check": {
                         backgroundColor: theme.palette.secondary.main,
                         transform: "scale(1.1)",
@@ -260,12 +258,11 @@ const CooperativeLanding = ({ translationKey }) => {
                       width: 24,
                       height: 24,
                       borderRadius: "50%",
-                      backgroundColor: theme.palette.primary.light2,
+                      backgroundColor: theme.palette.primary.light,
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
                       flexShrink: 0,
-                      mt: 0.5,
                       transition: "all 0.3s ease",
                       "&::after": {
                         content: '"!"',

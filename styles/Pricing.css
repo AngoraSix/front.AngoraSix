@@ -27,10 +27,11 @@
 
 .pricing-hero-subtitle {
   font-size: 1.25rem !important;
-  color: #64748b !important;
+  color: #1B5993 !important;
   font-weight: 400 !important;
   max-width: 600px;
   margin: 0 auto;
+  width: 100%;
 }
 
 /* ===== BETA PROGRAM PANEL ===== */
@@ -74,6 +75,7 @@
   font-size: 1.1rem !important;
   margin-bottom: 30px !important;
   max-width: 700px;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -243,13 +245,13 @@
 }
 
 .pricing-price-subtitle {
-  color: #64748b !important;
+  color: #1B5993 !important;
   margin-top: 8px !important;
   font-size: 0.95rem !important;
 }
 
 .pricing-price-period {
-  color: #64748b !important;
+  color: #1B5993 !important;
   margin-top: 5px !important;
 }
 
