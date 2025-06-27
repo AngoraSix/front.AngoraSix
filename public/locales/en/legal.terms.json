@@ -1,0 +1,40 @@
+{
+  "page": {
+    "title": "AngoraSix — Terms and Conditions",
+    "description": "Read the Terms and Conditions for using AngoraSix, including details about our free plans and the Beta Program."
+  },
+  "title": "AngoraSix Terms and Conditions",
+  "lastUpdated": "Last updated: June 2025",
+  "section1": {
+    "title": "1. Acceptance of Terms",
+    "content": "By accessing and using AngoraSix, you agree to be bound by these Terms and Conditions. If you do not agree with any part of these terms, please do not use the service."
+  },
+  "section2": {
+    "title": "2. Registration and Account",
+    "content": "To access certain features, you must register for an account. You are responsible for: providing accurate, up-to-date, and complete information; keeping your credentials confidential; and notifying us of any unauthorized use of your account."
+  },
+  "section3": {
+    "title": "3. Plans and Free Access",
+    "content": "AngoraSix currently offers: a Free Plan with permanent access at no cost, and a Plus Plan (Beta Program) available exclusively to selected users, offering full access free of charge for a limited period. We may modify pricing, plans, or conditions in the future, with prior notice to affected users."
+  },
+  "section4": {
+    "title": "4. Use of the Service",
+    "content": "You may use AngoraSix only for lawful purposes and in a way that respects the rights of others. You agree not to: upload illegal, offensive, or harmful content; interfere with the operation of the system or other users; or bypass security or authentication mechanisms."
+  },
+  "section5": {
+    "title": "5. Privacy and Communications",
+    "content": "We collect basic information (such as your name and email) to manage your account and send communications. We use Mailchimp to deliver newsletters and updates. For more information, please refer to our Privacy Policy."
+  },
+  "section6": {
+    "title": "6. Beta User Program (Plus Plan)",
+    "content": "The Beta Program offers free access to the Plus Plan for an initial period of three (3) months. This access: does not imply any payment obligation; does not guarantee continued access (it may be revoked, restricted, or extended at any time without prior notice); does not require you to provide feedback (though it is appreciated); and does not include guaranteed functionality or priority support. We may accept new participants at any time without disclosing our selection criteria. Availability is limited and selection is at our sole discretion."
+  },
+  "section7": {
+    "title": "7. Changes to Terms",
+    "content": "We reserve the right to update these terms at any time. In case of significant changes, we will notify users by email or via the platform. Continued use of AngoraSix implies acceptance of the updated terms."
+  },
+  "section8": {
+    "title": "8. Contact",
+    "content": "For questions regarding these terms or the Beta Program, please contact us at: team@angorasix.com"
+  }
+}

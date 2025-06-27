@@ -1,0 +1,74 @@
+{
+  "page": {
+    "title": "AngoraSix — Una nueva gestión: proyectos auto-administrados con control total",
+    "description": "Definí las reglas y delegá sin complicaciones — nuestro marco de gestión descentralizada se encarga de todo con transparencia, para que no tengas que ocuparte de los detalles."
+  },
+  "hero": {
+    "title": {
+      "part1": "Una nueva gestión: proyectos auto-administrados ",
+      "highlight": "con control total"
+    },
+    "subtitle": "Definí las reglas y delegá sin complicaciones — nuestro marco de gestión descentralizada se encarga de todo con transparencia, para que no tengas que ocuparte de los detalles.",
+    "cta": "Empezá gratis",
+    "subtitle2": "Administrá sin supervisar"
+  },
+  "problems": {
+    "title": "¿Te suena familiar?",
+    "subtitle": "Los desafíos más comunes de la gestión tradicional",
+    "delegation": "Quiero enfocarme en lo importante, pero delegar sólo me suma más trabajo.",
+    "trust": "No puedo desentenderme del todo, no puede quedar todo centralizado en una sola persona",
+    "ai": "Sé que la IA puede ayudarme, pero me faltan herramientas claras para empezar.",
+    "transparency": "No puedo soltar la gestión sin perder control sobre los fondos.",
+    "automation": "Quiero eficiencia, pero no tengo ni el tiempo ni el presupuesto para sistemas a medida."
+  },
+  "solutions": {
+    "title": "Tu solución integral",
+    "subtitle": "Gestión descentralizada con control total",
+    "workBag": {
+      "title": "Sub-proyectos con reglas claras",
+      "description": "Definís una bolsa de trabajo, establecés las reglas de pago por tarea, y el equipo puede autoadministrarse con el acompañamiento de AngoraSix."
+    },
+    "blockchain": {
+      "title": "Cuenta multi-firma sobre blockchain",
+      "description": "A partir de las tareas realizadas y las reglas definidas, la plataforma calcula los pagos, vos los aprobás y te despreocupás. Transparencia total y seguridad garantizada."
+    },
+    "aiAssistant": {
+      "title": "Asistente IA para gestión",
+      "description": "Te ayuda a configurar reglas, detectar gastos inusuales, enviar alertas y generar reportes automáticos para facilitar tu seguimiento."
+    },
+    "motivation": {
+      "title": "Equipo motivado y comprometido",
+      "description": "Personas más comprometidas al tener autonomía real y ver con claridad el beneficio directo de su trabajo. Podés pagar con participación de ganancias futuras."
+    }
+  },
+  "angorasixInAction": {
+    "title": "Descubrí AngoraSix",
+    "subtitle": "Conocé cómo simplificamos la gestión de proyectos colaborativos."
+  },
+  "useCases": {
+    "title": "¿Quién puede beneficiarse?",
+    "entrepreneur": {
+      "title": "Emprendedor con equipo",
+      "description": "Querés delegar tareas operativas sin perder visibilidad ni control sobre las decisiones y los pagos.",
+      "quote": "Ahora puedo enfocarme en lo estratégico mientras mi equipo se autogestiona."
+    },
+    "founder": {
+      "title": "Fundador de startup",
+      "description": "Necesitás escalar con eficiencia, motivando a tu equipo sin depender de rondas de inversión.",
+      "quote": "Ganamos agilidad, y el equipo está motivado trabajando por profit shares."
+    },
+    "director": {
+      "title": "Director de proyecto",
+      "description": "Buscás automatizar procesos con IA, optimizar recursos y mantener siempre el control final.",
+      "quote": "La IA me ayuda a gestionar y delegar con confianza, sin perder el control"
+    }
+  },
+  "finalCta": {
+    "title": {
+      "part1": "Llevá tu gestión al siguiente nivel",
+      "highlight": "con control total y sin fricciones"
+    },
+    "subtitle": "Implementá una forma innovadora de delegar tareas, con reglas claras, control de gastos y transparencia desde el inicio.",
+    "cta": "Probar gratis"
+  }
+}

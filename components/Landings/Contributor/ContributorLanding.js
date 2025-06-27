@@ -1,24 +1,25 @@
 "use client"
 
 import {
-  WorkOutline,
   FavoriteBorder as FavoriteOutlined,
-  TrendingUp,
-  WorkspacePremium,
-  Public,
   Handshake,
+  Public,
   Security,
+  TrendingUp,
+  WorkOutline,
+  WorkspacePremium,
 } from "@mui/icons-material"
-import { Box, Button, Container, Grid, Typography, useMediaQuery, useTheme, Fade, Grow } from "@mui/material"
+import { Box, Button, Container, Fade, Grid, Grow, Typography, useTheme } from "@mui/material"
 import { useTranslation } from "next-i18next"
 import Head from "next/head"
 import { useRouter } from "next/router"
-import { useState, useEffect } from "react"
+import { useEffect, useState } from "react"
+import config from "../../../config"
 import { trackLandingCTAClick } from "../../../utils/analytics"
 import SharedNavbar from "../../common/SharedNavbar"
 
-const ContributorLanding = () => {
-  const { t } = useTranslation("welcome.contributor")
+const ContributorLanding = ({ translationKey }) => {
+  const { t } = useTranslation(translationKey)
   const theme = useTheme()
   const router = useRouter()
   const [visibleSections, setVisibleSections] = useState({})
@@ -48,7 +49,7 @@ const ContributorLanding = () => {
     // Track CTA click before redirect
     trackLandingCTAClick("contributor", ctaText)
 
-    router.push("/welcome/post-registration")
+    router.push("/welcome/post-registration?for=contributor")
   }
 
   const problems = [
@@ -144,20 +145,16 @@ const ContributorLanding = () => {
         <title>{t("page.title")}</title>
         <meta name="description" content={t("page.description")} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </Head>
 
-      <SharedNavbar variant="contributor" />
+        <meta property="og:title" key="og.title" content={t("page.title")} />
+        <meta property="og:description" key="og.description" content={t("page.description")} />
+        <meta property="og:image" key="og.image" content={config.site.head.image.logoDark} />
+        <meta property="og:url" key="og.url" content="https://angorasix.com/welcome/contributor" />
+        <meta property="og:type" key="og.type" content="website" />
+      </Head>
 
       {/* Hero Section - Dark Gradient + Strong Tunnel */}
       <Box className="contributor-hero-section">
-        <div className="tunnel-container tunnel-strong">
-          <div className="tunnel-circle tunnel-circle-1"></div>
-          <div className="tunnel-circle tunnel-circle-2"></div>
-          <div className="tunnel-circle tunnel-circle-3"></div>
-          <div className="tunnel-circle tunnel-circle-4"></div>
-          <div className="tunnel-circle tunnel-circle-5"></div>
-        </div>
-
         <Container className="contributor-landing-container" maxWidth="lg">
           <Box sx={{ textAlign: "center", position: "relative", zIndex: 1 }}>
             <Fade in timeout={1000}>
@@ -227,12 +224,6 @@ const ContributorLanding = () => {
 
       {/* Problems Section - White + Subtle Tunnel */}
       <Box id="problems" data-animate className="contributor-problems-section">
-        <div className="tunnel-container tunnel-subtle">
-          <div className="tunnel-circle tunnel-circle-1"></div>
-          <div className="tunnel-circle tunnel-circle-2"></div>
-          <div className="tunnel-circle tunnel-circle-3"></div>
-        </div>
-
         <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
           <Fade in={visibleSections.problems} timeout={1000}>
             <Box sx={{ textAlign: "center", mb: 6 }}>
@@ -259,17 +250,15 @@ const ContributorLanding = () => {
                 <Box
                   sx={{
                     display: "flex",
-                    alignItems: "flex-start",
+                    alignItems: "center",
                     gap: 3,
                     mb: 4,
                     p: 3,
                     borderRadius: 3,
                     backgroundColor: "white",
-                    border: `2px solid ${theme.palette.primary.light2}`,
+                    border: `2px solid ${theme.palette.primary.light}`,
                     transition: "all 0.3s ease",
                     "&:hover": {
-                      transform: "translateX(10px)",
-                      backgroundColor: `${theme.palette.primary.light2}15`,
                       "& .problem-check": {
                         backgroundColor: theme.palette.secondary.main,
                         transform: "scale(1.1)",
@@ -283,12 +272,11 @@ const ContributorLanding = () => {
                       width: 24,
                       height: 24,
                       borderRadius: "50%",
-                      backgroundColor: theme.palette.primary.light2,
+                      backgroundColor: theme.palette.primary.light,
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
                       flexShrink: 0,
-                      mt: 0.5,
                       transition: "all 0.3s ease",
                       "&::after": {
                         content: '"!"',
@@ -317,14 +305,6 @@ const ContributorLanding = () => {
 
       {/* Solutions Section - Light Gradient + Medium Tunnel */}
       <Box id="solutions" data-animate className="contributor-solutions-section">
-        <div className="tunnel-container tunnel-medium">
-          <div className="tunnel-circle tunnel-circle-1"></div>
-          <div className="tunnel-circle tunnel-circle-2"></div>
-          <div className="tunnel-circle tunnel-circle-3"></div>
-          <div className="tunnel-circle tunnel-circle-4"></div>
-          <div className="tunnel-circle tunnel-circle-5"></div>
-        </div>
-
         <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
           <Fade in={visibleSections.solutions} timeout={1000}>
             <Box sx={{ textAlign: "center", mb: 8 }}>
@@ -398,12 +378,6 @@ const ContributorLanding = () => {
 
       {/* AngoraSix in Action Section - Light Blue + Soft Tunnel */}
       <Box id="angorasix-action" data-animate className="contributor-angorasix-section">
-        <div className="tunnel-container tunnel-soft">
-          <div className="tunnel-circle tunnel-circle-1"></div>
-          <div className="tunnel-circle tunnel-circle-2"></div>
-          <div className="tunnel-circle tunnel-circle-3"></div>
-        </div>
-
         <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
           <Fade in={visibleSections["angorasix-action"]} timeout={1000}>
             <Box sx={{ textAlign: "center", mb: 6 }}>
@@ -459,11 +433,6 @@ const ContributorLanding = () => {
 
       {/* Use Cases Section - White + Minimal Tunnel */}
       <Box id="usecases" data-animate className="contributor-usecases-section">
-        <div className="tunnel-container tunnel-minimal">
-          <div className="tunnel-circle tunnel-circle-1"></div>
-          <div className="tunnel-circle tunnel-circle-2"></div>
-        </div>
-
         <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
           <Fade in={visibleSections.usecases} timeout={1000}>
             <Box sx={{ textAlign: "center", mb: 8 }}>
@@ -566,14 +535,6 @@ const ContributorLanding = () => {
 
       {/* Final CTA - Dark Gradient + Strong Tunnel */}
       <Box className="contributor-final-cta-section">
-        <div className="tunnel-container tunnel-strong">
-          <div className="tunnel-circle tunnel-circle-1"></div>
-          <div className="tunnel-circle tunnel-circle-2"></div>
-          <div className="tunnel-circle tunnel-circle-3"></div>
-          <div className="tunnel-circle tunnel-circle-4"></div>
-          <div className="tunnel-circle tunnel-circle-5"></div>
-        </div>
-
         <Container maxWidth="md">
           <Box sx={{ textAlign: "center", position: "relative", zIndex: 1 }}>
             <Typography

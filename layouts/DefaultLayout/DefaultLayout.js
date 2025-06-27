@@ -28,7 +28,7 @@ const DefaultLayout = ({ children, className, headData, contained = true }) => {
           property="og:image"
           itemProp="image"
           key="og.image"
-          content={head.image.logo}
+          content={head.image.logoDark}
         />
       </Head>
       {typeof window !== 'undefined' && !window.opener && <Navbar />}

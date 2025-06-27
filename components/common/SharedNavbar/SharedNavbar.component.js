@@ -24,8 +24,9 @@ import Link from "next/link"
 import { useRouter } from "next/router"
 import { useState } from "react"
 import config from "../../../config"
+import { ROUTES } from '../../../constants/constants'
 
-const SharedNavbar = ({ variant = "default" }) => {
+const SharedNavbar = ({ forProfile }) => {
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down("md"))
   const { data: session } = useSession()
@@ -56,6 +57,10 @@ const SharedNavbar = ({ variant = "default" }) => {
 
   const otherLocales = locales?.filter((l) => l !== locale) || []
 
+  const resolveNavigationHref = (href, forProfileValue) => {
+    return forProfileValue ? `${href}?for=${forProfileValue}` : href;
+  }
+
   // Define navigation items based on variant
   const getNavigationItems = () => {
     const baseItems = [
@@ -69,8 +74,8 @@ const SharedNavbar = ({ variant = "default" }) => {
       },
     ]
 
-    return session ? 
-    [
+    return session ?
+      [
         {
           href: "/welcome/post-registration",
           label: t("navbar.shared.access"),
@@ -80,13 +85,14 @@ const SharedNavbar = ({ variant = "default" }) => {
   }
 
   const navigationItems = getNavigationItems()
-  const logoHref = variant === "team" ? "/welcome/venture" : "/"
+
+  const rootHref = ROUTES.welcome[forProfile || "root"] || "/"
 
   return (
     <AppBar
       position="fixed"
       sx={{
-        background: "linear-gradient(135deg, rgba(10, 34, 57, 0.95) 0%, rgba(27, 89, 147, 0.95) 100%)",
+        background: "linear-gradient(135deg, #030D16 0%, #0F2F4D 100%)",
         backdropFilter: "blur(20px)",
         borderBottom: "1px solid rgba(220, 231, 234, 0.1)",
         boxShadow: "0 4px 20px rgba(0, 0, 0, 0.15)",
@@ -96,7 +102,7 @@ const SharedNavbar = ({ variant = "default" }) => {
       <Container maxWidth="lg">
         <Toolbar sx={{ justifyContent: "space-between", py: 1, minHeight: "70px" }}>
           {/* Logo */}
-          <Link href={logoHref} style={{ textDecoration: "none" }}>
+          <Link href={rootHref} style={{ textDecoration: "none" }}>
             <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
               <Box sx={{ position: "relative", width: 40, height: 40 }}>
                 <Image
@@ -127,7 +133,7 @@ const SharedNavbar = ({ variant = "default" }) => {
             <Box sx={{ display: "flex", alignItems: "center", gap: 3 }}>
               {/* Navigation Links */}
               {navigationItems.map((item) => (
-                <Link href={item.href} style={{ textDecoration: "none" }} key={item.href}>
+                <Link href={resolveNavigationHref(item.href, forProfile)} style={{ textDecoration: "none" }} key={item.href}>
                   <Button
                     sx={{
                       textTransform: "none",
@@ -182,7 +188,7 @@ const SharedNavbar = ({ variant = "default" }) => {
                     transformOrigin={{ vertical: "top", horizontal: "right" }}
                     PaperProps={{
                       sx: {
-                        background: "linear-gradient(135deg, #0A2239 0%, #1B5993 100%)",
+                        background: "linear-gradient(135deg, #0A2239 0%, #0F2F4D 100%)",
                         border: "1px solid rgba(220, 231, 234, 0.2)",
                         borderRadius: "12px",
                         backdropFilter: "blur(10px)",
@@ -241,7 +247,7 @@ const SharedNavbar = ({ variant = "default" }) => {
                     transformOrigin={{ vertical: "top", horizontal: "right" }}
                     PaperProps={{
                       sx: {
-                        background: "linear-gradient(135deg, #0A2239 0%, #1B5993 100%)",
+                        background: "linear-gradient(135deg, #0A2239 0%, #0F2F4D 100%)",
                         border: "1px solid rgba(220, 231, 234, 0.2)",
                         borderRadius: "12px",
                         backdropFilter: "blur(10px)",
@@ -316,7 +322,7 @@ const SharedNavbar = ({ variant = "default" }) => {
                     onClose={handleCloseLanguageMenu}
                     PaperProps={{
                       sx: {
-                        background: "linear-gradient(135deg, #0A2239 0%, #1B5993 100%)",
+                        background: "linear-gradient(135deg, #0A2239 0%, #0F2F4D 100%)",
                         border: "1px solid rgba(220, 231, 234, 0.2)",
                         borderRadius: "12px",
                         backdropFilter: "blur(10px)",
@@ -364,7 +370,7 @@ const SharedNavbar = ({ variant = "default" }) => {
                 transformOrigin={{ vertical: "top", horizontal: "right" }}
                 PaperProps={{
                   sx: {
-                    background: "linear-gradient(135deg, #0A2239 0%, #1B5993 100%)",
+                    background: "linear-gradient(135deg, #0A2239 0%, #0F2F4D 100%)",
                     border: "1px solid rgba(220, 231, 234, 0.2)",
                     borderRadius: "12px",
                     backdropFilter: "blur(10px)",
@@ -373,7 +379,7 @@ const SharedNavbar = ({ variant = "default" }) => {
                 }}
               >
                 {navigationItems.map((item) => (
-                  <Link href={item.href} style={{ textDecoration: "none", color: "inherit" }} key={item.href}>
+                  <Link href={resolveNavigationHref(item.href, forProfile)} style={{ textDecoration: "none", color: "inherit" }} key={item.href}>
                     <MenuItem
                       onClick={handleCloseNavMenu}
                       sx={{

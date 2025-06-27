@@ -1,48 +1,49 @@
 "use client"
-import { useSession, signIn } from "next-auth/react"
-import { useTranslation } from "next-i18next"
-import { useRouter } from "next/router"
-import Head from "next/head"
+import {
+  AutoAwesome,
+  Check,
+  Handshake,
+  RocketLaunch,
+  Science,
+  Star,
+  Support,
+  TrendingUp,
+  Verified,
+} from "@mui/icons-material" // Added Handshake icon
 import {
   Box,
-  Typography,
   Button,
-  Container,
-  Grid,
   Card,
-  CardContent,
   CardActions,
+  CardContent,
   Chip,
+  Container,
+  Divider,
+  Grid,
   List,
   ListItem,
   ListItemIcon,
   ListItemText,
-  Divider,
+  Typography,
   useMediaQuery,
   useTheme,
 } from "@mui/material"
-import {
-  Check,
-  Star,
-  RocketLaunch,
-  AutoAwesome,
-  Science,
-  TrendingUp,
-  Support,
-  Verified,
-  Handshake,
-} from "@mui/icons-material" // Added Handshake icon
-import { Swiper, SwiperSlide } from "swiper/react"
-import { Navigation, Pagination } from "swiper/modules"
+import { signIn, useSession } from "next-auth/react"
+import { useTranslation } from "next-i18next"
+import Head from "next/head"
+import { useRouter } from "next/router"
 import "swiper/css"
 import "swiper/css/navigation"
 import "swiper/css/pagination"
+import { Navigation, Pagination } from "swiper/modules"
+import { Swiper, SwiperSlide } from "swiper/react"
+import config from "../../config"
 import { ROUTES } from "../../constants/constants"
 import {
-  trackFreePlanClick,
-  trackPlusPlanClick,
   trackBetaProgramClick,
   trackCustomPlanClick,
+  trackFreePlanClick,
+  trackPlusPlanClick,
 } from "../../utils/analytics" // Added trackCustomPlanClick
 
 const PricingComponent = () => {
@@ -231,6 +232,12 @@ const PricingComponent = () => {
       <Head>
         <title>{t("page.title")}</title>
         <meta name="description" content={t("page.description")} />
+
+        <meta property="og:title" key="og.title" content={t("page.title")} />
+        <meta property="og:description" key="og.description" content={t("page.description")} />
+        <meta property="og:image" key="og.image" content={config.site.head.image.logoDark} />
+        <meta property="og:url" key="og.url" content="https://angorasix.com/pricing" />
+        <meta property="og:type" key="og.type" content="website" />
       </Head>
 
       <Box className="pricing-page">
@@ -277,6 +284,13 @@ const PricingComponent = () => {
               <Button variant="contained" size="large" onClick={handleBetaProgram} className="beta-panel-cta">
                 {t("betaProgram.cta")}
               </Button>
+              <Typography
+                variant="caption"
+                color="primary.contrastText"
+                sx={{ mt: 1, display: "block", textAlign: "center" }}
+              >
+                {t("betaProgram.limitedSpots")}
+              </Typography>
             </Box>
           </Box>
 

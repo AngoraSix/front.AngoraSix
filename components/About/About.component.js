@@ -31,6 +31,7 @@ import {
 } from "@mui/material"
 import { useTranslation } from "next-i18next"
 import Head from "next/head"
+import config from "../../config"
 import { THIRD_PARTY } from "../../constants/constants"
 import { useInView } from "../../hooks/useInViews"
 import { trackLandingCTAClick } from "../../utils/analytics"
@@ -135,6 +136,12 @@ const AboutComponent = () => {
       <Head>
         <title>{t("page.title")}</title>
         <meta name="description" content={t("page.description")} />
+
+        <meta property="og:title" key="og.title" content={t("page.title")} />
+        <meta property="og:description" key="og.description" content={t("page.description")} />
+        <meta property="og:image" key="og.image" content={config.site.head.image.logoDark} />
+        <meta property="og:url" key="og.url" content="https://angorasix.com/about" />
+        <meta property="og:type" key="og.type" content="website" />
       </Head>
       <Box className="about-page">
         {/* Hero Section */}
@@ -187,8 +194,8 @@ const AboutComponent = () => {
                   <Typography
                     variant="body1"
                     sx={{
-                      backgroundColor: "rgba(254, 95, 85, 0.1)",
-                      color: "#FE5F55",
+                      color: "#0A2239",
+                      backgroundColor: "#DCE7EA",
                       p: 2,
                       borderRadius: "8px",
                       fontWeight: "medium",
@@ -287,7 +294,7 @@ const AboutComponent = () => {
                 <Typography variant="h6" sx={{ color: "text.secondary", maxWidth: 800, mx: "auto", mb: 2 }}>
                   {t("community.subtitle")}
                 </Typography>
-                <Typography variant="body1" sx={{ color: "#FE5F55", fontWeight: "bold", fontSize: "1.1rem" }}>
+                <Typography variant="body1" sx={{ color: "#1B5993", fontWeight: "bold", fontSize: "1.1rem" }}>
                   {t("community.philosophy")}
                 </Typography>
               </Box>
@@ -308,14 +315,14 @@ const AboutComponent = () => {
                               height: 80,
                               mx: "auto",
                               mb: 2,
-                              border: "3px solid #1B5993",
+                              border: "3px solid #FE5F55",
                             }}
                           />
                         </Box>
                         <Typography variant="h6" sx={{ mb: 1, fontWeight: "bold", fontSize: "1rem" }}>
                           {member.name}
                         </Typography>
-                        <Typography variant="subtitle2" sx={{ mb: 2, color: "#FE5F55", fontWeight: "medium" }}>
+                        <Typography variant="subtitle2" sx={{ mb: 2, color: "#1B5993", fontWeight: "medium" }}>
                           {member.role}
                         </Typography>
                         <Typography variant="body2" sx={{ color: "text.secondary", lineHeight: 1.5, mb: 2 }}>

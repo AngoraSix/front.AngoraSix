@@ -15,7 +15,8 @@
       "evolution": "Participación en la evolución del sistema",
       "priority": "Prioridad para nuevas funciones y soporte"
     },
-    "cta": "Postularme al programa Beta"
+    "cta": "Postularme al programa Beta",
+    "limitedSpots": "Cupos limitados."
   },
   "plans": {
     "free": {
@@ -24,11 +25,11 @@
       "period": "Gratis para siempre. Ideal para empezar sin complicaciones.",
       "cta": "Empezar gratis",
       "features": {
-        "contributors": "Hasta 4 colaboradores activos",
+        "contributors": "Hasta 3 colaboradores activos",
         "tasks": "Registro ilimitado de tareas y aportes",
         "notifications": "Definición clara de las reglas del proyecto",
         "support": "Seguimiento de ownership y cuentas monetarias",
-        "workspace": "1 proyecto incluido"
+        "workspace": "Soporte para 1 proyecto"
       }
     },
     "plus": {
@@ -40,25 +41,25 @@
       "cta": "Acceder como Beta",
       "features": {
         "all": "Todo lo incluido en el plan Free",
-        "unlimited": "Hasta 30 colaboradores y 5 proyectos",
+        "unlimited": "Hasta 12 colaboradores y 2 proyectos",
         "ai": "Asistente inteligente para facilitar decisiones y organización",
         "tracking": "Reglas y aportes vinculados a wallet compartida",
         "integrations": "Posibilidad de respaldar reglas con blockchain",
         "workflows": "Prioridad en conexiones y búsquedas de proyectos",
         "support": "Soporte humano personalizado"
       }
-      },
-      "custom": {
-        "title": "Custom",
-        "price": "Consultá",
-        "cta": "Hablemos",
-        "features": {
-          "all": "Incluye todas las funcionalidades del plan Plus",
-          "tailored": "Soluciones personalizadas para tu equipo o proyecto",
-          "dedicated": "Horas de asesoramiento personalizado incluidas",
-          "advanced": "Reportes y análisis sobre tu mercado o sector",
-          "enterprise": "Beneficios y descuentos exclusivos con herramientas del ecosistema AngoraSix"
-        }
+    },
+    "custom": {
+      "title": "Custom",
+      "price": "Consultá",
+      "cta": "Hablemos",
+      "features": {
+        "all": "Incluye todas las funcionalidades del plan Plus",
+        "tailored": "Soluciones personalizadas para tu equipo o proyecto",
+        "dedicated": "Horas de asesoramiento personalizado incluidas",
+        "advanced": "Reportes y análisis sobre tu mercado o sector",
+        "enterprise": "Beneficios y descuentos exclusivos con herramientas del ecosistema AngoraSix"
       }
+    }
   }
 }

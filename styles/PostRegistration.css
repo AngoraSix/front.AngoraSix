@@ -1,7 +1,7 @@
 /* Post Registration Landing - Fixed Layout with Proper Spacing */
 .post-registration-landing {
   min-height: 100vh;
-  background: linear-gradient(135deg, #0a2239 0%, #1b5993 100%);
+  background: linear-gradient(135deg, #030D16 0%, #0F2F4D 100%);
   position: relative;
   overflow-x: hidden;
   display: flex;
@@ -203,7 +203,7 @@
 
 /* Beta Countdown - Smaller */
 .post-registration-landing .beta-countdown {
-  background: linear-gradient(135deg, #1b5993 0%, #0a2239 100%);
+  background: linear-gradient(135deg, #0F2F4D 0%, #030D16 100%);
   border-radius: 12px;
   padding: 1rem;
   margin: 1rem 0;
@@ -790,5 +790,18 @@ Add this block at the end of the file or near .tool-card styles: */
 
   .contact-method-card {
     min-height: 80px;
+  }
+}
+
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+
+  .flowing-lines path {
+    animation: none;
+  }
+
+  .post-registration-landing .welcome-section {
+    animation: none;
   }
 }

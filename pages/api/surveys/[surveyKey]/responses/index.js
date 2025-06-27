@@ -26,7 +26,7 @@ const page = async (req, res) => {
         } catch (err) {
             const errorMessage = `Error retrieving Survey [${req.method}]`,
                 internalServerErr = new InternalServerError(errorMessage, "SURVEY_RESPONSE_FETCH")
-            logger.error(errorMessage, typeof err === "object" && (!err) instanceof Error ? JSON.stringify(err) : err)
+            // logger.error(errorMessage, typeof err === "object" && (!err) instanceof Error ? JSON.stringify(err) : err)
             res.status(internalServerErr.status).json(internalServerErr.asObject())
         }
     } else {

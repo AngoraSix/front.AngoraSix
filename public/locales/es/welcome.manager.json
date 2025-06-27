@@ -1,21 +1,21 @@
 {
   "page": {
-    "title": "AngoraSix — Una nueva gestión: proyectos auto-administrados con control total",
-    "description": "Definí las reglas y delegá sin complicaciones — nuestro marco de gestión descentralizada se encarga de todo con transparencia, para que no tengas que ocuparte de los detalles."
+    "title": "AngoraSix — Delegá sin perder el control. Todo bajo tus reglas.",
+    "description": "Definí objetivos, reglas y condiciones. AngoraSix se encarga de que tu equipo se auto-organice, pero vos tenés la última palabra."
   },
   "hero": {
     "title": {
-      "part1": "Una nueva gestión: proyectos auto-administrados ",
-      "highlight": "con control total"
+      "part1": "Delegá sin perder el control.",
+      "highlight": "Todo bajo tus reglas"
     },
-    "subtitle": "Definí las reglas y delegá sin complicaciones — nuestro marco de gestión descentralizada se encarga de todo con transparencia, para que no tengas que ocuparte de los detalles.",
+    "subtitle": "Definí objetivos, reglas y condiciones. AngoraSix se encarga de que tu equipo se auto-organice, pero vos tenés la última palabra.",
     "cta": "Empezá gratis",
-    "subtitle2": "Administrá sin supervisar"
+    "subtitle2": "Delegá con eficiencia y claridad."
   },
   "problems": {
     "title": "¿Te suena familiar?",
     "subtitle": "Los desafíos más comunes de la gestión tradicional",
-    "delegation": "Quiero enfocarme en lo importante, pero delegar solo me suma más trabajo.",
+    "delegation": "Quiero enfocarme en lo importante, pero delegar sólo me suma más trabajo.",
     "trust": "No puedo desentenderme del todo, no puede quedar todo centralizado en una sola persona",
     "ai": "Sé que la IA puede ayudarme, pero me faltan herramientas claras para empezar.",
     "transparency": "No puedo soltar la gestión sin perder control sobre los fondos.",

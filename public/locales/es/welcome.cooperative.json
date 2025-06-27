@@ -1,15 +1,15 @@
 {
   "page": {
-    "title": "AngoraSix — Que emprender signifique algo",
-    "description": "Un camino alternativo para llevar adelante tu idea. Colaborativamente, descentralizado, usando un modelo de gestión abierto y tecnología de próxima generación."
+    "title": "AngoraSix — Unite a un nuevo modelo de creación — cooperativo y descentralizado.",
+    "description": "Sumate a una comunidad que impulsa otra forma de emprender: sin jerarquías, con reglas claras, participación real y herramientas abiertas para crear colectivamente y con propósito."
   },
   "hero": {
     "title": {
-      "part1": "Que emprender",
-      "highlight": "signifique algo"
+      "part1": "Unite a un nuevo modelo de creación —",
+      "highlight": "cooperativo y descentralizado"
     },
-    "subtitle": "Un camino alternativo para llevar adelante tu idea. Colaborativamente, descentralizado, usando un modelo de gestión abierto y tecnología de próxima generación.",
-    "subtitle2": "Sumate a quienes ya están construyendo el futuro. Con herramientas reales. Con propósito.",
+    "subtitle": "Sumate a una comunidad que impulsa otra forma de emprender: sin jerarquías, con reglas claras, participación real y herramientas abiertas para crear colectivamente y con propósito.",
+    "subtitle2": "Otra forma de emprender es posible — encontrala acá.",
     "cta": "Empezar a construir"
   },
   "problems": {

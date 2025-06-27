@@ -1,9 +1,14 @@
 {
+  "page": {
+    "title": "AngoraSix — No sólo crear. Creemos bien.",
+    "description": "El nuevo camino para llevar adelante tu idea. Colaborativamente, descentralizado, usando un modelo de gestión abierto y tecnología de próxima generación."
+  },
   "welcome": {
     "title": "Bienvenido a AngoraSix",
     "subtitle": "¿Cuál es tu camino para crear con propósito?",
     "exploreOptions": "AngoraSix te acompaña",
-    "chooseYourPath": "No solo crear. Creemos bien."
+    "chooseYourPath": "No sólo crear. Creemos bien.",
+    "access": "Accesso"
   },
   "paths": {
     "manager": {

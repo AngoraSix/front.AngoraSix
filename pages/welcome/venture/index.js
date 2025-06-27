@@ -4,8 +4,8 @@ import LandingLayout from "../../../layouts/LandingLayout"
 
 const TeamLandingPage = () => {
   return (
-    <LandingLayout>
-      <TeamLanding />
+    <LandingLayout forProfile="venture">
+      <TeamLanding translationKey="welcome.team"/>
     </LandingLayout>
   )
 }

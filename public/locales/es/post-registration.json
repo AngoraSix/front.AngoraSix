@@ -21,7 +21,8 @@
       "days": "Días",
       "hours": "Horas",
       "minutes": "Minutos",
-      "seconds": "Segundos"
+      "seconds": "Segundos",
+      "limitedSpots": "Cupos limitados."
     },
     "apply": "Postularse a Beta",
     "success": "¡Postulación enviada!",
@@ -54,7 +55,11 @@
       "expectationsPlaceholder": "Contanos tus expectativas, necesidades, visión, motivaciones, en qué tipo de proyectos trabajás, etc.",
       "contactMethod": "Además de recibir novedades por mail ¿Cómo preferís que te contactemos?",
       "contactValue": "Información de contacto",
-      "consent": "Acepto ser contactado/a con novedades del programa y noticias del proyecto"
+      "consentCheckboxLabel": {
+        "pre": "He leído y acepto los",
+        "linkText": "Términos y Condiciones del Programa Beta",
+        "post": "No implica ningún compromiso ni costo."
+      }
     },
     "profileTypes": {
       "projectOwner": {
@@ -71,7 +76,7 @@
       }
     },
     "projectStage": {
-      "idea": "Es solo una idea",
+      "idea": "Es sólo una idea",
       "buildingTeam": "Estoy armando el equipo",
       "working": "Ya estamos trabajando en el proyecto",
       "hasUsers": "El proyecto ya tiene usuarios/clientes",
@@ -136,7 +141,7 @@
       "currentWorkRequired": "Seleccioná tu situación laboral actual",
       "expectationsRequired": "Contanos tus expectativas",
       "contactValueRequired": "Completá tu información de contacto",
-      "consentRequired": "Debés aceptar ser contactado para participar del programa Beta"
+      "consentRequired": "Debes aceptar los términos y condiciones para participar en el programa beta."
     },
     "cancel": "Cancelar",
     "submit": "Enviar Postulación",

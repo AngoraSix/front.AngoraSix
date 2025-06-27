@@ -21,7 +21,8 @@
       "days": "Days",
       "hours": "Hours",
       "minutes": "Minutes",
-      "seconds": "Seconds"
+      "seconds": "Seconds",
+      "limitedSpots": "Limited spots available."
     },
     "apply": "Apply for Beta",
     "success": "Application Submitted!",
@@ -54,7 +55,11 @@
       "expectationsPlaceholder": "Tell us about your expectations, needs, vision, motivations, etc.",
       "contactMethod": "How would you prefer us to contact you?",
       "contactValue": "Contact information",
-      "consent": "I agree to be contacted with program updates and project news"
+      "consentCheckboxLabel": {
+        "pre": "I have read and accept the",
+        "linkText": "Beta Program Terms and Conditions",
+        "post": "It implies no commitment or cost."
+      }
     },
     "profileTypes": {
       "projectOwner": {
@@ -136,7 +141,7 @@
       "currentWorkRequired": "Please select your current work situation",
       "expectationsRequired": "Please tell us about your expectations",
       "contactValueRequired": "Please provide your contact information",
-      "consentRequired": "You must agree to be contacted to participate in the beta program"
+      "consentRequired": "You must accept the terms and conditions to participate in the beta program."
     },
     "cancel": "Cancel",
     "submit": "Submit Application",

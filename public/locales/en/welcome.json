@@ -1,9 +1,14 @@
 {
+  "page": {
+    "title": "AngoraSix — Don’t just build. Let’s build better.",
+    "description": "A real alternative to build with meaning. Collaborative, decentralized, leveraging open management models and next-gen technology."
+  },
   "welcome": {
     "title": "Welcome to AngoraSix",
     "subtitle": "What’s your path to building with purpose?",
     "exploreOptions": "AngoraSix is here for you",
-    "chooseYourPath": "Don’t just build. Let’s build better."
+    "chooseYourPath": "Don’t just build. Let’s build better.",
+    "access": "Access"
   },
   "paths": {
     "manager": {

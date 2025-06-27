@@ -37,6 +37,7 @@ import {
   Card,
   Checkbox,
   Chip,
+  CircularProgress,
   Container,
   Dialog,
   DialogActions,
@@ -61,6 +62,7 @@ import { useTranslation } from "next-i18next";
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import api from "../../api";
+import { ROUTES } from "../../constants/constants";
 import {
   trackBetaDialogOpen,
   trackBetaFormSubmit,
@@ -70,6 +72,7 @@ import {
 } from "../../utils/analytics";
 
 // Import SVG logos
+import Link from "next/link";
 import AsanaLogo from "../../public/logos/thirdparty/asana.svg";
 import ClickUpLogo from "../../public/logos/thirdparty/clickup.svg";
 import JiraLogo from "../../public/logos/thirdparty/jira.svg";
@@ -77,7 +80,8 @@ import NotionLogo from "../../public/logos/thirdparty/notion.svg";
 import SpreadsheetLogo from "../../public/logos/thirdparty/spreadsheet.svg";
 import TrelloLogo from "../../public/logos/thirdparty/trello.svg";
 
-const PostRegistration = ({ existingBetaApplication }) => {
+const PostRegistration = () => {
+  // Removed existingBetaApplication prop
   const { t } = useTranslation("post-registration")
   const { data: session, status } = useSession()
   const [email, setEmail] = useState("")
@@ -108,15 +112,16 @@ const PostRegistration = ({ existingBetaApplication }) => {
     expectations: "",
     contactMethod: "email",
     contactValue: "",
-    consent: false,
   })
   const [betaFormErrors, setBetaFormErrors] = useState({})
   const [isSubmittingBeta, setIsSubmittingBeta] = useState(false)
-  const [betaSubmitted, setBetaSubmitted] = useState(!!existingBetaApplication)
+  const [betaSubmitted, setBetaSubmitted] = useState(false) // Initialize as false
+  const [isLoadingBetaApplication, setIsLoadingBetaApplication] = useState(true) // New loading state
   const [showSuccessSnackbar, setShowSuccessSnackbar] = useState(false)
+  const [consentChecked, setConsentChecked] = useState(false); // New state for consent checkbox
 
   // Beta program launch date (30 days from now)
-  const betaLaunchDate = new Date('2025-08-18T00:00:00')
+  const betaLaunchDate = new Date("2025-08-18T00:00:00")
 
   // Profile type options
   const profileTypeOptions = [
@@ -253,6 +258,29 @@ const PostRegistration = ({ existingBetaApplication }) => {
     }
   }, [session, status])
 
+  // Client-side data fetching for existingBetaApplication
+  useEffect(() => {
+    const fetchBetaApplication = async () => {
+      if (status === "authenticated" && session?.user?.email) {
+        setIsLoadingBetaApplication(true)
+        try {
+          // This call will go to /api/surveys/[surveyKey]/responses/index.js
+          const surveyResponse = await api.front.getSurveyResponse("beta-applications")
+          setBetaSubmitted(!!surveyResponse) // Set betaSubmitted based on response
+        } catch (error) {
+          console.error("Error fetching beta application:", error)
+          setBetaSubmitted(false) // Assume not submitted on error
+        } finally {
+          setIsLoadingBetaApplication(false)
+        }
+      } else if (status === "unauthenticated") {
+        setIsLoadingBetaApplication(false) // Not authenticated, so no existing application to check
+      }
+    }
+
+    fetchBetaApplication()
+  }, [session, status])
+
   if (status === "loading" || !session) {
     return null
   }
@@ -315,8 +343,8 @@ const PostRegistration = ({ existingBetaApplication }) => {
       errors.contactValue = t("betaDialog.errors.contactValueRequired")
     }
 
-    if (!betaFormData.consent) {
-      errors.consent = t("betaDialog.errors.consentRequired")
+    if (!consentChecked) {
+      errors.consentChecked = t("betaDialog.errors.consentRequired");
     }
 
     setBetaFormErrors(errors)
@@ -487,12 +515,10 @@ const PostRegistration = ({ existingBetaApplication }) => {
       )
 
       // Subscribe to beta list in Mailchimp
-      if (betaFormData.consent) {
-        await api.front.suscribe(session.user.email, {
-          betaList: true,
-          source: "post_registration",
-        })
-      }
+      await api.front.suscribe(session.user.email, {
+        betaList: true,
+        source: "post_registration",
+      })
 
       setBetaSubmitted(true)
       setBetaDialogOpen(false)
@@ -577,7 +603,8 @@ const PostRegistration = ({ existingBetaApplication }) => {
             </Grid>
             {/* Left Column - Welcome + Beta Program */}
             <Grid item xs={12} sm={12} md={8} lg={9}>
-              <Box className="left-column">{/* Beta Program Panel */}
+              <Box className="left-column">
+                {/* Beta Program Panel */}
                 <Card className="beta-panel">
                   <Box className="beta-section">
                     <BetaCountdown targetDate={betaLaunchDate.toISOString()} />
@@ -593,7 +620,9 @@ const PostRegistration = ({ existingBetaApplication }) => {
 
                     {/* CTA */}
                     <Box className="beta-cta-top">
-                      {!betaSubmitted ? (
+                      {isLoadingBetaApplication ? (
+                        <CircularProgress size={24} /> // Show spinner while loading
+                      ) : !betaSubmitted ? (
                         <Button
                           variant="contained"
                           size="large"
@@ -1220,27 +1249,42 @@ const PostRegistration = ({ existingBetaApplication }) => {
                     />
 
                     {/* Consent Checkbox */}
-                    <FormControlLabel
-                      control={
-                        <Checkbox
-                          checked={betaFormData.consent}
-                          onChange={(e) => setBetaFormData({ ...betaFormData, consent: e.target.checked })}
-                        />
-                      }
-                      label={t("betaDialog.fields.consent")}
-                      sx={{ mb: 2 }}
-                    />
-                    {betaFormErrors.consent && (
-                      <FormHelperText error sx={{ mt: -1, mb: 2 }}>
-                        <ErrorIcon sx={{ fontSize: "1rem", mr: 0.5 }} />
-                        {betaFormErrors.consent}
-                      </FormHelperText>
-                    )}
+                    <FormControl component="fieldset" fullWidth sx={{ mb: 2 }}>
+                      <FormControlLabel
+                        control={
+                          <Checkbox
+                            checked={consentChecked}
+                            onChange={(e) => setConsentChecked(e.target.checked)}
+                            name="consent"
+                          />
+                        }
+                        label={
+                          <Typography variant="caption" color="text.secondary">
+                            {t("betaDialog.fields.consentCheckboxLabel.pre")}{" "}
+                            <Link
+                              href={ROUTES.legal.termsAndConditions}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              style={{ color: "#fe5f55", textDecoration: "underline" }}
+                            >
+                              {t("betaDialog.fields.consentCheckboxLabel.linkText")}
+                            </Link>
+                            {" " + t("betaDialog.fields.consentCheckboxLabel.post")}
+                          </Typography>
+                        }
+                      />
+                      {betaFormErrors.consentChecked && (
+                        <FormHelperText error sx={{ mt: -1, mb: 2 }}>
+                          <ErrorIcon sx={{ fontSize: "1rem", mr: 0.5 }} />
+                          {betaFormErrors.consentChecked}
+                        </FormHelperText>
+                      )}
+                    </FormControl>
                   </>
                 )}
             </Box>
           </DialogContent>
-          <DialogActions sx={{ p: 2 }}>
+          <DialogActions sx={{ p: 2, justifyContent: "flex-end" }}>
             <Button onClick={() => setBetaDialogOpen(false)} className="dialog-cancel">
               {t("betaDialog.cancel")}
             </Button>
@@ -1323,6 +1367,9 @@ const BetaCountdown = ({ targetDate }) => {
           </Grid>
         ))}
       </Grid>
+      <Typography variant="caption" color="primary.contrastText" sx={{ mt: 1, display: "block", textAlign: "center" }}>
+        {t("beta.countdown.limitedSpots")}
+      </Typography>
     </Box>
   )
 }

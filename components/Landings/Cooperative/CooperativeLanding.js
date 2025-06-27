@@ -6,11 +6,12 @@ import { useTranslation } from "next-i18next"
 import Head from "next/head"
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
+import config from "../../../config"
 import { trackLandingCTAClick } from "../../../utils/analytics"
 import SharedNavbar from "../../common/SharedNavbar"
 
-const CooperativeLanding = () => {
-  const { t } = useTranslation("welcome.cooperative")
+const CooperativeLanding = ({ translationKey }) => {
+  const { t } = useTranslation(translationKey)
   const theme = useTheme()
   const router = useRouter()
   const [visibleSections, setVisibleSections] = useState({})
@@ -40,7 +41,7 @@ const CooperativeLanding = () => {
     // Track CTA click before redirect
     trackLandingCTAClick("cooperative", ctaText)
 
-    router.push("/welcome/post-registration")
+    router.push("/welcome/post-registration?for=cooperative")
   }
 
   const problems = [
@@ -119,9 +120,13 @@ const CooperativeLanding = () => {
         <title>{t("page.title")}</title>
         <meta name="description" content={t("page.description")} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </Head>
 
-      <SharedNavbar variant="cooperative" />
+        <meta property="og:title" key="og.title" content={t("page.title")} />
+        <meta property="og:description" key="og.description" content={t("page.description")} />
+        <meta property="og:image" key="og.image" content={config.site.head.image.logoDark} />
+        <meta property="og:url" key="og.url" content="https://angorasix.com/welcome/cooperative" />
+        <meta property="og:type" key="og.type" content="website" />
+      </Head>
 
       {/* Hero Section - Dark Gradient + Strong Breathing */}
       <Box className="cooperative-hero-section">
@@ -231,17 +236,15 @@ const CooperativeLanding = () => {
                 <Box
                   sx={{
                     display: "flex",
-                    alignItems: "flex-start",
+                    alignItems: "center",
                     gap: 3,
                     mb: 4,
                     p: 3,
                     borderRadius: 3,
                     backgroundColor: "white",
-                    border: `2px solid ${theme.palette.primary.light2}`,
+                    border: `2px solid ${theme.palette.primary.light}`,
                     transition: "all 0.3s ease",
                     "&:hover": {
-                      transform: "translateX(10px)",
-                      backgroundColor: `${theme.palette.primary.light2}15`,
                       "& .problem-check": {
                         backgroundColor: theme.palette.secondary.main,
                         transform: "scale(1.1)",
@@ -255,12 +258,11 @@ const CooperativeLanding = () => {
                       width: 24,
                       height: 24,
                       borderRadius: "50%",
-                      backgroundColor: theme.palette.primary.light2,
+                      backgroundColor: theme.palette.primary.light,
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
                       flexShrink: 0,
-                      mt: 0.5,
                       transition: "all 0.3s ease",
                       "&::after": {
                         content: '"!"',

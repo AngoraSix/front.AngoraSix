@@ -4,8 +4,8 @@ import LandingLayout from "../../../layouts/LandingLayout"
 
 const ContributorLandingPage = () => {
   return (
-    <LandingLayout>
-      <ContributorLanding />
+    <LandingLayout forProfile="contributor">
+      <ContributorLanding translationKey="welcome.contributor"/>
     </LandingLayout>
   )
 }

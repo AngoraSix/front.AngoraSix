@@ -1,14 +1,14 @@
 {
   "page": {
-    "title": "AngoraSix — Your venture is growing. Make sure it stays that way",
-    "description": "Enhance your management with blockchain, hassle-free: Transparent internal agreements and contribution tracking, all integrated into a shared wallet."
+    "title": "AngoraSix — Clear ownership agreements so your venture keeps growing.",
+    "description": "Transparent internal agreements and contribution tracking — backed by a shared wallet, so you can focus on building with trust and clarity."
   },
   "hero": {
     "title": {
-      "part1": "Your venture is growing.",
-      "highlight": "Make sure it stays that way"
+      "part1": "Clear ownership agreements so your venture",
+      "highlight": "keeps growing"
     },
-    "subtitle": "Enhance your management with blockchain, hassle-free: Transparent internal agreements and contribution tracking, all integrated into a shared wallet.",
+    "subtitle": "Transparent internal agreements and contribution tracking — backed by a shared wallet, so you can focus on building with trust and clarity.",
     "subtitle2": "Clear consensus. Conflict-free. Simple and compatible with the tools you already use.",
     "cta": "Start Free"
   },
