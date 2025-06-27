@@ -15,7 +15,7 @@ const TermsAndConditions = () => {
 
         <meta property="og:title" key="og.title" content={t("page.title")} />
         <meta property="og:description" key="og.description" content={t("page.description")} />
-        <meta property="og:image" key="og.image" content={config.site.head.image.logoDark} />
+        <meta property="og:image" key="og.image" content={config.site.head.image.logoSquare} />
         <meta property="og:url" key="og.url" content="https://angorasix.com/legal/terms-and-conditions" />
         <meta property="og:type" key="og.type" content="website" />
       </Head>
