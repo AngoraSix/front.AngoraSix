@@ -55,27 +55,27 @@ const ContributorLanding = ({ translationKey }) => {
   const problems = [
     {
       text: t("problems.meaningless"),
-      keywords: ["trabajos que no te motivan", "unmotivating and unfulfilling"],
+      keywords: [],
     },
     {
       text: t("problems.exploitation"),
-      keywords: ["das mucho más de lo que recibís", "receiving less than you deserve"],
+      keywords: [],
     },
     {
       text: t("problems.uncertainty"),
-      keywords: ["garantice tu futuro", "doesn’t feel like a safe path"],
+      keywords: [],
     },
     {
       text: t("problems.mismatch"),
-      keywords: ["talento no está siendo aprovechado", "you could do more"],
+      keywords: [],
     },
     {
       text: t("problems.income"),
-      keywords: ["Querés ganar mejor", "You want better earnings"],
+      keywords: [],
     },
     {
       text: t("problems.time"),
-      keywords: ["No tenés tiempo para vos", "You don't have enough time"],
+      keywords: [],
     },
   ]
 
