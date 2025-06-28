@@ -22,10 +22,10 @@
     "free": {
       "title": "Free",
       "price": "$0",
-      "period": "Gratis para siempre. Ideal para empezar sin complicaciones.",
+      "period": "¿Buscando proyecto o arrancando uno? Empezá gratis hoy.",
       "cta": "Empezar gratis",
       "features": {
-        "contributors": "Hasta 3 colaboradores activos",
+        "contributors": "Hasta 4 colaboradores activos",
         "tasks": "Registro ilimitado de tareas y aportes",
         "notifications": "Definición clara de las reglas del proyecto",
         "support": "Seguimiento de ownership y cuentas monetarias",
@@ -35,7 +35,7 @@
     "plus": {
       "badge": "Programa Beta",
       "title": "Plus",
-      "regularPrice": "$60",
+      "regularPrice": "$60/mes",
       "currentPrice": "$0",
       "subtitle": "Actualmente solo disponible para usuarios Beta por",
       "cta": "Acceder como Beta",
