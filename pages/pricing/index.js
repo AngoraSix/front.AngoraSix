@@ -4,7 +4,7 @@ import LandingLayout from "../../layouts/LandingLayout"
 
 const PricingPage = ({ forQueryValue }) => {
   return <LandingLayout forProfile={forQueryValue}>
-    <Pricing />
+    <Pricing forProfile={forQueryValue} />
   </LandingLayout>
 }
 
