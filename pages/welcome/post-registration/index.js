@@ -3,8 +3,6 @@ import PostRegistration from "../../../components/PostRegistration"
 import LandingLayout from "../../../layouts/LandingLayout"
 
 const PostRegistrationPage = ({ forQueryValue }) => {
-  
-  console.log("GERGERGERGER:", forQueryValue);
   return (
     <LandingLayout forProfile={forQueryValue}>
       <PostRegistration />
@@ -14,7 +12,6 @@ const PostRegistrationPage = ({ forQueryValue }) => {
 
 export async function getServerSideProps({ locale, query }) {
   const forQueryValue = query.for || null
-  console.log("forQueryValue:", forQueryValue);
 
   return {
     props: {
