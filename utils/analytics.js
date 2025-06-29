@@ -34,6 +34,8 @@ export const trackExploreOptionsClick = () => {
     event_category: "engagement",
     event_label: "welcome_landing",
     page_location: "hero_section",
+    value: 0.2,
+    currency: "ARS"
   })
 }
 
@@ -50,6 +52,8 @@ export const trackLandingCTAClick = (landingType, ctaText) => {
     event_label: landingType,
     cta_text: ctaText,
     conversion_intent: "registration",
+    value: 1.0,
+    currency: "ARS"
   })
 }
 
@@ -64,6 +68,8 @@ export const trackFreePlanClick = () => {
     event_label: "free_plan",
     plan_type: "free",
     conversion_intent: "registration",
+    value: 1.0,
+    currency: "ARS"
   })
 }
 
@@ -76,6 +82,8 @@ export const trackPlusPlanClick = () => {
     event_label: "plus_plan",
     plan_type: "plus",
     conversion_intent: "registration",
+    value: 1.0,
+    currency: "ARS"
   })
 }
 
@@ -87,6 +95,8 @@ export const trackCustomPlanClick = () => {
     event_label: "custom_plan",
     plan_type: "custom",
     conversion_intent: "registration",
+    value: 1.0,
+    currency: "ARS"
   })
 }
 
@@ -100,6 +110,8 @@ export const trackBetaDialogOpen = () => {
     event_category: "engagement",
     event_label: "post_registration",
     dialog_type: "beta_program",
+    value: 5.0,
+    currency: "ARS"
   })
 }
 
@@ -111,6 +123,8 @@ export const trackBetaFormSubmit = () => {
     event_category: "conversion",
     event_label: "post_registration",
     form_type: "beta_application",
+    value: 20.0,
+    currency: "ARS"
   })
 }
 
@@ -122,6 +136,8 @@ export const trackNewsletterSignupClick = () => {
     event_category: "engagement",
     event_label: "post_registration",
     signup_type: "newsletter",
+    value: 2.0,
+    currency: "ARS"
   })
 }
 
@@ -133,6 +149,8 @@ export const trackContactMessageSubmit = () => {
     event_category: "engagement",
     event_label: "post_registration",
     form_type: "contact_message",
+    value: 2.0,
+    currency: "ARS"
   })
 }
 
@@ -146,15 +164,16 @@ export const trackSocialFollowClick = (platform) => {
     event_label: "post_registration",
     social_platform: platform,
     action_type: "follow",
+    value: 0.2,
+    currency: "ARS"
   })
 }
 
 export const trackBetaProgramClick = () => {
-  if (typeof window !== "undefined" && typeof window.gtag !== "undefined") {
-    window.gtag("event", "beta_program_click", {
-      event_category: "engagement",
-      event_label: "pricing_page",
-      value: 1,
-    })
-  }
+  trackEvent("beta_program_click", {
+    event_category: "engagement",
+    event_label: "pricing_page",
+    value: 1.0,
+    currency: "ARS"
+  })
 }
