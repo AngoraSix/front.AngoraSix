@@ -1,0 +1,286 @@
+/* New Project Management Styles */
+.NewProjectManagement {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+  position: relative;
+}
+
+.NewProjectManagement::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background: radial-gradient(circle at 20% 80%, rgba(79, 70, 229, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(124, 58, 237, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.NewProjectManagement .section-card {
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  margin-bottom: 24px;
+  transition: all 0.3s ease;
+}
+
+.NewProjectManagement .section-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.NewProjectManagement .section-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #0a2239;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.NewProjectManagement .toggle-group {
+  display: flex;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid #e2e8f0;
+  background: #f8fafc;
+}
+
+.NewProjectManagement .toggle-button {
+  flex: 1;
+  padding: 16px 24px;
+  border-radius: 0;
+  border: none;
+  font-weight: 600;
+  text-transform: none;
+  transition: all 0.3s ease;
+}
+
+.NewProjectManagement .toggle-button.active {
+  background: #0a2239;
+  color: #ffffff;
+}
+
+.NewProjectManagement .toggle-button:not(.active) {
+  background: transparent;
+  color: #64748b;
+}
+
+.NewProjectManagement .toggle-button:hover {
+  background: #e2e8f0;
+}
+
+.NewProjectManagement .toggle-button.active:hover {
+  background: #1b5993;
+}
+
+.NewProjectManagement .payment-chip {
+  margin: 4px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.NewProjectManagement .payment-chip.selected {
+  background: #0a2239;
+  color: #ffffff;
+}
+
+.NewProjectManagement .payment-chip:not(.selected) {
+  background: #f1f5f9;
+  color: #64748b;
+}
+
+.NewProjectManagement .payment-chip:hover {
+  transform: translateY(-1px);
+}
+
+.NewProjectManagement .distribution-card {
+  padding: 16px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  border: 2px solid #e2e8f0;
+}
+
+.NewProjectManagement .distribution-card.selected {
+  border-color: #0a2239;
+  background: rgba(10, 34, 57, 0.05);
+}
+
+.NewProjectManagement .distribution-card:hover {
+  border-color: #0a2239;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.NewProjectManagement .form-field {
+  margin-bottom: 24px;
+}
+
+.NewProjectManagement .form-field.error input {
+  border-color: #ef4444;
+}
+
+.NewProjectManagement .sidebar-card {
+  position: sticky;
+  top: 20px;
+  border-radius: 16px;
+  background: rgba(10, 34, 57, 0.95);
+  color: white;
+  backdrop-filter: blur(10px);
+}
+
+.NewProjectManagement .action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 32px;
+  padding-bottom: 32px;
+}
+
+.NewProjectManagement .primary-button {
+  background: linear-gradient(45deg, #0a2239 0%, #1b5993 100%);
+  padding: 12px 32px;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.NewProjectManagement .primary-button:hover {
+  background: linear-gradient(45deg, #1b5993 0%, #0a2239 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(10, 34, 57, 0.3);
+}
+
+.NewProjectManagement .secondary-button {
+  border-color: #e2e8f0;
+  color: #64748b;
+  padding: 12px 32px;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.NewProjectManagement .secondary-button:hover {
+  border-color: #0a2239;
+  color: #0a2239;
+  transform: translateY(-1px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .NewProjectManagement .toggle-group {
+    flex-direction: column;
+  }
+
+  .NewProjectManagement .toggle-button {
+    border-radius: 0;
+  }
+
+  .NewProjectManagement .action-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .NewProjectManagement .primary-button,
+  .NewProjectManagement .secondary-button {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+/* Animation Classes */
+.NewProjectManagement .fade-in {
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.NewProjectManagement .slide-in {
+  animation: slideIn 0.4s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Form Validation Styles */
+.NewProjectManagement .field-error {
+  color: #ef4444;
+  font-size: 0.875rem;
+  margin-top: 4px;
+}
+
+.NewProjectManagement .required-field::after {
+  content: " *";
+  color: #ef4444;
+}
+
+/* Custom Slider Styles */
+.NewProjectManagement .MuiSlider-root {
+  color: #0a2239;
+}
+
+.NewProjectManagement .MuiSlider-thumb {
+  background: #0a2239;
+}
+
+.NewProjectManagement .MuiSlider-track {
+  background: linear-gradient(45deg, #0a2239 0%, #1b5993 100%);
+}
+
+/* Custom Select Styles */
+.NewProjectManagement .MuiSelect-root {
+  border-radius: 8px;
+}
+
+.NewProjectManagement .MuiMenuItem-root:hover {
+  background: rgba(10, 34, 57, 0.1);
+}
+
+/* Loading States */
+.NewProjectManagement .loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.NewProjectManagement .loading::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border: 2px solid #0a2239;
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

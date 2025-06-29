@@ -14,7 +14,7 @@ const DefaultLayout = ({ children, className, contained = true }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      {typeof window !== 'undefined' && !window.opener && <SharedNavbar />}
+      <SharedNavbar />
       <ChildrenContainer className={`${className}__Body`}>
         {children}
       </ChildrenContainer>
@@ -25,13 +25,12 @@ const DefaultLayout = ({ children, className, contained = true }) => {
 };
 
 DefaultLayout.defaultProps = {
-  className: 'DefaultLayout__Page',
+  className: 'ManagementDetailsLayout__Page',
   headData: {},
 };
 
 DefaultLayout.propTypes = {
   className: PropTypes.string,
-  headData: PropTypes.object,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,

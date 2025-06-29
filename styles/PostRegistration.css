@@ -284,7 +284,7 @@
   flex-direction: column;
   gap: 1.5rem;
   height: 100%;
-  justify-content: end;
+  justify-content: flex-end
 }
 
 /* Social Panel - Better alignment */
