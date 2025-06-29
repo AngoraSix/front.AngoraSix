@@ -4,31 +4,15 @@ import PropTypes from 'prop-types';
 import CookieConsent from "../../components/common/CookieConsent";
 import Footer from "../../components/common/Footer";
 import SharedNavbar from "../../components/common/SharedNavbar";
-import config from '../../config';
 
-const DefaultLayout = ({ children, className, headData, contained = true }) => {
-  const head = {
-    ...config.site.head,
-    ...headData,
-  };
+const DefaultLayout = ({ children, className, contained = true }) => {
   const ChildrenContainer = contained ? Paper : 'div';
 
   return (
     <Box className={`DefaultLayout DefaultLayout__Container ${className}`}>
       <Head>
-        <title>{head.title}</title>
-        <meta property="og:title" key="og.title" content={head.title} />
-        <meta
-          property="og:description"
-          key="og.description"
-          content={head.description}
-        />
-        <meta
-          property="og:image"
-          itemProp="image"
-          key="og.image"
-          content={head.image.logoSquare}
-        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       {typeof window !== 'undefined' && !window.opener && <SharedNavbar />}
       <ChildrenContainer className={`${className}__Body`}>
