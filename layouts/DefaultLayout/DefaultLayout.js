@@ -1,10 +1,9 @@
 import { Box, Paper } from '@mui/material';
-import SharedNavbar from "../../components/common/SharedNavbar"
 import Head from 'next/head';
 import PropTypes from 'prop-types';
 import CookieConsent from "../../components/common/CookieConsent";
 import Footer from "../../components/common/Footer";
-import Navbar from '../../components/Navbar';
+import SharedNavbar from "../../components/common/SharedNavbar";
 import config from '../../config';
 
 const DefaultLayout = ({ children, className, headData, contained = true }) => {
@@ -31,7 +30,7 @@ const DefaultLayout = ({ children, className, headData, contained = true }) => {
           content={head.image.logoSquare}
         />
       </Head>
-      {typeof window !== 'undefined' && !window.opener && <Navbar />}
+      {typeof window !== 'undefined' && !window.opener && <SharedNavbar />}
       <ChildrenContainer className={`${className}__Body`}>
         {children}
       </ChildrenContainer>

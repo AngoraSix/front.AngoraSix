@@ -1,9 +1,8 @@
 import { Box, Paper } from '@mui/material';
 import Head from 'next/head';
 import PropTypes from 'prop-types';
-import React from 'react';
+import SharedNavbar from '../../components/common/SharedNavbar';
 import ManagementTabs from '../../components/Management/ManagementTabs';
-import Navbar from '../../components/Navbar';
 import config from '../../config';
 
 const ManagementDetailsLayout = ({ projectManagement, isAdmin, children, className, headData, contained = true }) => {
@@ -30,7 +29,7 @@ const ManagementDetailsLayout = ({ projectManagement, isAdmin, children, classNa
           content={head.image.logo}
         />
       </Head>
-      <Navbar />
+      <SharedNavbar />
       <ChildrenContainer className={`${className}__Body`}>
         <ManagementTabs projectManagement={projectManagement} isAdmin={isAdmin} />
         {children}
