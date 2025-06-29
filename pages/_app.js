@@ -21,6 +21,7 @@ import '../styles/ManagementCapsSection.css';
 import '../styles/ManagementContributorsList.css';
 import '../styles/ManagementIntegrationList.css';
 import '../styles/Navbar.css';
+import '../styles/NewProjectManagement.css';
 import '../styles/Notifications.css';
 import '../styles/PostRegistration.css';
 import '../styles/Pricing.css';
