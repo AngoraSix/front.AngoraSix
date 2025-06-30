@@ -13,6 +13,7 @@
     "payments": "Pagos",
     "lastMonth": "Pago del Mes Pasado",
     "currentBalance": "Balance Actual",
-    "forecast": "Pronóstico de Fin de Mes"
+    "forecast": "Pronóstico de Fin de Mes",
+    "payNow": "Pagar Ahora"
   }
 }

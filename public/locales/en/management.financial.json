@@ -13,6 +13,7 @@
     "payments": "Payments",
     "lastMonth": "Last Month Payment",
     "currentBalance": "Current Balance",
-    "forecast": "End of Month Forecast"
+    "forecast": "End of Month Forecast",
+    "payNow": "Pay Now"
   }
 }
