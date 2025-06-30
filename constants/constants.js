@@ -37,6 +37,7 @@ export const ROUTES = {
       },
     },
     contributors: '/managements/:managementId/contributors',
+    decisions: '/managements/:managementId/decisions',
   },
   profile: {
     view: '/profile/:profileId',
