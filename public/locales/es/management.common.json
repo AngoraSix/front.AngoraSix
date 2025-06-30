@@ -3,6 +3,7 @@
     "management.common.tabs.contributors": "Contribuidores",
     "management.common.tabs.integrations": "Integraciones",
     "management.common.tabs.decisions": "Decisiones",
+    "management.common.tabs.financial": "Finanzas",
     "management.common.page.loading.title": "Información de administración",
     "management.common.page.loading.description": "Información de administración para el proyecto"
 }

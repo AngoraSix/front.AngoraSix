@@ -1,0 +1,18 @@
+{
+  "title": "Financial Overview",
+  "overview": {
+    "title": "Project Financial Overview",
+    "income": "Income",
+    "payments": "Payments",
+    "lastMonth": "Last Month",
+    "currentMonth": "Current Month",
+    "forecast": "Forecast"
+  },
+  "members": {
+    "title": "Team Members Financial Details",
+    "payments": "Payments",
+    "lastMonth": "Last Month Payment",
+    "currentBalance": "Current Balance",
+    "forecast": "End of Month Forecast"
+  }
+}

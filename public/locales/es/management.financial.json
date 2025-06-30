@@ -1,0 +1,18 @@
+{
+  "title": "Resumen Financiero",
+  "overview": {
+    "title": "Resumen Financiero del Proyecto",
+    "income": "Ingresos",
+    "payments": "Pagos",
+    "lastMonth": "Mes Pasado",
+    "currentMonth": "Mes Actual",
+    "forecast": "Pronóstico"
+  },
+  "members": {
+    "title": "Detalles Financieros del Equipo",
+    "payments": "Pagos",
+    "lastMonth": "Pago del Mes Pasado",
+    "currentBalance": "Balance Actual",
+    "forecast": "Pronóstico de Fin de Mes"
+  }
+}

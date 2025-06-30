@@ -38,6 +38,7 @@ export const ROUTES = {
     },
     contributors: '/managements/:managementId/contributors',
     decisions: '/managements/:managementId/decisions',
+    financial: '/managements/:managementId/financial',
   },
   profile: {
     view: '/profile/:profileId',
