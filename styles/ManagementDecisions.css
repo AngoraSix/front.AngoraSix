@@ -1,7 +1,6 @@
 .management-decisions-container {
-  padding: 24px;
-  max-width: 1200px;
-  margin: 0 auto;
+  padding: 0;
+  max-width: 100%;
 }
 
 .management-decisions-container .MuiCard-root {
@@ -9,7 +8,7 @@
 }
 
 .management-decisions-container .MuiLinearProgress-root {
-  transition: all 0.2s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .management-decisions-container .MuiButton-root {
@@ -17,17 +16,17 @@
 }
 
 .management-decisions-container .MuiAlert-root {
-  border-radius: 12px;
+  border-radius: 8px;
 }
 
 .management-decisions-container .MuiChip-root {
   font-weight: 600;
 }
 
-/* Responsive adjustments */
+/* Compact spacing for mobile */
 @media (max-width: 768px) {
   .management-decisions-container {
-    padding: 16px;
+    padding: 0 8px;
   }
 
   .management-decisions-container .MuiCardContent-root {
@@ -38,17 +37,21 @@
     font-size: 1.5rem;
   }
 
-  .management-decisions-container .MuiTypography-h5 {
-    font-size: 1.25rem;
+  .management-decisions-container .MuiTypography-h6 {
+    font-size: 1.1rem;
   }
 }
 
-/* Animation for vote buttons */
+/* Hover effects */
+.management-decisions-container .MuiCard-root:hover {
+  cursor: default;
+}
+
 .management-decisions-container .MuiButton-root:hover {
   transform: translateY(-1px);
 }
 
-/* Custom scrollbar for long decision lists */
+/* Custom scrollbar for better UX */
 .management-decisions-container::-webkit-scrollbar {
   width: 6px;
 }

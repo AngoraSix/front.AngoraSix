@@ -16,19 +16,21 @@
       "closed": "Cerrada"
     },
     "deadline": {
-      "soon": "Urgente",
-      "vote_until": "Tenés tiempo para votar hasta el",
-      "closed_on": "Cerrada el"
+      "vote_until": "Tenés tiempo para votar hasta el {{date}}",
+      "closed_on": "Cerrada el {{date}}",
+      "soon": "Urgente"
     },
     "vote": {
       "options": "Opciones de voto:",
-      "confirmed": "Tu voto ha sido registrado.",
-      "current": "Tu voto actual:",
-      "already_voted": "Ya has votado en esta decisión"
+      "confirmed": "Tu voto por \"{{option}}\" ha sido registrado.",
+      "current": "Tu voto actual: \"{{option}}\"",
+      "already_voted": "Ya has votado en esta decisión",
+      "final": "Tu voto: \"{{option}}\""
     },
     "results": {
-      "title": "Resultados parciales:",
-      "total_voters": "Total de votantes elegibles:"
+      "title": "Resultados (por ownership):",
+      "awaiting": "Pendientes de votar",
+      "total_voters": "Total de votantes elegibles: {{count}}"
     }
   }
 }

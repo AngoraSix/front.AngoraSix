@@ -23,16 +23,16 @@ import { useTheme } from "@mui/material/styles"
 import { styled } from "@mui/system"
 
 const StyledDecisionCard = styled(Card)(({ theme, status }) => ({
-  borderRadius: 16,
-  boxShadow: "0 4px 20px rgba(0, 0, 0, 0.08)",
+  borderRadius: 12,
+  boxShadow: "0 2px 12px rgba(0, 0, 0, 0.06)",
   border: status === "open" ? "2px solid #1B5993" : "1px solid rgba(0, 0, 0, 0.08)",
   transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
   overflow: "hidden",
   position: "relative",
-  marginBottom: theme.spacing(3),
+  marginBottom: theme.spacing(2),
   "&:hover": {
-    transform: "translateY(-2px)",
-    boxShadow: "0 8px 30px rgba(0, 0, 0, 0.12)",
+    transform: "translateY(-1px)",
+    boxShadow: "0 4px 20px rgba(0, 0, 0, 0.1)",
   },
   "&::before": {
     content: '""',
@@ -40,7 +40,7 @@ const StyledDecisionCard = styled(Card)(({ theme, status }) => ({
     top: 0,
     left: 0,
     right: 0,
-    height: 4,
+    height: 3,
     background:
       status === "open"
         ? "linear-gradient(90deg, #1B5993, #AFC1D6 100%)"
@@ -49,13 +49,13 @@ const StyledDecisionCard = styled(Card)(({ theme, status }) => ({
 }))
 
 const OwnershipCard = styled(Card)(({ theme }) => ({
-  borderRadius: 20,
-  boxShadow: "0 8px 32px rgba(0, 0, 0, 0.1)",
+  borderRadius: 16,
+  boxShadow: "0 4px 24px rgba(0, 0, 0, 0.08)",
   border: "1px solid rgba(255, 255, 255, 0.2)",
   background: "linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)",
   overflow: "hidden",
   position: "relative",
-  marginBottom: theme.spacing(4),
+  marginBottom: theme.spacing(3),
   "&::before": {
     content: '""',
     position: "absolute",
@@ -67,17 +67,18 @@ const OwnershipCard = styled(Card)(({ theme }) => ({
   },
 }))
 
-const VoteButton = styled(Button)(({ theme, selected }) => ({
-  borderRadius: 12,
-  padding: theme.spacing(1.5, 3),
+const VoteButton = styled(Button)(({ theme, selected, uservoted }) => ({
+  borderRadius: 8,
+  padding: theme.spacing(1, 2.5),
   textTransform: "none",
   fontWeight: 600,
-  border: selected ? "2px solid #1B5993" : "1px solid rgba(0, 0, 0, 0.12)",
-  backgroundColor: selected ? "#DCE7EA" : "transparent",
-  color: selected ? "#0A2239" : theme.palette.text.primary,
+  minHeight: 36,
+  border: selected ? "2px solid #1B5993" : uservoted ? "2px solid #FE5F55" : "1px solid rgba(0, 0, 0, 0.12)",
+  backgroundColor: selected ? "#DCE7EA" : uservoted ? "#FE5F55" : "transparent",
+  color: selected ? "#0A2239" : uservoted ? "#ffffff" : theme.palette.text.primary,
   "&:hover": {
-    backgroundColor: selected ? "#AFC1D6" : "rgba(27, 89, 147, 0.04)",
-    borderColor: "#1B5993",
+    backgroundColor: selected ? "#AFC1D6" : uservoted ? "#FE5F55" : "rgba(27, 89, 147, 0.04)",
+    borderColor: selected ? "#1B5993" : uservoted ? "#FE5F55" : "#1B5993",
   },
 }))
 
@@ -96,22 +97,9 @@ const ManagementDecisions = ({ decisionsData, loading, managementId }) => {
     setTimeout(() => setShowVoteConfirmation(null), 3000)
   }
 
-  const calculateVotePercentages = (decision) => {
-    const totalVotes = decision.options.reduce((sum, option) => sum + option.votes, 0)
-    const awaitingVotes = decision.totalEligibleVoters - decision.votedUserIds.length
-
-    return decision.options
-      .map((option) => ({
-        ...option,
-        percentage: totalVotes > 0 ? (option.votes / decision.totalEligibleVoters) * 100 : 0,
-      }))
-      .concat([
-        {
-          label: "Awaiting Vote",
-          votes: awaitingVotes,
-          percentage: (awaitingVotes / decision.totalEligibleVoters) * 100,
-        },
-      ])
+  const calculateAwaitingPercentage = (decision) => {
+    const totalVotedPercentage = decision.options.reduce((sum, option) => sum + option.percentage, 0)
+    return Math.max(0, 100 - totalVotedPercentage)
   }
 
   const formatDeadline = (deadline) => {
@@ -152,13 +140,13 @@ const ManagementDecisions = ({ decisionsData, loading, managementId }) => {
   return (
     <Box className="management-decisions-container">
       {/* Header */}
-      <Box mb={4}>
+      <Box mb={3}>
         <Typography
           variant="h4"
           sx={{
             fontWeight: 700,
             color: "#0A2239",
-            mb: 1,
+            mb: 0.5,
             display: "flex",
             alignItems: "center",
             gap: 2,
@@ -174,10 +162,10 @@ const ManagementDecisions = ({ decisionsData, loading, managementId }) => {
 
       {/* Ownership Section */}
       <OwnershipCard>
-        <CardContent sx={{ p: 4 }}>
-          <Box display="flex" alignItems="center" gap={2} mb={3}>
-            <AccountBalance sx={{ fontSize: 28, color: "#1B5993" }} />
-            <Typography variant="h5" sx={{ fontWeight: 700, color: "#0A2239" }}>
+        <CardContent sx={{ p: 3 }}>
+          <Box display="flex" alignItems="center" gap={2} mb={2}>
+            <AccountBalance sx={{ fontSize: 24, color: "#1B5993" }} />
+            <Typography variant="h6" sx={{ fontWeight: 700, color: "#0A2239" }}>
               {t("decisions.ownership.title", "Tu Participación")}
             </Typography>
             <Tooltip
@@ -187,16 +175,18 @@ const ManagementDecisions = ({ decisionsData, loading, managementId }) => {
               )}
             >
               <IconButton size="small">
-                <Info sx={{ fontSize: 18, color: "#7D99BA" }} />
+                <Info sx={{ fontSize: 16, color: "#7D99BA" }} />
               </IconButton>
             </Tooltip>
           </Box>
 
-          <Grid container spacing={4} alignItems="center">
-            <Grid item xs={12} md={6}>
-              <PieChartCard title="" data={ownershipChartData} isMobile={false} />
+          <Grid container spacing={3} alignItems="center">
+            <Grid item xs={12} md={5}>
+              <Box sx={{ height: 200 }}>
+                <PieChartCard title="" data={ownershipChartData} isMobile={false} />
+              </Box>
             </Grid>
-            <Grid item xs={12} md={6}>
+            <Grid item xs={12} md={7}>
               <Box textAlign="center">
                 <Typography
                   variant="h2"
@@ -212,7 +202,7 @@ const ManagementDecisions = ({ decisionsData, loading, managementId }) => {
                   variant="h6"
                   sx={{
                     color: "#0A2239",
-                    mb: 2,
+                    mb: 1,
                     fontWeight: 600,
                   }}
                 >
@@ -237,7 +227,7 @@ const ManagementDecisions = ({ decisionsData, loading, managementId }) => {
           sx={{
             fontWeight: 700,
             color: "#0A2239",
-            mb: 3,
+            mb: 2,
             display: "flex",
             alignItems: "center",
             gap: 1,
@@ -248,29 +238,30 @@ const ManagementDecisions = ({ decisionsData, loading, managementId }) => {
         </Typography>
 
         {decisionsData.decisions.map((decision) => {
-          const votePercentages = calculateVotePercentages(decision)
-          const userHasVoted = decision.votedUserIds.includes("user123") || userVotes[decision.id]
+          const awaitingPercentage = calculateAwaitingPercentage(decision)
+          const userHasVoted = decision.vote !== null || userVotes[decision.id]
           const isOpen = decision.status === "open"
           const deadlineSoon = isDeadlineSoon(decision.deadline)
 
           return (
             <Fade in={true} key={decision.id}>
               <StyledDecisionCard status={decision.status}>
-                <CardContent sx={{ p: 3 }}>
+                <CardContent sx={{ p: 2.5 }}>
                   {/* Header */}
-                  <Box display="flex" justifyContent="space-between" alignItems="flex-start" mb={2}>
+                  <Box display="flex" justifyContent="space-between" alignItems="flex-start" mb={1.5}>
                     <Box flex={1}>
                       <Typography
                         variant="h6"
                         sx={{
                           fontWeight: 700,
                           color: "#0A2239",
-                          mb: 1,
+                          mb: 0.5,
+                          fontSize: "1.1rem",
                         }}
                       >
                         {decision.title}
                       </Typography>
-                      <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+                      <Typography variant="body2" color="text.secondary" sx={{ mb: 1.5 }}>
                         {decision.description}
                       </Typography>
                     </Box>
@@ -282,9 +273,15 @@ const ManagementDecisions = ({ decisionsData, loading, managementId }) => {
                           label={t("decisions.status.open", "Abierta")}
                           color="primary"
                           variant="outlined"
+                          size="small"
                         />
                       ) : (
-                        <Chip icon={<CheckCircle />} label={t("decisions.status.closed", "Cerrada")} color="default" />
+                        <Chip
+                          icon={<CheckCircle />}
+                          label={t("decisions.status.closed", "Cerrada")}
+                          color="default"
+                          size="small"
+                        />
                       )}
 
                       {deadlineSoon && isOpen && (
@@ -294,9 +291,9 @@ const ManagementDecisions = ({ decisionsData, loading, managementId }) => {
                   </Box>
 
                   {/* Deadline */}
-                  <Box display="flex" alignItems="center" gap={1} mb={3}>
-                    <Schedule sx={{ fontSize: 16, color: "#7D99BA" }} />
-                    <Typography variant="body2" color="text.secondary">
+                  <Box display="flex" alignItems="center" gap={1} mb={2}>
+                    <Schedule sx={{ fontSize: 14, color: "#7D99BA" }} />
+                    <Typography variant="body2" color="text.secondary" sx={{ fontSize: "0.85rem" }}>
                       {isOpen
                         ? t(
                             "decisions.deadline.vote_until",
@@ -308,57 +305,62 @@ const ManagementDecisions = ({ decisionsData, loading, managementId }) => {
 
                   {/* Vote Confirmation */}
                   {showVoteConfirmation === decision.id && (
-                    <Alert severity="success" sx={{ mb: 3 }}>
+                    <Alert severity="success" sx={{ mb: 2, py: 0.5 }}>
                       {t("decisions.vote.confirmed", `Tu voto por "${userVotes[decision.id]}" ha sido registrado.`)}
                     </Alert>
                   )}
 
                   {/* Voting Options */}
-                  {isOpen && !userHasVoted && (
-                    <Box mb={3}>
-                      <Typography variant="subtitle2" sx={{ mb: 2, fontWeight: 600 }}>
+                  {isOpen && (
+                    <Box mb={2}>
+                      <Typography variant="subtitle2" sx={{ mb: 1.5, fontWeight: 600, fontSize: "0.9rem" }}>
                         {t("decisions.vote.options", "Opciones de voto:")}
                       </Typography>
-                      <Box display="flex" gap={2} flexWrap="wrap">
-                        {decision.options.map((option) => (
-                          <VoteButton
-                            key={option.label}
-                            onClick={() => handleVote(decision.id, option.label)}
-                            selected={userVotes[decision.id] === option.label}
-                          >
-                            {option.label}
-                          </VoteButton>
-                        ))}
+                      <Box display="flex" gap={1.5} flexWrap="wrap">
+                        {decision.options.map((option) => {
+                          const isUserVote = decision.vote === option.label
+                          const isCurrentVote = userVotes[decision.id] === option.label
+                          return (
+                            <VoteButton
+                              key={option.label}
+                              onClick={() => handleVote(decision.id, option.label)}
+                              selected={isCurrentVote}
+                              uservoted={isUserVote ? 1 : 0}
+                              disabled={decision.vote !== null}
+                            >
+                              {option.label}
+                              {isUserVote && " ✓"}
+                            </VoteButton>
+                          )
+                        })}
                       </Box>
                     </Box>
                   )}
 
-                  {/* User's Vote Display */}
-                  {userHasVoted && (
-                    <Box mb={3}>
-                      <Alert severity="info" icon={<CheckCircle />}>
-                        {userVotes[decision.id]
-                          ? t("decisions.vote.current", `Tu voto actual: "${userVotes[decision.id]}"`)
-                          : t("decisions.vote.already_voted", "Ya has votado en esta decisión")}
+                  {/* User's Vote Display for Closed Decisions */}
+                  {!isOpen && decision.vote && (
+                    <Box mb={2}>
+                      <Alert severity="info" icon={<CheckCircle />} sx={{ py: 0.5 }}>
+                        {t("decisions.vote.final", `Tu voto: "${decision.vote}"`)}
                       </Alert>
                     </Box>
                   )}
 
-                  <Divider sx={{ my: 2 }} />
+                  <Divider sx={{ my: 1.5 }} />
 
                   {/* Results */}
                   <Box>
-                    <Typography variant="subtitle2" sx={{ mb: 2, fontWeight: 600 }}>
-                      {t("decisions.results.title", "Resultados parciales:")}
+                    <Typography variant="subtitle2" sx={{ mb: 1.5, fontWeight: 600, fontSize: "0.9rem" }}>
+                      {t("decisions.results.title", "Resultados (por ownership):")}
                     </Typography>
 
-                    {votePercentages.map((option, index) => (
-                      <Box key={option.label} mb={1.5}>
+                    {decision.options.map((option, index) => (
+                      <Box key={option.label} mb={1}>
                         <Box display="flex" justifyContent="space-between" alignItems="center" mb={0.5}>
-                          <Typography variant="body2" sx={{ fontWeight: 500 }}>
+                          <Typography variant="body2" sx={{ fontWeight: 500, fontSize: "0.85rem" }}>
                             {option.label}
                           </Typography>
-                          <Typography variant="body2" color="text.secondary">
+                          <Typography variant="body2" color="text.secondary" sx={{ fontSize: "0.8rem" }}>
                             {option.votes} votos ({option.percentage.toFixed(1)}%)
                           </Typography>
                         </Box>
@@ -366,18 +368,45 @@ const ManagementDecisions = ({ decisionsData, loading, managementId }) => {
                           variant="determinate"
                           value={option.percentage}
                           sx={{
-                            height: 8,
-                            borderRadius: 4,
-                            backgroundColor: "rgba(0, 0, 0, 0.08)",
+                            height: 6,
+                            borderRadius: 3,
+                            backgroundColor: "rgba(0, 0, 0, 0.06)",
                             "& .MuiLinearProgress-bar": {
-                              backgroundColor:
-                                option.label === "Awaiting Vote" ? "#DCE7EA" : index % 2 === 0 ? "#1B5993" : "#FE5F55",
-                              borderRadius: 4,
+                              backgroundColor: index % 2 === 0 ? "#1B5993" : "#FE5F55",
+                              borderRadius: 3,
                             },
                           }}
                         />
                       </Box>
                     ))}
+
+                    {/* Awaiting Votes */}
+                    {awaitingPercentage > 0 && (
+                      <Box mb={1}>
+                        <Box display="flex" justifyContent="space-between" alignItems="center" mb={0.5}>
+                          <Typography variant="body2" sx={{ fontWeight: 500, fontSize: "0.85rem" }}>
+                            {t("decisions.results.awaiting", "Pendientes de votar")}
+                          </Typography>
+                          <Typography variant="body2" color="text.secondary" sx={{ fontSize: "0.8rem" }}>
+                            {decision.totalEligibleVoters - decision.votedUserIds.length} votos (
+                            {awaitingPercentage.toFixed(1)}%)
+                          </Typography>
+                        </Box>
+                        <LinearProgress
+                          variant="determinate"
+                          value={awaitingPercentage}
+                          sx={{
+                            height: 6,
+                            borderRadius: 3,
+                            backgroundColor: "rgba(0, 0, 0, 0.06)",
+                            "& .MuiLinearProgress-bar": {
+                              backgroundColor: "#DCE7EA",
+                              borderRadius: 3,
+                            },
+                          }}
+                        />
+                      </Box>
+                    )}
 
                     <Typography variant="caption" color="text.secondary" sx={{ mt: 1, display: "block" }}>
                       {t(

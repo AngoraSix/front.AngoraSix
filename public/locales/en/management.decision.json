@@ -5,7 +5,7 @@
     "ownership": {
       "title": "Your Participation",
       "current": "Your current participation in this project",
-      "description": "This percentage represents your weight in votes and your participation in project profits.",
+      "description": "This percentage represents your weight in voting and your participation in project profits.",
       "tooltip": "Your ownership percentage determines your weight in project decisions"
     },
     "list": {
@@ -16,19 +16,21 @@
       "closed": "Closed"
     },
     "deadline": {
-      "soon": "Urgent",
-      "vote_until": "You have time to vote until",
-      "closed_on": "Closed on"
+      "vote_until": "You have time to vote until {{date}}",
+      "closed_on": "Closed on {{date}}",
+      "soon": "Urgent"
     },
     "vote": {
       "options": "Vote options:",
-      "confirmed": "Your vote has been registered.",
-      "current": "Your current vote:",
-      "already_voted": "You have already voted on this decision"
+      "confirmed": "Your vote for \"{{option}}\" has been registered.",
+      "current": "Your current vote: \"{{option}}\"",
+      "already_voted": "You have already voted on this decision",
+      "final": "Your vote: \"{{option}}\""
     },
     "results": {
-      "title": "Partial results:",
-      "total_voters": "Total eligible voters:"
+      "title": "Results (by ownership):",
+      "awaiting": "Pending votes",
+      "total_voters": "Total eligible voters: {{count}}"
     }
   }
 }

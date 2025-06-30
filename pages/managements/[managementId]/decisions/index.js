@@ -1,12 +1,12 @@
 "use client"
 
-import { serverSideTranslations } from "next-i18next/serverSideTranslations"
+import { useSession } from "next-auth/react"
 import { useTranslation } from "next-i18next"
+import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 import { useRouter } from "next/router"
 import { useState } from "react"
-import { useSession } from "next-auth/react"
-import ManagementDetailsLayout from "../../../../layouts/ManagementDetailsLayout"
 import ManagementDecisions from "../../../../components/Management/Decisions"
+import ManagementDetailsLayout from "../../../../layouts/ManagementDetailsLayout"
 
 const ManagementDecisionsPage = () => {
   const { t } = useTranslation(["management.decisions", "common"])
@@ -58,9 +58,10 @@ const ManagementDecisionsPage = () => {
           "Aprobación del presupuesto mensual destinado a campañas de marketing digital y publicidad online.",
         status: "open",
         deadline: "2025-07-15",
+        vote: null,
         options: [
-          { label: "$5,000", votes: 0, percentage: 25.43 },
-          { label: "$7,500", votes: 0, percentage: 25.43 },
+          { label: "$5,000", votes: 0, percentage: 0 },
+          { label: "$7,500", votes: 0, percentage: 0 },
           { label: "$10,000", votes: 1, percentage: 25.43 },
         ],
         totalEligibleVoters: 4,
