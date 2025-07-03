@@ -8,6 +8,9 @@ export const oauthFrameworkConfig = {
   session: {
     strategy: 'jwt',
   },
+  pages: {
+    signIn: "/auth/signin", 
+  }
 };
 
 /*
