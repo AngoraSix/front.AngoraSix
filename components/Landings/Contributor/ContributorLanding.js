@@ -16,7 +16,7 @@ import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 import config from "../../../config"
 import { trackLandingCTAClick } from "../../../utils/analytics"
-import SharedNavbar from "../../common/SharedNavbar"
+import { ROUTES } from "../../../constants/constants"
 
 const ContributorLanding = ({ translationKey }) => {
   const { t } = useTranslation(translationKey)
@@ -49,7 +49,7 @@ const ContributorLanding = ({ translationKey }) => {
     // Track CTA click before redirect
     trackLandingCTAClick("contributor", ctaText)
 
-    router.push("/welcome/post-registration?for=contributor")
+    router.push(`${ROUTES.welcome.postRegistration}?for=contributor`)
   }
 
   const problems = [

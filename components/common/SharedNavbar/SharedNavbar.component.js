@@ -77,7 +77,7 @@ const SharedNavbar = ({ forProfile }) => {
     return session ?
       [
         {
-          href: "/welcome/post-registration",
+          href: `${ROUTES.welcome.postRegistration}${forProfile ? `?for=${forProfile}` : ""}`,
           label: t("navbar.shared.access"),
         },
         ...baseItems,

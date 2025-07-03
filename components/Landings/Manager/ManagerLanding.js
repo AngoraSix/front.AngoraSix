@@ -14,9 +14,9 @@ import { useTranslation } from "next-i18next"
 import Head from "next/head"
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
-import { trackLandingCTAClick } from "../../../utils/analytics"
-import SharedNavbar from "../../common/SharedNavbar"
 import config from "../../../config"
+import { ROUTES } from "../../../constants/constants"
+import { trackLandingCTAClick } from "../../../utils/analytics"
 
 const ManagerLanding = ({ translationKey }) => {
   const { t } = useTranslation(translationKey)
@@ -50,7 +50,8 @@ const ManagerLanding = ({ translationKey }) => {
     // Track CTA click before redirect
     trackLandingCTAClick("manager", ctaText)
 
-    router.push("/welcome/post-registration?for=manager")
+
+    router.push(`${ROUTES.welcome.postRegistration}?for=manager`)
   }
 
   const problems = [

@@ -31,12 +31,13 @@ import {
 } from "@mui/material"
 import { useTranslation } from "next-i18next"
 import Head from "next/head"
+import { useRouter } from "next/router"
 import config from "../../config"
-import { THIRD_PARTY } from "../../constants/constants"
+import { ROUTES, THIRD_PARTY } from "../../constants/constants"
 import { useInView } from "../../hooks/useInViews"
 import { trackLandingCTAClick } from "../../utils/analytics"
 
-const AboutComponent = () => {
+const AboutComponent = ({ forProfile }) => {
   const { t } = useTranslation("about")
 
   // Intersection observer hooks for animations
@@ -44,6 +45,7 @@ const AboutComponent = () => {
   const [storyRef, storyInView] = useInView({ threshold: 0.1, triggerOnce: true })
   const [valuesRef, valuesInView] = useInView({ threshold: 0.1, triggerOnce: true })
   const [communityRef, communityInView] = useInView({ threshold: 0.1, triggerOnce: true })
+  const router = useRouter()
 
   const values = [
     {
@@ -322,7 +324,7 @@ const AboutComponent = () => {
                         <Typography variant="h6" sx={{ mb: 1, fontWeight: "bold", fontSize: "1rem" }}>
                           {member.name}
                         </Typography>
-                        <Typography className="member-card-role" variant="subtitle2" sx={{ mb: 2, color: "#1B5993", fontWeight: "medium", minHeight: '2.5rem'}}>
+                        <Typography className="member-card-role" variant="subtitle2" sx={{ mb: 2, color: "#1B5993", fontWeight: "medium", minHeight: '2.5rem' }}>
                           {member.role}
                         </Typography>
                         <Typography variant="body2" sx={{ color: "text.secondary", lineHeight: 1.5, mb: 2 }}>
@@ -460,7 +462,7 @@ const AboutComponent = () => {
                   className="final-cta-button"
                   onClick={() => {
                     trackLandingCTAClick("about_page", "Join AngoraSix")
-                    window.location.href = "/auth/register"
+                    router.push(`${ROUTES.welcome.postRegistration}${forProfile ? `?for=${forProfile}` : ""}`)
                   }}
                 >
                   {t("finalCta.button")}

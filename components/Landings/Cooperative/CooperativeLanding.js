@@ -8,7 +8,7 @@ import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 import config from "../../../config"
 import { trackLandingCTAClick } from "../../../utils/analytics"
-import SharedNavbar from "../../common/SharedNavbar"
+import { ROUTES } from "../../../constants/constants"
 
 const CooperativeLanding = ({ translationKey }) => {
   const { t } = useTranslation(translationKey)
@@ -41,7 +41,8 @@ const CooperativeLanding = ({ translationKey }) => {
     // Track CTA click before redirect
     trackLandingCTAClick("cooperative", ctaText)
 
-    router.push("/welcome/post-registration?for=cooperative")
+
+    router.push(`${ROUTES.welcome.postRegistration}?for=cooperative`)
   }
 
   const problems = [
