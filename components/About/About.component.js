@@ -322,7 +322,7 @@ const AboutComponent = () => {
                         <Typography variant="h6" sx={{ mb: 1, fontWeight: "bold", fontSize: "1rem" }}>
                           {member.name}
                         </Typography>
-                        <Typography variant="subtitle2" sx={{ mb: 2, color: "#1B5993", fontWeight: "medium" }}>
+                        <Typography className="member-card-role" variant="subtitle2" sx={{ mb: 2, color: "#1B5993", fontWeight: "medium", minHeight: '2.5rem'}}>
                           {member.role}
                         </Typography>
                         <Typography variant="body2" sx={{ color: "text.secondary", lineHeight: 1.5, mb: 2 }}>
