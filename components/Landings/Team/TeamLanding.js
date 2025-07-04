@@ -42,8 +42,11 @@ const TeamLanding = ({ translationKey }) => {
     // Track CTA click before redirect
     trackLandingCTAClick("venture", ctaText)
 
-
-    router.push(`${ROUTES.welcome.postRegistration}?for=venture`)
+    if (session) {
+      router.push(`${ROUTES.welcome.postRegistration}?for=venture`)
+    } else {
+      router.push(`${ROUTES.auth.signin}?for=venture`)
+    }
   }
 
   const problems = [

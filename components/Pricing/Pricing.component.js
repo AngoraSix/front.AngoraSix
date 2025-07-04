@@ -63,14 +63,21 @@ const PricingComponent = ({ forProfile }) => {
       // Added custom plan tracking
       trackCustomPlanClick()
     }
+    if (session) {
+      router.push(`${ROUTES.welcome.postRegistration}${forProfile ? `?for=${forProfile}` : ""}`)
+    } else {
+      router.push(`${ROUTES.auth.signin}${forProfile ? `?for=${forProfile}` : ""}`)
+    }
 
-
-    router.push(`${ROUTES.welcome.postRegistration}${forProfile ? `?for=${forProfile}` : ""}`)
   }
 
   const handleBetaProgram = () => {
     trackBetaProgramClick()
-    router.push(`${ROUTES.welcome.postRegistration}${forProfile ? `?for=${forProfile}` : ""}`)
+    if (session) {
+      router.push(`${ROUTES.welcome.postRegistration}${forProfile ? `?for=${forProfile}` : ""}`)
+    } else {
+      router.push(`${ROUTES.auth.signin}${forProfile ? `?for=${forProfile}` : ""}`)
+    }
   }
 
   const freeFeatures = [

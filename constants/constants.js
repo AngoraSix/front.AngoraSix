@@ -51,9 +51,11 @@ export const ROUTES = {
     contributor: '/welcome/contributor',
     root: "/"
   },
-  legal:
-  {
+  legal: {
     termsAndConditions: '/legal/terms-and-conditions',
+  },
+  auth: {
+    signin: '/auth/signin',
   }
 };
 

@@ -1,22 +1,29 @@
 "use client"
 
-import Celebration from "@mui/icons-material/Celebration"
+import Campaign from "@mui/icons-material/Campaign"
 import { Box, Button, Card, CardContent, Container, Divider, Link, Stack, Typography } from "@mui/material"
 import { signIn } from "next-auth/react"
 import { useTranslation } from "next-i18next"
 import Head from "next/head"
 import Image from "next/image"
+import { useRouter } from "next/router"
 import { useState } from "react"
+import { ROUTES } from "../../../constants/constants"
+import { trackLoginClick } from "../../../utils/analytics"
 
-const AuthSignin = () => {
+const AuthSignin = ({ forProfile }) => {
   const { t } = useTranslation("auth.signin")
+  const router = useRouter()
+  const { locale } = router
   const [isLoading, setIsLoading] = useState(false)
 
   const handleGoogleSignIn = async () => {
     setIsLoading(true)
     try {
+
+      trackLoginClick(forProfile)
       await signIn("angorasixspring", {
-        callbackUrl: "/welcome/post-registration",
+        callbackUrl: `${locale === 'es' ? '/es' : ''}${ROUTES.welcome.postRegistration}${forProfile ? `?for=${forProfile}` : ""}`,
       })
     } catch (error) {
       console.error("Sign in error:", error)
@@ -45,6 +52,8 @@ const AuthSignin = () => {
         </Box>
 
         <Container maxWidth="md" className="auth-signin-content">
+          {" "}
+          {/* Changed maxWidth to md */}
           {/* Header Section */}
           <Box className="auth-signin-header">
             <Box className="auth-signin-logo">
@@ -108,7 +117,8 @@ const AuthSignin = () => {
                 </Box>
 
                 <Typography variant="body2" className="auth-signin-help">
-                  {t("login.help_text")} <Link
+                  {t("login.help_text")}{" "}
+                  <Link
                     href="mailto:team@angorasix.com"
                     color="primary"
                     underline="hover"
@@ -125,7 +135,7 @@ const AuthSignin = () => {
             <Card className="auth-signin-beta-card" elevation={2}>
               <CardContent className="auth-signin-beta-content">
                 <Stack direction="row" spacing={2} alignItems="center" className="auth-signin-beta-header">
-                   <Celebration className="celebration-icon" />
+                  <Campaign className="celebration-icon" />
                   <Typography variant="h6" className="auth-signin-beta-title">
                     {t("beta.title")}
                   </Typography>
@@ -137,7 +147,6 @@ const AuthSignin = () => {
               </CardContent>
             </Card>
           </Box>
-
           {/* Footer */}
           <Box className="auth-signin-footer">
             <Typography variant="body2" color="primary.contrastText">

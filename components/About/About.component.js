@@ -29,6 +29,7 @@ import {
   Typography,
   Zoom,
 } from "@mui/material"
+import { useSession } from "next-auth/react"
 import { useTranslation } from "next-i18next"
 import Head from "next/head"
 import { useRouter } from "next/router"
@@ -39,6 +40,7 @@ import { trackLandingCTAClick } from "../../utils/analytics"
 
 const AboutComponent = ({ forProfile }) => {
   const { t } = useTranslation("about")
+  const { data: session } = useSession()
 
   // Intersection observer hooks for animations
   const [heroRef, heroInView] = useInView({ threshold: 0.1, triggerOnce: true })
@@ -462,7 +464,11 @@ const AboutComponent = ({ forProfile }) => {
                   className="final-cta-button"
                   onClick={() => {
                     trackLandingCTAClick("about_page", "Join AngoraSix")
-                    router.push(`${ROUTES.welcome.postRegistration}${forProfile ? `?for=${forProfile}` : ""}`)
+                    if (session) {
+                      router.push(`${ROUTES.welcome.postRegistration}${forProfile ? `?for=${forProfile}` : ""}`)
+                    } else {
+                      router.push(`${ROUTES.auth.signin}${forProfile ? `?for=${forProfile}` : ""}`)
+                    }
                   }}
                 >
                   {t("finalCta.button")}

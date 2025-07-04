@@ -10,18 +10,20 @@ import {
   WorkspacePremium,
 } from "@mui/icons-material"
 import { Box, Button, Container, Fade, Grid, Grow, Typography, useTheme } from "@mui/material"
+import { useSession } from "next-auth/react"
 import { useTranslation } from "next-i18next"
 import Head from "next/head"
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 import config from "../../../config"
-import { trackLandingCTAClick } from "../../../utils/analytics"
 import { ROUTES } from "../../../constants/constants"
+import { trackLandingCTAClick } from "../../../utils/analytics"
 
 const ContributorLanding = ({ translationKey }) => {
   const { t } = useTranslation(translationKey)
   const theme = useTheme()
   const router = useRouter()
+  const { data: session } = useSession()
   const [visibleSections, setVisibleSections] = useState({})
 
   useEffect(() => {
@@ -49,7 +51,11 @@ const ContributorLanding = ({ translationKey }) => {
     // Track CTA click before redirect
     trackLandingCTAClick("contributor", ctaText)
 
-    router.push(`${ROUTES.welcome.postRegistration}?for=contributor`)
+    if (session) {
+      router.push(`${ROUTES.welcome.postRegistration}?for=contributor`)
+    } else {
+      router.push(`${ROUTES.auth.signin}?for=contributor`)
+    }
   }
 
   const problems = [
