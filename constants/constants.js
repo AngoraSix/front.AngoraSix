@@ -37,6 +37,8 @@ export const ROUTES = {
       },
     },
     contributors: '/managements/:managementId/contributors',
+    decisions: '/managements/:managementId/decisions',
+    financial: '/managements/:managementId/financial',
   },
   profile: {
     view: '/profile/:profileId',
@@ -49,9 +51,11 @@ export const ROUTES = {
     contributor: '/welcome/contributor',
     root: "/"
   },
-  legal:
-  {
+  legal: {
     termsAndConditions: '/legal/terms-and-conditions',
+  },
+  auth: {
+    signin: '/auth/signin',
   }
 };
 

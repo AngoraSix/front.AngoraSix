@@ -1,0 +1,71 @@
+.management-decisions-container {
+  padding: 0;
+  max-width: 100%;
+}
+
+.management-decisions-container .MuiCard-root {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.management-decisions-container .MuiLinearProgress-root {
+  transition: all 0.3s ease-in-out;
+}
+
+.management-decisions-container .MuiButton-root {
+  transition: all 0.2s ease-in-out;
+}
+
+.management-decisions-container .MuiAlert-root {
+  border-radius: 8px;
+}
+
+.management-decisions-container .MuiChip-root {
+  font-weight: 600;
+}
+
+/* Compact spacing for mobile */
+@media (max-width: 768px) {
+  .management-decisions-container {
+    padding: 0 8px;
+  }
+
+  .management-decisions-container .MuiCardContent-root {
+    padding: 16px !important;
+  }
+
+  .management-decisions-container .MuiTypography-h4 {
+    font-size: 1.5rem;
+  }
+
+  .management-decisions-container .MuiTypography-h6 {
+    font-size: 1.1rem;
+  }
+}
+
+/* Hover effects */
+.management-decisions-container .MuiCard-root:hover {
+  cursor: default;
+}
+
+.management-decisions-container .MuiButton-root:hover {
+  transform: translateY(-1px);
+}
+
+/* Custom scrollbar for better UX */
+.management-decisions-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.management-decisions-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.management-decisions-container::-webkit-scrollbar-thumb {
+  background: #afc1d6;
+  border-radius: 3px;
+}
+
+.management-decisions-container::-webkit-scrollbar-thumb:hover {
+  background: #7d99ba;
+}

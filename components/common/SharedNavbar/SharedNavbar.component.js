@@ -17,7 +17,7 @@ import {
 import { useTheme } from "@mui/material/styles"
 import useMediaQuery from "@mui/material/useMediaQuery"
 import Cookies from "js-cookie"
-import { signIn, signOut, useSession } from "next-auth/react"
+import { signOut, useSession } from "next-auth/react"
 import { useTranslation } from "next-i18next"
 import Image from "next/image"
 import Link from "next/link"
@@ -25,6 +25,7 @@ import { useRouter } from "next/router"
 import { useState } from "react"
 import config from "../../../config"
 import { ROUTES } from '../../../constants/constants'
+import { trackLandingCTAClick } from "../../../utils/analytics"
 
 const SharedNavbar = ({ forProfile }) => {
   const theme = useTheme()
@@ -77,7 +78,7 @@ const SharedNavbar = ({ forProfile }) => {
     return session ?
       [
         {
-          href: "/welcome/post-registration",
+          href: `${ROUTES.welcome.postRegistration}${forProfile ? `?for=${forProfile}` : ""}`,
           label: t("navbar.shared.access"),
         },
         ...baseItems,
@@ -271,7 +272,10 @@ const SharedNavbar = ({ forProfile }) => {
                 </>
               ) : (
                 <Button
-                  onClick={() => signIn("angorasixspring")}
+                  onClick={() => {
+                    trackLandingCTAClick("navbar_login", forProfile)
+                    router.push(`${ROUTES.auth.signin}${forProfile ? `?for=${forProfile}` : ""}`)
+                  }}
                   variant="outlined"
                   startIcon={<LoginIcon />}
                   sx={{
@@ -412,7 +416,10 @@ const SharedNavbar = ({ forProfile }) => {
                   ]
                 ) : (
                   <MenuItem
-                    onClick={() => signIn("angorasixspring")}
+                    onClick={() => {
+                      trackLandingCTAClick("navbar_login", forProfile)
+                      router.push(`${ROUTES.auth.signin}${forProfile ? `?for=${forProfile}` : ""}`)
+                    }}
                     sx={{
                       color: "#DCE7EA",
                       "&:hover": {

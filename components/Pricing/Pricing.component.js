@@ -9,7 +9,7 @@ import {
   Support,
   TrendingUp,
   Verified,
-} from "@mui/icons-material" // Added Handshake icon
+} from "@mui/icons-material"; // Added Handshake icon
 import {
   Box,
   Button,
@@ -27,24 +27,24 @@ import {
   Typography,
   useMediaQuery,
   useTheme,
-} from "@mui/material"
-import { signIn, useSession } from "next-auth/react"
-import { useTranslation } from "next-i18next"
-import Head from "next/head"
-import { useRouter } from "next/router"
-import "swiper/css"
-import "swiper/css/navigation"
-import "swiper/css/pagination"
-import { Navigation, Pagination } from "swiper/modules"
-import { Swiper, SwiperSlide } from "swiper/react"
-import config from "../../config"
-import { ROUTES } from "../../constants/constants"
+} from "@mui/material";
+import { useSession } from "next-auth/react";
+import { useTranslation } from "next-i18next";
+import Head from "next/head";
+import { useRouter } from "next/router";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import { Navigation, Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+import config from "../../config";
+import { ROUTES } from "../../constants/constants";
 import {
   trackBetaProgramClick,
   trackCustomPlanClick,
   trackFreePlanClick,
   trackPlusPlanClick,
-} from "../../utils/analytics" // Added trackCustomPlanClick
+} from "../../utils/analytics"; // Added trackCustomPlanClick
 
 const PricingComponent = ({ forProfile }) => {
   const { t } = useTranslation("pricing")
@@ -63,23 +63,20 @@ const PricingComponent = ({ forProfile }) => {
       // Added custom plan tracking
       trackCustomPlanClick()
     }
-
     if (session) {
-      // User is logged in, redirect to post-registration
-      router.push(ROUTES.welcome.postRegistration)
+      router.push(`${ROUTES.welcome.postRegistration}${forProfile ? `?for=${forProfile}` : ""}`)
     } else {
-      // User needs to sign in
-      signIn("angorasixspring")
+      router.push(`${ROUTES.auth.signin}${forProfile ? `?for=${forProfile}` : ""}`)
     }
+
   }
 
   const handleBetaProgram = () => {
     trackBetaProgramClick()
-
     if (session) {
-      router.push(ROUTES.welcome.postRegistration)
+      router.push(`${ROUTES.welcome.postRegistration}${forProfile ? `?for=${forProfile}` : ""}`)
     } else {
-      signIn("angorasixspring")
+      router.push(`${ROUTES.auth.signin}${forProfile ? `?for=${forProfile}` : ""}`)
     }
   }
 
@@ -230,106 +227,106 @@ const PricingComponent = ({ forProfile }) => {
   const initialSlide = forProfile == "contributor" ? 0 : 1;
 
   return (
-      <>
-        <Head>
-          <title>{t("page.title")}</title>
-          <meta name="description" content={t("page.description")} />
+    <>
+      <Head>
+        <title>{t("page.title")}</title>
+        <meta name="description" content={t("page.description")} />
 
-          <meta property="og:title" key="og.title" content={t("page.title")} />
-          <meta property="og:description" key="og.description" content={t("page.description")} />
-          <meta property="og:image" key="og.image" content={config.site.head.image.logoSquare} />
-          <meta property="og:url" key="og.url" content="https://angorasix.com/pricing" />
-          <meta property="og:type" key="og.type" content="website" />
-        </Head>
+        <meta property="og:title" key="og.title" content={t("page.title")} />
+        <meta property="og:description" key="og.description" content={t("page.description")} />
+        <meta property="og:image" key="og.image" content={config.site.head.image.logoSquare} />
+        <meta property="og:url" key="og.url" content="https://angorasix.com/pricing" />
+        <meta property="og:type" key="og.type" content="website" />
+      </Head>
 
-        <Box className="pricing-page">
-          <Container maxWidth="lg" className="pricing-container">
-            {/* Hero Section */}
-            <Box className="pricing-hero">
-              <Typography variant="h3" className="pricing-hero-title">
-                {t("hero.title")}
-              </Typography>
-              <Typography variant="h6" className="pricing-hero-subtitle">
-                {t("hero.subtitle")}
-              </Typography>
-            </Box>
+      <Box className="pricing-page">
+        <Container maxWidth="lg" className="pricing-container">
+          {/* Hero Section */}
+          <Box className="pricing-hero">
+            <Typography variant="h3" className="pricing-hero-title">
+              {t("hero.title")}
+            </Typography>
+            <Typography variant="h6" className="pricing-hero-subtitle">
+              {t("hero.subtitle")}
+            </Typography>
+          </Box>
 
-            {/* Beta Program Panel */}
-            <Box className="pricing-beta-panel">
-              <Box className="beta-panel-content">
-                <Box className="beta-panel-header">
-                  <Science className="beta-panel-icon" />
-                  <Typography variant="h4" className="beta-panel-title">
-                    {t("betaProgram.title")}
-                  </Typography>
-                </Box>
-
-                <Typography variant="body1" className="beta-panel-description">
-                  {t("betaProgram.description")}
-                </Typography>
-
-                <Box className="beta-benefits">
-                  <Box className="beta-benefit">
-                    <Verified className="beta-benefit-icon" />
-                    <Typography variant="body2">{t("betaProgram.benefits.premium")}</Typography>
-                  </Box>
-                  <Box className="beta-benefit">
-                    <TrendingUp className="beta-benefit-icon" />
-                    <Typography variant="body2">{t("betaProgram.benefits.evolution")}</Typography>
-                  </Box>
-                  <Box className="beta-benefit">
-                    <Support className="beta-benefit-icon" />
-                    <Typography variant="body2">{t("betaProgram.benefits.priority")}</Typography>
-                  </Box>
-                </Box>
-
-                <Button variant="contained" size="large" onClick={handleBetaProgram} className="beta-panel-cta">
-                  {t("betaProgram.cta")}
-                </Button>
-                <Typography
-                  variant="caption"
-                  color="primary.contrastText"
-                  sx={{ mt: 1, display: "block", textAlign: "center" }}
-                >
-                  {t("betaProgram.limitedSpots")}
+          {/* Beta Program Panel */}
+          <Box className="pricing-beta-panel">
+            <Box className="beta-panel-content">
+              <Box className="beta-panel-header">
+                <Science className="beta-panel-icon" />
+                <Typography variant="h4" className="beta-panel-title">
+                  {t("betaProgram.title")}
                 </Typography>
               </Box>
-            </Box>
 
-            {/* Plans Section */}
-            <Box className="pricing-plans-section">
-              {isMobile ? (
-                <Swiper
-                  modules={[Navigation, Pagination]}
-                  spaceBetween={20}
-                  slidesPerView={1}
-                  navigation
-                  pagination={{ clickable: true }}
-                  className="pricing-plans-swiper"
-                  initialSlide={initialSlide}
-                >
-                  {plans.map((plan, index) => (
-                    <SwiperSlide key={index}>
-                      <PlanCard plan={plan} isPlus={index === 1} isCustom={index === 2} /> {/* Pass isCustom prop */}
-                    </SwiperSlide>
-                  ))}
-                </Swiper>
-              ) : (
-                <Grid container spacing={4} className="pricing-plans-grid">
-                  {plans.map((plan, index) => (
-                    <Grid item xs={12} md={4} key={index}>
-                      {" "}
-                      {/* Changed md to 4 for 3 columns */}
-                      <PlanCard plan={plan} isPlus={index === 1} isCustom={index === 2} /> {/* Pass isCustom prop */}
-                    </Grid>
-                  ))}
-                </Grid>
-              )}
+              <Typography variant="body1" className="beta-panel-description">
+                {t("betaProgram.description")}
+              </Typography>
+
+              <Box className="beta-benefits">
+                <Box className="beta-benefit">
+                  <Verified className="beta-benefit-icon" />
+                  <Typography variant="body2">{t("betaProgram.benefits.premium")}</Typography>
+                </Box>
+                <Box className="beta-benefit">
+                  <TrendingUp className="beta-benefit-icon" />
+                  <Typography variant="body2">{t("betaProgram.benefits.evolution")}</Typography>
+                </Box>
+                <Box className="beta-benefit">
+                  <Support className="beta-benefit-icon" />
+                  <Typography variant="body2">{t("betaProgram.benefits.priority")}</Typography>
+                </Box>
+              </Box>
+
+              <Button variant="contained" size="large" onClick={handleBetaProgram} className="beta-panel-cta">
+                {t("betaProgram.cta")}
+              </Button>
+              <Typography
+                variant="caption"
+                color="primary.contrastText"
+                sx={{ mt: 1, display: "block", textAlign: "center" }}
+              >
+                {t("betaProgram.limitedSpots")}
+              </Typography>
             </Box>
-          </Container>
-        </Box>
-      </>
-    )
+          </Box>
+
+          {/* Plans Section */}
+          <Box className="pricing-plans-section">
+            {isMobile ? (
+              <Swiper
+                modules={[Navigation, Pagination]}
+                spaceBetween={20}
+                slidesPerView={1}
+                navigation
+                pagination={{ clickable: true }}
+                className="pricing-plans-swiper"
+                initialSlide={initialSlide}
+              >
+                {plans.map((plan, index) => (
+                  <SwiperSlide key={index}>
+                    <PlanCard plan={plan} isPlus={index === 1} isCustom={index === 2} /> {/* Pass isCustom prop */}
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            ) : (
+              <Grid container spacing={4} className="pricing-plans-grid">
+                {plans.map((plan, index) => (
+                  <Grid item xs={12} md={4} key={index}>
+                    {" "}
+                    {/* Changed md to 4 for 3 columns */}
+                    <PlanCard plan={plan} isPlus={index === 1} isCustom={index === 2} /> {/* Pass isCustom prop */}
+                  </Grid>
+                ))}
+              </Grid>
+            )}
+          </Box>
+        </Container>
+      </Box>
+    </>
+  )
 }
 
 export default PricingComponent

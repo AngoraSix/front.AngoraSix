@@ -1,0 +1,404 @@
+/* Auth Signin Styles */
+.auth-signin-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #030d16 0%, #0f2f4d 100%);
+  /* Dark gradient background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 0 1.5rem;
+  /* Reduced vertical padding */
+  position: relative;
+  overflow-x: hidden;
+  /* Only hide horizontal scroll */
+  overflow-y: auto;
+  /* Allow vertical scroll */
+  scroll-behavior: smooth;
+}
+
+/* Flowing Lines Background - Copied from WelcomeLanding.css */
+.welcome-background {
+  position: fixed;
+  /* Fixed to stay during scroll */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+  /* Lowest z-index */
+}
+
+.flowing-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.1;
+}
+
+.flowing-lines svg {
+  width: 100%;
+  height: 100%;
+}
+
+.flowing-lines path {
+  stroke: #fe5f55;
+  /* secondary.main */
+  stroke-width: 2;
+  fill: none;
+  stroke-dasharray: 5, 10;
+  animation: flowingLine 20s linear infinite;
+}
+
+.flowing-lines path:nth-child(2) {
+  stroke: #afc1d6;
+  /* primary.main2 */
+  animation-delay: -5s;
+  animation-duration: 25s;
+}
+
+.flowing-lines path:nth-child(3) {
+  stroke: #dce7ea;
+  /* primary.light2 */
+  animation-delay: -10s;
+  animation-duration: 30s;
+}
+
+@keyframes flowingLine {
+  0% {
+    stroke-dashoffset: 0;
+  }
+
+  100% {
+    stroke-dashoffset: 100;
+  }
+}
+
+.auth-signin-content {
+  position: relative;
+  z-index: 1;
+  max-width: 700px !important;
+  /* Made broader */
+  width: 100%;
+  padding: 0 1rem;
+  /* Added horizontal padding for smaller screens */
+}
+
+/* Header Section */
+.auth-signin-header {
+  text-align: center;
+  margin-bottom: 1rem;
+  /* Reduced margin */
+}
+
+.auth-signin-logo {
+  margin-bottom: 1rem;
+  /* Reduced margin */
+  display: flex;
+  justify-content: center;
+}
+
+.auth-signin-logo img {
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+}
+
+.auth-signin-title {
+  color: #ffffff !important;
+  /* White for contrast on dark background */
+  font-weight: 700 !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.auth-signin-subtitle {
+  color: #dce7ea !important;
+  /* primary.light2 for contrast on dark background */
+  font-weight: 400 !important;
+  opacity: 0.9;
+}
+
+.auth-signin-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Login Card */
+.auth-signin-card {
+  background: rgba(255, 255, 255, 0.95) !important;
+  /* Light background for card */
+  backdrop-filter: blur(10px);
+  border-radius: 16px !important;
+  border: 1px solid rgba(175, 193, 214, 0.3);
+  margin-bottom: 1rem;
+  /* Reduced margin */
+  box-shadow: 0 8px 32px rgba(10, 34, 57, 0.15) !important;
+  width: 100%;
+}
+
+.auth-signin-card-content {
+  padding: 1.5rem !important;
+  /* Reduced padding */
+}
+
+.auth-signin-card-title {
+  color: #0a2239 !important;
+  /* primary.main for contrast on light card */
+  font-weight: 600 !important;
+  text-align: center;
+  margin-bottom: 0.5rem !important;
+}
+
+.auth-signin-card-description {
+  color: #000000 !important;
+  /* Black for better contrast on light card */
+  text-align: center;
+  margin-bottom: 1rem !important;
+  /* Reduced margin */
+}
+
+/* Google Sign In Button */
+.auth-signin-google-button {
+  background: #ffffff !important;
+  color: #0a2239 !important;
+  /* primary.main */
+  border: 2px solid #dce7ea !important;
+  border-radius: 12px !important;
+  padding: 10px 20px !important;
+  /* Made slightly more compact */
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+  text-transform: none !important;
+  margin-bottom: 0.5rem !important;
+  /* Reduced margin */
+  transition: all 0.3s ease !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+.auth-signin-google-button:hover {
+  background: #f8f9fa !important;
+  border-color: #afc1d6 !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+  transform: translateY(-1px);
+}
+
+.auth-signin-google-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.google-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Divider */
+.auth-signin-divider {
+  margin: 0.5rem 0;
+  /* Reduced margin */
+}
+
+.auth-signin-help {
+  text-align: center;
+  color: #000000 !important;
+  /* Black for better contrast on light card */
+  font-size: 0.875rem !important;
+}
+
+/* Beta Program Card */
+.auth-signin-beta-card {
+  background: linear-gradient(135deg, #0a2239 0%, #1b5993 100%) !important;
+  /* Dark gradient using primary colors */
+  border-radius: 16px !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  /* Subtle white border */
+  margin-top: 1rem;
+  /* Added margin-top to separate from login card */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
+  width: 100%;
+}
+
+.auth-signin-beta-content {
+  padding: 1.5rem !important;
+  /* Consistent padding */
+}
+
+.auth-signin-beta-header {
+  margin-bottom: 0.75rem !important;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.auth-signin-beta-chip {
+  background: #fe5f55 !important;
+  /* secondary.main for vibrant badge */
+  color: #000000 !important;
+  /* secondary.contrastText */
+  font-weight: 600 !important;
+  border: none !important;
+  /* No border for chip */
+}
+
+.auth-signin-container .celebration-icon {
+  font-size: 1.5rem !important;
+  color: #fe5f55 !important;
+  /* secondary.main for icon */
+  margin-bottom: 0 !important;
+  display: block;
+  align-self: center;
+}
+
+.auth-signin-beta-title {
+  color: #ffffff !important;
+  /* White for contrast on dark card */
+  font-weight: 700 !important;
+  text-align: center;
+}
+
+.auth-signin-beta-description {
+  color: #dce7ea !important;
+  /* primary.light2 for contrast on dark card */
+  text-align: center;
+  margin-bottom: 0.5rem !important;
+  opacity: 0.95;
+  font-weight: 500 !important;
+}
+
+.auth-signin-beta-benefits {
+  margin-bottom: 1rem;
+  /* Consistent margin */
+}
+
+.auth-signin-beta-benefit {
+  color: #dce7ea !important;
+  /* primary.light2 for contrast on dark card */
+  margin-bottom: 0.4rem !important;
+  text-align: center;
+  font-weight: 500 !important;
+  opacity: 0.9;
+}
+
+.auth-signin-beta-cta {
+  color: #afc1d6 !important;
+  /* primary.main2 for contrast on dark card */
+  text-align: center;
+  font-weight: 600 !important;
+  font-size: 0.875rem !important;
+  opacity: 0.9;
+}
+
+/* Footer */
+.auth-signin-footer {
+  text-align: center;
+  padding: 0.75rem 0;
+  /* Reduced padding */
+  color: #7d99ba !important;
+  /* primary.dark2 for contrast on dark background */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .auth-signin-container {
+    padding: 80px 0.5rem 0.5rem;
+  }
+
+  .auth-signin-content {
+    max-width: 100% !important;
+    padding: 0 0.75rem;
+  }
+
+  .auth-signin-card-content {
+    padding: 1.5rem 1rem !important;
+  }
+
+  .auth-signin-beta-content {
+    padding: 1rem !important;
+  }
+
+  .auth-signin-title {
+    font-size: 1.8rem !important;
+  }
+
+  .auth-signin-subtitle {
+    font-size: 1rem !important;
+  }
+
+  .auth-signin-beta-header {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .auth-signin-card-content {
+    padding: 1rem 0.75rem !important;
+  }
+
+  .auth-signin-beta-content {
+    padding: 0.75rem !important;
+  }
+
+  .auth-signin-google-button {
+    padding: 8px 16px !important;
+    font-size: 0.85rem !important;
+  }
+
+  /* Hide flowing lines on mobile for performance */
+  .flowing-lines {
+    display: none;
+  }
+}
+
+/* Animation for loading state */
+.auth-signin-google-button:disabled {
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-signin-google-button:disabled::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: loading-shimmer 1.5s infinite;
+}
+
+@keyframes loading-shimmer {
+  0% {
+    left: -100%;
+  }
+
+  100% {
+    left: 100%;
+  }
+}
+
+/* Accessibility improvements */
+.auth-signin-google-button:focus {
+  outline: 2px solid #1b5993;
+  /* primary.light */
+  outline-offset: 2px;
+}
+
+.auth-signin-card:focus-within {
+  box-shadow: 0 8px 32px rgba(10, 34, 57, 0.25) !important;
+}
+
+/* Accessibility: Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .flowing-lines path {
+    animation: none;
+  }
+
+  .auth-signin-google-button:disabled::after {
+    animation: none;
+  }
+}

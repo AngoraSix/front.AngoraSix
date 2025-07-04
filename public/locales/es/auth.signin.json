@@ -1,0 +1,26 @@
+{
+    "page": {
+        "title": "Iniciar Sesión - AngoraSix",
+        "description": "Inicia sesión en tu cuenta de AngoraSix para gestionar tus proyectos y colaboraciones."
+    },
+    "welcome": {
+        "title": "Bienvenido a AngoraSix",
+        "subtitle": "Tu plataforma para proyectos colaborativos y gestión de proyectos."
+    },
+    "login": {
+        "title": "Inicia Sesión en tu Cuenta",
+        "description": "Elige tu método preferido para iniciar sesión.",
+        "google_button": "Iniciar sesión con Google",
+        "signing_in": "Iniciando Sesión...",
+        "or": "O",
+        "help_text": "¿Necesitas ayuda? Contacta a soporte:"
+    },
+    "beta": {
+        "badge": "Programa Beta",
+        "title": "¡Nuestro programa de usuarios beta ya está abierto!",
+        "description": "Iniciá sesión y postulate para obtener acceso anticipado y beneficios exclusivos!"
+    },
+    "footer": {
+        "text": "© 2025 AngoraSix. Todos los derechos reservados."
+    }
+}

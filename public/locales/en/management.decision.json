@@ -1,0 +1,36 @@
+{
+  "decisions": {
+    "title": "Project Decisions",
+    "subtitle": "Participate in important project decisions and check the results.",
+    "ownership": {
+      "title": "Your Participation",
+      "current": "Your current participation in this project",
+      "description": "This percentage represents your weight in voting and your participation in project profits.",
+      "tooltip": "Your ownership percentage determines your weight in project decisions"
+    },
+    "list": {
+      "title": "Decisions"
+    },
+    "status": {
+      "open": "Open",
+      "closed": "Closed"
+    },
+    "deadline": {
+      "vote_until": "You have time to vote until {{date}}",
+      "closed_on": "Closed on {{date}}",
+      "soon": "Urgent"
+    },
+    "vote": {
+      "options": "Vote options:",
+      "confirmed": "Your vote for \"{{option}}\" has been registered.",
+      "current": "Your current vote: \"{{option}}\"",
+      "already_voted": "You have already voted on this decision",
+      "final": "Your vote: \"{{option}}\""
+    },
+    "results": {
+      "title": "Results (by ownership):",
+      "awaiting": "Pending votes",
+      "total_voters": "Total eligible voters: {{count}}"
+    }
+  }
+}

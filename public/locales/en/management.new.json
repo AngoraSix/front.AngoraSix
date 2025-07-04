@@ -1,0 +1,71 @@
+{
+  "title": "Create New Project",
+  "subtitle": "Set up your collaborative project with AngoraSix",
+  "sections": {
+    "projectInfo": {
+      "title": "Project Information",
+      "projectName": "Project Name",
+      "projectNamePlaceholder": "Enter your project name",
+      "description": "Description",
+      "descriptionPlaceholder": "Brief description of your project",
+      "startDate": "Start Date",
+      "estimatedBudget": "Estimated Budget",
+      "category": "Project Category"
+    },
+    "decisionRules": {
+      "title": "Decision Rules",
+      "ownershipManagement": "Ownership Management",
+      "manageViaA6": "Manage ownership via AngoraSix",
+      "selfManaged": "Self-managed ownership",
+      "startupTasksDuration": "Startup Tasks Duration (years)",
+      "tasksDuration": "Regular Tasks Duration (years)",
+      "ownershipCap": "Ownership Cap per Vote",
+      "minimumVoters": "Minimum Voters Required"
+    },
+    "financeCompensation": {
+      "title": "Finance & Compensation",
+      "paymentTypes": "Supported Payment Types",
+      "compensationDistribution": "Compensation Distribution",
+      "vesting": "Vesting",
+      "immediate": "Immediate",
+      "vestingPeriod": "Vesting Period (years)",
+      "distributionFunction": "Distribution Function"
+    },
+    "summary": {
+      "title": "Project Summary",
+      "projectName": "Project Name",
+      "ownershipManagement": "Ownership Management",
+      "paymentTypes": "Payment Types",
+      "compensation": "Compensation"
+    }
+  },
+  "actions": {
+    "cancel": "Cancel",
+    "create": "Create Project"
+  },
+  "validation": {
+    "projectNameRequired": "Project name is required",
+    "invalidEmail": "Please enter a valid email address",
+    "invalidNumber": "Please enter a valid number"
+  },
+  "paymentTypes": {
+    "profitShares": "Profit Shares",
+    "usd": "USD",
+    "eur": "EUR",
+    "eth": "ETH"
+  },
+  "distributionFunctions": {
+    "curveA": {
+      "name": "Curve A",
+      "description": "Bell curve distribution"
+    },
+    "curveB": {
+      "name": "Curve B",
+      "description": "Exponential growth"
+    },
+    "linear": {
+      "name": "Linear",
+      "description": "Linear distribution"
+    }
+  }
+}

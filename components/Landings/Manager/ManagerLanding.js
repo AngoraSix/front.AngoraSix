@@ -10,16 +10,18 @@ import {
   WorkspacePremium,
 } from "@mui/icons-material"
 import { Box, Button, Container, Fade, Grid, Grow, Typography, useMediaQuery, useTheme } from "@mui/material"
+import { useSession } from "next-auth/react"
 import { useTranslation } from "next-i18next"
 import Head from "next/head"
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
-import { trackLandingCTAClick } from "../../../utils/analytics"
-import SharedNavbar from "../../common/SharedNavbar"
 import config from "../../../config"
+import { ROUTES } from "../../../constants/constants"
+import { trackLandingCTAClick } from "../../../utils/analytics"
 
 const ManagerLanding = ({ translationKey }) => {
   const { t } = useTranslation(translationKey)
+  const { data: session } = useSession()
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down("md"))
   const router = useRouter()
@@ -50,7 +52,11 @@ const ManagerLanding = ({ translationKey }) => {
     // Track CTA click before redirect
     trackLandingCTAClick("manager", ctaText)
 
-    router.push("/welcome/post-registration?for=manager")
+    if (session) {
+      router.push(`${ROUTES.welcome.postRegistration}?for=manager`)
+    } else {
+      router.push(`${ROUTES.auth.signin}?for=manager`)
+    }
   }
 
   const problems = [

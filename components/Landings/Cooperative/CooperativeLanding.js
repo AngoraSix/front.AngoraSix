@@ -2,18 +2,20 @@
 
 import { ChecklistRtl, Groups, Merge, Public, Stars, TouchApp } from "@mui/icons-material"
 import { Box, Button, Card, Container, Fade, Grid, Grow, Typography, useTheme } from "@mui/material"
+import { useSession } from "next-auth/react"
 import { useTranslation } from "next-i18next"
 import Head from "next/head"
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 import config from "../../../config"
+import { ROUTES } from "../../../constants/constants"
 import { trackLandingCTAClick } from "../../../utils/analytics"
-import SharedNavbar from "../../common/SharedNavbar"
 
 const CooperativeLanding = ({ translationKey }) => {
   const { t } = useTranslation(translationKey)
   const theme = useTheme()
   const router = useRouter()
+  const { data: session } = useSession()
   const [visibleSections, setVisibleSections] = useState({})
 
   useEffect(() => {
@@ -41,7 +43,11 @@ const CooperativeLanding = ({ translationKey }) => {
     // Track CTA click before redirect
     trackLandingCTAClick("cooperative", ctaText)
 
-    router.push("/welcome/post-registration?for=cooperative")
+    if (session) {
+      router.push(`${ROUTES.welcome.postRegistration}?for=cooperative`)
+    } else {
+      router.push(`${ROUTES.auth.signin}?for=cooperative`)
+    }
   }
 
   const problems = [

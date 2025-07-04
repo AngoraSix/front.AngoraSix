@@ -7,6 +7,7 @@ import Head from "next/head"
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 import config from "../../../config"
+import { ROUTES } from "../../../constants/constants"
 import { trackLandingCTAClick } from "../../../utils/analytics"
 
 const TeamLanding = ({ translationKey }) => {
@@ -41,7 +42,11 @@ const TeamLanding = ({ translationKey }) => {
     // Track CTA click before redirect
     trackLandingCTAClick("venture", ctaText)
 
-    router.push("/welcome/post-registration?for=venture")
+    if (session) {
+      router.push(`${ROUTES.welcome.postRegistration}?for=venture`)
+    } else {
+      router.push(`${ROUTES.auth.signin}?for=venture`)
+    }
   }
 
   const problems = [

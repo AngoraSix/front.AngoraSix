@@ -15,6 +15,7 @@ import Head from "next/head"
 import { useRouter } from "next/router"
 import { useEffect, useRef, useState } from "react"
 import config from "../../../config"
+import { ROUTES } from "../../../constants/constants"
 import { trackExploreOptionsClick } from "../../../utils/analytics"
 
 const WelcomeLanding = () => {
@@ -140,7 +141,7 @@ const WelcomeLanding = () => {
           {session && (
             <Button
               className="access-button"
-              onClick={() => router.push("/welcome/post-registration")}
+              onClick={() => router.push(ROUTES.welcome.postRegistration)}
               sx={{
                 mr: 2,
                 color: "#dce7ea",

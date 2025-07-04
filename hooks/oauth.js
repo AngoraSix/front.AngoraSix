@@ -13,7 +13,7 @@ export const useActiveSession = (allowsAnonymous = false) => {
     const identityProvider = session?.user?.identityProvider;
     if ((!session || shouldReauth) && !allowsAnonymous) {
       signIn(
-        'angorasixspring',
+        null,
         null,
         identityProvider ? { kc_idp_hint: identityProvider } : null
       ); // Force sign in to hopefully resolve error and be able to edit
@@ -34,7 +34,7 @@ export const useAndCheckActiveToken = () => {
     const identityProvider = session?.user?.identityProvider;
     if (shouldReauth) {
       signIn(
-        'angorasixspring',
+        null,
         null,
         identityProvider ? { kc_idp_hint: identityProvider } : null
       );

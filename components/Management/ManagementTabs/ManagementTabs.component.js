@@ -40,6 +40,20 @@ const PATHS_TO_TAB_INDEX = {
     routePattern: ROUTES.management.contributors,
     Icon: ContributorsIcon,
     justForAdmins: true
+  },
+  [transformPath(ROUTES.management.decisions)]: {
+    index: 3,
+    key: 'decisions',
+    routePattern: ROUTES.management.decisions,
+    Icon: ContributorsIcon,
+    justForAdmins: true
+  },
+  [transformPath(ROUTES.management.financial)]: {
+    index: 4,
+    key: 'financial',
+    routePattern: ROUTES.management.financial,
+    Icon: ContributorsIcon,
+    justForAdmins: true
   }
 }
 

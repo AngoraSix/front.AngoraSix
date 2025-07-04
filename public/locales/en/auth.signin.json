@@ -1,0 +1,26 @@
+{
+  "page": {
+    "title": "Sign In - AngoraSix",
+    "description": "Sign in to your AngoraSix account to manage your projects and collaborations."
+  },
+  "welcome": {
+    "title": "Welcome to AngoraSix",
+    "subtitle": "Your platform for collaborative ventures and project management."
+  },
+  "login": {
+    "title": "Log In to Your Account",
+    "description": "Choose your preferred method to sign in.",
+    "google_button": "Log in with Google",
+    "signing_in": "Signing In...",
+    "or": "OR",
+    "help_text": "Need help? Contact support:"
+  },
+  "beta": {
+    "badge": "Beta Program",
+    "title": "Our Beta Users program is now open!",
+    "description": "Log in and apply to get early access and exclusive benefits."
+  },
+  "footer": {
+    "text": "© 2025 AngoraSix. All rights reserved."
+  }
+}

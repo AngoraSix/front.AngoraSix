@@ -34,7 +34,7 @@ export const trackExploreOptionsClick = () => {
     event_category: "engagement",
     event_label: "welcome_landing",
     page_location: "hero_section",
-    value: 0.2,
+    value: 200,
     currency: "ARS"
   })
 }
@@ -48,11 +48,28 @@ export const trackExploreOptionsClick = () => {
  */
 export const trackLandingCTAClick = (landingType, ctaText) => {
   trackEvent("landing_cta_click", {
-    event_category: "conversion",
+    event_category: "engagement",
     event_label: landingType,
     cta_text: ctaText,
     conversion_intent: "registration",
-    value: 1.0,
+    value: 500,
+    currency: "ARS"
+  })
+}
+
+// ===== LOGIN PAGES EVENTS =====
+
+/**
+ * Track CTA clicks that lead to registration/login
+ * @param {string} landingType - Type of landing (contributor, cooperative, manager, team)
+ * @param {string} ctaText - Text of the CTA button
+ */
+export const trackLoginClick = (forProfile) => {
+  trackEvent("login_click", {
+    event_category: "engagement",
+    event_label: forProfile,
+    conversion_intent: "registration",
+    value: 4000,
     currency: "ARS"
   })
 }
@@ -64,11 +81,11 @@ export const trackLandingCTAClick = (landingType, ctaText) => {
  */
 export const trackFreePlanClick = () => {
   trackEvent("plan_selection", {
-    event_category: "conversion",
+    event_category: "engagement",
     event_label: "free_plan",
     plan_type: "free",
     conversion_intent: "registration",
-    value: 1.0,
+    value: 500,
     currency: "ARS"
   })
 }
@@ -78,11 +95,11 @@ export const trackFreePlanClick = () => {
  */
 export const trackPlusPlanClick = () => {
   trackEvent("plan_selection", {
-    event_category: "conversion",
+    event_category: "engagement",
     event_label: "plus_plan",
     plan_type: "plus",
     conversion_intent: "registration",
-    value: 1.0,
+    value: 500,
     currency: "ARS"
   })
 }
@@ -91,11 +108,11 @@ export const trackPlusPlanClick = () => {
 
 export const trackCustomPlanClick = () => {
   trackEvent("plan_selection", {
-    event_category: "conversion",
+    event_category: "engagement",
     event_label: "custom_plan",
     plan_type: "custom",
     conversion_intent: "registration",
-    value: 1.0,
+    value: 500,
     currency: "ARS"
   })
 }
@@ -110,7 +127,7 @@ export const trackBetaDialogOpen = () => {
     event_category: "engagement",
     event_label: "post_registration",
     dialog_type: "beta_program",
-    value: 5.0,
+    value: 5000,
     currency: "ARS"
   })
 }
@@ -123,7 +140,7 @@ export const trackBetaFormSubmit = () => {
     event_category: "conversion",
     event_label: "post_registration",
     form_type: "beta_application",
-    value: 20.0,
+    value: 15000,
     currency: "ARS"
   })
 }
@@ -136,7 +153,7 @@ export const trackNewsletterSignupClick = () => {
     event_category: "engagement",
     event_label: "post_registration",
     signup_type: "newsletter",
-    value: 2.0,
+    value: 3000,
     currency: "ARS"
   })
 }
@@ -149,7 +166,7 @@ export const trackContactMessageSubmit = () => {
     event_category: "engagement",
     event_label: "post_registration",
     form_type: "contact_message",
-    value: 2.0,
+    value: 3000,
     currency: "ARS"
   })
 }
@@ -164,7 +181,7 @@ export const trackSocialFollowClick = (platform) => {
     event_label: "post_registration",
     social_platform: platform,
     action_type: "follow",
-    value: 0.2,
+    value: 100,
     currency: "ARS"
   })
 }
@@ -173,7 +190,7 @@ export const trackBetaProgramClick = () => {
   trackEvent("beta_program_click", {
     event_category: "engagement",
     event_label: "pricing_page",
-    value: 1.0,
+    value: 500,
     currency: "ARS"
   })
 }
