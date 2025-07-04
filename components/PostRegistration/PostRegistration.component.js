@@ -246,7 +246,7 @@ const PostRegistration = () => {
   useEffect(() => {
     if (status === "loading") return
     if (!session) {
-      signIn("angorasixspring")
+      signIn()
       return
     }
     if (session?.user?.email) {

@@ -271,7 +271,7 @@ const SharedNavbar = ({ forProfile }) => {
                 </>
               ) : (
                 <Button
-                  onClick={() => signIn("angorasixspring")}
+                  onClick={() => signIn()}
                   variant="outlined"
                   startIcon={<LoginIcon />}
                   sx={{
@@ -412,7 +412,7 @@ const SharedNavbar = ({ forProfile }) => {
                   ]
                 ) : (
                   <MenuItem
-                    onClick={() => signIn("angorasixspring")}
+                    onClick={() => signIn()}
                     sx={{
                       color: "#DCE7EA",
                       "&:hover": {

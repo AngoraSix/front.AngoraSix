@@ -1,3 +1,3 @@
-import AuthSigninContainer from "./AuthSignin.container"
+import PostRegistrationContainer from "./PostRegistration.container"
 
-export default AuthSigninContainer
+export default PostRegistrationContainer

@@ -309,13 +309,13 @@ const Navbar = () => {
             ) : (<Box className="Navbar__Element Navbar__Session__Login">
               {isMobile ? <IconButton
                 className="Navbar__Login__Icon"
-                onClick={() => signIn('angorasixspring')}
+                onClick={() => signIn()}
                 aria-label="login"
                 sx={{ display: { xs: 'flex', sm: 'none' } }}
               >
                 <LoginIcon />
               </IconButton> : <Button
-                onClick={() => signIn('angorasixspring')}
+                onClick={() => signIn()}
                 variant="contained"
                 color="secondary"
                 sx={{
