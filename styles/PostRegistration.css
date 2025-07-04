@@ -7,7 +7,8 @@
   display: flex;
   align-items: center;
   padding: 2rem 0;
-  padding-top: 5rem; /* Space for navbar */
+  padding-top: 5rem;
+  /* Space for navbar */
 }
 
 /* Flowing Lines Background - Same as WelcomeLanding */
@@ -60,6 +61,7 @@
   0% {
     stroke-dashoffset: 0;
   }
+
   100% {
     stroke-dashoffset: 100;
   }
@@ -71,7 +73,8 @@
   z-index: 10;
   width: 100%;
   max-width: 1400px;
-  margin-top: 0; /* Remove space for navbar */
+  margin-top: 0;
+  /* Remove space for navbar */
 }
 
 .main-layout {
@@ -462,12 +465,14 @@ Add this block at the end of the file or near .tool-card styles: */
 .tool-card .tool-logo {
   width: 24px;
   height: 24px;
-  filter: invert(20%) sepia(100%) saturate(1000%) hue-rotate(190deg) brightness(90%) contrast(90%); /* Default blue color */
+  filter: invert(20%) sepia(100%) saturate(1000%) hue-rotate(190deg) brightness(90%) contrast(90%);
+  /* Default blue color */
   transition: filter 0.3s ease;
 }
 
 .tool-card.selected .tool-logo {
-  filter: invert(40%) sepia(100%) saturate(1000%) hue-rotate(330deg) brightness(100%) contrast(100%); /* Orange color when selected */
+  filter: invert(40%) sepia(100%) saturate(1000%) hue-rotate(330deg) brightness(100%) contrast(100%);
+  /* Orange color when selected */
 }
 
 /* Interest Cards */
@@ -565,6 +570,7 @@ Add this block at the end of the file or near .tool-card styles: */
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -687,7 +693,7 @@ Add this block at the end of the file or near .tool-card styles: */
     max-width: 95vw;
   }
 
-  .celebration-icon {
+  .post-registration-landing .celebration-icon {
     font-size: 1.8rem !important;
   }
 
@@ -712,7 +718,8 @@ Add this block at the end of the file or near .tool-card styles: */
 @media (max-width: 480px) {
   .post-registration-container {
     padding: 0 0.5rem;
-    margin-top: 2.5rem; /* Remove space for navbar */
+    margin-top: 2.5rem;
+    /* Remove space for navbar */
   }
 
   .post-registration-landing .beta-panel {
@@ -737,7 +744,7 @@ Add this block at the end of the file or near .tool-card styles: */
     font-size: 1.3rem !important;
   }
 
-  .celebration-icon {
+  .post-registration-landing .celebration-icon {
     font-size: 1.6rem !important;
   }
 
