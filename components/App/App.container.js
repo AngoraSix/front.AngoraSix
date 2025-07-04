@@ -10,7 +10,7 @@ const AppContainer = (props) => {
   const router = useRouter();
   const { isLoading, doLoad } = useLoading();
 
-  useAndCheckActiveToken();
+  // useAndCheckActiveToken();
 
   useEffect(() => {
     const startLoading = () => {

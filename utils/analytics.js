@@ -34,7 +34,7 @@ export const trackExploreOptionsClick = () => {
     event_category: "engagement",
     event_label: "welcome_landing",
     page_location: "hero_section",
-    value: 200,
+    value: 50,
     currency: "ARS"
   })
 }
