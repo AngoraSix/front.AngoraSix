@@ -11,6 +11,7 @@ import config from '../config';
 import reducers from '../store/reducers';
 import '../styles/About.css';
 import '../styles/App.css';
+import '../styles/AuthSignin.css';
 import '../styles/ClubInvitations.css';
 import '../styles/Commons.css';
 import "../styles/CountdownTimer.css";
