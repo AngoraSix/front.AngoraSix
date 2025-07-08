@@ -2,6 +2,7 @@
 
 import { AccountBalance, Diversity3, Groups, People, RocketLaunch, Security, Visibility } from "@mui/icons-material"
 import { Box, Button, Card, Container, Fade, Grid, Grow, Typography, useTheme } from "@mui/material"
+import { useSession } from "next-auth/react"
 import { useTranslation } from "next-i18next"
 import Head from "next/head"
 import { useRouter } from "next/router"
@@ -14,6 +15,7 @@ const TeamLanding = ({ translationKey }) => {
   const { t } = useTranslation(translationKey)
   const theme = useTheme()
   const router = useRouter()
+  const { data: session } = useSession()
   const [visibleSections, setVisibleSections] = useState({})
 
   useEffect(() => {
