@@ -5,7 +5,7 @@
     "ownership": {
       "title": "Your Participation",
       "current": "Your current participation in this project",
-      "description": "This percentage represents your weight in voting and your participation in project profits.",
+      "description": "This percentage represents your ownership (voting weight) within the project.",
       "tooltip": "Your ownership percentage determines your weight in project decisions"
     },
     "list": {

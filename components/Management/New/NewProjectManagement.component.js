@@ -28,6 +28,7 @@ import {
   Typography,
 } from "@mui/material"
 import { styled } from "@mui/system"
+import { useTranslation } from "next-i18next"
 import { useState } from "react"
 
 const MainContainer = styled(Box)(({ theme }) => ({
@@ -113,6 +114,7 @@ const DistributionCard = styled(Paper)(({ theme, selected }) => ({
 }))
 
 const NewProjectManagement = () => {
+  const { t } = useTranslation("management.new")
   const [formData, setFormData] = useState({
     projectName: "",
     description: "",
@@ -134,16 +136,16 @@ const NewProjectManagement = () => {
   const [errors, setErrors] = useState({})
 
   const paymentOptions = [
-    { id: "profit-shares", label: "Profit Shares", icon: "📊" },
-    { id: "usd", label: "USD", icon: "💵" },
-    { id: "eur", label: "EUR", icon: "💶" },
-    { id: "eth", label: "ETH", icon: "⟠" },
+    { id: "profit-shares", label: t("payment.profitShares"), icon: "📊" },
+    { id: "usd", label: t("payment.usd"), icon: "💵" },
+    { id: "eur", label: t("payment.eur"), icon: "💶" },
+    { id: "eth", label: t("payment.eth"), icon: "⟠" },
   ]
 
   const distributionFunctions = [
-    { id: "curve-a", name: "Curve A", description: "Bell curve distribution" },
-    { id: "curve-b", name: "Curve B", description: "Exponential growth" },
-    { id: "linear", name: "Linear", description: "Linear distribution" },
+    { id: "curve-a", name: t("distribution.curveA.name"), description: t("distribution.curveA.desc") },
+    { id: "curve-b", name: t("distribution.curveB.name"), description: t("distribution.curveB.desc") },
+    { id: "linear", name: t("distribution.linear.name"), description: t("distribution.linear.desc") },
   ]
 
   const handleInputChange = (field, value) => {
@@ -165,7 +167,7 @@ const NewProjectManagement = () => {
   const validateForm = () => {
     const newErrors = {}
     if (!formData.projectName.trim()) {
-      newErrors.projectName = "Project name is required"
+      newErrors.projectName = t("errors.projectName")
     }
     setErrors(newErrors)
     return Object.keys(newErrors).length === 0
@@ -193,7 +195,7 @@ const NewProjectManagement = () => {
                   mb: 1,
                 }}
               >
-                Create New Project
+                {t("title")}
               </Typography>
               <Typography
                 variant="h6"
@@ -202,7 +204,7 @@ const NewProjectManagement = () => {
                   fontWeight: 400,
                 }}
               >
-                Set up your collaborative project with AngoraSix
+                {t("subtitle")}
               </Typography>
             </Box>
 
@@ -213,14 +215,13 @@ const NewProjectManagement = () => {
                 <StyledCard>
                   <CardContent sx={{ p: 4 }}>
                     <SectionTitle>
-                      <BusinessIcon />
-                      Project Information
+                      <BusinessIcon />{t("sections.projectInfo")}
                     </SectionTitle>
 
                     <TextField
                       fullWidth
-                      label="Project Name"
-                      placeholder="Enter your project name"
+                      label={t("fields.projectName")}
+                      placeholder={t("placeholders.projectName")}
                       value={formData.projectName}
                       onChange={(e) => handleInputChange("projectName", e.target.value)}
                       error={!!errors.projectName}
@@ -231,8 +232,8 @@ const NewProjectManagement = () => {
 
                     <TextField
                       fullWidth
-                      label="Description"
-                      placeholder="Brief description of your project"
+                      label={t("fields.description")}
+                      placeholder={t("placeholders.description")}
                       multiline
                       rows={3}
                       value={formData.description}
@@ -244,7 +245,7 @@ const NewProjectManagement = () => {
                       <Grid item xs={12} sm={6}>
                         <TextField
                           fullWidth
-                          label="Start Date"
+                          label={t("fields.startDate")}
                           type="date"
                           value={formData.startDate}
                           onChange={(e) => handleInputChange("startDate", e.target.value)}
@@ -254,7 +255,7 @@ const NewProjectManagement = () => {
                       <Grid item xs={12} sm={6}>
                         <TextField
                           fullWidth
-                          label="Estimated Budget"
+                          label={t("fields.estimatedBudget")}
                           value={formData.estimatedBudget}
                           onChange={(e) => handleInputChange("estimatedBudget", e.target.value)}
                           InputProps={{
@@ -284,12 +285,12 @@ const NewProjectManagement = () => {
                   <CardContent sx={{ p: 4 }}>
                     <SectionTitle>
                       <SecurityIcon />
-                      Decision Rules
+                      {t("sections.decisionRules")}
                     </SectionTitle>
 
                     <Box sx={{ mb: 4 }}>
                       <Typography variant="subtitle1" sx={{ mb: 2, fontWeight: 600 }}>
-                        Ownership Management
+                        {t("fields.ownershipManagement")}
                       </Typography>
                       <ToggleButtonGroup>
                         <ToggleButton
@@ -298,16 +299,16 @@ const NewProjectManagement = () => {
                         >
                           <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
                             <AccountBalanceIcon />
-                            Manage ownership via AngoraSix
+                            {t("fields.ownershipManagementOptions.angorasix")}
                           </Box>
                         </ToggleButton>
                         <ToggleButton
-                          active={formData.ownershipManagement === "self"}
-                          onClick={() => handleInputChange("ownershipManagement", "self")}
+                          active={formData.ownershipManagement === "externally"}
+                          onClick={() => handleInputChange("ownershipManagement", "externally")}
                         >
                           <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
                             <BusinessIcon />
-                            Self-managed ownership
+                            {t("fields.ownershipManagementOptions.externally")}
                           </Box>
                         </ToggleButton>
                       </ToggleButtonGroup>
@@ -320,7 +321,7 @@ const NewProjectManagement = () => {
                             <Grid item xs={12} sm={6}>
                               <TextField
                                 fullWidth
-                                label="Startup Tasks Duration (years)"
+                                label={t("fields.startupDuration")}
                                 type="number"
                                 value={formData.startupTasksDuration}
                                 onChange={(e) =>
@@ -332,7 +333,7 @@ const NewProjectManagement = () => {
                             <Grid item xs={12} sm={6}>
                               <TextField
                                 fullWidth
-                                label="Regular Tasks Duration (years)"
+                                label={t("fields.regularDuration")}
                                 type="number"
                                 value={formData.tasksDuration}
                                 onChange={(e) => handleInputChange("tasksDuration", Number.parseInt(e.target.value))}
@@ -342,7 +343,7 @@ const NewProjectManagement = () => {
                             <Grid item xs={12} sm={6}>
                               <Box>
                                 <Typography variant="subtitle2" sx={{ mb: 1 }}>
-                                  Ownership Cap per Vote: {formData.ownershipCap}%
+                                  {t("fields.ownershipCap").replace("{{ownershipCap}}", formData.ownershipCap)}
                                 </Typography>
                                 <Slider
                                   value={formData.ownershipCap}
@@ -359,7 +360,7 @@ const NewProjectManagement = () => {
                             <Grid item xs={12} sm={6}>
                               <TextField
                                 fullWidth
-                                label="Minimum Voters Required"
+                                label={t("fields.minimumVoters")}
                                 type="number"
                                 value={formData.minimumVoters}
                                 onChange={(e) => handleInputChange("minimumVoters", Number.parseInt(e.target.value))}
@@ -378,12 +379,12 @@ const NewProjectManagement = () => {
                   <CardContent sx={{ p: 4 }}>
                     <SectionTitle>
                       <PaymentIcon />
-                      Finance & Compensation
+                      {t("sections.finance")}
                     </SectionTitle>
 
                     <Box sx={{ mb: 4 }}>
                       <Typography variant="subtitle1" sx={{ mb: 2, fontWeight: 600 }}>
-                        Supported Payment Types
+                        {t("fields.paymentTypes")}
                       </Typography>
                       <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
                         {paymentOptions.map((option) => (
@@ -400,7 +401,7 @@ const NewProjectManagement = () => {
 
                     <Box sx={{ mb: 4 }}>
                       <Typography variant="subtitle1" sx={{ mb: 2, fontWeight: 600 }}>
-                        Compensation Distribution
+                        {t("fields.compensation")}
                       </Typography>
                       <ToggleButtonGroup>
                         <ToggleButton
@@ -409,7 +410,7 @@ const NewProjectManagement = () => {
                         >
                           <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
                             <ScheduleIcon />
-                            Vesting
+                            {t("fields.vestingPeriodOptions.vesting")}
                           </Box>
                         </ToggleButton>
                         <ToggleButton
@@ -418,7 +419,7 @@ const NewProjectManagement = () => {
                         >
                           <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
                             <TrendingUpIcon />
-                            Immediate
+                            {t("fields.vestingPeriodOptions.immediate")}
                           </Box>
                         </ToggleButton>
                       </ToggleButtonGroup>
@@ -429,7 +430,7 @@ const NewProjectManagement = () => {
                         <Box>
                           <TextField
                             fullWidth
-                            label="Vesting Period (years)"
+                            label={t("fields.vestingPeriod")}
                             type="number"
                             value={formData.vestingPeriod}
                             onChange={(e) => handleInputChange("vestingPeriod", Number.parseInt(e.target.value))}
@@ -438,7 +439,7 @@ const NewProjectManagement = () => {
                           />
 
                           <Typography variant="subtitle1" sx={{ mb: 2, fontWeight: 600 }}>
-                            Distribution Function
+                            {t("fields.distributionFunction")}
                           </Typography>
                           <Grid container spacing={2}>
                             {distributionFunctions.map((func) => (
@@ -499,12 +500,12 @@ const NewProjectManagement = () => {
                       }}
                     >
                       <BusinessIcon />
-                      Project Summary
+                      {t("summary.title")}
                     </Typography>
 
                     <Box sx={{ mb: 3 }}>
                       <Typography variant="subtitle2" color="textSecondary" sx={{ mb: 1 }}>
-                        Project Name
+                        {t("summary.projectName")}
                       </Typography>
                       <Typography variant="body1" sx={{ fontWeight: 500 }}>
                         {formData.projectName || "Untitled Project"}
@@ -515,10 +516,10 @@ const NewProjectManagement = () => {
 
                     <Box sx={{ mb: 3 }}>
                       <Typography variant="subtitle2" color="textSecondary" sx={{ mb: 1 }}>
-                        Ownership Management
+                        {t("summary.ownership.title")}
                       </Typography>
                       <Chip
-                        label={formData.ownershipManagement === "angorasix" ? "AngoraSix Managed" : "Self Managed"}
+                        label={formData.ownershipManagement === "angorasix" ? t("summary.ownership.chip.angorasix") : t("summary.ownership.chip.externally")}
                         size="small"
                         sx={{
                           background: "#0A2239",
@@ -530,7 +531,7 @@ const NewProjectManagement = () => {
 
                     <Box sx={{ mb: 3 }}>
                       <Typography variant="subtitle2" color="textSecondary" sx={{ mb: 1 }}>
-                        Payment Types
+                        {t("summary.paymentTypes")}
                       </Typography>
                       <Stack direction="row" spacing={1} flexWrap="wrap">
                         {formData.paymentTypes.map((type) => {
@@ -542,7 +543,7 @@ const NewProjectManagement = () => {
 
                     <Box sx={{ mb: 3 }}>
                       <Typography variant="subtitle2" color="textSecondary" sx={{ mb: 1 }}>
-                        Compensation
+                        {t("summary.compensation")}
                       </Typography>
                       <Chip
                         label={

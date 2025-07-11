@@ -102,7 +102,7 @@
   }
 }
 
-.team-angorasix-section {
+.team-how-it-works-section {
   padding: 96px 0;
   background: linear-gradient(135deg, #f8fafe 0%, #f0f6fc 100%);
   position: relative;
@@ -110,7 +110,7 @@
 }
 
 @media (max-width: 900px) {
-  .team-angorasix-section {
+  .team-how-it-works-section {
     padding: 64px 0;
   }
 }
@@ -297,6 +297,33 @@
   -webkit-text-fill-color: transparent;
   font-weight: 600;
   animation: textGlow 3s ease-in-out infinite;
+}
+
+/* How It Works Section Styles */
+.team-how-it-works-section {
+  position: relative;
+}
+
+.team-how-it-works-section .how-it-works-step.step-1 {
+  margin-bottom: 3.5rem;
+}
+
+.team-how-it-works-section .to-results-arrow {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 1rem 0;
+}
+
+/* Mobile responsiveness for steps */
+@media (max-width: 768px) {
+  .team-how-it-works-section .MuiBox-root {
+    text-align: center !important;
+  }
+
+  .team-how-it-works-section img {
+    max-width: 350px !important;
+  }
 }
 
 /* Solutions Section */
@@ -575,6 +602,19 @@
   box-shadow: 0 8px 30px rgba(254, 95, 85, 0.5) !important;
 }
 
+
+
+/* Responsive adjustments for How It Works */
+@media (max-width: 768px) {
+  .team-how-it-works-section .how-it-works-step {
+    text-align: center !important;
+  }
+
+  .team-how-it-works-section .how-it-works-step .step-number {
+    margin: 0 auto 1.5rem auto !important;
+  }
+}
+
 /* Accessibility */
 @media (prefers-reduced-motion: reduce) {
 
@@ -593,5 +633,14 @@
 
   .glow-text {
     animation: none;
+  }
+
+  .team-how-it-works-section .outcome-card::before {
+    display: none;
+  }
+
+  .team-how-it-works-section .step-image:hover,
+  .team-how-it-works-section .outcome-image:hover {
+    transform: none;
   }
 }
