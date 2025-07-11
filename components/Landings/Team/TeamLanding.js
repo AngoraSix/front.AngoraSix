@@ -96,7 +96,6 @@ const TeamLanding = ({ translationKey }) => {
     },
   ]
 
-
   const howItWorksSteps = [
     {
       number: "01",
