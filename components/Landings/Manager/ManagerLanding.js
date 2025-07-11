@@ -25,6 +25,7 @@ const ManagerLanding = ({ translationKey }) => {
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down("md"))
   const router = useRouter()
+  const { locale } = router
   const [visibleSections, setVisibleSections] = useState({})
 
   useEffect(() => {
@@ -79,6 +80,38 @@ const ManagerLanding = ({ translationKey }) => {
     {
       text: t("problems.automation"),
       keywords: [],
+    },
+  ]
+
+  const howItWorksSteps = [
+    {
+      number: "01",
+      title: t("howItWorks.steps.step1.title"),
+      description: t("howItWorks.steps.step1.description"),
+      image: "/images/screenshots/{{locale}}/step1-rules.png",
+      imageAlt: t("howItWorks.steps.step1.imageAlt"),
+    },
+    {
+      number: "02",
+      title: t("howItWorks.steps.step2.title"),
+      description: t("howItWorks.steps.step2.description"),
+      image: "/images/screenshots/{{locale}}/step2-integrations.png",
+      imageAlt: t("howItWorks.steps.step2.imageAlt"),
+    },
+  ]
+
+  const howItWorksOutcomes = [
+    {
+      title: t("howItWorks.outcomes.outcome1.title"),
+      description: t("howItWorks.outcomes.outcome1.description"),
+      image: "/images/screenshots/{{locale}}/result1-decision.png",
+      imageAlt: t("howItWorks.outcomes.outcome1.imageAlt"),
+    },
+    {
+      title: t("howItWorks.outcomes.outcome2.title"),
+      description: t("howItWorks.outcomes.outcome2.description"),
+      image: "/images/screenshots/{{locale}}/result2-financial.png",
+      imageAlt: t("howItWorks.outcomes.outcome2.imageAlt"),
     },
   ]
 
@@ -324,6 +357,240 @@ const ManagerLanding = ({ translationKey }) => {
         </Container>
       </Box>
 
+      {/* How It Works Section */}
+      <Box id="how-it-works" data-animate className="manager-how-it-works-section">
+        <div className="sparkles-container sparkles-soft">
+          <div className="sparkle sparkle-1"></div>
+          <div className="sparkle sparkle-2"></div>
+          <div className="sparkle sparkle-3"></div>
+          <div className="sparkle sparkle-4"></div>
+        </div>
+
+        <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
+          <Fade in={visibleSections["how-it-works"]} timeout={1000}>
+            <Box sx={{ textAlign: "center", mb: 8 }}>
+              <Typography
+                variant="h2"
+                sx={{
+                  fontSize: { xs: "2rem", md: "2.5rem" },
+                  fontWeight: 700,
+                  color: theme.palette.primary.main,
+                  mb: 3,
+                }}
+              >
+                {t("howItWorks.title")}
+              </Typography>
+              <Typography
+                variant="h6"
+                sx={{
+                  color: theme.palette.primary.dark2,
+                  maxWidth: "600px",
+                  mx: "auto",
+                  fontWeight: 400,
+                  textAlign: "center",
+                }}
+              >
+                {t("howItWorks.subtitle")}
+              </Typography>
+            </Box>
+          </Fade>
+
+          {/* Steps */}
+          <Box>
+            {howItWorksSteps.map((step, index) => (
+              <Grow in={visibleSections["how-it-works"]} timeout={1000 + index * 400} key={index}>
+                <Box
+                  className={`how-it-works-step step-${index + 1}`}
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: { xs: 4, md: 6 },
+                    flexDirection: { xs: "column", md: index % 2 === 0 ? "row" : "row-reverse" },
+                  }}
+                >
+                  {/* Content Side */}
+                  <Box
+                    sx={{
+                      flex: 1,
+                      textAlign: { xs: "center", md: "left" },
+                      maxWidth: { xs: "100%", md: "500px" },
+                    }}
+                  >
+                    <Box
+                      sx={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: 2,
+                        mb: 3,
+                        justifyContent: { xs: "center", md: index % 2 === 0 ? "flex-start" : "flex-end" },
+                      }}
+                    >
+                      <Box
+                        sx={{
+                          backgroundColor: theme.palette.secondary.main,
+                          color: "white",
+                          width: 48,
+                          height: 48,
+                          borderRadius: "50%",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          fontSize: "1.2rem",
+                          fontWeight: 700,
+                          flexShrink: 0,
+                        }}
+                      >
+                        {step.number}
+                      </Box>
+                      <Typography
+                        variant="h4"
+                        sx={{
+                          fontSize: { xs: "1.5rem", md: "2rem" },
+                          fontWeight: 600,
+                          color: theme.palette.primary.main,
+                        }}
+                      >
+                        {step.title}
+                      </Typography>
+                    </Box>
+                    <Typography
+                      variant="body1"
+                      sx={{
+                        color: theme.palette.primary.dark2,
+                        lineHeight: 1.7,
+                        fontSize: "1.1rem",
+                        textAlign: { xs: "center", md: "left" },
+                      }}
+                    >
+                      {step.description}
+                    </Typography>
+                  </Box>
+
+                  {/* Image Side */}
+                  <Box
+                    sx={{
+                      flex: 1,
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      maxWidth: { xs: "100%", md: "500px" },
+                    }}
+                  >
+                    <Box
+                      component="img"
+                      src={step.image.replace("{{locale}}", locale)}
+                      alt={step.imageAlt}
+                      sx={{
+                        width: "100%",
+                        maxWidth: "750px",
+                        height: "auto",
+                        borderRadius: 3,
+                        boxShadow: "0 12px 40px rgba(0,0,0,0.15)",
+                        backgroundColor: "#ffffff",
+                      }}
+                    />
+                  </Box>
+                </Box>
+              </Grow>
+            ))}
+            {/* Arrow for desktop */}
+            <Box
+              className="to-results-arrow"
+              sx={{
+                display: { xs: "none", md: "block" },
+                zIndex: 2,
+              }}
+            >
+              <Box
+                sx={{
+                  width: 60,
+                  height: 60,
+                  backgroundColor: theme.palette.primary.main,
+                  borderRadius: "50%",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  color: "white",
+                  fontSize: "1.5rem",
+                  boxShadow: "0 4px 20px rgba(0,0,0,0.2)",
+                }}
+              >
+                ↓
+              </Box>
+            </Box>
+          </Box>
+
+          {/* Results Section */}
+          <Fade in={visibleSections["how-it-works"]} timeout={1500}>
+            <Box sx={{ textAlign: "center" }}>
+              <Typography
+                variant="h3"
+                sx={{
+                  fontSize: { xs: "1.8rem", md: "2.2rem" },
+                  fontWeight: 600,
+                  color: theme.palette.primary.main,
+                  mb: 2,
+                }}
+              >
+                {t("howItWorks.outcomes.title")}
+              </Typography>
+            </Box>
+          </Fade>
+
+          <Grid container spacing={4}>
+            {howItWorksOutcomes.map((outcome, index) => (
+              <Grid item xs={12} md={6} key={index}>
+                <Grow in={visibleSections["how-it-works"]} timeout={1500 + index * 300}>
+                  <Box
+                    sx={{
+                      p: 4,
+                      height: "100%",
+                      backgroundColor: "white",
+                      borderRadius: 3,
+                    }}
+                  >
+                    <Typography
+                      variant="h5"
+                      sx={{
+                        fontWeight: 600,
+                        color: theme.palette.primary.main,
+                        mb: 2,
+                        textAlign: "center",
+                      }}
+                    >
+                      {outcome.title}
+                    </Typography>
+
+                    <Box
+                      component="img"
+                      src={outcome.image.replace("{{locale}}", locale)}
+                      alt={outcome.imageAlt}
+                      sx={{
+                        width: "100%",
+                        height: "200px",
+                        objectFit: "cover",
+                        borderRadius: 2,
+                        mb: 3,
+                      }}
+                    />
+                    <Typography
+                      variant="body1"
+                      sx={{
+                        color: theme.palette.primary.dark2,
+                        lineHeight: 1.6,
+                        textAlign: "left",
+                      }}
+                    >
+                      {outcome.description}
+                    </Typography>
+                  </Box>
+                </Grow>
+              </Grid>
+            ))}
+          </Grid>
+        </Container>
+      </Box>
+
       {/* Solutions Section - Light Gradient + Medium Sparkles */}
       <Box id="solutions" data-animate className="manager-solutions-section">
         <div className="sparkles-container sparkles-medium">
@@ -403,68 +670,6 @@ const ManagerLanding = ({ translationKey }) => {
               </Grid>
             ))}
           </Grid>
-        </Container>
-      </Box>
-
-      {/* AngoraSix in Action Section - Light Blue + Soft Sparkles */}
-      <Box id="angorasix-action" data-animate className="manager-angorasix-section">
-        <div className="sparkles-container sparkles-soft">
-          <div className="sparkle sparkle-1"></div>
-          <div className="sparkle sparkle-2"></div>
-          <div className="sparkle sparkle-3"></div>
-          <div className="sparkle sparkle-4"></div>
-        </div>
-
-        <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
-          <Fade in={visibleSections["angorasix-action"]} timeout={1000}>
-            <Box sx={{ textAlign: "center", mb: 6 }}>
-              <Typography
-                variant="h2"
-                sx={{
-                  fontSize: { xs: "2rem", md: "2.5rem" },
-                  fontWeight: 700,
-                  color: theme.palette.primary.main,
-                  mb: 3,
-                }}
-              >
-                {t("angorasixInAction.title")}
-              </Typography>
-              <Typography
-                variant="h6"
-                sx={{ color: theme.palette.primary.dark2, maxWidth: "600px", mx: "auto", mb: 6 }}
-              >
-                {t("angorasixInAction.subtitle")}
-              </Typography>
-            </Box>
-          </Fade>
-
-          <Grow in={visibleSections["angorasix-action"]} timeout={1500}>
-            <Box
-              sx={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                position: "relative",
-                zIndex: 1,
-              }}
-            >
-              <Box
-                component="img"
-                src="/images/project-stats.png"
-                alt={t("angorasixInAction.imageAlt")}
-                sx={{
-                  maxWidth: "100%",
-                  height: "auto",
-                  borderRadius: 3,
-                  boxShadow: "0 12px 40px rgba(0,0,0,0.15)",
-                  transition: "all 0.3s ease",
-                  "&:hover": {
-                    transform: "scale(1.02)",
-                  },
-                }}
-              />
-            </Box>
-          </Grow>
         </Container>
       </Box>
 

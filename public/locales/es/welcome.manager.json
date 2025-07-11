@@ -41,9 +41,33 @@
       "description": "Personas más comprometidas al tener autonomía real y ver con claridad el beneficio directo de su trabajo. Podés pagar con participación de ganancias futuras."
     }
   },
-  "angorasixInAction": {
-    "title": "Descubrí AngoraSix",
-    "subtitle": "Conocé cómo simplificamos la gestión de proyectos colaborativos."
+  "howItWorks": {
+    "title": "Cómo funciona AngoraSix",
+    "steps": {
+      "step1": {
+        "title": "Define las reglas",
+        "description": "Comienza estableciendo reglas claras de gobernanza y compensación para tu proyecto. Todos saben exactamente cómo se toman las decisiones y cómo se recompensan las contribuciones desde el primer día. Configura procesos transparentes que aseguren equidad y responsabilidad para todos los miembros del equipo.",
+        "imageAlt": "Interfaz de configuración de gobernanza y reglas del proyecto"
+      },
+      "step2": {
+        "title": "Trackeamos el valor que cada uno aporta",
+        "description": "Nos integramos con las herramientas que ya usas - Trello, Jira, Notion, Asana y más. Cada tarea, cada commit, cada contribución se rastrea y valora automáticamente. No más adivinanzas sobre quién hizo qué o cuánto valor se creó.",
+        "imageAlt": "Panel de integración mostrando herramientas conectadas y contribuciones rastreadas"
+      }
+    },
+    "outcomes": {
+      "title": "Los resultados",
+      "outcome1": {
+        "title": "Un sistema de governanza basado en ownership",
+        "description": "La gobernanza no es simbólica. Todos tienen voz, pero quienes contribuyen más tienen proporcionalmente más poder de decisión. Tu impacto determina tu influencia, creando un sistema meritocrático donde los colaboradores más dedicados guían la dirección del proyecto.",
+        "imageAlt": "Panel de toma de decisiones mostrando poder de voto basado en contribuciones"
+      },
+      "outcome2": {
+        "title": "Vinculación con una wallet compartida para una gestión transparente",
+        "description": "Todas las ganancias se distribuyen de forma segura y automática a través de una billetera multi-firma compartida. Sin retrasos, sin disputas, sin tarifas ocultas - solo compensación justa y transparente que refleja la contribución real de cada miembro al éxito del proyecto.",
+        "imageAlt": "Panel financiero mostrando distribución transparente de pagos"
+      }
+    }
   },
   "useCases": {
     "title": "¿Quién puede beneficiarse?",

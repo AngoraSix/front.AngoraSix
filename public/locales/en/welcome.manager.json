@@ -41,9 +41,34 @@
       "description": "Employees more committed thanks to real autonomy and clear visibility of the direct benefits of their contributions. Profit-sharing as a flexible payment option."
     }
   },
-  "angorasixInAction":{
-    "title": "AngoraSix in action",
-    "subtitle": "Discover how our platform transforms project management and collaboration."
+  "howItWorks": {
+    "title": "How AngoraSix works",
+    "subtitle": "A simple, transparent process that puts contributors in control",
+    "steps": {
+      "step1": {
+        "title": "Define the rules",
+        "description": "Start by establishing clear governance and compensation rules for your project. Everyone knows exactly how decisions are made and how contributions are rewarded from day one. Set up transparent processes that ensure fairness and accountability for all team members.",
+        "imageAlt": "Project governance and rules setup interface"
+      },
+      "step2": {
+        "title": "We track all contributions",
+        "description": "We integrate seamlessly with the tools you already use - Trello, Jira, Notion, Asana, and more. Every task, every commit, every contribution is automatically tracked and valued. No more guessing about who did what or how much value was created.",
+        "imageAlt": "Integration dashboard showing connected tools and tracked contributions"
+      }
+    },
+    "outcomes": {
+      "title": "The results",
+      "outcome1": {
+        "title": "Governance based on ownership",
+        "description": "Governance isn't symbolic. Everyone has a voice, but those who contribute more hold proportionally more decision-making power. Your impact determines your influence, creating a meritocratic system where the most dedicated contributors guide the project's direction.",
+        "imageAlt": "Decision-making dashboard showing voting power based on contributions"
+      },
+      "outcome2": {
+        "title": "Transparent payments via shared wallet",
+        "description": "All earnings are distributed securely and automatically through a shared multi-signature wallet. No delays, no disputes, no hidden fees - just fair, transparent compensation that reflects each member's actual contribution to the project's success.",
+        "imageAlt": "Financial dashboard showing transparent payment distribution"
+      }
+    }
   },
   "useCases": {
     "title": "Who benefits?",

@@ -285,7 +285,7 @@ const TeamLanding = ({ translationKey }) => {
           </Container>
         </Box>
 
-        {/* How It Works Section - Light Gradient + Medium Tunnel */}
+        {/* How It Works Section */}
         <Box id="how-it-works" data-animate className="team-how-it-works-section">
           <Box className="gentle-flowing-pattern flowing-lines-soft">
             <svg width="100%" height="100%" viewBox="0 0 600 600" preserveAspectRatio="none">
