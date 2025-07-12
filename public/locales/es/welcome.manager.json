@@ -59,13 +59,13 @@
     "outcomes": {
       "title": "Con todo esto...",
       "outcome1": {
-        "title": "Tu equipo se auto-organiza apoyado en la plataforma",
+        "title": "Tu equipo se autoorganiza apoyado en la plataforma",
         "description": "En AngoraSix ofrecemos un sistema de gobernanza basado en los aportes y las reglas que definiste. Tenés visibilidad completa de las decisiones que va tomando el equipo.",
         "imageAlt": "Visualización del sistema de gobernanza con votos ponderados por contribución"
       },
       "outcome2": {
-        "title": "Gestión automátizada, confiable y transparente de los pagos",
-        "description": "Conectamos tu proyecto a una wallet compartida multi-firma para presentarte lo que corresponde pagarle a cada miembro. Revisás, firmás con confianza y te enfocas en lo tuyo.",
+        "title": "Gestión automatizada, confiable y transparente de los pagos",
+        "description": "Conectamos tu proyecto a una wallet compartida multi-firma para presentarte lo que corresponde pagarle a cada miembro. Revisás, firmás con confianza y te enfocás en lo tuyo.",
         "imageAlt": "Pantalla de distribución de fondos mostrando pagos automáticos según aportes"
       }
     }
