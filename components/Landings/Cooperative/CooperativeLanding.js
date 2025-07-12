@@ -72,14 +72,14 @@ const CooperativeLanding = ({ translationKey }) => {
 
   const howItWorksSteps = [
     {
-      number: "01",
+      number: "1",
       title: t("howItWorks.steps.step1.title"),
       description: t("howItWorks.steps.step1.description"),
       image: "/images/screenshots/{{locale}}/step1-rules.png",
       imageAlt: t("howItWorks.steps.step1.imageAlt"),
     },
     {
-      number: "02",
+      number: "2",
       title: t("howItWorks.steps.step2.title"),
       description: t("howItWorks.steps.step2.description"),
       image: "/images/screenshots/{{locale}}/step2-integrations.png",
@@ -512,6 +512,7 @@ const CooperativeLanding = ({ translationKey }) => {
               <Grid item xs={12} md={6} key={index}>
                 <Grow in={visibleSections["how-it-works"]} timeout={1500 + index * 300}>
                   <Box
+                    className="how-it-works-outcome-card"
                     sx={{
                       p: 4,
                       height: "100%",
@@ -520,11 +521,11 @@ const CooperativeLanding = ({ translationKey }) => {
                     }}
                   >
                     <Typography
+                      className="how-it-works-outcome-title"
                       variant="h5"
                       sx={{
                         fontWeight: 600,
                         color: theme.palette.primary.main,
-                        mb: 2,
                         textAlign: "center",
                       }}
                     >
@@ -532,6 +533,7 @@ const CooperativeLanding = ({ translationKey }) => {
                     </Typography>
 
                     <Box
+                      className="how-it-works-outcome-image"
                       component="img"
                       src={outcome.image.replace("{{locale}}", locale)}
                       alt={outcome.imageAlt}
@@ -540,7 +542,6 @@ const CooperativeLanding = ({ translationKey }) => {
                         height: "200px",
                         objectFit: "cover",
                         borderRadius: 2,
-                        mb: 3,
                       }}
                     />
                     <Typography

@@ -85,14 +85,14 @@ const ManagerLanding = ({ translationKey }) => {
 
   const howItWorksSteps = [
     {
-      number: "01",
+      number: "1",
       title: t("howItWorks.steps.step1.title"),
       description: t("howItWorks.steps.step1.description"),
       image: "/images/screenshots/{{locale}}/step1-rules.png",
       imageAlt: t("howItWorks.steps.step1.imageAlt"),
     },
     {
-      number: "02",
+      number: "2",
       title: t("howItWorks.steps.step2.title"),
       description: t("howItWorks.steps.step2.description"),
       image: "/images/screenshots/{{locale}}/step2-integrations.png",

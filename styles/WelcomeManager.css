@@ -302,6 +302,20 @@
   overflow: hidden;
 }
 
+.manager-how-it-works-section .how-it-works-outcome-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.manager-how-it-works-section .how-it-works-outcome-card .how-it-works-outcome-title {
+  flex-grow: 2;
+}
+
+.manager-how-it-works-section .how-it-works-outcome-card .how-it-works-outcome-image {
+  margin: 1.5rem 0;
+}
+
 @media (max-width: 768px) {
   .manager-how-it-works-section {
     padding: 64px 0;
