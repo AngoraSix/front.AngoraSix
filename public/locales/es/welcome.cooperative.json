@@ -1,57 +1,57 @@
 {
   "page": {
-    "title": "AngoraSix — Unite a un nuevo modelo de creación — cooperativo y descentralizado.",
-    "description": "Sumate a una comunidad que impulsa otra forma de emprender: sin jerarquías, con reglas claras, participación real y herramientas abiertas para crear colectivamente y con propósito."
+    "title": "AngoraSix — Impulsá tu proyecto community-driven — con eficiencia y transparencia.",
+    "description": "Una plataforma creada para potenciar proyectos community-driven: sin jerarquías, con reglas claras, participación real y herramientas abiertas para construir con propósito."
   },
   "hero": {
     "title": {
-      "part1": "Unite a un nuevo modelo de creación —",
-      "highlight": "cooperativo y descentralizado"
+      "part1": "Impulsá tu proyecto community-driven —",
+      "highlight": "con eficiencia y transparencia"
     },
-    "subtitle": "Sumate a una comunidad que impulsa otra forma de emprender: sin jerarquías, con reglas claras, participación real y herramientas abiertas para crear colectivamente y con propósito.",
-    "subtitle2": "Otra forma de emprender es posible — encontrala acá.",
-    "cta": "Empezar a construir"
+    "subtitle": "Por fin, una plataforma para gestionar tu proyecto descentralizadamente — con propiedad compartida, gobernanza real y pagos automatizados.",
+    "subtitle2": "Las grandes ideas necesitan ayuda. Herramientas reales para colaborar de verdad.",
+    "cta": "Empezar"
   },
   "problems": {
-    "title": "¿Sentís que el mundo empresarial no encaja con la solución que querés brindar?",
-    "subtitle": "Los desafíos que enfrentan quienes quieren crear con sentido, sin resignar sus valores",
-    "misalignment": "En un mundo obsesionado con la rentabilidad, cuesta encontrar espacios donde los valores, el propósito y lo humano sean lo central.",
-    "findingAllies": "No es fácil conectar con personas que compartan tu visión y tus ganas de crear algo que realmente importe.",
-    "internalConflicts": "Cuando no hay reglas claras, los conflictos internos y las tensiones desgastan al equipo y desvían el foco de lo importante.",
-    "authenticity": "Hay promesas de descentralización, pero rara vez se traducen en prácticas claras y visibles. Hace falta un modelo auténtico."
+    "title": "¿Te cuesta mantener tu proyecto community-driven organizado?",
+    "subtitle": "La descentralización implica desafíos.",
+    "misalignment": "Sin transparencia real y un seguimiento detallado, es difícil que los colaboradores confíen en el proceso.",
+    "findingAllies": "La motivación se pierde cuando las personas no sienten que tienen voz o una retribución justa por lo que aportan.",
+    "internalConflicts": "Llevar el seguimiento del trabajo de forma manual es agotador y muchas veces causa fricciones.",
+    "authenticity": "Sin las herramientas adecuadas, es difícil convertir los principios descentralizados en una práctica real con control compartido."
   },
   "howItWorks": {
     "title": "Cómo funciona AngoraSix",
     "subtitle": "Un proceso simple y transparente",
     "steps": {
       "step1": {
-        "title": "Definan las reglas del proyecto",
-        "description": "Brindamos un marco sencillo para establecer cómo se gestiona el proyecto: decisiones, ingresos, tareas. Las bases claras y visibles para todos desde el inicio.",
+        "title": "Defininan las reglas del proyecto",
+        "description": "Brindamos un marco sencillo para establecer cómo se gestiona el proyecto: decisiones, tareas y pagos. Las bases claras para todos desde el inicio.",
         "imageAlt": "Pantalla de configuración inicial de reglas del proyecto"
       },
       "step2": {
         "title": "Integración con las herramientas de gestión",
-        "description": "Nos conectamos con la herramienta que ya usás — Trello, Notion, Jira, Asana, y más — para registrar automáticamente lo que cada miembro aporta.",
-        "imageAlt": "Vista de la integración con herramientas de gestión."
+        "description": "Nos conectamos con las herramientas que el proyecto ya usa para registrar automáticamente lo que cada miembro aporta.",
+        "imageAlt": "Vista de integración mostrando herramientas conectadas y contribuciones registradas"
       }
     },
     "outcomes": {
       "title": "Con todo esto...",
       "outcome1": {
-        "title": "Decisiones compartidas basadas en los aportes reales",
-        "description": "En AngoraSix ofrecemos un sistema de gobernanza basado en ownership. Quien más aporta, mayor poder de decisión tiene. Justo, sin jerarquías ni conflictos.",
+        "title": "Decisiones compartidas según los aportes reales",
+        "description": "AngoraSix ofrece un sistema de gobernanza basado en ownership. Cuanto más aporta una persona, más peso tiene su voto en las decisiones. Justo, sin jerarquías ni conflictos.",
         "imageAlt": "Visualización del sistema de gobernanza con votos ponderados por contribución"
       },
       "outcome2": {
-        "title": "Gestión automática, segura y transparente de los ingresos",
-        "description": "Conectamos tu proyecto a una wallet compartida multi-firma para repartir los ingresos automáticamente según el valor aportado. Cada persona recibe lo que le corresponde.",
+        "title": "Gestión automatizada, confiable y transparente de los ingresos",
+        "description": "Conectamos tu proyecto a una wallet compartida multi-firma para distribuir automáticamente los ingresos según los aportes. Cada persona recibe lo que le corresponde.",
         "imageAlt": "Pantalla de distribución de fondos mostrando pagos automáticos según aportes"
       }
     }
   },
   "solutions": {
-    "title": "Un marco de gestión cooperativo para emprender diferente",
-    "subtitle": "Tecnología diseñada para facilitar una colaboración genuina, sin fricciones ni jerarquías",
+    "title": "Un marco cooperativo para crear de forma distinta",
+    "subtitle": "Tecnología diseñada para facilitar la colaboración genuina, sin fricciones ni jerarquías.",
     "authentic": {
       "title": "Reglas claras desde el inicio",
       "description": "Guía y una estructura para definir cómo se va a gestionar el proyecto. Roles, responsabilidades y acuerdos claros, visibles para todos."
@@ -66,7 +66,7 @@
     }
   },
   "useCases": {
-    "title": "No es para cualquiera.",
+    "title": "Ideal para tu proyecto community-driven",
     "opensource": {
       "title": "Proyectos de código abierto",
       "description": "Equipos de desarrollo con financiamiento o flujo de ingresos que quieren mantener su espíritu colaborativo mientras crecen profesionalmente."
@@ -82,10 +82,10 @@
   },
   "finalCta": {
     "title": {
-      "part1": "Sumate a quienes ya están construyendo el futuro.",
-      "highlight": "Con herramientas reales. Con propósito"
+      "part1": "Llevá tu proyecto community-driven",
+      "highlight": "al siguiente nivel"
     },
-    "subtitle": "¿Qué es lo mejor que podés hacer por este mundo? Nosotros te ayudamos.",
-    "cta": "Me sumo"
+    "subtitle": "No solo crear. Creemos bien.",
+    "cta": "Quiero probarlo"
   }
 }
