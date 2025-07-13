@@ -1,26 +1,27 @@
 "use client"
 
-import { useState } from "react"
+import { AccountBalance, CheckCircle, Group, HowToVote, Info, Schedule } from "@mui/icons-material"
 import {
+  Alert,
   Box,
-  Typography,
+  Button,
   Card,
   CardContent,
-  Button,
   Chip,
-  LinearProgress,
-  Grid,
-  Tooltip,
-  IconButton,
-  Fade,
-  Alert,
   Divider,
+  Fade,
+  Grid,
+  IconButton,
+  LinearProgress,
+  Tooltip,
+  Typography,
 } from "@mui/material"
-import { HowToVote, CheckCircle, Schedule, Info, Group, AccountBalance } from "@mui/icons-material"
-import { useTranslation } from "next-i18next"
-import { PieChartCard } from "../View/Sections/ManagementCapsSection/Cards/Cards.component"
 import { useTheme } from "@mui/material/styles"
 import { styled } from "@mui/system"
+import { useTranslation } from "next-i18next"
+import { useRouter } from "next/router"
+import { useState } from "react"
+import { PieChartCard } from "../View/Sections/ManagementCapsSection/Cards/Cards.component"
 
 const StyledDecisionCard = styled(Card)(({ theme, status }) => ({
   borderRadius: 12,
@@ -83,10 +84,12 @@ const VoteButton = styled(Button)(({ theme, selected, uservoted }) => ({
 }))
 
 const ManagementDecisions = ({ decisionsData, loading, managementId }) => {
-  const { t } = useTranslation(["management.decisions", "common"])
+  const { t } = useTranslation("management.decisions")
   const theme = useTheme()
   const [userVotes, setUserVotes] = useState({})
   const [showVoteConfirmation, setShowVoteConfirmation] = useState(null)
+  const router = useRouter()
+  const { locale } = router
 
   const handleVote = (decisionId, optionLabel) => {
     setUserVotes((prev) => ({
@@ -102,9 +105,9 @@ const ManagementDecisions = ({ decisionsData, loading, managementId }) => {
     return Math.max(0, 100 - totalVotedPercentage)
   }
 
-  const formatDeadline = (deadline) => {
+  const formatDeadline = (deadline, locale) => {
     const date = new Date(deadline)
-    return date.toLocaleDateString("es-ES", {
+    return date.toLocaleDateString(locale || "es-ES", {
       day: "numeric",
       month: "long",
       year: "numeric",
@@ -169,10 +172,7 @@ const ManagementDecisions = ({ decisionsData, loading, managementId }) => {
               {t("decisions.ownership.title", "Tu Participación")}
             </Typography>
             <Tooltip
-              title={t(
-                "decisions.ownership.tooltip",
-                "Tu porcentaje de ownership determina tu peso en las decisiones del proyecto",
-              )}
+              title={t("decisions.ownership.tooltip",)}
             >
               <IconButton size="small">
                 <Info sx={{ fontSize: 16, color: "#7D99BA" }} />
@@ -296,17 +296,18 @@ const ManagementDecisions = ({ decisionsData, loading, managementId }) => {
                     <Typography variant="body2" color="text.secondary" sx={{ fontSize: "0.85rem" }}>
                       {isOpen
                         ? t(
-                            "decisions.deadline.vote_until",
-                            `Tenés tiempo para votar hasta el ${formatDeadline(decision.deadline)}`,
-                          )
-                        : t("decisions.deadline.closed_on", `Cerrada el ${formatDeadline(decision.deadline)}`)}
+                          "decisions.deadline.vote_until",
+                        ).replace(
+                          "{{date}}", formatDeadline(decision.deadline, locale))
+                        : t("decisions.deadline.closed_on").replace(
+                          "{{date}}", formatDeadline(decision.deadline, locale))}
                     </Typography>
                   </Box>
 
                   {/* Vote Confirmation */}
                   {showVoteConfirmation === decision.id && (
                     <Alert severity="success" sx={{ mb: 2, py: 0.5 }}>
-                      {t("decisions.vote.confirmed", `Tu voto por "${userVotes[decision.id]}" ha sido registrado.`)}
+                      {t("decisions.vote.confirmed").replace("{{option}}", userVotes[decision.id])}
                     </Alert>
                   )}
 
@@ -341,7 +342,7 @@ const ManagementDecisions = ({ decisionsData, loading, managementId }) => {
                   {!isOpen && decision.vote && (
                     <Box mb={2}>
                       <Alert severity="info" icon={<CheckCircle />} sx={{ py: 0.5 }}>
-                        {t("decisions.vote.final", `Tu voto: "${decision.vote}"`)}
+                        {t("decisions.vote.final").replace("{{option}}", decision.vote)}
                       </Alert>
                     </Box>
                   )}
@@ -409,10 +410,7 @@ const ManagementDecisions = ({ decisionsData, loading, managementId }) => {
                     )}
 
                     <Typography variant="caption" color="text.secondary" sx={{ mt: 1, display: "block" }}>
-                      {t(
-                        "decisions.results.total_voters",
-                        `Total de votantes elegibles: ${decision.totalEligibleVoters}`,
-                      )}
+                      {t("decisions.results.total_voters").replace("{{count}}", decision.totalEligibleVoters)}
                     </Typography>
                   </Box>
                 </CardContent>

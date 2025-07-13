@@ -22,4 +22,18 @@ module.exports = {
     domains: ['lh3.googleusercontent.com', 'trello-members.s3.amazonaws.com', 'storage.googleapis.com', 'i.ytimg.com', 'googleusercontent.com', 'localhost', 'gateway'],
   },
   output: 'standalone',
+  async redirects() {
+    return [
+      {
+        source: '/welcome/cooperative',
+        destination: '/welcome/community-driven',
+        permanent: true
+      },
+      {
+        source: '/es/welcome/cooperative',
+        destination: '/es/welcome/community-driven',
+        permanent: true
+      }
+    ]
+  },
 };

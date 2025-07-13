@@ -103,7 +103,7 @@ const WelcomeLanding = () => {
       title: t("paths.cooperative.title"),
       description: t("paths.cooperative.description"),
       icon: GroupsOutlined,
-      path: "/welcome/cooperative",
+      path: "/welcome/community-driven",
       color: "secondary",
     },
     {

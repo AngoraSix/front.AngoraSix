@@ -26,7 +26,8 @@
     },
     "apply": "Apply for Beta",
     "success": "Application Submitted!",
-    "alreadyApplied": "Thanks for applying! We'll be in touch soon."
+    "alreadyApplied": "Thanks for applying! We'll be in touch soon.",
+    "errorResponse": "There was an error checking the status of your application. Please try again later."
   },
   "betaDialog": {
     "title": "Beta Program Application",
@@ -97,8 +98,7 @@
       "other": "Other"
     },
     "managementTools": {
-      "other": "Other / Custom",
-      "none": "We don't use tools"
+      "other": "Other / Custom"
     },
     "workInterests": {
       "development": "Software Development",

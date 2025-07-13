@@ -36,9 +36,34 @@
       "description": "A shared blockchain account linked to your rules and tasks, ensuring every financial decision aligns with what's agreed upon."
     }
   },
-  "angorasixInAction":{
-    "title": "AngoraSix in action",
-    "subtitle": "Discover how our platform transforms project management and collaboration."
+  "howItWorks": {
+    "title": "How AngoraSix works",
+    "subtitle": "A simple and transparent process",
+    "steps": {
+      "step1": {
+        "title": "Define your project rules",
+        "description": "We provide a simple framework to establish how your project will be managed — decisions, tasks and payments. Clear and visible foundations for everyone from day one.",
+        "imageAlt": "Initial setup screen for project rules"
+      },
+      "step2": {
+        "title": "Integrate with your management tools",
+        "description": "We connect with the tools you already use — Trello, Notion, Jira, Asana, and more — to automatically track what each member contributes.",
+        "imageAlt": "View of integration with management tools"
+      }
+    },
+    "outcomes": {
+      "title": "With all this in place...",
+      "outcome1": {
+        "title": "Shared decisions based on real contributions",
+        "description": "AngoraSix provides a governance system based on ownership. The more someone gives to the project, the more weight their vote has in key decisions. Fair, without hierarchies or conflict.",
+        "imageAlt": "Visualization of the governance system with contribution-weighted voting"
+      },
+      "outcome2": {
+        "title": "Automated, secure, and transparent income management",
+        "description": "We connect your project to a multi-signature shared wallet that automatically distributes income based on real contributions. Everyone receives what they truly earned.",
+        "imageAlt": "Fund distribution screen showing automatic payments based on contributions"
+      }
+    }
   },
   "useCases": {
     "title": "A suitable solution for your team",

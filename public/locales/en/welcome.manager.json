@@ -41,9 +41,34 @@
       "description": "Employees more committed thanks to real autonomy and clear visibility of the direct benefits of their contributions. Profit-sharing as a flexible payment option."
     }
   },
-  "angorasixInAction":{
-    "title": "AngoraSix in action",
-    "subtitle": "Discover how our platform transforms project management and collaboration."
+  "howItWorks": {
+    "title": "How AngoraSix works",
+    "subtitle": "A simple process for you and your team",
+    "steps": {
+      "step1": {
+        "title": "Set the project rules",
+        "description": "We provide a simple framework to define how your project will be managed: decisions, tasks, and payments. Clear foundations for everyone from the start.",
+        "imageAlt": "Initial setup screen for project rules"
+      },
+      "step2": {
+        "title": "Connect your management tools",
+        "description": "We integrate with the tools your team already uses to automatically track what each member contributes.",
+        "imageAlt": "Integration view showing connected management tools"
+      }
+    },
+    "outcomes": {
+      "title": "With all this in place...",
+      "outcome1": {
+        "title": "Your team self-organizes with the platform's support",
+        "description": "AngoraSix provides a governance system based on the rules you've defined and the tracked contributions. You get full visibility into the decisions your team is making.",
+        "imageAlt": "Governance view showing voting weighted by contributions"
+      },
+      "outcome2": {
+        "title": "Reliable, transparent and automated payment management",
+        "description": "We connect your project to a multi-signature shared wallet that shows you exactly what each member should be paid. Review, approve with confidence, and focus on what matters.",
+        "imageAlt": "Payment distribution screen showing automated payouts by contribution"
+      }
+    }
   },
   "useCases": {
     "title": "Who benefits?",

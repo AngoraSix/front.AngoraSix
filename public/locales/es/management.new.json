@@ -1,71 +1,68 @@
 {
-  "title": "Crear Nuevo Proyecto",
+  "title": "Crear nuevo proyecto",
   "subtitle": "Configura tu proyecto colaborativo con AngoraSix",
   "sections": {
-    "projectInfo": {
-      "title": "Información del Proyecto",
-      "projectName": "Nombre del Proyecto",
-      "projectNamePlaceholder": "Ingresa el nombre de tu proyecto",
-      "description": "Descripción",
-      "descriptionPlaceholder": "Breve descripción de tu proyecto",
-      "startDate": "Fecha de Inicio",
-      "estimatedBudget": "Presupuesto Estimado",
-      "category": "Categoría del Proyecto"
+    "projectInfo": "Información del proyecto",
+    "decisionRules": "Reglas de decisión",
+    "finance": "Finanzas y compensación"
+  },
+  "fields": {
+    "projectName": "Nombre del proyecto",
+    "description": "Descripción",
+    "startDate": "Fecha de inicio",
+    "estimatedBudget": "Presupuesto estimado",
+    "ownershipManagement": "Gestión de participación",
+    "ownershipManagementOptions": {
+      "angorasix": "Gestionar con AngoraSix",
+      "externally": "Gestionada externamente"
     },
-    "decisionRules": {
-      "title": "Reglas de Decisión",
-      "ownershipManagement": "Gestión de Propiedad",
-      "manageViaA6": "Gestionar propiedad vía AngoraSix",
-      "selfManaged": "Propiedad auto-gestionada",
-      "startupTasksDuration": "Duración Tareas de Inicio (años)",
-      "tasksDuration": "Duración Tareas Regulares (años)",
-      "ownershipCap": "Límite de Propiedad por Voto",
-      "minimumVoters": "Votantes Mínimos Requeridos"
-    },
-    "financeCompensation": {
-      "title": "Finanzas y Compensación",
-      "paymentTypes": "Tipos de Pago Soportados",
-      "compensationDistribution": "Distribución de Compensación",
+    "startupDuration": "Duración tareas startup (años)",
+    "regularDuration": "Duración tareas regulares (años)",
+    "ownershipCap": "Límite de participación por voto: {{ownershipCap}}%",
+    "minimumVoters": "Cantidad mínima de votantes",
+    "paymentTypes": "Tipos de pago soportados",
+    "compensation": "Retribución por defecto",
+    "vestingPeriod": "Período de vesting por defecto (años)",
+    "vestingPeriodOptions": {
       "vesting": "Vesting",
-      "immediate": "Inmediato",
-      "vestingPeriod": "Período de Vesting (años)",
-      "distributionFunction": "Función de Distribución"
+      "immediate": "Inmediato"
     },
-    "summary": {
-      "title": "Resumen del Proyecto",
-      "projectName": "Nombre del Proyecto",
-      "ownershipManagement": "Gestión de Propiedad",
-      "paymentTypes": "Tipos de Pago",
-      "compensation": "Compensación"
-    }
+    "distributionFunction": "Función de distribución"
   },
-  "actions": {
-    "cancel": "Cancelar",
-    "create": "Crear Proyecto"
-  },
-  "validation": {
-    "projectNameRequired": "El nombre del proyecto es requerido",
-    "invalidEmail": "Por favor ingresa un email válido",
-    "invalidNumber": "Por favor ingresa un número válido"
-  },
-  "paymentTypes": {
-    "profitShares": "Participación en Ganancias",
+  "payment": {
+    "profitShares": "Participación en ganancias",
     "usd": "USD",
     "eur": "EUR",
     "eth": "ETH"
   },
-  "distributionFunctions": {
+  "distribution": {
     "curveA": {
       "name": "Curva A",
-      "description": "Distribución de curva campana"
+      "desc": "Distribución tipo campana"
     },
     "curveB": {
       "name": "Curva B",
-      "description": "Crecimiento exponencial"
+      "desc": "Crecimiento exponencial"
     },
     "linear": {
       "name": "Lineal",
-      "description": "Distribución lineal"
+      "desc": "Distribución lineal"
     }
+  },
+  "summary": {
+    "title": "Resumen del proyecto",
+    "projectName": "Nombre del proyecto",
+    "ownership": {
+      "title": "Gestión de participación",
+      "chip": {
+        "angorasix": "Gestionado por AngoraSix",
+        "externally": "Gestionado externamente"
+      }
+    },
+    "paymentTypes": "Tipos de pago",
+    "compensation": "Compensación"
+  },
+  "errors": {
+    "projectName": "El nombre del proyecto es obligatorio"
   }
 }

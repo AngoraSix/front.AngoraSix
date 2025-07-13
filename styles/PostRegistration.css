@@ -281,6 +281,21 @@
   margin: 0 auto;
 }
 
+.post-registration-landing .beta-error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  background: #FEE1E1;
+  border: 2px solid #C62828;
+  border-radius: 12px;
+  padding: 1.25rem;
+  color: #C62828;
+  font-weight: 600;
+  max-width: 350px;
+  margin: 0 auto;
+}
+
 /* Side Panels (Right Column - Same width 3/12) */
 .post-registration-landing .side-panels {
   display: flex;

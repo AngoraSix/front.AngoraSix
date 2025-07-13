@@ -77,7 +77,7 @@ export const getServerSideProps = async (ctx) => {
   const { projectId } = ctx.params,
     session = await getSession(ctx);
   const validatedToken =
-    session?.error !== 'RefreshAccessTokenError' ? session : null;
+    session?.error !== 'RefreshAccessTokenError' && session?.error !== "SessionExpired" ? session : null;
   let isAdmin = false;
   try {
     const project = await api.projects.getProject(projectId, validatedToken);

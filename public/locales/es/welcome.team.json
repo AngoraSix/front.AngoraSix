@@ -36,9 +36,34 @@
       "description": "Una cuenta compartida sobre blockchain conectada a tus reglas y tareas, que asegura que cada decisión financiera esté alineada con lo acordado."
     }
   },
-  "angorasixInAction": {
-    "title": "Descubrí AngoraSix",
-    "subtitle": "Conocé cómo podemos simplificar tu operación diaria con reglas claras y automatización"
+  "howItWorks": {
+    "title": "Cómo funciona AngoraSix",
+    "subtitle": "Un proceso simple y transparente",
+    "steps": {
+      "step1": {
+        "title": "Definan las reglas del proyecto",
+        "description": "Brindamos un marco sencillo para establecer cómo se gestiona el proyecto: decisiones, ingresos, tareas. Las bases claras y visibles para todos desde el inicio.",
+        "imageAlt": "Pantalla de configuración inicial de reglas del proyecto"
+      },
+      "step2": {
+        "title": "Integración con las herramientas de gestión",
+        "description": "Nos conectamos con la herramienta que ya usás — Trello, Notion, Jira, Asana, y más — para registrar automáticamente lo que cada miembro aporta.",
+        "imageAlt": "Vista de la integración con herramientas de gestión."
+      }
+    },
+    "outcomes": {
+      "title": "Con todo esto...",
+      "outcome1": {
+        "title": "Decisiones compartidas basadas en los aportes reales",
+        "description": "En AngoraSix ofrecemos un sistema de gobernanza basado en ownership. Quien más aporta, mayor poder de decisión tiene. Justo, sin jerarquías ni conflictos.",
+        "imageAlt": "Visualización del sistema de gobernanza con votos ponderados por contribución"
+      },
+      "outcome2": {
+        "title": "Gestión automática, segura y transparente de los ingresos",
+        "description": "Conectamos tu proyecto a una wallet compartida multi-firma para repartir los ingresos automáticamente según el valor aportado. Cada persona recibe lo que le corresponde.",
+        "imageAlt": "Pantalla de distribución de fondos mostrando pagos automáticos según aportes"
+      }
+    }
   },
   "useCases": {
     "title": "Una solución adecuada para tu equipo",

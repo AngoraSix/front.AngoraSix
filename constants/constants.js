@@ -46,7 +46,7 @@ export const ROUTES = {
   welcome: {
     postRegistration: '/welcome/post-registration',
     venture: '/welcome/venture',
-    cooperative: '/welcome/cooperative',
+    "community-driven": '/welcome/community-driven',
     manager: '/welcome/manager',
     contributor: '/welcome/contributor',
     root: "/"

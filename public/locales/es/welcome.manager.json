@@ -41,9 +41,34 @@
       "description": "Personas más comprometidas al tener autonomía real y ver con claridad el beneficio directo de su trabajo. Podés pagar con participación de ganancias futuras."
     }
   },
-  "angorasixInAction": {
-    "title": "Descubrí AngoraSix",
-    "subtitle": "Conocé cómo simplificamos la gestión de proyectos colaborativos."
+  "howItWorks": {
+    "title": "Cómo funciona AngoraSix",
+    "subtitle": "Un proceso simple para vos y tu equipo",
+    "steps": {
+      "step1": {
+        "title": "Definí las reglas del proyecto",
+        "description": "Brindamos un marco sencillo para que establezcas cómo se gestiona el proyecto: decisiones, tareas, pagos. Las bases claras para todos desde el inicio.",
+        "imageAlt": "Pantalla de configuración inicial de reglas del proyecto"
+      },
+      "step2": {
+        "title": "Integración con las herramientas de gestión",
+        "description": "Nos conectamos con la herramienta que tu equipo ya usa para registrar automáticamente lo que cada miembro aporta.",
+        "imageAlt": "Vista de la integración con herramientas de gestión."
+      }
+    },
+    "outcomes": {
+      "title": "Con todo esto...",
+      "outcome1": {
+        "title": "Tu equipo se autoorganiza apoyado en la plataforma",
+        "description": "En AngoraSix ofrecemos un sistema de gobernanza basado en los aportes y las reglas que definiste. Tenés visibilidad completa de las decisiones que va tomando el equipo.",
+        "imageAlt": "Visualización del sistema de gobernanza con votos ponderados por contribución"
+      },
+      "outcome2": {
+        "title": "Gestión automatizada, confiable y transparente de los pagos",
+        "description": "Conectamos tu proyecto a una wallet compartida multi-firma para presentarte lo que corresponde pagarle a cada miembro. Revisás, firmás con confianza y te enfocás en lo tuyo.",
+        "imageAlt": "Pantalla de distribución de fondos mostrando pagos automáticos según aportes"
+      }
+    }
   },
   "useCases": {
     "title": "¿Quién puede beneficiarse?",

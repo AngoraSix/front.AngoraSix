@@ -26,7 +26,8 @@
     },
     "apply": "Postularse a Beta",
     "success": "¡Postulación enviada!",
-    "alreadyApplied": "¡Gracias por postularte! Nos pondremos en contacto pronto."
+    "alreadyApplied": "¡Gracias por postularte! Nos pondremos en contacto pronto.",
+    "errorResponse": "Hubo un error al verificar el estado de tu postulación. Por favor, intenta nuevamente más tarde."
   },
   "betaDialog": {
     "title": "Postulación al Programa Beta",
@@ -97,8 +98,7 @@
       "other": "Otro"
     },
     "managementTools": {
-      "other": "Otra / Propia",
-      "none": "No usamos herramientas"
+      "other": "Otra / Propia"
     },
     "workInterests": {
       "development": "Desarrollo de Software",

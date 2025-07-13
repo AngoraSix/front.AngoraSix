@@ -61,7 +61,7 @@ export const getServerSideProps = async (ctx) => {
   const { clubId, invitationToken } = ctx.params;
   const session = await getSession(ctx);
   const validatedToken =
-    session?.error !== 'RefreshAccessTokenError' ? session : null;
+    session?.error !== 'RefreshAccessTokenError' && session?.error !== "SessionExpired" ? session : null;
 
   if (validatedToken) {
     try {

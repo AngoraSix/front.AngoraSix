@@ -30,7 +30,9 @@ import { trackLandingCTAClick } from "../../../utils/analytics"
 const SharedNavbar = ({ forProfile }) => {
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down("md"))
+
   const { data: session } = useSession()
+
   const { t } = useTranslation("common")
   const router = useRouter()
   const { pathname, asPath, query, locale, locales } = router

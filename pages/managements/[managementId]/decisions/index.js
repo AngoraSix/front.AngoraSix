@@ -24,8 +24,8 @@ const ManagementDecisionsPage = () => {
     decisions: [
       {
         id: "decision1",
-        title: "Distribución de utilidades Q3",
-        description: "Definamos qué porcentaje de los ingresos será distribuido entre los socios este trimestre.",
+        title: "Q3 Profit Distribution",
+        description: "Let's define what percentage of the income will be distributed among members this quarter.",
         status: "open",
         deadline: "2025-07-10",
         vote: null,
@@ -39,8 +39,8 @@ const ManagementDecisionsPage = () => {
       },
       {
         id: "decision2",
-        title: "Incorporación de nuevo socio",
-        description: "¿Aprobás la incorporación de Alejandra como miembro formal del equipo?",
+        title: "New Member Admission",
+        description: "Do you approve the admission of Alejandra as a formal team member?",
         status: "closed",
         deadline: "2025-06-10",
         vote: "Sí",
@@ -53,9 +53,8 @@ const ManagementDecisionsPage = () => {
       },
       {
         id: "decision3",
-        title: "Presupuesto para marketing digital",
-        description:
-          "Aprobación del presupuesto mensual destinado a campañas de marketing digital y publicidad online.",
+        title: "Digital Marketing Budget",
+        description: "Approval of the monthly budget allocated to digital marketing and online advertising campaigns.",
         status: "open",
         deadline: "2025-07-15",
         vote: null,

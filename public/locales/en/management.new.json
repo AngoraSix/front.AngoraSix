@@ -1,71 +1,68 @@
 {
-  "title": "Create New Project",
+  "title": "Create new project",
   "subtitle": "Set up your collaborative project with AngoraSix",
   "sections": {
-    "projectInfo": {
-      "title": "Project Information",
-      "projectName": "Project Name",
-      "projectNamePlaceholder": "Enter your project name",
-      "description": "Description",
-      "descriptionPlaceholder": "Brief description of your project",
-      "startDate": "Start Date",
-      "estimatedBudget": "Estimated Budget",
-      "category": "Project Category"
+    "projectInfo": "Project information",
+    "decisionRules": "Decision rules",
+    "finance": "Finance & compensation"
+  },
+  "fields": {
+    "projectName": "Project name",
+    "description": "Description",
+    "startDate": "Start Ddate",
+    "estimatedBudget": "Estimated budget",
+    "ownershipManagement": "Ownership management",
+    "ownershipManagementOptions": {
+      "angorasix": "Manage ownership via AngoraSix",
+      "externally": "Managed externally"
     },
-    "decisionRules": {
-      "title": "Decision Rules",
-      "ownershipManagement": "Ownership Management",
-      "manageViaA6": "Manage ownership via AngoraSix",
-      "selfManaged": "Self-managed ownership",
-      "startupTasksDuration": "Startup Tasks Duration (years)",
-      "tasksDuration": "Regular Tasks Duration (years)",
-      "ownershipCap": "Ownership Cap per Vote",
-      "minimumVoters": "Minimum Voters Required"
-    },
-    "financeCompensation": {
-      "title": "Finance & Compensation",
-      "paymentTypes": "Supported Payment Types",
-      "compensationDistribution": "Compensation Distribution",
+    "startupDuration": "Startup tasks duration (years)",
+    "regularDuration": "Regular tasks duration (years)",
+    "ownershipCap": "Ownership cap per vote: {{ownershipCap}}%",
+    "minimumVoters": "Minimum voters required",
+    "paymentTypes": "Supported payment types",
+    "compensation": "Default compensation",
+    "vestingPeriod": "Default vesting period (years)",
+    "vestingPeriodOptions": {
       "vesting": "Vesting",
-      "immediate": "Immediate",
-      "vestingPeriod": "Vesting Period (years)",
-      "distributionFunction": "Distribution Function"
+      "immediate": "Immediate"
     },
-    "summary": {
-      "title": "Project Summary",
-      "projectName": "Project Name",
-      "ownershipManagement": "Ownership Management",
-      "paymentTypes": "Payment Types",
-      "compensation": "Compensation"
-    }
+    "distributionFunction": "Distribution function"
   },
-  "actions": {
-    "cancel": "Cancel",
-    "create": "Create Project"
-  },
-  "validation": {
-    "projectNameRequired": "Project name is required",
-    "invalidEmail": "Please enter a valid email address",
-    "invalidNumber": "Please enter a valid number"
-  },
-  "paymentTypes": {
-    "profitShares": "Profit Shares",
+  "payment": {
+    "profitShares": "Profit shares",
     "usd": "USD",
     "eur": "EUR",
     "eth": "ETH"
   },
-  "distributionFunctions": {
+  "distribution": {
     "curveA": {
       "name": "Curve A",
-      "description": "Bell curve distribution"
+      "desc": "Bell curve distribution"
     },
     "curveB": {
       "name": "Curve B",
-      "description": "Exponential growth"
+      "desc": "Exponential growth"
     },
     "linear": {
       "name": "Linear",
-      "description": "Linear distribution"
+      "desc": "Linear distribution"
     }
+  },
+  "summary": {
+    "title": "Project summary",
+    "projectName": "Project name",
+    "ownership": {
+      "title": "Ownership management",
+      "chip": {
+        "angorasix": "AngoraSix managed",
+        "externally": "Managed externally"
+      }
+    },
+    "paymentTypes": "Payment types",
+    "compensation": "Compensation"
+  },
+  "errors": {
+    "projectName": "Project name is required"
   }
 }

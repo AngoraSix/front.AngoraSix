@@ -263,16 +263,57 @@
   }
 }
 
-.cooperative-angorasix-section {
+.cooperative-how-it-works-section {
   padding: 96px 0;
   background: linear-gradient(135deg, #f8fafe 0%, #f0f6fc 100%);
   position: relative;
   overflow: hidden;
 }
 
+.cooperative-how-it-works-section .how-it-works-outcome-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cooperative-how-it-works-section .how-it-works-outcome-card .how-it-works-outcome-title {
+  flex-grow: 2;
+}
+
+.cooperative-how-it-works-section .how-it-works-outcome-card .how-it-works-outcome-image {
+  margin: 1.5rem 0;
+}
+
 @media (max-width: 768px) {
-  .cooperative-angorasix-section {
+  .cooperative-how-it-works-section {
     padding: 64px 0;
+  }
+}
+
+/* How It Works Section Styles */
+.cooperative-how-it-works-section {
+  position: relative;
+}
+
+.cooperative-how-it-works-section .how-it-works-step.step-1 {
+  margin-bottom: 3.5rem;
+}
+
+.cooperative-how-it-works-section .to-results-arrow {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 1rem 0;
+}
+
+/* Mobile responsiveness for steps */
+@media (max-width: 768px) {
+  .cooperative-how-it-works-section .MuiBox-root {
+    text-align: center !important;
+  }
+
+  .cooperative-how-it-works-section img {
+    max-width: 350px !important;
   }
 }
 
@@ -345,6 +386,17 @@
 }
 
 
+/* Responsive adjustments for How It Works */
+@media (max-width: 768px) {
+  .cooperative-how-it-works-section .how-it-works-step {
+    text-align: center !important;
+  }
+
+  .cooperative-how-it-works-section .how-it-works-step .step-number {
+    margin: 0 auto 1.5rem auto !important;
+  }
+}
+
 /* Accessibility */
 @media (prefers-reduced-motion: reduce) {
 
@@ -361,5 +413,14 @@
 
   .glow-text {
     animation: none;
+  }
+
+  .cooperative-how-it-works-section .outcome-card::before {
+    display: none;
+  }
+
+  .cooperative-how-it-works-section .step-image:hover,
+  .cooperative-how-it-works-section .outcome-image:hover {
+    transform: none;
   }
 }

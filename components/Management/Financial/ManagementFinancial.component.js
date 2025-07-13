@@ -4,6 +4,7 @@ import { AccountBalance, Payments, QueryStats, TrendingDown, TrendingUp } from "
 import {
   Avatar,
   Box,
+  Button,
   Card,
   CardContent,
   Fade,
@@ -11,7 +12,6 @@ import {
   ToggleButton,
   ToggleButtonGroup,
   Typography,
-  Button,
 } from "@mui/material"
 import { LineChart } from "@mui/x-charts/LineChart"
 import { useTranslation } from "next-i18next"
@@ -144,7 +144,6 @@ const ManagementFinancial = () => {
   const handlePayNow = (memberId, amount, currency) => {
     // Placeholder for actual payment logic
     alert(`Initiating payment for ${formatCurrency(amount, currency)} for member ${memberId}`)
-    console.log(`Pay Now clicked for member ${memberId}: ${amount} ${currency}`)
   }
 
   return (

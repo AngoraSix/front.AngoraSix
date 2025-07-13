@@ -8,6 +8,8 @@ module.exports = {
     '/clubs/*',
     '/managements/*',
     '/welcome/post-registration',
+    '/welcome/cooperative',
+    '/es/welcome/cooperative',
   ],
   robotsTxtOptions: {
     policies: [
