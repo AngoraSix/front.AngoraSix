@@ -11,6 +11,7 @@ import {
   Code,
   Diamond,
   Email,
+  Error,
   Error as ErrorIcon,
   GitHub,
   Group,
@@ -28,7 +29,6 @@ import {
   YouTube,
 } from "@mui/icons-material";
 import Build from "@mui/icons-material/Build"; // Keep this one if still used elsewhere or for consistency
-import Close from "@mui/icons-material/Close"; // Keep this one if still used elsewhere or for consistency
 import DesignServices from "@mui/icons-material/DesignServices"; // Keep this one if still used elsewhere or for consistency
 import {
   Alert,
@@ -75,6 +75,7 @@ import {
 import Link from "next/link";
 import AsanaLogo from "../../public/logos/thirdparty/asana.svg";
 import ClickUpLogo from "../../public/logos/thirdparty/clickup.svg";
+import GithubProjectsLogo from "../../public/logos/thirdparty/github.svg";
 import JiraLogo from "../../public/logos/thirdparty/jira.svg";
 import NotionLogo from "../../public/logos/thirdparty/notion.svg";
 import SpreadsheetLogo from "../../public/logos/thirdparty/spreadsheet.svg";
@@ -116,12 +117,13 @@ const PostRegistration = () => {
   const [betaFormErrors, setBetaFormErrors] = useState({})
   const [isSubmittingBeta, setIsSubmittingBeta] = useState(false)
   const [betaSubmitted, setBetaSubmitted] = useState(false) // Initialize as false
+  const [errorRetrievingBeta, setErrorRetrievingBeta] = useState(false) // Initialize as false
   const [isLoadingBetaApplication, setIsLoadingBetaApplication] = useState(true) // New loading state
   const [showSuccessSnackbar, setShowSuccessSnackbar] = useState(false)
   const [consentChecked, setConsentChecked] = useState(false); // New state for consent checkbox
 
   // Beta program launch date (30 days from now)
-  const betaLaunchDate = new Date("2025-08-18T00:00:00")
+  const betaLaunchDate = new Date("2025-09-01T00:00:00")
 
   // Profile type options
   const profileTypeOptions = [
@@ -200,12 +202,16 @@ const PostRegistration = () => {
       label: "ClickUp",
     },
     {
+      id: "github-projects",
+      icon: <SvgIcon className="tool-logo" sx={{ fontSize: 22 }} component={GithubProjectsLogo} viewBox="0 0 24 24" />,
+      label: "Github Projects",
+    },
+    {
       id: "excel",
       icon: <SvgIcon className="tool-logo" sx={{ fontSize: 22 }} component={SpreadsheetLogo} viewBox="0 0 24 24" />,
       label: "Excel / Google Sheets",
     },
     { id: "other", icon: <Build className="tool-logo" />, label: t("betaDialog.managementTools.other") },
-    { id: "none", icon: <Close className="tool-logo" />, label: t("betaDialog.managementTools.none") },
   ]
 
   // Work interests options
@@ -245,8 +251,8 @@ const PostRegistration = () => {
   // Redirect to login if not authenticated
   useEffect(() => {
     if (status === "loading") return
-    if (!session) {
-      signIn()
+    if (!session || session.error === "SessionExpired" || session.error === "RefreshAccessTokenError") {
+      signIn('angorasixspring')
       return
     }
     if (session?.user?.email) {
@@ -261,15 +267,19 @@ const PostRegistration = () => {
   // Client-side data fetching for existingBetaApplication
   useEffect(() => {
     const fetchBetaApplication = async () => {
-      if (status === "authenticated" && session?.user?.email) {
+      if (status === "authenticated" && !session.error && session?.user?.email) {
         setIsLoadingBetaApplication(true)
         try {
           // This call will go to /api/surveys/[surveyKey]/responses/index.js
           const surveyResponse = await api.front.getSurveyResponse("beta-applications")
           setBetaSubmitted(!!surveyResponse) // Set betaSubmitted based on response
         } catch (error) {
-          console.error("Error fetching beta application:", error)
-          setBetaSubmitted(false) // Assume not submitted on error
+          if (error.response?.status === 404) {
+            setBetaSubmitted(false)
+          } else {
+            console.error("Error fetching beta application:", error)
+            setErrorRetrievingBeta(true);
+          }
         } finally {
           setIsLoadingBetaApplication(false)
         }
@@ -622,22 +632,28 @@ const PostRegistration = () => {
                     <Box className="beta-cta-top">
                       {isLoadingBetaApplication ? (
                         <CircularProgress size={24} /> // Show spinner while loading
-                      ) : !betaSubmitted ? (
-                        <Button
-                          variant="contained"
-                          size="large"
-                          onClick={handleBetaDialogOpenClick}
-                          className="beta-button"
-                          startIcon={<Star />}
-                        >
-                          {t("beta.apply")}
-                        </Button>
-                      ) : (
-                        <Box className="beta-success">
-                          <CheckCircle />
-                          <Typography>{t("beta.alreadyApplied")}</Typography>
-                        </Box>
-                      )}
+                      ) : !betaSubmitted ?
+                        !errorRetrievingBeta ? (
+                          <Button
+                            variant="contained"
+                            size="large"
+                            onClick={handleBetaDialogOpenClick}
+                            className="beta-button"
+                            startIcon={<Star />}
+                          >
+                            {t("beta.apply")}
+                          </Button>
+                        ) : (
+                          <Box className="beta-error">
+                            <Error />
+                            <Typography>{t("beta.errorResponse")}</Typography>
+                          </Box>
+                        ) : (
+                          <Box className="beta-success">
+                            <CheckCircle />
+                            <Typography>{t("beta.alreadyApplied")}</Typography>
+                          </Box>
+                        )}
                     </Box>
 
                     {/* Beta Benefits */}

@@ -8,7 +8,7 @@ export const useActiveSession = (allowsAnonymous = false) => {
   const { doLoad } = useLoading();
 
   useEffect(() => {
-    const shouldReauth = session?.error === 'RefreshAccessTokenError';
+    const shouldReauth = session?.error === 'RefreshAccessTokenError' || session?.error === "SessionExpired";
     doLoad(!session || loading || shouldReauth);
     const identityProvider = session?.user?.identityProvider;
     if ((!session || shouldReauth) && !allowsAnonymous) {
@@ -29,7 +29,7 @@ export const useAndCheckActiveToken = () => {
   const { doLoad } = useLoading();
 
   useEffect(() => {
-    const shouldReauth = session?.error === 'RefreshAccessTokenError';
+    const shouldReauth = session?.error === 'RefreshAccessTokenError' || session?.error === "SessionExpired";
     doLoad(shouldReauth);
     const identityProvider = session?.user?.identityProvider;
     if (shouldReauth) {

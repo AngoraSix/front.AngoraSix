@@ -7,7 +7,7 @@ export const obtainValidatedToken = async (req) => {
     secret: oauthFrameworkConfig.jwt.secret,
   });
   const validatedToken =
-    token?.error !== 'RefreshAccessTokenError' ? token : null;
+    token?.error !== 'RefreshAccessTokenError' && token?.error !== "SessionExpired" ? token : null;
   return validatedToken;
 };
 

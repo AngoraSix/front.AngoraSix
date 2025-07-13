@@ -1,24 +1,53 @@
 {
   "page": {
-    "title": "AngoraSix — Join a new model of creation — cooperative and decentralized.",
+    "title": "AngoraSix — Leverage community-driven collaboration in your project — efficiently and transparently.",
     "description": "Be part of a community that’s building differently: no hierarchies, clear rules, real participation, and open tools to create together with purpose."
   },
   "hero": {
     "title": {
-      "part1": "Join a new model of creation —",
-      "highlight": "cooperative and decentralized"
+      "part1": "Leverage community-driven collaboration —",
+      "highlight": "with efficiency and transparency"
     },
-    "subtitle": "Be part of a community that’s building differently: no hierarchies, clear rules, real participation, and open tools to create together with purpose.",
-    "subtitle2": "A different way to build is possible — find it here.",
+    "subtitle": "Finally, an all-in-one platform to manage your community project — with shared ownership, real governance, and automated payments.",
+    "subtitle2": "Great ideas need help. Real tools for real collaboration.",
     "cta": "Start Building"
   },
   "problems": {
-    "title": "Struggling to fit your vision into the business world?",
-    "subtitle": "Challenges faced by those aiming to create meaningfully, without compromising values.",
-    "misalignment": "In a profit-obsessed world, finding spaces where values, purpose, and humanity are central can be tough.",
-    "findingAllies": "Connecting with people who share your vision and enthusiasm isn’t easy.",
-    "internalConflicts": "Unclear rules breed tension. Energy fades. Focus is lost.",
-    "authenticity": "There are many promises of decentralization, but most lack transparency and real practice. We need an authentic model."
+    "title": "Struggling to keep your community project organized?",
+    "subtitle": "Decentralization brings its own challenges.",
+    "misalignment": "Without real transparency and accountability, it's hard for contributors to fully trust the process.",
+    "findingAllies": "People lose motivation when they don’t feel heard or fairly rewarded for what they bring.",
+    "internalConflicts": "Manually tracking contributions and workload is exhausting and often leads to conflict.",
+    "authenticity": "Without the right tools, it’s hard to turn decentralized ideals into real, visible shared control."
+  },
+  "howItWorks": {
+    "title": "How AngoraSix works",
+    "subtitle": "A simple and transparent process",
+    "steps": {
+      "step1": {
+        "title": "Define the project rules",
+        "description": "We provide a simple framework to set how the project will be managed: decisions, payments, and tasks. Everything is clear and visible for everyone from the start.",
+        "imageAlt": "Initial setup screen for project rules"
+      },
+      "step2": {
+        "title": "Connect with your management tools",
+        "description": "We integrate with the tools you already use — Trello, Notion, Jira, Github Projects, and more — to automatically track what each member contributes.",
+        "imageAlt": "Integration view showing external tools and tracked contributions"
+      }
+    },
+    "outcomes": {
+      "title": "With all this in place...",
+      "outcome1": {
+        "title": "Shared decisions based on real contributions",
+        "description": "AngoraSix offers a governance system based on ownership. The more someone gives to the project, the more weight their vote has in key decisions. Fair, without hierarchies or conflict.",
+        "imageAlt": "Governance dashboard showing weighted voting based on contributions"
+      },
+      "outcome2": {
+        "title": "Automated, secure, and transparent income handling",
+        "description": "We connect your project to a multi-signature shared wallet to automatically distribute earnings based on contributions. Everyone receives what they deserve.",
+        "imageAlt": "Fund distribution screen showing automatic payments by contribution"
+      }
+    }
   },
   "solutions": {
     "title": "A cooperative management framework to build differently",
@@ -36,56 +65,27 @@
       "description": "Integrated governance tools and a blockchain-based, multi-signature account — mediated by AngoraSix."
     }
   },
-  "howItWorks": {
-    "title": "How AngoraSix works",
-    "subtitle": "A simple, transparent process that puts contributors in control",
-    "steps": {
-      "step1": {
-        "title": "Define the rules",
-        "description": "Start by establishing clear governance and compensation rules for your project. Everyone knows exactly how decisions are made and how contributions are rewarded from day one. Set up transparent processes that ensure fairness and accountability for all team members.",
-        "imageAlt": "Project governance and rules setup interface"
-      },
-      "step2": {
-        "title": "We track all contributions",
-        "description": "We integrate seamlessly with the tools you already use - Trello, Jira, Notion, Asana, and more. Every task, every commit, every contribution is automatically tracked and valued. No more guessing about who did what or how much value was created.",
-        "imageAlt": "Integration dashboard showing connected tools and tracked contributions"
-      }
-    },
-    "outcomes": {
-      "title": "The results",
-      "outcome1": {
-        "title": "Governance based on ownership",
-        "description": "Governance isn't symbolic. Everyone has a voice, but those who contribute more hold proportionally more decision-making power. Your impact determines your influence, creating a meritocratic system where the most dedicated contributors guide the project's direction.",
-        "imageAlt": "Decision-making dashboard showing voting power based on contributions"
-      },
-      "outcome2": {
-        "title": "Transparent payments via shared wallet",
-        "description": "All earnings are distributed securely and automatically through a shared multi-signature wallet. No delays, no disputes, no hidden fees - just fair, transparent compensation that reflects each member's actual contribution to the project's success.",
-        "imageAlt": "Financial dashboard showing transparent payment distribution"
-      }
-    }
-  },
   "useCases": {
-    "title": "It's not for everyone.",
+    "title": "A perfect fit for your decentralized project",
     "opensource": {
       "title": "Open source projects",
-      "description": "Developer teams with funding or revenue streams that want to maintain their collaborative spirit as they grow."
+      "description": "Developer teams with funding or revenue streams who want to keep their collaborative spirit as they grow."
     },
     "cooperative": {
       "title": "Emerging cooperative groups",
-      "description": "Cooperatives and social collectives wanting to professionalize without losing their core values and essence."
+      "description": "Cooperatives and social collectives looking to professionalize without losing their core values and identity."
     },
     "social": {
       "title": "Impact-driven entrepreneurship",
-      "description": "Purpose-driven ventures seeking balanced growth while preserving their mission and impact."
+      "description": "Purpose-driven ventures aiming for sustainable growth while staying true to their mission and social impact."
     }
   },
   "finalCta": {
     "title": {
-      "part1": "Join those already building the future.",
-      "highlight": "Real tools. Real purpose"
+      "part1": "Take your community project",
+      "highlight": "to the next level"
     },
-    "subtitle": "What's the best you can do for this world? We're here to help you.",
-    "cta": "Count Me In"
+    "subtitle": "Not just build. Let's build better.",
+    "cta": "Try It Out"
   }
 }
