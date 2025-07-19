@@ -22,7 +22,7 @@
   },
   "howItWorks": {
     "title": "How AngoraSix works",
-    "subtitle": "A simple process to make your community-driven project work",
+    "subtitle": "A simple process to make your community-driven project work — adaptable to how it's run.",
     "steps": {
       "step1": {
         "title": "Define the project rules",
@@ -39,12 +39,12 @@
       "title": "With all this in place...",
       "outcome1": {
         "title": "Shared decisions based on real contributions",
-        "description": "AngoraSix offers a governance system based on ownership. The more someone gives to the project, the more weight their vote has in key decisions. Fair, without hierarchies or conflict.",
+        "description": "AngoraSix offers a governance system based on ownership — the more someone contributes, the more weight their vote has in decisions. Or you can define your own rules. Fair, without hierarchies or conflict.",
         "imageAlt": "Governance dashboard showing weighted voting based on contributions"
       },
       "outcome2": {
         "title": "Automated, secure, and transparent income handling",
-        "description": "We connect your project to a multi-signature shared wallet to automatically distribute earnings based on contributions. Everyone receives what they deserve.",
+        "description": "We connect your project to a multi-signature shared wallet to automatically distribute earnings based on contributions — or the rules you’ve defined. Everyone receives what they deserve.",
         "imageAlt": "Fund distribution screen showing automatic payments by contribution"
       }
     }

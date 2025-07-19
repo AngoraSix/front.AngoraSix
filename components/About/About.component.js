@@ -36,6 +36,7 @@ import { useRouter } from "next/router"
 import config from "../../config"
 import { ROUTES, THIRD_PARTY } from "../../constants/constants"
 import { useInView } from "../../hooks/useInViews"
+import DiscordLogo from "../../public/logos/thirdparty/discord.svg"
 import { trackLandingCTAClick } from "../../utils/analytics"
 
 const AboutComponent = ({ forProfile }) => {
@@ -443,6 +444,15 @@ const AboutComponent = ({ forProfile }) => {
                   className="follow-icon-button"
                 >
                   <YouTube />
+                </IconButton>
+                <IconButton
+                  href="https://discord.gg/qc55JVMPB8"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Discord"
+                  className="follow-icon-button"
+                >
+                  <SvgIcon className="follow-logo" sx={{ fontSize: 22 }} component={DiscordLogo} viewBox="0 0 24 24" />
                 </IconButton>
               </Box>
             </Box>
