@@ -75,6 +75,7 @@ import {
 import Link from "next/link";
 import AsanaLogo from "../../public/logos/thirdparty/asana.svg";
 import ClickUpLogo from "../../public/logos/thirdparty/clickup.svg";
+import DiscordLogo from "../../public/logos/thirdparty/discord.svg";
 import GithubProjectsLogo from "../../public/logos/thirdparty/github.svg";
 import JiraLogo from "../../public/logos/thirdparty/jira.svg";
 import NotionLogo from "../../public/logos/thirdparty/notion.svg";
@@ -570,6 +571,11 @@ const PostRegistration = () => {
       icon: <YouTube />,
       url: "https://youtube.com/@angorasix",
     },
+    {
+      name: "Discord",
+      icon: <SvgIcon className="follow-logo" sx={{ fontSize: 22 }} component={DiscordLogo} viewBox="0 0 24 24" />,
+      url: "https://discord.gg/qc55JVMPB8"
+    }
   ]
 
   return (

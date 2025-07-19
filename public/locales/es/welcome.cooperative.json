@@ -22,7 +22,7 @@
   },
   "howItWorks": {
     "title": "Cómo funciona AngoraSix",
-    "subtitle": "Un proceso simple y transparente",
+    "subtitle": "Un proceso simple para que tu proyecto community-driven funcione — adaptable a cómo se gestiona.",
     "steps": {
       "step1": {
         "title": "Defininan las reglas del proyecto",
@@ -39,12 +39,12 @@
       "title": "Con todo esto...",
       "outcome1": {
         "title": "Decisiones compartidas según los aportes reales",
-        "description": "AngoraSix ofrece un sistema de gobernanza basado en ownership. Cuanto más aporta una persona, más peso tiene su voto en las decisiones. Justo, sin jerarquías ni conflictos.",
+        "description": "AngoraSix ofrece un sistema de gobernanza basado en ownership: cuanto más aporta una persona, mayor peso tiene su voto en las decisiones — o según el modelo que defina el proyecto. Justo, sin jerarquías ni conflictos.",
         "imageAlt": "Visualización del sistema de gobernanza con votos ponderados por contribución"
       },
       "outcome2": {
         "title": "Gestión automatizada, confiable y transparente de los ingresos",
-        "description": "Conectamos tu proyecto a una wallet compartida multi-firma para distribuir automáticamente los ingresos según los aportes. Cada persona recibe lo que le corresponde.",
+        "description": "Conectamos tu proyecto a una wallet compartida multi-firma para distribuir automáticamente los ingresos según los aportes o las reglas establecidas. Cada persona recibe lo que le corresponde.",
         "imageAlt": "Pantalla de distribución de fondos mostrando pagos automáticos según aportes"
       }
     }
