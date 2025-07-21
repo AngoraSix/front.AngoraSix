@@ -44,7 +44,7 @@
       },
       "outcome2": {
         "title": "Gestión automatizada, confiable y transparente de los ingresos",
-        "description": "Conectamos tu proyecto a una wallet compartida multi-firma para distribuir automáticamente los ingresos según los aportes o las reglas establecidas. Cada persona recibe lo que le corresponde.",
+        "description": "Conectamos tu proyecto a una wallet compartida multi-firma para distribuir automáticamente los ingresos según los aportes y la configuración del proyecto. Cada persona recibe lo que le corresponde.",
         "imageAlt": "Pantalla de distribución de fondos mostrando pagos automáticos según aportes"
       }
     }

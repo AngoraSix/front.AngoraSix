@@ -26,7 +26,7 @@
     "steps": {
       "step1": {
         "title": "Define the project rules",
-        "description": "We provide a simple framework to set how the project will be managed: decisions, payments, and tasks. Everything is clear and visible for everyone from the start.",
+        "description": "We provide a simple framework to establish how the project will be managed: decisions, payments, and tasks. Everything is clear and visible for everyone from the start.",
         "imageAlt": "Initial setup screen for project rules"
       },
       "step2": {
@@ -44,7 +44,7 @@
       },
       "outcome2": {
         "title": "Automated, secure, and transparent income handling",
-        "description": "We connect your project to a multi-signature shared wallet to automatically distribute earnings based on contributions — or the rules you’ve defined. Everyone receives what they deserve.",
+        "description": "We connect your project to a multi-signature shared wallet to automatically distribute earnings based on contributions and the project setup. Everyone receives what they deserve.",
         "imageAlt": "Fund distribution screen showing automatic payments by contribution"
       }
     }

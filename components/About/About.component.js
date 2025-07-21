@@ -196,6 +196,9 @@ const AboutComponent = ({ forProfile }) => {
                   <Typography variant="body1" sx={{ mb: 3, fontSize: "1.1rem", lineHeight: 1.7 }}>
                     {t("story.paragraph2")}
                   </Typography>
+                  <Typography variant="body1" sx={{ mb: 3, fontSize: "1.1rem", lineHeight: 1.7 }}>
+                    {t("story.paragraph3")}
+                  </Typography>
                   <Typography
                     variant="body1"
                     sx={{
