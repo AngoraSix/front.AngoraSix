@@ -15,7 +15,7 @@ const NewProjectManagementPage = ({ session }) => {
     if (!session || session?.error) {
         logger.error('Log in to register project management');
         return (
-            <DefaultLayout>
+            <DefaultLayout contained={false} className="NewProjectManagementLayout__Page">
                 <Box>
                     <FormSkeleton />
                 </Box>
@@ -24,7 +24,7 @@ const NewProjectManagementPage = ({ session }) => {
     }
 
     return (
-        <DefaultLayout>
+        <DefaultLayout contained={false} className="NewProjectManagementLayout__Page">
             <NewProjectManagement />
         </DefaultLayout>
     );

@@ -8,6 +8,9 @@ import SharedNavbar from "../../components/common/SharedNavbar";
 const DefaultLayout = ({ children, className, contained = true }) => {
   const ChildrenContainer = contained ? Paper : 'div';
 
+  console.log("GERGERGER");
+  console.log(contained);
+
   return (
     <Box className={`DefaultLayout DefaultLayout__Container ${className}`}>
       <Head>

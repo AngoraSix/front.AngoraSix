@@ -1,78 +1,47 @@
-import api from '../../../api';
-import config from '../../../config';
-import { useAndCheckActiveToken } from '../../../hooks/oauth';
-import NewProjectManagement from './NewProjectManagement.component';
+"use client"
+
+import api from "../../../api"
+import config from "../../../config"
+import { useAndCheckActiveToken } from "../../../hooks/oauth"
+import NewProjectManagement from "./NewProjectManagement.component"
 
 const NewProjectManagementContainer = ({ forProjectId }) => {
+  useAndCheckActiveToken()
 
   const onSubmit = async (formData) => {
     try {
-      let projectId = forProjectId;
-      // we have to send first to cerate project, if it's not created yet (if forProjectId is null)
+      let projectId = forProjectId
+      // we have to send first to create project, if it's not created yet (if forProjectId is null)
       if (!projectId) {
-        const { data } = await api.front.saveNewProject({ name: formData.name });
-        projectId = data.id;
+        const { data } = await api.front.saveNewProject({ name: formData.name })
+        projectId = data.id
       }
-      let mgmtBody = {
+
+      const mgmtBody = {
         status: formData.status,
         bylaws: {
-          [config.mgmt.categories.ownershipGeneral]: {
-            [config.mgmt.ownershipBylaws.isOwnershipA6Managed]: true
-          },
-          [config.mgmt.categories.ownershipTasks]: {
-            [config.mgmt.ownershipBylaws.startupTasksEnabled]: true,
-            [config.mgmt.ownershipBylaws.startupTasksFadingEnabled]: true,
-            [config.mgmt.ownershipBylaws.startupRetributionPeriod]: "P30Y",
-            [config.mgmt.ownershipBylaws.startupRetributionPattern]: "LINEAR_DOWN",
-            [config.mgmt.ownershipBylaws.regularRetributionPeriod]: "P3Y",
-            [config.mgmt.ownershipBylaws.regularRetributionPattern]: "LINEAR_DOWN"
-          },
-          [config.mgmt.categories.ownershipGovernance]: {
-            [config.mgmt.ownershipBylaws.coordinationCircleEnabled]: true,
-            [config.mgmt.ownershipBylaws.ownershipVotingLimit]: 35,
-            [config.mgmt.ownershipBylaws.decisionMinimumQuorum]: 1
-          },
-          [config.mgmt.categories.financialProfitShares]: {
-            [config.mgmt.financialBylaws.profitSharesEnabled]: true,
-            [config.mgmt.financialBylaws.profitSharesVestingEnabled]: true,
-            [config.mgmt.financialBylaws.profitSharesVestingPeriod]: "MATCH_OWNERSHIP_FADING",
-            [config.mgmt.financialBylaws.profitSharesVestingPattern]: "LINEAR_DOWN"
-          },
-          [config.mgmt.categories.financialCurrencies]: {
-            [config.mgmt.financialBylaws.financialCurrencies]: ["USD", "ARS"],
-            [config.mgmt.financialBylaws.currencyVestingEnabled]: false,
-            [config.mgmt.financialBylaws.currencyVestingPeriod]: "IMMEDIATE",
-            [config.mgmt.financialBylaws.currencyVestingPattern]: "NONE",
-            [config.mgmt.financialBylaws.currencyVestingEnabled]: false,
-            [config.mgmt.financialBylaws.currencyVestingPeriod]: "IMMEDIATE",
-            [config.mgmt.financialBylaws.currencyVestingPattern]: "NONE"
-          },
-          [config.mgmt.categories.financialGeneral]: {
-            [config.mgmt.financialBylaws.isFinancialA6Managed]: true,
-            [config.mgmt.financialBylaws.earningDistributionTriggerType]: "TOTAL_INCOME_THRESHOLD",
-            [config.mgmt.financialBylaws.earningDistributionTriggerAmount]: 50000,
-            [config.mgmt.financialBylaws.earningDistributionTriggerCurrency]: "USD",
-            [config.mgmt.financialBylaws.earningDistributionReviewFrequency]: "EVERY_YEAR"
-          }
-        }
+          [config.mgmt.categories.ownershipGeneral]: formData.bylaws.ownershipGeneral,
+          [config.mgmt.categories.ownershipTasks]: formData.bylaws.ownershipTasks,
+          [config.mgmt.categories.ownershipGovernance]: formData.bylaws.ownershipGovernance,
+          [config.mgmt.categories.financialProfitShares]: formData.bylaws.financialProfitShares,
+          [config.mgmt.categories.financialCurrencies]: formData.bylaws.financialCurrencies,
+          [config.mgmt.categories.financialGeneral]: formData.bylaws.financialGeneral,
+        },
       }
 
-      const { mgmtData } = await api.front.saveProjectManagement(mgmtBody, null, projectId);
-      return mgmtData;
-
+      const { mgmtData } = await api.front.saveProjectManagement(mgmtBody, null, projectId)
+      return mgmtData
     } catch (error) {
-      // Handle error
+      console.error("Error creating project management:", error)
+      // Handle error appropriately
     }
   }
-  return (
-    <NewProjectManagement />
-  );
-};
 
-NewProjectManagementContainer.defaultProps = {
-};
+  return <NewProjectManagement onSubmit={onSubmit} />
+}
 
-NewProjectManagementContainer.propTypes = {
-};
+NewProjectManagementContainer.defaultProps = {}
 
-export default NewProjectManagementContainer;
+NewProjectManagementContainer.propTypes = {}
+
+export default NewProjectManagementContainer

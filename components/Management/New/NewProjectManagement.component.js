@@ -3,151 +3,106 @@
 import {
   AccountBalance as AccountBalanceIcon,
   Business as BusinessIcon,
+  CheckCircle as CheckCircleIcon,
+  Info as InfoIcon,
   Payment as PaymentIcon,
-  Schedule as ScheduleIcon,
-  Security as SecurityIcon,
-  TrendingUp as TrendingUpIcon,
 } from "@mui/icons-material"
 import {
-  Box,
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
   Button,
-  Card,
-  CardContent,
   Chip,
   Container,
-  Divider,
   Fade,
-  Grid,
-  InputAdornment,
+  FormControl,
+  FormControlLabel,
+  IconButton,
+  InputLabel,
   MenuItem,
   Paper,
   Select,
   Slider,
-  Stack,
+  Step,
+  StepLabel,
+  Stepper,
+  Switch,
   TextField,
+  Tooltip,
   Typography,
 } from "@mui/material"
-import { styled } from "@mui/system"
 import { useTranslation } from "next-i18next"
 import Image from "next/image"
 import { useState } from "react"
 
-const MainContainer = styled(Box)(({ theme }) => ({
-  minHeight: "100vh",
-  background: "linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%)",
-  position: "relative",
-  "&::before": {
-    content: '""',
-    position: "absolute",
-    top: 0,
-    left: 0,
-    right: 0,
-    height: "100%",
-    background:
-      "radial-gradient(circle at 20% 80%, rgba(79, 70, 229, 0.1) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(124, 58, 237, 0.1) 0%, transparent 50%)",
-    pointerEvents: "none",
-  },
-}))
-
-const StyledCard = styled(Card)(({ theme }) => ({
-  borderRadius: 16,
-  boxShadow: "0 4px 20px rgba(0, 0, 0, 0.08)",
-  border: "1px solid rgba(255, 255, 255, 0.2)",
-  background: "rgba(255, 255, 255, 0.95)",
-  backdropFilter: "blur(10px)",
-  marginBottom: theme.spacing(3),
-}))
-
-const SectionTitle = styled(Typography)(({ theme }) => ({
-  fontSize: "1.25rem",
-  fontWeight: 600,
-  color: "#0A2239",
-  marginBottom: theme.spacing(2),
-  display: "flex",
-  alignItems: "center",
-  gap: theme.spacing(1),
-}))
-
-const ToggleButtonGroup = styled(Box)(({ theme }) => ({
-  display: "flex",
-  borderRadius: 12,
-  overflow: "hidden",
-  border: "2px solid #e2e8f0",
-  background: "#f8fafc",
-}))
-
-const ToggleButton = styled(Button, {
-  shouldForwardProp: (prop) => prop !== "active"
-})(({ theme, active }) => ({
-  flex: 1,
-  padding: theme.spacing(2, 3),
-  borderRadius: 0,
-  border: "none",
-  background: active ? "#0A2239" : "transparent",
-  color: active ? "#ffffff" : "#64748b",
-  fontWeight: 600,
-  textTransform: "none",
-  "&:hover": {
-    background: active ? "#1B5993" : "#e2e8f0",
-  },
-}))
-
-const PaymentChip = styled(Chip)(({ theme, selected }) => ({
-  margin: theme.spacing(0.5),
-  background: selected ? "#0A2239" : "#f1f5f9",
-  color: selected ? "#ffffff" : "#64748b",
-  "&:hover": {
-    background: selected ? "#1B5993" : "#e2e8f0",
-  },
-}))
-
-const DistributionCard = styled(Paper)(({ theme, selected }) => ({
-  padding: theme.spacing(2),
-  textAlign: "center",
-  cursor: "pointer",
-  border: selected ? "2px solid #0A2239" : "2px solid #e2e8f0",
-  borderRadius: 12,
-  transition: "all 0.3s ease",
-  "&:hover": {
-    borderColor: "#0A2239",
-    transform: "translateY(-2px)",
-  },
-}))
-
-const NewProjectManagement = () => {
+const NewProjectManagement = ({ onSubmit }) => {
   const { t } = useTranslation("management.new")
+  const [activeStep, setActiveStep] = useState(0)
   const [formData, setFormData] = useState({
+    // Step 1 - Basic Setup
     projectName: "",
-    description: "",
-    ownershipManagement: "angorasix",
-    startupTasksDuration: 30,
-    tasksDuration: 3,
-    ownershipCap: 30,
-    minimumVoters: 2,
-    paymentTypes: ["profit-shares", "usd"],
-    compensationType: "vesting",
-    vestingPeriod: 3,
-    distributionFunction: "curve-a",
-    startDate: "",
-    estimatedBudget: "",
-    currency: "USD",
-    category: "",
+    currentStage: "startup",
+    ownershipSetup: "angorasix",
+    financialSetup: "angorasix",
+
+    // Step 2 - Ownership & Governance
+    startupTasksEnabled: true,
+    startupTasksFading: true,
+    startupFadingPeriod: 30,
+    startupFadingPattern: "LINEAR_DOWN",
+    regularFadingPeriod: 3,
+    regularFadingPattern: "LINEAR_DOWN",
+    coordinationCircleEnabled: true,
+    ownershipVotingLimit: 35,
+    decisionQuorum: 1,
+
+    // Step 3 - Finances & Retribution
+    profitSharingEnabled: true,
+    profitPayoutStrategy: "vesting",
+    profitVestingPeriod: 3,
+    profitVestingPattern: "LINEAR_DOWN",
+    supportedCurrencies: ["USD"],
+    generalVsPerCurrency: false,
+    distributionTriggerType: "TOTAL_INCOME_THRESHOLD",
+    distributionTriggerAmount: 50000,
+    distributionTriggerCurrency: "USD",
+    reEvaluationFrequency: "EVERY_YEAR",
   })
 
   const [errors, setErrors] = useState({})
+  const [expandedAccordions, setExpandedAccordions] = useState({})
 
-  const paymentOptions = [
-    { id: "profit-shares", label: t("payment.profitShares"), icon: "📊" },
-    { id: "usd", label: t("payment.usd"), icon: "💵" },
-    { id: "eur", label: t("payment.eur"), icon: "💶" },
-    { id: "eth", label: t("payment.eth"), icon: "⟠" },
+  const steps = [t("stepper.basicSetup"), t("stepper.ownershipGovernance"), t("stepper.financesRetribution")]
+
+  const stageOptions = [
+    { value: "idea", label: t("stages.idea") },
+    { value: "startup", label: t("stages.startup") },
+    { value: "live", label: t("stages.live") },
+    { value: "other", label: t("stages.other") },
   ]
 
-  const distributionFunctions = [
-    { id: "curve-a", name: t("distribution.curveA.name"), description: t("distribution.curveA.desc"), image: "/images/resources/linear-up.png" },
-    { id: "curve-b", name: t("distribution.curveB.name"), description: t("distribution.curveB.desc"), image: "/images/resources/linear-down.png" },
-    { id: "linear", name: t("distribution.linear.name"), description: t("distribution.linear.desc"), image: "/images/resources/linear-up-down.png" },
+  const fadingPatterns = [
+    {
+      id: "LINEAR_DOWN",
+      name: t("patterns.linearDown.name"),
+      description: t("patterns.linearDown.desc"),
+      image: "/images/resources/linear-down.png",
+    },
+    {
+      id: "LINEAR_UP",
+      name: t("patterns.linearUp.name"),
+      description: t("patterns.linearUp.desc"),
+      image: "/images/resources/linear-up.png",
+    },
+    {
+      id: "UNIFORM",
+      name: t("patterns.uniform.name"),
+      description: t("patterns.uniform.desc"),
+      image: "/images/resources/linear-up-down.png",
+    },
   ]
+
+  const currencyOptions = ["USD", "EUR", "ETH", "BTC", "ARS", "GBP", "JPY", "CAD", "AUD"]
 
   const handleInputChange = (field, value) => {
     setFormData((prev) => ({ ...prev, [field]: value }))
@@ -156,490 +111,647 @@ const NewProjectManagement = () => {
     }
   }
 
-  const handlePaymentTypeToggle = (paymentId) => {
-    setFormData((prev) => ({
+  const handleAccordionToggle = (accordion) => {
+    setExpandedAccordions((prev) => ({
       ...prev,
-      paymentTypes: prev.paymentTypes.includes(paymentId)
-        ? prev.paymentTypes.filter((id) => id !== paymentId)
-        : [...prev.paymentTypes, paymentId],
+      [accordion]: !prev[accordion],
     }))
   }
 
-  const validateForm = () => {
+  const validateStep = (step) => {
     const newErrors = {}
-    if (!formData.projectName.trim()) {
-      newErrors.projectName = t("errors.projectName")
+
+    if (step === 0) {
+      if (!formData.projectName.trim()) {
+        newErrors.projectName = t("validation.projectNameRequired")
+      }
     }
+
     setErrors(newErrors)
     return Object.keys(newErrors).length === 0
   }
 
-  const handleSubmit = () => {
-    if (validateForm()) {
-      console.log("Creating project:", formData)
-      // Here would be the API call
+  const handleNext = () => {
+    if (validateStep(activeStep)) {
+      setActiveStep((prevStep) => prevStep + 1)
     }
   }
 
-  return (
-    <MainContainer>
-      <Container maxWidth="lg" sx={{ py: 4, position: "relative", zIndex: 1 }}>
-        <Fade in timeout={600}>
-          <Box>
-            {/* Header */}
-            <Box sx={{ mb: 4, textAlign: "center" }}>
-              <Typography
-                variant="h3"
-                sx={{
-                  color: "#0A2239",
-                  fontWeight: 700,
-                  mb: 1,
-                }}
-              >
-                {t("title")}
-              </Typography>
-              <Typography
-                variant="h6"
-                sx={{
-                  color: "#64748b",
-                  fontWeight: 400,
-                }}
-              >
-                {t("subtitle")}
-              </Typography>
-            </Box>
+  const handleBack = () => {
+    setActiveStep((prevStep) => prevStep - 1)
+  }
 
-            <Grid container spacing={4}>
-              {/* Main Form */}
-              <Grid item xs={12} md={8}>
-                {/* Core Data Section */}
-                <StyledCard>
-                  <CardContent sx={{ p: 4 }}>
-                    <SectionTitle>
-                      <BusinessIcon />{t("sections.projectInfo")}
-                    </SectionTitle>
+  const handleSubmit = () => {
+    if (validateStep(activeStep)) {
+      // Transform form data to match the expected API structure
+      const transformedData = {
+        name: formData.projectName,
+        status: "ACTIVE",
+        bylaws: {
+          ownershipGeneral: {
+            isOwnershipA6Managed: formData.ownershipSetup === "angorasix",
+          },
+          ownershipTasks: {
+            startupTasksEnabled: formData.startupTasksEnabled,
+            startupTasksFadingEnabled: formData.startupTasksFading,
+            startupRetributionPeriod: `P${formData.startupFadingPeriod}Y`,
+            startupRetributionPattern: formData.startupFadingPattern,
+            regularRetributionPeriod: `P${formData.regularFadingPeriod}Y`,
+            regularRetributionPattern: formData.regularFadingPattern,
+          },
+          ownershipGovernance: {
+            coordinationCircleEnabled: formData.coordinationCircleEnabled,
+            ownershipVotingLimit: formData.ownershipVotingLimit,
+            decisionMinimumQuorum: formData.decisionQuorum,
+          },
+          financialProfitShares: {
+            profitSharesEnabled: formData.profitSharingEnabled,
+            profitSharesVestingEnabled: formData.profitPayoutStrategy === "vesting",
+            profitSharesVestingPeriod:
+              formData.profitPayoutStrategy === "vesting" ? "MATCH_OWNERSHIP_FADING" : "IMMEDIATE",
+            profitSharesVestingPattern: formData.profitVestingPattern,
+          },
+          financialCurrencies: {
+            financialCurrencies: formData.supportedCurrencies,
+            currencyVestingEnabled: formData.profitPayoutStrategy === "vesting",
+            currencyVestingPeriod: formData.profitPayoutStrategy === "vesting" ? "MATCH_OWNERSHIP_FADING" : "IMMEDIATE",
+            currencyVestingPattern: formData.profitVestingPattern,
+          },
+          financialGeneral: {
+            isFinancialA6Managed: formData.financialSetup === "angorasix",
+            earningDistributionTriggerType: formData.distributionTriggerType,
+            earningDistributionTriggerAmount: formData.distributionTriggerAmount,
+            earningDistributionTriggerCurrency: formData.distributionTriggerCurrency,
+            earningDistributionReviewFrequency: formData.reEvaluationFrequency,
+          },
+        },
+      }
 
-                    <TextField
-                      fullWidth
-                      label={t("fields.projectName")}
-                      placeholder={t("placeholders.projectName")}
-                      value={formData.projectName}
-                      onChange={(e) => handleInputChange("projectName", e.target.value)}
-                      error={!!errors.projectName}
-                      helperText={errors.projectName}
-                      sx={{ mb: 3 }}
-                      required
-                    />
+      onSubmit(transformedData)
+    }
+  }
 
-                    <TextField
-                      fullWidth
-                      label={t("fields.description")}
-                      placeholder={t("placeholders.description")}
-                      multiline
-                      rows={3}
-                      value={formData.description}
-                      onChange={(e) => handleInputChange("description", e.target.value)}
-                      sx={{ mb: 3 }}
-                    />
+  const renderStepContent = (step) => {
+    switch (step) {
+      case 0:
+        return renderBasicSetup()
+      case 1:
+        return renderOwnershipGovernance()
+      case 2:
+        return renderFinancesRetribution()
+      default:
+        return null
+    }
+  }
 
-                    <Grid container spacing={3}>
-                      <Grid item xs={12} sm={6}>
-                        <TextField
-                          fullWidth
-                          label={t("fields.startDate")}
-                          type="date"
-                          value={formData.startDate}
-                          onChange={(e) => handleInputChange("startDate", e.target.value)}
-                          InputLabelProps={{ shrink: true }}
-                        />
-                      </Grid>
-                      <Grid item xs={12} sm={6}>
-                        <TextField
-                          fullWidth
-                          label={t("fields.estimatedBudget")}
-                          value={formData.estimatedBudget}
-                          onChange={(e) => handleInputChange("estimatedBudget", e.target.value)}
-                          InputProps={{
-                            endAdornment: (
-                              <InputAdornment position="end">
-                                <Select
-                                  value={formData.currency}
-                                  onChange={(e) => handleInputChange("currency", e.target.value)}
-                                  variant="standard"
-                                  sx={{ minWidth: 60 }}
-                                >
-                                  <MenuItem value="USD">USD</MenuItem>
-                                  <MenuItem value="EUR">EUR</MenuItem>
-                                  <MenuItem value="ETH">ETH</MenuItem>
-                                </Select>
-                              </InputAdornment>
-                            ),
-                          }}
-                        />
-                      </Grid>
-                    </Grid>
-                  </CardContent>
-                </StyledCard>
+  const renderBasicSetup = () => (
+    <div className="step-content">
+      <Typography variant="h5" className="step-title">
+        {t("steps.basicSetup.title")}
+      </Typography>
+      <Typography variant="body1" className="step-description">
+        {t("steps.basicSetup.description")}
+      </Typography>
 
-                {/* Decision Rules Section */}
-                <StyledCard>
-                  <CardContent sx={{ p: 4 }}>
-                    <SectionTitle>
-                      <SecurityIcon />
-                      {t("sections.decisionRules")}
-                    </SectionTitle>
+      <div className="form-section">
+        <TextField
+          fullWidth
+          label={t("fields.projectName")}
+          value={formData.projectName}
+          onChange={(e) => handleInputChange("projectName", e.target.value)}
+          error={!!errors.projectName}
+          helperText={errors.projectName}
+          className="form-field"
+          required
+        />
 
-                    <Box sx={{ mb: 4 }}>
-                      <Typography variant="subtitle1" sx={{ mb: 2, fontWeight: 600 }}>
-                        {t("fields.ownershipManagement")}
-                      </Typography>
-                      <ToggleButtonGroup>
-                        <ToggleButton
-                          active={formData.ownershipManagement === "angorasix"}
-                          onClick={() => handleInputChange("ownershipManagement", "angorasix")}
-                        >
-                          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                            <AccountBalanceIcon />
-                            {t("fields.ownershipManagementOptions.angorasix")}
-                          </Box>
-                        </ToggleButton>
-                        <ToggleButton
-                          active={formData.ownershipManagement === "externally"}
-                          onClick={() => handleInputChange("ownershipManagement", "externally")}
-                        >
-                          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                            <BusinessIcon />
-                            {t("fields.ownershipManagementOptions.externally")}
-                          </Box>
-                        </ToggleButton>
-                      </ToggleButtonGroup>
-                    </Box>
+        <FormControl fullWidth className="form-field">
+          <InputLabel>{t("fields.currentStage")}</InputLabel>
+          <Select
+            value={formData.currentStage}
+            onChange={(e) => handleInputChange("currentStage", e.target.value)}
+            label={t("fields.currentStage")}
+          >
+            {stageOptions.map((option) => (
+              <MenuItem key={option.value} value={option.value}>
+                {option.label}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
 
-                    {formData.ownershipManagement === "angorasix" && (
-                      <Fade in>
-                        <Box>
-                          <Grid container spacing={3}>
-                            <Grid item xs={12} sm={6}>
-                              <TextField
-                                fullWidth
-                                label={t("fields.startupDuration")}
-                                type="number"
-                                value={formData.startupTasksDuration}
-                                onChange={(e) =>
-                                  handleInputChange("startupTasksDuration", Number.parseInt(e.target.value))
-                                }
-                                InputProps={{ inputProps: { min: 1, max: 50 } }}
-                              />
-                            </Grid>
-                            <Grid item xs={12} sm={6}>
-                              <TextField
-                                fullWidth
-                                label={t("fields.regularDuration")}
-                                type="number"
-                                value={formData.tasksDuration}
-                                onChange={(e) => handleInputChange("tasksDuration", Number.parseInt(e.target.value))}
-                                InputProps={{ inputProps: { min: 1, max: 10 } }}
-                              />
-                            </Grid>
-                            <Grid item xs={12} sm={6}>
-                              <Box>
-                                <Typography variant="subtitle2" sx={{ mb: 1 }}>
-                                  {t("fields.ownershipCap").replace("{{ownershipCap}}", formData.ownershipCap)}
-                                </Typography>
-                                <Slider
-                                  value={formData.ownershipCap}
-                                  onChange={(e, value) => handleInputChange("ownershipCap", value)}
-                                  min={10}
-                                  max={100}
-                                  step={5}
-                                  marks
-                                  valueLabelDisplay="auto"
-                                  sx={{ color: "#0A2239" }}
-                                />
-                              </Box>
-                            </Grid>
-                            <Grid item xs={12} sm={6}>
-                              <TextField
-                                fullWidth
-                                label={t("fields.minimumVoters")}
-                                type="number"
-                                value={formData.minimumVoters}
-                                onChange={(e) => handleInputChange("minimumVoters", Number.parseInt(e.target.value))}
-                                InputProps={{ inputProps: { min: 1, max: 20 } }}
-                              />
-                            </Grid>
-                          </Grid>
-                        </Box>
-                      </Fade>
-                    )}
-                  </CardContent>
-                </StyledCard>
-
-                {/* Finance & Compensation Section */}
-                <StyledCard>
-                  <CardContent sx={{ p: 4 }}>
-                    <SectionTitle>
-                      <PaymentIcon />
-                      {t("sections.finance")}
-                    </SectionTitle>
-
-                    <Box sx={{ mb: 4 }}>
-                      <Typography variant="subtitle1" sx={{ mb: 2, fontWeight: 600 }}>
-                        {t("fields.paymentTypes")}
-                      </Typography>
-                      <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
-                        {paymentOptions.map((option) => (
-                          <PaymentChip
-                            key={option.id}
-                            label={`${option.icon} ${option.label}`}
-                            selected={formData.paymentTypes.includes(option.id)}
-                            onClick={() => handlePaymentTypeToggle(option.id)}
-                            clickable
-                          />
-                        ))}
-                      </Box>
-                    </Box>
-
-                    <Box sx={{ mb: 4 }}>
-                      <Typography variant="subtitle1" sx={{ mb: 2, fontWeight: 600 }}>
-                        {t("fields.compensation")}
-                      </Typography>
-                      <ToggleButtonGroup>
-                        <ToggleButton
-                          active={formData.compensationType === "vesting"}
-                          onClick={() => handleInputChange("compensationType", "vesting")}
-                        >
-                          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                            <ScheduleIcon />
-                            {t("fields.vestingPeriodOptions.vesting")}
-                          </Box>
-                        </ToggleButton>
-                        <ToggleButton
-                          active={formData.compensationType === "immediate"}
-                          onClick={() => handleInputChange("compensationType", "immediate")}
-                        >
-                          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                            <TrendingUpIcon />
-                            {t("fields.vestingPeriodOptions.immediate")}
-                          </Box>
-                        </ToggleButton>
-                      </ToggleButtonGroup>
-                    </Box>
-
-                    {formData.compensationType === "vesting" && (
-                      <Fade in>
-                        <Box>
-                          <TextField
-                            fullWidth
-                            label={t("fields.vestingPeriod")}
-                            type="number"
-                            value={formData.vestingPeriod}
-                            onChange={(e) => handleInputChange("vestingPeriod", Number.parseInt(e.target.value))}
-                            InputProps={{ inputProps: { min: 1, max: 10 } }}
-                            sx={{ mb: 3 }}
-                          />
-
-                          <Typography variant="subtitle1" sx={{ mb: 2, fontWeight: 600 }}>
-                            {t("fields.distributionFunction")}
-                          </Typography>
-                          <Grid container spacing={2}>
-                            {distributionFunctions.map((func) => (
-                              <Grid item xs={12} sm={4} key={func.id}>
-                                <DistributionCard
-                                  className="DistributionCurve__Container1"
-                                  selected={formData.distributionFunction === func.id}
-                                  onClick={() => handleInputChange("distributionFunction", func.id)}
-                                >
-                                  <Box
-                                    className="DistributionCurve__Container2"
-                                    sx={{
-                                      height: 60,
-                                      mb: 1,
-                                      display: "flex",
-                                      alignItems: "center",
-                                      justifyContent: "center",
-                                    }}
-                                  >
-                                    {/* Placeholder for distribution curve visualization */}
-                                    <Box
-                                      className="DistributionCurve__Image__Container"
-                                      sx={{
-                                        // width: 40,
-                                        // height: 40,
-                                        display: "flex",
-                                        alignItems: "center",
-                                        justifyContent: "center",
-                                        width: "80%",
-                                        height: 40,
-                                        background: `linear-gradient(45deg, ${formData.distributionFunction === func.id ? "#0A2239" : "#e2e8f0"} 0%, ${formData.distributionFunction === func.id ? "#1B5993" : "#f1f5f9"} 100%)`,
-                                        borderRadius: 1,
-                                      }}
-                                    >
-
-                                      <Box
-                                        className="DistributionCurve__Image__Container"
-                                        sx={{
-                                          // width: 40,
-                                          // height: 40,
-                                          width: "90%",
-                                          height: 30,
-                                          position: "relative",
-                                        }}
-                                      >
-
-                                        <Image
-                                          src={func.image}
-                                          alt="Linear Down Distribution"
-                                          fill
-                                        //             sizes="(max-width: 600px) 40px,
-                                        // 40px"
-                                        // style={{ objectFit: "contain" }}
-                                        />
-                                      </Box>
-                                    </Box>
-                                  </Box>
-                                  <Typography variant="subtitle2" sx={{ fontWeight: 600 }}>
-                                    {func.name}
-                                  </Typography>
-                                  <Typography variant="caption" color="textSecondary">
-                                    {func.description}
-                                  </Typography>
-                                </DistributionCard>
-                              </Grid>
-                            ))}
-                          </Grid>
-                        </Box>
-                      </Fade>
-                    )}
-                  </CardContent>
-                </StyledCard>
-              </Grid>
-
-              {/* Sidebar */}
-              <Grid item xs={12} md={4}>
-                <StyledCard sx={{ position: "sticky", top: 80 }}>
-                  <CardContent sx={{ p: 3 }}>
-                    <Typography
-                      variant="h6"
-                      sx={{
-                        color: "#0A2239",
-                        fontWeight: 600,
-                        mb: 3,
-                        display: "flex",
-                        alignItems: "center",
-                        gap: 1,
-                      }}
-                    >
-                      <BusinessIcon />
-                      {t("summary.title")}
-                    </Typography>
-
-                    <Box sx={{ mb: 3 }}>
-                      <Typography variant="subtitle2" color="textSecondary" sx={{ mb: 1 }}>
-                        {t("summary.projectName")}
-                      </Typography>
-                      <Typography variant="body1" sx={{ fontWeight: 500 }}>
-                        {formData.projectName || "Untitled Project"}
-                      </Typography>
-                    </Box>
-
-                    <Divider sx={{ my: 2 }} />
-
-                    <Box sx={{ mb: 3 }}>
-                      <Typography variant="subtitle2" color="textSecondary" sx={{ mb: 1 }}>
-                        {t("summary.ownership.title")}
-                      </Typography>
-                      <Chip
-                        label={formData.ownershipManagement === "angorasix" ? t("summary.ownership.chip.angorasix") : t("summary.ownership.chip.externally")}
-                        size="small"
-                        sx={{
-                          background: "#0A2239",
-                          color: "white",
-                          fontWeight: 500,
-                        }}
-                      />
-                    </Box>
-
-                    <Box sx={{ mb: 3 }}>
-                      <Typography variant="subtitle2" color="textSecondary" sx={{ mb: 1 }}>
-                        {t("summary.paymentTypes")}
-                      </Typography>
-                      <Stack direction="row" spacing={1} flexWrap="wrap">
-                        {formData.paymentTypes.map((type) => {
-                          const option = paymentOptions.find((opt) => opt.id === type)
-                          return <Chip key={type} label={option?.label} size="small" variant="outlined" />
-                        })}
-                      </Stack>
-                    </Box>
-
-                    <Box sx={{ mb: 3 }}>
-                      <Typography variant="subtitle2" color="textSecondary" sx={{ mb: 1 }}>
-                        {t("summary.compensation")}
-                      </Typography>
-                      <Chip
-                        label={
-                          formData.compensationType === "vesting" ? `Vesting (${formData.vestingPeriod}y)` : "Immediate"
-                        }
-                        size="small"
-                        variant="outlined"
-                      />
-                    </Box>
-                  </CardContent>
-                </StyledCard>
-              </Grid>
-            </Grid>
-
-            {/* Action Buttons */}
-            <Box
-              sx={{
-                display: "flex",
-                justifyContent: "center",
-                gap: 2,
-                mt: 4,
-                pb: 4,
-              }}
+        <div className="toggle-section">
+          <div className="toggle-header">
+            <Typography variant="h6">{t("fields.ownershipSetup")}</Typography>
+            <Tooltip title={t("tooltips.ownershipSetup")}>
+              <IconButton size="small">
+                <InfoIcon />
+              </IconButton>
+            </Tooltip>
+          </div>
+          <div className="toggle-options">
+            <div
+              className={`toggle-option ${formData.ownershipSetup === "angorasix" ? "active" : ""}`}
+              onClick={() => handleInputChange("ownershipSetup", "angorasix")}
             >
-              <Button
-                variant="outlined"
-                size="large"
-                sx={{
-                  px: 4,
-                  py: 1.5,
-                  borderColor: "#e2e8f0",
-                  color: "#64748b",
-                  "&:hover": {
-                    borderColor: "#0A2239",
-                    color: "#0A2239",
-                  },
-                }}
-              >
-                Cancel
+              <AccountBalanceIcon />
+              <div>
+                <Typography variant="subtitle1">{t("options.ownershipSetup.angorasix")}</Typography>
+                <Typography variant="body2" color="textSecondary">
+                  {t("options.ownershipSetup.angorasixDesc")}
+                </Typography>
+              </div>
+            </div>
+            <div
+              className={`toggle-option ${formData.ownershipSetup === "external" ? "active" : ""}`}
+              onClick={() => handleInputChange("ownershipSetup", "external")}
+            >
+              <BusinessIcon />
+              <div>
+                <Typography variant="subtitle1">{t("options.ownershipSetup.external")}</Typography>
+                <Typography variant="body2" color="textSecondary">
+                  {t("options.ownershipSetup.externalDesc")}
+                </Typography>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="toggle-section">
+          <div className="toggle-header">
+            <Typography variant="h6">{t("fields.financialSetup")}</Typography>
+            <Tooltip title={t("tooltips.financialSetup")}>
+              <IconButton size="small">
+                <InfoIcon />
+              </IconButton>
+            </Tooltip>
+          </div>
+          <div className="toggle-options">
+            <div
+              className={`toggle-option ${formData.financialSetup === "angorasix" ? "active" : ""}`}
+              onClick={() => handleInputChange("financialSetup", "angorasix")}
+            >
+              <PaymentIcon />
+              <div>
+                <Typography variant="subtitle1">{t("options.financialSetup.angorasix")}</Typography>
+                <Typography variant="body2" color="textSecondary">
+                  {t("options.financialSetup.angorasixDesc")}
+                </Typography>
+              </div>
+            </div>
+            <div
+              className={`toggle-option ${formData.financialSetup === "external" ? "active" : ""}`}
+              onClick={() => handleInputChange("financialSetup", "external")}
+            >
+              <BusinessIcon />
+              <div>
+                <Typography variant="subtitle1">{t("options.financialSetup.external")}</Typography>
+                <Typography variant="body2" color="textSecondary">
+                  {t("options.financialSetup.externalDesc")}
+                </Typography>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+
+  const renderOwnershipGovernance = () => {
+    if (formData.ownershipSetup !== "angorasix") {
+      return (
+        <div className="step-content">
+          <Typography variant="h5" className="step-title">
+            {t("steps.ownershipGovernance.title")}
+          </Typography>
+          <Typography variant="body1" className="step-description">
+            {t("steps.ownershipGovernance.externalMessage")}
+          </Typography>
+        </div>
+      )
+    }
+
+    return (
+      <div className="step-content">
+        <Typography variant="h5" className="step-title">
+          {t("steps.ownershipGovernance.title")}
+        </Typography>
+        <Typography variant="body1" className="step-description">
+          {t("steps.ownershipGovernance.description")}
+        </Typography>
+
+        <div className="form-section">
+          <div className="section-header">
+            <Typography variant="h6">{t("sections.ownershipViaTasks")}</Typography>
+          </div>
+
+          <FormControlLabel
+            control={
+              <Switch
+                checked={formData.startupTasksEnabled}
+                onChange={(e) => handleInputChange("startupTasksEnabled", e.target.checked)}
+              />
+            }
+            label={t("fields.startupTasks")}
+            className="form-field"
+          />
+
+          {formData.startupTasksEnabled && (
+            <Accordion
+              expanded={expandedAccordions.startupSettings}
+              onChange={() => handleAccordionToggle("startupSettings")}
+              className="settings-accordion"
+            >
+              <AccordionSummary>
+                <Typography>{t("accordions.startupSettings")}</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <div className="accordion-content">
+                  <FormControlLabel
+                    control={
+                      <Switch
+                        checked={formData.startupTasksFading}
+                        onChange={(e) => handleInputChange("startupTasksFading", e.target.checked)}
+                      />
+                    }
+                    label={t("fields.startupFading")}
+                  />
+
+                  {formData.startupTasksFading && (
+                    <>
+                      <TextField
+                        fullWidth
+                        type="number"
+                        label={t("fields.fadingPeriod")}
+                        value={formData.startupFadingPeriod}
+                        onChange={(e) => handleInputChange("startupFadingPeriod", Number.parseInt(e.target.value))}
+                        className="form-field"
+                        InputProps={{ inputProps: { min: 1, max: 100 } }}
+                      />
+
+                      <div className="pattern-selector">
+                        <Typography variant="subtitle1" className="pattern-title">
+                          {t("fields.fadingPattern")}
+                        </Typography>
+                        <div className="pattern-options">
+                          {fadingPatterns.map((pattern) => (
+                            <div
+                              key={pattern.id}
+                              className={`pattern-option ${formData.startupFadingPattern === pattern.id ? "selected" : ""}`}
+                              onClick={() => handleInputChange("startupFadingPattern", pattern.id)}
+                            >
+                              <div className="pattern-image">
+                                <Image
+                                  src={pattern.image || "/placeholder.svg"}
+                                  alt={pattern.name}
+                                  width={60}
+                                  height={40}
+                                />
+                              </div>
+                              <Typography variant="subtitle2">{pattern.name}</Typography>
+                              <Typography variant="caption" color="textSecondary">
+                                {pattern.description}
+                              </Typography>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </>
+                  )}
+                </div>
+              </AccordionDetails>
+            </Accordion>
+          )}
+
+          <div className="regular-tasks-section">
+            <Typography variant="subtitle1" className="section-subtitle">
+              {t("sections.regularTasks")}
+            </Typography>
+
+            <TextField
+              fullWidth
+              type="number"
+              label={t("fields.regularFadingPeriod")}
+              value={formData.regularFadingPeriod}
+              onChange={(e) => handleInputChange("regularFadingPeriod", Number.parseInt(e.target.value))}
+              className="form-field"
+              InputProps={{ inputProps: { min: 1, max: 20 } }}
+            />
+
+            <div className="pattern-selector">
+              <Typography variant="subtitle1" className="pattern-title">
+                {t("fields.fadingPattern")}
+              </Typography>
+              <div className="pattern-options">
+                {fadingPatterns.map((pattern) => (
+                  <div
+                    key={pattern.id}
+                    className={`pattern-option ${formData.regularFadingPattern === pattern.id ? "selected" : ""}`}
+                    onClick={() => handleInputChange("regularFadingPattern", pattern.id)}
+                  >
+                    <div className="pattern-image">
+                      <Image src={pattern.image || "/placeholder.svg"} alt={pattern.name} width={60} height={40} />
+                    </div>
+                    <Typography variant="subtitle2">{pattern.name}</Typography>
+                    <Typography variant="caption" color="textSecondary">
+                      {pattern.description}
+                    </Typography>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="section-header">
+            <Typography variant="h6">{t("sections.governance")}</Typography>
+          </div>
+
+          <FormControlLabel
+            control={
+              <Switch
+                checked={formData.coordinationCircleEnabled}
+                onChange={(e) => handleInputChange("coordinationCircleEnabled", e.target.checked)}
+              />
+            }
+            label={t("fields.coordinationCircle")}
+            className="form-field"
+          />
+
+          <div className="slider-field">
+            <Typography variant="subtitle1">
+              {t("fields.ownershipVotingLimit")}: {formData.ownershipVotingLimit}%
+            </Typography>
+            <Slider
+              value={formData.ownershipVotingLimit}
+              onChange={(e, value) => handleInputChange("ownershipVotingLimit", value)}
+              min={1}
+              max={50}
+              step={1}
+              marks
+              valueLabelDisplay="auto"
+              className="ownership-slider"
+            />
+          </div>
+
+          <TextField
+            fullWidth
+            type="number"
+            label={t("fields.decisionQuorum")}
+            value={formData.decisionQuorum}
+            onChange={(e) => handleInputChange("decisionQuorum", Number.parseInt(e.target.value))}
+            className="form-field"
+            InputProps={{ inputProps: { min: 1, max: 20 } }}
+          />
+        </div>
+      </div>
+    )
+  }
+
+  const renderFinancesRetribution = () => {
+    if (formData.financialSetup !== "angorasix") {
+      return (
+        <div className="step-content">
+          <Typography variant="h5" className="step-title">
+            {t("steps.financesRetribution.title")}
+          </Typography>
+          <Typography variant="body1" className="step-description">
+            {t("steps.financesRetribution.externalMessage")}
+          </Typography>
+        </div>
+      )
+    }
+
+    return (
+      <div className="step-content">
+        <Typography variant="h5" className="step-title">
+          {t("steps.financesRetribution.title")}
+        </Typography>
+        <Typography variant="body1" className="step-description">
+          {t("steps.financesRetribution.description")}
+        </Typography>
+
+        <div className="form-section">
+          <FormControlLabel
+            control={
+              <Switch
+                checked={formData.profitSharingEnabled}
+                onChange={(e) => handleInputChange("profitSharingEnabled", e.target.checked)}
+              />
+            }
+            label={t("fields.profitSharing")}
+            className="form-field"
+          />
+
+          {formData.profitSharingEnabled && (
+            <Accordion
+              expanded={expandedAccordions.profitSettings}
+              onChange={() => handleAccordionToggle("profitSettings")}
+              className="settings-accordion"
+            >
+              <AccordionSummary>
+                <Typography>{t("accordions.profitSettings")}</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <div className="accordion-content">
+                  <div className="toggle-section">
+                    <Typography variant="subtitle1">{t("fields.payoutStrategy")}</Typography>
+                    <div className="toggle-options small">
+                      <div
+                        className={`toggle-option ${formData.profitPayoutStrategy === "vesting" ? "active" : ""}`}
+                        onClick={() => handleInputChange("profitPayoutStrategy", "vesting")}
+                      >
+                        <Typography variant="body2">{t("options.payoutStrategy.vesting")}</Typography>
+                      </div>
+                      <div
+                        className={`toggle-option ${formData.profitPayoutStrategy === "immediate" ? "active" : ""}`}
+                        onClick={() => handleInputChange("profitPayoutStrategy", "immediate")}
+                      >
+                        <Typography variant="body2">{t("options.payoutStrategy.immediate")}</Typography>
+                      </div>
+                    </div>
+                  </div>
+
+                  {formData.profitPayoutStrategy === "vesting" && (
+                    <>
+                      <TextField
+                        fullWidth
+                        type="number"
+                        label={t("fields.vestingPeriod")}
+                        value={formData.profitVestingPeriod}
+                        onChange={(e) => handleInputChange("profitVestingPeriod", Number.parseInt(e.target.value))}
+                        className="form-field"
+                        InputProps={{ inputProps: { min: 1, max: 20 } }}
+                      />
+
+                      <div className="pattern-selector">
+                        <Typography variant="subtitle1" className="pattern-title">
+                          {t("fields.vestingPattern")}
+                        </Typography>
+                        <div className="pattern-options">
+                          {fadingPatterns.map((pattern) => (
+                            <div
+                              key={pattern.id}
+                              className={`pattern-option ${formData.profitVestingPattern === pattern.id ? "selected" : ""}`}
+                              onClick={() => handleInputChange("profitVestingPattern", pattern.id)}
+                            >
+                              <div className="pattern-image">
+                                <Image
+                                  src={pattern.image || "/placeholder.svg"}
+                                  alt={pattern.name}
+                                  width={60}
+                                  height={40}
+                                />
+                              </div>
+                              <Typography variant="subtitle2">{pattern.name}</Typography>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </>
+                  )}
+                </div>
+              </AccordionDetails>
+            </Accordion>
+          )}
+
+          <div className="currency-section">
+            <Typography variant="subtitle1">{t("fields.supportedCurrencies")}</Typography>
+            <div className="currency-chips">
+              {currencyOptions.map((currency) => (
+                <Chip
+                  key={currency}
+                  label={currency}
+                  clickable
+                  color={formData.supportedCurrencies.includes(currency) ? "primary" : "default"}
+                  onClick={() => {
+                    const newCurrencies = formData.supportedCurrencies.includes(currency)
+                      ? formData.supportedCurrencies.filter((c) => c !== currency)
+                      : [...formData.supportedCurrencies, currency]
+                    handleInputChange("supportedCurrencies", newCurrencies)
+                  }}
+                  className="currency-chip"
+                />
+              ))}
+            </div>
+          </div>
+
+          <div className="distribution-trigger-section">
+            <Typography variant="subtitle1">{t("fields.distributionTrigger")}</Typography>
+            <div className="trigger-options">
+              <FormControl fullWidth className="form-field">
+                <InputLabel>{t("fields.triggerType")}</InputLabel>
+                <Select
+                  value={formData.distributionTriggerType}
+                  onChange={(e) => handleInputChange("distributionTriggerType", e.target.value)}
+                  label={t("fields.triggerType")}
+                >
+                  <MenuItem value="TOTAL_INCOME_THRESHOLD">{t("triggerTypes.totalIncome")}</MenuItem>
+                  <MenuItem value="MONTHLY_AVERAGE_THRESHOLD">{t("triggerTypes.monthlyAverage")}</MenuItem>
+                  <MenuItem value="MONTHLY_PER_CONTRIBUTOR">{t("triggerTypes.monthlyPerContributor")}</MenuItem>
+                  <MenuItem value="AUTOMATIC_YEARLY">{t("triggerTypes.automaticYearly")}</MenuItem>
+                </Select>
+              </FormControl>
+
+              {formData.distributionTriggerType !== "AUTOMATIC_YEARLY" && (
+                <div className="trigger-amount">
+                  <TextField
+                    type="number"
+                    label={t("fields.triggerAmount")}
+                    value={formData.distributionTriggerAmount}
+                    onChange={(e) => handleInputChange("distributionTriggerAmount", Number.parseInt(e.target.value))}
+                    className="amount-field"
+                  />
+                  <FormControl className="currency-select">
+                    <Select
+                      value={formData.distributionTriggerCurrency}
+                      onChange={(e) => handleInputChange("distributionTriggerCurrency", e.target.value)}
+                    >
+                      {formData.supportedCurrencies.map((currency) => (
+                        <MenuItem key={currency} value={currency}>
+                          {currency}
+                        </MenuItem>
+                      ))}
+                    </Select>
+                  </FormControl>
+                </div>
+              )}
+            </div>
+          </div>
+
+          <FormControl fullWidth className="form-field">
+            <InputLabel>{t("fields.reEvaluationFrequency")}</InputLabel>
+            <Select
+              value={formData.reEvaluationFrequency}
+              onChange={(e) => handleInputChange("reEvaluationFrequency", e.target.value)}
+              label={t("fields.reEvaluationFrequency")}
+            >
+              <MenuItem value="EVERY_6_MONTHS">{t("frequencies.every6Months")}</MenuItem>
+              <MenuItem value="EVERY_YEAR">{t("frequencies.everyYear")}</MenuItem>
+            </Select>
+          </FormControl>
+        </div>
+      </div>
+    )
+  }
+
+  return (
+    <div className="new-project-management">
+      <Container maxWidth="lg" className="main-container">
+        <div className="header-section">
+          <Typography variant="h3" className="main-title">
+            {t("title")}
+          </Typography>
+          <Typography variant="h6" className="main-subtitle">
+            {t("subtitle")}
+          </Typography>
+        </div>
+
+        <Paper className="stepper-container">
+          <Stepper activeStep={activeStep} className="stepper">
+            {steps.map((label, index) => (
+              <Step key={label}>
+                <StepLabel
+                  StepIconComponent={({ active, completed }) => (
+                    <div className={`step-icon ${active ? "active" : ""} ${completed ? "completed" : ""}`}>
+                      {completed ? <CheckCircleIcon /> : index + 1}
+                    </div>
+                  )}
+                >
+                  {label}
+                </StepLabel>
+              </Step>
+            ))}
+          </Stepper>
+
+          <div className="step-content-container">
+            <Fade in key={activeStep}>
+              <div>{renderStepContent(activeStep)}</div>
+            </Fade>
+          </div>
+
+          <div className="step-actions">
+            <Button disabled={activeStep === 0} onClick={handleBack} className="back-button">
+              {t("actions.back")}
+            </Button>
+            <div className="spacer" />
+            {activeStep === steps.length - 1 ? (
+              <Button variant="contained" onClick={handleSubmit} className="submit-button">
+                {t("actions.createProject")}
               </Button>
-              <Button
-                variant="contained"
-                size="large"
-                onClick={handleSubmit}
-                sx={{
-                  px: 4,
-                  py: 1.5,
-                  background: "linear-gradient(45deg, #0A2239 0%, #1B5993 100%)",
-                  "&:hover": {
-                    background: "linear-gradient(45deg, #1B5993 0%, #0A2239 100%)",
-                  },
-                }}
-              >
-                Create Project
+            ) : (
+              <Button variant="contained" onClick={handleNext} className="next-button">
+                {t("actions.next")}
               </Button>
-            </Box>
-          </Box>
-        </Fade>
+            )}
+          </div>
+        </Paper>
       </Container>
-    </MainContainer>
+    </div>
   )
 }
 
-NewProjectManagement.defaultProps = {}
-
-NewProjectManagement.propTypes = {}
+NewProjectManagement.defaultProps = {
+  onSubmit: () => {},
+}
 
 export default NewProjectManagement

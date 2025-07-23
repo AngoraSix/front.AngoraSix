@@ -1,68 +1,117 @@
 {
-  "title": "Create new project",
+  "title": "Create New Project",
   "subtitle": "Set up your collaborative project with AngoraSix",
-  "sections": {
-    "projectInfo": "Project information",
-    "decisionRules": "Decision rules",
-    "finance": "Finance & compensation"
+  "stepper": {
+    "basicSetup": "Basic Setup",
+    "ownershipGovernance": "Ownership & Governance",
+    "financesRetribution": "Finances & Retribution"
   },
-  "fields": {
-    "projectName": "Project name",
-    "description": "Description",
-    "startDate": "Start Ddate",
-    "estimatedBudget": "Estimated budget",
-    "ownershipManagement": "Ownership management",
-    "ownershipManagementOptions": {
-      "angorasix": "Manage ownership via AngoraSix",
-      "externally": "Managed externally"
+  "steps": {
+    "basicSetup": {
+      "title": "Basic Setup",
+      "description": "Let's start with the fundamentals of your project"
     },
-    "startupDuration": "Startup tasks duration (years)",
-    "regularDuration": "Regular tasks duration (years)",
-    "ownershipCap": "Ownership cap per vote: {{ownershipCap}}%",
-    "minimumVoters": "Minimum voters required",
-    "paymentTypes": "Supported payment types",
-    "compensation": "Default compensation",
-    "vestingPeriod": "Default vesting period (years)",
-    "vestingPeriodOptions": {
-      "vesting": "Vesting",
-      "immediate": "Immediate"
+    "ownershipGovernance": {
+      "title": "Ownership & Governance",
+      "description": "Configure how ownership and decisions work in your project",
+      "externalMessage": "Since you chose external ownership management, you can skip this step."
     },
-    "distributionFunction": "Distribution function"
-  },
-  "payment": {
-    "profitShares": "Profit shares",
-    "usd": "USD",
-    "eur": "EUR",
-    "eth": "ETH"
-  },
-  "distribution": {
-    "curveA": {
-      "name": "Curve A",
-      "desc": "Bell curve distribution"
-    },
-    "curveB": {
-      "name": "Curve B",
-      "desc": "Exponential growth"
-    },
-    "linear": {
-      "name": "Linear",
-      "desc": "Linear distribution"
+    "financesRetribution": {
+      "title": "Finances & Retribution",
+      "description": "Set up how earnings and payments will be handled",
+      "externalMessage": "Since you chose external financial management, you can skip this step."
     }
   },
-  "summary": {
-    "title": "Project summary",
-    "projectName": "Project name",
-    "ownership": {
-      "title": "Ownership management",
-      "chip": {
-        "angorasix": "AngoraSix managed",
-        "externally": "Managed externally"
-      }
-    },
-    "paymentTypes": "Payment types",
-    "compensation": "Compensation"
+  "fields": {
+    "projectName": "Project Name",
+    "currentStage": "Current Stage",
+    "ownershipSetup": "Ownership Setup",
+    "financialSetup": "Financial Setup",
+    "startupTasks": "Include startup tasks in ownership tracking",
+    "startupFading": "Enable fading for startup tasks",
+    "fadingPeriod": "Fading Period (years)",
+    "fadingPattern": "Fading Pattern",
+    "regularFadingPeriod": "Regular Tasks Fading Period (years)",
+    "coordinationCircle": "Enable Coordination Circle",
+    "ownershipVotingLimit": "Ownership Voting Limit",
+    "decisionQuorum": "Decision Quorum",
+    "profitSharing": "Enable Profit Sharing",
+    "payoutStrategy": "Payout Strategy",
+    "vestingPeriod": "Vesting Period (years)",
+    "vestingPattern": "Vesting Pattern",
+    "supportedCurrencies": "Supported Currencies",
+    "distributionTrigger": "Distribution Trigger",
+    "triggerType": "Trigger Type",
+    "triggerAmount": "Amount",
+    "reEvaluationFrequency": "Re-evaluation Frequency"
   },
-  "errors": {
-    "projectName": "Project name is required"
+  "stages": {
+    "idea": "Idea",
+    "startup": "Startup",
+    "live": "Live",
+    "other": "Other"
+  },
+  "options": {
+    "ownershipSetup": {
+      "angorasix": "Managed by AngoraSix (recommended)",
+      "angorasixDesc": "Let AngoraSix track and calculate ownership based on contributions",
+      "external": "Managed externally",
+      "externalDesc": "You'll handle ownership tracking outside of AngoraSix"
+    },
+    "financialSetup": {
+      "angorasix": "Finance managed by AngoraSix (shared wallet & automated payouts)",
+      "angorasixDesc": "AngoraSix will help track, manage and distribute project earnings",
+      "external": "I will handle finances externally",
+      "externalDesc": "You'll manage finances and payouts outside of AngoraSix"
+    },
+    "payoutStrategy": {
+      "vesting": "Vesting",
+      "immediate": "Effective immediately"
+    }
+  },
+  "patterns": {
+    "linearDown": {
+      "name": "Gradual fade",
+      "desc": "Linearly decreases to 0"
+    },
+    "linearUp": {
+      "name": "Cliff fade",
+      "desc": "Remains flat, then drops to 0 suddenly"
+    },
+    "uniform": {
+      "name": "Uniform",
+      "desc": "Consistent distribution over time"
+    }
+  },
+  "sections": {
+    "ownershipViaTasks": "Ownership via Tasks",
+    "regularTasks": "Regular Tasks Ownership",
+    "governance": "Governance"
+  },
+  "accordions": {
+    "startupSettings": "Startup Task Settings",
+    "profitSettings": "Profit Share Settings"
+  },
+  "triggerTypes": {
+    "totalIncome": "Total project income exceeds threshold",
+    "monthlyAverage": "Monthly average income exceeds threshold",
+    "monthlyPerContributor": "Monthly avg payment per contributor exceeds threshold",
+    "automaticYearly": "Automatically after specified years"
+  },
+  "frequencies": {
+    "every6Months": "Every 6 months",
+    "everyYear": "Every 1 year"
+  },
+  "tooltips": {
+    "ownershipSetup": "Select whether AngoraSix should help you manage and calculate ownership based on tracked contributions.",
+    "financialSetup": "Select whether you want AngoraSix to help track, manage and distribute project earnings."
+  },
+  "actions": {
+    "back": "Back",
+    "next": "Next",
+    "createProject": "Create Project"
+  },
+  "validation": {
+    "projectNameRequired": "Project name is required"
   }
 }

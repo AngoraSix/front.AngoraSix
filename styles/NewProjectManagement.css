@@ -1,11 +1,14 @@
 /* New Project Management Styles */
-.NewProjectManagement {
+.NewProjectManagementLayout__Page__Body {}
+
+.new-project-management {
   min-height: 100vh;
   background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
   position: relative;
+  padding: 5rem 0 2rem;
 }
 
-.NewProjectManagement::before {
+.new-project-management::before {
   content: "";
   position: absolute;
   top: 0;
@@ -17,185 +20,373 @@
   pointer-events: none;
 }
 
-.NewProjectManagement .section-card {
+.main-container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Header Section */
+.header-section {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.main-title {
+  color: #0a2239;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.main-subtitle {
+  color: #64748b;
+  font-weight: 400;
+}
+
+/* Stepper Container */
+.stepper-container {
   border-radius: 16px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.2);
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
-  margin-bottom: 24px;
-  transition: all 0.3s ease;
+  padding: 2rem;
 }
 
-.NewProjectManagement .section-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+.stepper {
+  margin-bottom: 3rem;
 }
 
-.NewProjectManagement .section-title {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #0a2239;
-  margin-bottom: 16px;
+.step-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
-  gap: 8px;
-}
-
-.NewProjectManagement .toggle-group {
-  display: flex;
-  border-radius: 12px;
-  overflow: hidden;
-  border: 2px solid #e2e8f0;
-  background: #f8fafc;
-}
-
-.NewProjectManagement .toggle-button {
-  flex: 1;
-  padding: 16px 24px;
-  border-radius: 0;
-  border: none;
+  justify-content: center;
   font-weight: 600;
-  text-transform: none;
-  transition: all 0.3s ease;
-}
-
-.NewProjectManagement .toggle-button.active {
-  background: #0a2239;
-  color: #ffffff;
-}
-
-.NewProjectManagement .toggle-button:not(.active) {
-  background: transparent;
-  color: #64748b;
-}
-
-.NewProjectManagement .toggle-button:hover {
   background: #e2e8f0;
-}
-
-.NewProjectManagement .toggle-button.active:hover {
-  background: #1b5993;
-}
-
-.NewProjectManagement .payment-chip {
-  margin: 4px;
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-.NewProjectManagement .payment-chip.selected {
-  background: #0a2239;
-  color: #ffffff;
-}
-
-.NewProjectManagement .payment-chip:not(.selected) {
-  background: #f1f5f9;
   color: #64748b;
-}
-
-.NewProjectManagement .payment-chip:hover {
-  transform: translateY(-1px);
-}
-
-.NewProjectManagement .distribution-card {
-  padding: 16px;
-  text-align: center;
-  cursor: pointer;
-  border-radius: 12px;
   transition: all 0.3s ease;
-  border: 2px solid #e2e8f0;
 }
 
-.NewProjectManagement .distribution-card.selected {
+.step-icon.active {
+  background: #0a2239;
+  color: white;
+}
+
+.step-icon.completed {
+  background: #10b981;
+  color: white;
+}
+
+/* Step Content */
+.step-content-container {
+  min-height: 500px;
+  margin-bottom: 2rem;
+}
+
+.step-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.step-title {
+  color: #0a2239;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.step-description {
+  color: #64748b;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* Form Sections */
+.form-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-field {
+  margin-bottom: 1rem;
+}
+
+.section-header {
+  margin: 2rem 0 1rem 0;
+}
+
+.section-subtitle {
+  color: #0a2239;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+/* Toggle Sections */
+.toggle-section {
+  margin: 2rem 0;
+}
+
+.toggle-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.toggle-options {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.toggle-options.small {
+  flex-direction: row;
+  gap: 0.5rem;
+}
+
+.toggle-option {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: white;
+}
+
+.toggle-option:hover {
+  border-color: #0a2239;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.toggle-option.active {
   border-color: #0a2239;
   background: rgba(10, 34, 57, 0.05);
 }
 
-.NewProjectManagement .distribution-card:hover {
+.toggle-options.small .toggle-option {
+  flex: 1;
+  justify-content: center;
+  padding: 0.75rem;
+}
+
+/* Pattern Selector */
+.pattern-selector {
+  margin: 1.5rem 0;
+}
+
+.pattern-title {
+  color: #0a2239;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.pattern-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.pattern-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: white;
+  text-align: center;
+}
+
+.pattern-option:hover {
   border-color: #0a2239;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.NewProjectManagement .form-field {
-  margin-bottom: 24px;
+.pattern-option.selected {
+  border-color: #0a2239;
+  background: rgba(10, 34, 57, 0.05);
 }
 
-.NewProjectManagement .form-field.error input {
-  border-color: #ef4444;
-}
-
-.NewProjectManagement .sidebar-card {
-  position: sticky;
-  top: 20px;
-  border-radius: 16px;
-  background: rgba(10, 34, 57, 0.95);
-  color: white;
-  backdrop-filter: blur(10px);
-}
-
-.NewProjectManagement .action-buttons {
+.pattern-image {
+  margin-bottom: 0.5rem;
   display: flex;
+  align-items: center;
   justify-content: center;
-  gap: 16px;
-  margin-top: 32px;
-  padding-bottom: 32px;
+  height: 50px;
 }
 
-.NewProjectManagement .primary-button {
-  background: linear-gradient(45deg, #0a2239 0%, #1b5993 100%);
-  padding: 12px 32px;
-  font-weight: 600;
+/* Accordion Styles */
+.settings-accordion {
+  margin: 1rem 0;
+  border: 1px solid #e2e8f0;
   border-radius: 8px;
+}
+
+.accordion-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Slider Styles */
+.slider-field {
+  margin: 1.5rem 0;
+}
+
+.ownership-slider {
+  color: #0a2239;
+  margin-top: 1rem;
+}
+
+.ownership-slider .MuiSlider-thumb {
+  background: #0a2239;
+}
+
+.ownership-slider .MuiSlider-track {
+  background: linear-gradient(45deg, #0a2239 0%, #1b5993 100%);
+}
+
+/* Currency Section */
+.currency-section {
+  margin: 2rem 0;
+}
+
+.currency-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.currency-chip {
   transition: all 0.3s ease;
 }
 
-.NewProjectManagement .primary-button:hover {
+.currency-chip:hover {
+  transform: translateY(-1px);
+}
+
+/* Distribution Trigger */
+.distribution-trigger-section {
+  margin: 2rem 0;
+}
+
+.trigger-options {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.trigger-amount {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.amount-field {
+  flex: 1;
+}
+
+.currency-select {
+  min-width: 100px;
+}
+
+/* Step Actions */
+.step-actions {
+  display: flex;
+  align-items: center;
+  padding-top: 2rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.back-button {
+  color: #64748b;
+  border-color: #e2e8f0;
+}
+
+.back-button:hover {
+  border-color: #0a2239;
+  color: #0a2239;
+}
+
+.next-button,
+.submit-button {
+  background: linear-gradient(45deg, #0a2239 0%, #1b5993 100%);
+  color: white;
+  padding: 0.75rem 2rem;
+  font-weight: 600;
+}
+
+.next-button:hover,
+.submit-button:hover {
   background: linear-gradient(45deg, #1b5993 0%, #0a2239 100%);
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(10, 34, 57, 0.3);
 }
 
-.NewProjectManagement .secondary-button {
-  border-color: #e2e8f0;
-  color: #64748b;
-  padding: 12px 32px;
-  font-weight: 600;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-}
-
-.NewProjectManagement .secondary-button:hover {
-  border-color: #0a2239;
-  color: #0a2239;
-  transform: translateY(-1px);
+/* Regular Tasks Section */
+.regular-tasks-section {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: rgba(10, 34, 57, 0.02);
+  border-radius: 12px;
+  border: 1px solid rgba(10, 34, 57, 0.1);
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .NewProjectManagement .toggle-group {
+  .new-project-management {
+    padding: 1rem 0;
+  }
+
+  .stepper-container {
+    padding: 1rem;
+  }
+
+  .toggle-options {
+    gap: 0.5rem;
+  }
+
+  .toggle-option {
+    padding: 0.75rem;
+  }
+
+  .pattern-options {
+    grid-template-columns: 1fr;
+  }
+
+  .trigger-amount {
     flex-direction: column;
+    align-items: stretch;
   }
 
-  .NewProjectManagement .toggle-button {
-    border-radius: 0;
-  }
-
-  .NewProjectManagement .action-buttons {
+  .step-actions {
     flex-direction: column;
-    align-items: center;
+    gap: 1rem;
   }
 
-  .NewProjectManagement .primary-button,
-  .NewProjectManagement .secondary-button {
-    width: 100%;
-    max-width: 300px;
+  .spacer {
+    display: none;
   }
 }
 
 /* Animation Classes */
-.NewProjectManagement .fade-in {
+.fade-in {
   animation: fadeIn 0.6s ease-in-out;
 }
 
@@ -204,68 +395,31 @@
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-.NewProjectManagement .slide-in {
-  animation: slideIn 0.4s ease-out;
-}
-
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
 /* Form Validation Styles */
-.NewProjectManagement .field-error {
+.form-field.error .MuiOutlinedInput-root {
+  border-color: #ef4444;
+}
+
+.field-error {
   color: #ef4444;
   font-size: 0.875rem;
   margin-top: 4px;
 }
 
-.NewProjectManagement .required-field::after {
-  content: " *";
-  color: #ef4444;
-}
-
-/* Custom Slider Styles */
-.NewProjectManagement .MuiSlider-root {
-  color: #0a2239;
-}
-
-.NewProjectManagement .MuiSlider-thumb {
-  background: #0a2239;
-}
-
-.NewProjectManagement .MuiSlider-track {
-  background: linear-gradient(45deg, #0a2239 0%, #1b5993 100%);
-}
-
-/* Custom Select Styles */
-.NewProjectManagement .MuiSelect-root {
-  border-radius: 8px;
-}
-
-.NewProjectManagement .MuiMenuItem-root:hover {
-  background: rgba(10, 34, 57, 0.1);
-}
-
 /* Loading States */
-.NewProjectManagement .loading {
+.loading {
   opacity: 0.6;
   pointer-events: none;
 }
 
-.NewProjectManagement .loading::after {
+.loading::after {
   content: "";
   position: absolute;
   top: 50%;
