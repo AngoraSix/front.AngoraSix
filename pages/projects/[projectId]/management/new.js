@@ -4,7 +4,7 @@ import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import api from '../../../../api';
 import FormSkeleton from '../../../../components/common/Skeletons/FormSkeleton.component';
 import ProjectManagementForm from '../../../../components/Management/Form';
@@ -12,9 +12,9 @@ import { ROUTES } from '../../../../constants/constants';
 import { useNotifications } from '../../../../hooks/app';
 import { useActiveSession } from '../../../../hooks/oauth';
 import DefaultLayout from '../../../../layouts/DefaultLayout';
-import { resolveRoute } from '../../../../utils/api/apiHelper';
-import logger from '../../../../utils/logger';
+import { obtainValidatedToken, resolveRoute } from '../../../../utils/api/apiHelper';
 import { isA6ResourceAdmin } from '../../../../utils/commons/a6commonsUtils';
+import logger from '../../../../utils/logger';
 
 const NOT_ADMIN_ERROR_MESSAGE =
   'You need admin privileges to create a Management registry for a Project';
@@ -76,12 +76,11 @@ export const getServerSideProps = async (ctx) => {
   let props = {};
   const { projectId } = ctx.params,
     session = await getSession(ctx);
-  const validatedToken =
-    session?.error !== 'RefreshAccessTokenError' && session?.error !== "SessionExpired" ? session : null;
+  const validatedToken = obtainValidatedToken(ctx.req);
   let isAdmin = false;
   try {
     const project = await api.projects.getProject(projectId, validatedToken);
-    isAdmin = isA6ResourceAdmin(session?.user?.id,  project);
+    isAdmin = isA6ResourceAdmin(session?.user?.id, project);
     props = {
       ...props,
       project,

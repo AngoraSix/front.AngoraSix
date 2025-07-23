@@ -29,6 +29,7 @@ import {
 } from "@mui/material"
 import { styled } from "@mui/system"
 import { useTranslation } from "next-i18next"
+import Image from "next/image"
 import { useState } from "react"
 
 const MainContainer = styled(Box)(({ theme }) => ({
@@ -143,9 +144,9 @@ const NewProjectManagement = () => {
   ]
 
   const distributionFunctions = [
-    { id: "curve-a", name: t("distribution.curveA.name"), description: t("distribution.curveA.desc") },
-    { id: "curve-b", name: t("distribution.curveB.name"), description: t("distribution.curveB.desc") },
-    { id: "linear", name: t("distribution.linear.name"), description: t("distribution.linear.desc") },
+    { id: "curve-a", name: t("distribution.curveA.name"), description: t("distribution.curveA.desc"), image: "/images/resources/linear-up.png" },
+    { id: "curve-b", name: t("distribution.curveB.name"), description: t("distribution.curveB.desc"), image: "/images/resources/linear-down.png" },
+    { id: "linear", name: t("distribution.linear.name"), description: t("distribution.linear.desc"), image: "/images/resources/linear-up-down.png" },
   ]
 
   const handleInputChange = (field, value) => {
@@ -445,10 +446,12 @@ const NewProjectManagement = () => {
                             {distributionFunctions.map((func) => (
                               <Grid item xs={12} sm={4} key={func.id}>
                                 <DistributionCard
+                                  className="DistributionCurve__Container1"
                                   selected={formData.distributionFunction === func.id}
                                   onClick={() => handleInputChange("distributionFunction", func.id)}
                                 >
                                   <Box
+                                    className="DistributionCurve__Container2"
                                     sx={{
                                       height: 60,
                                       mb: 1,
@@ -459,13 +462,41 @@ const NewProjectManagement = () => {
                                   >
                                     {/* Placeholder for distribution curve visualization */}
                                     <Box
+                                      className="DistributionCurve__Image__Container"
                                       sx={{
+                                        // width: 40,
+                                        // height: 40,
+                                        display: "flex",
+                                        alignItems: "center",
+                                        justifyContent: "center",
                                         width: "80%",
                                         height: 40,
                                         background: `linear-gradient(45deg, ${formData.distributionFunction === func.id ? "#0A2239" : "#e2e8f0"} 0%, ${formData.distributionFunction === func.id ? "#1B5993" : "#f1f5f9"} 100%)`,
                                         borderRadius: 1,
                                       }}
-                                    />
+                                    >
+
+                                      <Box
+                                        className="DistributionCurve__Image__Container"
+                                        sx={{
+                                          // width: 40,
+                                          // height: 40,
+                                          width: "90%",
+                                          height: 30,
+                                          position: "relative",
+                                        }}
+                                      >
+
+                                        <Image
+                                          src={func.image}
+                                          alt="Linear Down Distribution"
+                                          fill
+                                        //             sizes="(max-width: 600px) 40px,
+                                        // 40px"
+                                        // style={{ objectFit: "contain" }}
+                                        />
+                                      </Box>
+                                    </Box>
                                   </Box>
                                   <Typography variant="subtitle2" sx={{ fontWeight: 600 }}>
                                     {func.name}

@@ -9,6 +9,7 @@ import SourceSyncUsersMatch from '../../../../../components/Management/Integrati
 import config from '../../../../../config';
 import { useActiveSession } from '../../../../../hooks/oauth';
 import DefaultLayout from '../../../../../layouts/DefaultLayout';
+import { obtainValidatedToken } from '../../../../../utils/api/apiHelper';
 import logger from '../../../../../utils/logger';
 
 const SourceSyncMatchUsersPage = ({
@@ -73,8 +74,7 @@ export const getServerSideProps = async (ctx) => {
   const { managementId, sourceSyncId } = ctx.params;
   const { myQueryParam } = ctx.query;
   const session = await getSession(ctx);
-  const validatedToken =
-    session?.error !== 'RefreshAccessTokenError' && session?.error !== "SessionExpired" ? session : null;
+  const validatedToken = obtainValidatedToken(ctx.req);
 
   try {
     const projectManagementResponse = await api.projects.getProjectManagement(

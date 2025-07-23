@@ -7,6 +7,7 @@ import api from '../../../api';
 import FormSkeleton from '../../../components/common/Skeletons/FormSkeleton.component';
 import ProjectManagementView from '../../../components/Management/View';
 import ManagementDetailsLayout from '../../../layouts/ManagementDetailsLayout';
+import { obtainValidatedToken } from '../../../utils/api/apiHelper';
 import { isA6ResourceAdmin } from '../../../utils/commons/a6commonsUtils';
 import logger from '../../../utils/logger';
 
@@ -83,8 +84,7 @@ export const getServerSideProps = async (ctx) => {
 
   const { managementId } = ctx.params;
   const session = await getSession(ctx);
-  const validatedToken =
-    session?.error !== 'RefreshAccessTokenError' && session?.error !== "SessionExpired" ? session : null;
+  const validatedToken = obtainValidatedToken(ctx.req);
 
   try {
     const projectManagement = await api.projects.getProjectManagement(

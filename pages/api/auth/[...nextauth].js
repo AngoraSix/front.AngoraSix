@@ -1,18 +1,20 @@
-import axios from 'axios';
 import moment from 'moment';
 import NextAuth from 'next-auth';
 import {
   oauthFrameworkConfig,
   oauthProviderConfig,
 } from '../../../config/oauth';
-import logger from '../../../utils/logger';
 
 export const oauthCallbacksConfig = {
   async jwt({ token, user, account }) {
+    if (account?.provider) {
+      token.provider = account.provider
+    }
     if (account && user) {
       return {
         accessToken: account.access_token,
         accessTokenExpires: account.expires_at,
+        provider: account.provider,
         // refreshToken: account.refresh_token,
         user,
       };
@@ -30,9 +32,9 @@ export const oauthCallbacksConfig = {
     // };
   },
   session({ session, token }) {
-    session.accessToken = token.accessToken;
     session.user = token.user;
     session.error = token.error;
+    session.provider = token.provider
     return session;
   },
 };

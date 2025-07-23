@@ -27,6 +27,16 @@ class FrontAPI {
     return eventSource;
   }
 
+  async saveNewProject(
+    projectBody,
+  ) {
+    const { data } = await this.axios.post(
+      `api/projects/`,
+      projectBody
+    );
+    return data;
+  }
+
   async saveProjectManagement(
     projectManagementBody,
     projectManagementId,

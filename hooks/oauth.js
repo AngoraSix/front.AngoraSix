@@ -34,7 +34,7 @@ export const useAndCheckActiveToken = () => {
     const identityProvider = session?.user?.identityProvider;
     if (shouldReauth) {
       signIn(
-        null,
+        session.provider || null,
         null,
         identityProvider ? { kc_idp_hint: identityProvider } : null
       );

@@ -9,6 +9,7 @@ import ManagementContributors from '../../../../components/Management/Contributo
 import config from '../../../../config';
 import { useActiveSession } from '../../../../hooks/oauth';
 import ManagementDetailsLayout from '../../../../layouts/ManagementDetailsLayout';
+import { obtainValidatedToken } from '../../../../utils/api/apiHelper';
 import { isA6ResourceAdmin } from '../../../../utils/commons/a6commonsUtils';
 import logger from '../../../../utils/logger';
 
@@ -79,8 +80,7 @@ export const getServerSideProps = async (ctx) => {
 
   const { managementId } = ctx.params;
   const session = await getSession(ctx);
-  const validatedToken =
-    session?.error !== 'RefreshAccessTokenError' && session?.error !== "SessionExpired" ? session : null;
+  const validatedToken = obtainValidatedToken(ctx.req);
 
   try {
     const projectManagementResponse = await api.projects.getProjectManagement(

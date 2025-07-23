@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import api from '../../../../../api';
 import ProjectManagementView from '../../../../../components/Management/View';
 import DefaultLayout from '../../../../../layouts/DefaultLayout';
+import { obtainValidatedToken } from '../../../../../utils/api/apiHelper';
 import logger from '../../../../../utils/logger';
 
 const ProjectManagementViewPage = ({
@@ -53,8 +54,8 @@ export const getServerSideProps = async (ctx) => {
   let props = {};
   const { projectId, managementId } = ctx.params;
   const session = await getSession(ctx);
-  const validatedToken =
-    session?.error !== 'RefreshAccessTokenError' && session?.error !== "SessionExpired" ? session : null;
+  const validatedToken = obtainValidatedToken(ctx.req);
+
   let isAdmin = false;
   try {
     const projectManagement = await api.projects.getProjectManagement(

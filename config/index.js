@@ -1,10 +1,11 @@
 import Api from './api';
-import Site from './site';
-import ThirdParties from './thirdparties';
+import Google from './google';
 import Infra from './infra';
 import Integrations from './integrations';
 import Mailchimp from './mailchimp';
-import Google from './google';
+import Mgmt from './mgmt';
+import Site from './site';
+import ThirdParties from './thirdparties';
 
 class A6Config {
   constructor(env = {}) {
@@ -39,6 +40,10 @@ class A6Config {
     return this.googleConfig;
   }
 
+  get mgmt() {
+    return this.mgmtConfig;
+  }
+
   applyEnvConfig(env = {}) {
     this.buildNo = env.BUILD || 'dev';
     this.siteConfig = new Site(env);
@@ -48,6 +53,7 @@ class A6Config {
     this.integrationsConfig = new Integrations(env);
     this.mailchimpConfig = new Mailchimp(env);
     this.googleConfig = new Google(env);
+    this.mgmtConfig = new Mgmt(env);
   }
 }
 

@@ -4,12 +4,13 @@ import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import FormSkeleton from '../../../components/common/Skeletons/FormSkeleton.component';
 import NewProjectManagement from '../../../components/Management/New';
+import { useAndCheckActiveToken } from '../../../hooks/oauth';
 import DefaultLayout from '../../../layouts/DefaultLayout';
-import LandingLayout from '../../../layouts/LandingLayout';
 import logger from '../../../utils/logger';
 
 const NewProjectManagementPage = ({ session }) => {
     const { t } = useTranslation('management.new');
+    useAndCheckActiveToken();
 
     if (!session || session?.error) {
         logger.error('Log in to register project management');
