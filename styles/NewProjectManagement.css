@@ -3,7 +3,7 @@
   min-height: 100vh;
   background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
   position: relative;
-  padding: 5rem 0 2rem;
+  padding: 2rem 0;
 }
 
 .new-project-management::before {
@@ -26,69 +26,73 @@
 /* Header Section */
 .header-section {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
 .main-title {
   color: #0a2239;
   font-weight: 700;
-  margin-bottom: 0.5rem;
-  font-size: 2rem;
+  margin-bottom: 0.75rem;
+  font-size: 2.5rem;
+  line-height: 1.2;
 }
 
 .main-subtitle {
   color: #64748b;
   font-weight: 400;
-  font-size: 1rem;
+  font-size: 1.25rem;
 }
 
 /* Stepper Container */
 .stepper-container {
-  border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
   background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  padding: 1.5rem;
+  backdrop-filter: blur(20px);
+  padding: 2.5rem;
 }
 
 .stepper {
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
 .step-icon {
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 600;
+  font-weight: 700;
   background: #e2e8f0;
   color: #64748b;
   transition: all 0.3s ease;
-  font-size: 0.875rem;
+  font-size: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .step-icon.active {
-  background: #0a2239;
+  background: linear-gradient(135deg, #0a2239 0%, #1b5993 100%);
   color: white;
+  transform: scale(1.1);
 }
 
 .step-icon.completed {
-  background: #10b981;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
   color: white;
 }
 
 .step-label {
-  font-size: 0.875rem;
-  font-weight: 500;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
 }
 
 /* Step Content */
 .step-content-container {
-  min-height: 400px;
-  margin-bottom: 1.5rem;
+  min-height: 500px;
+  margin-bottom: 2rem;
 }
 
 .step-content {
@@ -97,284 +101,408 @@
 
 .step-title {
   color: #0a2239;
-  font-weight: 600;
-  margin-bottom: 0.75rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 
 .step-description {
   color: #64748b;
   text-align: center;
-  margin-bottom: 1.5rem;
-  font-size: 0.95rem;
+  margin-bottom: 2.5rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
 }
 
-/* Form Sections */
-.form-section {
-  display: flex;
-  flex-direction: column;
+/* Basic Setup Form */
+.basic-setup-form {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.project-name-field {
+  margin-bottom: 2rem;
+}
+
+.project-name-field .MuiOutlinedInput-root {
+  font-size: 1.1rem;
+  border-radius: 12px;
+}
+
+.setup-preview {
+  margin-top: 3rem;
+  padding: 2rem;
+  background: rgba(10, 34, 57, 0.02);
+  border-radius: 16px;
+  border: 1px solid rgba(10, 34, 57, 0.1);
+}
+
+.preview-title {
+  color: #0a2239;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.preview-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1.5rem;
 }
 
-.form-field {
-  margin-bottom: 0.75rem;
+.preview-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+}
+
+.preview-icon {
+  color: #0a2239;
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.preview-content {
+  flex: 1;
+}
+
+/* Main Toggle Section */
+.main-toggle-section {
+  margin-bottom: 2rem;
+}
+
+.toggle-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.toggle-header h5 {
+  color: #0a2239;
+  font-weight: 700;
+  margin: 0;
+}
+
+.main-toggle-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.main-toggle-card {
+  padding: 2rem;
+  border: 3px solid #e2e8f0;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.main-toggle-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.main-toggle-card:hover {
+  border-color: #0a2239;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(10, 34, 57, 0.15);
+}
+
+.main-toggle-card.active {
+  border-color: #0a2239;
+  background: rgba(10, 34, 57, 0.02);
+  box-shadow: 0 8px 25px rgba(10, 34, 57, 0.15);
+}
+
+.main-toggle-card.active::before {
+  background: linear-gradient(90deg, #0a2239 0%, #1b5993 100%);
+}
+
+.toggle-card-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.toggle-card-icon {
+  color: #0a2239;
+  font-size: 2rem;
+}
+
+.toggle-card-header h6 {
+  color: #0a2239;
+  font-weight: 700;
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.toggle-card-description {
+  color: #64748b;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+.toggle-card-features {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.toggle-card-features .MuiTypography-body2 {
+  color: #0a2239;
+  font-weight: 500;
+}
+
+/* Advanced Accordion */
+.advanced-accordion {
+  margin-top: 2rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  background: white;
+}
+
+.advanced-accordion-summary {
+  padding: 1.5rem 2rem;
+  min-height: auto;
+}
+
+.advanced-accordion-summary .MuiAccordionSummary-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 0;
+}
+
+.accordion-icon {
+  color: #0a2239;
+  font-size: 1.5rem;
+}
+
+.advanced-accordion-summary h6 {
+  color: #0a2239;
+  font-weight: 700;
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.accordion-subtitle {
+  color: #64748b;
+  margin-left: auto;
+  font-size: 0.9rem;
+}
+
+.advanced-accordion-summary .MuiAccordionSummary-expandIconWrapper {
+  color: #0a2239;
+}
+
+.advanced-accordion-details {
+  padding: 0 2rem 2rem 2rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+/* Advanced Settings */
+.advanced-settings {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.settings-section {
+  padding: 1.5rem;
+  background: rgba(248, 250, 252, 0.8);
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
 }
 
 .section-header {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  margin: 1.5rem 0 1rem 0;
+  margin-bottom: 1.5rem;
 }
 
 .section-header h6 {
   color: #0a2239;
   font-weight: 600;
   margin: 0;
+  font-size: 1.1rem;
 }
 
-.section-subtitle {
+.subsection-title {
   color: #0a2239;
   font-weight: 600;
-  margin-bottom: 1rem;
-}
-
-/* Setup Toggles Grid */
-.setup-toggles {
-  margin-top: 1.5rem;
-}
-
-/* Toggle Sections */
-.toggle-section {
-  margin: 1rem 0;
-}
-
-.toggle-header {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-}
-
-.toggle-header h6 {
-  margin: 0;
+  margin: 1.5rem 0 1rem 0;
   font-size: 1rem;
 }
 
-.toggle-options {
-  display: flex;
-  gap: 0.75rem;
+/* Startup and Regular Task Settings */
+.startup-settings,
+.regular-tasks-settings {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
 }
 
-.toggle-options.vertical {
+.fading-settings,
+.vesting-settings {
+  margin-top: 1rem;
+}
+
+/* Pattern Selector Compact */
+.pattern-selector-compact {
+  margin-top: 1rem;
+}
+
+.pattern-options-compact {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.pattern-option-compact {
+  display: flex;
   flex-direction: column;
-}
-
-.toggle-options.horizontal {
-  flex-direction: row;
-}
-
-.toggle-option {
-  display: flex;
   align-items: center;
-  gap: 0.75rem;
-  padding: 0.875rem;
+  padding: 0.75rem;
   border: 2px solid #e2e8f0;
-  border-radius: 12px;
+  border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
   background: white;
-  min-height: 60px;
+  min-width: 80px;
 }
 
-.toggle-option:hover {
+.pattern-option-compact:hover {
   border-color: #0a2239;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.toggle-option.active {
+.pattern-option-compact.selected {
   border-color: #0a2239;
   background: rgba(10, 34, 57, 0.05);
 }
 
-.toggle-icon {
-  color: #0a2239;
-  font-size: 1.25rem;
-  flex-shrink: 0;
-}
-
-.toggle-content {
-  flex: 1;
-  min-width: 0;
-}
-
-.toggle-content .MuiTypography-subtitle1 {
-  font-size: 0.9rem;
-  font-weight: 600;
-  line-height: 1.2;
+.pattern-image-compact {
   margin-bottom: 0.25rem;
-}
-
-.toggle-content .MuiTypography-body2 {
-  font-size: 0.8rem;
-  line-height: 1.3;
-}
-
-.toggle-options.horizontal .toggle-option {
-  flex: 1;
+  display: flex;
+  align-items: center;
   justify-content: center;
-  text-align: center;
-  flex-direction: column;
-  gap: 0.5rem;
-  padding: 0.75rem;
-  min-height: 80px;
+  height: 25px;
 }
 
-/* Pattern Selector */
-.pattern-selector {
-  margin: 1rem 0;
+/* Strategy Options */
+.payout-strategy {
+  margin-bottom: 1.5rem;
 }
 
-.pattern-title {
-  color: #0a2239;
-  font-weight: 600;
-  margin-bottom: 0.75rem;
-  font-size: 0.95rem;
+.strategy-options {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.75rem;
 }
 
-.pattern-options {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 0.75rem;
-}
-
-.pattern-option {
+.strategy-option {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0.75rem;
+  gap: 0.5rem;
+  padding: 1rem;
   border: 2px solid #e2e8f0;
   border-radius: 12px;
   cursor: pointer;
   transition: all 0.3s ease;
   background: white;
+  flex: 1;
   text-align: center;
-  min-height: 120px;
 }
 
-.pattern-option:hover {
+.strategy-option:hover {
   border-color: #0a2239;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.pattern-option.selected {
+.strategy-option.active {
   border-color: #0a2239;
   background: rgba(10, 34, 57, 0.05);
 }
 
-.pattern-image {
-  margin-bottom: 0.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 40px;
-}
-
-.pattern-option .MuiTypography-subtitle2 {
-  font-size: 0.8rem;
-  font-weight: 600;
-  margin-bottom: 0.25rem;
-}
-
-.pattern-option .MuiTypography-caption {
-  font-size: 0.7rem;
-  line-height: 1.2;
-}
-
-/* Accordion Styles */
-.settings-accordion {
-  margin: 1rem 0;
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
-  box-shadow: none;
-}
-
-.accordion-summary {
-  min-height: 48px;
-}
-
-.accordion-summary .MuiAccordionSummary-expandIconWrapper {
+.strategy-icon {
   color: #0a2239;
+  font-size: 1.5rem;
 }
 
-.accordion-content {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-/* Slider Styles */
-.slider-field {
-  margin: 1rem 0;
-}
-
-.ownership-slider {
-  color: #0a2239;
-  margin-top: 0.75rem;
-}
-
-.ownership-slider .MuiSlider-thumb {
-  background: #0a2239;
-}
-
-.ownership-slider .MuiSlider-track {
-  background: linear-gradient(45deg, #0a2239 0%, #1b5993 100%);
-}
-
-/* Currency Section */
-.currency-section {
-  margin: 1rem 0;
+/* Currency Selection */
+.currency-selection {
+  margin-top: 1rem;
 }
 
 .currency-chips {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: 0.75rem;
+  gap: 0.75rem;
+  margin-top: 1rem;
 }
 
 .currency-chip {
   transition: all 0.3s ease;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
+  font-weight: 600;
 }
 
 .currency-chip:hover {
   transform: translateY(-1px);
 }
 
-/* Distribution Trigger */
-.distribution-trigger-section {
-  margin: 1rem 0;
+/* Slider Styles */
+.slider-field {
+  margin: 1.5rem 0;
 }
 
-/* Regular Tasks Section */
-.regular-tasks-section {
-  margin: 1.5rem 0;
-  padding: 1rem;
-  background: rgba(10, 34, 57, 0.02);
-  border-radius: 12px;
-  border: 1px solid rgba(10, 34, 57, 0.1);
+.ownership-slider {
+  color: #0a2239;
+  margin-top: 1rem;
+}
+
+.ownership-slider .MuiSlider-thumb {
+  background: #0a2239;
+  box-shadow: 0 2px 8px rgba(10, 34, 57, 0.3);
+}
+
+.ownership-slider .MuiSlider-track {
+  background: linear-gradient(45deg, #0a2239 0%, #1b5993 100%);
 }
 
 /* Step Actions */
 .step-actions {
   display: flex;
   align-items: center;
-  padding-top: 1.5rem;
-  border-top: 1px solid #e2e8f0;
+  padding-top: 2rem;
+  border-top: 2px solid #e2e8f0;
 }
 
 .spacer {
@@ -384,105 +512,112 @@
 .back-button {
   color: #64748b;
   border-color: #e2e8f0;
-  padding: 0.5rem 1.5rem;
+  padding: 0.75rem 2rem;
+  font-weight: 600;
+  border-radius: 12px;
+  font-size: 1rem;
 }
 
 .back-button:hover {
   border-color: #0a2239;
   color: #0a2239;
+  transform: translateY(-1px);
 }
 
 .next-button,
 .submit-button {
-  background: linear-gradient(45deg, #0a2239 0%, #1b5993 100%);
+  background: linear-gradient(135deg, #0a2239 0%, #1b5993 100%);
   color: white;
-  padding: 0.5rem 1.5rem;
-  font-weight: 600;
+  padding: 0.75rem 2rem;
+  font-weight: 700;
+  border-radius: 12px;
+  font-size: 1rem;
+  box-shadow: 0 4px 12px rgba(10, 34, 57, 0.3);
 }
 
 .next-button:hover,
 .submit-button:hover {
-  background: linear-gradient(45deg, #1b5993 0%, #0a2239 100%);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(10, 34, 57, 0.3);
+  background: linear-gradient(135deg, #1b5993 0%, #0a2239 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(10, 34, 57, 0.4);
 }
 
 /* Mobile Responsive Design */
 @media (max-width: 768px) {
   .new-project-management {
-    padding: 0.5rem 0;
+    padding: 1rem 0;
   }
 
   .stepper-container {
-    padding: 1rem;
+    padding: 1.5rem;
     margin: 0 0.5rem;
   }
 
   .main-title {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
   }
 
   .main-subtitle {
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
 
   .step-title {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
   }
 
   .step-description {
-    font-size: 0.9rem;
-  }
-
-  .stepper {
-    margin-bottom: 1.5rem;
-  }
-
-  .step-label {
-    font-size: 0.75rem;
+    font-size: 1rem;
   }
 
   .step-icon {
-    width: 28px;
-    height: 28px;
-    font-size: 0.75rem;
+    width: 32px;
+    height: 32px;
+    font-size: 0.875rem;
   }
 
-  .toggle-options.vertical {
-    gap: 0.5rem;
+  .step-label {
+    font-size: 0.875rem;
   }
 
-  .toggle-option {
-    padding: 0.75rem;
-    min-height: 50px;
-  }
-
-  .toggle-content .MuiTypography-subtitle1 {
-    font-size: 0.85rem;
-  }
-
-  .toggle-content .MuiTypography-body2 {
-    font-size: 0.75rem;
-  }
-
-  .pattern-options {
+  .main-toggle-options {
     grid-template-columns: 1fr;
-    gap: 0.5rem;
+    gap: 1.5rem;
   }
 
-  .pattern-option {
-    min-height: 100px;
-    padding: 0.5rem;
+  .main-toggle-card {
+    padding: 1.5rem;
   }
 
-  .pattern-image {
-    height: 30px;
+  .toggle-card-header h6 {
+    font-size: 1.1rem;
+  }
+
+  .preview-cards {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .preview-card {
+    padding: 1rem;
+  }
+
+  .pattern-options-compact {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .strategy-options {
+    flex-direction: column;
+  }
+
+  .currency-chips {
+    justify-content: center;
   }
 
   .step-actions {
     flex-direction: column;
     gap: 1rem;
-    padding-top: 1rem;
+    padding-top: 1.5rem;
   }
 
   .spacer {
@@ -496,61 +631,65 @@
     max-width: 300px;
   }
 
-  .currency-chips {
-    justify-content: center;
+  .advanced-accordion-summary {
+    padding: 1rem 1.5rem;
   }
 
-  .setup-toggles {
-    margin-top: 1rem;
+  .advanced-accordion-details {
+    padding: 0 1.5rem 1.5rem 1.5rem;
   }
 
-  .section-header {
-    margin: 1rem 0 0.75rem 0;
-  }
-
-  .form-section {
-    gap: 1rem;
+  .settings-section {
+    padding: 1rem;
   }
 }
 
 @media (max-width: 480px) {
   .stepper-container {
     margin: 0 0.25rem;
-    padding: 0.75rem;
+    padding: 1rem;
   }
 
   .main-title {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
   }
 
   .step-title {
-    font-size: 1.1rem;
+    font-size: 1.25rem;
   }
 
-  .toggle-option {
-    padding: 0.5rem;
+  .main-toggle-card {
+    padding: 1rem;
+  }
+
+  .toggle-card-header {
+    flex-direction: column;
+    text-align: center;
     gap: 0.5rem;
   }
 
-  .toggle-content .MuiTypography-subtitle1 {
+  .toggle-card-icon {
+    font-size: 1.5rem;
+  }
+
+  .toggle-card-header h6 {
+    font-size: 1rem;
+  }
+
+  .pattern-option-compact {
+    min-width: 60px;
+    padding: 0.5rem;
+  }
+
+  .advanced-accordion-summary .MuiAccordionSummary-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .accordion-subtitle {
+    margin-left: 0;
     font-size: 0.8rem;
-  }
-
-  .toggle-content .MuiTypography-body2 {
-    font-size: 0.7rem;
-  }
-
-  .pattern-option {
-    min-height: 80px;
-    padding: 0.4rem;
-  }
-
-  .pattern-option .MuiTypography-subtitle2 {
-    font-size: 0.75rem;
-  }
-
-  .pattern-option .MuiTypography-caption {
-    font-size: 0.65rem;
   }
 }
 
@@ -605,4 +744,33 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* Custom MUI Overrides */
+.MuiFormControlLabel-root {
+  margin-bottom: 0.5rem;
+}
+
+.MuiTextField-root {
+  margin-bottom: 1rem;
+}
+
+.MuiSelect-root {
+  border-radius: 8px;
+}
+
+.MuiMenuItem-root:hover {
+  background: rgba(10, 34, 57, 0.1);
+}
+
+.MuiChip-root {
+  border-radius: 8px;
+}
+
+.MuiAccordion-root {
+  box-shadow: none;
+}
+
+.MuiAccordion-root:before {
+  display: none;
 }

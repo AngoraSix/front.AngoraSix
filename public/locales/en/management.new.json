@@ -18,20 +18,18 @@
     },
     "ownershipGovernance": {
       "title": "Ownership & Governance",
-      "description": "Configure how ownership and decisions work in your project",
-      "externalMessage": "Since you chose external ownership management, you can skip this step."
+      "description": "Choose how you want to manage ownership and decision-making in your project"
     },
     "financesRetribution": {
       "title": "Finances & Retribution",
-      "description": "Set up how earnings and payments will be handled",
-      "externalMessage": "Since you chose external financial management, you can skip this step."
+      "description": "Configure how earnings and payments will be handled in your project"
     }
   },
   "fields": {
     "projectName": "Project Name",
     "status": "Current Stage",
-    "ownershipSetup": "Ownership Setup",
-    "financialSetup": "Financial Setup",
+    "ownershipSetup": "Ownership Management",
+    "financialSetup": "Financial Management",
     "startupTasks": "Include startup tasks in ownership tracking",
     "startupFading": "Enable fading for startup tasks",
     "fadingPeriod": "Fading Period (years)",
@@ -51,6 +49,9 @@
     "currency": "Currency",
     "reEvaluationFrequency": "Re-evaluation Frequency"
   },
+  "placeholders": {
+    "projectName": "Enter your project name..."
+  },
   "stages": {
     "idea": "Idea",
     "startup": "Startup",
@@ -58,20 +59,20 @@
   },
   "options": {
     "ownershipSetup": {
-      "angorasix": "Managed by AngoraSix (recommended)",
-      "angorasixDesc": "Let AngoraSix track and calculate ownership based on contributions",
+      "angorasix": "Managed by AngoraSix",
+      "angorasixDesc": "Let AngoraSix automatically track and calculate ownership based on contributions",
       "external": "Managed externally",
-      "externalDesc": "You'll handle ownership tracking outside of AngoraSix"
+      "externalDesc": "You'll handle ownership tracking and calculations outside of AngoraSix"
     },
     "financialSetup": {
-      "angorasix": "Finance managed by AngoraSix (shared wallet & automated payouts)",
-      "angorasixDesc": "AngoraSix will help track, manage and distribute project earnings",
-      "external": "I will handle finances externally",
+      "angorasix": "Managed by AngoraSix",
+      "angorasixDesc": "AngoraSix will help track, manage and distribute project earnings automatically",
+      "external": "Managed externally",
       "externalDesc": "You'll manage finances and payouts outside of AngoraSix"
     },
     "payoutStrategy": {
       "vesting": "Vesting",
-      "immediate": "Effective immediately"
+      "immediate": "Immediate"
     }
   },
   "patterns": {
@@ -97,8 +98,41 @@
     "distributionTrigger": "Distribution Trigger"
   },
   "accordions": {
-    "startupSettings": "Startup Task Settings",
-    "profitSettings": "Profit Share Settings"
+    "advancedOwnership": "Advanced Ownership Settings",
+    "advancedOwnershipDesc": "Configure detailed ownership tracking and governance rules",
+    "advancedFinancial": "Advanced Financial Settings",
+    "advancedFinancialDesc": "Configure detailed profit sharing and distribution rules"
+  },
+  "preview": {
+    "title": "What's Next?",
+    "ownership": {
+      "title": "Ownership & Governance",
+      "description": "Configure how contributions translate to ownership and how decisions are made"
+    },
+    "financial": {
+      "title": "Finances & Retribution",
+      "description": "Set up profit sharing, currencies, and distribution mechanisms"
+    }
+  },
+  "features": {
+    "ownership": {
+      "tracking": "Automatic contribution tracking",
+      "automation": "Automated ownership calculations",
+      "governance": "Built-in governance tools",
+      "manual": "Manual ownership control",
+      "flexible": "Flexible ownership rules",
+      "integration": "Easy third-party integration"
+    },
+    "financial": {
+      "wallet": "Shared project wallet",
+      "automation": "Automated profit distribution",
+      "wallet": "Shared project wallet",
+      "automation": "Automated profit distribution",
+      "distribution": "Smart distribution triggers",
+      "manual": "Manual financial control",
+      "flexible": "Flexible payout strategies",
+      "reporting": "Detailed financial reporting"
+    }
   },
   "triggerTypes": {
     "totalIncome": "Total project income exceeds threshold",

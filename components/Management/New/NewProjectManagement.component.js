@@ -8,6 +8,7 @@ import {
   ExpandMore as ExpandMoreIcon,
   Info as InfoIcon,
   Payment as PaymentIcon,
+  Settings as SettingsIcon,
   TrendingUp as TrendingUpIcon,
 } from "@mui/icons-material"
 import {
@@ -48,10 +49,9 @@ const NewProjectManagement = ({ onSubmit, project }) => {
     // Step 1 - Basic Setup
     projectName: "",
     status: "STARTUP",
-    ownershipSetup: "angorasix",
-    financialSetup: "angorasix",
 
     // Step 2 - Ownership & Governance
+    ownershipSetup: "angorasix",
     startupTasksEnabled: true,
     startupTasksFading: true,
     startupFadingPeriod: 30,
@@ -63,6 +63,7 @@ const NewProjectManagement = ({ onSubmit, project }) => {
     decisionQuorum: 1,
 
     // Step 3 - Finances & Retribution
+    financialSetup: "angorasix",
     profitSharingEnabled: true,
     profitPayoutStrategy: "vesting",
     profitVestingPeriod: 3,
@@ -78,16 +79,17 @@ const NewProjectManagement = ({ onSubmit, project }) => {
   const [errors, setErrors] = useState({})
   const [expandedAccordions, setExpandedAccordions] = useState({})
 
-  const bylawCategories = config.mgmtConfig.categories;
-  const bylawOwnershipKeys = config.mgmtConfig.ownershipBylaws;
-  const bylawFinancialKeys = config.mgmtConfig.financialBylaws;
+  const bylawCategories = config.mgmtConfig.categories
+  const bylawOwnershipKeys = config.mgmtConfig.ownershipBylaws
+  const bylawFinancialKeys = config.mgmtConfig.financialBylaws
 
   const steps = [t("stepper.basicSetup"), t("stepper.ownershipGovernance"), t("stepper.financesRetribution")]
 
   const stageOptions = [
     { value: "IDEA", label: t("stages.idea") },
     { value: "STARTUP", label: t("stages.startup") },
-    { value: "OPERATIONAL", label: t("stages.operational") },]
+    { value: "OPERATIONAL", label: t("stages.operational") },
+  ]
 
   const fadingPatterns = [
     {
@@ -182,7 +184,8 @@ const NewProjectManagement = ({ onSubmit, project }) => {
           [bylawCategories.financialCurrencies]: {
             [bylawFinancialKeys.financialCurrencies]: formData.supportedCurrencies,
             [bylawFinancialKeys.currencyVestingEnabled]: formData.profitPayoutStrategy === "vesting",
-            [bylawFinancialKeys.currencyVestingPeriod]: formData.profitPayoutStrategy === "vesting" ? "MATCH_OWNERSHIP_FADING" : "IMMEDIATE",
+            [bylawFinancialKeys.currencyVestingPeriod]:
+              formData.profitPayoutStrategy === "vesting" ? "MATCH_OWNERSHIP_FADING" : "IMMEDIATE",
             [bylawFinancialKeys.currencyVestingPattern]: formData.profitVestingPattern,
           },
           [bylawCategories.financialGeneral]: {
@@ -214,25 +217,26 @@ const NewProjectManagement = ({ onSubmit, project }) => {
 
   const renderBasicSetup = () => (
     <div className="step-content">
-      <Typography variant="h5" className="step-title">
+      <Typography variant="h4" className="step-title">
         {t("steps.basicSetup.title")}
       </Typography>
       <Typography variant="body1" className="step-description">
         {t("steps.basicSetup.description")}
       </Typography>
 
-      <div className="form-section">
-        {/* Project Name and Stage - Side by side on desktop */}
-        <Grid container spacing={3}>
+      <div className="basic-setup-form">
+        <Grid container spacing={4}>
           <Grid item xs={12} md={8}>
             <TextField
               fullWidth
               label={t("fields.projectName")}
+              placeholder={t("placeholders.projectName")}
               value={formData.projectName}
               onChange={(e) => handleInputChange("projectName", e.target.value)}
               error={!!errors.projectName}
               helperText={errors.projectName}
               required
+              className="project-name-field"
             />
           </Grid>
           <Grid item xs={12} md={4}>
@@ -253,530 +257,569 @@ const NewProjectManagement = ({ onSubmit, project }) => {
           </Grid>
         </Grid>
 
-        {/* Ownership and Financial Setup - Side by side on desktop */}
-        <Grid container spacing={3} className="setup-toggles">
-          <Grid item xs={12} lg={6}>
-            <div className="toggle-section">
-              <div className="toggle-header">
-                <Typography variant="h6">{t("fields.ownershipSetup")}</Typography>
-                <Tooltip title={t("tooltips.ownershipSetup")} arrow>
-                  <IconButton size="small">
-                    <InfoIcon />
-                  </IconButton>
-                </Tooltip>
+        <div className="setup-preview">
+          <Typography variant="h6" className="preview-title">
+            {t("preview.title")}
+          </Typography>
+          <div className="preview-cards">
+            <div className="preview-card">
+              <AccountBalanceIcon className="preview-icon" />
+              <div className="preview-content">
+                <Typography variant="subtitle1">{t("preview.ownership.title")}</Typography>
+                <Typography variant="body2" color="textSecondary">
+                  {t("preview.ownership.description")}
+                </Typography>
               </div>
-              <div className="toggle-options vertical">
-                <div
-                  className={`toggle-option ${formData.ownershipSetup === "angorasix" ? "active" : ""}`}
-                  onClick={() => handleInputChange("ownershipSetup", "angorasix")}
-                >
-                  <AccountBalanceIcon className="toggle-icon" />
-                  <div className="toggle-content">
-                    <Typography variant="subtitle1">{t("options.ownershipSetup.angorasix")}</Typography>
-                    <Typography variant="body2" color="textSecondary">
-                      {t("options.ownershipSetup.angorasixDesc")}
-                    </Typography>
+            </div>
+            <div className="preview-card">
+              <PaymentIcon className="preview-icon" />
+              <div className="preview-content">
+                <Typography variant="subtitle1">{t("preview.financial.title")}</Typography>
+                <Typography variant="body2" color="textSecondary">
+                  {t("preview.financial.description")}
+                </Typography>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+
+  const renderOwnershipGovernance = () => (
+    <div className="step-content">
+      <Typography variant="h4" className="step-title">
+        {t("steps.ownershipGovernance.title")}
+      </Typography>
+      <Typography variant="body1" className="step-description">
+        {t("steps.ownershipGovernance.description")}
+      </Typography>
+
+      <div className="ownership-setup">
+        {/* Main Toggle Section */}
+        <div className="main-toggle-section">
+          <div className="toggle-header">
+            <Typography variant="h5">{t("fields.ownershipSetup")}</Typography>
+            <Tooltip title={t("tooltips.ownershipSetup")} arrow>
+              <IconButton size="small">
+                <InfoIcon />
+              </IconButton>
+            </Tooltip>
+          </div>
+
+          <div className="main-toggle-options">
+            <div
+              className={`main-toggle-card ${formData.ownershipSetup === "angorasix" ? "active" : ""}`}
+              onClick={() => handleInputChange("ownershipSetup", "angorasix")}
+            >
+              <div className="toggle-card-header">
+                <AccountBalanceIcon className="toggle-card-icon" />
+                <Typography variant="h6">{t("options.ownershipSetup.angorasix")}</Typography>
+              </div>
+              <Typography variant="body1" className="toggle-card-description">
+                {t("options.ownershipSetup.angorasixDesc")}
+              </Typography>
+              <div className="toggle-card-features">
+                <Typography variant="body2">• {t("features.ownership.tracking")}</Typography>
+                <Typography variant="body2">• {t("features.ownership.automation")}</Typography>
+                <Typography variant="body2">• {t("features.ownership.governance")}</Typography>
+              </div>
+            </div>
+
+            <div
+              className={`main-toggle-card ${formData.ownershipSetup === "external" ? "active" : ""}`}
+              onClick={() => handleInputChange("ownershipSetup", "external")}
+            >
+              <div className="toggle-card-header">
+                <BusinessIcon className="toggle-card-icon" />
+                <Typography variant="h6">{t("options.ownershipSetup.external")}</Typography>
+              </div>
+              <Typography variant="body1" className="toggle-card-description">
+                {t("options.ownershipSetup.externalDesc")}
+              </Typography>
+              <div className="toggle-card-features">
+                <Typography variant="body2">• {t("features.ownership.manual")}</Typography>
+                <Typography variant="body2">• {t("features.ownership.flexible")}</Typography>
+                <Typography variant="body2">• {t("features.ownership.integration")}</Typography>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Advanced Configuration Accordion */}
+        {formData.ownershipSetup === "angorasix" && (
+          <Accordion
+            expanded={expandedAccordions.ownershipAdvanced}
+            onChange={() => handleAccordionToggle("ownershipAdvanced")}
+            className="advanced-accordion"
+          >
+            <AccordionSummary
+              expandIcon={expandedAccordions.ownershipAdvanced ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+              className="advanced-accordion-summary"
+            >
+              <SettingsIcon className="accordion-icon" />
+              <Typography variant="h6">{t("accordions.advancedOwnership")}</Typography>
+              <Typography variant="body2" className="accordion-subtitle">
+                {t("accordions.advancedOwnershipDesc")}
+              </Typography>
+            </AccordionSummary>
+            <AccordionDetails className="advanced-accordion-details">
+              {renderOwnershipAdvancedSettings()}
+            </AccordionDetails>
+          </Accordion>
+        )}
+      </div>
+    </div>
+  )
+
+  const renderOwnershipAdvancedSettings = () => (
+    <div className="advanced-settings">
+      <div className="settings-section">
+        <div className="section-header">
+          <Typography variant="h6">{t("sections.ownershipViaTasks")}</Typography>
+          <Tooltip title={t("tooltips.ownershipViaTasks")} arrow>
+            <IconButton size="small">
+              <InfoIcon />
+            </IconButton>
+          </Tooltip>
+        </div>
+
+        <FormControlLabel
+          control={
+            <Switch
+              checked={formData.startupTasksEnabled}
+              onChange={(e) => handleInputChange("startupTasksEnabled", e.target.checked)}
+            />
+          }
+          label={t("fields.startupTasks")}
+          className="form-field"
+        />
+
+        {formData.startupTasksEnabled && (
+          <div className="startup-settings">
+            <FormControlLabel
+              control={
+                <Switch
+                  checked={formData.startupTasksFading}
+                  onChange={(e) => handleInputChange("startupTasksFading", e.target.checked)}
+                />
+              }
+              label={t("fields.startupFading")}
+            />
+
+            {formData.startupTasksFading && (
+              <Grid container spacing={3} className="fading-settings">
+                <Grid item xs={12} md={6}>
+                  <TextField
+                    fullWidth
+                    type="number"
+                    label={t("fields.fadingPeriod")}
+                    value={formData.startupFadingPeriod}
+                    onChange={(e) => handleInputChange("startupFadingPeriod", Number.parseInt(e.target.value))}
+                    InputProps={{ inputProps: { min: 1, max: 100 } }}
+                  />
+                </Grid>
+                <Grid item xs={12} md={6}>
+                  <div className="pattern-selector-compact">
+                    <Typography variant="subtitle1">{t("fields.fadingPattern")}</Typography>
+                    <div className="pattern-options-compact">
+                      {fadingPatterns.map((pattern) => (
+                        <div
+                          key={pattern.id}
+                          className={`pattern-option-compact ${formData.startupFadingPattern === pattern.id ? "selected" : ""}`}
+                          onClick={() => handleInputChange("startupFadingPattern", pattern.id)}
+                        >
+                          <div className="pattern-image-compact">
+                            <Image
+                              src={pattern.image || "/placeholder.svg"}
+                              alt={pattern.name}
+                              width={30}
+                              height={20}
+                            />
+                          </div>
+                          <Typography variant="caption">{pattern.name}</Typography>
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                </div>
-                <div
-                  className={`toggle-option ${formData.ownershipSetup === "external" ? "active" : ""}`}
-                  onClick={() => handleInputChange("ownershipSetup", "external")}
-                >
-                  <BusinessIcon className="toggle-icon" />
-                  <div className="toggle-content">
-                    <Typography variant="subtitle1">{t("options.ownershipSetup.external")}</Typography>
-                    <Typography variant="body2" color="textSecondary">
-                      {t("options.ownershipSetup.externalDesc")}
-                    </Typography>
-                  </div>
+                </Grid>
+              </Grid>
+            )}
+          </div>
+        )}
+
+        <div className="regular-tasks-settings">
+          <Typography variant="subtitle1" className="subsection-title">
+            {t("sections.regularTasks")}
+          </Typography>
+          <Grid container spacing={3}>
+            <Grid item xs={12} md={6}>
+              <TextField
+                fullWidth
+                type="number"
+                label={t("fields.regularFadingPeriod")}
+                value={formData.regularFadingPeriod}
+                onChange={(e) => handleInputChange("regularFadingPeriod", Number.parseInt(e.target.value))}
+                InputProps={{ inputProps: { min: 1, max: 20 } }}
+              />
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <div className="pattern-selector-compact">
+                <Typography variant="subtitle1">{t("fields.fadingPattern")}</Typography>
+                <div className="pattern-options-compact">
+                  {fadingPatterns.map((pattern) => (
+                    <div
+                      key={pattern.id}
+                      className={`pattern-option-compact ${formData.regularFadingPattern === pattern.id ? "selected" : ""}`}
+                      onClick={() => handleInputChange("regularFadingPattern", pattern.id)}
+                    >
+                      <div className="pattern-image-compact">
+                        <Image src={pattern.image || "/placeholder.svg"} alt={pattern.name} width={30} height={20} />
+                      </div>
+                      <Typography variant="caption">{pattern.name}</Typography>
+                    </div>
+                  ))}
                 </div>
               </div>
+            </Grid>
+          </Grid>
+        </div>
+      </div>
+
+      <div className="settings-section">
+        <div className="section-header">
+          <Typography variant="h6">{t("sections.governance")}</Typography>
+          <Tooltip title={t("tooltips.governance")} arrow>
+            <IconButton size="small">
+              <InfoIcon />
+            </IconButton>
+          </Tooltip>
+        </div>
+
+        <Grid container spacing={3}>
+          <Grid item xs={12} md={6}>
+            <FormControlLabel
+              control={
+                <Switch
+                  checked={formData.coordinationCircleEnabled}
+                  onChange={(e) => handleInputChange("coordinationCircleEnabled", e.target.checked)}
+                />
+              }
+              label={t("fields.coordinationCircle")}
+            />
+
+            <div className="slider-field">
+              <Typography variant="subtitle1">
+                {t("fields.ownershipVotingLimit")}: {formData.ownershipVotingLimit}%
+              </Typography>
+              <Slider
+                value={formData.ownershipVotingLimit}
+                onChange={(e, value) => handleInputChange("ownershipVotingLimit", value)}
+                min={1}
+                max={50}
+                step={1}
+                marks
+                valueLabelDisplay="auto"
+                className="ownership-slider"
+              />
             </div>
           </Grid>
 
-          <Grid item xs={12} lg={6}>
-            <div className="toggle-section">
-              <div className="toggle-header">
-                <Typography variant="h6">{t("fields.financialSetup")}</Typography>
-                <Tooltip title={t("tooltips.financialSetup")} arrow>
-                  <IconButton size="small">
-                    <InfoIcon />
-                  </IconButton>
-                </Tooltip>
-              </div>
-              <div className="toggle-options vertical">
-                <div
-                  className={`toggle-option ${formData.financialSetup === "angorasix" ? "active" : ""}`}
-                  onClick={() => handleInputChange("financialSetup", "angorasix")}
-                >
-                  <PaymentIcon className="toggle-icon" />
-                  <div className="toggle-content">
-                    <Typography variant="subtitle1">{t("options.financialSetup.angorasix")}</Typography>
-                    <Typography variant="body2" color="textSecondary">
-                      {t("options.financialSetup.angorasixDesc")}
-                    </Typography>
-                  </div>
-                </div>
-                <div
-                  className={`toggle-option ${formData.financialSetup === "external" ? "active" : ""}`}
-                  onClick={() => handleInputChange("financialSetup", "external")}
-                >
-                  <BusinessIcon className="toggle-icon" />
-                  <div className="toggle-content">
-                    <Typography variant="subtitle1">{t("options.financialSetup.external")}</Typography>
-                    <Typography variant="body2" color="textSecondary">
-                      {t("options.financialSetup.externalDesc")}
-                    </Typography>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <Grid item xs={12} md={6}>
+            <TextField
+              fullWidth
+              type="number"
+              label={t("fields.decisionQuorum")}
+              value={formData.decisionQuorum}
+              onChange={(e) => handleInputChange("decisionQuorum", Number.parseInt(e.target.value))}
+              InputProps={{ inputProps: { min: 1, max: 20 } }}
+            />
           </Grid>
         </Grid>
       </div>
     </div>
   )
 
-  const renderOwnershipGovernance = () => {
-    if (formData.ownershipSetup !== "angorasix") {
-      return (
-        <div className="step-content">
-          <Typography variant="h5" className="step-title">
-            {t("steps.ownershipGovernance.title")}
-          </Typography>
-          <Typography variant="body1" className="step-description">
-            {t("steps.ownershipGovernance.externalMessage")}
-          </Typography>
-        </div>
-      )
-    }
+  const renderFinancesRetribution = () => (
+    <div className="step-content">
+      <Typography variant="h4" className="step-title">
+        {t("steps.financesRetribution.title")}
+      </Typography>
+      <Typography variant="body1" className="step-description">
+        {t("steps.financesRetribution.description")}
+      </Typography>
 
-    return (
-      <div className="step-content">
-        <Typography variant="h5" className="step-title">
-          {t("steps.ownershipGovernance.title")}
-        </Typography>
-        <Typography variant="body1" className="step-description">
-          {t("steps.ownershipGovernance.description")}
-        </Typography>
-
-        <div className="form-section">
-          <div className="section-header">
-            <Typography variant="h6">{t("sections.ownershipViaTasks")}</Typography>
-            <Tooltip title={t("tooltips.ownershipViaTasks")} arrow>
+      <div className="financial-setup">
+        {/* Main Toggle Section */}
+        <div className="main-toggle-section">
+          <div className="toggle-header">
+            <Typography variant="h5">{t("fields.financialSetup")}</Typography>
+            <Tooltip title={t("tooltips.financialSetup")} arrow>
               <IconButton size="small">
                 <InfoIcon />
               </IconButton>
             </Tooltip>
           </div>
 
-          <FormControlLabel
-            control={
-              <Switch
-                checked={formData.startupTasksEnabled}
-                onChange={(e) => handleInputChange("startupTasksEnabled", e.target.checked)}
-              />
-            }
-            label={t("fields.startupTasks")}
-            className="form-field"
-          />
-
-          {formData.startupTasksEnabled && (
-            <Accordion
-              expanded={expandedAccordions.startupSettings}
-              onChange={() => handleAccordionToggle("startupSettings")}
-              className="settings-accordion"
+          <div className="main-toggle-options">
+            <div
+              className={`main-toggle-card ${formData.financialSetup === "angorasix" ? "active" : ""}`}
+              onClick={() => handleInputChange("financialSetup", "angorasix")}
             >
-              <AccordionSummary
-                expandIcon={expandedAccordions.startupSettings ? <ExpandLessIcon /> : <ExpandMoreIcon />}
-                className="accordion-summary"
-              >
-                <Typography>{t("accordions.startupSettings")}</Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <div className="accordion-content">
-                  <FormControlLabel
-                    control={
-                      <Switch
-                        checked={formData.startupTasksFading}
-                        onChange={(e) => handleInputChange("startupTasksFading", e.target.checked)}
-                      />
-                    }
-                    label={t("fields.startupFading")}
-                  />
+              <div className="toggle-card-header">
+                <PaymentIcon className="toggle-card-icon" />
+                <Typography variant="h6">{t("options.financialSetup.angorasix")}</Typography>
+              </div>
+              <Typography variant="body1" className="toggle-card-description">
+                {t("options.financialSetup.angorasixDesc")}
+              </Typography>
+              <div className="toggle-card-features">
+                <Typography variant="body2">• {t("features.financial.wallet")}</Typography>
+                <Typography variant="body2">• {t("features.financial.automation")}</Typography>
+                <Typography variant="body2">• {t("features.financial.distribution")}</Typography>
+              </div>
+            </div>
 
-                  {formData.startupTasksFading && (
-                    <>
-                      <TextField
-                        fullWidth
-                        type="number"
-                        label={t("fields.fadingPeriod")}
-                        value={formData.startupFadingPeriod}
-                        onChange={(e) => handleInputChange("startupFadingPeriod", Number.parseInt(e.target.value))}
-                        className="form-field"
-                        InputProps={{ inputProps: { min: 1, max: 100 } }}
-                      />
+            <div
+              className={`main-toggle-card ${formData.financialSetup === "external" ? "active" : ""}`}
+              onClick={() => handleInputChange("financialSetup", "external")}
+            >
+              <div className="toggle-card-header">
+                <BusinessIcon className="toggle-card-icon" />
+                <Typography variant="h6">{t("options.financialSetup.external")}</Typography>
+              </div>
+              <Typography variant="body1" className="toggle-card-description">
+                {t("options.financialSetup.externalDesc")}
+              </Typography>
+              <div className="toggle-card-features">
+                <Typography variant="body2">• {t("features.financial.manual")}</Typography>
+                <Typography variant="body2">• {t("features.financial.flexible")}</Typography>
+                <Typography variant="body2">• {t("features.financial.reporting")}</Typography>
+              </div>
+            </div>
+          </div>
+        </div>
 
-                      <div className="pattern-selector">
-                        <Typography variant="subtitle1" className="pattern-title">
-                          {t("fields.fadingPattern")}
-                        </Typography>
-                        <div className="pattern-options">
-                          {fadingPatterns.map((pattern) => (
-                            <div
-                              key={pattern.id}
-                              className={`pattern-option ${formData.startupFadingPattern === pattern.id ? "selected" : ""}`}
-                              onClick={() => handleInputChange("startupFadingPattern", pattern.id)}
-                            >
-                              <div className="pattern-image">
-                                <Image
-                                  src={pattern.image || "/placeholder.svg"}
-                                  alt={pattern.name}
-                                  width={50}
-                                  height={30}
-                                />
-                              </div>
-                              <Typography variant="subtitle2">{pattern.name}</Typography>
-                              <Typography variant="caption" color="textSecondary">
-                                {pattern.description}
-                              </Typography>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    </>
-                  )}
+        {/* Advanced Configuration Accordion */}
+        {formData.financialSetup === "angorasix" && (
+          <Accordion
+            expanded={expandedAccordions.financialAdvanced}
+            onChange={() => handleAccordionToggle("financialAdvanced")}
+            className="advanced-accordion"
+          >
+            <AccordionSummary
+              expandIcon={expandedAccordions.financialAdvanced ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+              className="advanced-accordion-summary"
+            >
+              <SettingsIcon className="accordion-icon" />
+              <Typography variant="h6">{t("accordions.advancedFinancial")}</Typography>
+              <Typography variant="body2" className="accordion-subtitle">
+                {t("accordions.advancedFinancialDesc")}
+              </Typography>
+            </AccordionSummary>
+            <AccordionDetails className="advanced-accordion-details">
+              {renderFinancialAdvancedSettings()}
+            </AccordionDetails>
+          </Accordion>
+        )}
+      </div>
+    </div>
+  )
+
+  const renderFinancialAdvancedSettings = () => (
+    <div className="advanced-settings">
+      <div className="settings-section">
+        <div className="section-header">
+          <Typography variant="h6">{t("sections.profitSharing")}</Typography>
+          <Tooltip title={t("tooltips.profitSharing")} arrow>
+            <IconButton size="small">
+              <InfoIcon />
+            </IconButton>
+          </Tooltip>
+        </div>
+
+        <FormControlLabel
+          control={
+            <Switch
+              checked={formData.profitSharingEnabled}
+              onChange={(e) => handleInputChange("profitSharingEnabled", e.target.checked)}
+            />
+          }
+          label={t("fields.profitSharing")}
+        />
+
+        {formData.profitSharingEnabled && (
+          <div className="profit-settings">
+            <div className="payout-strategy">
+              <Typography variant="subtitle1">{t("fields.payoutStrategy")}</Typography>
+              <div className="strategy-options">
+                <div
+                  className={`strategy-option ${formData.profitPayoutStrategy === "vesting" ? "active" : ""}`}
+                  onClick={() => handleInputChange("profitPayoutStrategy", "vesting")}
+                >
+                  <TrendingUpIcon className="strategy-icon" />
+                  <Typography variant="body2">{t("options.payoutStrategy.vesting")}</Typography>
                 </div>
-              </AccordionDetails>
-            </Accordion>
-          )}
+                <div
+                  className={`strategy-option ${formData.profitPayoutStrategy === "immediate" ? "active" : ""}`}
+                  onClick={() => handleInputChange("profitPayoutStrategy", "immediate")}
+                >
+                  <PaymentIcon className="strategy-icon" />
+                  <Typography variant="body2">{t("options.payoutStrategy.immediate")}</Typography>
+                </div>
+              </div>
+            </div>
 
-          <div className="regular-tasks-section">
-            <Typography variant="subtitle1" className="section-subtitle">
-              {t("sections.regularTasks")}
-            </Typography>
+            {formData.profitPayoutStrategy === "vesting" && (
+              <Grid container spacing={3} className="vesting-settings">
+                <Grid item xs={12} md={6}>
+                  <TextField
+                    fullWidth
+                    type="number"
+                    label={t("fields.vestingPeriod")}
+                    value={formData.profitVestingPeriod}
+                    onChange={(e) => handleInputChange("profitVestingPeriod", Number.parseInt(e.target.value))}
+                    InputProps={{ inputProps: { min: 1, max: 20 } }}
+                  />
+                </Grid>
+                <Grid item xs={12} md={6}>
+                  <div className="pattern-selector-compact">
+                    <Typography variant="subtitle1">{t("fields.vestingPattern")}</Typography>
+                    <div className="pattern-options-compact">
+                      {fadingPatterns.map((pattern) => (
+                        <div
+                          key={pattern.id}
+                          className={`pattern-option-compact ${formData.profitVestingPattern === pattern.id ? "selected" : ""}`}
+                          onClick={() => handleInputChange("profitVestingPattern", pattern.id)}
+                        >
+                          <div className="pattern-image-compact">
+                            <Image
+                              src={pattern.image || "/placeholder.svg"}
+                              alt={pattern.name}
+                              width={30}
+                              height={20}
+                            />
+                          </div>
+                          <Typography variant="caption">{pattern.name}</Typography>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </Grid>
+              </Grid>
+            )}
+          </div>
+        )}
+      </div>
 
-            <Grid container spacing={3}>
-              <Grid item xs={12} md={6}>
+      <div className="settings-section">
+        <div className="section-header">
+          <Typography variant="h6">{t("sections.currencies")}</Typography>
+          <Tooltip title={t("tooltips.currencies")} arrow>
+            <IconButton size="small">
+              <InfoIcon />
+            </IconButton>
+          </Tooltip>
+        </div>
+
+        <div className="currency-selection">
+          <Typography variant="subtitle1">{t("fields.supportedCurrencies")}</Typography>
+          <div className="currency-chips">
+            {currencyOptions.map((currency) => (
+              <Chip
+                key={currency}
+                label={currency}
+                clickable
+                color={formData.supportedCurrencies.includes(currency) ? "primary" : "default"}
+                onClick={() => {
+                  const newCurrencies = formData.supportedCurrencies.includes(currency)
+                    ? formData.supportedCurrencies.filter((c) => c !== currency)
+                    : [...formData.supportedCurrencies, currency]
+                  handleInputChange("supportedCurrencies", newCurrencies)
+                }}
+                className="currency-chip"
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="settings-section">
+        <div className="section-header">
+          <Typography variant="h6">{t("sections.distributionTrigger")}</Typography>
+          <Tooltip title={t("tooltips.distributionTrigger")} arrow>
+            <IconButton size="small">
+              <InfoIcon />
+            </IconButton>
+          </Tooltip>
+        </div>
+
+        <Grid container spacing={3}>
+          <Grid item xs={12} md={6}>
+            <FormControl fullWidth>
+              <InputLabel>{t("fields.triggerType")}</InputLabel>
+              <Select
+                value={formData.distributionTriggerType}
+                onChange={(e) => handleInputChange("distributionTriggerType", e.target.value)}
+                label={t("fields.triggerType")}
+              >
+                <MenuItem value="TOTAL_INCOME_THRESHOLD">{t("triggerTypes.totalIncome")}</MenuItem>
+                <MenuItem value="MONTHLY_AVERAGE_THRESHOLD">{t("triggerTypes.monthlyAverage")}</MenuItem>
+                <MenuItem value="MONTHLY_PER_CONTRIBUTOR">{t("triggerTypes.monthlyPerContributor")}</MenuItem>
+                <MenuItem value="AUTOMATIC_YEARLY">{t("triggerTypes.automaticYearly")}</MenuItem>
+              </Select>
+            </FormControl>
+          </Grid>
+
+          {formData.distributionTriggerType !== "AUTOMATIC_YEARLY" && (
+            <>
+              <Grid item xs={12} md={4}>
                 <TextField
                   fullWidth
                   type="number"
-                  label={t("fields.regularFadingPeriod")}
-                  value={formData.regularFadingPeriod}
-                  onChange={(e) => handleInputChange("regularFadingPeriod", Number.parseInt(e.target.value))}
-                  InputProps={{ inputProps: { min: 1, max: 20 } }}
+                  label={t("fields.triggerAmount")}
+                  value={formData.distributionTriggerAmount}
+                  onChange={(e) => handleInputChange("distributionTriggerAmount", Number.parseInt(e.target.value))}
                 />
               </Grid>
-            </Grid>
-
-            <div className="pattern-selector">
-              <Typography variant="subtitle1" className="pattern-title">
-                {t("fields.fadingPattern")}
-              </Typography>
-              <div className="pattern-options">
-                {fadingPatterns.map((pattern) => (
-                  <div
-                    key={pattern.id}
-                    className={`pattern-option ${formData.regularFadingPattern === pattern.id ? "selected" : ""}`}
-                    onClick={() => handleInputChange("regularFadingPattern", pattern.id)}
+              <Grid item xs={12} md={2}>
+                <FormControl fullWidth>
+                  <InputLabel>{t("fields.currency")}</InputLabel>
+                  <Select
+                    value={formData.distributionTriggerCurrency}
+                    onChange={(e) => handleInputChange("distributionTriggerCurrency", e.target.value)}
+                    label={t("fields.currency")}
                   >
-                    <div className="pattern-image">
-                      <Image src={pattern.image || "/placeholder.svg"} alt={pattern.name} width={50} height={30} />
-                    </div>
-                    <Typography variant="subtitle2">{pattern.name}</Typography>
-                    <Typography variant="caption" color="textSecondary">
-                      {pattern.description}
-                    </Typography>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          <div className="section-header">
-            <Typography variant="h6">{t("sections.governance")}</Typography>
-            <Tooltip title={t("tooltips.governance")} arrow>
-              <IconButton size="small">
-                <InfoIcon />
-              </IconButton>
-            </Tooltip>
-          </div>
-
-          <Grid container spacing={3}>
-            <Grid item xs={12} md={6}>
-              <FormControlLabel
-                control={
-                  <Switch
-                    checked={formData.coordinationCircleEnabled}
-                    onChange={(e) => handleInputChange("coordinationCircleEnabled", e.target.checked)}
-                  />
-                }
-                label={t("fields.coordinationCircle")}
-                className="form-field"
-              />
-
-              <div className="slider-field">
-                <Typography variant="subtitle1">
-                  {t("fields.ownershipVotingLimit")}: {formData.ownershipVotingLimit}%
-                </Typography>
-                <Slider
-                  value={formData.ownershipVotingLimit}
-                  onChange={(e, value) => handleInputChange("ownershipVotingLimit", value)}
-                  min={1}
-                  max={50}
-                  step={1}
-                  marks
-                  valueLabelDisplay="auto"
-                  className="ownership-slider"
-                />
-              </div>
-            </Grid>
-
-            <Grid item xs={12} md={6}>
-              <TextField
-                fullWidth
-                type="number"
-                label={t("fields.decisionQuorum")}
-                value={formData.decisionQuorum}
-                onChange={(e) => handleInputChange("decisionQuorum", Number.parseInt(e.target.value))}
-                InputProps={{ inputProps: { min: 1, max: 20 } }}
-              />
-            </Grid>
-          </Grid>
-        </div>
-      </div>
-    )
-  }
-
-  const renderFinancesRetribution = () => {
-    if (formData.financialSetup !== "angorasix") {
-      return (
-        <div className="step-content">
-          <Typography variant="h5" className="step-title">
-            {t("steps.financesRetribution.title")}
-          </Typography>
-          <Typography variant="body1" className="step-description">
-            {t("steps.financesRetribution.externalMessage")}
-          </Typography>
-        </div>
-      )
-    }
-
-    return (
-      <div className="step-content">
-        <Typography variant="h5" className="step-title">
-          {t("steps.financesRetribution.title")}
-        </Typography>
-        <Typography variant="body1" className="step-description">
-          {t("steps.financesRetribution.description")}
-        </Typography>
-
-        <div className="form-section">
-          <div className="section-header">
-            <Typography variant="h6">{t("sections.profitSharing")}</Typography>
-            <Tooltip title={t("tooltips.profitSharing")} arrow>
-              <IconButton size="small">
-                <InfoIcon />
-              </IconButton>
-            </Tooltip>
-          </div>
-
-          <FormControlLabel
-            control={
-              <Switch
-                checked={formData.profitSharingEnabled}
-                onChange={(e) => handleInputChange("profitSharingEnabled", e.target.checked)}
-              />
-            }
-            label={t("fields.profitSharing")}
-            className="form-field"
-          />
-
-          {formData.profitSharingEnabled && (
-            <Accordion
-              expanded={expandedAccordions.profitSettings}
-              onChange={() => handleAccordionToggle("profitSettings")}
-              className="settings-accordion"
-            >
-              <AccordionSummary
-                expandIcon={expandedAccordions.profitSettings ? <ExpandLessIcon /> : <ExpandMoreIcon />}
-                className="accordion-summary"
-              >
-                <Typography>{t("accordions.profitSettings")}</Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <div className="accordion-content">
-                  <div className="toggle-section">
-                    <Typography variant="subtitle1">{t("fields.payoutStrategy")}</Typography>
-                    <div className="toggle-options horizontal">
-                      <div
-                        className={`toggle-option ${formData.profitPayoutStrategy === "vesting" ? "active" : ""}`}
-                        onClick={() => handleInputChange("profitPayoutStrategy", "vesting")}
-                      >
-                        <TrendingUpIcon className="toggle-icon" />
-                        <Typography variant="body2">{t("options.payoutStrategy.vesting")}</Typography>
-                      </div>
-                      <div
-                        className={`toggle-option ${formData.profitPayoutStrategy === "immediate" ? "active" : ""}`}
-                        onClick={() => handleInputChange("profitPayoutStrategy", "immediate")}
-                      >
-                        <PaymentIcon className="toggle-icon" />
-                        <Typography variant="body2">{t("options.payoutStrategy.immediate")}</Typography>
-                      </div>
-                    </div>
-                  </div>
-
-                  {formData.profitPayoutStrategy === "vesting" && (
-                    <>
-                      <TextField
-                        fullWidth
-                        type="number"
-                        label={t("fields.vestingPeriod")}
-                        value={formData.profitVestingPeriod}
-                        onChange={(e) => handleInputChange("profitVestingPeriod", Number.parseInt(e.target.value))}
-                        className="form-field"
-                        InputProps={{ inputProps: { min: 1, max: 20 } }}
-                      />
-
-                      <div className="pattern-selector">
-                        <Typography variant="subtitle1" className="pattern-title">
-                          {t("fields.vestingPattern")}
-                        </Typography>
-                        <div className="pattern-options">
-                          {fadingPatterns.map((pattern) => (
-                            <div
-                              key={pattern.id}
-                              className={`pattern-option ${formData.profitVestingPattern === pattern.id ? "selected" : ""}`}
-                              onClick={() => handleInputChange("profitVestingPattern", pattern.id)}
-                            >
-                              <div className="pattern-image">
-                                <Image
-                                  src={pattern.image || "/placeholder.svg"}
-                                  alt={pattern.name}
-                                  width={50}
-                                  height={30}
-                                />
-                              </div>
-                              <Typography variant="subtitle2">{pattern.name}</Typography>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    </>
-                  )}
-                </div>
-              </AccordionDetails>
-            </Accordion>
+                    {formData.supportedCurrencies.map((currency) => (
+                      <MenuItem key={currency} value={currency}>
+                        {currency}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
+              </Grid>
+            </>
           )}
+        </Grid>
 
-          <div className="section-header">
-            <Typography variant="h6">{t("sections.currencies")}</Typography>
-            <Tooltip title={t("tooltips.currencies")} arrow>
-              <IconButton size="small">
-                <InfoIcon />
-              </IconButton>
-            </Tooltip>
-          </div>
-
-          <div className="currency-section">
-            <Typography variant="subtitle1">{t("fields.supportedCurrencies")}</Typography>
-            <div className="currency-chips">
-              {currencyOptions.map((currency) => (
-                <Chip
-                  key={currency}
-                  label={currency}
-                  clickable
-                  color={formData.supportedCurrencies.includes(currency) ? "primary" : "default"}
-                  onClick={() => {
-                    const newCurrencies = formData.supportedCurrencies.includes(currency)
-                      ? formData.supportedCurrencies.filter((c) => c !== currency)
-                      : [...formData.supportedCurrencies, currency]
-                    handleInputChange("supportedCurrencies", newCurrencies)
-                  }}
-                  className="currency-chip"
-                />
-              ))}
-            </div>
-          </div>
-
-          <div className="section-header">
-            <Typography variant="h6">{t("sections.distributionTrigger")}</Typography>
-            <Tooltip title={t("tooltips.distributionTrigger")} arrow>
-              <IconButton size="small">
-                <InfoIcon />
-              </IconButton>
-            </Tooltip>
-          </div>
-
-          <div className="distribution-trigger-section">
-            <Grid container spacing={3}>
-              <Grid item xs={12} md={6}>
-                <FormControl fullWidth>
-                  <InputLabel>{t("fields.triggerType")}</InputLabel>
-                  <Select
-                    value={formData.distributionTriggerType}
-                    onChange={(e) => handleInputChange("distributionTriggerType", e.target.value)}
-                    label={t("fields.triggerType")}
-                  >
-                    <MenuItem value="TOTAL_INCOME_THRESHOLD">{t("triggerTypes.totalIncome")}</MenuItem>
-                    <MenuItem value="MONTHLY_AVERAGE_THRESHOLD">{t("triggerTypes.monthlyAverage")}</MenuItem>
-                    <MenuItem value="MONTHLY_PER_CONTRIBUTOR">{t("triggerTypes.monthlyPerContributor")}</MenuItem>
-                    <MenuItem value="AUTOMATIC_YEARLY">{t("triggerTypes.automaticYearly")}</MenuItem>
-                  </Select>
-                </FormControl>
-              </Grid>
-
-              {formData.distributionTriggerType !== "AUTOMATIC_YEARLY" && (
-                <>
-                  <Grid item xs={12} md={4}>
-                    <TextField
-                      fullWidth
-                      type="number"
-                      label={t("fields.triggerAmount")}
-                      value={formData.distributionTriggerAmount}
-                      onChange={(e) => handleInputChange("distributionTriggerAmount", Number.parseInt(e.target.value))}
-                    />
-                  </Grid>
-                  <Grid item xs={12} md={2}>
-                    <FormControl fullWidth>
-                      <InputLabel>{t("fields.currency")}</InputLabel>
-                      <Select
-                        value={formData.distributionTriggerCurrency}
-                        onChange={(e) => handleInputChange("distributionTriggerCurrency", e.target.value)}
-                        label={t("fields.currency")}
-                      >
-                        {formData.supportedCurrencies.map((currency) => (
-                          <MenuItem key={currency} value={currency}>
-                            {currency}
-                          </MenuItem>
-                        ))}
-                      </Select>
-                    </FormControl>
-                  </Grid>
-                </>
-              )}
-            </Grid>
-
-            <Grid container spacing={3} style={{ marginTop: "1rem" }}>
-              <Grid item xs={12} md={6}>
-                <FormControl fullWidth>
-                  <InputLabel>{t("fields.reEvaluationFrequency")}</InputLabel>
-                  <Select
-                    value={formData.reEvaluationFrequency}
-                    onChange={(e) => handleInputChange("reEvaluationFrequency", e.target.value)}
-                    label={t("fields.reEvaluationFrequency")}
-                  >
-                    <MenuItem value="EVERY_6_MONTHS">{t("frequencies.every6Months")}</MenuItem>
-                    <MenuItem value="EVERY_YEAR">{t("frequencies.everyYear")}</MenuItem>
-                  </Select>
-                </FormControl>
-              </Grid>
-            </Grid>
-          </div>
-        </div>
+        <Grid container spacing={3} style={{ marginTop: "1rem" }}>
+          <Grid item xs={12} md={6}>
+            <FormControl fullWidth>
+              <InputLabel>{t("fields.reEvaluationFrequency")}</InputLabel>
+              <Select
+                value={formData.reEvaluationFrequency}
+                onChange={(e) => handleInputChange("reEvaluationFrequency", e.target.value)}
+                label={t("fields.reEvaluationFrequency")}
+              >
+                <MenuItem value="EVERY_6_MONTHS">{t("frequencies.every6Months")}</MenuItem>
+                <MenuItem value="EVERY_YEAR">{t("frequencies.everyYear")}</MenuItem>
+              </Select>
+            </FormControl>
+          </Grid>
+        </Grid>
       </div>
-    )
-  }
+    </div>
+  )
 
   return (
     <>
@@ -793,10 +836,10 @@ const NewProjectManagement = ({ onSubmit, project }) => {
       <div className="new-project-management">
         <Container maxWidth="lg" className="main-container">
           <div className="header-section">
-            <Typography variant="h3" className="main-title">
+            <Typography variant="h2" className="main-title">
               {project?.name ? t("titleForProject").replace("{{projectName}}", project.name) : t("title")}
             </Typography>
-            <Typography variant="h6" className="main-subtitle">
+            <Typography variant="h5" className="main-subtitle">
               {t("subtitle")}
             </Typography>
           </div>
@@ -847,7 +890,7 @@ const NewProjectManagement = ({ onSubmit, project }) => {
 }
 
 NewProjectManagement.defaultProps = {
-  onSubmit: () => { },
+  onSubmit: () => {},
 }
 
 export default NewProjectManagement

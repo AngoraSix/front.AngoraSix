@@ -18,20 +18,18 @@
     },
     "ownershipGovernance": {
       "title": "Propiedad y Gobernanza",
-      "description": "Configura cómo funcionan la propiedad y las decisiones en tu proyecto",
-      "externalMessage": "Como elegiste gestión externa de propiedad, puedes omitir este paso."
+      "description": "Elige cómo quieres gestionar la propiedad y la toma de decisiones en tu proyecto"
     },
     "financesRetribution": {
       "title": "Finanzas y Retribución",
-      "description": "Configura cómo se manejarán las ganancias y pagos",
-      "externalMessage": "Como elegiste gestión financiera externa, puedes omitir este paso."
+      "description": "Configura cómo se manejarán las ganancias y pagos en tu proyecto"
     }
   },
   "fields": {
     "projectName": "Nombre del Proyecto",
     "status": "Etapa Actual",
-    "ownershipSetup": "Configuración de Propiedad",
-    "financialSetup": "Configuración Financiera",
+    "ownershipSetup": "Gestión de Propiedad",
+    "financialSetup": "Gestión Financiera",
     "startupTasks": "Incluir tareas de startup en seguimiento de propiedad",
     "startupFading": "Habilitar desvanecimiento para tareas de startup",
     "fadingPeriod": "Período de Desvanecimiento (años)",
@@ -51,6 +49,9 @@
     "currency": "Moneda",
     "reEvaluationFrequency": "Frecuencia de Re-evaluación"
   },
+  "placeholders": {
+    "projectName": "Ingresa el nombre de tu proyecto..."
+  },
   "stages": {
     "idea": "Idea",
     "startup": "Startup",
@@ -58,20 +59,20 @@
   },
   "options": {
     "ownershipSetup": {
-      "angorasix": "Gestionado por AngoraSix (recomendado)",
-      "angorasixDesc": "Permite que AngoraSix rastree y calcule la propiedad basada en contribuciones",
+      "angorasix": "Gestionado por AngoraSix",
+      "angorasixDesc": "Permite que AngoraSix rastree y calcule automáticamente la propiedad basada en contribuciones",
       "external": "Gestionado externamente",
-      "externalDesc": "Manejarás el seguimiento de propiedad fuera de AngoraSix"
+      "externalDesc": "Manejarás el seguimiento y cálculos de propiedad fuera de AngoraSix"
     },
     "financialSetup": {
-      "angorasix": "Finanzas gestionadas por AngoraSix (billetera compartida y pagos automatizados)",
-      "angorasixDesc": "AngoraSix ayudará a rastrear, gestionar y distribuir las ganancias del proyecto",
-      "external": "Manejaré las finanzas externamente",
+      "angorasix": "Gestionado por AngoraSix",
+      "angorasixDesc": "AngoraSix ayudará a rastrear, gestionar y distribuir automáticamente las ganancias del proyecto",
+      "external": "Gestionado externamente",
       "externalDesc": "Gestionarás las finanzas y pagos fuera de AngoraSix"
     },
     "payoutStrategy": {
       "vesting": "Vesting",
-      "immediate": "Efectivo inmediatamente"
+      "immediate": "Inmediato"
     }
   },
   "patterns": {
@@ -97,8 +98,39 @@
     "distributionTrigger": "Disparador de Distribución"
   },
   "accordions": {
-    "startupSettings": "Configuración de Tareas de Startup",
-    "profitSettings": "Configuración de Participación en Ganancias"
+    "advancedOwnership": "Configuración Avanzada de Propiedad",
+    "advancedOwnershipDesc": "Configura reglas detalladas de seguimiento de propiedad y gobernanza",
+    "advancedFinancial": "Configuración Financiera Avanzada",
+    "advancedFinancialDesc": "Configura reglas detalladas de participación en ganancias y distribución"
+  },
+  "preview": {
+    "title": "¿Qué sigue?",
+    "ownership": {
+      "title": "Propiedad y Gobernanza",
+      "description": "Configura cómo las contribuciones se traducen en propiedad y cómo se toman las decisiones"
+    },
+    "financial": {
+      "title": "Finanzas y Retribución",
+      "description": "Configura la participación en ganancias, monedas y mecanismos de distribución"
+    }
+  },
+  "features": {
+    "ownership": {
+      "tracking": "Seguimiento automático de contribuciones",
+      "automation": "Cálculos automáticos de propiedad",
+      "governance": "Herramientas de gobernanza integradas",
+      "manual": "Control manual de propiedad",
+      "flexible": "Reglas flexibles de propiedad",
+      "integration": "Integración fácil con terceros"
+    },
+    "financial": {
+      "wallet": "Billetera compartida del proyecto",
+      "automation": "Distribución automática de ganancias",
+      "distribution": "Disparadores inteligentes de distribución",
+      "manual": "Control financiero manual",
+      "flexible": "Estrategias flexibles de pago",
+      "reporting": "Reportes financieros detallados"
+    }
   },
   "triggerTypes": {
     "totalIncome": "Los ingresos totales del proyecto exceden el umbral",
