@@ -77,7 +77,10 @@ const NewProjectManagement = ({ onSubmit, project }) => {
   })
 
   const [errors, setErrors] = useState({})
-  const [expandedAccordions, setExpandedAccordions] = useState({})
+  const [expandedAccordions, setExpandedAccordions] = useState({
+    ownershipAdvanced: false,
+    financialAdvanced: false,
+  })
 
   const bylawCategories = config.mgmtConfig.categories
   const bylawOwnershipKeys = config.mgmtConfig.ownershipBylaws
@@ -225,62 +228,34 @@ const NewProjectManagement = ({ onSubmit, project }) => {
       </Typography>
 
       <div className="basic-setup-form">
-        <Grid container spacing={4}>
-          <Grid item xs={12} md={8}>
-            <TextField
-              fullWidth
-              label={t("fields.projectName")}
-              placeholder={t("placeholders.projectName")}
-              value={formData.projectName}
-              onChange={(e) => handleInputChange("projectName", e.target.value)}
-              error={!!errors.projectName}
-              helperText={errors.projectName}
-              required
-              className="project-name-field"
-            />
-          </Grid>
-          <Grid item xs={12} md={4}>
-            <FormControl fullWidth>
-              <InputLabel>{t("fields.status")}</InputLabel>
-              <Select
-                value={formData.status}
-                onChange={(e) => handleInputChange("status", e.target.value)}
-                label={t("fields.status")}
-              >
-                {stageOptions.map((option) => (
-                  <MenuItem key={option.value} value={option.value}>
-                    {option.label}
-                  </MenuItem>
-                ))}
-              </Select>
-            </FormControl>
-          </Grid>
-        </Grid>
+        <div className="form-fields-container">
+          <TextField
+            fullWidth
+            label={t("fields.projectName")}
+            placeholder={t("placeholders.projectName")}
+            value={formData.projectName}
+            onChange={(e) => handleInputChange("projectName", e.target.value)}
+            error={!!errors.projectName}
+            helperText={errors.projectName}
+            required
+            className="project-name-field"
+            variant="outlined"
+          />
 
-        <div className="setup-preview">
-          <Typography variant="h6" className="preview-title">
-            {t("preview.title")}
-          </Typography>
-          <div className="preview-cards">
-            <div className="preview-card">
-              <AccountBalanceIcon className="preview-icon" />
-              <div className="preview-content">
-                <Typography variant="subtitle1">{t("preview.ownership.title")}</Typography>
-                <Typography variant="body2" color="textSecondary">
-                  {t("preview.ownership.description")}
-                </Typography>
-              </div>
-            </div>
-            <div className="preview-card">
-              <PaymentIcon className="preview-icon" />
-              <div className="preview-content">
-                <Typography variant="subtitle1">{t("preview.financial.title")}</Typography>
-                <Typography variant="body2" color="textSecondary">
-                  {t("preview.financial.description")}
-                </Typography>
-              </div>
-            </div>
-          </div>
+          <FormControl fullWidth className="status-field">
+            <InputLabel>{t("fields.status")}</InputLabel>
+            <Select
+              value={formData.status}
+              onChange={(e) => handleInputChange("status", e.target.value)}
+              label={t("fields.status")}
+            >
+              {stageOptions.map((option) => (
+                <MenuItem key={option.value} value={option.value}>
+                  {option.label}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
         </div>
       </div>
     </div>
@@ -296,77 +271,82 @@ const NewProjectManagement = ({ onSubmit, project }) => {
       </Typography>
 
       <div className="ownership-setup">
-        {/* Main Toggle Section */}
-        <div className="main-toggle-section">
-          <div className="toggle-header">
-            <Typography variant="h5">{t("fields.ownershipSetup")}</Typography>
-            <Tooltip title={t("tooltips.ownershipSetup")} arrow>
-              <IconButton size="small">
-                <InfoIcon />
-              </IconButton>
-            </Tooltip>
+        {/* Primary AngoraSix Option */}
+        <div className="primary-option-container">
+          <div
+            className={`primary-option-card ${formData.ownershipSetup === "angorasix" ? "active" : ""}`}
+            onClick={() => handleInputChange("ownershipSetup", "angorasix")}
+          >
+            <div className="primary-card-header">
+              <AccountBalanceIcon className="primary-card-icon" />
+              <div className="primary-card-content">
+                <Typography variant="h5" className="primary-card-title">
+                  {t("options.ownershipSetup.angorasix")}
+                </Typography>
+                <Typography variant="body1" className="primary-card-subtitle">
+                  {t("options.ownershipSetup.recommended")}
+                </Typography>
+              </div>
+              <div className="primary-card-badge">
+                <Typography variant="caption">{t("labels.recommended")}</Typography>
+              </div>
+            </div>
+            <Typography variant="body1" className="primary-card-description">
+              {t("options.ownershipSetup.angorasixDesc")}
+            </Typography>
+            <div className="primary-card-features">
+              <Typography variant="body2">✓ {t("features.ownership.tracking")}</Typography>
+              <Typography variant="body2">✓ {t("features.ownership.automation")}</Typography>
+              <Typography variant="body2">✓ {t("features.ownership.governance")}</Typography>
+            </div>
           </div>
 
-          <div className="main-toggle-options">
-            <div
-              className={`main-toggle-card ${formData.ownershipSetup === "angorasix" ? "active" : ""}`}
-              onClick={() => handleInputChange("ownershipSetup", "angorasix")}
-            >
-              <div className="toggle-card-header">
-                <AccountBalanceIcon className="toggle-card-icon" />
-                <Typography variant="h6">{t("options.ownershipSetup.angorasix")}</Typography>
-              </div>
-              <Typography variant="body1" className="toggle-card-description">
-                {t("options.ownershipSetup.angorasixDesc")}
-              </Typography>
-              <div className="toggle-card-features">
-                <Typography variant="body2">• {t("features.ownership.tracking")}</Typography>
-                <Typography variant="body2">• {t("features.ownership.automation")}</Typography>
-                <Typography variant="body2">• {t("features.ownership.governance")}</Typography>
-              </div>
-            </div>
-
-            <div
-              className={`main-toggle-card ${formData.ownershipSetup === "external" ? "active" : ""}`}
+          {/* Opt-out Option */}
+          <div className="opt-out-section">
+            <Button
+              variant="outlined"
+              size="small"
               onClick={() => handleInputChange("ownershipSetup", "external")}
+              className={`opt-out-button ${formData.ownershipSetup === "external" ? "active" : ""}`}
+              startIcon={<BusinessIcon />}
             >
-              <div className="toggle-card-header">
-                <BusinessIcon className="toggle-card-icon" />
-                <Typography variant="h6">{t("options.ownershipSetup.external")}</Typography>
+              {t("options.ownershipSetup.optOut")}
+            </Button>
+            {formData.ownershipSetup === "external" && (
+              <div className="opt-out-message">
+                <Typography variant="body2" color="textSecondary">
+                  {t("options.ownershipSetup.externalDesc")}
+                </Typography>
               </div>
-              <Typography variant="body1" className="toggle-card-description">
-                {t("options.ownershipSetup.externalDesc")}
-              </Typography>
-              <div className="toggle-card-features">
-                <Typography variant="body2">• {t("features.ownership.manual")}</Typography>
-                <Typography variant="body2">• {t("features.ownership.flexible")}</Typography>
-                <Typography variant="body2">• {t("features.ownership.integration")}</Typography>
-              </div>
-            </div>
+            )}
           </div>
         </div>
 
-        {/* Advanced Configuration Accordion */}
+        {/* Advanced Configuration - Separate Panel */}
         {formData.ownershipSetup === "angorasix" && (
-          <Accordion
-            expanded={expandedAccordions.ownershipAdvanced}
-            onChange={() => handleAccordionToggle("ownershipAdvanced")}
-            className="advanced-accordion"
-          >
-            <AccordionSummary
-              expandIcon={expandedAccordions.ownershipAdvanced ? <ExpandLessIcon /> : <ExpandMoreIcon />}
-              className="advanced-accordion-summary"
+          <Paper className="advanced-settings-panel">
+            <Accordion
+              expanded={expandedAccordions.ownershipAdvanced}
+              onChange={() => handleAccordionToggle("ownershipAdvanced")}
+              className="advanced-accordion"
             >
-              <SettingsIcon className="accordion-icon" />
-              <Typography variant="h6">{t("accordions.advancedOwnership")}</Typography>
-              <Typography variant="body2" className="accordion-subtitle">
-                {t("accordions.advancedOwnershipDesc")}
-              </Typography>
-            </AccordionSummary>
-            <AccordionDetails className="advanced-accordion-details">
-              {renderOwnershipAdvancedSettings()}
-            </AccordionDetails>
-          </Accordion>
+              <AccordionSummary
+                expandIcon={expandedAccordions.ownershipAdvanced ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+                className="advanced-accordion-summary"
+              >
+                <SettingsIcon className="accordion-icon" />
+                <div className="accordion-header-content">
+                  <Typography variant="h6">{t("accordions.advancedOwnership")}</Typography>
+                  <Typography variant="body2" className="accordion-subtitle">
+                    {t("accordions.advancedOwnershipDesc")}
+                  </Typography>
+                </div>
+              </AccordionSummary>
+              <AccordionDetails className="advanced-accordion-details">
+                {renderOwnershipAdvancedSettings()}
+              </AccordionDetails>
+            </Accordion>
+          </Paper>
         )}
       </div>
     </div>
@@ -550,77 +530,82 @@ const NewProjectManagement = ({ onSubmit, project }) => {
       </Typography>
 
       <div className="financial-setup">
-        {/* Main Toggle Section */}
-        <div className="main-toggle-section">
-          <div className="toggle-header">
-            <Typography variant="h5">{t("fields.financialSetup")}</Typography>
-            <Tooltip title={t("tooltips.financialSetup")} arrow>
-              <IconButton size="small">
-                <InfoIcon />
-              </IconButton>
-            </Tooltip>
+        {/* Primary AngoraSix Option */}
+        <div className="primary-option-container">
+          <div
+            className={`primary-option-card ${formData.financialSetup === "angorasix" ? "active" : ""}`}
+            onClick={() => handleInputChange("financialSetup", "angorasix")}
+          >
+            <div className="primary-card-header">
+              <PaymentIcon className="primary-card-icon" />
+              <div className="primary-card-content">
+                <Typography variant="h5" className="primary-card-title">
+                  {t("options.financialSetup.angorasix")}
+                </Typography>
+                <Typography variant="body1" className="primary-card-subtitle">
+                  {t("options.financialSetup.recommended")}
+                </Typography>
+              </div>
+              <div className="primary-card-badge">
+                <Typography variant="caption">{t("labels.recommended")}</Typography>
+              </div>
+            </div>
+            <Typography variant="body1" className="primary-card-description">
+              {t("options.financialSetup.angorasixDesc")}
+            </Typography>
+            <div className="primary-card-features">
+              <Typography variant="body2">✓ {t("features.financial.wallet")}</Typography>
+              <Typography variant="body2">✓ {t("features.financial.automation")}</Typography>
+              <Typography variant="body2">✓ {t("features.financial.distribution")}</Typography>
+            </div>
           </div>
 
-          <div className="main-toggle-options">
-            <div
-              className={`main-toggle-card ${formData.financialSetup === "angorasix" ? "active" : ""}`}
-              onClick={() => handleInputChange("financialSetup", "angorasix")}
-            >
-              <div className="toggle-card-header">
-                <PaymentIcon className="toggle-card-icon" />
-                <Typography variant="h6">{t("options.financialSetup.angorasix")}</Typography>
-              </div>
-              <Typography variant="body1" className="toggle-card-description">
-                {t("options.financialSetup.angorasixDesc")}
-              </Typography>
-              <div className="toggle-card-features">
-                <Typography variant="body2">• {t("features.financial.wallet")}</Typography>
-                <Typography variant="body2">• {t("features.financial.automation")}</Typography>
-                <Typography variant="body2">• {t("features.financial.distribution")}</Typography>
-              </div>
-            </div>
-
-            <div
-              className={`main-toggle-card ${formData.financialSetup === "external" ? "active" : ""}`}
+          {/* Opt-out Option */}
+          <div className="opt-out-section">
+            <Button
+              variant="outlined"
+              size="small"
               onClick={() => handleInputChange("financialSetup", "external")}
+              className={`opt-out-button ${formData.financialSetup === "external" ? "active" : ""}`}
+              startIcon={<BusinessIcon />}
             >
-              <div className="toggle-card-header">
-                <BusinessIcon className="toggle-card-icon" />
-                <Typography variant="h6">{t("options.financialSetup.external")}</Typography>
+              {t("options.financialSetup.optOut")}
+            </Button>
+            {formData.financialSetup === "external" && (
+              <div className="opt-out-message">
+                <Typography variant="body2" color="textSecondary">
+                  {t("options.financialSetup.externalDesc")}
+                </Typography>
               </div>
-              <Typography variant="body1" className="toggle-card-description">
-                {t("options.financialSetup.externalDesc")}
-              </Typography>
-              <div className="toggle-card-features">
-                <Typography variant="body2">• {t("features.financial.manual")}</Typography>
-                <Typography variant="body2">• {t("features.financial.flexible")}</Typography>
-                <Typography variant="body2">• {t("features.financial.reporting")}</Typography>
-              </div>
-            </div>
+            )}
           </div>
         </div>
 
-        {/* Advanced Configuration Accordion */}
+        {/* Advanced Configuration - Separate Panel */}
         {formData.financialSetup === "angorasix" && (
-          <Accordion
-            expanded={expandedAccordions.financialAdvanced}
-            onChange={() => handleAccordionToggle("financialAdvanced")}
-            className="advanced-accordion"
-          >
-            <AccordionSummary
-              expandIcon={expandedAccordions.financialAdvanced ? <ExpandLessIcon /> : <ExpandMoreIcon />}
-              className="advanced-accordion-summary"
+          <Paper className="advanced-settings-panel">
+            <Accordion
+              expanded={expandedAccordions.financialAdvanced}
+              onChange={() => handleAccordionToggle("financialAdvanced")}
+              className="advanced-accordion"
             >
-              <SettingsIcon className="accordion-icon" />
-              <Typography variant="h6">{t("accordions.advancedFinancial")}</Typography>
-              <Typography variant="body2" className="accordion-subtitle">
-                {t("accordions.advancedFinancialDesc")}
-              </Typography>
-            </AccordionSummary>
-            <AccordionDetails className="advanced-accordion-details">
-              {renderFinancialAdvancedSettings()}
-            </AccordionDetails>
-          </Accordion>
+              <AccordionSummary
+                expandIcon={expandedAccordions.financialAdvanced ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+                className="advanced-accordion-summary"
+              >
+                <SettingsIcon className="accordion-icon" />
+                <div className="accordion-header-content">
+                  <Typography variant="h6">{t("accordions.advancedFinancial")}</Typography>
+                  <Typography variant="body2" className="accordion-subtitle">
+                    {t("accordions.advancedFinancialDesc")}
+                  </Typography>
+                </div>
+              </AccordionSummary>
+              <AccordionDetails className="advanced-accordion-details">
+                {renderFinancialAdvancedSettings()}
+              </AccordionDetails>
+            </Accordion>
+          </Paper>
         )}
       </div>
     </div>

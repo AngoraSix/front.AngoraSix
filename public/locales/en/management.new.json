@@ -57,18 +57,25 @@
     "startup": "Startup",
     "operational": "Operational"
   },
+  "labels": {
+    "recommended": "Recommended"
+  },
   "options": {
     "ownershipSetup": {
       "angorasix": "Managed by AngoraSix",
-      "angorasixDesc": "Let AngoraSix automatically track and calculate ownership based on contributions",
+      "recommended": "Automatic tracking & governance",
+      "angorasixDesc": "Let AngoraSix automatically track and calculate ownership based on contributions, with built-in governance tools for decision-making.",
+      "optOut": "I'll manage ownership externally",
       "external": "Managed externally",
-      "externalDesc": "You'll handle ownership tracking and calculations outside of AngoraSix"
+      "externalDesc": "You're opting out of the AngoraSix ecosystem and will handle ownership tracking and calculations using your own systems or tools."
     },
     "financialSetup": {
       "angorasix": "Managed by AngoraSix",
-      "angorasixDesc": "AngoraSix will help track, manage and distribute project earnings automatically",
+      "recommended": "Shared wallet & automated payouts",
+      "angorasixDesc": "AngoraSix will help track, manage and distribute project earnings automatically with smart contracts and shared wallets.",
+      "optOut": "I'll manage finances externally",
       "external": "Managed externally",
-      "externalDesc": "You'll manage finances and payouts outside of AngoraSix"
+      "externalDesc": "You're opting out of the AngoraSix ecosystem and will manage finances and payouts using your own payment systems or traditional banking."
     },
     "payoutStrategy": {
       "vesting": "Vesting",
@@ -103,17 +110,6 @@
     "advancedFinancial": "Advanced Financial Settings",
     "advancedFinancialDesc": "Configure detailed profit sharing and distribution rules"
   },
-  "preview": {
-    "title": "What's Next?",
-    "ownership": {
-      "title": "Ownership & Governance",
-      "description": "Configure how contributions translate to ownership and how decisions are made"
-    },
-    "financial": {
-      "title": "Finances & Retribution",
-      "description": "Set up profit sharing, currencies, and distribution mechanisms"
-    }
-  },
   "features": {
     "ownership": {
       "tracking": "Automatic contribution tracking",
@@ -124,8 +120,6 @@
       "integration": "Easy third-party integration"
     },
     "financial": {
-      "wallet": "Shared project wallet",
-      "automation": "Automated profit distribution",
       "wallet": "Shared project wallet",
       "automation": "Automated profit distribution",
       "distribution": "Smart distribution triggers",
