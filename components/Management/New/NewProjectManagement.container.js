@@ -10,6 +10,7 @@ const NewProjectManagementContainer = ({ project }) => {
   useAndCheckActiveToken()
 
   const onSubmit = async (formData) => {
+    console.log("GERBOOO", formData)
     try {
       let projectId = project?.id
       // we have to send first to create project, if it's not created yet (if project is null)
@@ -22,12 +23,12 @@ const NewProjectManagementContainer = ({ project }) => {
         status: formData.status,
         constitution: {
           bylaws: {
-            [config.mgmt.categories.ownershipGeneral]: formData.bylaws.ownershipGeneral,
-            [config.mgmt.categories.ownershipTasks]: formData.bylaws.ownershipTasks,
-            [config.mgmt.categories.ownershipGovernance]: formData.bylaws.ownershipGovernance,
-            [config.mgmt.categories.financialProfitShares]: formData.bylaws.financialProfitShares,
-            [config.mgmt.categories.financialCurrencies]: formData.bylaws.financialCurrencies,
-            [config.mgmt.categories.financialGeneral]: formData.bylaws.financialGeneral,
+            [config.mgmt.categories.ownershipGeneral]: formData.bylaws[config.mgmt.categories.ownershipGeneral],
+            [config.mgmt.categories.ownershipTasks]: formData.bylaws[config.mgmt.categories.ownershipTasks],
+            [config.mgmt.categories.ownershipGovernance]: formData.bylaws[config.mgmt.categories.ownershipGovernance],
+            [config.mgmt.categories.financialProfitShares]: formData.bylaws[config.mgmt.categories.financialProfitShares],
+            [config.mgmt.categories.financialCurrencies]: formData.bylaws[config.mgmt.categories.financialCurrencies],
+            [config.mgmt.categories.financialGeneral]: formData.bylaws[config.mgmt.categories.financialGeneral],
           },
         }
       }

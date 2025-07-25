@@ -25,7 +25,7 @@ const NewProjectManagementPage = ({ session, isAdmin, project, existingProjectMa
       logger.error('Project management already exists, redirecting to dashboard');
       router.push(resolveRoute(ROUTES.management.dashboard, existingProjectManagementId));
     }
-  }, [existingProjectManagementId, onError, router]);
+  }, [existingProjectManagementId]);
 
   if (!session || session?.error || !isAdmin || !project || existingProjectManagementId) {
     logger.error('Log in to register project management');
@@ -60,7 +60,6 @@ export const getServerSideProps = async (ctx) => {
   const { projectId } = ctx.params,
     session = await getSession(ctx);
   const validatedToken = await obtainValidatedToken(ctx.req);
-  console.log("GGGGGGG", validatedToken)
   let isAdmin = false;
   try {
     const project = await api.projects.getProject(projectId, validatedToken);
@@ -75,7 +74,6 @@ export const getServerSideProps = async (ctx) => {
       ...props,
       existingProjectManagementId: existingProjectManagement?.id || null
     };
-    console.log("Project Management", existingProjectManagementId, status);
   } catch (err) {
     logger.error('err', err);
   }

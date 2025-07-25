@@ -87,7 +87,7 @@ const NewProjectManagement = ({ onSubmit, project }) => {
   const stageOptions = [
     { value: "IDEA", label: t("stages.idea") },
     { value: "STARTUP", label: t("stages.startup") },
-    { value: "OPERATIONAL", label: t("stages.live") },]
+    { value: "OPERATIONAL", label: t("stages.operational") },]
 
   const fadingPatterns = [
     {
@@ -239,7 +239,7 @@ const NewProjectManagement = ({ onSubmit, project }) => {
             <FormControl fullWidth>
               <InputLabel>{t("fields.status")}</InputLabel>
               <Select
-                value={formData.currentStage}
+                value={formData.status}
                 onChange={(e) => handleInputChange("status", e.target.value)}
                 label={t("fields.status")}
               >

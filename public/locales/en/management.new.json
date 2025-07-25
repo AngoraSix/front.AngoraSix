@@ -54,8 +54,7 @@
   "stages": {
     "idea": "Idea",
     "startup": "Startup",
-    "live": "Live",
-    "other": "Other"
+    "operational": "Operational"
   },
   "options": {
     "ownershipSetup": {
