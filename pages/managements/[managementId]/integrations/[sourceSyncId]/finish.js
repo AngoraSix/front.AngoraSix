@@ -51,7 +51,7 @@ export const getServerSideProps = async (ctx) => {
     let props = {};
     const { sourceSyncId } = ctx.params,
         session = await getSession(ctx);
-    const validatedToken = obtainValidatedToken(ctx.req);
+    const validatedToken = await obtainValidatedToken(ctx.req);
     try {
         const sourceSync = await api.managementIntegrations.getSourceSync(sourceSyncId, validatedToken);
         props = {

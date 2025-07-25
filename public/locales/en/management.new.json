@@ -1,5 +1,10 @@
 {
+  "page": {
+    "title": "New Project Management",
+    "description": "Create and configure a new project management setup for your collaborative project"
+  },
   "title": "Create New Project",
+  "titleForProject": "Create New Management Setup for \"{{projectName}}\"",
   "subtitle": "Set up your collaborative project with AngoraSix",
   "stepper": {
     "basicSetup": "Basic Setup",
@@ -24,7 +29,7 @@
   },
   "fields": {
     "projectName": "Project Name",
-    "currentStage": "Current Stage",
+    "status": "Current Stage",
     "ownershipSetup": "Ownership Setup",
     "financialSetup": "Financial Setup",
     "startupTasks": "Include startup tasks in ownership tracking",
@@ -43,6 +48,7 @@
     "distributionTrigger": "Distribution Trigger",
     "triggerType": "Trigger Type",
     "triggerAmount": "Amount",
+    "currency": "Currency",
     "reEvaluationFrequency": "Re-evaluation Frequency"
   },
   "stages": {
@@ -86,7 +92,10 @@
   "sections": {
     "ownershipViaTasks": "Ownership via Tasks",
     "regularTasks": "Regular Tasks Ownership",
-    "governance": "Governance"
+    "governance": "Governance",
+    "profitSharing": "Profit Sharing",
+    "currencies": "Currencies",
+    "distributionTrigger": "Distribution Trigger"
   },
   "accordions": {
     "startupSettings": "Startup Task Settings",
@@ -104,7 +113,12 @@
   },
   "tooltips": {
     "ownershipSetup": "Select whether AngoraSix should help you manage and calculate ownership based on tracked contributions.",
-    "financialSetup": "Select whether you want AngoraSix to help track, manage and distribute project earnings."
+    "financialSetup": "Select whether you want AngoraSix to help track, manage and distribute project earnings.",
+    "ownershipViaTasks": "Configure how contributions to tasks translate into project ownership. All settings here are defaults that can be overridden per task.",
+    "governance": "Set up decision-making rules and voting mechanisms for your project. This includes coordination circles for operational decisions and voting limits to prevent dominance.",
+    "profitSharing": "Configure how project earnings will be distributed among contributors based on their ownership shares.",
+    "currencies": "Select which currencies your project will support for payments and profit sharing.",
+    "distributionTrigger": "Define the conditions that will trigger a vote on whether to start distributing profits to contributors."
   },
   "actions": {
     "back": "Back",

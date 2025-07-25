@@ -10,7 +10,7 @@ const page = async (req, res) => {
 
     try {
       const managementData =
-        await api.projects.getProjectManagement(
+        await api.management.getProjectManagement(
           req.query.managementId,
           validatedToken
         );

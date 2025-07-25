@@ -25,6 +25,7 @@ export const ROUTES = {
     management: {
       view: '/projects/:projectId/management',
       landing: '/',
+      new: '/projects/:projectId/management/new',
     },
   },
   management: {
@@ -39,6 +40,7 @@ export const ROUTES = {
     contributors: '/managements/:managementId/contributors',
     decisions: '/managements/:managementId/decisions',
     financial: '/managements/:managementId/financial',
+    new: '/managements/new',
   },
   profile: {
     view: '/profile/:profileId',

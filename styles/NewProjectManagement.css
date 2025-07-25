@@ -1,6 +1,4 @@
 /* New Project Management Styles */
-.NewProjectManagementLayout__Page__Body {}
-
 .new-project-management {
   min-height: 100vh;
   background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
@@ -28,18 +26,20 @@
 /* Header Section */
 .header-section {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .main-title {
   color: #0a2239;
   font-weight: 700;
   margin-bottom: 0.5rem;
+  font-size: 2rem;
 }
 
 .main-subtitle {
   color: #64748b;
   font-weight: 400;
+  font-size: 1rem;
 }
 
 /* Stepper Container */
@@ -49,11 +49,11 @@
   border: 1px solid rgba(255, 255, 255, 0.2);
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
-  padding: 2rem;
+  padding: 1.5rem;
 }
 
 .stepper {
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .step-icon {
@@ -67,6 +67,7 @@
   background: #e2e8f0;
   color: #64748b;
   transition: all 0.3s ease;
+  font-size: 0.875rem;
 }
 
 .step-icon.active {
@@ -79,28 +80,34 @@
   color: white;
 }
 
+.step-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
 /* Step Content */
 .step-content-container {
-  min-height: 500px;
-  margin-bottom: 2rem;
+  min-height: 400px;
+  margin-bottom: 1.5rem;
 }
 
 .step-content {
-  max-width: 800px;
-  margin: 0 auto;
+  max-width: 100%;
 }
 
 .step-title {
   color: #0a2239;
   font-weight: 600;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
   text-align: center;
+  font-size: 1.5rem;
 }
 
 .step-description {
   color: #64748b;
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
 }
 
 /* Form Sections */
@@ -111,11 +118,20 @@
 }
 
 .form-field {
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
 }
 
 .section-header {
-  margin: 2rem 0 1rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1.5rem 0 1rem 0;
+}
+
+.section-header h6 {
+  color: #0a2239;
+  font-weight: 600;
+  margin: 0;
 }
 
 .section-subtitle {
@@ -124,9 +140,14 @@
   margin-bottom: 1rem;
 }
 
+/* Setup Toggles Grid */
+.setup-toggles {
+  margin-top: 1.5rem;
+}
+
 /* Toggle Sections */
 .toggle-section {
-  margin: 2rem 0;
+  margin: 1rem 0;
 }
 
 .toggle-header {
@@ -136,27 +157,35 @@
   margin-bottom: 1rem;
 }
 
-.toggle-options {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+.toggle-header h6 {
+  margin: 0;
+  font-size: 1rem;
 }
 
-.toggle-options.small {
+.toggle-options {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.toggle-options.vertical {
+  flex-direction: column;
+}
+
+.toggle-options.horizontal {
   flex-direction: row;
-  gap: 0.5rem;
 }
 
 .toggle-option {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  padding: 1rem;
+  gap: 0.75rem;
+  padding: 0.875rem;
   border: 2px solid #e2e8f0;
   border-radius: 12px;
   cursor: pointer;
   transition: all 0.3s ease;
   background: white;
+  min-height: 60px;
 }
 
 .toggle-option:hover {
@@ -170,40 +199,69 @@
   background: rgba(10, 34, 57, 0.05);
 }
 
-.toggle-options.small .toggle-option {
+.toggle-icon {
+  color: #0a2239;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.toggle-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.toggle-content .MuiTypography-subtitle1 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 0.25rem;
+}
+
+.toggle-content .MuiTypography-body2 {
+  font-size: 0.8rem;
+  line-height: 1.3;
+}
+
+.toggle-options.horizontal .toggle-option {
   flex: 1;
   justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  gap: 0.5rem;
   padding: 0.75rem;
+  min-height: 80px;
 }
 
 /* Pattern Selector */
 .pattern-selector {
-  margin: 1.5rem 0;
+  margin: 1rem 0;
 }
 
 .pattern-title {
   color: #0a2239;
   font-weight: 600;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
 }
 
 .pattern-options {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 0.75rem;
 }
 
 .pattern-option {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1rem;
+  padding: 0.75rem;
   border: 2px solid #e2e8f0;
   border-radius: 12px;
   cursor: pointer;
   transition: all 0.3s ease;
   background: white;
   text-align: center;
+  min-height: 120px;
 }
 
 .pattern-option:hover {
@@ -222,7 +280,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 50px;
+  height: 40px;
+}
+
+.pattern-option .MuiTypography-subtitle2 {
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.pattern-option .MuiTypography-caption {
+  font-size: 0.7rem;
+  line-height: 1.2;
 }
 
 /* Accordion Styles */
@@ -230,6 +299,15 @@
   margin: 1rem 0;
   border: 1px solid #e2e8f0;
   border-radius: 8px;
+  box-shadow: none;
+}
+
+.accordion-summary {
+  min-height: 48px;
+}
+
+.accordion-summary .MuiAccordionSummary-expandIconWrapper {
+  color: #0a2239;
 }
 
 .accordion-content {
@@ -240,12 +318,12 @@
 
 /* Slider Styles */
 .slider-field {
-  margin: 1.5rem 0;
+  margin: 1rem 0;
 }
 
 .ownership-slider {
   color: #0a2239;
-  margin-top: 1rem;
+  margin-top: 0.75rem;
 }
 
 .ownership-slider .MuiSlider-thumb {
@@ -258,18 +336,19 @@
 
 /* Currency Section */
 .currency-section {
-  margin: 2rem 0;
+  margin: 1rem 0;
 }
 
 .currency-chips {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-top: 1rem;
+  margin-top: 0.75rem;
 }
 
 .currency-chip {
   transition: all 0.3s ease;
+  font-size: 0.8rem;
 }
 
 .currency-chip:hover {
@@ -278,35 +357,23 @@
 
 /* Distribution Trigger */
 .distribution-trigger-section {
-  margin: 2rem 0;
+  margin: 1rem 0;
 }
 
-.trigger-options {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin-top: 1rem;
-}
-
-.trigger-amount {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-}
-
-.amount-field {
-  flex: 1;
-}
-
-.currency-select {
-  min-width: 100px;
+/* Regular Tasks Section */
+.regular-tasks-section {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: rgba(10, 34, 57, 0.02);
+  border-radius: 12px;
+  border: 1px solid rgba(10, 34, 57, 0.1);
 }
 
 /* Step Actions */
 .step-actions {
   display: flex;
   align-items: center;
-  padding-top: 2rem;
+  padding-top: 1.5rem;
   border-top: 1px solid #e2e8f0;
 }
 
@@ -317,6 +384,7 @@
 .back-button {
   color: #64748b;
   border-color: #e2e8f0;
+  padding: 0.5rem 1.5rem;
 }
 
 .back-button:hover {
@@ -328,7 +396,7 @@
 .submit-button {
   background: linear-gradient(45deg, #0a2239 0%, #1b5993 100%);
   color: white;
-  padding: 0.75rem 2rem;
+  padding: 0.5rem 1.5rem;
   font-weight: 600;
 }
 
@@ -339,49 +407,150 @@
   box-shadow: 0 4px 12px rgba(10, 34, 57, 0.3);
 }
 
-/* Regular Tasks Section */
-.regular-tasks-section {
-  margin: 2rem 0;
-  padding: 1.5rem;
-  background: rgba(10, 34, 57, 0.02);
-  border-radius: 12px;
-  border: 1px solid rgba(10, 34, 57, 0.1);
-}
-
-/* Responsive Design */
+/* Mobile Responsive Design */
 @media (max-width: 768px) {
   .new-project-management {
-    padding: 1rem 0;
+    padding: 0.5rem 0;
   }
 
   .stepper-container {
     padding: 1rem;
+    margin: 0 0.5rem;
   }
 
-  .toggle-options {
+  .main-title {
+    font-size: 1.5rem;
+  }
+
+  .main-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .step-title {
+    font-size: 1.25rem;
+  }
+
+  .step-description {
+    font-size: 0.9rem;
+  }
+
+  .stepper {
+    margin-bottom: 1.5rem;
+  }
+
+  .step-label {
+    font-size: 0.75rem;
+  }
+
+  .step-icon {
+    width: 28px;
+    height: 28px;
+    font-size: 0.75rem;
+  }
+
+  .toggle-options.vertical {
     gap: 0.5rem;
   }
 
   .toggle-option {
     padding: 0.75rem;
+    min-height: 50px;
+  }
+
+  .toggle-content .MuiTypography-subtitle1 {
+    font-size: 0.85rem;
+  }
+
+  .toggle-content .MuiTypography-body2 {
+    font-size: 0.75rem;
   }
 
   .pattern-options {
     grid-template-columns: 1fr;
+    gap: 0.5rem;
   }
 
-  .trigger-amount {
-    flex-direction: column;
-    align-items: stretch;
+  .pattern-option {
+    min-height: 100px;
+    padding: 0.5rem;
+  }
+
+  .pattern-image {
+    height: 30px;
   }
 
   .step-actions {
     flex-direction: column;
     gap: 1rem;
+    padding-top: 1rem;
   }
 
   .spacer {
     display: none;
+  }
+
+  .back-button,
+  .next-button,
+  .submit-button {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .currency-chips {
+    justify-content: center;
+  }
+
+  .setup-toggles {
+    margin-top: 1rem;
+  }
+
+  .section-header {
+    margin: 1rem 0 0.75rem 0;
+  }
+
+  .form-section {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .stepper-container {
+    margin: 0 0.25rem;
+    padding: 0.75rem;
+  }
+
+  .main-title {
+    font-size: 1.25rem;
+  }
+
+  .step-title {
+    font-size: 1.1rem;
+  }
+
+  .toggle-option {
+    padding: 0.5rem;
+    gap: 0.5rem;
+  }
+
+  .toggle-content .MuiTypography-subtitle1 {
+    font-size: 0.8rem;
+  }
+
+  .toggle-content .MuiTypography-body2 {
+    font-size: 0.7rem;
+  }
+
+  .pattern-option {
+    min-height: 80px;
+    padding: 0.4rem;
+  }
+
+  .pattern-option .MuiTypography-subtitle2 {
+    font-size: 0.75rem;
+  }
+
+  .pattern-option .MuiTypography-caption {
+    font-size: 0.65rem;
   }
 }
 
@@ -395,7 +564,6 @@
     opacity: 0;
     transform: translateY(20px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);

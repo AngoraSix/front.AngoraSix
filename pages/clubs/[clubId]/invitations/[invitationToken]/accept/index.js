@@ -61,7 +61,7 @@ export const getServerSideProps = async (ctx) => {
 
   const { clubId, invitationToken } = ctx.params;
   const session = await getSession(ctx);
-  const validatedToken = obtainValidatedToken(ctx.req);
+  const validatedToken = await obtainValidatedToken(ctx.req);
 
   if (validatedToken) {
     try {

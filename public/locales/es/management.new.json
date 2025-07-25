@@ -1,5 +1,10 @@
 {
-  "title": "Crear Nuevo Proyecto",
+  "page": {
+    "title": "Nueva gestión de proyecto",
+    "description": "Crear y configurar una nueva gestión de proyecto para tu proyecto colaborativo"
+  },
+  "title": "Crear nuevo proyecto",
+  "titleForProject": "Crear nueva configuración de gestión para \"{{projectName}}\"",
   "subtitle": "Configura tu proyecto colaborativo con AngoraSix",
   "stepper": {
     "basicSetup": "Configuración Básica",
@@ -24,7 +29,7 @@
   },
   "fields": {
     "projectName": "Nombre del Proyecto",
-    "currentStage": "Etapa Actual",
+    "status": "Etapa Actual",
     "ownershipSetup": "Configuración de Propiedad",
     "financialSetup": "Configuración Financiera",
     "startupTasks": "Incluir tareas de startup en seguimiento de propiedad",
@@ -43,6 +48,7 @@
     "distributionTrigger": "Disparador de Distribución",
     "triggerType": "Tipo de Disparador",
     "triggerAmount": "Cantidad",
+    "currency": "Moneda",
     "reEvaluationFrequency": "Frecuencia de Re-evaluación"
   },
   "stages": {
@@ -86,7 +92,10 @@
   "sections": {
     "ownershipViaTasks": "Propiedad vía Tareas",
     "regularTasks": "Propiedad de Tareas Regulares",
-    "governance": "Gobernanza"
+    "governance": "Gobernanza",
+    "profitSharing": "Participación en Ganancias",
+    "currencies": "Monedas",
+    "distributionTrigger": "Disparador de Distribución"
   },
   "accordions": {
     "startupSettings": "Configuración de Tareas de Startup",
@@ -104,7 +113,12 @@
   },
   "tooltips": {
     "ownershipSetup": "Selecciona si AngoraSix debe ayudarte a gestionar y calcular la propiedad basada en contribuciones rastreadas.",
-    "financialSetup": "Selecciona si quieres que AngoraSix ayude a rastrear, gestionar y distribuir las ganancias del proyecto."
+    "financialSetup": "Selecciona si quieres que AngoraSix ayude a rastrear, gestionar y distribuir las ganancias del proyecto.",
+    "ownershipViaTasks": "Configura cómo las contribuciones a las tareas se traducen en propiedad del proyecto. Todas las configuraciones aquí son predeterminadas que pueden ser anuladas por tarea.",
+    "governance": "Configura las reglas de toma de decisiones y mecanismos de votación para tu proyecto. Esto incluye círculos de coordinación para decisiones operativas y límites de votación para prevenir dominancia.",
+    "profitSharing": "Configura cómo las ganancias del proyecto serán distribuidas entre los contribuidores basado en sus participaciones de propiedad.",
+    "currencies": "Selecciona qué monedas soportará tu proyecto para pagos y participación en ganancias.",
+    "distributionTrigger": "Define las condiciones que activarán una votación sobre si comenzar a distribuir ganancias a los contribuidores."
   },
   "actions": {
     "back": "Atrás",

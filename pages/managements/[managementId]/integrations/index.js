@@ -73,14 +73,14 @@ export const getServerSideProps = async (ctx) => {
   let props = { isAdmin: false };
   const { managementId } = ctx.params;
   const session = await getSession(ctx);
-  const validatedToken = obtainValidatedToken(ctx.req);
+  const validatedToken = await obtainValidatedToken(ctx.req);
   try {
     const sourceSyncsResponseData = await api.managementIntegrations.listSourceSyncsForProjectManagement(
       managementId,
       validatedToken
     );
 
-    const projectManagement = await api.projects.getProjectManagement(
+    const projectManagement = await api.management.getProjectManagement(
       managementId,
       validatedToken
     );

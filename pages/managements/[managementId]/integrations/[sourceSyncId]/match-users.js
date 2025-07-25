@@ -74,10 +74,10 @@ export const getServerSideProps = async (ctx) => {
   const { managementId, sourceSyncId } = ctx.params;
   const { myQueryParam } = ctx.query;
   const session = await getSession(ctx);
-  const validatedToken = obtainValidatedToken(ctx.req);
+  const validatedToken = await obtainValidatedToken(ctx.req);
 
   try {
-    const projectManagementResponse = await api.projects.getProjectManagement(
+    const projectManagementResponse = await api.management.getProjectManagement(
       managementId,
       validatedToken
     );

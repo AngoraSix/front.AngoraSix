@@ -81,16 +81,17 @@ ProjectManagementViewPage.propTypes = {
 
 export const getServerSideProps = async (ctx) => {
   let props = { isAdmin: false };
-
   const { managementId } = ctx.params;
   const session = await getSession(ctx);
-  const validatedToken = obtainValidatedToken(ctx.req);
+  const validatedToken = await obtainValidatedToken(ctx.req);
+  console.log("GGGGGGG00000", validatedToken)
 
   try {
-    const projectManagement = await api.projects.getProjectManagement(
+    const projectManagement = await api.management.getProjectManagement(
       managementId,
       validatedToken
     );
+    console.log("GGGGGGG11111", projectManagement);
 
     const project = projectManagement.project;
     const projectManagementActions = {};
@@ -101,13 +102,17 @@ export const getServerSideProps = async (ctx) => {
         validatedToken
       );
 
+      console.log("GGGGGGG22222", projectManagementTasksStats);
+
     const projectManagementAccountingStats =
       await api.managementAccounting.resolveProjectManagementAccounting(
         managementId,
         validatedToken
       );
+    console.log("GGGGGGG33333", projectManagementAccountingStats);
     const projectContributorIds = projectManagementTasksStats.project.contributors.map(c => c.contributorId);
     const contributorsData = await api.contributors.listContributors(projectContributorIds, validatedToken);
+    console.log("GGGGGGG44444", contributorsData);
     props = {
       ...props,
       project,
@@ -120,6 +125,7 @@ export const getServerSideProps = async (ctx) => {
     };
   } catch (err) {
     logger.error('err', err);
+    console.log("GGGGGGG55555", err);
   }
   return {
     props: {
