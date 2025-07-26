@@ -42,7 +42,7 @@ class FrontAPI {
     projectManagementId,
     projectId
   ) {
-    const { data } = projectManagementId
+    const response = projectManagementId
       ? await this.axios.put(
         `api/projects/${projectId}/management/${projectManagementId}`,
         projectManagementBody
@@ -51,7 +51,7 @@ class FrontAPI {
         `api/projects/${projectId}/management`,
         projectManagementBody
       );
-    return data;
+    return response;
   }
 
   async getSourceSync(sourceSyncId) {

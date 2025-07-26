@@ -990,8 +990,6 @@ const NewProjectManagement = ({ onSubmit, project }) => {
     </div>
   )
 
-  console.log(formData.distributionTriggerCurrency);
-
   return (
     <>
       <Head>

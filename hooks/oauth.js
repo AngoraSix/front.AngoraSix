@@ -29,12 +29,9 @@ export const useAndCheckActiveToken = () => {
   const { doLoad } = useLoading();
 
   useEffect(() => {
-    
-    console.log("GERGERGER111111");
     const shouldReauth = session?.error === 'RefreshAccessTokenError' || session?.error === "SessionExpired";
     doLoad(shouldReauth);
-    
-    console.log("GERGERGER2", shouldReauth);
+
     const identityProvider = session?.user?.identityProvider;
     if (shouldReauth) {
       signIn(

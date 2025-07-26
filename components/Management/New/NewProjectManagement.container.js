@@ -1,14 +1,19 @@
 "use client"
 
+import { useRouter } from "next/router"
 import PropTypes from "prop-types"
 import api from "../../../api"
 import config from "../../../config"
-import { useAndCheckActiveToken } from "../../../hooks/oauth"
+import { ROUTES } from "../../../constants/constants"
+import { useNotifications } from "../../../hooks/app"
+import { resolveRoute } from '../../../utils/api/apiHelper'
+import logger from "../../../utils/logger"
 import NewProjectManagement from "./NewProjectManagement.component"
 
 const NewProjectManagementContainer = ({ project }) => {
+  const { onSuccess, onError } = useNotifications()
+  const router = useRouter()
   const onSubmit = async (formData) => {
-    console.log("GERBOOO", formData)
     try {
       let projectId = project?.id
       // we have to send first to create project, if it's not created yet (if project is null)
@@ -31,10 +36,13 @@ const NewProjectManagementContainer = ({ project }) => {
         }
       }
 
-      const newProjectMgmtResponse = await api.front.saveProjectManagement(mgmtBody, null, projectId)
-      return newProjectMgmtResponse
+      const { data: newProjectMgmt } = await api.front.saveProjectManagement(mgmtBody, null, projectId);
+      onSuccess("Project management created successfully")
+      router.push(resolveRoute(ROUTES.management.dashboard, newProjectMgmt.id));
+      return newProjectMgmt
     } catch (error) {
-      console.error("Error creating project management:", error)
+      onError("Error creating project management")
+      logger.error("Error creating project management:", error)
       // Handle error appropriately
     }
   }

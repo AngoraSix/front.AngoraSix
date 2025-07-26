@@ -70,7 +70,7 @@ class ProjectsManagementAPI {
       this.axios.getBaseURL()
     );
 
-    const { data } = await this.axios[projectManagementId ? 'put' : 'post'](
+    const response = await this.axios[projectManagementId ? 'put' : 'post'](
       projectManagementId ? `/${projectManagementId}` : `/${projectId}/management`,
       projectManagement,
       {
@@ -81,7 +81,7 @@ class ProjectsManagementAPI {
         },
       }
     );
-    return data;
+    return response;
   }
 }
 
