@@ -3,11 +3,14 @@
 import {
   AccountBalance as AccountBalanceIcon,
   Business as BusinessIcon,
+  Business as BusinessOperationalIcon,
   CheckCircle as CheckCircleIcon,
   ExpandLess as ExpandLessIcon,
   ExpandMore as ExpandMoreIcon,
   Info as InfoIcon,
+  Lightbulb as LightbulbIcon,
   Payment as PaymentIcon,
+  Rocket as RocketIcon,
   Settings as SettingsIcon,
   TrendingUp as TrendingUpIcon,
 } from "@mui/icons-material"
@@ -52,14 +55,12 @@ const NewProjectManagement = ({ onSubmit, project }) => {
 
     // Step 2 - Ownership & Governance
     ownershipSetup: "angorasix",
-    startupTasksEnabled: true,
-    startupTasksFading: true,
-    startupFadingPeriod: 30,
-    startupFadingPattern: "LINEAR_DOWN",
-    regularFadingPeriod: 3,
-    regularFadingPattern: "LINEAR_DOWN",
-    coordinationCircleEnabled: true,
-    ownershipVotingLimit: 35,
+    ownershipEphemeralEnabled: true,
+    startupEphemeralPeriod: 30,
+    ephemeralPattern: "LINEAR_DOWN",
+    regularEphemeralPeriod: 3,
+    coordinationGroupEnabled: true,
+    ownershipVotingLimit: 40,
     decisionQuorum: 1,
 
     // Step 3 - Finances & Retribution
@@ -67,7 +68,7 @@ const NewProjectManagement = ({ onSubmit, project }) => {
     profitSharingEnabled: true,
     profitPayoutStrategy: "vesting",
     profitVestingPeriod: 3,
-    profitVestingPattern: "LINEAR_DOWN",
+    financialProfitVestingPattern: "MID_PEAK",
     supportedCurrencies: ["USD"],
     generalVsPerCurrency: false,
     distributionTriggerType: "TOTAL_INCOME_THRESHOLD",
@@ -94,24 +95,45 @@ const NewProjectManagement = ({ onSubmit, project }) => {
     { value: "OPERATIONAL", label: t("stages.operational") },
   ]
 
-  const fadingPatterns = [
+  const ownershipEphemeralPatterns = [
     {
       id: "LINEAR_DOWN",
-      name: t("patterns.linearDown.name"),
-      description: t("patterns.linearDown.desc"),
+      name: t("patterns.ephemeral.linearDown.name"),
+      description: t("patterns.ephemeral.linearDown.desc"),
+      image: "/images/resources/linear-down.png",
+    },
+    {
+      id: "UNIFORM",
+      name: t("patterns.ephemeral.constant.name"),
+      description: t("patterns.ephemeral.constant.desc"),
+      image: "/images/resources/step.png",
+    },
+  ]
+
+  const financialVestingPatterns = [
+    {
+      id: "MID_PEAK",
+      name: t("patterns.vesting.midPeak.name"),
+      description: t("patterns.vesting.midPeak.desc"),
+      image: "/images/resources/linear-up-down.png",
+    },
+    {
+      id: "LINEAR_DOWN",
+      name: t("patterns.vesting.linearDown.name"),
+      description: t("patterns.vesting.linearDown.desc"),
       image: "/images/resources/linear-down.png",
     },
     {
       id: "LINEAR_UP",
-      name: t("patterns.linearUp.name"),
-      description: t("patterns.linearUp.desc"),
+      name: t("patterns.vesting.linearUp.name"),
+      description: t("patterns.vesting.linearUp.desc"),
       image: "/images/resources/linear-up.png",
     },
     {
       id: "UNIFORM",
-      name: t("patterns.uniform.name"),
-      description: t("patterns.uniform.desc"),
-      image: "/images/resources/linear-up-down.png",
+      name: t("patterns.vesting.constant.name"),
+      description: t("patterns.vesting.constant.desc"),
+      image: "/images/resources/step.png",
     },
   ]
 
@@ -165,15 +187,13 @@ const NewProjectManagement = ({ onSubmit, project }) => {
             [bylawOwnershipKeys.isOwnershipA6Managed]: formData.ownershipSetup === "angorasix",
           },
           [bylawCategories.ownershipTasks]: {
-            [bylawOwnershipKeys.startupTasksEnabled]: formData.startupTasksEnabled,
-            [bylawOwnershipKeys.startupTasksFadingEnabled]: formData.startupTasksFading,
-            [bylawOwnershipKeys.startupRetributionPeriod]: `P${formData.startupFadingPeriod}Y`,
-            [bylawOwnershipKeys.startupRetributionPattern]: formData.startupFadingPattern,
-            [bylawOwnershipKeys.regularRetributionPeriod]: `P${formData.regularFadingPeriod}Y`,
-            [bylawOwnershipKeys.regularRetributionPattern]: formData.regularFadingPattern,
+            [bylawOwnershipKeys.ownershipEphemeralEnabled]: formData.ownershipEphemeralEnabled,
+            [bylawOwnershipKeys.startupEphemeralPeriod]: `P${formData.startupEphemeralPeriod}Y`,
+            [bylawOwnershipKeys.regularEphemeralPeriod]: `P${formData.regularEphemeralPeriod}Y`,
+            [bylawOwnershipKeys.ephemeralPattern]: formData.ephemeralPattern,
           },
           [bylawCategories.ownershipGovernance]: {
-            [bylawOwnershipKeys.coordinationCircleEnabled]: formData.coordinationCircleEnabled,
+            [bylawOwnershipKeys.coordinationGroupEnabled]: formData.coordinationGroupEnabled,
             [bylawOwnershipKeys.ownershipVotingLimit]: formData.ownershipVotingLimit,
             [bylawOwnershipKeys.decisionMinimumQuorum]: formData.decisionQuorum,
           },
@@ -182,14 +202,14 @@ const NewProjectManagement = ({ onSubmit, project }) => {
             [bylawFinancialKeys.profitSharesVestingEnabled]: formData.profitPayoutStrategy === "vesting",
             [bylawFinancialKeys.profitSharesVestingPeriod]:
               formData.profitPayoutStrategy === "vesting" ? "MATCH_OWNERSHIP_FADING" : "IMMEDIATE",
-            [bylawFinancialKeys.profitSharesVestingPattern]: formData.profitVestingPattern,
+            [bylawFinancialKeys.profitSharesVestingPattern]: formData.financialProfitVestingPattern,
           },
           [bylawCategories.financialCurrencies]: {
             [bylawFinancialKeys.financialCurrencies]: formData.supportedCurrencies,
             [bylawFinancialKeys.currencyVestingEnabled]: formData.profitPayoutStrategy === "vesting",
             [bylawFinancialKeys.currencyVestingPeriod]:
               formData.profitPayoutStrategy === "vesting" ? "MATCH_OWNERSHIP_FADING" : "IMMEDIATE",
-            [bylawFinancialKeys.currencyVestingPattern]: formData.profitVestingPattern,
+            [bylawFinancialKeys.currencyVestingPattern]: formData.financialProfitVestingPattern,
           },
           [bylawCategories.financialGeneral]: {
             [bylawFinancialKeys.isFinancialA6Managed]: formData.financialSetup === "angorasix",
@@ -242,20 +262,29 @@ const NewProjectManagement = ({ onSubmit, project }) => {
             variant="outlined"
           />
 
-          <FormControl fullWidth className="status-field">
-            <InputLabel>{t("fields.status")}</InputLabel>
-            <Select
-              value={formData.status}
-              onChange={(e) => handleInputChange("status", e.target.value)}
-              label={t("fields.status")}
-            >
+          <div className="status-toggle-section">
+            <Typography variant="h6" className="status-toggle-title">
+              {t("fields.status")}
+            </Typography>
+            <div className="status-toggle-options">
               {stageOptions.map((option) => (
-                <MenuItem key={option.value} value={option.value}>
-                  {option.label}
-                </MenuItem>
+                <div
+                  key={option.value}
+                  className={`status-toggle-option ${formData.status === option.value ? "active" : ""}`}
+                  onClick={() => handleInputChange("status", option.value)}
+                >
+                  <div className="status-toggle-icon">
+                    {option.value === "IDEA" && <LightbulbIcon />}
+                    {option.value === "STARTUP" && <RocketIcon />}
+                    {option.value === "OPERATIONAL" && <BusinessOperationalIcon />}
+                  </div>
+                  <Typography variant="body1" className="status-toggle-label">
+                    {option.label}
+                  </Typography>
+                </div>
               ))}
-            </Select>
-          </FormControl>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -364,105 +393,64 @@ const NewProjectManagement = ({ onSubmit, project }) => {
           </Tooltip>
         </div>
 
-        <FormControlLabel
-          control={
-            <Switch
-              checked={formData.startupTasksEnabled}
-              onChange={(e) => handleInputChange("startupTasksEnabled", e.target.checked)}
-            />
-          }
-          label={t("fields.startupTasks")}
-          className="form-field"
-        />
-
-        {formData.startupTasksEnabled && (
-          <div className="startup-settings">
-            <FormControlLabel
-              control={
-                <Switch
-                  checked={formData.startupTasksFading}
-                  onChange={(e) => handleInputChange("startupTasksFading", e.target.checked)}
-                />
-              }
-              label={t("fields.startupFading")}
-            />
-
-            {formData.startupTasksFading && (
-              <Grid container spacing={3} className="fading-settings">
-                <Grid item xs={12} md={6}>
-                  <TextField
-                    fullWidth
-                    type="number"
-                    label={t("fields.fadingPeriod")}
-                    value={formData.startupFadingPeriod}
-                    onChange={(e) => handleInputChange("startupFadingPeriod", Number.parseInt(e.target.value))}
-                    InputProps={{ inputProps: { min: 1, max: 100 } }}
-                  />
-                </Grid>
-                <Grid item xs={12} md={6}>
-                  <div className="pattern-selector-compact">
-                    <Typography variant="subtitle1">{t("fields.fadingPattern")}</Typography>
-                    <div className="pattern-options-compact">
-                      {fadingPatterns.map((pattern) => (
-                        <div
-                          key={pattern.id}
-                          className={`pattern-option-compact ${formData.startupFadingPattern === pattern.id ? "selected" : ""}`}
-                          onClick={() => handleInputChange("startupFadingPattern", pattern.id)}
-                        >
-                          <div className="pattern-image-compact">
-                            <Image
-                              src={pattern.image || "/placeholder.svg"}
-                              alt={pattern.name}
-                              width={30}
-                              height={20}
-                            />
-                          </div>
-                          <Typography variant="caption">{pattern.name}</Typography>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </Grid>
-              </Grid>
-            )}
-          </div>
-        )}
-
-        <div className="regular-tasks-settings">
-          <Typography variant="subtitle1" className="subsection-title">
-            {t("sections.regularTasks")}
-          </Typography>
-          <Grid container spacing={3}>
-            <Grid item xs={12} md={6}>
-              <TextField
-                fullWidth
-                type="number"
-                label={t("fields.regularFadingPeriod")}
-                value={formData.regularFadingPeriod}
-                onChange={(e) => handleInputChange("regularFadingPeriod", Number.parseInt(e.target.value))}
-                InputProps={{ inputProps: { min: 1, max: 20 } }}
+        <div className="startup-settings">
+          <FormControlLabel
+            control={
+              <Switch
+                checked={formData.ownershipEphemeralEnabled}
+                onChange={(e) => handleInputChange("ownershipEphemeralEnabled", e.target.checked)}
               />
-            </Grid>
-            <Grid item xs={12} md={6}>
-              <div className="pattern-selector-compact">
-                <Typography variant="subtitle1">{t("fields.fadingPattern")}</Typography>
-                <div className="pattern-options-compact">
-                  {fadingPatterns.map((pattern) => (
-                    <div
-                      key={pattern.id}
-                      className={`pattern-option-compact ${formData.regularFadingPattern === pattern.id ? "selected" : ""}`}
-                      onClick={() => handleInputChange("regularFadingPattern", pattern.id)}
-                    >
-                      <div className="pattern-image-compact">
-                        <Image src={pattern.image || "/placeholder.svg"} alt={pattern.name} width={30} height={20} />
+            }
+            label={t("fields.ownershipEphemeralEnabled")}
+          />
+
+          {formData.ownershipEphemeralEnabled && (
+            <Grid container spacing={3} className="fading-settings">
+              <Grid item xs={12} md={6}>
+                <TextField
+                  fullWidth
+                  type="number"
+                  label={t("fields.startupEphemeralPeriod")}
+                  value={formData.startupEphemeralPeriod}
+                  onChange={(e) => handleInputChange("startupEphemeralPeriod", Number.parseInt(e.target.value))}
+                  InputProps={{ inputProps: { min: 1, max: 100 } }}
+                />
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <TextField
+                  fullWidth
+                  type="number"
+                  label={t("fields.regularEphemeralPeriod")}
+                  value={formData.regularEphemeralPeriod}
+                  onChange={(e) => handleInputChange("regularEphemeralPeriod", Number.parseInt(e.target.value))}
+                  InputProps={{ inputProps: { min: 1, max: 20 } }}
+                />
+              </Grid>
+              <Grid item xs={12} md={12}>
+                <div className="pattern-selector-compact">
+                  <Typography variant="subtitle1">{t("fields.ephemeralPattern")}</Typography>
+                  <div className="pattern-options-compact">
+                    {ownershipEphemeralPatterns.map((pattern) => (
+                      <div
+                        key={pattern.id}
+                        className={`pattern-option-compact ${formData.ephemeralPattern === pattern.id ? "selected" : ""}`}
+                        onClick={() => handleInputChange("ephemeralPattern", pattern.id)}
+                      >
+                        <div className="pattern-image-compact-container">
+                          <Image
+                            src={pattern.image || "/placeholder.svg"}
+                            alt={pattern.name}
+                            fill
+                          />
+                        </div>
+                        <Typography variant="caption">{pattern.name}</Typography>
                       </div>
-                      <Typography variant="caption">{pattern.name}</Typography>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
-              </div>
+              </Grid>
             </Grid>
-          </Grid>
+          )}
         </div>
       </div>
 
@@ -481,11 +469,11 @@ const NewProjectManagement = ({ onSubmit, project }) => {
             <FormControlLabel
               control={
                 <Switch
-                  checked={formData.coordinationCircleEnabled}
-                  onChange={(e) => handleInputChange("coordinationCircleEnabled", e.target.checked)}
+                  checked={formData.coordinationGroupEnabled}
+                  onChange={(e) => handleInputChange("coordinationGroupEnabled", e.target.checked)}
                 />
               }
-              label={t("fields.coordinationCircle")}
+              label={t("fields.coordinationGroup")}
             />
 
             <div className="slider-field">
@@ -657,7 +645,7 @@ const NewProjectManagement = ({ onSubmit, project }) => {
 
             {formData.profitPayoutStrategy === "vesting" && (
               <Grid container spacing={3} className="vesting-settings">
-                <Grid item xs={12} md={6}>
+                <Grid item xs={12} md={4}>
                   <TextField
                     fullWidth
                     type="number"
@@ -667,22 +655,21 @@ const NewProjectManagement = ({ onSubmit, project }) => {
                     InputProps={{ inputProps: { min: 1, max: 20 } }}
                   />
                 </Grid>
-                <Grid item xs={12} md={6}>
+                <Grid item xs={12} md={8}>
                   <div className="pattern-selector-compact">
                     <Typography variant="subtitle1">{t("fields.vestingPattern")}</Typography>
                     <div className="pattern-options-compact">
-                      {fadingPatterns.map((pattern) => (
+                      {financialVestingPatterns.map((pattern) => (
                         <div
                           key={pattern.id}
-                          className={`pattern-option-compact ${formData.profitVestingPattern === pattern.id ? "selected" : ""}`}
-                          onClick={() => handleInputChange("profitVestingPattern", pattern.id)}
+                          className={`pattern-option-compact ${formData.financialProfitVestingPattern === pattern.id ? "selected" : ""}`}
+                          onClick={() => handleInputChange("financialProfitVestingPattern", pattern.id)}
                         >
-                          <div className="pattern-image-compact">
+                          <div className="pattern-image-compact-container">
                             <Image
                               src={pattern.image || "/placeholder.svg"}
                               alt={pattern.name}
-                              width={30}
-                              height={20}
+                              fill
                             />
                           </div>
                           <Typography variant="caption">{pattern.name}</Typography>
@@ -846,13 +833,32 @@ const NewProjectManagement = ({ onSubmit, project }) => {
               ))}
             </Stepper>
 
+            {/* Top Navigation */}
+            <div className="top-step-actions">
+              <Button disabled={activeStep === 0} onClick={handleBack} className="back-button">
+                {t("actions.back")}
+              </Button>
+              <div className="spacer" />
+              {activeStep === steps.length - 1 ? (
+                <Button variant="contained" onClick={handleSubmit} className="submit-button">
+                  {t("actions.createProject")}
+                </Button>
+              ) : (
+                <Button variant="contained" onClick={handleNext} className="next-button">
+                  {t("actions.next")}
+                </Button>
+              )}
+            </div>
+
             <div className="step-content-container">
               <Fade in key={activeStep}>
                 <div>{renderStepContent(activeStep)}</div>
               </Fade>
             </div>
 
-            <div className="step-actions">
+            <div
+              className='step-actions'
+            >
               <Button disabled={activeStep === 0} onClick={handleBack} className="back-button">
                 {t("actions.back")}
               </Button>
@@ -875,7 +881,7 @@ const NewProjectManagement = ({ onSubmit, project }) => {
 }
 
 NewProjectManagement.defaultProps = {
-  onSubmit: () => {},
+  onSubmit: () => { },
 }
 
 export default NewProjectManagement

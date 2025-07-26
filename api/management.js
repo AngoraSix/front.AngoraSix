@@ -54,7 +54,6 @@ class ProjectsManagementAPI {
         }
       }
     );
-    console.log("GERGERGERGER", response);
     return response;
   }
 

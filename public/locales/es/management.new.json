@@ -30,12 +30,11 @@
     "status": "Etapa Actual",
     "ownershipSetup": "Gestión de Propiedad",
     "financialSetup": "Gestión Financiera",
-    "startupTasks": "Incluir tareas de startup en seguimiento de propiedad",
-    "startupFading": "Habilitar desvanecimiento para tareas de startup",
-    "fadingPeriod": "Período de Desvanecimiento (años)",
-    "fadingPattern": "Patrón de Desvanecimiento",
-    "regularFadingPeriod": "Período de Desvanecimiento Tareas Regulares (años)",
-    "coordinationCircle": "Habilitar Círculo de Coordinación",
+    "ownershipEphemeralEnabled": "Propiedad Efímera",
+    "startupEphemeralPeriod": "Período de vigencia de tareas Startup (años)",
+    "regularEphemeralPeriod": "Período de vigencia de tareas Regulares (años)",
+    "ephemeralPattern": "Patrón de Vigencia",
+    "coordinationGroup": "Con Grupo de Coordinación",
     "ownershipVotingLimit": "Límite de Votación por Propiedad",
     "decisionQuorum": "Quórum de Decisión",
     "profitSharing": "Habilitar Participación en Ganancias",
@@ -83,22 +82,37 @@
     }
   },
   "patterns": {
-    "linearDown": {
-      "name": "Desvanecimiento gradual",
-      "desc": "Disminuye linealmente a 0"
+    "ephemeral": {
+      "linearDown": {
+        "name": "Desvanecimiento gradual",
+        "desc": "Disminuye linealmente a 0"
+      },
+      "constant": {
+        "name": "Constante",
+        "desc": "Distribución constante a lo largo del tiempo"
+      }
     },
-    "linearUp": {
-      "name": "Desvanecimiento abrupto",
-      "desc": "Se mantiene plano, luego cae a 0 súbitamente"
-    },
-    "uniform": {
-      "name": "Uniforme",
-      "desc": "Distribución consistente en el tiempo"
+    "vesting": {
+      "linearDown": {
+        "name": "Disminución gradual",
+        "desc": "Disminuye linealmente a 0"
+      },
+      "linearUp": {
+        "name": "Aumento gradual",
+        "desc": "Aumenta linealmente hasta un máximo"
+      },
+      "midPeak": {
+        "name": "Cresta Media",
+        "desc": "Aumenta linealmente hasta un máximo y luego disminuye a 0"
+      },
+      "constant": {
+        "name": "Constante",
+        "desc": "Distribución constante a lo largo del tiempo"
+      }
     }
   },
   "sections": {
     "ownershipViaTasks": "Propiedad vía Tareas",
-    "regularTasks": "Propiedad de Tareas Regulares",
     "governance": "Gobernanza",
     "profitSharing": "Participación en Ganancias",
     "currencies": "Monedas",
@@ -142,7 +156,7 @@
     "ownershipSetup": "Selecciona si AngoraSix debe ayudarte a gestionar y calcular la propiedad basada en contribuciones rastreadas.",
     "financialSetup": "Selecciona si quieres que AngoraSix ayude a rastrear, gestionar y distribuir las ganancias del proyecto.",
     "ownershipViaTasks": "Configura cómo las contribuciones a las tareas se traducen en propiedad del proyecto. Todas las configuraciones aquí son predeterminadas que pueden ser anuladas por tarea.",
-    "governance": "Configura las reglas de toma de decisiones y mecanismos de votación para tu proyecto. Esto incluye círculos de coordinación para decisiones operativas y límites de votación para prevenir dominancia.",
+    "governance": "Configura las reglas de toma de decisiones y mecanismos de votación para tu proyecto. El \"Grupo de Coordinación\" es un equipo de miembros responsables de las decisiones operativas diarias.",
     "profitSharing": "Configura cómo las ganancias del proyecto serán distribuidas entre los contribuidores basado en sus participaciones de propiedad.",
     "currencies": "Selecciona qué monedas soportará tu proyecto para pagos y participación en ganancias.",
     "distributionTrigger": "Define las condiciones que activarán una votación sobre si comenzar a distribuir ganancias a los contribuidores."

@@ -12,13 +12,12 @@ class Mgmt {
         };
         this.ownershipBylaws = {
             isOwnershipA6Managed: getFromEnvsOrElse(env, 'A6_APP_MGMT_BYLAWS_OWNERSHIP_OWNERSHIP_IS_A6MANAGED', 'OWNERSHIP_IS_A6MANAGED'),
-            startupTasksEnabled: getFromEnvsOrElse(env, 'A6_APP_MGMT_BYLAWS_OWNERSHIP_STARTUP_TASKS_ENABLED', 'STARTUP_TASKS_ENABLED'),
-            startupTasksFadingEnabled: getFromEnvsOrElse(env, 'A6_APP_MGMT_BYLAWS_OWNERSHIP_STARTUP_TASKS_FADING_ENABLED', 'STARTUP_TASKS_FADING_ENABLED'),
-            startupRetributionPeriod: getFromEnvsOrElse(env, 'A6_APP_MGMT_BYLAWS_OWNERSHIP_STARTUP_RETRIBUTION_PERIOD', 'STARTUP_RETRIBUTION_PERIOD'),
-            startupRetributionPattern: getFromEnvsOrElse(env, 'A6_APP_MGMT_BYLAWS_OWNERSHIP_STARTUP_RETRIBUTION_PATTERN', 'STARTUP_RETRIBUTION_PATTERN'),
-            regularRetributionPeriod: getFromEnvsOrElse(env, 'A6_APP_MGMT_BYLAWS_OWNERSHIP_REGULAR_RETRIBUTION_PERIOD', 'REGULAR_RETRIBUTION_PERIOD'),
-            regularRetributionPattern: getFromEnvsOrElse(env, 'A6_APP_MGMT_BYLAWS_OWNERSHIP_REGULAR_RETRIBUTION_PATTERN', 'REGULAR_RETRIBUTION_PATTERN'),
-            coordinationCircleEnabled: getFromEnvsOrElse(env, 'A6_APP_MGMT_BYLAWS_OWNERSHIP_COORDINATION_CIRCLE_ENABLED', 'COORDINATION_CIRCLE_ENABLED'),
+            // startupTasksEnabled: getFromEnvsOrElse(env, 'A6_APP_MGMT_BYLAWS_OWNERSHIP_STARTUP_TASKS_ENABLED', 'STARTUP_TASKS_ENABLED'),
+            ownershipEphemeralEnabled: getFromEnvsOrElse(env, 'A6_APP_MGMT_BYLAWS_OWNERSHIP_EPHEMERAL_ENABLED', 'EPHEMERAL_ENABLED'),
+            startupEphemeralPeriod: getFromEnvsOrElse(env, 'A6_APP_MGMT_BYLAWS_OWNERSHIP_STARTUP_EPHEMERAL_PERIOD', 'STARTUP_EPHEMERAL_PERIOD'),
+            regularEphemeralPeriod: getFromEnvsOrElse(env, 'A6_APP_MGMT_BYLAWS_OWNERSHIP_REGULAR_EPHEMERAL_PERIOD', 'REGULAR_EPHEMERAL_PERIOD'),
+            ephemeralPattern: getFromEnvsOrElse(env, 'A6_APP_MGMT_BYLAWS_OWNERSHIP_EPHEMERAL_PATTERN', 'EPHEMERAL_PATTERN'),
+            coordinationGroupEnabled: getFromEnvsOrElse(env, 'A6_APP_MGMT_BYLAWS_OWNERSHIP_COORDINATION_GROUP_ENABLED', 'COORDINATION_GROUP_ENABLED'),
             ownershipVotingLimit: getFromEnvsOrElse(env, 'A6_APP_MGMT_BYLAWS_OWNERSHIP_OWNERSHIP_VOTING_LIMITD', 'OWNERSHIP_VOTING_LIMIT'),
             decisionMinimumQuorum: getFromEnvsOrElse(env, 'A6_APP_MGMT_BYLAWS_OWNERSHIP_DECISION_MINIMUM_QUORUM', 'DECISION_MINIMUM_QUORUM'),
         };

@@ -7,8 +7,6 @@ import { useAndCheckActiveToken } from "../../../hooks/oauth"
 import NewProjectManagement from "./NewProjectManagement.component"
 
 const NewProjectManagementContainer = ({ project }) => {
-  useAndCheckActiveToken()
-
   const onSubmit = async (formData) => {
     console.log("GERBOOO", formData)
     try {

@@ -18,18 +18,18 @@
   pointer-events: none;
 }
 
-.main-container {
+.new-project-management .main-container {
   position: relative;
   z-index: 1;
 }
 
 /* Header Section */
-.header-section {
+.new-project-management .header-section {
   text-align: center;
   margin-bottom: 3rem;
 }
 
-.main-title {
+.new-project-management .main-title {
   color: #0a2239;
   font-weight: 700;
   margin-bottom: 0.75rem;
@@ -37,14 +37,14 @@
   line-height: 1.2;
 }
 
-.main-subtitle {
+.new-project-management .main-subtitle {
   color: #64748b;
   font-weight: 400;
   font-size: 1.25rem;
 }
 
 /* Stepper Container */
-.stepper-container {
+.new-project-management .stepper-container {
   border-radius: 20px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -53,8 +53,8 @@
   padding: 2.5rem;
 }
 
-.stepper {
-  margin-bottom: 3rem;
+.new-project-management .stepper {
+  margin-bottom: 1rem;
 }
 
 .step-icon {
@@ -235,6 +235,7 @@
   padding: 0.25rem 0.75rem;
   border-radius: 12px;
   font-weight: 700;
+  display: flex;
 }
 
 .primary-card-description {
@@ -402,15 +403,12 @@
 }
 
 /* Pattern Selector Compact */
-.pattern-selector-compact {
-  margin-top: 1rem;
-}
-
 .pattern-options-compact {
   display: flex;
   gap: 0.75rem;
   margin-top: 0.5rem;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .pattern-option-compact {
@@ -423,7 +421,7 @@
   cursor: pointer;
   transition: all 0.3s ease;
   background: white;
-  min-width: 80px;
+  min-width: 110px;
 }
 
 .pattern-option-compact:hover {
@@ -436,12 +434,14 @@
   background: rgba(10, 34, 57, 0.05);
 }
 
-.pattern-image-compact {
+.pattern-image-compact-container {
   margin-bottom: 0.25rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 25px;
+  min-height: 25px;
+  min-width: 50px;
+  position: relative;
 }
 
 /* Strategy Options */
@@ -528,11 +528,20 @@
 }
 
 /* Step Actions */
-.step-actions {
+.top-step-actions {
   display: flex;
+  align-items: center;
+  padding: 0.5rem 0 0.5rem 0;
+  border-bottom: 2px solid #e2e8f0;
+  margin-bottom: 0.5rem;
+}
+
+.step-actions {
+  display: none;
   align-items: center;
   padding-top: 2rem;
   border-top: 2px solid #e2e8f0;
+  display: flex;
 }
 
 .spacer {
@@ -558,7 +567,7 @@
 .submit-button {
   background: linear-gradient(135deg, #0a2239 0%, #1b5993 100%);
   color: white;
-  padding: 0.75rem 2rem;
+  padding: 0.25rem 2rem;
   font-weight: 700;
   border-radius: 12px;
   font-size: 1rem;
@@ -591,6 +600,17 @@
     font-size: 1rem;
   }
 
+  /* Step Actions */
+  .top-step-actions {
+    padding: 1rem 0 1rem 0;
+    margin-bottom: 1rem;
+  }
+
+  .next-button,
+  .submit-button {
+    padding: 0.45rem 2rem;
+  }
+
   .step-title {
     font-size: 1.5rem;
   }
@@ -603,6 +623,18 @@
     width: 32px;
     height: 32px;
     font-size: 0.875rem;
+  }
+
+  .step-label {
+    display: none;
+  }
+
+  .stepper .MuiStepLabel-root {
+    flex-direction: column;
+  }
+
+  .stepper .MuiStepLabel-labelContainer {
+    display: none;
   }
 
   .step-label {
@@ -641,10 +673,6 @@
     font-size: 1.1rem;
   }
 
-  .pattern-options-compact {
-    justify-content: center;
-  }
-
   .strategy-options {
     flex-direction: column;
   }
@@ -654,6 +682,7 @@
   }
 
   .step-actions {
+    display: flex;
     flex-direction: column;
     gap: 1rem;
     padding-top: 1.5rem;
@@ -684,6 +713,23 @@
 
   .advanced-settings-panel {
     margin-top: 1.5rem;
+  }
+
+  .status-toggle-options {
+    gap: 0.75rem;
+  }
+
+  .status-toggle-option {
+    min-width: 100px;
+    padding: 1rem 0.75rem;
+  }
+
+  .status-toggle-icon {
+    font-size: 2rem;
+  }
+
+  .status-toggle-label {
+    font-size: 0.9rem;
   }
 }
 
@@ -729,6 +775,24 @@
   .advanced-accordion-summary .MuiAccordionSummary-content {
     align-items: flex-start;
   }
+
+  .status-toggle-options {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .status-toggle-option {
+    width: 100%;
+    max-width: 200px;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .status-toggle-icon {
+    font-size: 1.75rem;
+  }
 }
 
 /* Animation Classes */
@@ -741,6 +805,7 @@
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -811,4 +876,135 @@
 
 .MuiAccordion-root:before {
   display: none;
+}
+
+/* Status Toggle Section */
+.status-toggle-section {
+  width: 100%;
+  max-width: 600px;
+}
+
+.status-toggle-title {
+  color: #0a2239;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.status-toggle-options {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.status-toggle-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.5rem 1rem;
+  border: 3px solid #e2e8f0;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: white;
+  min-width: 120px;
+  flex: 1;
+  max-width: 160px;
+}
+
+.status-toggle-option:hover {
+  border-color: #0a2239;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(10, 34, 57, 0.15);
+}
+
+.status-toggle-option.active {
+  border-color: #0a2239;
+  background: rgba(10, 34, 57, 0.05);
+  box-shadow: 0 8px 25px rgba(10, 34, 57, 0.15);
+}
+
+.status-toggle-option.active::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #0a2239 0%, #1b5993 100%);
+  border-radius: 16px 16px 0 0;
+}
+
+.status-toggle-icon {
+  color: #0a2239;
+  font-size: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.status-toggle-option.active .status-toggle-icon {
+  color: #1b5993;
+}
+
+.status-toggle-label {
+  color: #0a2239;
+  font-weight: 600;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.status-toggle-option.active .status-toggle-label {
+  color: #1b5993;
+  font-weight: 700;
+}
+
+/* Mobile Stepper - Hide step labels */
+@media (max-width: 768px) {
+  .step-actions {
+    display: flex;
+  }
+}
+
+/* Status toggle mobile adjustments */
+@media (max-width: 768px) {
+  .status-toggle-options {
+    gap: 0.75rem;
+  }
+
+  .status-toggle-option {
+    min-width: 100px;
+    padding: 1rem 0.75rem;
+  }
+
+  .status-toggle-icon {
+    font-size: 2rem;
+  }
+
+  .status-toggle-label {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .status-toggle-options {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .status-toggle-option {
+    width: 100%;
+    max-width: 200px;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .status-toggle-icon {
+    font-size: 1.75rem;
+  }
 }

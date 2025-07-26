@@ -1,3 +1,4 @@
+import axios from 'axios';
 import moment from 'moment';
 import NextAuth from 'next-auth';
 import {
@@ -28,6 +29,7 @@ export const oauthCallbacksConfig = {
     // return { ...token, error: 'SessionExpired' };
 
     // Access token has expired, try to update it
+    console.log("REFRESHING ACCESS TOKEN", token);
     return {
       ...(await refreshAccessToken(token)),
       user: token.user,
@@ -61,6 +63,7 @@ async function refreshAccessToken(token) {
         },
       }
     );
+    console.log("REFRESH ACCESS TOKEN RESPONSE", response);
 
     if (response.status >= 300) {
       throw new Error('Error refreshing token');
