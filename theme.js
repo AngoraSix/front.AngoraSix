@@ -17,6 +17,11 @@ const theme = createTheme({
     },
     secondary: {
       main: '#FE5F55', // rgb(254, 95, 85) # can be used with primary.lighterBg primary.main or primary.dark as backgrounds
+      dark: '#E91101',
+      contrastText: '#FFFFFF',
+    },
+    secondaryWithBlackContrast: {
+      main: '#FE5F55', // rgb(254, 95, 85) # can be used with primary.lighterBg primary.main or primary.dark as backgrounds
       contrastText: '#000000',
     },
     red: {
