@@ -46,7 +46,8 @@
     "triggerType": "Trigger Type",
     "triggerAmount": "Amount",
     "currency": "Currency",
-    "reEvaluationFrequency": "Re-evaluation Frequency"
+    "reEvaluationFrequency": "Re-evaluation Frequency",
+    "currencyGeneralSetup": "General Currency Setup"
   },
   "placeholders": {
     "projectName": "Enter your project name..."
@@ -74,7 +75,8 @@
       "angorasixDesc": "AngoraSix will help track, manage and distribute project earnings automatically with smart contracts and shared wallets.",
       "optOut": "I'll manage finances externally",
       "external": "Managed externally",
-      "externalDesc": "You're opting out of the AngoraSix ecosystem and will manage finances and payouts using your own payment systems or traditional banking."
+      "externalDesc": "You're opting out of the AngoraSix ecosystem and will manage finances and payouts using your own payment systems or traditional banking.",
+      "currencySetup": "Setup: {{currencyKey}}"
     },
     "payoutStrategy": {
       "vesting": "Vesting",
@@ -168,5 +170,8 @@
   },
   "validation": {
     "projectNameRequired": "Project name is required"
+  },
+  "currencies": {
+    "GENERAL": "General"
   }
 }

@@ -486,9 +486,13 @@
   font-size: 1.5rem;
 }
 
-/* Currency Selection */
-.currency-selection {
+/* Currency Setup */
+.currency-selection{
   margin-top: 1rem;
+}
+
+.currency-setup {
+  margin-top: 2rem;
 }
 
 .currency-chips {

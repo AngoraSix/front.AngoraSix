@@ -48,6 +48,12 @@ import config from "../../../config"
 const NewProjectManagement = ({ onSubmit, project }) => {
   const { t } = useTranslation("management.new")
   const [activeStep, setActiveStep] = useState(0)
+  const initialCurrencySetup = () => ({
+    payoutStrategy: "vesting",
+    startupVestingPeriod: null,
+    regularVestingPeriod: null,
+    vestingPattern: "MID_PEAK",
+  });
   const [formData, setFormData] = useState({
     // Step 1 - Basic Setup
     projectName: "",
@@ -67,10 +73,14 @@ const NewProjectManagement = ({ onSubmit, project }) => {
     financialSetup: "angorasix",
     profitSharingEnabled: true,
     profitPayoutStrategy: "vesting",
-    profitVestingPeriod: 3,
+    profitSharesStartupVestingPeriod: null,
+    profitSharesRegularVestingPeriod: null,
     financialProfitVestingPattern: "MID_PEAK",
-    supportedCurrencies: ["USD"],
-    generalVsPerCurrency: false,
+    supportedCurrencies: {
+      USD: initialCurrencySetup(),
+      GENERAL: initialCurrencySetup(),
+    },
+    currencyGeneralSetupEnabled: true,
     distributionTriggerType: "TOTAL_INCOME_THRESHOLD",
     distributionTriggerAmount: 50000,
     distributionTriggerCurrency: "USD",
@@ -146,6 +156,19 @@ const NewProjectManagement = ({ onSubmit, project }) => {
     }
   }
 
+  const handleCurrencyInputChange = (currencyKey, field, value) => {
+    setFormData((prev) => {
+      prev.supportedCurrencies[currencyKey] = { ...prev.supportedCurrencies[currencyKey], [field]: value };
+      return ({ ...prev })
+    })
+    if (errors[field]) {
+      setErrors((prev) => {
+        prev.supportedCurrencies[currencyKey] = { ...prev.supportedCurrencies[currencyKey], [field]: null };
+        return ({ ...prev })
+      })
+    }
+  }
+
   const handleAccordionToggle = (accordion) => {
     setExpandedAccordions((prev) => ({
       ...prev,
@@ -179,6 +202,15 @@ const NewProjectManagement = ({ onSubmit, project }) => {
   const handleSubmit = () => {
     if (validateStep(activeStep)) {
       // Transform form data to match the expected API structure
+      const currenciesFields = Object.entries(formData.supportedCurrencies).map(([currencyKey, currencySetup]) => {
+        const setupToUse = formData.currencyGeneralSetupEnabled ? formData.supportedCurrencies.GENERAL : currencySetup;
+        return {
+          [bylawFinancialKeys.currencyVestingEnabled.replace("{{CURRENCY}}", currencyKey)]: setupToUse.payoutStrategy === "vesting",
+          [bylawFinancialKeys.currencyStartupVestingPeriod.replace("{{CURRENCY}}", currencyKey)]: setupToUse.payoutStrategy === "vesting" ? setupToUse.startupVestingPeriod || formData.startupEphemeralPeriod || 30 : null,
+          [bylawFinancialKeys.currencyRegularVestingPeriod.replace("{{CURRENCY}}", currencyKey)]: setupToUse.payoutStrategy === "vesting" ? setupToUse.regularVestingPeriod || formData.regularEphemeralPeriod || 3 : null,
+          [bylawFinancialKeys.currencyVestingPattern.replace("{{CURRENCY}}", currencyKey)]: setupToUse.payoutStrategy === "vesting" ? setupToUse.vestingPattern : null,
+        }
+      })
       const transformedData = {
         name: formData.projectName,
         status: formData.status,
@@ -200,16 +232,14 @@ const NewProjectManagement = ({ onSubmit, project }) => {
           [bylawCategories.financialProfitShares]: {
             [bylawFinancialKeys.profitSharesEnabled]: formData.profitSharingEnabled,
             [bylawFinancialKeys.profitSharesVestingEnabled]: formData.profitPayoutStrategy === "vesting",
-            [bylawFinancialKeys.profitSharesVestingPeriod]:
-              formData.profitPayoutStrategy === "vesting" ? "MATCH_OWNERSHIP_FADING" : "IMMEDIATE",
-            [bylawFinancialKeys.profitSharesVestingPattern]: formData.financialProfitVestingPattern,
+            [bylawFinancialKeys.profitSharesStartupVestingPeriod]: formData.profitPayoutStrategy === "vesting" ? formData.profitSharesStartupVestingPeriod || formData.startupEphemeralPeriod || 30 : null,
+            [bylawFinancialKeys.profitSharesRegularVestingPeriod]: formData.profitPayoutStrategy === "vesting" ? formData.profitSharesRegularVestingPeriod || formData.regularEphemeralPeriod || 3 : null,
+            [bylawFinancialKeys.profitSharesVestingPattern]: formData.profitPayoutStrategy === "vesting" ? formData.financialProfitVestingPattern : null,
           },
           [bylawCategories.financialCurrencies]: {
-            [bylawFinancialKeys.financialCurrencies]: formData.supportedCurrencies,
-            [bylawFinancialKeys.currencyVestingEnabled]: formData.profitPayoutStrategy === "vesting",
-            [bylawFinancialKeys.currencyVestingPeriod]:
-              formData.profitPayoutStrategy === "vesting" ? "MATCH_OWNERSHIP_FADING" : "IMMEDIATE",
-            [bylawFinancialKeys.currencyVestingPattern]: formData.financialProfitVestingPattern,
+            [bylawFinancialKeys.financialCurrencies]: Object.keys(formData.supportedCurrencies),
+            [bylawFinancialKeys.currencyGeneralSetupEnabled]: formData.currencyGeneralSetupEnabled,
+            ...currenciesFields
           },
           [bylawCategories.financialGeneral]: {
             [bylawFinancialKeys.isFinancialA6Managed]: formData.financialSetup === "angorasix",
@@ -381,6 +411,80 @@ const NewProjectManagement = ({ onSubmit, project }) => {
     </div>
   )
 
+  const renderCurrencySetup = (currencyKey, currencySetup) => {
+    const currencyText = t(`currencies.${currencyKey}`, { defaultValue: currencyKey })
+    return <div className="currency-settings">
+      <Typography variant="h5">{t("options.financialSetup.currencySetup").replace("{{currencyKey}}", currencyText)}</Typography>
+      <div className="payout-strategy">
+        <Typography variant="subtitle1">{t("fields.payoutStrategy")}</Typography>
+        <div className="strategy-options">
+          <div
+            className={`strategy-option ${currencySetup.payoutStrategy === "vesting" ? "active" : ""}`}
+            onClick={() => handleCurrencyInputChange(currencyKey, "payoutStrategy", "vesting")}
+          >
+            <TrendingUpIcon className="strategy-icon" />
+            <Typography variant="body2">{t("options.payoutStrategy.vesting")}</Typography>
+          </div>
+          <div
+            className={`strategy-option ${currencySetup.payoutStrategy === "immediate" ? "active" : ""}`}
+            onClick={() => handleCurrencyInputChange(currencyKey, "payoutStrategy", "immediate")}
+          >
+            <PaymentIcon className="strategy-icon" />
+            <Typography variant="body2">{t("options.payoutStrategy.immediate")}</Typography>
+          </div>
+        </div>
+      </div>
+
+      {currencySetup.payoutStrategy === "vesting" && (
+        <Grid container spacing={3} className="vesting-settings">
+          <Grid item xs={12} md={6}>
+            <TextField
+              fullWidth
+              type="number"
+              label={t("fields.vestingPeriod")}
+              value={currencySetup.startupVestingPeriod || formData.startupEphemeralPeriod || 30}
+              onChange={(e) => handleCurrencyInputChange(currencyKey, "startupVestingPeriod", Number.parseInt(e.target.value))}
+              InputProps={{ inputProps: { min: 1, max: 99 } }}
+            />
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <TextField
+              fullWidth
+              type="number"
+              label={t("fields.vestingPeriod")}
+              value={currencySetup.regularVestingPeriod || formData.regularEphemeralPeriod || 3}
+              onChange={(e) => handleCurrencyInputChange(currencyKey, "regularVestingPeriod", Number.parseInt(e.target.value))}
+              InputProps={{ inputProps: { min: 1, max: 99 } }}
+            />
+          </Grid>
+          <Grid item xs={12} md={12}>
+            <div className="pattern-selector-compact">
+              <Typography variant="subtitle1">{t("fields.vestingPattern")}</Typography>
+              <div className="pattern-options-compact">
+                {financialVestingPatterns.map((pattern) => (
+                  <div
+                    key={pattern.id}
+                    className={`pattern-option-compact ${currencySetup.vestingPattern === pattern.id ? "selected" : ""}`}
+                    onClick={() => handleCurrencyInputChange(currencyKey, "vestingPattern", pattern.id)}
+                  >
+                    <div className="pattern-image-compact-container">
+                      <Image
+                        src={pattern.image || "/placeholder.svg"}
+                        alt={pattern.name}
+                        fill
+                      />
+                    </div>
+                    <Typography variant="caption">{pattern.name}</Typography>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Grid>
+        </Grid>
+      )}
+    </div>
+  };
+
   const renderOwnershipAdvancedSettings = () => (
     <div className="advanced-settings">
       <div className="settings-section">
@@ -413,7 +517,7 @@ const NewProjectManagement = ({ onSubmit, project }) => {
                   label={t("fields.startupEphemeralPeriod")}
                   value={formData.startupEphemeralPeriod}
                   onChange={(e) => handleInputChange("startupEphemeralPeriod", Number.parseInt(e.target.value))}
-                  InputProps={{ inputProps: { min: 1, max: 100 } }}
+                  InputProps={{ inputProps: { min: 1, max: 99 } }}
                 />
               </Grid>
               <Grid item xs={12} md={6}>
@@ -423,7 +527,7 @@ const NewProjectManagement = ({ onSubmit, project }) => {
                   label={t("fields.regularEphemeralPeriod")}
                   value={formData.regularEphemeralPeriod}
                   onChange={(e) => handleInputChange("regularEphemeralPeriod", Number.parseInt(e.target.value))}
-                  InputProps={{ inputProps: { min: 1, max: 20 } }}
+                  InputProps={{ inputProps: { min: 1, max: 99 } }}
                 />
               </Grid>
               <Grid item xs={12} md={12}>
@@ -500,7 +604,7 @@ const NewProjectManagement = ({ onSubmit, project }) => {
               label={t("fields.decisionQuorum")}
               value={formData.decisionQuorum}
               onChange={(e) => handleInputChange("decisionQuorum", Number.parseInt(e.target.value))}
-              InputProps={{ inputProps: { min: 1, max: 20 } }}
+              InputProps={{ inputProps: { min: 1, max: 99 } }}
             />
           </Grid>
         </Grid>
@@ -645,17 +749,27 @@ const NewProjectManagement = ({ onSubmit, project }) => {
 
             {formData.profitPayoutStrategy === "vesting" && (
               <Grid container spacing={3} className="vesting-settings">
-                <Grid item xs={12} md={4}>
+                <Grid item xs={12} md={6}>
                   <TextField
                     fullWidth
                     type="number"
                     label={t("fields.vestingPeriod")}
-                    value={formData.profitVestingPeriod}
-                    onChange={(e) => handleInputChange("profitVestingPeriod", Number.parseInt(e.target.value))}
-                    InputProps={{ inputProps: { min: 1, max: 20 } }}
+                    value={formData.profitSharesStartupVestingPeriod || formData.startupEphemeralPeriod || 30}
+                    onChange={(e) => handleInputChange("profitSharesStartupVestingPeriod", Number.parseInt(e.target.value))}
+                    InputProps={{ inputProps: { min: 1, max: 99 } }}
                   />
                 </Grid>
-                <Grid item xs={12} md={8}>
+                <Grid item xs={12} md={6}>
+                  <TextField
+                    fullWidth
+                    type="number"
+                    label={t("fields.vestingPeriod")}
+                    value={formData.profitSharesRegularVestingPeriod || formData.regularEphemeralPeriod || 3}
+                    onChange={(e) => handleInputChange("profitSharesRegularVestingPeriod", Number.parseInt(e.target.value))}
+                    InputProps={{ inputProps: { min: 1, max: 99 } }}
+                  />
+                </Grid>
+                <Grid item xs={12} md={12}>
                   <div className="pattern-selector-compact">
                     <Typography variant="subtitle1">{t("fields.vestingPattern")}</Typography>
                     <div className="pattern-options-compact">
@@ -702,17 +816,37 @@ const NewProjectManagement = ({ onSubmit, project }) => {
                 key={currency}
                 label={currency}
                 clickable
-                color={formData.supportedCurrencies.includes(currency) ? "primary" : "default"}
+                color={!!formData.supportedCurrencies[currency] ? "primary" : "default"}
                 onClick={() => {
-                  const newCurrencies = formData.supportedCurrencies.includes(currency)
-                    ? formData.supportedCurrencies.filter((c) => c !== currency)
-                    : [...formData.supportedCurrencies, currency]
+                  const newCurrencies = formData.supportedCurrencies
+                  if (!!newCurrencies[currency] && currency !== "GENERAL") {
+                    delete newCurrencies[currency]
+                  } else {
+                    newCurrencies[currency] = initialCurrencySetup();
+                  }
                   handleInputChange("supportedCurrencies", newCurrencies)
                 }}
                 className="currency-chip"
               />
             ))}
           </div>
+        </div>
+
+
+        <div className="currency-setup">
+          <FormControlLabel
+            control={
+              <Switch
+                checked={formData.currencyGeneralSetupEnabled}
+                onChange={(e) => handleInputChange("currencyGeneralSetupEnabled", e.target.checked)}
+              />
+            }
+            label={t("fields.currencyGeneralSetup")}
+          />
+
+          {formData.currencyGeneralSetupEnabled ? (renderCurrencySetup("GENERAL", formData.supportedCurrencies.GENERAL)
+          ) : Object.entries(formData.supportedCurrencies).filter(([key]) => key !== "GENERAL").map(([currencyKey, currencySetup]) => (renderCurrencySetup(currencyKey, currencySetup))
+          )}
         </div>
       </div>
 
@@ -762,7 +896,7 @@ const NewProjectManagement = ({ onSubmit, project }) => {
                     onChange={(e) => handleInputChange("distributionTriggerCurrency", e.target.value)}
                     label={t("fields.currency")}
                   >
-                    {formData.supportedCurrencies.map((currency) => (
+                    {Object.keys(formData.supportedCurrencies).map((currency) => (
                       <MenuItem key={currency} value={currency}>
                         {currency}
                       </MenuItem>

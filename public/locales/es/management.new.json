@@ -46,7 +46,8 @@
     "triggerType": "Tipo de Disparador",
     "triggerAmount": "Cantidad",
     "currency": "Moneda",
-    "reEvaluationFrequency": "Frecuencia de Re-evaluación"
+    "reEvaluationFrequency": "Frecuencia de Re-evaluación",
+    "currencyGeneralSetup": "Configuración General"
   },
   "placeholders": {
     "projectName": "Ingresa el nombre de tu proyecto..."
@@ -74,7 +75,8 @@
       "angorasixDesc": "AngoraSix ayudará a rastrear, gestionar y distribuir automáticamente las ganancias del proyecto con contratos inteligentes y billeteras compartidas.",
       "optOut": "Gestionaré las finanzas externamente",
       "external": "Gestionado externamente",
-      "externalDesc": "Gestionarás las finanzas y pagos fuera de AngoraSix usando tus propios sistemas de pago o banca tradicional."
+      "externalDesc": "Gestionarás las finanzas y pagos fuera de AngoraSix usando tus propios sistemas de pago o banca tradicional.",
+      "currencySetup": "Configuración: {{currencyKey}}"
     },
     "payoutStrategy": {
       "vesting": "Vesting",
@@ -168,5 +170,8 @@
   },
   "validation": {
     "projectNameRequired": "El nombre del proyecto es obligatorio"
+  },
+  "currencies": {
+    "GENERAL": "General"
   }
 }
