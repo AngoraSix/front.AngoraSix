@@ -50,7 +50,8 @@
     "currencyGeneralSetup": "General Currency Setup"
   },
   "placeholders": {
-    "projectName": "Enter your project name..."
+    "projectName": "Enter your project name...",
+    "selectCurrencies": "Select the currencies handled in your project..."
   },
   "stages": {
     "idea": "Idea",
@@ -173,5 +174,16 @@
   },
   "currencies": {
     "GENERAL": "General"
+  },
+  "currencyNames": {
+    "USD": "US Dollar",
+    "EUR": "Euro",
+    "ETH": "Ethereum",
+    "BTC": "Bitcoin",
+    "ARS": "Argentine Peso",
+    "GBP": "British Pound",
+    "JPY": "Japanese Yen",
+    "CAD": "Canadian Dollar",
+    "AUD": "Australian Dollar"
   }
 }

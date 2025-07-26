@@ -18,6 +18,7 @@ import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
+  Autocomplete,
   Button,
   Chip,
   Container,
@@ -50,10 +51,10 @@ const NewProjectManagement = ({ onSubmit, project }) => {
   const [activeStep, setActiveStep] = useState(0)
   const initialCurrencySetup = () => ({
     payoutStrategy: "vesting",
-    startupVestingPeriod: null,
-    regularVestingPeriod: null,
+    startupVestingPeriod: undefined,
+    regularVestingPeriod: undefined,
     vestingPattern: "MID_PEAK",
-  });
+  })
   const [formData, setFormData] = useState({
     // Step 1 - Basic Setup
     projectName: "",
@@ -73,8 +74,8 @@ const NewProjectManagement = ({ onSubmit, project }) => {
     financialSetup: "angorasix",
     profitSharingEnabled: true,
     profitPayoutStrategy: "vesting",
-    profitSharesStartupVestingPeriod: null,
-    profitSharesRegularVestingPeriod: null,
+    profitSharesStartupVestingPeriod: undefined,
+    profitSharesRegularVestingPeriod: undefined,
     financialProfitVestingPattern: "MID_PEAK",
     supportedCurrencies: {
       USD: initialCurrencySetup(),
@@ -147,7 +148,17 @@ const NewProjectManagement = ({ onSubmit, project }) => {
     },
   ]
 
-  const currencyOptions = ["USD", "EUR", "ETH", "BTC", "ARS", "GBP", "JPY", "CAD", "AUD"]
+  const currencyOptions = [
+    { code: "USD" },
+    { code: "EUR" },
+    { code: "ETH" },
+    { code: "BTC" },
+    { code: "ARS" },
+    { code: "GBP" },
+    { code: "JPY" },
+    { code: "CAD" },
+    { code: "AUD" },
+  ]
 
   const handleInputChange = (field, value) => {
     setFormData((prev) => ({ ...prev, [field]: value }))
@@ -158,15 +169,42 @@ const NewProjectManagement = ({ onSubmit, project }) => {
 
   const handleCurrencyInputChange = (currencyKey, field, value) => {
     setFormData((prev) => {
-      prev.supportedCurrencies[currencyKey] = { ...prev.supportedCurrencies[currencyKey], [field]: value };
-      return ({ ...prev })
+      prev.supportedCurrencies[currencyKey] = { ...prev.supportedCurrencies[currencyKey], [field]: value }
+      return { ...prev }
     })
     if (errors[field]) {
       setErrors((prev) => {
-        prev.supportedCurrencies[currencyKey] = { ...prev.supportedCurrencies[currencyKey], [field]: null };
-        return ({ ...prev })
+        prev.supportedCurrencies[currencyKey] = { ...prev.supportedCurrencies[currencyKey], [field]: null }
+        return { ...prev }
       })
     }
+  }
+
+  const handleCurrencySelectionChange = (event, newValue) => {
+    const newCurrencies = { ...formData.supportedCurrencies }
+
+    // Remove currencies that are no longer selected (except GENERAL)
+    Object.keys(newCurrencies).forEach((currency) => {
+      if (currency !== "GENERAL" && !newValue.some((option) => option.code === currency)) {
+        delete newCurrencies[currency]
+        if (formData.distributionTriggerCurrency === currency) {
+          handleInputChange("distributionTriggerCurrency", Object.keys(newCurrencies).filter(c => c !== "GENERAL")[0] || "USD") // Reset to default if removed
+        }
+      }
+    })
+
+    // Add new currencies
+    newValue.forEach((option) => {
+      if (!newCurrencies[option.code]) {
+        newCurrencies[option.code] = initialCurrencySetup()
+      }
+    })
+
+    handleInputChange("supportedCurrencies", newCurrencies)
+  }
+
+  const getSelectedCurrencies = () => {
+    return currencyOptions.filter((option) => formData.supportedCurrencies[option.code] && option.code !== "GENERAL")
   }
 
   const handleAccordionToggle = (accordion) => {
@@ -203,14 +241,23 @@ const NewProjectManagement = ({ onSubmit, project }) => {
     if (validateStep(activeStep)) {
       // Transform form data to match the expected API structure
       const currenciesFields = Object.entries(formData.supportedCurrencies).map(([currencyKey, currencySetup]) => {
-        const setupToUse = formData.currencyGeneralSetupEnabled ? formData.supportedCurrencies.GENERAL : currencySetup;
+        const setupToUse = formData.currencyGeneralSetupEnabled ? formData.supportedCurrencies.GENERAL : currencySetup
         return {
-          [bylawFinancialKeys.currencyVestingEnabled.replace("{{CURRENCY}}", currencyKey)]: setupToUse.payoutStrategy === "vesting",
-          [bylawFinancialKeys.currencyStartupVestingPeriod.replace("{{CURRENCY}}", currencyKey)]: setupToUse.payoutStrategy === "vesting" ? setupToUse.startupVestingPeriod || formData.startupEphemeralPeriod || 30 : null,
-          [bylawFinancialKeys.currencyRegularVestingPeriod.replace("{{CURRENCY}}", currencyKey)]: setupToUse.payoutStrategy === "vesting" ? setupToUse.regularVestingPeriod || formData.regularEphemeralPeriod || 3 : null,
-          [bylawFinancialKeys.currencyVestingPattern.replace("{{CURRENCY}}", currencyKey)]: setupToUse.payoutStrategy === "vesting" ? setupToUse.vestingPattern : null,
+          [bylawFinancialKeys.currencyVestingEnabled.replace("{{CURRENCY}}", currencyKey)]:
+            setupToUse.payoutStrategy === "vesting",
+          [bylawFinancialKeys.currencyStartupVestingPeriod.replace("{{CURRENCY}}", currencyKey)]:
+            setupToUse.payoutStrategy === "vesting"
+              ? setupToUse.startupVestingPeriod || formData.startupEphemeralPeriod || 30
+              : undefined,
+          [bylawFinancialKeys.currencyRegularVestingPeriod.replace("{{CURRENCY}}", currencyKey)]:
+            setupToUse.payoutStrategy === "vesting"
+              ? setupToUse.regularVestingPeriod || formData.regularEphemeralPeriod || 3
+              : undefined,
+          [bylawFinancialKeys.currencyVestingPattern.replace("{{CURRENCY}}", currencyKey)]:
+            setupToUse.payoutStrategy === "vesting" ? setupToUse.vestingPattern : undefined,
         }
       })
+      const mergedCurrenciesFields = Object.assign({}, ...currenciesFields);
       const transformedData = {
         name: formData.projectName,
         status: formData.status,
@@ -232,14 +279,21 @@ const NewProjectManagement = ({ onSubmit, project }) => {
           [bylawCategories.financialProfitShares]: {
             [bylawFinancialKeys.profitSharesEnabled]: formData.profitSharingEnabled,
             [bylawFinancialKeys.profitSharesVestingEnabled]: formData.profitPayoutStrategy === "vesting",
-            [bylawFinancialKeys.profitSharesStartupVestingPeriod]: formData.profitPayoutStrategy === "vesting" ? formData.profitSharesStartupVestingPeriod || formData.startupEphemeralPeriod || 30 : null,
-            [bylawFinancialKeys.profitSharesRegularVestingPeriod]: formData.profitPayoutStrategy === "vesting" ? formData.profitSharesRegularVestingPeriod || formData.regularEphemeralPeriod || 3 : null,
-            [bylawFinancialKeys.profitSharesVestingPattern]: formData.profitPayoutStrategy === "vesting" ? formData.financialProfitVestingPattern : null,
+            [bylawFinancialKeys.profitSharesStartupVestingPeriod]:
+              formData.profitPayoutStrategy === "vesting"
+                ? formData.profitSharesStartupVestingPeriod || formData.startupEphemeralPeriod || 30
+                : undefined,
+            [bylawFinancialKeys.profitSharesRegularVestingPeriod]:
+              formData.profitPayoutStrategy === "vesting"
+                ? formData.profitSharesRegularVestingPeriod || formData.regularEphemeralPeriod || 3
+                : undefined,
+            [bylawFinancialKeys.profitSharesVestingPattern]:
+              formData.profitPayoutStrategy === "vesting" ? formData.financialProfitVestingPattern : undefined,
           },
           [bylawCategories.financialCurrencies]: {
             [bylawFinancialKeys.financialCurrencies]: Object.keys(formData.supportedCurrencies),
             [bylawFinancialKeys.currencyGeneralSetupEnabled]: formData.currencyGeneralSetupEnabled,
-            ...currenciesFields
+            ...mergedCurrenciesFields,
           },
           [bylawCategories.financialGeneral]: {
             [bylawFinancialKeys.isFinancialA6Managed]: formData.financialSetup === "angorasix",
@@ -413,77 +467,81 @@ const NewProjectManagement = ({ onSubmit, project }) => {
 
   const renderCurrencySetup = (currencyKey, currencySetup) => {
     const currencyText = t(`currencies.${currencyKey}`, { defaultValue: currencyKey })
-    return <div className="currency-settings">
-      <Typography variant="h5">{t("options.financialSetup.currencySetup").replace("{{currencyKey}}", currencyText)}</Typography>
-      <div className="payout-strategy">
-        <Typography variant="subtitle1">{t("fields.payoutStrategy")}</Typography>
-        <div className="strategy-options">
-          <div
-            className={`strategy-option ${currencySetup.payoutStrategy === "vesting" ? "active" : ""}`}
-            onClick={() => handleCurrencyInputChange(currencyKey, "payoutStrategy", "vesting")}
-          >
-            <TrendingUpIcon className="strategy-icon" />
-            <Typography variant="body2">{t("options.payoutStrategy.vesting")}</Typography>
-          </div>
-          <div
-            className={`strategy-option ${currencySetup.payoutStrategy === "immediate" ? "active" : ""}`}
-            onClick={() => handleCurrencyInputChange(currencyKey, "payoutStrategy", "immediate")}
-          >
-            <PaymentIcon className="strategy-icon" />
-            <Typography variant="body2">{t("options.payoutStrategy.immediate")}</Typography>
+    return (
+      <div className="currency-settings">
+        <Typography variant="h5">
+          {t("options.financialSetup.currencySetup").replace("{{currencyKey}}", currencyText)}
+        </Typography>
+        <div className="payout-strategy">
+          <Typography variant="subtitle1">{t("fields.payoutStrategy")}</Typography>
+          <div className="strategy-options">
+            <div
+              className={`strategy-option ${currencySetup.payoutStrategy === "vesting" ? "active" : ""}`}
+              onClick={() => handleCurrencyInputChange(currencyKey, "payoutStrategy", "vesting")}
+            >
+              <TrendingUpIcon className="strategy-icon" />
+              <Typography variant="body2">{t("options.payoutStrategy.vesting")}</Typography>
+            </div>
+            <div
+              className={`strategy-option ${currencySetup.payoutStrategy === "immediate" ? "active" : ""}`}
+              onClick={() => handleCurrencyInputChange(currencyKey, "payoutStrategy", "immediate")}
+            >
+              <PaymentIcon className="strategy-icon" />
+              <Typography variant="body2">{t("options.payoutStrategy.immediate")}</Typography>
+            </div>
           </div>
         </div>
-      </div>
 
-      {currencySetup.payoutStrategy === "vesting" && (
-        <Grid container spacing={3} className="vesting-settings">
-          <Grid item xs={12} md={6}>
-            <TextField
-              fullWidth
-              type="number"
-              label={t("fields.vestingPeriod")}
-              value={currencySetup.startupVestingPeriod || formData.startupEphemeralPeriod || 30}
-              onChange={(e) => handleCurrencyInputChange(currencyKey, "startupVestingPeriod", Number.parseInt(e.target.value))}
-              InputProps={{ inputProps: { min: 1, max: 99 } }}
-            />
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <TextField
-              fullWidth
-              type="number"
-              label={t("fields.vestingPeriod")}
-              value={currencySetup.regularVestingPeriod || formData.regularEphemeralPeriod || 3}
-              onChange={(e) => handleCurrencyInputChange(currencyKey, "regularVestingPeriod", Number.parseInt(e.target.value))}
-              InputProps={{ inputProps: { min: 1, max: 99 } }}
-            />
-          </Grid>
-          <Grid item xs={12} md={12}>
-            <div className="pattern-selector-compact">
-              <Typography variant="subtitle1">{t("fields.vestingPattern")}</Typography>
-              <div className="pattern-options-compact">
-                {financialVestingPatterns.map((pattern) => (
-                  <div
-                    key={pattern.id}
-                    className={`pattern-option-compact ${currencySetup.vestingPattern === pattern.id ? "selected" : ""}`}
-                    onClick={() => handleCurrencyInputChange(currencyKey, "vestingPattern", pattern.id)}
-                  >
-                    <div className="pattern-image-compact-container">
-                      <Image
-                        src={pattern.image || "/placeholder.svg"}
-                        alt={pattern.name}
-                        fill
-                      />
+        {currencySetup.payoutStrategy === "vesting" && (
+          <Grid container spacing={3} className="vesting-settings">
+            <Grid item xs={12} md={6}>
+              <TextField
+                fullWidth
+                type="number"
+                label={t("fields.vestingPeriod")}
+                value={currencySetup.startupVestingPeriod || formData.startupEphemeralPeriod || 30}
+                onChange={(e) =>
+                  handleCurrencyInputChange(currencyKey, "startupVestingPeriod", Number.parseInt(e.target.value))
+                }
+                InputProps={{ inputProps: { min: 1, max: 99 } }}
+              />
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <TextField
+                fullWidth
+                type="number"
+                label={t("fields.vestingPeriod")}
+                value={currencySetup.regularVestingPeriod || formData.regularEphemeralPeriod || 3}
+                onChange={(e) =>
+                  handleCurrencyInputChange(currencyKey, "regularVestingPeriod", Number.parseInt(e.target.value))
+                }
+                InputProps={{ inputProps: { min: 1, max: 99 } }}
+              />
+            </Grid>
+            <Grid item xs={12} md={12}>
+              <div className="pattern-selector-compact">
+                <Typography variant="subtitle1">{t("fields.vestingPattern")}</Typography>
+                <div className="pattern-options-compact">
+                  {financialVestingPatterns.map((pattern) => (
+                    <div
+                      key={pattern.id}
+                      className={`pattern-option-compact ${currencySetup.vestingPattern === pattern.id ? "selected" : ""}`}
+                      onClick={() => handleCurrencyInputChange(currencyKey, "vestingPattern", pattern.id)}
+                    >
+                      <div className="pattern-image-compact-container">
+                        <Image src={pattern.image || "/placeholder.svg"} alt={pattern.name} fill />
+                      </div>
+                      <Typography variant="caption">{pattern.name}</Typography>
                     </div>
-                    <Typography variant="caption">{pattern.name}</Typography>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
-            </div>
+            </Grid>
           </Grid>
-        </Grid>
-      )}
-    </div>
-  };
+        )}
+      </div>
+    )
+  }
 
   const renderOwnershipAdvancedSettings = () => (
     <div className="advanced-settings">
@@ -541,11 +599,7 @@ const NewProjectManagement = ({ onSubmit, project }) => {
                         onClick={() => handleInputChange("ephemeralPattern", pattern.id)}
                       >
                         <div className="pattern-image-compact-container">
-                          <Image
-                            src={pattern.image || "/placeholder.svg"}
-                            alt={pattern.name}
-                            fill
-                          />
+                          <Image src={pattern.image || "/placeholder.svg"} alt={pattern.name} fill />
                         </div>
                         <Typography variant="caption">{pattern.name}</Typography>
                       </div>
@@ -755,7 +809,9 @@ const NewProjectManagement = ({ onSubmit, project }) => {
                     type="number"
                     label={t("fields.vestingPeriod")}
                     value={formData.profitSharesStartupVestingPeriod || formData.startupEphemeralPeriod || 30}
-                    onChange={(e) => handleInputChange("profitSharesStartupVestingPeriod", Number.parseInt(e.target.value))}
+                    onChange={(e) =>
+                      handleInputChange("profitSharesStartupVestingPeriod", Number.parseInt(e.target.value))
+                    }
                     InputProps={{ inputProps: { min: 1, max: 99 } }}
                   />
                 </Grid>
@@ -765,7 +821,9 @@ const NewProjectManagement = ({ onSubmit, project }) => {
                     type="number"
                     label={t("fields.vestingPeriod")}
                     value={formData.profitSharesRegularVestingPeriod || formData.regularEphemeralPeriod || 3}
-                    onChange={(e) => handleInputChange("profitSharesRegularVestingPeriod", Number.parseInt(e.target.value))}
+                    onChange={(e) =>
+                      handleInputChange("profitSharesRegularVestingPeriod", Number.parseInt(e.target.value))
+                    }
                     InputProps={{ inputProps: { min: 1, max: 99 } }}
                   />
                 </Grid>
@@ -780,11 +838,7 @@ const NewProjectManagement = ({ onSubmit, project }) => {
                           onClick={() => handleInputChange("financialProfitVestingPattern", pattern.id)}
                         >
                           <div className="pattern-image-compact-container">
-                            <Image
-                              src={pattern.image || "/placeholder.svg"}
-                              alt={pattern.name}
-                              fill
-                            />
+                            <Image src={pattern.image || "/placeholder.svg"} alt={pattern.name} fill />
                           </div>
                           <Typography variant="caption">{pattern.name}</Typography>
                         </div>
@@ -809,29 +863,36 @@ const NewProjectManagement = ({ onSubmit, project }) => {
         </div>
 
         <div className="currency-selection">
-          <Typography variant="subtitle1">{t("fields.supportedCurrencies")}</Typography>
-          <div className="currency-chips">
-            {currencyOptions.map((currency) => (
-              <Chip
-                key={currency}
-                label={currency}
-                clickable
-                color={!!formData.supportedCurrencies[currency] ? "primary" : "default"}
-                onClick={() => {
-                  const newCurrencies = formData.supportedCurrencies
-                  if (!!newCurrencies[currency] && currency !== "GENERAL") {
-                    delete newCurrencies[currency]
-                  } else {
-                    newCurrencies[currency] = initialCurrencySetup();
-                  }
-                  handleInputChange("supportedCurrencies", newCurrencies)
-                }}
-                className="currency-chip"
+          <Autocomplete
+            multiple
+            id="supported-currencies"
+            options={currencyOptions}
+            getOptionLabel={(option) => `${option.code} - ${t(`currencyNames.${option.code}`, { defaultValue: option.code })}`}
+            value={getSelectedCurrencies()}
+            onChange={handleCurrencySelectionChange}
+            filterSelectedOptions
+            renderTags={(value, getTagProps) =>
+              value.map((option, index) => (
+                <Chip
+                  variant="outlined"
+                  label={option.code}
+                  {...getTagProps({ index })}
+                  key={option.code}
+                  className="currency-autocomplete-chip"
+                />
+              ))
+            }
+            renderInput={(params) => (
+              <TextField
+                {...params}
+                label={t("fields.supportedCurrencies")}
+                placeholder={t("placeholders.selectCurrencies")}
+                variant="outlined"
               />
-            ))}
-          </div>
+            )}
+            className="currency-autocomplete"
+          />
         </div>
-
 
         <div className="currency-setup">
           <FormControlLabel
@@ -844,9 +905,11 @@ const NewProjectManagement = ({ onSubmit, project }) => {
             label={t("fields.currencyGeneralSetup")}
           />
 
-          {formData.currencyGeneralSetupEnabled ? (renderCurrencySetup("GENERAL", formData.supportedCurrencies.GENERAL)
-          ) : Object.entries(formData.supportedCurrencies).filter(([key]) => key !== "GENERAL").map(([currencyKey, currencySetup]) => (renderCurrencySetup(currencyKey, currencySetup))
-          )}
+          {formData.currencyGeneralSetupEnabled
+            ? renderCurrencySetup("GENERAL", formData.supportedCurrencies.GENERAL)
+            : Object.entries(formData.supportedCurrencies)
+              .filter(([key]) => key !== "GENERAL")
+              .map(([currencyKey, currencySetup]) => renderCurrencySetup(currencyKey, currencySetup))}
         </div>
       </div>
 
@@ -896,7 +959,7 @@ const NewProjectManagement = ({ onSubmit, project }) => {
                     onChange={(e) => handleInputChange("distributionTriggerCurrency", e.target.value)}
                     label={t("fields.currency")}
                   >
-                    {Object.keys(formData.supportedCurrencies).map((currency) => (
+                    {Object.keys(formData.supportedCurrencies).filter(currency => currency !== "GENERAL").map((currency) => (
                       <MenuItem key={currency} value={currency}>
                         {currency}
                       </MenuItem>
@@ -926,6 +989,8 @@ const NewProjectManagement = ({ onSubmit, project }) => {
       </div>
     </div>
   )
+
+  console.log(formData.distributionTriggerCurrency);
 
   return (
     <>
@@ -990,9 +1055,7 @@ const NewProjectManagement = ({ onSubmit, project }) => {
               </Fade>
             </div>
 
-            <div
-              className='step-actions'
-            >
+            <div className="step-actions">
               <Button disabled={activeStep === 0} onClick={handleBack} className="back-button">
                 {t("actions.back")}
               </Button>
