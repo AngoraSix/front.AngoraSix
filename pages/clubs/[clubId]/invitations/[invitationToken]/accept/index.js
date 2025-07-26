@@ -9,6 +9,7 @@ import RejectedInvitation from '../../../../../../components/Club/Invitations/Re
 import AreaSkeleton from '../../../../../../components/common/Skeletons/AreaSkeleton.component';
 import { useActiveSession } from '../../../../../../hooks/oauth';
 import DefaultLayout from '../../../../../../layouts/DefaultLayout';
+import { obtainValidatedToken } from '../../../../../../utils/api/apiHelper';
 import logger from '../../../../../../utils/logger';
 
 const AcceptClubInvitationTokenPage = ({
@@ -60,8 +61,7 @@ export const getServerSideProps = async (ctx) => {
 
   const { clubId, invitationToken } = ctx.params;
   const session = await getSession(ctx);
-  const validatedToken =
-    session?.error !== 'RefreshAccessTokenError' && session?.error !== "SessionExpired" ? session : null;
+  const validatedToken = await obtainValidatedToken(ctx.req);
 
   if (validatedToken) {
     try {

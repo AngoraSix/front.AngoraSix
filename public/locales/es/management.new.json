@@ -1,68 +1,189 @@
 {
+  "page": {
+    "title": "Nueva gestión de proyecto",
+    "description": "Crear y configurar una nueva gestión de proyecto para tu proyecto colaborativo"
+  },
   "title": "Crear nuevo proyecto",
+  "titleForProject": "Crear nueva configuración de gestión para \"{{projectName}}\"",
   "subtitle": "Configura tu proyecto colaborativo con AngoraSix",
-  "sections": {
-    "projectInfo": "Información del proyecto",
-    "decisionRules": "Reglas de decisión",
-    "finance": "Finanzas y compensación"
+  "stepper": {
+    "basicSetup": "Configuración Básica",
+    "ownershipGovernance": "Propiedad y Gobernanza",
+    "financesRetribution": "Finanzas y Retribución"
   },
-  "fields": {
-    "projectName": "Nombre del proyecto",
-    "description": "Descripción",
-    "startDate": "Fecha de inicio",
-    "estimatedBudget": "Presupuesto estimado",
-    "ownershipManagement": "Gestión de participación",
-    "ownershipManagementOptions": {
-      "angorasix": "Gestionar con AngoraSix",
-      "externally": "Gestionada externamente"
+  "steps": {
+    "basicSetup": {
+      "title": "Configuración Básica",
+      "description": "Comencemos con los fundamentos de tu proyecto"
     },
-    "startupDuration": "Duración tareas startup (años)",
-    "regularDuration": "Duración tareas regulares (años)",
-    "ownershipCap": "Límite de participación por voto: {{ownershipCap}}%",
-    "minimumVoters": "Cantidad mínima de votantes",
-    "paymentTypes": "Tipos de pago soportados",
-    "compensation": "Retribución por defecto",
-    "vestingPeriod": "Período de vesting por defecto (años)",
-    "vestingPeriodOptions": {
-      "vesting": "Vesting",
-      "immediate": "Inmediato"
+    "ownershipGovernance": {
+      "title": "Propiedad y Gobernanza",
+      "description": "Elige cómo quieres gestionar la propiedad y la toma de decisiones en tu proyecto"
     },
-    "distributionFunction": "Función de distribución"
-  },
-  "payment": {
-    "profitShares": "Participación en ganancias",
-    "usd": "USD",
-    "eur": "EUR",
-    "eth": "ETH"
-  },
-  "distribution": {
-    "curveA": {
-      "name": "Curva A",
-      "desc": "Distribución tipo campana"
-    },
-    "curveB": {
-      "name": "Curva B",
-      "desc": "Crecimiento exponencial"
-    },
-    "linear": {
-      "name": "Lineal",
-      "desc": "Distribución lineal"
+    "financesRetribution": {
+      "title": "Finanzas y Retribución",
+      "description": "Configura cómo se manejarán las ganancias y pagos en tu proyecto"
     }
   },
-  "summary": {
-    "title": "Resumen del proyecto",
-    "projectName": "Nombre del proyecto",
-    "ownership": {
-      "title": "Gestión de participación",
-      "chip": {
-        "angorasix": "Gestionado por AngoraSix",
-        "externally": "Gestionado externamente"
+  "fields": {
+    "projectName": "Nombre del Proyecto",
+    "status": "Etapa Actual",
+    "ownershipSetup": "Gestión de Propiedad",
+    "financialSetup": "Gestión Financiera",
+    "ownershipEphemeralEnabled": "Propiedad Efímera",
+    "startupEphemeralPeriod": "Período de vigencia de tareas Startup (años)",
+    "regularEphemeralPeriod": "Período de vigencia de tareas Regulares (años)",
+    "ephemeralPattern": "Patrón de Vigencia",
+    "coordinationGroup": "Con Grupo de Coordinación",
+    "ownershipVotingLimit": "Límite de Votación por Propiedad",
+    "decisionQuorum": "Quórum de Decisión",
+    "profitSharing": "Habilitar Participación en Ganancias",
+    "payoutStrategy": "Estrategia de Pago",
+    "vestingPeriod": "Período de Vesting (años)",
+    "vestingPattern": "Patrón de Vesting",
+    "supportedCurrencies": "Monedas Soportadas",
+    "distributionTrigger": "Disparador de Distribución",
+    "triggerType": "Tipo de Disparador",
+    "triggerAmount": "Cantidad",
+    "currency": "Moneda",
+    "reEvaluationFrequency": "Frecuencia de Re-evaluación",
+    "currencyGeneralSetup": "Configuración General"
+  },
+  "placeholders": {
+    "projectName": "Ingresa el nombre de tu proyecto...",
+    "selectCurrencies": "Selecciona las monedas manejadas en tu proyecto..."
+  },
+  "stages": {
+    "idea": "Idea",
+    "startup": "Startup",
+    "operational": "Operativo"
+  },
+  "labels": {
+    "recommended": "Recomendado"
+  },
+  "options": {
+    "ownershipSetup": {
+      "angorasix": "Gestionado por AngoraSix",
+      "recommended": "Seguimiento automático y gobernanza",
+      "angorasixDesc": "Permite que AngoraSix rastree y calcule automáticamente la propiedad basada en contribuciones, con herramientas de gobernanza integradas para la toma de decisiones.",
+      "optOut": "Gestionaré la propiedad externamente",
+      "external": "Gestionado externamente",
+      "externalDesc": "Manejarás el seguimiento y cálculos de propiedad fuera de AngoraSix usando tus propios sistemas o herramientas."
+    },
+    "financialSetup": {
+      "angorasix": "Gestionado por AngoraSix",
+      "recommended": "Billetera compartida y pagos automatizados",
+      "angorasixDesc": "AngoraSix ayudará a rastrear, gestionar y distribuir automáticamente las ganancias del proyecto con contratos inteligentes y billeteras compartidas.",
+      "optOut": "Gestionaré las finanzas externamente",
+      "external": "Gestionado externamente",
+      "externalDesc": "Gestionarás las finanzas y pagos fuera de AngoraSix usando tus propios sistemas de pago o banca tradicional.",
+      "currencySetup": "Configuración: {{currencyKey}}"
+    },
+    "payoutStrategy": {
+      "vesting": "Vesting",
+      "immediate": "Inmediato"
+    }
+  },
+  "patterns": {
+    "ephemeral": {
+      "linearDown": {
+        "name": "Desvanecimiento gradual",
+        "desc": "Disminuye linealmente a 0"
+      },
+      "constant": {
+        "name": "Constante",
+        "desc": "Distribución constante a lo largo del tiempo"
       }
     },
-    "paymentTypes": "Tipos de pago",
-    "compensation": "Compensación"
+    "vesting": {
+      "linearDown": {
+        "name": "Disminución gradual",
+        "desc": "Disminuye linealmente a 0"
+      },
+      "linearUp": {
+        "name": "Aumento gradual",
+        "desc": "Aumenta linealmente hasta un máximo"
+      },
+      "midPeak": {
+        "name": "Cresta Media",
+        "desc": "Aumenta linealmente hasta un máximo y luego disminuye a 0"
+      },
+      "constant": {
+        "name": "Constante",
+        "desc": "Distribución constante a lo largo del tiempo"
+      }
+    }
   },
-  "errors": {
-    "projectName": "El nombre del proyecto es obligatorio"
+  "sections": {
+    "ownershipViaTasks": "Propiedad vía Tareas",
+    "governance": "Gobernanza",
+    "profitSharing": "Participación en Ganancias",
+    "currencies": "Monedas",
+    "distributionTrigger": "Disparador de Distribución"
+  },
+  "accordions": {
+    "advancedOwnership": "Configuración Avanzada de Propiedad",
+    "advancedOwnershipDesc": "Configura reglas detalladas de seguimiento de propiedad y gobernanza",
+    "advancedFinancial": "Configuración Financiera Avanzada",
+    "advancedFinancialDesc": "Configura reglas detalladas de participación en ganancias y distribución"
+  },
+  "features": {
+    "ownership": {
+      "tracking": "Seguimiento automático de contribuciones",
+      "automation": "Cálculos automáticos de propiedad",
+      "governance": "Herramientas de gobernanza integradas",
+      "manual": "Control manual de propiedad",
+      "flexible": "Reglas flexibles de propiedad",
+      "integration": "Integración fácil con terceros"
+    },
+    "financial": {
+      "wallet": "Billetera compartida del proyecto",
+      "automation": "Distribución automática de ganancias",
+      "distribution": "Disparadores inteligentes de distribución",
+      "manual": "Control financiero manual",
+      "flexible": "Estrategias flexibles de pago",
+      "reporting": "Reportes financieros detallados"
+    }
+  },
+  "triggerTypes": {
+    "totalIncome": "Los ingresos totales del proyecto exceden el umbral",
+    "monthlyAverage": "El promedio mensual de ingresos excede el umbral",
+    "monthlyPerContributor": "El pago promedio mensual por contribuidor excede el umbral",
+    "automaticYearly": "Automáticamente después de años especificados"
+  },
+  "frequencies": {
+    "every6Months": "Cada 6 meses",
+    "everyYear": "Cada 1 año"
+  },
+  "tooltips": {
+    "ownershipSetup": "Selecciona si AngoraSix debe ayudarte a gestionar y calcular la propiedad basada en contribuciones rastreadas.",
+    "financialSetup": "Selecciona si quieres que AngoraSix ayude a rastrear, gestionar y distribuir las ganancias del proyecto.",
+    "ownershipViaTasks": "Configura cómo las contribuciones a las tareas se traducen en propiedad del proyecto. Todas las configuraciones aquí son predeterminadas que pueden ser anuladas por tarea.",
+    "governance": "Configura las reglas de toma de decisiones y mecanismos de votación para tu proyecto. El \"Grupo de Coordinación\" es un equipo de miembros responsables de las decisiones operativas diarias.",
+    "profitSharing": "Configura cómo las ganancias del proyecto serán distribuidas entre los contribuidores basado en sus participaciones de propiedad.",
+    "currencies": "Selecciona qué monedas soportará tu proyecto para pagos y participación en ganancias.",
+    "distributionTrigger": "Define las condiciones que activarán una votación sobre si comenzar a distribuir ganancias a los contribuidores."
+  },
+  "actions": {
+    "back": "Atrás",
+    "next": "Siguiente",
+    "createProject": "Crear Proyecto"
+  },
+  "validation": {
+    "projectNameRequired": "El nombre del proyecto es obligatorio"
+  },
+  "currencies": {
+    "GENERAL": "General"
+  },
+  "currencyNames": {
+    "USD": "Dólar estadounidense",
+    "EUR": "Euro",
+    "ETH": "Ethereum",
+    "BTC": "Bitcoin",
+    "ARS": "Peso argentino",
+    "GBP": "Libra esterlina",
+    "JPY": "Yen japonés",
+    "CAD": "Dólar canadiense",
+    "AUD": "Dólar australiano"
   }
 }

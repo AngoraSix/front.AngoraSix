@@ -3,12 +3,12 @@ import { getSession } from 'next-auth/react';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import PropTypes from 'prop-types';
-import React from 'react';
 import api from '../../../../../api';
 import FormSkeleton from '../../../../../components/common/Skeletons/FormSkeleton.component';
 import SourceSyncForm from '../../../../../components/Management/Integration/SourceSync/Form';
 import { useActiveSession } from '../../../../../hooks/oauth';
 import DefaultLayout from '../../../../../layouts/DefaultLayout';
+import { obtainValidatedToken } from '../../../../../utils/api/apiHelper';
 import logger from '../../../../../utils/logger';
 
 const NewSourceSyncPage = ({ session, sourceSync }) => {
@@ -51,8 +51,7 @@ export const getServerSideProps = async (ctx) => {
     let props = {};
     const { sourceSyncId } = ctx.params,
         session = await getSession(ctx);
-    const validatedToken =
-        session?.error !== 'RefreshAccessTokenError' && session?.error !== "SessionExpired" ? session : null;
+    const validatedToken = await obtainValidatedToken(ctx.req);
     try {
         const sourceSync = await api.managementIntegrations.getSourceSync(sourceSyncId, validatedToken);
         props = {

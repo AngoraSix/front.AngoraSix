@@ -3,11 +3,12 @@ import BaseAPI from './BaseAPI';
 import ClubsAPI from './club';
 import ContributorsAPI from './contributors';
 import FrontAPI from './front';
-import ManagementIntegrationsAPI from './managementIntegrations';
+import ProjectsManagementAPI from './management';
 import ManagementAccountingAPI from './managementAccounting';
-import ProjectsAPI from './projects';
-import NotificationsAPI from './notifications';
+import ManagementIntegrationsAPI from './managementIntegrations';
 import ManagementTasksAPI from './managementTasks';
+import NotificationsAPI from './notifications';
+import ProjectsCoreAPI from './projects';
 import SurveysAPI from './surveys';
 
 class API {
@@ -24,7 +25,11 @@ class API {
   }
 
   get projects() {
-    return this.projectsAPI;
+    return this.projectsCoreApi;
+  }
+
+  get management() {
+    return this.projectsManagementAPI;
   }
 
   get managementIntegrations() {
@@ -66,7 +71,8 @@ class API {
       }),
       config.api.frontLocalhost
     );
-    this.projectsAPI = new ProjectsAPI(_getServiceAPI('projects', this.axios));
+    this.projectsCoreApi = new ProjectsCoreAPI(_getServiceAPI('projectsCore', this.axios));
+    this.projectsManagementAPI = new ProjectsManagementAPI(_getServiceAPI('projectsManagement', this.axios));
     this.managementIntegrationsAPI = new ManagementIntegrationsAPI(_getServiceAPI('managementIntegrations', this.axios));
     this.managementTasksAPI = new ManagementTasksAPI(_getServiceAPI('managementTasks', this.axios));
     this.managementAccountingAPI = new ManagementAccountingAPI(_getServiceAPI('managementAccounting', this.axios));

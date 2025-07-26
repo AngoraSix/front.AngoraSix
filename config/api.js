@@ -11,7 +11,8 @@ class Api {
     };
     this.servicesAPIGatewayPath = {
       surveys: getFromEnvsOrElse(env, 'A6_APP_API_SURVEYS_SERVER_APIGATEWAY_PATH', '/surveys'),
-      projects: getFromEnvsOrElse(env, 'A6_APP_API_PROJECTS_SERVER_APIGATEWAY_PATH', '/projects'),
+      projectsCore: getFromEnvsOrElse(env, 'A6_APP_API_PROJECTSCORE_SERVER_APIGATEWAY_PATH', '/projects/core'),
+      projectsManagement: getFromEnvsOrElse(env, 'A6_APP_API_MANAGEMENT_SERVER_APIGATEWAY_PATH', '/projects'),// can be /projectId/management or /management 
       managementIntegrations: getFromEnvsOrElse(env, 'A6_APP_API_MANAGEMENTINTEGRATIONS_SERVER_APIGATEWAY_PATH', '/management/integrations'),
       managementTasks: getFromEnvsOrElse(env, 'A6_APP_API_MANAGEMENTTASKS_SERVER_APIGATEWAY_PATH', '/management/tasks'),
       managementAccounting: getFromEnvsOrElse(env, 'A6_APP_API_MANAGEMENTACCOUNTS_SERVER_APIGATEWAY_PATH', '/management/accounting'),

@@ -4,17 +4,17 @@ import InternalServerError from '../../../../../utils/errors/InternalServerError
 import MethodNotAllowedError from '../../../../../utils/errors/MethodNotAllowedError';
 import logger from '../../../../../utils/logger';
 
-const projectsManagementApiPage =  async (req, res) => {
+const projectsManagementApiPage = async (req, res) => {
   if (req.method === 'POST') {
     const validatedToken = await obtainValidatedToken(req);
     try {
-      const data = await api.projects.saveProjectManagement(
+      const response = await api.management.saveProjectManagement(
         req.body,
         null,
         req.query.projectId,
         validatedToken
       );
-      res.status(200).json(data);
+      res.status(200).json(response.data);
     } catch (err) {
       const errorMessage = `Error saving Project Management [${req.method}]`,
         internalServerErr = new InternalServerError(

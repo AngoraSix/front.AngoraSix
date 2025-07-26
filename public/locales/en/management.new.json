@@ -1,68 +1,189 @@
 {
-  "title": "Create new project",
+  "page": {
+    "title": "New Project Management",
+    "description": "Create and configure a new project management setup for your collaborative project"
+  },
+  "title": "Create New Project",
+  "titleForProject": "Create New Management Setup for \"{{projectName}}\"",
   "subtitle": "Set up your collaborative project with AngoraSix",
-  "sections": {
-    "projectInfo": "Project information",
-    "decisionRules": "Decision rules",
-    "finance": "Finance & compensation"
+  "stepper": {
+    "basicSetup": "Basic Setup",
+    "ownershipGovernance": "Ownership & Governance",
+    "financesRetribution": "Finances & Retribution"
   },
-  "fields": {
-    "projectName": "Project name",
-    "description": "Description",
-    "startDate": "Start Ddate",
-    "estimatedBudget": "Estimated budget",
-    "ownershipManagement": "Ownership management",
-    "ownershipManagementOptions": {
-      "angorasix": "Manage ownership via AngoraSix",
-      "externally": "Managed externally"
+  "steps": {
+    "basicSetup": {
+      "title": "Basic Setup",
+      "description": "Let's start with the fundamentals of your project"
     },
-    "startupDuration": "Startup tasks duration (years)",
-    "regularDuration": "Regular tasks duration (years)",
-    "ownershipCap": "Ownership cap per vote: {{ownershipCap}}%",
-    "minimumVoters": "Minimum voters required",
-    "paymentTypes": "Supported payment types",
-    "compensation": "Default compensation",
-    "vestingPeriod": "Default vesting period (years)",
-    "vestingPeriodOptions": {
-      "vesting": "Vesting",
-      "immediate": "Immediate"
+    "ownershipGovernance": {
+      "title": "Ownership & Governance",
+      "description": "Choose how you want to manage ownership and decision-making in your project"
     },
-    "distributionFunction": "Distribution function"
-  },
-  "payment": {
-    "profitShares": "Profit shares",
-    "usd": "USD",
-    "eur": "EUR",
-    "eth": "ETH"
-  },
-  "distribution": {
-    "curveA": {
-      "name": "Curve A",
-      "desc": "Bell curve distribution"
-    },
-    "curveB": {
-      "name": "Curve B",
-      "desc": "Exponential growth"
-    },
-    "linear": {
-      "name": "Linear",
-      "desc": "Linear distribution"
+    "financesRetribution": {
+      "title": "Finances & Retribution",
+      "description": "Configure how earnings and payments will be handled in your project"
     }
   },
-  "summary": {
-    "title": "Project summary",
-    "projectName": "Project name",
-    "ownership": {
-      "title": "Ownership management",
-      "chip": {
-        "angorasix": "AngoraSix managed",
-        "externally": "Managed externally"
+  "fields": {
+    "projectName": "Project Name",
+    "status": "Current Stage",
+    "ownershipSetup": "Ownership Management",
+    "financialSetup": "Financial Management",
+    "ownershipEphemeralEnabled": "Ephemeral Ownership",
+    "startupEphemeralPeriod": "Startup Tasks Vigency Period (years)",
+    "regularEphemeralPeriod": "Regular Tasks Vigency Period (years)",
+    "ephemeralPattern": "Ephemeral Pattern",
+    "coordinationGroup": "With Coordination Group",
+    "ownershipVotingLimit": "Ownership Voting Limit",
+    "decisionQuorum": "Decision Quorum",
+    "profitSharing": "Enable Profit Sharing",
+    "payoutStrategy": "Payout Strategy",
+    "vestingPeriod": "Vesting Period (years)",
+    "vestingPattern": "Vesting Pattern",
+    "supportedCurrencies": "Supported Currencies",
+    "distributionTrigger": "Distribution Trigger",
+    "triggerType": "Trigger Type",
+    "triggerAmount": "Amount",
+    "currency": "Currency",
+    "reEvaluationFrequency": "Re-evaluation Frequency",
+    "currencyGeneralSetup": "General Currency Setup"
+  },
+  "placeholders": {
+    "projectName": "Enter your project name...",
+    "selectCurrencies": "Select the currencies handled in your project..."
+  },
+  "stages": {
+    "idea": "Idea",
+    "startup": "Startup",
+    "operational": "Operational"
+  },
+  "labels": {
+    "recommended": "Recommended"
+  },
+  "options": {
+    "ownershipSetup": {
+      "angorasix": "Managed by AngoraSix",
+      "recommended": "Automatic tracking & governance",
+      "angorasixDesc": "Let AngoraSix automatically track and calculate ownership based on contributions, with built-in governance tools for decision-making.",
+      "optOut": "I'll manage ownership externally",
+      "external": "Managed externally",
+      "externalDesc": "You're opting out of the AngoraSix ecosystem and will handle ownership tracking and calculations using your own systems or tools."
+    },
+    "financialSetup": {
+      "angorasix": "Managed by AngoraSix",
+      "recommended": "Shared wallet & automated payouts",
+      "angorasixDesc": "AngoraSix will help track, manage and distribute project earnings automatically with smart contracts and shared wallets.",
+      "optOut": "I'll manage finances externally",
+      "external": "Managed externally",
+      "externalDesc": "You're opting out of the AngoraSix ecosystem and will manage finances and payouts using your own payment systems or traditional banking.",
+      "currencySetup": "Setup: {{currencyKey}}"
+    },
+    "payoutStrategy": {
+      "vesting": "Vesting",
+      "immediate": "Immediate"
+    }
+  },
+  "patterns": {
+    "ephemeral": {
+      "linearDown": {
+        "name": "Gradual fade",
+        "desc": "Linearly decreases to 0"
+      },
+      "constant": {
+        "name": "Constant",
+        "desc": "Consistent distribution over time"
       }
     },
-    "paymentTypes": "Payment types",
-    "compensation": "Compensation"
+    "vesting": {
+      "linearDown": {
+        "name": "Gradual decrease",
+        "desc": "Linearly decreases to 0"
+      },
+      "linearUp": {
+        "name": "Gradual increase",
+        "desc": "Linearly increases to a maximum"
+      },
+      "midPeak": {
+        "name": "Mid-Peak",
+        "desc": "Linearly increases to a max and then decreases to 0"
+      },
+      "constant": {
+        "name": "Constant",
+        "desc": "Consistent distribution over time"
+      }
+    }
   },
-  "errors": {
-    "projectName": "Project name is required"
+  "sections": {
+    "ownershipViaTasks": "Ownership via Tasks",
+    "governance": "Governance",
+    "profitSharing": "Profit Sharing",
+    "currencies": "Currencies",
+    "distributionTrigger": "Distribution Trigger"
+  },
+  "accordions": {
+    "advancedOwnership": "Advanced Ownership Settings",
+    "advancedOwnershipDesc": "Configure detailed ownership tracking and governance rules",
+    "advancedFinancial": "Advanced Financial Settings",
+    "advancedFinancialDesc": "Configure detailed profit sharing and distribution rules"
+  },
+  "features": {
+    "ownership": {
+      "tracking": "Automatic contribution tracking",
+      "automation": "Automated ownership calculations",
+      "governance": "Built-in governance tools",
+      "manual": "Manual ownership control",
+      "flexible": "Flexible ownership rules",
+      "integration": "Easy third-party integration"
+    },
+    "financial": {
+      "wallet": "Shared project wallet",
+      "automation": "Automated profit distribution",
+      "distribution": "Smart distribution triggers",
+      "manual": "Manual financial control",
+      "flexible": "Flexible payout strategies",
+      "reporting": "Detailed financial reporting"
+    }
+  },
+  "triggerTypes": {
+    "totalIncome": "Total project income exceeds threshold",
+    "monthlyAverage": "Monthly average income exceeds threshold",
+    "monthlyPerContributor": "Monthly avg payment per contributor exceeds threshold",
+    "automaticYearly": "Automatically after specified years"
+  },
+  "frequencies": {
+    "every6Months": "Every 6 months",
+    "everyYear": "Every 1 year"
+  },
+  "tooltips": {
+    "ownershipSetup": "Select whether AngoraSix should help you manage and calculate ownership based on tracked contributions.",
+    "financialSetup": "Select whether you want AngoraSix to help track, manage and distribute project earnings.",
+    "ownershipViaTasks": "Configure how contributions to tasks translate into project ownership. All settings here are defaults that can be overridden per task.",
+    "governance": "Set up decision-making rules and voting mechanisms for your project. A \"Coordination Group\" is a team of members responsible for daily operational decisions.",
+    "profitSharing": "Configure how project earnings will be distributed among contributors based on their ownership shares.",
+    "currencies": "Select which currencies your project will support for payments and profit sharing.",
+    "distributionTrigger": "Define the conditions that will trigger a vote on whether to start distributing profits to contributors."
+  },
+  "actions": {
+    "back": "Back",
+    "next": "Next",
+    "createProject": "Create Project"
+  },
+  "validation": {
+    "projectNameRequired": "Project name is required"
+  },
+  "currencies": {
+    "GENERAL": "General"
+  },
+  "currencyNames": {
+    "USD": "US Dollar",
+    "EUR": "Euro",
+    "ETH": "Ethereum",
+    "BTC": "Bitcoin",
+    "ARS": "Argentine Peso",
+    "GBP": "British Pound",
+    "JPY": "Japanese Yen",
+    "CAD": "Canadian Dollar",
+    "AUD": "Australian Dollar"
   }
 }

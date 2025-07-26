@@ -9,11 +9,15 @@ import logger from '../../../utils/logger';
 
 export const oauthCallbacksConfig = {
   async jwt({ token, user, account }) {
+    if (account?.provider) {
+      token.provider = account.provider
+    }
     if (account && user) {
       return {
         accessToken: account.access_token,
         accessTokenExpires: account.expires_at,
-        // refreshToken: account.refresh_token,
+        provider: account.provider,
+        refreshToken: account.refresh_token,
         user,
       };
     }
@@ -21,18 +25,20 @@ export const oauthCallbacksConfig = {
     if (moment().isBefore(moment.unix(token.accessTokenExpires))) {
       return token;
     }
-    // 3. If expired: **throw an error to force signIn**
-    return { ...token, error: 'SessionExpired' };
-    // // Access token has expired, try to update it
-    // return {
-    //   ...(await refreshAccessToken(token)),
-    //   user: token.user,
-    // };
+    // 3. If expired: **throw an error to force signIn** // Does this actuallyt happen? is it different to try refresh and otherwise signin
+    // return { ...token, error: 'SessionExpired' };
+
+    // Access token has expired, try to update it
+    console.log("REFRESHING ACCESS TOKEN", token);
+    return {
+      ...(await refreshAccessToken(token)),
+      user: token.user,
+    };
   },
   session({ session, token }) {
-    session.accessToken = token.accessToken;
     session.user = token.user;
     session.error = token.error;
+    session.provider = token.provider
     return session;
   },
 };
@@ -42,45 +48,47 @@ export const oauthCallbacksConfig = {
  * `accessToken` and `accessTokenExpires`. If an error occurs,
  * returns the old token and an error property
  */
-// async function refreshAccessToken(token) {
-//   try {
-//     const response = await axios.post(
-//       oauthProviderConfig.token,
-//       { grant_type: 'refresh_token', refresh_token: token.refreshToken },
-//       {
-//         headers: {
-//           'Content-Type': 'multipart/form-data',
-//         },
-//         auth: {
-//           username: oauthProviderConfig.clientId,
-//           password: oauthProviderConfig.clientSecret,
-//         },
-//       }
-//     );
+async function refreshAccessToken(token) {
+  try {
+    const response = await axios.post(
+      oauthProviderConfig.token,
+      { grant_type: 'refresh_token', refresh_token: token.refreshToken },
+      {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+        auth: {
+          username: oauthProviderConfig.clientId,
+          password: oauthProviderConfig.clientSecret,
+        },
+      }
+    );
+    console.log("REFRESH ACCESS TOKEN RESPONSE", response);
 
-//     if (response.status >= 300) {
-//       throw new Error('Error refreshing token');
-//     }
+    if (response.status >= 300) {
+      throw new Error('Error refreshing token');
+    }
 
-//     let accessTokenBody = response.data;
+    let accessTokenBody = response.data;
 
-//     if (oauthFrameworkConfig.debug) {
-//       logger.info(`Refreshed Access Token: ${accessTokenBody.access_token}`);
-//     }
+    if (oauthFrameworkConfig.debug) {
+      logger.info(`Refreshed Access Token: ${accessTokenBody.access_token}`);
+    }
+    console.log("GERGERGERGERREFRESHHHHHGERGERGER", accessTokenBody.access_token, accessTokenBody.expires_in, accessTokenBody.refresh_token);
 
-//     return {
-//       accessToken: accessTokenBody.access_token,
-//       accessTokenExpires: moment().unix() + accessTokenBody.expires_in,
-//       refreshToken: accessTokenBody.refresh_token ?? token.refreshToken, // Fall back to old refresh token
-//     };
-//   } catch (err) {
-//     logger.error(err);
-//     return {
-//       ...token,
-//       error: 'RefreshAccessTokenError',
-//     };
-//   }
-// }
+    return {
+      accessToken: accessTokenBody.access_token,
+      accessTokenExpires: moment().unix() + accessTokenBody.expires_in,
+      refreshToken: accessTokenBody.refresh_token ?? token.refreshToken, // Fall back to old refresh token
+    };
+  } catch (err) {
+    logger.error(err);
+    return {
+      ...token,
+      error: 'RefreshAccessTokenError',
+    };
+  }
+}
 
 export const oauthConfig = {
   providers: [oauthProviderConfig],

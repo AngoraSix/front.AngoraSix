@@ -31,10 +31,11 @@ export const useAndCheckActiveToken = () => {
   useEffect(() => {
     const shouldReauth = session?.error === 'RefreshAccessTokenError' || session?.error === "SessionExpired";
     doLoad(shouldReauth);
+
     const identityProvider = session?.user?.identityProvider;
     if (shouldReauth) {
       signIn(
-        null,
+        session.provider || null,
         null,
         identityProvider ? { kc_idp_hint: identityProvider } : null
       );
