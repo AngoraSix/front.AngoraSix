@@ -25,7 +25,7 @@
       "period": "Joining a project or starting one? Start for free.",
       "cta": "Start for Free",
       "features": {
-        "contributors": "Up to 4 active collaborators",
+        "contributors": "Up to 10 active collaborators",
         "tasks": "Unlimited tracking of tasks and contributions",
         "notifications": "Clear project rule definitions",
         "support": "Ownership and financial tracking tools",
@@ -41,7 +41,7 @@
       "cta": "Join as Beta",
       "features": {
         "all": "Everything included in the Free plan",
-        "unlimited": "Up to 12 collaborators and 2 projects",
+        "unlimited": "Up to 50 collaborators and 5 projects",
         "ai": "Smart assistant to help with decisions and organization",
         "tracking": "Rules and contributions linked to a shared wallet",
         "integrations": "Option to back rules with blockchain",
