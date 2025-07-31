@@ -1,28 +1,28 @@
 {
   "page": {
-    "title": "AngoraSix — Leverage community-driven collaboration in your project — efficiently and transparently.",
-    "description": "Be part of a community that’s building differently: no hierarchies, clear rules, real participation, and open tools to create together with purpose."
+    "title": "AngoraSix — Empower your community project by turning contributions into shared ownership and transparent rewards",
+    "description": "AngoraSix connects contributions, governance, and income distribution in one simple, transparent layer that adapts to your workflow."
   },
   "hero": {
     "title": {
-      "part1": "Leverage community-driven collaboration —",
-      "highlight": "with efficiency and transparency"
+      "part1": "Empower your community project by turning contributions into ",
+      "highlight": "shared ownership and transparent rewards"
     },
-    "subtitle": "Finally, a platform to help your decentralized project scale — with shared ownership, real governance, and automated payments.",
+    "subtitle": "AngoraSix connects contributions, governance, and income distribution in one simple, transparent layer that adapts to your workflow.",
     "subtitle2": "Great ideas need help. Real tools for real collaboration.",
-    "cta": "Start Building"
+    "cta": "Start building together →"
   },
   "problems": {
-    "title": "Struggling to keep your community project organized?",
-    "subtitle": "Decentralization brings its own challenges.",
-    "misalignment": "Without real transparency and accountability, it's hard for contributors to fully trust the process.",
-    "findingAllies": "People lose motivation when they don’t feel heard or fairly rewarded for what they bring.",
-    "internalConflicts": "Manually tracking contributions and workload is exhausting and often leads to conflict.",
-    "authenticity": "Without the right tools, it’s hard to turn decentralized ideals into real, visible shared control."
+    "title": "Keeping your community project thriving — and fair — is hard",
+    "subtitle": "Working in community should be an advantage, but it's complex:",
+    "misalignment": "Contributors lose motivation when they don’t have a voice in decisions or see their effort fairly paid and recognized.",
+    "findingAllies": "Without real transparency and shared clarity, it’s hard for people to fully trust the process.",
+    "internalConflicts": "Manually tracking contributions and workload often generates conflicts, drains energy, and pulls focus away from what really matters.",
+    "authenticity": "Decentralized ideals are hard to sustain without the right tools to enable a simple, shared framework everyone trusts."
   },
   "howItWorks": {
     "title": "How AngoraSix works",
-    "subtitle": "A simple process to make your community-driven project work — adaptable to how it's run.",
+    "subtitle": "A simple process to turn contributions into shared ownership, governance, and fair rewards — adaptable to how your community runs.",
     "steps": {
       "step1": {
         "title": "Define the project rules",
@@ -37,14 +37,19 @@
     },
     "outcomes": {
       "title": "With all this in place...",
+      "baseOutcome": {
+        "title": "Determine dynamic ownership",
+        "description": "Using tracked contributions and supplied data, AngoraSix helps determine how much value each contributor brings to the project — transparently and in real time.",
+        "imageAlt": "Ownership distribution chart"
+      },
       "outcome1": {
-        "title": "Shared decisions based on real contributions",
+        "title": "Shared decisions weighted by real contributions",
         "description": "AngoraSix offers a governance system based on ownership — the more someone contributes, the more weight their vote has in decisions. Or you can define your own rules. Fair, without hierarchies or conflict.",
         "imageAlt": "Governance dashboard showing weighted voting based on contributions"
       },
       "outcome2": {
-        "title": "Automated, secure, and transparent income handling",
-        "description": "We connect your project to a multi-signature shared wallet to automatically distribute earnings based on contributions and the project setup. Everyone receives what they deserve.",
+        "title": "Transparent and automatic income distribution",
+        "description": "Earnings are distributed based on contributions and agreed rules by connecting to a multi-signature shared wallet. Everyone receives what they deserve.",
         "imageAlt": "Fund distribution screen showing automatic payments by contribution"
       }
     }

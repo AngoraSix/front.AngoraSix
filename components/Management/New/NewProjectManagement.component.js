@@ -57,7 +57,7 @@ const NewProjectManagement = ({ onSubmit, project }) => {
   })
   const [formData, setFormData] = useState({
     // Step 1 - Basic Setup
-    projectName: "",
+    projectName: project?.name || "",
     status: "STARTUP",
 
     // Step 2 - Ownership & Governance
@@ -344,6 +344,7 @@ const NewProjectManagement = ({ onSubmit, project }) => {
             required
             className="project-name-field"
             variant="outlined"
+            disabled={!!project}
           />
 
           <div className="status-toggle-section">

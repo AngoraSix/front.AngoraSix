@@ -1,6 +1,8 @@
 {
     "management.view.page.title.template": ":project - Management",
     "management.view.page.description.template": "Management information for project :project",
+    "management.view.projectStatus.title": "Project Status",
+    "management.view.projectConstitution.title": "Project Constitution",
     "management.view.status": "Status",
     "management.view.status.IDEA": "Idea",
     "management.view.status.STARTUP": "Startup",

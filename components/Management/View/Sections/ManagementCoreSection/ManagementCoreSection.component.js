@@ -64,8 +64,8 @@ const translateOrValue = (t, i18n, i18nKey, value) => {
 
 const getStatusIcon = (status) => {
   switch (status?.toLowerCase()) {
-    case "active":
-    case "completed":
+    case "startup":
+    case "startup":
       return <CheckCircle sx={{ color: "#10b981" }} />
     case "pending":
     case "in_progress":
@@ -96,6 +96,7 @@ const ManagementCoreSection = ({ project, projectManagement }) => {
   const { t, i18n } = useTranslation("management.view")
   const theme = useTheme()
   const statusColors = getStatusColor(projectManagement.status)
+  console.log("Project Management Data:", projectManagement)
 
   const generateBylawChip = (scope, definition) => (<Chip
     key={`${scope}-${definition}`}
@@ -133,7 +134,7 @@ const ManagementCoreSection = ({ project, projectManagement }) => {
                 color: "#1e293b",
               }}
             >
-              Project Status
+              {t("management.view.projectStatus.title")}
             </Typography>
           </Box>
 
@@ -169,7 +170,8 @@ const ManagementCoreSection = ({ project, projectManagement }) => {
                 letterSpacing: 0.5,
               }}
             >
-              Project Constitution
+
+              {t("management.view.projectConstitution.title")}
             </Typography>
           </Box>
 

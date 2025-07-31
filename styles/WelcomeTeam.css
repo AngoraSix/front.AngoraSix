@@ -274,7 +274,7 @@
   transition: all 0.3s ease;
 }
 
-.problem-item:hover .problem-check {
+.team-landing-page .problem-item:hover .problem-check {
   background-color: #fe5f55;
   transform: scale(1.1);
 }
@@ -291,7 +291,7 @@
   transition: all 0.3s ease;
 }
 
-.problem-check::after {
+.team-landing-page .problem-check::after {
   content: "?";
   color: white;
   font-size: 14px;

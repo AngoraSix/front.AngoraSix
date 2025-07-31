@@ -1,6 +1,8 @@
 {
     "management.view.page.title.template": ":project - Administración",
     "management.view.page.description.template": "Información de administración del projecto :project",
+    "management.view.projectStatus.title": "Project Status",
+    "management.view.projectConstitution.title": "Project Constitution",
     "management.view.status": "Estado",
     "management.view.status.IDEA": "Idea",
     "management.view.status.STARTUP": "Startup",
@@ -12,9 +14,7 @@
     "management.view.bylaws.OPERATION_CORE_RETRIBUTION_MODEL": "Modelo de Redistribucion",
     "management.view.bylaws.OPERATION_CORE_RETRIBUTION_MODEL.CAPS": "Chapitas",
     "management.view.bylaws.A6_INTERNAL-PROJECTS-OWNERSHIP_CAP--STARTUP_RETRIBUTION_PERIOD": "Período retribución Startup",
-
     "management.view.stats.currencies.A6_INTERNAL-PROJECTS-OWNERSHIP_CAP": "A6 Chapitas Propiedad",
-
     "management.view.stats.tasks.label.ASSIGNED": "Asignadas",
     "management.view.stats.tasks.label.DONE": "Completadas",
     "management.view.stats.tasks.label.PENDING": "Pendientes",
@@ -29,7 +29,6 @@
     "management.view.stats.contributors.details": "Detalles de los colaboradores",
     "management.view.stats.accounts.balance": "Balance",
     "management.view.contributor": "Colaborador",
-
     "management.view.stats.personal.title": "Tu Contribución",
     "management.view.stats.personal.ownership.title": "Propiedad sobre el proyecto",
     "management.view.stats.personal.financialforecast.title": "Proyección financiera",
@@ -42,7 +41,6 @@
     "management.view.stats.team.contributors.table.heading.taskscompleted": "Tareas Completadas",
     "management.view.stats.team.contributors.table.heading.recentactivity": "Actividad Reciente",
     "management.view.stats.team.contributors.table.heading.progress": "Progreso",
-
     "management.view.stats.accounts.currency.A6_INTERNAL-PROJECTS-OWNERSHIP_CAP": "A6 Chapitas",
     "management.view.stats.accounts.currency.PROFIT_SHARES": "Profit Shares"
 }

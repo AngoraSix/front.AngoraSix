@@ -1,50 +1,55 @@
 {
   "page": {
-    "title": "AngoraSix — Impulsá tu proyecto community-driven — con eficiencia y transparencia.",
-    "description": "Una plataforma creada para potenciar proyectos community-driven: sin jerarquías, con reglas claras, participación real y herramientas abiertas para construir con propósito."
+    "title": "AngoraSix — Impulsá tu proyecto community-driven convirtiendo aportes en propiedad compartida y retribuciones transparentes",
+    "description": "AngoraSix une aportes, gobernanza y distribución de ingresos en un sistema claro y adaptable a la forma de trabajo de tu proyecto."
   },
   "hero": {
     "title": {
-      "part1": "Impulsá tu proyecto community-driven —",
-      "highlight": "con eficiencia y transparencia"
+      "part1": "Impulsá tu proyecto community-driven convirtiendo los aportes en ",
+      "highlight": "propiedad compartida y retribuciones transparentes"
     },
-    "subtitle": "Por fin, una plataforma para gestionar tu proyecto descentralizadamente — con propiedad compartida, gobernanza real y pagos automatizados.",
+    "subtitle": "AngoraSix une aportes, gobernanza y distribución de ingresos en un sistema claro y adaptable a la forma de trabajo de tu proyecto.",
     "subtitle2": "Las grandes ideas necesitan ayuda. Herramientas reales para colaborar de verdad.",
-    "cta": "Empezar"
+    "cta": "Empezar a construir juntos →"
   },
   "problems": {
-    "title": "¿Te cuesta mantener tu proyecto community-driven organizado?",
-    "subtitle": "La descentralización implica desafíos.",
-    "misalignment": "Sin transparencia real y un seguimiento detallado, es difícil que los colaboradores confíen en el proceso.",
-    "findingAllies": "La motivación se pierde cuando las personas no sienten que tienen voz o una retribución justa por lo que aportan.",
-    "internalConflicts": "Llevar el seguimiento del trabajo de forma manual es agotador y muchas veces causa fricciones.",
-    "authenticity": "Sin las herramientas adecuadas, es difícil convertir los principios descentralizados en una práctica real con control compartido."
+    "title": "Hacer crecer tu proyecto community-driven — y de una forma justa — no es fácil",
+    "subtitle": "Trabajar en comunidad debería ser una ventaja, pero implica desafíos:",
+    "misalignment": "Los colaboradores pierden motivación si no tienen voz en las decisiones o no ven que su esfuerzo es retribuido de forma justa.",
+    "findingAllies": "Sin transparencia y claridad en los procesos, es difícil que la gente confíe en la gestión.",
+    "internalConflicts": "Registrar tareas y aportes de forma manual consume tiempo y energía, genera roces y desvía el foco de lo importante.",
+    "authenticity": "Los ideales de una gestión abierta son difíciles de sostener sin herramientas que ayuden a definir un marco simple y confiable para todos."
   },
   "howItWorks": {
     "title": "Cómo funciona AngoraSix",
-    "subtitle": "Un proceso simple para que tu proyecto community-driven funcione — adaptable a cómo se gestiona.",
+    "subtitle": "Un proceso claro para transformar aportes en propiedad compartida, gobernanza y retribuciones justas — adaptado a tu comunidad.",
     "steps": {
       "step1": {
-        "title": "Defininan las reglas del proyecto",
-        "description": "Brindamos un marco sencillo para establecer cómo se gestiona el proyecto: decisiones, tareas y pagos. Las bases claras para todos desde el inicio.",
-        "imageAlt": "Pantalla de configuración inicial de reglas del proyecto"
+        "title": "Definí las reglas del proyecto",
+        "description": "Proporcionamos un marco sencillo para establecer cómo se toman decisiones, se gestionan tareas y se manejan pagos. Claridad y transparencia para todos desde el inicio.",
+        "imageAlt": "Pantalla inicial de configuración de reglas del proyecto"
       },
       "step2": {
-        "title": "Integración con las herramientas de gestión",
-        "description": "Nos conectamos con las herramientas que el proyecto ya usa para registrar automáticamente lo que cada miembro aporta.",
+        "title": "Conectá tus herramientas de gestión",
+        "description": "Nos integramos con las plataformas que ya usás — Trello, Notion, Jira, Github Projects y más — para registrar automáticamente los aportes de cada miembro.",
         "imageAlt": "Vista de integración mostrando herramientas conectadas y contribuciones registradas"
       }
     },
     "outcomes": {
       "title": "Con todo esto...",
+      "baseOutcome": {
+        "title": "Ownership dinámico",
+        "description": "Usando las contribuciones registradas y los datos suministrados, AngoraSix ayuda a determinar cuánto valor aporta cada contribuidor al proyecto — de forma transparente y en tiempo real.",
+        "imageAlt": "Gráfico de distribución de propiedad"
+      },
       "outcome1": {
-        "title": "Decisiones compartidas según los aportes reales",
-        "description": "AngoraSix ofrece un sistema de gobernanza basado en ownership: cuanto más aporta una persona, mayor peso tiene su voto en las decisiones — o según el modelo que defina el proyecto. Justo, sin jerarquías ni conflictos.",
-        "imageAlt": "Visualización del sistema de gobernanza con votos ponderados por contribución"
+        "title": "Decisiones compartidas basadas en aportes reales",
+        "description": "Un sistema de gobernanza que pondera los votos según el ownership o el modelo que definas. Justo, sin jerarquías ni conflictos.",
+        "imageAlt": "Panel de gobernanza mostrando votos ponderados por contribución"
       },
       "outcome2": {
-        "title": "Gestión automatizada, confiable y transparente de los ingresos",
-        "description": "Conectamos tu proyecto a una wallet compartida multi-firma para distribuir automáticamente los ingresos según los aportes y la configuración del proyecto. Cada persona recibe lo que le corresponde.",
+        "title": "Reparto de ingresos simple y transparente",
+        "description": "Los ingresos se reparten según aportes y reglas acordadas, usando una cuenta compartida y segura. Todos reciben lo que corresponde.",
         "imageAlt": "Pantalla de distribución de fondos mostrando pagos automáticos según aportes"
       }
     }
