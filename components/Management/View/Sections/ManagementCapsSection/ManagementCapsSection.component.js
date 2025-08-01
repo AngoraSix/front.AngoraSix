@@ -1,80 +1,19 @@
+"use client"
+
 import { Assessment, Group, TrendingUp } from "@mui/icons-material"
 import { Box, Container, Fade, Grow, Typography, useTheme } from "@mui/material"
 import useMediaQuery from "@mui/material/useMediaQuery"
-import { styled } from "@mui/system"
 import { useTranslation } from "next-i18next"
 import PropTypes from "prop-types"
 import { useState } from "react"
 import { ChartToggleCard, LineChartCard, PieChartCard, StatCard } from "./Cards"
 import ContributorsDetails from "./ContributorsDetails"
 
-const SectionContainer = styled(Box)(({ theme }) => ({
-  background: "linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)",
-  borderRadius: 24,
-  padding: theme.spacing(4),
-  marginBottom: theme.spacing(4),
-  position: "relative",
-  overflow: "hidden",
-  "&::before": {
-    content: '""',
-    position: "absolute",
-    top: 0,
-    left: 0,
-    right: 0,
-    height: 4,
-    background: "linear-gradient(90deg, #0A2239, #7D99BA 100%)",
-  },
-}))
-
-const CardsGrid = styled(Box)(({ theme }) => ({
-  display: "grid",
-  gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-  gap: theme.spacing(3),
-  marginBottom: theme.spacing(4),
-  [theme.breakpoints.down("md")]: {
-    gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
-    gap: theme.spacing(2),
-  },
-  [theme.breakpoints.down("sm")]: {
-    gridTemplateColumns: "1fr",
-    gap: theme.spacing(2),
-  },
-}))
-
-const ChartsGrid = styled(Box)(({ theme }) => ({
-  display: "grid",
-  gridTemplateColumns: "repeat(auto-fit, minmax(350px, 1fr))",
-  gap: theme.spacing(4),
-  marginBottom: theme.spacing(4),
-  [theme.breakpoints.down("lg")]: {
-    gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
-    gap: theme.spacing(3),
-  },
-  [theme.breakpoints.down("md")]: {
-    gridTemplateColumns: "1fr",
-    gap: theme.spacing(2),
-  },
-}))
-
-const SectionTitle = styled(Typography)(({ theme }) => ({
-  fontWeight: 800,
-  background: "linear-gradient(135deg, #1e293b 0%, #475569 100%)",
-  backgroundClip: "text",
-  WebkitBackgroundClip: "text",
-  WebkitTextFillColor: "transparent",
-  marginBottom: theme.spacing(3),
-  display: "flex",
-  alignItems: "center",
-  gap: theme.spacing(1.5),
-  fontSize: "1.75rem",
-  letterSpacing: "-0.025em",
-}))
-
 const ManagementCapsSection = ({
   projectManagement,
   projectManagementTasksStats,
   projectManagementAccountingStats,
-  contributorsData
+  contributorsData,
 }) => {
   const { t } = useTranslation("management.view")
   const theme = useTheme()
@@ -137,7 +76,7 @@ const ManagementCapsSection = ({
   if (project.accounts?.finance?.length > 0) {
     const finance = project.accounts.finance.map((it) => ({
       label: `${t(`management.view.stats.currencies.${it.currency}`, { defaultValue: it.currency })} - ${t("management.view.stats.accounts.balance")}`,
-      value: `${it.currency.toUpperCase() != 'PROFIT_SHARES' ? '$' : ''}${it.balance}`,
+      value: `${it.currency.toUpperCase() != "PROFIT_SHARES" ? "$" : ""}${it.balance}`,
       background: theme.palette.blue?.light || "#dbeafe",
       trend: "up",
     }))
@@ -175,7 +114,7 @@ const ManagementCapsSection = ({
   if (contributor.accounts?.finance?.length > 0) {
     const finance = contributor.accounts.finance.map((it) => ({
       label: `${t(`management.view.stats.currencies.${it.currency}`, { defaultValue: it.currency })} - ${t("management.view.stats.accounts.balance")}`,
-      value: `${it.currency.toUpperCase() != 'PROFIT_SHARES' ? '$' : ''}${it.balance.toFixed(2)}`,
+      value: `${it.currency.toUpperCase() != "PROFIT_SHARES" ? "$" : ""}${it.balance.toFixed(2)}`,
       background: theme.palette.blue?.light || "#dbeafe",
     }))
     contributorCards.push(...finance)
@@ -240,18 +179,20 @@ const ManagementCapsSection = ({
   ]
 
   return (
-    <Container maxWidth="xl" sx={{ py: 2 }}>
+    <Container maxWidth="xl" className="management-caps-section" sx={{ py: 2 }}>
       {/* Personal Contributor subsection */}
       {contributor.tasks && (
         <Fade in timeout={2000}>
-          <SectionContainer>
-            <SectionTitle variant="h5">
+          <div className="caps-section-container">
+            <div className="caps-section-title">
               <TrendingUp sx={{ fontSize: 28 }} />
-              {t("management.view.stats.personal.title")}
-            </SectionTitle>
+              <Typography variant="h5" component="span">
+                {t("management.view.stats.personal.title")}
+              </Typography>
+            </div>
 
             <Grow in timeout={1400}>
-              <ChartsGrid>
+              <div className="caps-charts-grid">
                 {contributor.accounts && (
                   <Fade in timeout={1800}>
                     <div>
@@ -281,10 +222,10 @@ const ManagementCapsSection = ({
                     </div>
                   </Fade>
                 )}
-              </ChartsGrid>
+              </div>
             </Grow>
             <Grow in timeout={2200}>
-              <CardsGrid>
+              <div className="caps-cards-grid">
                 {contributorCards.map((card, index) => (
                   <Fade in timeout={2400 + index * 100} key={index}>
                     <div>
@@ -297,22 +238,24 @@ const ManagementCapsSection = ({
                     </div>
                   </Fade>
                 ))}
-              </CardsGrid>
+              </div>
             </Grow>
-          </SectionContainer>
+          </div>
         </Fade>
       )}
 
       {/* General Project subsection */}
       <Fade in timeout={800}>
-        <SectionContainer>
-          <SectionTitle variant="h4">
+        <div className="caps-section-container">
+          <div className="caps-section-title">
             <Assessment sx={{ fontSize: 32 }} />
-            {t("management.view.stats.title")}
-          </SectionTitle>
+            <Typography variant="h4" component="span">
+              {t("management.view.stats.title")}
+            </Typography>
+          </div>
 
           <Grow in timeout={1000}>
-            <CardsGrid>
+            <div className="caps-cards-grid">
               {projectCards.map((card, index) => (
                 <Fade in timeout={1200 + index * 100} key={index}>
                   <Box>
@@ -326,37 +269,43 @@ const ManagementCapsSection = ({
                   </Box>
                 </Fade>
               ))}
-            </CardsGrid>
+            </div>
           </Grow>
 
           <Grow in timeout={1400}>
-            <ChartsGrid>
+            <div className="caps-charts-grid">
               {project.tasks?.tasks.totalCount > 0 && (
                 <Fade in timeout={1600}>
                   <div>
-                    <PieChartCard title={t("management.view.stats.personal.taskdistribution.title")} data={projectTasksChartData} isMobile={isMobile} />
+                    <PieChartCard
+                      title={t("management.view.stats.personal.taskdistribution.title")}
+                      data={projectTasksChartData}
+                      isMobile={isMobile}
+                    />
                   </div>
                 </Fade>
               )}
-            </ChartsGrid>
+            </div>
           </Grow>
-        </SectionContainer>
+        </div>
       </Fade>
 
-      { /* Contributors Statistics subsection */}
+      {/* Contributors Statistics subsection */}
       <Fade in timeout={2600}>
-        <SectionContainer>
-          <SectionTitle variant="h5">
+        <div className="caps-section-container">
+          <div className="caps-section-title">
             <Group sx={{ fontSize: 28 }} />
-            {t("management.view.stats.contributors.details")}
-          </SectionTitle>
+            <Typography variant="h5" component="span">
+              {t("management.view.stats.contributors.details")}
+            </Typography>
+          </div>
 
           <Grow in timeout={2800}>
             <Box>
               <ContributorsDetails contributors={project.tasks.contributors} contributorsData={contributorsData} />
             </Box>
           </Grow>
-        </SectionContainer>
+        </div>
       </Fade>
     </Container>
   )

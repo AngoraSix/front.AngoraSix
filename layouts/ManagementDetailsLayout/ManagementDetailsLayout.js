@@ -5,7 +5,7 @@ import SharedNavbar from '../../components/common/SharedNavbar';
 import ManagementTabs from '../../components/Management/ManagementTabs';
 import config from '../../config';
 
-const ManagementDetailsLayout = ({ projectManagement, isAdmin, children, className, headData, contained = true }) => {
+const ManagementDetailsLayout = ({ projectManagement, isAdmin, children, className, headData, contained = false }) => {
   const head = {
     ...config.site.head,
     ...headData,
