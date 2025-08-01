@@ -1,3 +1,5 @@
+"use client"
+
 import {
   Box,
   Typography,
@@ -9,50 +11,9 @@ import {
   ToggleButtonGroup,
   Tooltip,
 } from "@mui/material"
-import { styled } from "@mui/system"
 import { PieChart, LineChart } from "@mui/x-charts"
 import { TrendingUp, TrendingDown, Remove, PieChartOutlined, ShowChart } from "@mui/icons-material"
 import { useState } from "react"
-
-const StyledCard = styled(Card)(({ theme }) => ({
-  borderRadius: 16,
-  boxShadow: "0 4px 20px rgba(0, 0, 0, 0.08)",
-  border: "1px solid rgba(0, 0, 0, 0.04)",
-  transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-  overflow: "hidden",
-  position: "relative",
-  "&:hover": {
-    transform: "translateY(-4px)",
-    boxShadow: "0 8px 30px rgba(0, 0, 0, 0.12)",
-  },
-  "&::before": {
-    content: '""',
-    position: "absolute",
-    top: 0,
-    left: 0,
-    right: 0,
-    height: 4,
-    background: "linear-gradient(90deg, #0A2239, #7D99BA 100%)",
-  },
-}))
-
-const ChartCard = styled(Card)(({ theme }) => ({
-  borderRadius: 20,
-  boxShadow: "0 8px 32px rgba(0, 0, 0, 0.1)",
-  border: "1px solid rgba(255, 255, 255, 0.2)",
-  background: "linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)",
-  overflow: "hidden",
-  position: "relative",
-  "&::before": {
-    content: '""',
-    position: "absolute",
-    top: 0,
-    left: 0,
-    right: 0,
-    height: 3,
-    background: "linear-gradient(90deg, #0A2239, #7D99BA 100%)",
-  },
-}))
 
 export const StatCard = ({ label, value, subtext, background = "#f8fafc", color = "#1e293b", trend, icon }) => {
   const theme = useTheme()
@@ -75,82 +36,34 @@ export const StatCard = ({ label, value, subtext, background = "#f8fafc", color 
   }
 
   return (
-    <StyledCard
+    <Card
+      className="stat-card"
       sx={{
         background: getGradientBackground(background),
         color,
-        minHeight: 140,
-        display: "flex",
-        flexDirection: "column",
       }}
     >
-      <CardContent
-        sx={{
-          flexGrow: 1,
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-between",
-          p: 3,
-        }}
-      >
-        <Box display="flex" justifyContent="space-between" alignItems="flex-start" mb={2}>
-          <Typography
-            variant="overline"
-            sx={{
-              fontWeight: 600,
-              letterSpacing: 1.2,
-              color: "rgba(0, 0, 0, 0.6)",
-              fontSize: "0.75rem",
-            }}
-          >
+      <CardContent className="stat-card-content">
+        <Box display="flex" justifyContent="space-between" alignItems="flex-start" mb={2} className="stat-card-header">
+          <Typography variant="overline" className="stat-card-label">
             {label}
           </Typography>
-          {trend && (
-            <Chip
-              icon={getTrendIcon()}
-              label={trend}
-              size="small"
-              sx={{
-                height: 24,
-                fontSize: "0.7rem",
-                fontWeight: 500,
-                backgroundColor: "rgba(255, 255, 255, 0.7)",
-                backdropFilter: "blur(10px)",
-              }}
-            />
-          )}
+          {trend && <Chip icon={getTrendIcon()} label={trend} size="small" className="stat-card-trend" />}
         </Box>
 
-        <Box display="flex" flexDirection="column" alignItems="flex-start" gap={1}>
-          <Typography
-            variant="h4"
-            sx={{
-              fontWeight: 700,
-              background: "linear-gradient(135deg, #1e293b 0%, #475569 100%)",
-              backgroundClip: "text",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              lineHeight: 1.2,
-            }}
-          >
+        <Box display="flex" flexDirection="column" alignItems="flex-start" gap={1} className="stat-card-body">
+          <Typography variant="h4" className="stat-card-value">
             {value}
           </Typography>
 
           {subtext && (
-            <Typography
-              variant="caption"
-              sx={{
-                color: "rgba(0, 0, 0, 0.5)",
-                fontWeight: 500,
-                fontSize: "0.8rem",
-              }}
-            >
+            <Typography variant="caption" className="stat-card-subtext">
               {subtext}
             </Typography>
           )}
         </Box>
       </CardContent>
-    </StyledCard>
+    </Card>
   )
 }
 
@@ -212,34 +125,10 @@ export const PieChartCard = ({ title, data, isMobile }) => {
   }))
 
   return (
-    <ChartCard
-      sx={{
-        minHeight: isMobile ? 350 : 250,
-        display: "flex",
-        flexDirection: "column",
-      }}
-    >
-      <CardContent
-        sx={{
-          flexGrow: 1,
-          display: "flex",
-          flexDirection: "column",
-          p: 3,
-        }}
-      >
+    <Card className="chart-card pie-chart-card">
+      <CardContent className="chart-card-content">
         <Box display="flex" alignItems="center" justifyContent="center" mb={2}>
-          <Typography
-            variant="h6"
-            sx={{
-              fontWeight: 700,
-              background: "linear-gradient(135deg, #1e293b 0%, #475569 100%)",
-              backgroundClip: "text",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              textAlign: "center",
-              letterSpacing: 0.5,
-            }}
-          >
+          <Typography variant="h6" className="chart-card-title">
             {title.toUpperCase()}
           </Typography>
         </Box>
@@ -261,7 +150,7 @@ export const PieChartCard = ({ title, data, isMobile }) => {
           />
         </Box>
       </CardContent>
-    </ChartCard>
+    </Card>
   )
 }
 
@@ -296,33 +185,10 @@ export const LineChartCard = ({ title, data, isMobile, currencies = [], selected
   }))
 
   return (
-    <ChartCard
-      sx={{
-        minHeight: isMobile ? 280 : 320,
-        display: "flex",
-        flexDirection: "column",
-      }}
-    >
-      <CardContent
-        sx={{
-          flexGrow: 1,
-          display: "flex",
-          flexDirection: "column",
-          p: 3,
-        }}
-      >
-        <Box display="flex" alignItems="center" justifyContent="space-between" mb={2}>
-          <Typography
-            variant="h6"
-            sx={{
-              fontWeight: 700,
-              background: "linear-gradient(135deg, #1e293b 0%, #475569 100%)",
-              backgroundClip: "text",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              letterSpacing: 0.5,
-            }}
-          >
+    <Card className="chart-card line-chart-card">
+      <CardContent className="chart-card-content">
+        <Box display="flex" alignItems="center" justifyContent="space-between" mb={2} className="chart-card-header">
+          <Typography variant="h6" className="chart-card-title">
             {title.toUpperCase()}
           </Typography>
 
@@ -332,23 +198,10 @@ export const LineChartCard = ({ title, data, isMobile, currencies = [], selected
               exclusive
               onChange={onCurrencyChange}
               size="small"
-              sx={{
-                "& .MuiToggleButton-root": {
-                  px: 1.5,
-                  py: 0.5,
-                  fontSize: "0.75rem",
-                  fontWeight: 600,
-                  textTransform: "uppercase",
-                  border: "1px solid rgba(79, 70, 229, 0.3)",
-                  "&.Mui-selected": {
-                    backgroundColor: "#030D16",
-                    color: "white",
-                  },
-                },
-              }}
+              className="chart-currency-toggle"
             >
               {currencies.map((currency) => (
-                <ToggleButton key={currency} value={currency}>
+                <ToggleButton key={currency} value={currency} className="chart-currency-button">
                   {currency}
                 </ToggleButton>
               ))}
@@ -390,7 +243,7 @@ export const LineChartCard = ({ title, data, isMobile, currencies = [], selected
           />
         </Box>
       </CardContent>
-    </ChartCard>
+    </Card>
   )
 }
 
@@ -412,33 +265,10 @@ export const ChartToggleCard = ({
   }
 
   return (
-    <ChartCard
-      sx={{
-        minHeight: isMobile ? 350 : 320,
-        display: "flex",
-        flexDirection: "column",
-      }}
-    >
-      <CardContent
-        sx={{
-          flexGrow: 1,
-          display: "flex",
-          flexDirection: "column",
-          p: 3,
-        }}
-      >
-        <Box display="flex" alignItems="center" justifyContent="space-between" mb={2}>
-          <Typography
-            variant="h6"
-            sx={{
-              fontWeight: 700,
-              background: "linear-gradient(135deg, #1e293b 0%, #475569 100%)",
-              backgroundClip: "text",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              letterSpacing: 0.5,
-            }}
-          >
+    <Card className="chart-card chart-toggle-card">
+      <CardContent className="chart-card-content">
+        <Box display="flex" alignItems="center" justifyContent="space-between" mb={2} className="chart-card-header">
+          <Typography variant="h6" className="chart-card-title">
             {title.toUpperCase()}
           </Typography>
 
@@ -447,25 +277,14 @@ export const ChartToggleCard = ({
             exclusive
             onChange={handleChartTypeChange}
             size="small"
-            sx={{
-              "& .MuiToggleButton-root": {
-                px: 1,
-                py: 0.5,
-                minWidth: 40,
-                border: "1px solid rgba(3, 13, 22, 0.3)",
-                "&.Mui-selected": {
-                  backgroundColor: "#030D16",
-                  color: "white",
-                },
-              },
-            }}
+            className="chart-type-toggle"
           >
-            <ToggleButton value="pie">
+            <ToggleButton value="pie" className="chart-type-button">
               <Tooltip title="Pie Chart">
                 <PieChartOutlined sx={{ fontSize: 18 }} />
               </Tooltip>
             </ToggleButton>
-            <ToggleButton value="line">
+            <ToggleButton value="line" className="chart-type-button">
               <Tooltip title="Trend Chart">
                 <ShowChart sx={{ fontSize: 18 }} />
               </Tooltip>
@@ -480,23 +299,10 @@ export const ChartToggleCard = ({
               exclusive
               onChange={onCurrencyChange}
               size="small"
-              sx={{
-                "& .MuiToggleButton-root": {
-                  px: 1.5,
-                  py: 0.5,
-                  fontSize: "0.75rem",
-                  fontWeight: 600,
-                  textTransform: "uppercase",
-                  border: "1px solid rgba(3, 13, 22, 0.3)",
-                  "&.Mui-selected": {
-                    backgroundColor: "#030D16",
-                    color: "white",
-                  },
-                },
-              }}
+              className="chart-currency-toggle"
             >
               {currencies.map((currency) => (
-                <ToggleButton key={currency} value={currency}>
+                <ToggleButton key={currency} value={currency} className="chart-currency-button">
                   {currency}
                 </ToggleButton>
               ))}
@@ -582,7 +388,7 @@ export const ChartToggleCard = ({
           )}
         </Box>
       </CardContent>
-    </ChartCard>
+    </Card>
   )
 }
 

@@ -85,7 +85,7 @@
 }
 
 /* Toggle button group styling */
-.MuiToggleButtonGroup-root {
+.management-financial-container .MuiToggleButtonGroup-root {
   border-radius: 8px;
   overflow: hidden;
 }

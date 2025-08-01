@@ -1,7 +1,7 @@
 "use client"
 
 import { ChecklistRtl, Groups, Merge, Public, Stars, TouchApp } from "@mui/icons-material"
-import { Box, Button, Card, Container, Fade, Grid, Grow, Typography, useTheme } from "@mui/material"
+import { Box, Button, Card, Container, Fade, Unstable_Grid2 as Grid, Grow, Typography, useTheme } from "@mui/material"
 import { useSession } from "next-auth/react"
 import { useTranslation } from "next-i18next"
 import Head from "next/head"
@@ -88,6 +88,12 @@ const CooperativeLanding = ({ translationKey }) => {
   ]
 
   const howItWorksOutcomes = [
+    {
+      title: t("howItWorks.outcomes.baseOutcome.title"),
+      description: t("howItWorks.outcomes.baseOutcome.description"),
+      image: "/images/screenshots/{{locale}}/result0-ownership.png",
+      imageAlt: t("howItWorks.outcomes.baseOutcome.imageAlt"),
+    },
     {
       title: t("howItWorks.outcomes.outcome1.title"),
       description: t("howItWorks.outcomes.outcome1.description"),
@@ -283,12 +289,6 @@ const CooperativeLanding = ({ translationKey }) => {
                     backgroundColor: "white",
                     border: `2px solid ${theme.palette.primary.light}`,
                     transition: "all 0.3s ease",
-                    "&:hover": {
-                      "& .problem-check": {
-                        backgroundColor: theme.palette.secondary.main,
-                        transform: "scale(1.1)",
-                      },
-                    },
                   }}
                 >
                   <Box
@@ -509,7 +509,7 @@ const CooperativeLanding = ({ translationKey }) => {
 
           <Grid container spacing={4}>
             {howItWorksOutcomes.map((outcome, index) => (
-              <Grid item xs={12} md={6} key={index}>
+              <Grid item xs={12} md={6} key={index} mdOffset={index === 0 ? 3 : 0}>
                 <Grow in={visibleSections["how-it-works"]} timeout={1500 + index * 300}>
                   <Box
                     className="how-it-works-outcome-card"
