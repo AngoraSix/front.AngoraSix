@@ -20,6 +20,7 @@ import '../styles/IntegrationSourceSync.css';
 import '../styles/Layouts.css';
 import '../styles/ManagementCapsSection.css';
 import '../styles/ManagementContributorsList.css';
+import "../styles/ManagementDashboard.css";
 import "../styles/ManagementDecisions.css";
 import "../styles/ManagementFinancial.css";
 import '../styles/ManagementIntegrationList.css';
