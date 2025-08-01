@@ -1,4 +1,123 @@
 /* Management Dashboard Styles */
+
+/* ProjectManagementView Styles */
+.ProjectManagementView {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+  position: relative;
+}
+
+.ProjectManagementView::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background: radial-gradient(circle at 20% 80%, rgba(79, 70, 229, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(124, 58, 237, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.ProjectManagementView .content-wrapper {
+  display: flex;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+.ProjectManagementView .main-section {
+  flex: 1 1 70%;
+  min-width: 0;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.ProjectManagementView .side-section {
+  flex: 1 1 30%;
+  max-width: 400px;
+  min-width: 320px;
+  animation: fadeInRight 0.8s ease-out;
+}
+
+.ProjectManagementView .mobile-drawer .MuiDrawer-paper {
+  overflow: visible;
+  height: calc(75% - 56px);
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+}
+
+.ProjectManagementView .drawer-puller {
+  width: 40px;
+  height: 6px;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 3px;
+  position: absolute;
+  top: 16px;
+  left: calc(50% - 20px);
+}
+
+.ProjectManagementView .drawer-header {
+  height: 56px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.ProjectManagementView .drawer-header:hover {
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 960px) {
+  .ProjectManagementView .content-wrapper {
+    flex-direction: column;
+  }
+
+  .ProjectManagementView .side-section {
+    max-width: none;
+    min-width: auto;
+  }
+}
+
+@media (max-width: 1200px) {
+  .ProjectManagementView .side-section {
+    max-width: 350px;
+    min-width: 300px;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Core Section */
 .management-core-section {
   padding: 1rem;
   height: 100%;
@@ -36,7 +155,7 @@
 
 .status-icon {
   font-size: 2rem !important;
-  color: #FE5F55;
+  color: #fe5f55;
 }
 
 .status-chip-container {
@@ -49,8 +168,8 @@
   font-size: 0.875rem !important;
   height: 36px !important;
   padding: 0 1rem !important;
-  background-color: #FEE4E1;
-  color: #0A2239;
+  background-color: #fee4e1;
+  color: #0a2239;
 }
 
 /* Bylaws Section */
@@ -71,7 +190,7 @@
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, #fe5f55, #afc1d6 100%);
+  background: linear-gradient(90deg, #0a2239, #7d99ba 100%);
 }
 
 .bylaws-card-content {
@@ -186,6 +305,351 @@
   background-color: rgba(255, 255, 255, 0.3) !important;
 }
 
+/* ManagementCapsSection Styles */
+.management-caps-section {
+  padding: 16px 0;
+}
+
+.caps-section-container {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  border-radius: 24px;
+  padding: 32px;
+  margin-bottom: 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+.caps-section-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #0a2239, #7d99ba 100%);
+}
+
+.caps-section-title {
+  font-weight: 800;
+  background: linear-gradient(135deg, #1e293b 0%, #475569 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.75rem;
+  letter-spacing: -0.025em;
+}
+
+.caps-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.caps-charts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 32px;
+  margin-bottom: 32px;
+}
+
+/* StatCard Styles */
+.stat-card {
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  position: relative;
+  min-height: 140px;
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.stat-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #0a2239, #7d99ba 100%);
+}
+
+.stat-card-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 24px !important;
+}
+
+.stat-card-header {
+  margin-bottom: 16px;
+}
+
+.stat-card-label {
+  font-weight: 600 !important;
+  letter-spacing: 1.2px !important;
+  color: rgba(0, 0, 0, 0.6) !important;
+  font-size: 0.75rem !important;
+}
+
+.stat-card-trend {
+  height: 24px !important;
+  font-size: 0.7rem !important;
+  font-weight: 500 !important;
+  background-color: rgba(255, 255, 255, 0.7) !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+.stat-card-body {
+  gap: 8px;
+}
+
+.stat-card-value {
+  font-weight: 700 !important;
+  background: linear-gradient(135deg, #1e293b 0%, #475569 100%) !important;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  line-height: 1.2 !important;
+}
+
+.stat-card-subtext {
+  color: rgba(0, 0, 0, 0.5) !important;
+  font-weight: 500 !important;
+  font-size: 0.8rem !important;
+}
+
+/* Chart Card Styles */
+.chart-card {
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.chart-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #0a2239, #7d99ba 100%);
+}
+
+.chart-card-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 24px !important;
+}
+
+.chart-card-title {
+  font-weight: 700 !important;
+  background: linear-gradient(135deg, #1e293b 0%, #475569 100%) !important;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  text-align: center !important;
+  letter-spacing: 0.5px !important;
+}
+
+.chart-card-header {
+  margin-bottom: 16px;
+}
+
+.pie-chart-card {
+  min-height: 250px;
+}
+
+.line-chart-card {
+  min-height: 320px;
+}
+
+.chart-toggle-card {
+  min-height: 320px;
+}
+
+/* Chart Controls */
+.chart-currency-toggle .MuiToggleButton-root {
+  padding: 4px 12px !important;
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  border: 1px solid rgba(79, 70, 229, 0.3) !important;
+}
+
+.chart-currency-toggle .MuiToggleButton-root.Mui-selected {
+  background-color: #030d16 !important;
+  color: white !important;
+}
+
+.chart-currency-button {
+  padding: 4px 12px !important;
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+}
+
+.chart-type-toggle .MuiToggleButton-root {
+  padding: 4px 8px !important;
+  min-width: 40px !important;
+  border: 1px solid rgba(3, 13, 22, 0.3) !important;
+}
+
+.chart-type-toggle .MuiToggleButton-root.Mui-selected {
+  background-color: #030d16 !important;
+  color: white !important;
+}
+
+.chart-type-button {
+  padding: 4px 8px !important;
+  min-width: 40px !important;
+}
+
+/* Contributors Details Styles */
+.contributors-details {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.contributors-details-header {
+  margin-bottom: 24px;
+}
+
+.contributors-details-title {
+  font-weight: 700 !important;
+  background: linear-gradient(135deg, #1e293b 0%, #475569 100%) !important;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  margin-bottom: 8px !important;
+}
+
+.contributors-details-description {
+  color: rgba(0, 0, 0, 0.6) !important;
+}
+
+.contributors-table-container {
+  border-radius: 16px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08) !important;
+  border: 1px solid rgba(0, 0, 0, 0.04) !important;
+  overflow: hidden !important;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%) !important;
+  overflow-x: auto !important;
+}
+
+.contributors-table {
+  min-width: 800px;
+}
+
+.contributors-table-head {
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%) !important;
+}
+
+.contributors-table-cell-head {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 0.875rem !important;
+  letter-spacing: 0.5px !important;
+  text-transform: uppercase !important;
+  border-bottom: none !important;
+  padding: 20px 16px !important;
+}
+
+.contributors-table-row {
+  transition: all 0.2s ease !important;
+}
+
+.contributors-table-row:hover {
+  background-color: rgba(79, 70, 229, 0.04) !important;
+  transform: scale(1.01) !important;
+}
+
+.contributors-table-row:nth-of-type(even) {
+  background-color: rgba(248, 250, 252, 0.5) !important;
+}
+
+.contributors-table-cell {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
+  padding: 16px !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+}
+
+.contributor-avatar {
+  width: 40px !important;
+  height: 40px !important;
+}
+
+.contributor-avatar-default {
+  background: linear-gradient(135deg, #0a2239, #7d99ba 100%) !important;
+  font-weight: 600 !important;
+}
+
+.contributor-name {
+  font-weight: 600 !important;
+}
+
+.contributor-chip {
+  font-weight: 600 !important;
+  min-width: 50px !important;
+}
+
+.contributor-chip-total {
+  background-color: #e0e7ff !important;
+  color: #3730a3 !important;
+}
+
+.contributor-chip-completed {
+  background-color: #dcfce7 !important;
+  color: #166534 !important;
+}
+
+.contributor-chip-recent {
+  border-color: #f59e0b !important;
+  color: #d97706 !important;
+}
+
+.contributor-effort {
+  gap: 8px;
+}
+
+.contributor-progress {
+  min-width: 120px;
+}
+
+.progress-percentage {
+  font-weight: 600 !important;
+}
+
+.progress-bar {
+  height: 8px !important;
+  border-radius: 4px !important;
+  background-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+.progress-bar .MuiLinearProgress-bar {
+  border-radius: 4px !important;
+}
+
 /* Mobile Responsive */
 @media (max-width: 768px) {
   .management-core-section {
@@ -229,6 +693,55 @@
   .category-icon {
     font-size: 1.25rem !important;
   }
+
+  .caps-section-container {
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+
+  .caps-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  .caps-charts-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  .stat-card-content {
+    padding: 16px !important;
+  }
+
+  .chart-card-content {
+    padding: 16px !important;
+  }
+
+  .pie-chart-card {
+    min-height: 350px;
+  }
+
+  .line-chart-card {
+    min-height: 280px;
+  }
+
+  .chart-toggle-card {
+    min-height: 350px;
+  }
+}
+
+@media (max-width: 960px) {
+  .caps-cards-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 16px;
+  }
+
+  .caps-charts-grid {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+  }
 }
 
 /* Large screens */
@@ -248,5 +761,9 @@
 
   .bylaw-item {
     padding: 1rem;
+  }
+
+  .caps-section-container {
+    padding: 48px;
   }
 }
