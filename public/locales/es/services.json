@@ -60,5 +60,17 @@
       "primary": "Comienza Tu Viaje",
       "secondary": "Programa una Consulta"
     }
+  },
+  "calendar": {
+    "title": "Programa una Consulta",
+    "description": "Reserva una llamada de consulta de una hora para discutir las necesidades de tu proyecto y cómo nuestros servicios de orientación pueden ayudarte a construir mejor desde el primer día.",
+    "meetingType": "Videollamada de una hora vía Google Meet",
+    "tabs": {
+      "agenda": "Próximos",
+      "month": "Mes",
+      "week": "Semana"
+    },
+    "footer": "Todos los horarios se muestran en tu zona horaria local. Recibirás un email de confirmación con los detalles de la reunión.",
+    "close": "Cerrar"
   }
 }

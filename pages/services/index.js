@@ -1,33 +1,19 @@
 import { serverSideTranslations } from "next-i18next/serverSideTranslations"
-import { useTranslation } from "next-i18next"
-import Head from "next/head"
-import DefaultLayout from "../../layouts/DefaultLayout"
 import Services from "../../components/Services"
+import LandingLayout from "../../layouts/LandingLayout"
 
-const ServicesPage = () => {
-  const { t } = useTranslation("services")
-
-  return (
-    <>
-      <Head>
-        <title>{t("page.title")} - AngoraSix</title>
-        <meta name="description" content={t("page.description")} />
-        <meta property="og:title" content={`${t("page.title")} - AngoraSix`} />
-        <meta property="og:description" content={t("page.description")} />
-        <meta name="twitter:title" content={`${t("page.title")} - AngoraSix`} />
-        <meta name="twitter:description" content={t("page.description")} />
-      </Head>
-      <DefaultLayout className="ServicesPage">
-        <Services />
-      </DefaultLayout>
-    </>
-  )
+const ServicesPage = ({ forQueryValue }) => {
+  return <LandingLayout forProfile={forQueryValue}>
+    <Services forProfile={forQueryValue} />
+  </LandingLayout>
 }
 
-export async function getStaticProps({ locale }) {
+export async function getServerSideProps({ locale, query }) {
+  const forQueryValue = query.for || null
   return {
     props: {
-      ...(await serverSideTranslations(locale, ["common", "services"])),
+      forQueryValue,
+      ...(await serverSideTranslations(locale || "en", ["common", "common.legal", "services"])),
     },
   }
 }

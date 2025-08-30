@@ -92,5 +92,17 @@
     "title": "Let's build better, together.",
     "subtitle": "Clarity, fairness, and support from day one.",
     "cta": "Start Your Journey"
+  },
+  "calendar": {
+    "title": "Schedule a Consultation",
+    "description": "Book a one hour consultation call to discuss your project's needs and how our guidance services can help you build better from day one.",
+    "meetingType": "One hour video call via Google Meet",
+    "tabs": {
+      "agenda": "Upcoming",
+      "month": "Month",
+      "week": "Week"
+    },
+    "footer": "All times are shown in your local timezone. You'll receive a confirmation email with the meeting details.",
+    "close": "Close"
   }
 }

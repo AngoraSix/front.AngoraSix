@@ -361,6 +361,54 @@
   transform: translateY(-2px);
 }
 
+/* Calendar Booking Dialog Styles */
+.calendar-booking-dialog .MuiDialog-paper {
+  background: #ffffff;
+  box-shadow: 0 24px 48px rgba(10, 34, 57, 0.15);
+}
+
+.calendar-dialog-title {
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  border-bottom: 1px solid #dce7ea;
+  padding: 1.5rem 2rem;
+}
+
+.calendar-dialog-title .MuiTypography-h5 {
+  color: #0a2239;
+}
+
+.calendar-close-button {
+  color: #7d99ba;
+  transition: all 0.2s ease;
+}
+
+.calendar-close-button:hover {
+  color: #fe5f55;
+  background: rgba(254, 95, 85, 0.1);
+}
+
+.calendar-dialog-content {
+  background: #ffffff;
+}
+
+.calendar-intro {
+  background: linear-gradient(135deg, #fafafa 0%, #ffffff 100%);
+  border-bottom: 1px solid #dce7ea;
+}
+
+.calendar-container {
+  background: #ffffff;
+}
+
+.calendar-container iframe {
+  border-radius: 0 0 8px 8px;
+}
+
+.calendar-dialog-actions {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  border-top: 1px solid #dce7ea;
+}
+
 /* Mobile Responsive */
 @media (max-width: 768px) {
   .services-hero {
@@ -413,6 +461,31 @@
   .services-hero-badges {
     justify-content: center;
   }
+
+  /* Calendar Dialog Mobile */
+  .calendar-booking-dialog .MuiDialog-paper {
+    margin: 1rem;
+    width: calc(100% - 2rem);
+    max-height: calc(100% - 2rem);
+  }
+
+  .calendar-dialog-title {
+    padding: 1rem 1.5rem;
+  }
+
+  .calendar-intro {
+    padding: 1.5rem;
+  }
+
+  .calendar-container {
+    height: 400px;
+  }
+
+  .calendar-dialog-actions {
+    padding: 1.5rem;
+    flex-direction: column;
+    gap: 1rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -439,5 +512,14 @@
   .services-section-badge {
     padding: 0.5rem 1rem;
     font-size: 0.8rem;
+  }
+
+  /* Calendar Dialog Small Mobile */
+  .calendar-container {
+    height: 350px;
+  }
+
+  .calendar-dialog-title .MuiTypography-h5 {
+    font-size: 1.25rem;
   }
 }
