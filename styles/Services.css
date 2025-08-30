@@ -10,7 +10,7 @@
 
 /* Hero Section */
 .services-hero {
-  background: linear-gradient(135deg, #0a2239 0%, #1b5993 100%);
+  background: linear-gradient(135deg, #030D16 0%, #0F2F4D 100%);
   color: #ffffff;
   padding: 6rem 0 4rem;
   position: relative;
@@ -24,8 +24,6 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(circle at 30% 20%, rgba(254, 95, 85, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 70% 80%, rgba(175, 193, 214, 0.1) 0%, transparent 50%);
   z-index: 1;
 }
 
@@ -68,23 +66,25 @@
   border-radius: 25px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-}
-
-.services-badge.guidance {
-  background: rgba(254, 95, 85, 0.2);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  /* background: rgba(254, 95, 85, 0.2); */
+  background: rgba(220, 231, 234, 0.2);
   color: #fe5f55;
-  border: 1px solid rgba(254, 95, 85, 0.3);
+  border: 1px solid rgba(254, 95, 85, 1);
 }
 
-.services-badge.platform {
-  background: rgba(175, 193, 214, 0.2);
-  color: #afc1d6;
-  border: 1px solid rgba(175, 193, 214, 0.3);
+.services-badge.clickable:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  background: rgba(254, 95, 85, 0.3);
+  border-color: rgba(254, 95, 85, 0.5);
 }
 
 /* Section Styles */
 .services-section {
   padding: 5rem 0;
+  scroll-margin-top: 2rem;
 }
 
 .guidance-section {
@@ -97,7 +97,8 @@
 
 .services-section-header {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
+  padding: 0 2rem;
 }
 
 .services-section-badge {
@@ -142,92 +143,94 @@
   line-height: 1.6;
 }
 
-/* Card Styles */
-.services-grid {
-  margin-top: 3rem;
+/* Service Main Image */
+.services-section-image {
+  text-align: center;
+  margin: 3rem 0;
 }
 
-.services-card {
-  height: 100%;
+.services-main-image {
   border-radius: 16px;
-  box-shadow: 0 8px 32px rgba(10, 34, 57, 0.1);
-  transition: all 0.4s ease;
+  box-shadow: 0 12px 40px rgba(10, 34, 57, 0.15);
+  max-width: 100%;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.services-main-image:hover {
+  transform: scale(1.02);
+}
+
+/* Features Grid */
+.services-features-grid {
+  margin-top: 3rem;
+  padding: 0 2rem;
+}
+
+.services-feature-card {
+  height: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(10, 34, 57, 0.08);
+  transition: all 0.3s ease;
   border: 1px solid rgba(220, 231, 234, 0.3);
-  overflow: hidden;
   background: #ffffff;
 }
 
-.services-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 16px 48px rgba(10, 34, 57, 0.15);
+.services-feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(10, 34, 57, 0.12);
 }
 
-.services-card-image-container {
-  position: relative;
-  height: 200px;
-  overflow: hidden;
+.services-feature-content {
+  padding: 2rem;
+  text-align: center;
 }
 
-.services-card-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.4s ease;
-}
-
-.services-card:hover .services-card-image {
-  transform: scale(1.05);
-}
-
-.services-card-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, rgba(254, 95, 85, 0.1) 0%, rgba(27, 89, 147, 0.1) 100%);
+.services-feature-icon {
   display: flex;
-  align-items: center;
   justify-content: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin: 0 auto 1.5rem;
+  transition: all 0.3s ease;
 }
 
-.services-card:hover .services-card-overlay {
-  opacity: 1;
-}
-
-.platform-overlay {
-  background: linear-gradient(135deg, rgba(27, 89, 147, 0.1) 0%, rgba(10, 34, 57, 0.1) 100%);
-}
-
-.services-card-icon {
-  font-size: 3rem;
+.services-feature-icon.guidance-icon {
+  background: rgba(254, 95, 85, 0.1);
   color: #fe5f55;
 }
 
-.platform-icon {
+.services-feature-icon.platform-icon {
+  background: rgba(27, 89, 147, 0.1);
   color: #1b5993;
 }
 
-.services-card-icon .MuiSvgIcon-root {
-  font-size: 3rem;
+.services-feature-card:hover .services-feature-icon.guidance-icon {
+  background: rgba(254, 95, 85, 0.15);
+  transform: scale(1.1);
 }
 
-.services-card-content {
-  padding: 2rem;
+.services-feature-card:hover .services-feature-icon.platform-icon {
+  background: rgba(27, 89, 147, 0.15);
+  transform: scale(1.1);
 }
 
-.services-card-title {
-  font-size: 1.5rem;
+.services-feature-icon .MuiSvgIcon-root {
+  font-size: 1.8rem;
+}
+
+.services-feature-title {
+  font-size: 1.25rem;
   font-weight: 600;
   color: #0a2239;
   margin-bottom: 1rem;
   line-height: 1.3;
 }
 
-.services-card-description {
-  font-size: 1rem;
+.services-feature-description {
+  font-size: 0.95rem;
   color: #7d99ba;
   line-height: 1.6;
 }
@@ -277,7 +280,7 @@
 
 /* Combined Section */
 .services-combined {
-  background: linear-gradient(135deg, #0a2239 0%, #1b5993 100%);
+  background: linear-gradient(135deg, #030D16 0%, #0F2F4D 100%);
   color: #ffffff;
   padding: 5rem 0;
   text-align: center;
@@ -292,7 +295,6 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(circle at 50% 50%, rgba(254, 95, 85, 0.1) 0%, transparent 70%);
   z-index: 1;
 }
 
@@ -412,7 +414,7 @@
 /* Mobile Responsive */
 @media (max-width: 768px) {
   .services-hero {
-    padding: 4rem 0 3rem;
+    padding: 6rem 0 3rem;
   }
 
   .services-hero-title {
@@ -421,6 +423,14 @@
 
   .services-hero-subtitle {
     font-size: 1.1rem;
+  }
+
+  .services-section-image {
+    padding: 0 1rem;
+  }
+
+  .services-section-header {
+    padding: 0 1rem;
   }
 
   .services-section {
@@ -435,12 +445,30 @@
     font-size: 1.1rem;
   }
 
-  .services-card-content {
+  .services-section-image {
+    margin: 2rem 0;
+  }
+
+  .services-features-grid {
+    padding: 0 1rem;
+  }
+
+  .services-feature-content {
     padding: 1.5rem;
   }
 
-  .services-card-image-container {
-    height: 160px;
+  .services-feature-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 1rem;
+  }
+
+  .services-feature-icon .MuiSvgIcon-root {
+    font-size: 1.5rem;
+  }
+
+  .services-combined-content{
+    padding: 0 2rem;
   }
 
   .services-combined-title {
@@ -501,12 +529,12 @@
     font-size: 1.75rem;
   }
 
-  .services-card-title {
-    font-size: 1.25rem;
+  .services-feature-title {
+    font-size: 1.1rem;
   }
 
-  .services-card-image-container {
-    height: 140px;
+  .services-feature-description {
+    font-size: 0.9rem;
   }
 
   .services-section-badge {

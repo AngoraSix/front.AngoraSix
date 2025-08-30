@@ -10,17 +10,18 @@ import {
   Psychology as PsychologyIcon,
   Speed as SpeedIcon,
   TrendingUp as TrendingUpIcon,
-} from "@mui/icons-material";
-import { Button, Card, CardContent, CardMedia, Chip, Container, Grid, Typography } from "@mui/material";
-import { useSession } from "next-auth/react";
-import { useTranslation } from "next-i18next";
-import Head from "next/head";
-import { useRouter } from "next/router";
-import { useState } from "react";
-import config from "../../config";
-import { ROUTES } from "../../constants/constants";
-import { trackConsultationServiceClick, trackPlatformServiceClick } from "../../utils/analytics";
-import CalendarBookingDialog from "./CalendarBookingDialog";
+} from "@mui/icons-material"
+import { Button, Card, CardContent, Chip, Container, Grid, Typography } from "@mui/material"
+import { useSession } from "next-auth/react"
+import { useTranslation } from "next-i18next"
+import Head from "next/head"
+import Image from "next/image"
+import { useRouter } from "next/router"
+import { useState } from "react"
+import config from "../../config"
+import { ROUTES } from "../../constants/constants"
+import { trackConsultationServiceClick, trackPlatformServiceClick } from "../../utils/analytics"
+import CalendarBookingDialog from "./CalendarBookingDialog"
 
 const Services = ({ forProfile }) => {
   const { t } = useTranslation("services")
@@ -48,34 +49,33 @@ const Services = ({ forProfile }) => {
     setCalendarDialogOpen(false)
   }
 
-  const guidanceServices = [
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId)
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" })
+    }
+  }
+
+  const guidanceFeatures = [
     {
       icon: <SpeedIcon />,
       title: t("guidance.agile.title"),
       description: t("guidance.agile.description"),
-      image: "/images/screenshots/en/step1-rules.png",
-      color: "#fe5f55",
     },
     {
       icon: <LightbulbIcon />,
       title: t("guidance.lean.title"),
       description: t("guidance.lean.description"),
-      image: "/images/screenshots/en/step2-integrations.png",
-      color: "#1b5993",
     },
     {
       icon: <PsychologyIcon />,
       title: t("guidance.design.title"),
       description: t("guidance.design.description"),
-      image: "/images/screenshots/en/result0-ownership.png",
-      color: "#fe5f55",
     },
     {
       icon: <BalanceIcon />,
       title: t("guidance.management.title"),
       description: t("guidance.management.description"),
-      image: "/images/screenshots/en/result1-decision.png",
-      color: "#1b5993",
     },
   ]
 
@@ -84,25 +84,21 @@ const Services = ({ forProfile }) => {
       icon: <TrendingUpIcon />,
       title: t("platform.contribution.title"),
       description: t("platform.contribution.description"),
-      image: "/images/contributor-stats.png",
     },
     {
       icon: <BalanceIcon />,
       title: t("platform.ownership.title"),
       description: t("platform.ownership.description"),
-      image: "/images/project-stats.png",
     },
     {
       icon: <GroupIcon />,
       title: t("platform.governance.title"),
       description: t("platform.governance.description"),
-      image: "/images/screenshots/en/result1-decision.png",
     },
     {
       icon: <AccountBalanceIcon />,
       title: t("platform.finance.title"),
       description: t("platform.finance.description"),
-      image: "/images/screenshots/en/result2-financial.png",
     },
   ]
 
@@ -115,7 +111,7 @@ const Services = ({ forProfile }) => {
         <meta property="og:title" key="og.title" content={t("page.title")} />
         <meta property="og:description" key="og.description" content={t("page.description")} />
         <meta property="og:image" key="og.image" content={config.site.head.image.logoSquare} />
-        <meta property="og:url" key="og.url" content="https://angorasix.com/pricing" />
+        <meta property="og:url" key="og.url" content="https://angorasix.com/services" />
         <meta property="og:type" key="og.type" content="website" />
       </Head>
 
@@ -131,159 +127,169 @@ const Services = ({ forProfile }) => {
                 {t("hero.subtitle")}
               </Typography>
               <div className="services-hero-badges">
-                <Chip label={t("hero.badge1")} className="services-badge guidance" />
-                <Chip label={t("hero.badge2")} className="services-badge platform" />
+                <Chip
+                  label={t("hero.badge1")}
+                  className="services-badge guidance clickable"
+                  onClick={() => scrollToSection("guidance-section")}
+                  clickable
+                />
+                <Chip
+                  label={t("hero.badge2")}
+                  className="services-badge platform clickable"
+                  onClick={() => scrollToSection("platform-section")}
+                  clickable
+                />
               </div>
             </div>
           </Container>
         </div>
 
-        <Container maxWidth="lg">
-          {/* Guidance Services Section */}
-          <div className="services-section guidance-section">
-            <div className="services-section-header">
-              <div className="services-section-badge">
-                <PsychologyIcon />
-                <span>{t("guidance.badge")}</span>
-              </div>
-              <Typography variant="h2" className="services-section-title">
-                {t("guidance.title")}
-              </Typography>
-              <Typography variant="body1" className="services-section-description">
-                {t("guidance.subtitle")}
-              </Typography>
+        {/* Guidance Services Section */}
+        <div id="guidance-section" className="services-section guidance-section">
+          <div className="services-section-header">
+            <div className="services-section-badge">
+              <PsychologyIcon />
+              <span>{t("guidance.badge")}</span>
             </div>
-
-            <Grid container spacing={4} className="services-grid">
-              {guidanceServices.map((service, index) => (
-                <Grid item xs={12} md={6} key={index}>
-                  <Card className="services-card guidance-card">
-                    <div className="services-card-image-container">
-                      <CardMedia
-                        component="img"
-                        image={service.image}
-                        alt={service.title}
-                        className="services-card-image"
-                      />
-                      <div className="services-card-overlay" style={{ backgroundColor: `${service.color}15` }}>
-                        <div className="services-card-icon" style={{ color: service.color }}>
-                          {service.icon}
-                        </div>
-                      </div>
-                    </div>
-                    <CardContent className="services-card-content">
-                      <Typography variant="h5" className="services-card-title">
-                        {service.title}
-                      </Typography>
-                      <Typography variant="body2" className="services-card-description">
-                        {service.description}
-                      </Typography>
-                    </CardContent>
-                  </Card>
-                </Grid>
-              ))}
-            </Grid>
-
-            <div className="services-section-cta">
-              <Button
-                variant="outlined"
-                size="large"
-                onClick={handleContactAdvisor}
-                className="services-guidance-cta"
-                endIcon={<ArrowForwardIcon />}
-              >
-                {t("guidance.cta")}
-              </Button>
-            </div>
+            <Typography variant="h2" className="services-section-title">
+              {t("guidance.title")}
+            </Typography>
+            <Typography variant="body1" className="services-section-description">
+              {t("guidance.subtitle")}
+            </Typography>
           </div>
 
-          {/* Platform Section */}
-          <div className="services-section platform-section">
-            <div className="services-section-header">
-              <div className="services-section-badge platform-badge">
-                <AutoAwesomeIcon />
-                <span>{t("platform.badge")}</span>
-              </div>
-              <Typography variant="h2" className="services-section-title">
-                {t("platform.title")}
-              </Typography>
-              <Typography variant="body1" className="services-section-description">
-                {t("platform.subtitle")}
-              </Typography>
+          {/* Service Main Image */}
+          <div className="services-section-image">
+            <Image
+              src="/images/resources/scrum-1.png"
+              alt={t("guidance.title")}
+              width={350}
+              height={300}
+              className="services-main-image"
+            />
+          </div>
+
+          {/* Features Grid */}
+          <Grid container spacing={3} className="services-features-grid">
+            {guidanceFeatures.map((feature, index) => (
+              <Grid item xs={12} md={6} key={index}>
+                <Card className="services-feature-card guidance-feature">
+                  <CardContent className="services-feature-content">
+                    <div className="services-feature-icon guidance-icon">{feature.icon}</div>
+                    <Typography variant="h6" className="services-feature-title">
+                      {feature.title}
+                    </Typography>
+                    <Typography variant="body2" className="services-feature-description">
+                      {feature.description}
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </Grid>
+            ))}
+          </Grid>
+
+          <div className="services-section-cta">
+            <Button
+              variant="outlined"
+              size="large"
+              onClick={handleContactAdvisor}
+              className="services-guidance-cta"
+              endIcon={<ArrowForwardIcon />}
+            >
+              {t("guidance.cta")}
+            </Button>
+          </div>
+        </div>
+
+        {/* Platform Section */}
+        <div id="platform-section" className="services-section platform-section">
+          <div className="services-section-header">
+            <div className="services-section-badge platform-badge">
+              <AutoAwesomeIcon />
+              <span>{t("platform.badge")}</span>
             </div>
+            <Typography variant="h2" className="services-section-title">
+              {t("platform.title")}
+            </Typography>
+            <Typography variant="body1" className="services-section-description">
+              {t("platform.subtitle")}
+            </Typography>
+          </div>
 
-            <Grid container spacing={4} className="services-grid">
-              {platformFeatures.map((feature, index) => (
-                <Grid item xs={12} md={6} key={index}>
-                  <Card className="services-card platform-card">
-                    <div className="services-card-image-container">
-                      <CardMedia
-                        component="img"
-                        image={feature.image}
-                        alt={feature.title}
-                        className="services-card-image"
-                      />
-                      <div className="services-card-overlay platform-overlay">
-                        <div className="services-card-icon platform-icon">{feature.icon}</div>
-                      </div>
-                    </div>
-                    <CardContent className="services-card-content">
-                      <Typography variant="h5" className="services-card-title">
-                        {feature.title}
-                      </Typography>
-                      <Typography variant="body2" className="services-card-description">
-                        {feature.description}
-                      </Typography>
-                    </CardContent>
-                  </Card>
-                </Grid>
-              ))}
-            </Grid>
+          {/* Service Main Image */}
+          <div className="services-section-image">
+            <Image
+              src="/images/project-stats.png"
+              alt={t("platform.title")}
+              width={350}
+              height={300}
+              className="services-main-image"
+            />
+          </div>
 
-            <div className="services-section-cta">
+          {/* Features Grid */}
+          <Grid container spacing={3} className="services-features-grid">
+            {platformFeatures.map((feature, index) => (
+              <Grid item xs={12} md={6} key={index}>
+                <Card className="services-feature-card platform-feature">
+                  <CardContent className="services-feature-content">
+                    <div className="services-feature-icon platform-icon">{feature.icon}</div>
+                    <Typography variant="h6" className="services-feature-title">
+                      {feature.title}
+                    </Typography>
+                    <Typography variant="body2" className="services-feature-description">
+                      {feature.description}
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </Grid>
+            ))}
+          </Grid>
+
+          <div className="services-section-cta">
+            <Button
+              variant="contained"
+              size="large"
+              onClick={handleGetStarted}
+              className="services-platform-cta"
+              endIcon={<ArrowForwardIcon />}
+            >
+              {t("platform.cta")}
+            </Button>
+          </div>
+        </div>
+
+        {/* Combined Value Section */}
+        <div className="services-combined">
+          <div className="services-combined-content">
+            <Typography variant="h2" className="services-combined-title">
+              {t("combined.title")}
+            </Typography>
+            <Typography variant="body1" className="services-combined-description">
+              {t("combined.description")}
+            </Typography>
+            <div className="services-combined-actions">
               <Button
                 variant="contained"
                 size="large"
                 onClick={handleGetStarted}
-                className="services-platform-cta"
+                className="services-combined-primary"
                 endIcon={<ArrowForwardIcon />}
               >
-                {t("platform.cta")}
+                {t("combined.cta.primary")}
+              </Button>
+              <Button
+                variant="outlined"
+                size="large"
+                onClick={handleContactAdvisor}
+                className="services-combined-secondary"
+              >
+                {t("combined.cta.secondary")}
               </Button>
             </div>
           </div>
-
-          {/* Combined Value Section */}
-          <div className="services-combined">
-            <div className="services-combined-content">
-              <Typography variant="h2" className="services-combined-title">
-                {t("combined.title")}
-              </Typography>
-              <Typography variant="body1" className="services-combined-description">
-                {t("combined.description")}
-              </Typography>
-              <div className="services-combined-actions">
-                <Button
-                  variant="contained"
-                  size="large"
-                  onClick={handleGetStarted}
-                  className="services-combined-primary"
-                  endIcon={<ArrowForwardIcon />}
-                >
-                  {t("combined.cta.primary")}
-                </Button>
-                <Button
-                  variant="outlined"
-                  size="large"
-                  onClick={handleContactAdvisor}
-                  className="services-combined-secondary"
-                >
-                  {t("combined.cta.secondary")}
-                </Button>
-              </div>
-            </div>
-          </div>
-        </Container>
+        </div>
 
         {/* Calendar Booking Dialog */}
         <CalendarBookingDialog open={calendarDialogOpen} onClose={handleCloseCalendarDialog} />
