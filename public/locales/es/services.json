@@ -1,0 +1,64 @@
+{
+  "page": {
+    "title": "Servicios",
+    "description": "Descubre los servicios de AngoraSix: orientación experta y apoyo metodológico combinado con nuestra poderosa plataforma para gestión transparente de proyectos."
+  },
+  "hero": {
+    "title": "Dos servicios poderosos, una misión clara",
+    "subtitle": "Orientación experta para construir de la manera correcta, más una plataforma para escalar con transparencia y equidad.",
+    "badge1": "Orientación y Metodología",
+    "badge2": "Plataforma AngoraSix"
+  },
+  "guidance": {
+    "badge": "Orientación Experta",
+    "title": "Servicios de Orientación y Metodología",
+    "subtitle": "Somos tus socios para construir mejor. Obtén apoyo experto con marcos y metodologías probadas para preparar tu proyecto para el éxito desde el primer día.",
+    "agile": {
+      "title": "Metodologías Ágiles",
+      "description": "Adopta enfoques Scrum-lite para ritmo y estructura en etapas tempranas, manteniendo el impulso sin abrumar a tu equipo con sobrecarga de procesos."
+    },
+    "lean": {
+      "title": "Lean Startup",
+      "description": "Técnicas de experimentación rápida y validación para sostener la motivación, reducir desperdicios y enfocar en lo que realmente importa a tus usuarios."
+    },
+    "design": {
+      "title": "Design Thinking",
+      "description": "Metodologías de descubrimiento centrado en el usuario y formación de soluciones para asegurar que construyas productos que la gente realmente quiere y necesita."
+    },
+    "management": {
+      "title": "Marcos de Gestión Justa",
+      "description": "Ayuda a tu equipo a alinearse sobre qué significa 'justo' e implementar procesos transparentes de gobernanza y finanzas que todos entiendan."
+    },
+    "cta": "Habla con Nuestros Asesores"
+  },
+  "platform": {
+    "badge": "Power-Up",
+    "title": "Plataforma AngoraSix",
+    "subtitle": "Lleva tu metodología al siguiente nivel. Nuestra plataforma automatiza los principios de transparencia y equidad que has establecido, escalando tus procesos mientras creces.",
+    "contribution": {
+      "title": "Seguimiento de Contribuciones",
+      "description": "Captura y mide automáticamente lo que cada miembro del equipo contribuye a través de integraciones perfectas con tus herramientas y flujos de trabajo existentes."
+    },
+    "ownership": {
+      "title": "Propiedad Dinámica",
+      "description": "Transforma las contribuciones en cálculos de propiedad claros y transparentes que todos puedan entender y en los que puedan confiar."
+    },
+    "governance": {
+      "title": "Gobernanza Transparente",
+      "description": "Implementa los marcos de toma de decisiones que has diseñado con votación automatizada ponderada por contribución y rastros de auditoría claros."
+    },
+    "finance": {
+      "title": "Distribución Automatizada",
+      "description": "Distribuye ingresos, equity y recompensas automáticamente basado en tus reglas establecidas, eliminando sesgos y errores manuales."
+    },
+    "cta": "Prueba la Plataforma"
+  },
+  "combined": {
+    "title": "Mejor juntos: Orientación + Plataforma",
+    "description": "Comienza con orientación experta para establecer tus fundamentos, luego potencia con nuestra plataforma para automatizar y escalar tus procesos transparentes. La combinación perfecta para crecimiento sostenible.",
+    "cta": {
+      "primary": "Comienza Tu Viaje",
+      "secondary": "Programa una Consulta"
+    }
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "page": {
+    "title": "Services",
+    "description": "Discover AngoraSix services: expert guidance and methodology support combined with our powerful platform for transparent project management."
+  },
+  "hero": {
+    "title": "Two powerful services, one clear mission",
+    "subtitle": "Expert guidance to build the right way, plus a platform to scale with transparency and fairness.",
+    "badge1": "Guidance & Methodology",
+    "badge2": "AngoraSix Platform"
+  },
+  "core": {
+    "title": "AngoraSix Core System",
+    "subtitle": "Our management layer provides the technical foundation for transparent and fair project governance.",
+    "contribution": {
+      "title": "Contribution Tracking",
+      "description": "Automatically capture what each member contributes via integrations with your existing tools and workflows."
+    },
+    "ownership": {
+      "title": "Dynamic Ownership",
+      "description": "Translate contributions into clear ownership logic — who owns what, and why, with transparent calculations."
+    },
+    "governance": {
+      "title": "Governance",
+      "description": "Transparent rules for decision-making, weighted by contribution and aligned with your project's values."
+    },
+    "finance": {
+      "title": "Finance & Rewards",
+      "description": "Distribute income and rewards automatically and transparently, based on the rules you define."
+    }
+  },
+  "guidance": {
+    "badge": "Expert Guidance",
+    "title": "Guidance & Methodology Services",
+    "subtitle": "We're your partners in building better. Get expert support with proven frameworks and methodologies to set your project up for success from day one.",
+    "agile": {
+      "title": "Agile Methodologies",
+      "description": "Adopt Scrum-lite approaches for rhythm and structure in early stages, maintaining momentum without overwhelming your team with process overhead."
+    },
+    "lean": {
+      "title": "Lean Startup",
+      "description": "Fast experimentation and validation techniques to sustain motivation, reduce waste, and sharpen focus on what truly matters to your users."
+    },
+    "design": {
+      "title": "Design Thinking",
+      "description": "User-centered discovery and solution shaping methodologies to ensure you're building products people actually want and need."
+    },
+    "management": {
+      "title": "Fair Management Frameworks",
+      "description": "Help your team align on what 'fair' means and implement transparent governance and financial processes that everyone understands."
+    },
+    "cta": "Talk to Our Advisors"
+  },
+  "platform": {
+    "badge": "Power-Up",
+    "title": "AngoraSix Platform",
+    "subtitle": "Take your methodology to the next level. Our platform automates the transparency and fairness principles you've established, scaling your processes as you grow.",
+    "contribution": {
+      "title": "Contribution Tracking",
+      "description": "Automatically capture and measure what each team member contributes through seamless integrations with your existing tools and workflows."
+    },
+    "ownership": {
+      "title": "Dynamic Ownership",
+      "description": "Transform contributions into clear, transparent ownership calculations that everyone can understand and trust."
+    },
+    "governance": {
+      "title": "Transparent Governance",
+      "description": "Implement the decision-making frameworks you've designed with automated, contribution-weighted voting and clear audit trails."
+    },
+    "finance": {
+      "title": "Automated Distribution",
+      "description": "Distribute income, equity, and rewards automatically based on your established rules, removing bias and manual errors."
+    },
+    "cta": "Try the Platform"
+  },
+  "combined": {
+    "title": "Better together: Guidance + Platform",
+    "description": "Start with expert guidance to establish your foundations, then power-up with our platform to automate and scale your transparent processes. The perfect combination for sustainable growth.",
+    "cta": {
+      "primary": "Start Your Journey",
+      "secondary": "Schedule a Consultation"
+    }
+  },
+  "why": {
+    "title": "Why Choose AngoraSix?",
+    "fairness": "Built for fairness and transparency from the ground up",
+    "minimal": "Minimal interference, maximum clarity in your processes",
+    "tailored": "Tailored support for ventures and community-driven projects",
+    "technology": "Both technology and methodology — complete support for your journey"
+  },
+  "final": {
+    "title": "Let's build better, together.",
+    "subtitle": "Clarity, fairness, and support from day one.",
+    "cta": "Start Your Journey"
+  }
+}
