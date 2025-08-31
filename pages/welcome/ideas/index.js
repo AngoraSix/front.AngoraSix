@@ -2,21 +2,18 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 import IdeasLanding from "../../../components/Landings/Ideas/IdeasLanding"
 import LandingLayout from "../../../layouts/LandingLayout"
 
-const IdeasPage = ({ forProfile }) => {
+const IdeasPage = () => {
   return (
-    <LandingLayout>
-      <IdeasLanding forProfile={forProfile} />
+    <LandingLayout forProfile="ideas">
+      <IdeasLanding translationKey="welcome.ideas" />
     </LandingLayout>
   )
 }
 
-export async function getServerSideProps({ locale, query }) {
-  const { for: forProfile } = query
-
+export async function getServerSideProps({ locale }) {
   return {
     props: {
-      forProfile: forProfile || null,
-      ...(await serverSideTranslations(locale, ["common", "welcome.ideas", "common.legal", "common.languages"])),
+      ...(await serverSideTranslations(locale, ["common", "welcome.ideas", "common.legal"])),
     },
   }
 }

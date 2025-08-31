@@ -204,10 +204,10 @@ export const trackPlatformServiceClick = () => {
   })
 }
 
-export const trackConsultationServiceClick = () => {
+export const trackConsultationServiceClick = (page = "services_page") => {
   trackEvent("consultation_service_click", {
     event_category: "engagement",
-    event_label: "services_page",
+    event_label: page,
     value: 750,
     currency: "ARS"
   })

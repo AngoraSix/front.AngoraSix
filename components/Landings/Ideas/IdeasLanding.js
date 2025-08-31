@@ -19,23 +19,26 @@ import config from "../../../config"
 import { ROUTES } from "../../../constants/constants"
 import { trackConsultationServiceClick } from "../../../utils/analytics"
 
-const IdeasLanding = ({ forProfile }) => {
-  const { t } = useTranslation("welcome.ideas")
+const IdeasLanding = ({ translationKey }) => {
+  const { t } = useTranslation(translationKey)
   const router = useRouter()
   const { data: session } = useSession()
 
   const handleBookCall = () => {
     // Track analytics event
-    trackConsultationServiceClick()
+    trackConsultationServiceClick("welcome_ideas")
     // Navigate to services page with guidance section and open dialog
     router.push(`${ROUTES.services}?section=guidance&dialog=true`)
   }
 
-  const handleGetStarted = () => {
+  const handleRegister = (ctaText = "hero.cta") => () => {
+    // Track CTA click before redirect
+    trackLandingCTAClick("ideas", ctaText)
+
     if (session) {
-      router.push(`${ROUTES.welcome.postRegistration}${forProfile ? `?for=${forProfile}` : ""}`)
+      router.push(`${ROUTES.welcome.postRegistration}?for=ideas`)
     } else {
-      router.push(`${ROUTES.auth.signin}${forProfile ? `?for=${forProfile}` : ""}`)
+      router.push(`${ROUTES.auth.signin}?for=ideas`)
     }
   }
 
@@ -95,6 +98,7 @@ const IdeasLanding = ({ forProfile }) => {
       <Head>
         <title>{t("page.title")}</title>
         <meta name="description" content={t("page.description")} />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         <meta property="og:title" key="og.title" content={t("page.title")} />
         <meta property="og:description" key="og.description" content={t("page.description")} />
@@ -131,7 +135,7 @@ const IdeasLanding = ({ forProfile }) => {
                   <Button
                     variant="outlined"
                     size="large"
-                    onClick={handleGetStarted}
+                    onClick={handleRegister}
                     className="ideas-hero-button secondary"
                   >
                     {t("hero.cta.secondary")}
