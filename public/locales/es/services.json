@@ -1,76 +1,71 @@
 {
   "page": {
     "title": "Servicios",
-    "description": "Descubre los servicios de AngoraSix: orientación experta y apoyo metodológico combinado con nuestra poderosa plataforma para gestión transparente de proyectos."
+    "description": "Descubrí los servicios de AngoraSix: asesoría experta y apoyo metodológico combinados con nuestra plataforma para una gestión de proyectos transparente y justa."
   },
   "hero": {
-    "title": "Dos servicios poderosos, una misión clara",
-    "subtitle": "Orientación experta para construir de la manera correcta, más una plataforma para escalar con transparencia y equidad.",
-    "badge1": "Orientación y Metodología",
+    "title": "Guía y herramientas para construir mejor, juntos",
+    "subtitle": "Desde el acompañamiento inicial hasta crecer con transparencia — nuestros servicios se integran de forma natural para ayudarte a lanzar y hacer crecer tu proyecto con claridad y equidad.",
+    "badge1": "Asesoría y metodología",
     "badge2": "Plataforma AngoraSix"
   },
   "guidance": {
-    "badge": "Orientación Experta",
-    "title": "Servicios de Orientación y Metodología",
-    "subtitle": "Somos tus socios para construir mejor. Obtén apoyo experto con marcos y metodologías probadas para preparar tu proyecto para el éxito desde el primer día.",
+    "badge": "Asesoría experta",
+    "title": "Servicios de asesoría y metodología",
+    "subtitle": "Somos tus aliados para construir mejor. Recibí apoyo experto con marcos y metodologías probadas para preparar tu proyecto para el éxito desde el primer día.",
     "agile": {
-      "title": "Metodologías Ágiles",
-      "description": "Adopta enfoques Scrum-lite para ritmo y estructura en etapas tempranas, manteniendo el impulso sin abrumar a tu equipo con sobrecarga de procesos."
+      "title": "Metodologías ágiles",
+      "description": "Adoptá enfoques ligeros inspirados en Scrum para darle ritmo y estructura a las primeras etapas, manteniendo el impulso sin sobrecargar al equipo con procesos innecesarios."
     },
     "lean": {
       "title": "Lean Startup",
-      "description": "Técnicas de experimentación rápida y validación para sostener la motivación, reducir desperdicios y enfocar en lo que realmente importa a tus usuarios."
+      "description": "Técnicas de experimentación rápida y validación para sostener la motivación, reducir desperdicios y enfocarte en lo que realmente importa a tus usuarios."
     },
     "design": {
       "title": "Design Thinking",
-      "description": "Metodologías de descubrimiento centrado en el usuario y formación de soluciones para asegurar que construyas productos que la gente realmente quiere y necesita."
+      "description": "Metodologías centradas en el usuario para descubrir necesidades y dar forma a soluciones que la gente realmente quiere y necesita."
     },
     "management": {
-      "title": "Marcos de Gestión Justa",
-      "description": "Ayuda a tu equipo a alinearse sobre qué significa 'justo' e implementar procesos transparentes de gobernanza y finanzas que todos entiendan."
+      "title": "Marcos de gestión justa",
+      "description": "Ayudamos a tu equipo a definir qué significa 'justo' e implementar procesos de gobernanza y finanzas transparentes que todos comprendan."
     },
-    "cta": "Habla con Nuestros Asesores"
+    "cta": "Hablá con nuestros asesores"
   },
   "platform": {
-    "badge": "Power-Up",
+    "badge": "Potenciá tu proyecto",
     "title": "Plataforma AngoraSix",
-    "subtitle": "Lleva tu metodología al siguiente nivel. Nuestra plataforma automatiza los principios de transparencia y equidad que has establecido, escalando tus procesos mientras creces.",
+    "subtitle": "La extensión natural de tu marco de trabajo — ganá eficiencia manteniendo los principios de transparencia y equidad, tal como los definiste.",
     "contribution": {
-      "title": "Seguimiento de Contribuciones",
-      "description": "Captura y mide automáticamente lo que cada miembro del equipo contribuye a través de integraciones perfectas con tus herramientas y flujos de trabajo existentes."
+      "title": "Seguimiento de contribuciones",
+      "description": "Capturá y medí automáticamente lo que cada miembro aporta mediante integraciones fluidas con tus herramientas y flujos de trabajo."
     },
     "ownership": {
-      "title": "Propiedad Dinámica",
-      "description": "Transforma las contribuciones en cálculos de propiedad claros y transparentes que todos puedan entender y en los que puedan confiar."
+      "title": "Propiedad dinámica",
+      "description": "Convertí las contribuciones en cálculos de propiedad claros y transparentes que todos puedan entender y en los que puedan confiar."
     },
     "governance": {
-      "title": "Gobernanza Transparente",
-      "description": "Implementa los marcos de toma de decisiones que has diseñado con votación automatizada ponderada por contribución y rastros de auditoría claros."
+      "title": "Gobernanza transparente",
+      "description": "Implementá los marcos de decisión que hayas definido con votaciones automatizadas ponderadas por contribución y registros claros de auditoría."
     },
     "finance": {
-      "title": "Distribución Automatizada",
-      "description": "Distribuye ingresos, equity y recompensas automáticamente basado en tus reglas establecidas, eliminando sesgos y errores manuales."
+      "title": "Distribución automatizada",
+      "description": "Repartí ingresos, equity y recompensas automáticamente según tus reglas establecidas, eliminando sesgos y errores manuales."
     },
-    "cta": "Prueba la Plataforma"
+    "cta": "Probá la plataforma"
   },
   "combined": {
-    "title": "Mejor juntos: Orientación + Plataforma",
-    "description": "Comienza con orientación experta para establecer tus fundamentos, luego potencia con nuestra plataforma para automatizar y escalar tus procesos transparentes. La combinación perfecta para crecimiento sostenible.",
+    "title": "Mejor juntos: Asesoría + Plataforma",
+    "description": "Comenzá con asesoría experta para establecer tus bases, luego potenciá con nuestra plataforma para automatizar y escalar tus procesos justos y transparentes. La combinación perfecta para un crecimiento sostenible.",
     "cta": {
-      "primary": "Comienza Tu Viaje",
-      "secondary": "Programa una Consulta"
+      "primary": "Comenzá tu viaje",
+      "secondary": "Agendá una consulta"
     }
   },
   "calendar": {
-    "title": "Programa una Consulta",
-    "description": "Reserva una llamada de consulta de una hora para discutir las necesidades de tu proyecto y cómo nuestros servicios de orientación pueden ayudarte a construir mejor desde el primer día.",
+    "title": "Agendá una consulta",
+    "description": "Reservá una videollamada de una hora para conversar sobre las necesidades de tu proyecto y cómo nuestros servicios de asesoría pueden ayudarte a construir mejor desde el primer día.",
     "meetingType": "Videollamada de una hora vía Google Meet",
-    "tabs": {
-      "agenda": "Próximos",
-      "month": "Mes",
-      "week": "Semana"
-    },
-    "footer": "Todos los horarios se muestran en tu zona horaria local. Recibirás un email de confirmación con los detalles de la reunión.",
+    "footer": "Los horarios se muestran en tu zona horaria local. Vas a recibir un correo de confirmación con los detalles de la reunión.",
     "close": "Cerrar"
   }
 }

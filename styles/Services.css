@@ -157,10 +157,6 @@
   transition: transform 0.3s ease;
 }
 
-.services-main-image:hover {
-  transform: scale(1.02);
-}
-
 /* Features Grid */
 .services-features-grid {
   margin-top: 3rem;
@@ -174,11 +170,6 @@
   transition: all 0.3s ease;
   border: 1px solid rgba(220, 231, 234, 0.3);
   background: #ffffff;
-}
-
-.services-feature-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 32px rgba(10, 34, 57, 0.12);
 }
 
 .services-feature-content {

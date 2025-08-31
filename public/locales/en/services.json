@@ -4,30 +4,10 @@
     "description": "Discover AngoraSix services: expert guidance and methodology support combined with our powerful platform for transparent project management."
   },
   "hero": {
-    "title": "Two powerful services, one clear mission",
-    "subtitle": "Expert guidance to build the right way, plus a platform to scale with transparency and fairness.",
+    "title": "Guidance and tools to build better, together",
+    "subtitle": "From early support to transparent scaling — our services work seamlessly to help you launch and grow your project with clarity and fairness.",
     "badge1": "Guidance & Methodology",
     "badge2": "AngoraSix Platform"
-  },
-  "core": {
-    "title": "AngoraSix Core System",
-    "subtitle": "Our management layer provides the technical foundation for transparent and fair project governance.",
-    "contribution": {
-      "title": "Contribution Tracking",
-      "description": "Automatically capture what each member contributes via integrations with your existing tools and workflows."
-    },
-    "ownership": {
-      "title": "Dynamic Ownership",
-      "description": "Translate contributions into clear ownership logic — who owns what, and why, with transparent calculations."
-    },
-    "governance": {
-      "title": "Governance",
-      "description": "Transparent rules for decision-making, weighted by contribution and aligned with your project's values."
-    },
-    "finance": {
-      "title": "Finance & Rewards",
-      "description": "Distribute income and rewards automatically and transparently, based on the rules you define."
-    }
   },
   "guidance": {
     "badge": "Expert Guidance",
@@ -54,7 +34,7 @@
   "platform": {
     "badge": "Power-Up",
     "title": "AngoraSix Platform",
-    "subtitle": "Take your methodology to the next level. Our platform automates the transparency and fairness principles you've established, scaling your processes as you grow.",
+    "subtitle": "A natural extension of your framework — gain efficiency while upholding your transparency and fairness principles, as you've set them.",
     "contribution": {
       "title": "Contribution Tracking",
       "description": "Automatically capture and measure what each team member contributes through seamless integrations with your existing tools and workflows."
@@ -75,33 +55,16 @@
   },
   "combined": {
     "title": "Better together: Guidance + Platform",
-    "description": "Start with expert guidance to establish your foundations, then power-up with our platform to automate and scale your transparent processes. The perfect combination for sustainable growth.",
+    "description": "Start with expert guidance to establish your foundations, then power-up with our platform to automate and scale your fair and transparent processes. The perfect combination for sustainable growth.",
     "cta": {
       "primary": "Start Your Journey",
       "secondary": "Schedule a Consultation"
     }
   },
-  "why": {
-    "title": "Why Choose AngoraSix?",
-    "fairness": "Built for fairness and transparency from the ground up",
-    "minimal": "Minimal interference, maximum clarity in your processes",
-    "tailored": "Tailored support for ventures and community-driven projects",
-    "technology": "Both technology and methodology — complete support for your journey"
-  },
-  "final": {
-    "title": "Let's build better, together.",
-    "subtitle": "Clarity, fairness, and support from day one.",
-    "cta": "Start Your Journey"
-  },
   "calendar": {
     "title": "Schedule a Consultation",
     "description": "Book a one hour consultation call to discuss your project's needs and how our guidance services can help you build better from day one.",
     "meetingType": "One hour video call via Google Meet",
-    "tabs": {
-      "agenda": "Upcoming",
-      "month": "Month",
-      "week": "Week"
-    },
     "footer": "All times are shown in your local timezone. You'll receive a confirmation email with the meeting details.",
     "close": "Close"
   }
