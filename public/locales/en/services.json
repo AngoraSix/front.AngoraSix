@@ -1,0 +1,71 @@
+{
+  "page": {
+    "title": "Services",
+    "description": "Discover AngoraSix services: expert guidance and methodology support combined with our powerful platform for transparent project management."
+  },
+  "hero": {
+    "title": "Guidance and tools to build better, together",
+    "subtitle": "From early support to transparent scaling — our services work seamlessly to help you launch and grow your project with clarity and fairness.",
+    "badge1": "Guidance & Methodology",
+    "badge2": "AngoraSix Platform"
+  },
+  "guidance": {
+    "badge": "Expert Guidance",
+    "title": "Guidance & Methodology Services",
+    "subtitle": "We're your partners in building better. Get expert support with proven frameworks and methodologies to set your project up for success from day one.",
+    "agile": {
+      "title": "Agile Methodologies",
+      "description": "Adopt Scrum-lite approaches for rhythm and structure in early stages, maintaining momentum without overwhelming your team with process overhead."
+    },
+    "lean": {
+      "title": "Lean Startup",
+      "description": "Fast experimentation and validation techniques to sustain motivation, reduce waste, and sharpen focus on what truly matters to your users."
+    },
+    "design": {
+      "title": "Design Thinking",
+      "description": "User-centered discovery and solution shaping methodologies to ensure you're building products people actually want and need."
+    },
+    "management": {
+      "title": "Fair Management Frameworks",
+      "description": "Help your team align on what 'fair' means and implement transparent governance and financial processes that everyone understands."
+    },
+    "cta": "Talk to Our Advisors"
+  },
+  "platform": {
+    "badge": "Power-Up",
+    "title": "AngoraSix Platform",
+    "subtitle": "A natural extension of your framework — gain efficiency while upholding your transparency and fairness principles, as you've set them.",
+    "contribution": {
+      "title": "Contribution Tracking",
+      "description": "Automatically capture and measure what each team member contributes through seamless integrations with your existing tools and workflows."
+    },
+    "ownership": {
+      "title": "Dynamic Ownership",
+      "description": "Transform contributions into clear, transparent ownership calculations that everyone can understand and trust."
+    },
+    "governance": {
+      "title": "Transparent Governance",
+      "description": "Implement the decision-making frameworks you've designed with automated, contribution-weighted voting and clear audit trails."
+    },
+    "finance": {
+      "title": "Automated Distribution",
+      "description": "Distribute income, equity, and rewards automatically based on your established rules, removing bias and manual errors."
+    },
+    "cta": "Try the Platform"
+  },
+  "combined": {
+    "title": "Better together: Guidance + Platform",
+    "description": "Start with expert guidance to establish your foundations, then power-up with our platform to automate and scale your fair and transparent processes. The perfect combination for sustainable growth.",
+    "cta": {
+      "primary": "Start Your Journey",
+      "secondary": "Schedule a Consultation"
+    }
+  },
+  "calendar": {
+    "title": "Schedule a Consultation",
+    "description": "Book a one hour consultation call to discuss your project's needs and how our guidance services can help you build better from day one.",
+    "meetingType": "One hour video call via Google Meet",
+    "footer": "All times are shown in your local timezone. You'll receive a confirmation email with the meeting details.",
+    "close": "Close"
+  }
+}

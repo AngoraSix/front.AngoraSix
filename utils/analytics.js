@@ -194,3 +194,21 @@ export const trackBetaProgramClick = () => {
     currency: "ARS"
   })
 }
+
+export const trackPlatformServiceClick = () => {
+  trackEvent("platform_service_click", {
+    event_category: "engagement",
+    event_label: "services_page",
+    value: 500,
+    currency: "ARS"
+  })
+}
+
+export const trackConsultationServiceClick = () => {
+  trackEvent("consultation_service_click", {
+    event_category: "engagement",
+    event_label: "services_page",
+    value: 750,
+    currency: "ARS"
+  })
+}

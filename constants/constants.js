@@ -21,6 +21,13 @@ export const PROFILE_ATTRIBUTES = {
 };
 
 export const ROUTES = {
+  home: "/",
+  about: "/about",
+  pricing: "/pricing",
+  services: "/services",
+  auth: {
+    signin: '/auth/signin',
+  },
   projects: {
     management: {
       view: '/projects/:projectId/management',
@@ -56,9 +63,6 @@ export const ROUTES = {
   legal: {
     termsAndConditions: '/legal/terms-and-conditions',
   },
-  auth: {
-    signin: '/auth/signin',
-  }
 };
 
 export const HEADERS = {
@@ -78,4 +82,35 @@ export const THIRD_PARTY = {
     name: 'Stackoverflow',
     color: '#F7A664'
   },
+}
+
+// Google Calendar Configuration
+export const GOOGLE_CALENDAR = {
+  EMBED_BASE_URL: "https://calendar.google.com/calendar/appointments/schedules/:googleCalendarId?gv=true",
+  STYLE: 'border: 0',
+  WIDTH: "100%",
+  HEIGHT: "100%",
+  FRAMEBORDER: "0",
+
+  // // Replace this with your actual Google Calendar ID
+  // CALENDAR_ID: "your-calendar-id@gmail.com",
+  // // Calendar embed URL - you can customize the view, colors, etc.
+  // EMBED_BASE_URL: "https://calendar.google.com/calendar/embed",
+  // // Booking page URL if you prefer to use Google Calendar's booking page
+  // BOOKING_URL: "https://calendar.google.com/calendar/u/0/appointments/schedules/YOUR_SCHEDULE_ID",
+  // // Default settings for the embedded calendar
+  // DEFAULT_SETTINGS: {
+  //   height: "600",
+  //   wkst: "1", // Week starts on Monday
+  //   bgcolor: "%23ffffff",
+  //   ctz: "America/New_York", // Change to your timezone
+  //   showTitle: "0",
+  //   showNav: "1",
+  //   showDate: "1",
+  //   showPrint: "0",
+  //   showTabs: "0",
+  //   showCalendars: "0",
+  //   showTz: "0",
+  //   mode: "AGENDA", // MONTH, WEEK, AGENDA
+  // },
 }

@@ -68,6 +68,10 @@ const SharedNavbar = ({ forProfile }) => {
   const getNavigationItems = () => {
     const baseItems = [
       {
+        href: "/services",
+        label: t("navbar.shared.services"),
+      },
+      {
         href: "/pricing",
         label: t("navbar.shared.pricing"),
       },

@@ -1,0 +1,71 @@
+{
+  "page": {
+    "title": "Servicios",
+    "description": "Descubrí los servicios de AngoraSix: asesoría experta y apoyo metodológico combinados con nuestra plataforma para una gestión de proyectos transparente y justa."
+  },
+  "hero": {
+    "title": "Guía y herramientas para construir mejor, juntos",
+    "subtitle": "Desde el acompañamiento inicial hasta crecer con transparencia — nuestros servicios se integran de forma natural para ayudarte a lanzar y hacer crecer tu proyecto con claridad y equidad.",
+    "badge1": "Asesoría y metodología",
+    "badge2": "Plataforma AngoraSix"
+  },
+  "guidance": {
+    "badge": "Asesoría experta",
+    "title": "Servicios de asesoría y metodología",
+    "subtitle": "Somos tus aliados para construir mejor. Recibí apoyo experto con marcos y metodologías probadas para preparar tu proyecto para el éxito desde el primer día.",
+    "agile": {
+      "title": "Metodologías ágiles",
+      "description": "Adoptá enfoques ligeros inspirados en Scrum para darle ritmo y estructura a las primeras etapas, manteniendo el impulso sin sobrecargar al equipo con procesos innecesarios."
+    },
+    "lean": {
+      "title": "Lean Startup",
+      "description": "Técnicas de experimentación rápida y validación para sostener la motivación, reducir desperdicios y enfocarte en lo que realmente importa a tus usuarios."
+    },
+    "design": {
+      "title": "Design Thinking",
+      "description": "Metodologías centradas en el usuario para descubrir necesidades y dar forma a soluciones que la gente realmente quiere y necesita."
+    },
+    "management": {
+      "title": "Marcos de gestión justa",
+      "description": "Ayudamos a tu equipo a definir qué significa 'justo' e implementar procesos de gobernanza y finanzas transparentes que todos comprendan."
+    },
+    "cta": "Hablá con nuestros asesores"
+  },
+  "platform": {
+    "badge": "Potenciá tu proyecto",
+    "title": "Plataforma AngoraSix",
+    "subtitle": "La extensión natural de tu marco de trabajo — ganá eficiencia manteniendo los principios de transparencia y equidad, tal como los definiste.",
+    "contribution": {
+      "title": "Seguimiento de contribuciones",
+      "description": "Capturá y medí automáticamente lo que cada miembro aporta mediante integraciones fluidas con tus herramientas y flujos de trabajo."
+    },
+    "ownership": {
+      "title": "Propiedad dinámica",
+      "description": "Convertí las contribuciones en cálculos de propiedad claros y transparentes que todos puedan entender y en los que puedan confiar."
+    },
+    "governance": {
+      "title": "Gobernanza transparente",
+      "description": "Implementá los marcos de decisión que hayas definido con votaciones automatizadas ponderadas por contribución y registros claros de auditoría."
+    },
+    "finance": {
+      "title": "Distribución automatizada",
+      "description": "Repartí ingresos, equity y recompensas automáticamente según tus reglas establecidas, eliminando sesgos y errores manuales."
+    },
+    "cta": "Probá la plataforma"
+  },
+  "combined": {
+    "title": "Mejor juntos: Asesoría + Plataforma",
+    "description": "Comenzá con asesoría experta para establecer tus bases, luego potenciá con nuestra plataforma para automatizar y escalar tus procesos justos y transparentes. La combinación perfecta para un crecimiento sostenible.",
+    "cta": {
+      "primary": "Comenzá tu viaje",
+      "secondary": "Agendá una consulta"
+    }
+  },
+  "calendar": {
+    "title": "Agendá una consulta",
+    "description": "Reservá una videollamada de una hora para conversar sobre las necesidades de tu proyecto y cómo nuestros servicios de asesoría pueden ayudarte a construir mejor desde el primer día.",
+    "meetingType": "Videollamada de una hora vía Google Meet",
+    "footer": "Los horarios se muestran en tu zona horaria local. Vas a recibir un correo de confirmación con los detalles de la reunión.",
+    "close": "Cerrar"
+  }
+}

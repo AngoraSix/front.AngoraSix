@@ -18,6 +18,7 @@ import "../styles/CountdownTimer.css";
 import '../styles/globals.css';
 import '../styles/IntegrationSourceSync.css';
 import '../styles/Layouts.css';
+import "../styles/Services.css"
 import '../styles/ManagementCapsSection.css';
 import '../styles/ManagementContributorsList.css';
 import "../styles/ManagementDashboard.css";
