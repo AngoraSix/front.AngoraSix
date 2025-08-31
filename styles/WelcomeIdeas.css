@@ -1,0 +1,500 @@
+/* Ideas Landing Page Styles */
+.ideas-landing {
+  min-height: 100vh;
+}
+
+/* Hero Section */
+.ideas-hero {
+  background: linear-gradient(135deg, #030D16 0%, #0F2F4D 100%);
+  color: white;
+  padding: 80px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.ideas-hero-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.ideas-hero-content {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  position: relative;
+  z-index: 2;
+}
+
+.ideas-hero-text {
+  flex: 1;
+}
+
+.ideas-hero-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 24px;
+  color: #ffffff;
+}
+
+.ideas-hero-subtitle {
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.4;
+  margin-bottom: 24px;
+  color: #dce7ea;
+}
+
+.ideas-hero-description {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  margin-bottom: 40px;
+  color: #afc1d6;
+}
+
+.ideas-hero-ctas {
+  display: flex;
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.ideas-hero-button.primary {
+  background: #fe5f55;
+  color: #ffffff;
+  padding: 16px 32px;
+  font-size: 1.125rem;
+  font-weight: 600;
+  border-radius: 8px;
+  text-transform: none;
+  box-shadow: 0 4px 16px rgba(254, 95, 85, 0.3);
+  transition: all 0.3s ease;
+}
+
+.ideas-hero-button.primary:hover {
+  background: #e54a40;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(254, 95, 85, 0.4);
+}
+
+.ideas-hero-button.secondary {
+  border: 2px solid #afc1d6;
+  color: #afc1d6;
+  padding: 14px 32px;
+  font-size: 1.125rem;
+  font-weight: 600;
+  border-radius: 8px;
+  text-transform: none;
+  transition: all 0.3s ease;
+}
+
+.ideas-hero-button.secondary:hover {
+  border-color: #ffffff;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.ideas-hero-image {
+  flex: 0 0 400px;
+  text-align: center;
+}
+
+.ideas-hero-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+/* Section Headers */
+.ideas-section-header {
+  text-align: center;
+  margin-bottom: 60px;
+  padding: 0 24px;
+}
+
+.ideas-section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #0a2239;
+  margin-bottom: 16px;
+}
+
+.ideas-section-description {
+  font-size: 1.25rem;
+  color: #7d99ba;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Value Proposition Section */
+.ideas-value-section {
+  padding: 80px 0;
+  background: #ffffff;
+}
+
+.ideas-benefits-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.ideas-benefits-grid {
+  margin-top: 40px;
+}
+
+.ideas-benefit-card {
+  height: 100%;
+  border: none;
+  box-shadow: 0 4px 16px rgba(10, 34, 57, 0.1);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.ideas-benefit-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(10, 34, 57, 0.15);
+}
+
+.ideas-benefit-content {
+  padding: 32px 24px;
+  text-align: center;
+}
+
+.ideas-benefit-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 24px;
+  background: linear-gradient(135deg, #030D16, #1B5993);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.ideas-benefit-icon svg {
+  font-size: 2rem;
+}
+
+.ideas-benefit-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #0a2239;
+  margin-bottom: 16px;
+}
+
+.ideas-benefit-description {
+  color: #7d99ba;
+  line-height: 1.6;
+}
+
+/* Process Section */
+.ideas-process-section {
+  padding: 80px 0;
+  background: #f8fafc;
+}
+
+.ideas-process-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.ideas-process-steps {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.ideas-process-step {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.ideas-process-step:last-child {
+  margin-bottom: 0;
+}
+
+.ideas-step-number {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.ideas-step-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  flex: 1;
+}
+
+.ideas-step-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+}
+
+.ideas-step-icon svg {
+  font-size: 1.5rem;
+}
+
+.ideas-step-text {
+  flex: 1;
+}
+
+.ideas-step-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #0a2239;
+  margin-bottom: 8px;
+}
+
+.ideas-step-description {
+  color: #7d99ba;
+  line-height: 1.6;
+}
+
+.ideas-step-connector {
+  position: absolute;
+  left: 23px;
+  top: 48px;
+  width: 2px;
+  height: 48px;
+  background: linear-gradient(to bottom, #dce7ea, transparent);
+}
+
+/* Partnership Section */
+.ideas-partnership-section {
+  padding: 80px 0;
+  background: white;
+}
+
+.ideas-partnership-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.ideas-partnership-content {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+
+.ideas-partnership-text {
+  flex: 1;
+}
+
+.ideas-partnership-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #0a2239;
+  margin-bottom: 24px;
+}
+
+.ideas-partnership-description {
+  font-size: 1.125rem;
+  color: #7d99ba;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.ideas-partnership-image {
+  flex: 0 0 350px;
+  text-align: center;
+}
+
+.ideas-partnership-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* CTA Section */
+.ideas-cta-section {
+  padding: 80px 24px;
+  background: linear-gradient(135deg, #030D16 0%, #0F2F4D 100%);
+  color: white;
+  text-align: center;
+}
+
+.ideas-cta-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.ideas-cta-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: #ffffff;
+}
+
+.ideas-cta-description {
+  font-size: 1.25rem;
+  color: #afc1d6;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+.ideas-cta-button {
+  background: #fe5f55;
+  color: #ffffff;
+  padding: 16px 32px;
+  font-size: 1.125rem;
+  font-weight: 600;
+  border-radius: 8px;
+  text-transform: none;
+  box-shadow: 0 4px 16px rgba(254, 95, 85, 0.3);
+  transition: all 0.3s ease;
+}
+
+.ideas-cta-button:hover {
+  background: #e54a40;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(254, 95, 85, 0.4);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .ideas-hero {
+    padding: 6rem 0 60px;
+  }
+
+  .ideas-hero-container {
+    padding: 0 16px;
+  }
+
+  .ideas-hero-content {
+    flex-direction: column;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .ideas-hero-title {
+    font-size: 2.5rem;
+  }
+
+  .ideas-hero-subtitle {
+    font-size: 1.25rem;
+  }
+
+  .ideas-hero-ctas {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .ideas-hero-button {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .ideas-hero-image {
+    flex: none;
+  }
+
+  .ideas-section-header {
+    padding: 0 16px;
+  }
+
+  .ideas-section-title {
+    font-size: 2rem;
+  }
+
+  .ideas-section-description {
+    font-size: 1.125rem;
+  }
+
+  .ideas-benefits-container,
+  .ideas-process-container,
+  .ideas-partnership-container {
+    padding: 0 16px;
+  }
+
+  .ideas-partnership-content {
+    flex-direction: column;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .ideas-partnership-image {
+    flex: none;
+  }
+
+  .ideas-partnership-title {
+    font-size: 2rem;
+  }
+
+  .ideas-cta-title {
+    font-size: 2rem;
+  }
+
+  .ideas-cta-section {
+    padding: 60px 16px;
+  }
+
+  .ideas-process-step {
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .ideas-step-content {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+    align-items: center;
+  }
+
+  .ideas-step-connector {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .ideas-hero-title {
+    font-size: 2rem;
+  }
+
+  .ideas-section-title {
+    font-size: 1.75rem;
+  }
+
+  .ideas-partnership-title,
+  .ideas-cta-title {
+    font-size: 1.75rem;
+  }
+
+  .ideas-value-section,
+  .ideas-process-section,
+  .ideas-partnership-section {
+    padding: 60px 0;
+  }
+
+  .ideas-cta-section {
+    padding: 60px 16px;
+  }
+
+  .ideas-hero-ctas {
+    gap: 12px;
+  }
+}

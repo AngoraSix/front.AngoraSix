@@ -17,7 +17,7 @@ import { useTranslation } from "next-i18next"
 import Head from "next/head"
 import Image from "next/image"
 import { useRouter } from "next/router"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import config from "../../config"
 import { ROUTES } from "../../constants/constants"
 import { trackConsultationServiceClick, trackPlatformServiceClick } from "../../utils/analytics"
@@ -28,6 +28,22 @@ const Services = ({ forProfile }) => {
   const router = useRouter()
   const { data: session } = useSession()
   const [calendarDialogOpen, setCalendarDialogOpen] = useState(false)
+
+  // Check for URL parameters to auto-open dialog and scroll to section
+  useEffect(() => {
+    const { section, dialog } = router.query
+
+    if (section === "guidance") {
+      const element = document.getElementById("guidance-section")
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" })
+      }
+    }
+
+    if (dialog === "true") {
+      setCalendarDialogOpen(true)
+    }
+  }, [router.query])
 
   const handleGetStarted = () => {
     // Track analytics event
@@ -47,6 +63,16 @@ const Services = ({ forProfile }) => {
 
   const handleCloseCalendarDialog = () => {
     setCalendarDialogOpen(false)
+    // Clean up URL parameters
+    const { section, dialog, ...cleanQuery } = router.query
+    router.replace(
+      {
+        pathname: router.pathname,
+        query: cleanQuery,
+      },
+      undefined,
+      { shallow: true },
+    )
   }
 
   const scrollToSection = (sectionId) => {
