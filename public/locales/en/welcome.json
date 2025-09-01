@@ -11,6 +11,10 @@
     "access": "Access"
   },
   "paths": {
+    "ideas": {
+      "title": "Turn Your Ideas Into Reality",
+      "description": "Get guidance, structure, and a fair foundation to bring your vision to life with purpose and sustainable collaboration."
+    },
     "manager": {
       "title": "Traditional Management with Self-Organized Teams",
       "description": "Delegate with confidence, supported by a system that enables teams to self-manage within a structure based on your own rules."

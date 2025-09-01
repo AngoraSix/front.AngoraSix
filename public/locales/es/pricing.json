@@ -25,7 +25,7 @@
       "period": "¿Buscando proyecto o arrancando uno? Empezá gratis hoy.",
       "cta": "Empezar gratis",
       "features": {
-        "contributors": "Hasta 10 colaboradores activos",
+        "contributors": "Hasta 5 colaboradores activos",
         "tasks": "Registro ilimitado de tareas y aportes",
         "notifications": "Definición clara de las reglas del proyecto",
         "support": "Seguimiento de ownership y cuentas monetarias",
@@ -41,7 +41,7 @@
       "cta": "Acceder como Beta",
       "features": {
         "all": "Todo lo incluido en el plan Free",
-        "unlimited": "Hasta 50 colaboradores y 5 proyectos",
+        "unlimited": "Hasta 20 colaboradores y 5 proyectos",
         "ai": "Asistente inteligente para facilitar decisiones y organización",
         "tracking": "Reglas y aportes vinculados a wallet compartida",
         "integrations": "Posibilidad de respaldar reglas con blockchain",

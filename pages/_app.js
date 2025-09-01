@@ -35,6 +35,7 @@ import '../styles/ProjectManagementView.css';
 import '../styles/WelcomeContributor.css';
 import '../styles/WelcomeCooperative.css';
 import '../styles/WelcomeLanding.css';
+import "../styles/WelcomeIdeas.css"
 import '../styles/WelcomeManager.css';
 import '../styles/WelcomeTeam.css';
 import { trackPageView } from "../utils/analytics";

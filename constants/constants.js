@@ -58,6 +58,7 @@ export const ROUTES = {
     "community-driven": '/welcome/community-driven',
     manager: '/welcome/manager',
     contributor: '/welcome/contributor',
+    ideas: '/welcome/ideas',
     root: "/"
   },
   legal: {

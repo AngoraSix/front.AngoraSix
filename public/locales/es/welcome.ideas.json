@@ -1,0 +1,67 @@
+{
+  "page": {
+    "title": "AngoraSix — Convertí tu idea en realidad",
+    "description": "Ayudamos a emprendedores a estructurar, organizar y llevar sus ideas a la práctica con propósito, equidad y metodologías probadas."
+  },
+  "hero": {
+    "title": "Convertí tu idea en realidad",
+    "subtitle": "Dale impulso y claridad a tu proyecto",
+    "description": "El paso más difícil no es tener una idea, sino hacerla realidad. Te ayudamos a avanzar — sumando estructura, claridad y equidad para cerrar esa brecha.",
+    "cta": {
+      "primary": "Hablemos",
+      "secondary": "Registrate"
+    }
+  },
+  "value": {
+    "title": "La inspiración no alcanza: tu proyecto necesita estructura",
+    "subtitle": "Proveemos el marco y la guía necesarios para que tu equipo avance sobre bases sólidas y justas."
+  },
+  "benefits": {
+    "clarity": {
+      "title": "Bases de claridad y equidad",
+      "description": "Definan roles, reglas y propiedad justa desde el inicio — construyendo confianza y alineación en el equipo."
+    },
+    "fairness": {
+      "title": "Resultados rápidos",
+      "description": "Validen y aprendan rápido con nuestra guía Lean Startup — mostrando avances concretos sin desperdiciar esfuerzo."
+    },
+    "momentum": {
+      "title": "Impulso sostenible",
+      "description": "Metodologías livianas que impulsan tu proyecto sin sobrecargar al equipo con procesos."
+    }
+  },
+  "process": {
+    "title": "Cómo convertimos ideas en proyectos",
+    "subtitle": "Un proceso paso a paso que transforma la visión en un proyecto estructurado — con claridad, alineación e impulso.",
+    "assess": {
+      "title": "Evaluación del equipo",
+      "description": "Actividades para explorar y definir roles, riesgos y motivaciones desde el inicio, logrando que el equipo arranque alineado y evite problemas más adelante."
+    },
+    "define": {
+      "title": "Definimos las reglas base",
+      "description": "Establecemos reglas claras para decisiones, propiedad y contribuciones — así todos saben qué es justo desde el primer día."
+    },
+    "methodology": {
+      "title": "Metodologías livianas",
+      "description": "Aplicamos prácticas inspiradas en Scrum, Lean Startup y Design Thinking adaptadas a tu proyecto, para generar impulso firme sin procesos innecesarios."
+    },
+    "platform": {
+      "title": "Introducimos AngoraSix",
+      "description": "Integramos AngoraSix para registrar contribuciones y alinear recompensas de forma transparente — sin trabajo extra."
+    },
+    "metrics": {
+      "title": "Definimos métricas claras",
+      "description": "Establecemos objetivos de corto y mediano plazo que marquen dirección y motiven, sin complejidades innecesarias."
+    }
+  },
+  "partnership": {
+    "title": "Acompañamiento para bases sólidas",
+    "description": "Somos tu asesor de confianza — parecido a una incubadora, pero sin condiciones y enfocados en la claridad del equipo y la colaboración sostenible de tu proyecto.",
+    "approach": "Ponemos la confianza, la claridad y el propósito compartido en primer lugar. Con AngoraSix, no solo construís un producto — estás creando bases sólidas para que tu proyecto pueda sostenerse y prosperar por sí mismo."
+  },
+  "cta": {
+    "title": "Tengamos una charla exploratoria",
+    "description": "¿Listo para convertir tu idea en un proyecto estructurado y accionable? Exploremos juntos cómo AngoraSix puede ayudarte a construir algo significativo.",
+    "button": "Ponete en contacto"
+  }
+}
