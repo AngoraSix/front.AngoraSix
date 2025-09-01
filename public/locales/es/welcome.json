@@ -11,6 +11,10 @@
     "access": "Accesso"
   },
   "paths": {
+    "ideas": {
+      "title": "Convertí tu idea en realidad",
+      "description": "Obtené guía, estructura y una base equitativa para dar vida a tu visión con propósito y colaboración sostenible."
+    },
     "manager": {
       "title": "Gestión tradicional con equipos auto-organizados",
       "description": "Delegás con confianza, apoyado por un sistema que permite a los equipos autogestionarse bajo un esquema basado en tus propias reglas."

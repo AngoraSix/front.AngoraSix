@@ -3,10 +3,11 @@
 import {
   AccessibilityNewOutlined,
   BusinessCenterOutlined,
-  GroupsOutlined,
+  Diversity2,
+  EmojiObjectsOutlined,
   KeyboardArrowDown,
   Language as LanguageIcon,
-  LightbulbOutlined,
+  RocketLaunch
 } from "@mui/icons-material"
 import { Box, Button, Menu, MenuItem, Typography } from "@mui/material"
 import { useSession } from "next-auth/react"
@@ -83,6 +84,14 @@ const WelcomeLanding = () => {
 
   const pathOptions = [
     {
+      id: "ideas",
+      title: t("paths.ideas.title"),
+      description: t("paths.ideas.description"),
+      icon: EmojiObjectsOutlined,
+      path: "/welcome/ideas",
+      color: "primary",
+    },
+    {
       id: "manager",
       title: t("paths.manager.title"),
       description: t("paths.manager.description"),
@@ -94,7 +103,7 @@ const WelcomeLanding = () => {
       id: "team",
       title: t("paths.team.title"),
       description: t("paths.team.description"),
-      icon: LightbulbOutlined,
+      icon: RocketLaunch,
       path: "/welcome/venture",
       color: "primary",
     },
@@ -102,7 +111,7 @@ const WelcomeLanding = () => {
       id: "cooperative",
       title: t("paths.cooperative.title"),
       description: t("paths.cooperative.description"),
-      icon: GroupsOutlined,
+      icon: Diversity2,
       path: "/welcome/community-driven",
       color: "secondary",
     },

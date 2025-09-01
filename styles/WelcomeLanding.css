@@ -6,7 +6,7 @@
   position: relative;
   overflow-x: hidden;
   /* Only hide horizontal scroll */
-  overflow-y: auto;
+  overflow-y: hidden;
   /* Allow vertical scroll but prevent double scrollbar */
   scroll-behavior: smooth;
 }
@@ -162,12 +162,14 @@
   width: 90px;
   /* Más grande y notable */
   height: 90px;
-  background: radial-gradient(circle,
-      rgba(254, 95, 85, 0.9) 0%,
-      rgba(254, 95, 85, 0.7) 25%,
-      rgba(254, 95, 85, 0.4) 50%,
-      rgba(254, 95, 85, 0.2) 75%,
-      transparent 100%);
+  background: radial-gradient(
+    circle,
+    rgba(254, 95, 85, 0.9) 0%,
+    rgba(254, 95, 85, 0.7) 25%,
+    rgba(254, 95, 85, 0.4) 50%,
+    rgba(254, 95, 85, 0.2) 75%,
+    transparent 100%
+  );
   border-radius: 50%;
   transform-origin: 50% 50%;
   transform: translate(-50%, -50%) rotate(330deg) translateY(-100px);
@@ -329,7 +331,6 @@
 }
 
 @keyframes bounce {
-
   0%,
   20%,
   50%,
@@ -388,23 +389,36 @@
   transform: translateY(0);
 }
 
-/* Path Selection Grid - Compact */
+/* Path Selection Grid - 3 en primera fila, 2 centrados en segunda */
 .path-selection {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
   gap: 1.5rem;
-  /* Reduced from 2rem */
-  max-width: 900px;
-  /* Reduced from 1000px */
+  max-width: 1000px;
   width: 100%;
   opacity: 0;
   transform: translateY(30px);
   transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   transition-delay: 0.3s;
-  /* Delay after title */
   z-index: 6;
-  /* Higher than section but lower than first section */
   position: relative;
+  justify-items: center;
+}
+
+/* Posicionamiento específico para centrar los últimos 2 cards */
+.path-selection .path-card:nth-child(4) {
+  grid-column: 1 / 2;
+  grid-row: 2;
+  justify-self: end;
+  margin-right: 0.75rem;
+}
+
+.path-selection .path-card:nth-child(5) {
+  grid-column: 3 / 4;
+  grid-row: 2;
+  justify-self: start;
+  margin-left: 0.75rem;
 }
 
 /* Cards visible state - triggered by intersection observer */
@@ -418,9 +432,7 @@
   background: rgba(255, 255, 255, 0.05) !important;
   border: 1px solid rgba(220, 231, 234, 0.2) !important;
   border-radius: 12px !important;
-  /* Reduced from 16px */
   padding: 1.5rem 1.2rem !important;
-  /* Significantly reduced padding */
   cursor: pointer !important;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
   backdrop-filter: blur(10px) !important;
@@ -428,9 +440,9 @@
   overflow: hidden !important;
   text-align: center !important;
   height: auto !important;
-  /* Let content determine height */
   min-height: 200px !important;
-  /* Set minimum height instead of fixed */
+  width: 280px !important;
+  max-width: 100% !important;
 }
 
 .path-card::before {
@@ -451,20 +463,16 @@
 .path-card:hover,
 .path-card.hovered {
   transform: translateY(-6px) scale(1.01) !important;
-  /* Reduced movement */
   border-color: rgba(254, 95, 85, 0.4) !important;
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3) !important;
-  /* Reduced shadow */
   background: rgba(255, 255, 255, 0.08) !important;
 }
 
 /* Compact Icons */
 .path-icon {
   width: 60px !important;
-  /* Reduced from 70px */
   height: 60px !important;
   margin: 0 auto 1.2rem !important;
-  /* Reduced margin */
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -476,7 +484,6 @@
 
 .path-icon svg {
   font-size: 2rem !important;
-  /* Reduced from 2.2rem */
   color: #fe5f55 !important;
   transition: all 0.3s ease !important;
   z-index: 2 !important;
@@ -492,7 +499,6 @@
   content: "";
   position: absolute;
   top: -8px;
-  /* Reduced from -10px */
   left: -8px;
   right: -8px;
   bottom: -8px;
@@ -507,7 +513,6 @@
 }
 
 @keyframes glowPulse {
-
   0%,
   100% {
     transform: scale(1);
@@ -525,20 +530,15 @@
   color: #ffffff !important;
   font-weight: 600 !important;
   margin-bottom: 0.8rem !important;
-  /* Reduced from 1rem */
   line-height: 1.3 !important;
   font-size: 1.2rem !important;
-  /* Reduced from 1.3rem */
 }
 
 .path-description {
   color: #afc1d6 !important;
   line-height: 1.4 !important;
-  /* Tighter line height */
   margin-bottom: 1.2rem !important;
-  /* Reduced from 1.5rem */
   font-size: 0.9rem !important;
-  /* Reduced from 0.95rem */
 }
 
 .path-arrow {
@@ -550,7 +550,6 @@
 .path-arrow .MuiTypography-root {
   color: #fe5f55 !important;
   font-size: 1.2rem !important;
-  /* Reduced from 1.3rem */
   font-weight: bold !important;
 }
 
@@ -573,10 +572,31 @@
 }
 
 /* Responsive Design */
+@media (max-width: 1100px) {
+  .path-selection {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    max-width: 600px;
+  }
+
+  .path-selection .path-card:nth-child(4) {
+    grid-column: 1 / 2;
+    grid-row: 3;
+    justify-self: center;
+    margin-right: 0;
+  }
+
+  .path-selection .path-card:nth-child(5) {
+    grid-column: 2 / 3;
+    grid-row: 3;
+    justify-self: center;
+    margin-left: 0;
+  }
+}
+
 @media (max-width: 900px) {
   .welcome-landing {
-    height: 180vh;
-    /* Maintain proportional height */
+    min-height: 250vh; /* Increased height for mobile to accommodate 5 cards */
   }
 
   .welcome-header {
@@ -590,13 +610,13 @@
   }
 
   .welcome-hero-section {
-    height: 80vh;
-    /* Maintain proportion */
+    min-height: 100vh; /* Changed to min-height */
     padding: 1rem;
   }
 
   .welcome-paths-section {
-    padding: 1rem;
+    min-height: 120vh; /* Increased height for mobile */
+    padding: 2rem 1rem; /* More padding for better spacing */
   }
 
   .a6-logo-eclipse {
@@ -647,45 +667,54 @@
 
   .paths-title {
     font-size: 1.8rem !important;
-    /* Reduced */
-    margin-bottom: 1.5rem !important;
+    margin-bottom: 2rem !important; /* More space for mobile */
   }
 
+  /* Mobile Grid - Single Column with proper spacing */
   .path-selection {
-    grid-template-columns: 1fr;
-    gap: 1.2rem;
-    /* Reduced gap */
-    max-width: 350px;
-    /* Reduced max width */
+    display: flex !important; /* Change to flex for mobile */
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 1.5rem !important;
+    max-width: 350px !important;
+    width: 100% !important;
+  }
+
+  /* Reset all grid positioning for mobile */
+  .path-selection .path-card:nth-child(1),
+  .path-selection .path-card:nth-child(2),
+  .path-selection .path-card:nth-child(3),
+  .path-selection .path-card:nth-child(4),
+  .path-selection .path-card:nth-child(5) {
+    grid-column: unset !important;
+    grid-row: unset !important;
+    justify-self: unset !important;
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 320px !important;
   }
 
   .path-card {
     padding: 1.3rem 1rem !important;
-    /* Reduced padding */
     min-height: 180px !important;
-    /* Reduced min height */
   }
 
   .path-icon {
     width: 50px !important;
-    /* Reduced */
     height: 50px !important;
     margin-bottom: 1rem !important;
   }
 
   .path-icon svg {
     font-size: 1.8rem !important;
-    /* Reduced */
   }
 
   .path-title {
     font-size: 1.1rem !important;
-    /* Reduced */
   }
 
   .path-description {
     font-size: 0.85rem !important;
-    /* Reduced */
   }
 
   /* Hide flowing lines on mobile for performance */
@@ -695,19 +724,22 @@
 }
 
 @media (max-width: 480px) {
+  .welcome-landing {
+    min-height: 280vh; /* Even more height for very small screens */
+  }
+
   .welcome-header {
     top: 0.5rem;
     right: 0.5rem;
   }
 
   .welcome-hero-section {
-    height: 75vh;
-    /* Slightly shorter on mobile */
+    min-height: 100vh;
   }
 
   .welcome-paths-section {
-    padding: 0.8rem;
-    /* Even more compact */
+    min-height: 140vh; /* More height for very small screens */
+    padding: 3.5rem 0.8rem 1.5rem;
   }
 
   .a6-logo-eclipse {
@@ -758,49 +790,48 @@
 
   .paths-title {
     font-size: 1.6rem !important;
-    /* Reduced */
-    margin-bottom: 1.2rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .path-selection {
+    max-width: 300px !important;
+    gap: 1.2rem !important;
+  }
+
+  .path-selection .path-card:nth-child(1),
+  .path-selection .path-card:nth-child(2),
+  .path-selection .path-card:nth-child(3),
+  .path-selection .path-card:nth-child(4),
+  .path-selection .path-card:nth-child(5) {
+    max-width: 280px !important;
   }
 
   .path-card {
     padding: 1.2rem 0.8rem !important;
-    /* Very compact */
     min-height: 160px !important;
-    /* Reduced min height */
-  }
-
-  .path-selection {
-    max-width: 300px;
-    gap: 1rem;
-    /* Reduced gap */
   }
 
   .path-icon {
     width: 45px !important;
-    /* Reduced */
     height: 45px !important;
   }
 
   .path-icon svg {
     font-size: 1.6rem !important;
-    /* Reduced */
   }
 
   .path-title {
     font-size: 1rem !important;
-    /* Reduced */
   }
 
   .path-description {
     font-size: 0.8rem !important;
-    /* Reduced */
     margin-bottom: 1rem !important;
   }
 }
 
 /* Accessibility */
 @media (prefers-reduced-motion: reduce) {
-
   .flowing-lines path {
     animation: none;
   }

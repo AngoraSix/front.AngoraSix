@@ -4,10 +4,10 @@ import {
   ArrowForward as ArrowForwardIcon,
   AutoAwesome as AutoAwesomeIcon,
   Balance as BalanceIcon,
-  Lightbulb as LightbulbIcon,
   Psychology as PsychologyIcon,
   Speed as SpeedIcon,
-  TrendingUp as TrendingUpIcon,
+  TrendingUp,
+  TrendingUp as TrendingUpIcon
 } from "@mui/icons-material"
 import { Button, Card, CardContent, Grid, Typography } from "@mui/material"
 import { useSession } from "next-auth/react"
@@ -77,17 +77,17 @@ const IdeasLanding = ({ translationKey }) => {
 
   const benefits = [
     {
-      icon: <LightbulbIcon />,
+      icon: <BalanceIcon />,
       title: t("benefits.clarity.title"),
       description: t("benefits.clarity.description"),
     },
     {
-      icon: <BalanceIcon />,
+      icon: <SpeedIcon />,
       title: t("benefits.fairness.title"),
       description: t("benefits.fairness.description"),
     },
     {
-      icon: <SpeedIcon />,
+      icon: <TrendingUp />,
       title: t("benefits.momentum.title"),
       description: t("benefits.momentum.description"),
     },
