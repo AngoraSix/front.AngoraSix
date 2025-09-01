@@ -1,67 +1,67 @@
 {
   "page": {
-    "title": "Convierte Tus Ideas en Realidad | AngoraSix",
-    "description": "Ayudamos a visionarios y emprendedores a estructurar, organizar y dar vida a sus ideas con propósito, equidad y metodologías probadas."
+    "title": "AngoraSix — Convertí tu idea en realidad",
+    "description": "Ayudamos a emprendedores a estructurar, organizar y llevar sus ideas a la práctica con propósito, equidad y metodologías probadas."
   },
   "hero": {
-    "title": "Convierte Tus Ideas en Realidad",
-    "subtitle": "Tracción para tu idea con propósito",
-    "description": "Te ayudamos a estructurar, organizar y realmente llevar tu idea a la realidad con claridad, equidad y metodologías probadas. Piensa en nosotros como tu socio incubadora.",
+    "title": "Convertí tu idea en realidad",
+    "subtitle": "Dale impulso y claridad a tu proyecto",
+    "description": "El paso más difícil no es tener una idea, sino hacerla realidad. Te ayudamos a avanzar — sumando estructura, claridad y equidad para cerrar esa brecha.",
     "cta": {
       "primary": "Hablemos",
-      "secondary": "Registrarse"
+      "secondary": "Registrate"
     }
   },
   "value": {
-    "title": "Por Qué las Ideas Necesitan Estructura",
-    "subtitle": "Las grandes ideas merecen una base sólida. Proporcionamos la guía, marcos de trabajo y capa de coordinación para ayudar a tu equipo a tener éxito."
+    "title": "La inspiración no alcanza: tu proyecto necesita estructura",
+    "subtitle": "Proveemos el marco y la guía necesarios para que tu equipo avance sobre bases sólidas y justas."
   },
   "benefits": {
     "clarity": {
-      "title": "Claridad desde el Primer Día",
-      "description": "Define roles, expectativas y niveles de compromiso desde el inicio. Sin sorpresas, sin confusión—solo dirección clara para todos los involucrados."
+      "title": "Bases de claridad y equidad",
+      "description": "Definan roles, reglas y propiedad justa desde el inicio — construyendo confianza y alineación en el equipo."
     },
     "fairness": {
-      "title": "Base Equitativa",
-      "description": "Construye sistemas transparentes para propiedad, gobernanza y recompensas que se alineen con las contribuciones y motiven a tu equipo."
+      "title": "Resultados rápidos",
+      "description": "Validen y aprendan rápido con nuestra guía Lean Startup — mostrando avances concretos sin desperdiciar esfuerzo."
     },
     "momentum": {
-      "title": "Impulso Sostenible",
-      "description": "Adopta metodologías ligeras que mantengan tu proyecto avanzando sin abrumar a tu equipo con procesos excesivos."
+      "title": "Impulso sostenible",
+      "description": "Metodologías livianas que impulsan tu proyecto sin sobrecargar al equipo con procesos."
     }
   },
   "process": {
-    "title": "Nuestro Enfoque",
-    "subtitle": "Te guiamos a través de un proceso probado que transforma ideas en proyectos estructurados y accionables con bases claras.",
+    "title": "Cómo convertimos ideas en proyectos",
+    "subtitle": "Un proceso paso a paso que transforma la visión en un proyecto estructurado — con claridad, alineación e impulso.",
     "assess": {
-      "title": "Evaluar Preparación del Equipo",
-      "description": "Ayudamos a clarificar roles, niveles de compromiso, riesgos y motivación en tu equipo para asegurar que todos estén alineados."
+      "title": "Evaluación del equipo",
+      "description": "Actividades para explorar y definir roles, riesgos y motivaciones desde el inicio, logrando que el equipo arranque alineado y evite problemas más adelante."
     },
     "define": {
-      "title": "Definir Reglas Base",
-      "description": "Establecer marcos transparentes para cómo se manejarán las decisiones, propiedad y contribuciones desde el inicio."
+      "title": "Definimos las reglas base",
+      "description": "Establecemos reglas claras para decisiones, propiedad y contribuciones — así todos saben qué es justo desde el primer día."
     },
     "methodology": {
-      "title": "Adoptar Metodología Ligera",
-      "description": "Introducir enfoques de Scrum-lite, Lean Startup y Design Thinking adaptados a las necesidades de tu proyecto."
+      "title": "Metodologías livianas",
+      "description": "Aplicamos prácticas inspiradas en Scrum, Lean Startup y Design Thinking adaptadas a tu proyecto, para generar impulso firme sin procesos innecesarios."
     },
     "platform": {
-      "title": "Introducir AngoraSix",
-      "description": "Implementar nuestra capa de coordinación transparente que rastrea contribuciones sin convertirse en una carga."
+      "title": "Introducimos AngoraSix",
+      "description": "Integramos AngoraSix para registrar contribuciones y alinear recompensas de forma transparente — sin trabajo extra."
     },
     "metrics": {
-      "title": "Establecer Métricas Claras",
-      "description": "Definir objetivos a corto y mediano plazo que den a tu proyecto una Estrella del Norte clara sin complicaciones excesivas."
+      "title": "Definimos métricas claras",
+      "description": "Establecemos objetivos de corto y mediano plazo que marquen dirección y motiven, sin complejidades innecesarias."
     }
   },
   "partnership": {
-    "title": "Tu Socio Incubadora",
-    "description": "No solo proporcionamos herramientas—proporcionamos guía. Piensa en nosotros como tu socio cercano, similar a una incubadora, pero enfocado en alineación interna y colaboración sostenible.",
-    "approach": "Nuestro enfoque prioriza la confianza, transparencia y propósito compartido. Te ayudamos a construir no solo un producto, sino una base para el éxito a largo plazo."
+    "title": "Acompañamiento para bases sólidas",
+    "description": "Somos tu asesor de confianza — parecido a una incubadora, pero sin condiciones y enfocados en la claridad del equipo y la colaboración sostenible de tu proyecto.",
+    "approach": "Ponemos la confianza, la claridad y el propósito compartido en primer lugar. Con AngoraSix, no solo construís un producto — estás creando bases sólidas para que tu proyecto pueda sostenerse y prosperar por sí mismo."
   },
   "cta": {
-    "title": "Hagámoslo Realidad",
-    "description": "¿Listo para convertir tu idea en un proyecto estructurado y accionable? Hablemos sobre cómo podemos ayudarte a construir algo significativo.",
-    "button": "Comienza Tu Viaje"
+    "title": "Tengamos una charla exploratoria",
+    "description": "¿Listo para convertir tu idea en un proyecto estructurado y accionable? Exploremos juntos cómo AngoraSix puede ayudarte a construir algo significativo.",
+    "button": "Ponete en contacto"
   }
 }

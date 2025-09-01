@@ -1,67 +1,67 @@
 {
   "page": {
-    "title": "Turn Your Ideas Into Reality | AngoraSix",
+    "title": "AngoraSix — Turn Your Idea Into Reality",
     "description": "We help visionaries and entrepreneurs structure, organize, and bring their ideas to life with purpose, fairness, and proven methodologies."
   },
   "hero": {
-    "title": "Turn Your Ideas Into Reality",
-    "subtitle": "Traction for your idea with purpose",
-    "description": "We help you structure, organize, and actually move your idea into reality with clarity, fairness, and proven methodologies. Think of us as your incubator partner.",
+    "title": "Turn Your Idea Into Reality",
+    "subtitle": "Bring momentum and clarity to your project",
+    "description": "The hardest step isn’t having an idea, it’s making it real. We help you move forward — bringing structure, clarity, and fairness to bridge that gap.",
     "cta": {
       "primary": "Let's Talk",
       "secondary": "Register"
     }
   },
   "value": {
-    "title": "Why Ideas Need Structure",
-    "subtitle": "Great ideas deserve a solid foundation. We provide the guidance, frameworks, and coordination layer to help your team succeed."
+    "title": "Ideas need more than inspiration — they need structure",
+    "subtitle": "Great ideas deserve a clear and fair foundation. We bring the frameworks and guidance to help your team move forward."
   },
   "benefits": {
     "clarity": {
-      "title": "Clarity from Day One",
-      "description": "Define roles, expectations, and commitment levels early. No surprises, no confusion—just clear direction for everyone involved."
+      "title": "Clarity & Fairness Foundation",
+      "description": "Set clear roles, rules, and fair ownership from the start — building trust and alignment across your team."
     },
     "fairness": {
-      "title": "Fair Foundation",
-      "description": "Build transparent systems for ownership, governance, and rewards that align with contributions and motivate your team."
+      "title": "Quick Results",
+      "description": "Lean Startup-inspired support to validate fast, learn quickly, and show progress without wasting energy."
     },
     "momentum": {
       "title": "Sustainable Momentum",
-      "description": "Adopt lightweight methodologies that keep your project moving forward without overwhelming your team with process."
+      "description": "Lightweight methodologies that keep your project moving forward without overwhelming your team with process."
     }
   },
   "process": {
-    "title": "Our Approach",
-    "subtitle": "We guide you through a proven process that transforms ideas into structured, actionable projects with clear foundations.",
+    "title": "How We Turn Ideas Into Successful Projects",
+    "subtitle": "A step-by-step process that transforms vision into a structured project — with clarity, alignment, and traction.",
     "assess": {
       "title": "Assess Team Readiness",
-      "description": "We help clarify roles, commitment levels, risks, and motivation across your team to ensure everyone is aligned."
+      "description": "We surface roles, risks, and motivations early so your team starts aligned and avoids costly missteps later."
     },
     "define": {
       "title": "Define Base Rules",
-      "description": "Establish transparent frameworks for how decisions, ownership, and contributions will be handled from the start."
+      "description": "Set clear rules for decisions, ownership, and contributions — so everyone knows what’s fair from day one."
     },
     "methodology": {
       "title": "Adopt Lightweight Methodology",
-      "description": "Introduce Scrum-lite, Lean Startup, and Design Thinking approaches tailored to your project's needs."
+      "description": "Use lightweight versions of Scrum, Lean Startup, and Design Thinking to build momentum without overloading your team."
     },
     "platform": {
       "title": "Introduce AngoraSix",
-      "description": "Implement our transparent coordination layer that tracks contributions without becoming a burden."
+      "description": "Bring in AngoraSix to track contributions and align rewards transparently — without adding extra work."
     },
     "metrics": {
       "title": "Set Clear Metrics",
-      "description": "Define short and mid-term goals that give your project a clear North Star without overcomplication."
+      "description": "Define short- and mid-term goals that give direction and motivation, without overcomplicating the process."
     }
   },
   "partnership": {
-    "title": "Your Incubator Partner",
-    "description": "We don't just provide tools—we provide guidance. Think of us as your close partner, similar to an incubator, but focused on internal alignment and sustainable collaboration.",
-    "approach": "Our approach prioritizes trust, transparency, and shared purpose. We help you build not just a product, but a foundation for long-term success."
+    "title": "Guidance for Lasting Foundations",
+    "description": "Think of us as a trusted advisor — similar to an incubator, but with no strings attached and focused on your project’s internal alignment and sustainable collaboration.",
+    "approach": "We prioritize trust, clarity, and shared purpose. With AngoraSix, you’re not just building a product — you’re building the foundations for a project that can thrive on its own."
   },
   "cta": {
-    "title": "Let's Make It Real",
-    "description": "Ready to turn your idea into a structured, actionable project? Let's talk about how we can help you build something meaningful.",
-    "button": "Start Your Journey"
+    "title": "Let's have an exploratory call",
+    "description": "Ready to turn your idea into a structured, actionable project? We’ll explore together how AngoraSix can support you in building something meaningful.",
+    "button": "Get in Touch"
   }
 }
