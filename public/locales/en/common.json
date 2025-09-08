@@ -67,7 +67,7 @@
     "subtitle": "AngoraSix is ready to use",
     "cta": "Start Now"
   },
-    "footer": {
+  "footer": {
     "description": "Transform your collaborative projects with intelligent management and transparent ownership tracking.",
     "poweredBy": "Powered by AngoraSix",
     "sitemap": "Site Map",
@@ -80,6 +80,9 @@
       "about": "About Us",
       "terms": "Terms & Conditions",
       "privacy": "Privacy Policy"
+    },
+    "sponsor": {
+      "support": "Support our work"
     }
   }
 }

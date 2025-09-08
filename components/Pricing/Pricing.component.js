@@ -31,6 +31,7 @@ import {
 import { useSession } from "next-auth/react";
 import { useTranslation } from "next-i18next";
 import Head from "next/head";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -81,30 +82,68 @@ const PricingComponent = ({ forProfile }) => {
   }
 
   const freeFeatures = [
-    t("plans.free.features.contributors"),
-    t("plans.free.features.tasks"),
-    t("plans.free.features.notifications"),
-    t("plans.free.features.support"),
-    t("plans.free.features.workspace"),
+    {
+      base: t("plans.free.features.contributors"),
+    },
+    {
+      base: t("plans.free.features.tasks"),
+    },
+    {
+      base: t("plans.free.features.notifications"),
+    },
+    {
+      base: t("plans.free.features.tools"),
+    },
+    {
+      base: t("plans.free.features.support.base"),
+      link: t("plans.free.features.support.link"),
+    },
+    {
+      base: t("plans.free.features.workspace"),
+    },
   ]
 
   const plusFeatures = [
-    t("plans.plus.features.all"),
-    t("plans.plus.features.unlimited"),
-    t("plans.plus.features.ai"),
-    t("plans.plus.features.tracking"),
-    t("plans.plus.features.integrations"),
-    t("plans.plus.features.workflows"),
-    t("plans.plus.features.support"),
+    {
+      base: t("plans.plus.features.all"),
+    },
+    {
+      base: t("plans.plus.features.unlimited"),
+    },
+    {
+      base: t("plans.plus.features.ai"),
+    },
+    {
+      base: t("plans.plus.features.tracking"),
+    },
+    {
+      base: t("plans.plus.features.integrations"),
+    },
+    {
+      base: t("plans.plus.features.workflows"),
+    },
+    {
+      base: t("plans.plus.features.support"),
+    }
   ]
 
   const customFeatures = [
     // New custom features list
-    t("plans.custom.features.all"),
-    t("plans.custom.features.tailored"),
-    t("plans.custom.features.dedicated"),
-    t("plans.custom.features.advanced"),
-    t("plans.custom.features.enterprise"),
+    {
+      base: t("plans.custom.features.all"),
+    },
+    {
+      base: t("plans.custom.features.tailored"),
+    },
+    {
+      base: t("plans.custom.features.dedicated"),
+    },
+    {
+      base: t("plans.custom.features.advanced"),
+    },
+    {
+      base: t("plans.custom.features.enterprise"),
+    },
   ]
 
   const PlanCard = (
@@ -181,7 +220,16 @@ const PricingComponent = ({ forProfile }) => {
                 )}{" "}
                 {/* Conditional rendering for custom feature icon */}
               </ListItemIcon>
-              <ListItemText primary={feature} />
+              {feature.link ? (<ListItemText primary={
+                <Typography component={"span"}>
+                  {feature.base}
+                  <Link className="feature-link"
+                    href="/services"
+                  >
+                    {feature.link}
+                  </Link>
+                </Typography>
+              } />) : (<ListItemText primary={feature.base} />)}
             </ListItem>
           ))}
         </List>
