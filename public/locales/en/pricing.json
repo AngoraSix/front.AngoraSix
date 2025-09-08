@@ -28,7 +28,11 @@
         "contributors": "Up to 5 active collaborators",
         "tasks": "Unlimited tracking of tasks and contributions",
         "notifications": "Clear project rule definitions",
-        "support": "Ownership and financial tracking tools",
+        "tools": "Ownership and financial tracking tools",
+        "support": {
+          "base": "Guidance to apply fair, ",
+          "link": "proven methodologies"
+        },
         "workspace": "Supports 1 project"
       }
     },

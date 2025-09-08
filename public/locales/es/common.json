@@ -82,6 +82,9 @@
       "about": "Nosotros",
       "terms": "Términos y Condiciones",
       "privacy": "Política de Privacidad"
+    },
+    "sponsor": {
+      "support": "Apoya nuestro trabajo"
     }
   }
 }

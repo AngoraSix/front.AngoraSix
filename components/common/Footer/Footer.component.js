@@ -3,6 +3,7 @@ import { styled } from "@mui/material/styles"
 import { useTranslation } from "next-i18next"
 import Image from "next/image"
 import { ROUTES } from "../../../constants/constants"
+import SponsorButton from "../SponsorButton"
 
 const FooterContainer = styled(Box)(({ theme }) => ({
   backgroundColor: theme.palette.grey[50],
@@ -18,7 +19,7 @@ const LogoContainer = styled(Box)({
 })
 
 const resolveNavigationHref = (href, forProfileValue) => {
-  return forProfileValue ? `${href}?for=${forProfileValue}` : href;
+  return forProfileValue ? `${href}?for=${forProfileValue}` : href
 }
 
 const Footer = ({ forProfile }) => {
@@ -52,6 +53,9 @@ const Footer = ({ forProfile }) => {
             <Typography variant="body2" color="text.secondary">
               {t("footer.poweredBy")}
             </Typography>
+
+            {/* GitHub Sponsors Button */}
+            <SponsorButton />
           </Grid>
 
           {/* Enlaces del sitio */}
@@ -61,7 +65,13 @@ const Footer = ({ forProfile }) => {
             </Typography>
             <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
               {footerLinks.map((link) => (
-                <Link key={link.key} href={resolveNavigationHref(link.href, forProfile)} color="text.secondary" underline="hover" variant="body2">
+                <Link
+                  key={link.key}
+                  href={resolveNavigationHref(link.href, forProfile)}
+                  color="text.secondary"
+                  underline="hover"
+                  variant="body2"
+                >
                   {t(`footer.links.${link.key}`)}
                 </Link>
               ))}

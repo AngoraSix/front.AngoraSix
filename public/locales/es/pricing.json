@@ -28,7 +28,11 @@
         "contributors": "Hasta 5 colaboradores activos",
         "tasks": "Registro ilimitado de tareas y aportes",
         "notifications": "Definición clara de las reglas del proyecto",
-        "support": "Seguimiento de ownership y cuentas monetarias",
+        "tools": "Seguimiento de ownership y cuentas monetarias",
+        "support": {
+          "base": "Asesoría para estructurar tu proyecto con ",
+          "link": "metodologías comprobadas"
+        },
         "workspace": "Soporte para 1 proyecto"
       }
     },
