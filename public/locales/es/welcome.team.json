@@ -10,22 +10,22 @@
     },
     "subtitle": "Acuerdos internos transparentes y trackeo de aportes, todo respaldado por una wallet compartida para enfocarse en construir con confianza y sin malentendidos.",
     "subtitle2": "Consenso claro. Sin conflictos. Sencillo y compatible con las herramientas que ya usás.",
-    "cta": "Empezar gratis"
+    "cta": "Empezá gratis"
   },
   "problems": {
-    "title": "¿Tu modelo de gestión puede acompañar el crecimiento de tu emprendimiento?",
+    "title": "¿Tu actual modelo de gestión acompaña el crecimiento de tu emprendimiento?",
     "subtitle": "Preguntas clave si querés que tu equipo empuje siempre para el mismo lado.",
     "unequal": "¿Cómo aseguramos que todos sigan comprometidos y aportando según lo pactado?",
     "unclear": "¿Cómo acordamos reglas claras que eviten conflictos y no generen incomodidad para cumplirse?",
     "distribution": "¿Cómo resolvemos una distribución justa de ingresos que todos consideren legítima?",
-    "management": "¿Cómo reducir la carga de gestión para enfocarme en lo que realmente mueve el proyecto?"
+    "management": "¿Cómo reducimos la carga de gestión para enfocarnos en lo que realmente mueve al proyecto?"
   },
   "solutions": {
     "title": "El soporte que tu equipo necesita para llevar tu proyecto al siguiente nivel",
     "subtitle": "Avancen enfocados, con confianza y claridad, sin fricciones",
     "rules": {
       "title": "Un marco para acordar reglas claras",
-      "description": "Guía y una estructura para definir los puntos clave de tu proyecto, prevenir conflictos y construir en equipo sin ambigüedades."
+      "description": "Guía y estructura para definir los puntos clave de tu proyecto, prevenir conflictos y construir en equipo sin ambigüedades."
     },
     "transparency": {
       "title": "Registro automático de contribuciones",
@@ -41,7 +41,7 @@
     "subtitle": "Un proceso simple y transparente",
     "steps": {
       "step1": {
-        "title": "Definan las reglas del proyecto",
+        "title": "Definí las reglas de tu proyecto",
         "description": "Brindamos un marco sencillo para establecer cómo se gestiona el proyecto: decisiones, ingresos, tareas. Las bases claras y visibles para todos desde el inicio.",
         "imageAlt": "Pantalla de configuración inicial de reglas del proyecto"
       },

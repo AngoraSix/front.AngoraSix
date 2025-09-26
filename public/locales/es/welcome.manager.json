@@ -26,7 +26,7 @@
     "subtitle": "Gestión descentralizada con control total",
     "workBag": {
       "title": "Sub-proyectos con reglas claras",
-      "description": "Definís una bolsa de trabajo, establecés las reglas de pago por tarea, y el equipo puede autoadministrarse con el acompañamiento de AngoraSix."
+      "description": "Definís una bolsa de trabajo, establecés las reglas de pago por tarea, y el equipo puede auto-administrarse con el acompañamiento de AngoraSix."
     },
     "blockchain": {
       "title": "Cuenta multi-firma sobre blockchain",
@@ -59,7 +59,7 @@
     "outcomes": {
       "title": "Con todo esto...",
       "outcome1": {
-        "title": "Tu equipo se autoorganiza apoyado en la plataforma",
+        "title": "Tu equipo se auto-organiza apoyado en la plataforma",
         "description": "En AngoraSix ofrecemos un sistema de gobernanza basado en los aportes y las reglas que definiste. Tenés visibilidad completa de las decisiones que va tomando el equipo.",
         "imageAlt": "Visualización del sistema de gobernanza con votos ponderados por contribución"
       },
