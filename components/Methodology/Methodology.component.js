@@ -1,43 +1,45 @@
 "use client"
 
-import { useState } from "react"
-import { useTranslation } from "next-i18next"
+import {
+  Build as BuildIcon,
+  Close as CloseIcon,
+  Explore as ExploreIcon,
+  Info as InfoIcon,
+  Science as ScienceIcon,
+  Settings as SettingsIcon,
+  TrendingUp as TrendingUpIcon,
+} from "@mui/icons-material"
 import {
   Box,
-  Container,
-  Typography,
-  Chip,
+  Button,
   Card,
   CardContent,
-  Button,
+  Chip,
+  Container,
   Dialog,
-  DialogTitle,
-  DialogContent,
   DialogActions,
-  Grid,
+  DialogContent,
+  DialogTitle,
   Drawer,
-  IconButton,
-  Tooltip,
   Fab,
+  Fade,
+  Grid,
+  IconButton,
   List,
   ListItem,
   ListItemText,
+  Paper,
   ToggleButton,
   ToggleButtonGroup,
-  Fade,
-  Paper,
+  Tooltip,
+  Typography,
 } from "@mui/material"
-import {
-  Close as CloseIcon,
-  Settings as SettingsIcon,
-  Info as InfoIcon,
-  Explore as ExploreIcon,
-  Build as BuildIcon,
-  Science as ScienceIcon,
-  TrendingUp as TrendingUpIcon,
-} from "@mui/icons-material"
+import { useTranslation } from "next-i18next"
+import { useRouter } from "next/router"
+import { useState } from "react"
+import { ROUTES } from "../../constants/constants"
 import { trackEvent } from "../../utils/analytics"
-import { methodologyConfig, presetConfigs, getItemEnabledState, staticStages } from "./methodology.config"
+import { getItemEnabledState, methodologyConfig, presetConfigs, staticStages } from "./methodology.config"
 
 const stageIcons = {
   explore: ExploreIcon,
@@ -50,7 +52,7 @@ const stageColors = {
   explore: "#1b5993",
   define: "#0a2239",
   test: "#fe5f55",
-  evolve: "#7d99ba",
+  evolve: "#0F2F4D",
 }
 
 const MethodologyPage = () => {
@@ -62,6 +64,7 @@ const MethodologyPage = () => {
   const [selectedItem, setSelectedItem] = useState(null)
   const [dialogOpen, setDialogOpen] = useState(false)
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false)
+  const router = useRouter()
 
   // Handle preset selection
   const handlePresetChange = (preset) => {
@@ -328,11 +331,13 @@ const MethodologyPage = () => {
 
         <Box sx={{ textAlign: "center", mb: 4 }}>
           <Button
+            className="cta-button"
+            color="secondary"
             variant="contained"
             size="large"
             onClick={() => {
               // Navigate to services and open contact modal
-              window.location.href = "/services?contact=true"
+              router.push(`${ROUTES.services}?section=guidance&dialog=true`)
             }}
             sx={{
               px: 4,
