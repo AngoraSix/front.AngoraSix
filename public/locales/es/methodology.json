@@ -50,7 +50,7 @@
       "label": "Centralización",
       "tooltip": "Estructura de toma de decisiones",
       "options": {
-        "admin": "Admin Centralizado",
+        "admin": "Administrador",
         "core": "Equipo Core",
         "decentralized": "Descentralizado"
       }
@@ -298,5 +298,8 @@
     "steps": "Pasos",
     "resources": "Recursos",
     "close": "Listo"
+  },
+  "cta": {
+    "contact": "Obtener Orientación Experta"
   }
 }

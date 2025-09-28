@@ -6,8 +6,6 @@ import {
   Box,
   Container,
   Typography,
-  Breadcrumbs,
-  Link,
   Chip,
   Card,
   CardContent,
@@ -223,20 +221,91 @@ const MethodologyPage = () => {
                     </IconButton>
                   </Tooltip>
                 </Box>
-                <ToggleButtonGroup
-                  value={toggles[aspect]}
-                  exclusive
-                  onChange={(e, value) => value && handleToggleChange(aspect, value)}
-                  size="small"
-                  fullWidth
-                  sx={{ height: 32 }}
-                >
-                  {options.map((option) => (
-                    <ToggleButton key={option} value={option} sx={{ fontSize: "0.7rem", py: 0.5 }}>
-                      {t(`aspects.${aspect}.options.${option}`)}
+                {options.length === 4 ? (
+                  <Box
+                    sx={{ display: "grid", gridTemplateColumns: "1fr 1fr", gridTemplateRows: "1fr 1fr", height: 64 }}
+                  >
+                    <ToggleButton
+                      value={options[0]}
+                      selected={toggles[aspect] === options[0]}
+                      onChange={(e) => handleToggleChange(aspect, options[0])}
+                      size="small"
+                      sx={{
+                        fontSize: "0.7rem",
+                        py: 0.5,
+                        borderRadius: "6px 0 0 0",
+                        borderRight: "0.5px solid",
+                        borderBottom: "0.5px solid",
+                        borderColor: "#afc1d6",
+                      }}
+                    >
+                      {t(`aspects.${aspect}.options.${options[0]}`)}
                     </ToggleButton>
-                  ))}
-                </ToggleButtonGroup>
+                    <ToggleButton
+                      value={options[1]}
+                      selected={toggles[aspect] === options[1]}
+                      onChange={(e) => handleToggleChange(aspect, options[1])}
+                      size="small"
+                      sx={{
+                        fontSize: "0.7rem",
+                        py: 0.5,
+                        borderRadius: "0 6px 0 0",
+                        borderLeft: "0.5px solid",
+                        borderBottom: "0.5px solid",
+                        borderColor: "#afc1d6",
+                      }}
+                    >
+                      {t(`aspects.${aspect}.options.${options[1]}`)}
+                    </ToggleButton>
+                    <ToggleButton
+                      value={options[2]}
+                      selected={toggles[aspect] === options[2]}
+                      onChange={(e) => handleToggleChange(aspect, options[2])}
+                      size="small"
+                      sx={{
+                        fontSize: "0.7rem",
+                        py: 0.5,
+                        borderRadius: "0 0 0 6px",
+                        borderRight: "0.5px solid",
+                        borderTop: "0.5px solid",
+                        borderColor: "#afc1d6",
+                      }}
+                    >
+                      {t(`aspects.${aspect}.options.${options[2]}`)}
+                    </ToggleButton>
+                    <ToggleButton
+                      value={options[3]}
+                      selected={toggles[aspect] === options[3]}
+                      onChange={(e) => handleToggleChange(aspect, options[3])}
+                      size="small"
+                      sx={{
+                        fontSize: "0.7rem",
+                        py: 0.5,
+                        borderRadius: "0 0 6px 0",
+                        borderLeft: "0.5px solid",
+                        borderTop: "0.5px solid",
+                        borderColor: "#afc1d6",
+                      }}
+                    >
+                      {t(`aspects.${aspect}.options.${options[3]}`)}
+                    </ToggleButton>
+                  </Box>
+                ) : (
+                  <ToggleButtonGroup
+                    value={toggles[aspect]}
+                    exclusive
+                    onChange={(e, value) => value && handleToggleChange(aspect, value)}
+                    size="small"
+                    fullWidth
+                    sx={{ height: 32 }}
+                  >
+                    {options.map((option) => (
+                      <ToggleButton key={option} value={option} sx={{ fontSize: "0.7rem", py: 0.5 }}>
+                        {t(`aspects.${aspect}.options.${option}`)}
+                      </ToggleButton>
+                    ))}
+                  </ToggleButtonGroup>
+                )}
               </Box>
             </Grid>
           ))}
@@ -249,13 +318,6 @@ const MethodologyPage = () => {
     <Box className="MethodologyPage">
       {/* Header */}
       <Container maxWidth="lg" sx={{ py: 3 }}>
-        <Breadcrumbs sx={{ mb: 2 }}>
-          <Link href="/" color="inherit">
-            {t("common:home")}
-          </Link>
-          <Typography color="text.primary">{t("title")}</Typography>
-        </Breadcrumbs>
-
         <Typography variant="h1" component="h1" sx={{ mb: 2, fontSize: { xs: "2rem", md: "2.5rem" } }}>
           {t("title")}
         </Typography>
@@ -263,6 +325,25 @@ const MethodologyPage = () => {
         <Typography variant="h5" color="text.secondary" sx={{ mb: 3, fontSize: { xs: "1.1rem", md: "1.25rem" } }}>
           {t("subtitle")}
         </Typography>
+
+        <Box sx={{ textAlign: "center", mb: 4 }}>
+          <Button
+            variant="contained"
+            size="large"
+            onClick={() => {
+              // Navigate to services and open contact modal
+              window.location.href = "/services?contact=true"
+            }}
+            sx={{
+              px: 4,
+              py: 1.5,
+              fontSize: "1.1rem",
+              fontWeight: 600,
+            }}
+          >
+            {t("cta.contact")}
+          </Button>
+        </Box>
       </Container>
 
       {/* Main Content */}

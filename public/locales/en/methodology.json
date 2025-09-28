@@ -50,7 +50,7 @@
       "label": "Centralization",
       "tooltip": "Decision-making structure",
       "options": {
-        "admin": "Centralized Admin",
+        "admin": "Single Admin",
         "core": "Core Team",
         "decentralized": "Decentralized"
       }
@@ -311,5 +311,8 @@
       "question": "Do you provide templates and resources?",
       "answer": "Yes, each activity includes templates, guides, and resources to help you implement it effectively. These are available through our documentation and advisory services."
     }
+  },
+  "cta": {
+    "contact": "Get Expert Guidance"
   }
 }
