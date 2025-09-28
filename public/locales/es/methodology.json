@@ -1,0 +1,153 @@
+{
+  "title": "Metodología AngoraSix",
+  "subtitle": "Un proceso claro que se ajusta al estadio y características de tu proyecto. Explorá las etapas y activá lo que aplique desde la derecha.",
+  "presets": {
+    "title": "Presets Rápidos",
+    "startup": "Startup Temprana",
+    "venture": "Venture Madura",
+    "community": "Comunidad Abierta",
+    "subproject": "Sub-proyecto",
+    "traditional": "Manager Tradicional"
+  },
+  "controls": {
+    "title": "Configuración"
+  },
+  "essential": {
+    "title": "Tu Ruta Recomendada",
+    "showMatrix": "Ver Matriz Completa",
+    "hideMatrix": "Ocultar Matriz"
+  },
+  "aspects": {
+    "title": "Aspectos del Proyecto",
+    "product": {
+      "label": "Producto",
+      "tooltip": "Estado actual de tu producto o servicio",
+      "options": {
+        "new": "Nuevo/Incierto",
+        "validated": "Validado/Estable"
+      }
+    },
+    "management": {
+      "label": "Gestión",
+      "tooltip": "Nivel de madurez en gestión del equipo",
+      "options": {
+        "newTeam": "Equipo Nuevo",
+        "mature": "Gestión Madura"
+      }
+    },
+    "centralization": {
+      "label": "Centralización",
+      "tooltip": "Estructura de toma de decisiones",
+      "options": {
+        "admin": "Admin Centralizado",
+        "core": "Equipo Core",
+        "decentralized": "Descentralizado"
+      }
+    },
+    "openness": {
+      "label": "Apertura",
+      "tooltip": "Nivel de apertura a contribuidores externos",
+      "options": {
+        "closed": "Cerrado",
+        "open": "Abierto"
+      }
+    },
+    "finance": {
+      "label": "Finanzas",
+      "tooltip": "Situación financiera actual",
+      "options": {
+        "noRevenue": "Sin Ingresos",
+        "noDefinitiveRevenue": "Sin Ingresos Definitivos",
+        "stableRevenue": "Ingresos Estables",
+        "unstableRevenue": "Ingresos Inestables/Crecientes"
+      }
+    }
+  },
+  "matrix": {
+    "title": "Matriz de Proceso Completa",
+    "density": "Vista:",
+    "stages": {
+      "explore": "Explorar & Alinear",
+      "define": "Definir & Adoptar",
+      "test": "Probar & Aprender",
+      "evolve": "Evolucionar & Escalar"
+    },
+    "dimensions": {
+      "innovation": "Innovación & Diseño",
+      "governance": "Gobernanza & Fairness",
+      "management": "Gestión & Ritmo",
+      "finance": "Finanzas & Rewards"
+    },
+    "more": "más"
+  },
+  "more": {
+    "title": "Actividades Adicionales"
+  },
+  "modules": {
+    "compass": "Compass",
+    "charter": "Charter",
+    "pulse": "Pulse",
+    "platform": "Platform"
+  },
+  "effort": {
+    "S": "Pequeño",
+    "M": "Mediano",
+    "L": "Grande"
+  },
+  "stages": {
+    "explore": {
+      "title": "Explorar & Alinear",
+      "description": "Analizamos disposición y motivación; aclaramos roles, expectativas y reglas iniciales. Objetivo: decidir si estamos listos y con qué condiciones arrancamos."
+    },
+    "define": {
+      "title": "Definir & Adoptar",
+      "description": "Establecemos reglas base (ownership, gobernanza, distribución) y adoptamos un ritmo mínimo (Scrum-lite) para operar con claridad."
+    },
+    "test": {
+      "title": "Probar & Aprender",
+      "description": "Introducimos validación (Lean), definimos métricas simples y sostenemos aprendizaje rápido."
+    },
+    "evolve": {
+      "title": "Evolucionar & Escalar",
+      "description": "Revisamos reglas, métricas y prácticas; integramos AngoraSix Platform más profundamente para escalar."
+    }
+  },
+  "item": {
+    "seeMore": "Ver Más",
+    "notApplicable": "No aplica con tu configuración actual"
+  },
+  "cta": {
+    "headline": "¿Querés que te ayudemos a trazar tu recorrido?",
+    "primary": "Solicitar Asesoramiento",
+    "secondary": "Ver Documentación"
+  },
+  "faq": {
+    "title": "Preguntas Frecuentes",
+    "q1": {
+      "question": "¿Cuánto tiempo toma el proceso completo?",
+      "answer": "Depende de tu escenario y tamaño de equipo. Una startup podría completar el ciclo básico en 2-3 meses, mientras que una organización madura podría tomar 6-12 meses implementar todas las dimensiones."
+    },
+    "q2": {
+      "question": "¿Necesito seguir todas las etapas?",
+      "answer": "No, el proceso es adaptativo. Basado en tu configuración, algunas actividades podrían no aplicar a tu situación. Enfócate en lo que es relevante para tu etapa y contexto actual."
+    },
+    "q3": {
+      "question": "¿Qué son los módulos de AngoraSix?",
+      "answer": "Compass ayuda con evaluación de preparación, Charter maneja reglas base y gobernanza, Pulse rastrea métricas y salud del equipo, y Platform maneja tracking de ownership y distribuciones."
+    },
+    "q4": {
+      "question": "¿Puedo cambiar escenarios a mitad del proceso?",
+      "answer": "Absolutamente. A medida que tu proyecto evoluciona, podés ajustar la configuración para reflejar tu nueva realidad. Las recomendaciones se adaptarán en consecuencia."
+    },
+    "q5": {
+      "question": "¿Proporcionan templates y recursos?",
+      "answer": "Sí, cada actividad incluye templates, guías y recursos para ayudarte a implementarla efectivamente. Estos están disponibles a través de nuestra documentación y servicios de asesoramiento."
+    }
+  },
+  "dialog": {
+    "whenToUse": "Cuándo usar",
+    "steps": "Pasos",
+    "resources": "Recursos",
+    "close": "Listo"
+  }
+}

@@ -1,0 +1,154 @@
+{
+  "title": "AngoraSix Methodology",
+  "subtitle": "A clear process that adapts to your project's stage and characteristics. Explore the stages and activate what applies from the right panel.",
+  "presets": {
+    "title": "Quick Presets",
+    "startup": "Early Startup",
+    "venture": "Mature Venture",
+    "community": "Open Community",
+    "subproject": "Sub-project",
+    "traditional": "Traditional Manager"
+  },
+  "controls": {
+    "refine": "Refine",
+    "title": "Configuration"
+  },
+  "essential": {
+    "title": "Your Recommended Route",
+    "showMatrix": "View Complete Matrix",
+    "hideMatrix": "Hide Matrix"
+  },
+  "aspects": {
+    "title": "Project Aspects",
+    "product": {
+      "label": "Product",
+      "tooltip": "Current state of your product or service",
+      "options": {
+        "new": "New/Uncertain",
+        "validated": "Validated/Stable"
+      }
+    },
+    "management": {
+      "label": "Management",
+      "tooltip": "Team management maturity level",
+      "options": {
+        "newTeam": "New Team",
+        "mature": "Mature Management"
+      }
+    },
+    "centralization": {
+      "label": "Centralization",
+      "tooltip": "Decision-making structure",
+      "options": {
+        "admin": "Centralized Admin",
+        "core": "Core Team",
+        "decentralized": "Decentralized"
+      }
+    },
+    "openness": {
+      "label": "Openness",
+      "tooltip": "Level of openness to external contributors",
+      "options": {
+        "closed": "Closed",
+        "open": "Open"
+      }
+    },
+    "finance": {
+      "label": "Finance",
+      "tooltip": "Current financial situation",
+      "options": {
+        "noRevenue": "No Revenue",
+        "noDefinitiveRevenue": "No Definitive Revenue",
+        "stableRevenue": "Stable Revenue",
+        "unstableRevenue": "Unstable/Growing Revenue"
+      }
+    }
+  },
+  "matrix": {
+    "title": "Complete Process Matrix",
+    "density": "View:",
+    "stages": {
+      "explore": "Explore & Align",
+      "define": "Define & Adopt",
+      "test": "Test & Learn",
+      "evolve": "Evolve & Scale"
+    },
+    "dimensions": {
+      "innovation": "Innovation & Design",
+      "governance": "Governance & Fairness",
+      "management": "Management & Rhythm",
+      "finance": "Finance & Rewards"
+    },
+    "more": "more"
+  },
+  "more": {
+    "title": "Additional Activities"
+  },
+  "modules": {
+    "compass": "Compass",
+    "charter": "Charter",
+    "pulse": "Pulse",
+    "platform": "Platform"
+  },
+  "effort": {
+    "S": "Small",
+    "M": "Medium",
+    "L": "Large"
+  },
+  "stages": {
+    "explore": {
+      "title": "Explore & Align",
+      "description": "We analyze readiness and motivation; clarify roles, expectations and initial rules. Goal: decide if we're ready and under what conditions we start."
+    },
+    "define": {
+      "title": "Define & Adopt",
+      "description": "We establish base rules (ownership, governance, distribution) and adopt a minimal rhythm (Scrum-lite) to operate with clarity."
+    },
+    "test": {
+      "title": "Test & Learn",
+      "description": "We introduce validation (Lean), define simple metrics and sustain rapid learning cycles."
+    },
+    "evolve": {
+      "title": "Evolve & Scale",
+      "description": "We review rules, metrics and practices; integrate AngoraSix Platform more deeply to scale effectively."
+    }
+  },
+  "item": {
+    "seeMore": "See More",
+    "notApplicable": "Not applicable with your current configuration"
+  },
+  "cta": {
+    "headline": "Want us to help you map your journey?",
+    "primary": "Request Advisory",
+    "secondary": "View Documentation"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "q1": {
+      "question": "How long does the complete process take?",
+      "answer": "It depends on your scenario and team size. A startup might complete the basic cycle in 2-3 months, while a mature organization might take 6-12 months to implement all dimensions."
+    },
+    "q2": {
+      "question": "Do I need to follow all stages?",
+      "answer": "No, the process is adaptive. Based on your configuration, some activities might not apply to your situation. Focus on what's relevant for your current stage and context."
+    },
+    "q3": {
+      "question": "What are the AngoraSix modules?",
+      "answer": "Compass helps with readiness assessment, Charter manages base rules and governance, Pulse tracks metrics and team health, and Platform handles ownership tracking and distributions."
+    },
+    "q4": {
+      "question": "Can I change scenarios mid-process?",
+      "answer": "Absolutely. As your project evolves, you can adjust the configuration to reflect your new reality. The recommendations will adapt accordingly."
+    },
+    "q5": {
+      "question": "Do you provide templates and resources?",
+      "answer": "Yes, each activity includes templates, guides, and resources to help you implement it effectively. These are available through our documentation and advisory services."
+    }
+  },
+  "dialog": {
+    "whenToUse": "When to use",
+    "steps": "Steps",
+    "resources": "Resources",
+    "close": "Done"
+  }
+}
