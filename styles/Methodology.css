@@ -65,7 +65,7 @@
   background-color: #f5f5f5;
   border: 1px solid #e0e0e0;
   opacity: 0.3;
-  cursor: default;
+  cursor: pointer; /* Still clickable for disabled items */
 }
 
 .MethodologyPage .mini-card.enabled:hover {
@@ -75,8 +75,9 @@
 }
 
 .MethodologyPage .mini-card.disabled:hover {
-  transform: none;
-  box-shadow: none;
+  border-color: #999;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
 }
 
 /* Card content */
@@ -99,17 +100,20 @@
   color: #999;
 }
 
-/* Module chips - smaller */
-.MethodologyPage .MuiChip-colorSecondary {
-  background-color: #fe5f55;
-  color: #000000;
-  font-size: 0.65rem;
-  font-weight: 600;
-  height: 18px;
+/* Module icons - translucent hints */
+.MethodologyPage .module-icon {
+  opacity: 0.3;
+  margin-left: 0.25rem;
 }
 
-.MethodologyPage .mini-card.disabled .MuiChip-root {
-  opacity: 0.5;
+.MethodologyPage .module-icon.angorasix-logo {
+  width: 16px;
+  height: 16px;
+  filter: invert(1);
+}
+
+.MethodologyPage .module-icon.mui-icon {
+  font-size: 1.2rem;
 }
 
 /* Controls panel - compressed */
@@ -126,7 +130,7 @@
   top: 24px;
 }
 
-/* Preset chips - compressed */
+/* Preset chips - compressed with tooltips */
 .MethodologyPage .presets-container {
   display: flex;
   flex-wrap: wrap;
@@ -224,6 +228,17 @@
 .MethodologyPage .MuiDialogTitle-root {
   background-color: #dce7ea;
   border-radius: 12px 12px 0 0;
+}
+
+/* Dialog title with module icon */
+.MethodologyPage .dialog-title-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.MethodologyPage .dialog-module-icon {
+  opacity: 0.5;
 }
 
 /* Stage color variations */
@@ -354,4 +369,16 @@
 .MethodologyPage .info-tooltip .MuiSvgIcon-root {
   font-size: 0.875rem;
   color: #7d99ba;
+}
+
+/* Preset tooltips styling */
+.MethodologyPage .preset-tooltip {
+  max-width: 300px;
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+/* Not applicable chip in dialog */
+.MethodologyPage .not-applicable-chip {
+  margin-left: 0.5rem;
 }

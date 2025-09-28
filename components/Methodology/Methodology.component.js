@@ -83,22 +83,46 @@ const MethodologyPage = () => {
     trackEvent("toggle_changed", { aspect, value })
   }
 
-  // Handle item dialog
+  // Handle item dialog - now works for both enabled and disabled items
   const handleItemClick = (item) => {
-    const isEnabled = getItemEnabledState(item, toggles)
-    if (!isEnabled) return
-
     setSelectedItem(item)
     setDialogOpen(true)
+    const isEnabled = getItemEnabledState(item, toggles)
     trackEvent("item_opened", {
       stage: item.stage,
       key: item.key,
+      enabled: isEnabled,
     })
   }
 
   const handleDialogClose = () => {
     setDialogOpen(false)
     setSelectedItem(null)
+  }
+
+  // Get module icon
+  const getModuleIcon = (module) => {
+    switch (module) {
+      case "compass":
+        return <ExploreIcon sx={{ opacity: 0.3, fontSize: "1.2rem" }} />
+      case "platform":
+      case "charter":
+        return (
+          <Box
+            component="img"
+            src="/logos/a6-white-500.png"
+            alt="AngoraSix"
+            sx={{
+              width: 16,
+              height: 16,
+              opacity: 0.3,
+              filter: "invert(1)",
+            }}
+          />
+        )
+      default:
+        return null
+    }
   }
 
   // Render mini item card
@@ -112,18 +136,16 @@ const MethodologyPage = () => {
             minWidth: 200,
             maxWidth: 280,
             opacity: isEnabled ? 1 : 0.3,
-            cursor: isEnabled ? "pointer" : "default",
+            cursor: "pointer",
             transition: "all 0.2s ease",
             backgroundColor: isEnabled ? "background.paper" : "grey.100",
             border: isEnabled ? "1px solid" : "1px solid",
             borderColor: isEnabled ? "divider" : "grey.300",
-            "&:hover": isEnabled
-              ? {
-                  elevation: 3,
-                  transform: "translateY(-2px)",
-                  borderColor: "primary.main",
-                }
-              : {},
+            "&:hover": {
+              elevation: 3,
+              transform: "translateY(-2px)",
+              borderColor: isEnabled ? "primary.main" : "grey.400",
+            },
           }}
           onClick={() => handleItemClick(item)}
         >
@@ -139,33 +161,11 @@ const MethodologyPage = () => {
                   color: isEnabled ? "text.primary" : "text.disabled",
                 }}
               >
-                {item.title}
+                {t(`items.${item.key}.title`)}
               </Typography>
-              {!isEnabled && (
-                <Tooltip title={t("item.notApplicable")}>
-                  <InfoIcon color="disabled" fontSize="small" sx={{ ml: 0.5 }} />
-                </Tooltip>
-              )}
-            </Box>
-
-            <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-              {item.module && (
-                <Chip
-                  label={t(`modules.${item.module}`)}
-                  size="small"
-                  color="secondary"
-                  sx={{
-                    height: 18,
-                    fontSize: "0.65rem",
-                    opacity: isEnabled ? 1 : 0.5,
-                  }}
-                />
-              )}
-              {isEnabled && (
-                <Button size="small" sx={{ fontSize: "0.7rem", minWidth: "auto", p: 0.5 }}>
-                  {t("item.seeMore")}
-                </Button>
-              )}
+              <Box sx={{ display: "flex", alignItems: "center", ml: 0.5 }}>
+                {item.module && getModuleIcon(item.module)}
+              </Box>
             </Box>
           </CardContent>
         </Card>
@@ -178,20 +178,28 @@ const MethodologyPage = () => {
     <Box>
       {/* Presets */}
       <Box sx={{ mb: 3 }}>
-        <Typography variant="h6" sx={{ mb: 1.5, fontSize: "1rem" }}>
-          {t("presets.title")}
-        </Typography>
+        <Box sx={{ display: "flex", alignItems: "center", mb: 1.5 }}>
+          <Typography variant="h6" sx={{ fontSize: "1rem" }}>
+            {t("presets.title")}
+          </Typography>
+          <Tooltip title={t("presets.tooltip")} placement="top">
+            <IconButton size="small" sx={{ ml: 0.5, p: 0.25 }}>
+              <InfoIcon fontSize="small" />
+            </IconButton>
+          </Tooltip>
+        </Box>
         <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
           {Object.keys(presetConfigs).map((preset) => (
-            <Chip
-              key={preset}
-              label={t(`presets.${preset}`)}
-              variant={selectedPreset === preset ? "filled" : "outlined"}
-              color={selectedPreset === preset ? "primary" : "default"}
-              onClick={() => handlePresetChange(preset)}
-              size="small"
-              sx={{ cursor: "pointer", fontSize: "0.75rem" }}
-            />
+            <Tooltip key={preset} title={t(`presets.${preset}.tooltip`)} placement="top">
+              <Chip
+                label={t(`presets.${preset}.label`)}
+                variant={selectedPreset === preset ? "filled" : "outlined"}
+                color={selectedPreset === preset ? "primary" : "default"}
+                onClick={() => handlePresetChange(preset)}
+                size="small"
+                sx={{ cursor: "pointer", fontSize: "0.75rem" }}
+              />
+            </Tooltip>
           ))}
         </Box>
       </Box>
@@ -359,7 +367,21 @@ const MethodologyPage = () => {
           <>
             <DialogTitle>
               <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                <Typography variant="h5">{selectedItem.title}</Typography>
+                <Box sx={{ display: "flex", alignItems: "center" }}>
+                  <Typography variant="h5" sx={{ mr: 1 }}>
+                    {t(`items.${selectedItem.key}.title`)}
+                  </Typography>
+                  {selectedItem.module && getModuleIcon(selectedItem.module)}
+                  {!getItemEnabledState(selectedItem, toggles) && (
+                    <Chip
+                      label={t("item.notApplicableChip")}
+                      size="small"
+                      color="warning"
+                      variant="outlined"
+                      sx={{ ml: 1 }}
+                    />
+                  )}
+                </Box>
                 <IconButton onClick={handleDialogClose}>
                   <CloseIcon />
                 </IconButton>
@@ -367,14 +389,14 @@ const MethodologyPage = () => {
             </DialogTitle>
             <DialogContent>
               <Typography variant="body1" sx={{ mb: 2 }}>
-                {selectedItem.purpose}
+                {t(`items.${selectedItem.key}.purpose`)}
               </Typography>
 
               <Typography variant="h6" sx={{ mb: 1 }}>
                 {t("dialog.whenToUse")}
               </Typography>
               <List dense sx={{ mb: 2 }}>
-                {selectedItem.whenToUse?.map((item, index) => (
+                {t(`items.${selectedItem.key}.whenToUse`, { returnObjects: true }).map((item, index) => (
                   <ListItem key={index} sx={{ px: 0 }}>
                     <ListItemText primary={`• ${item}`} />
                   </ListItem>
@@ -385,20 +407,20 @@ const MethodologyPage = () => {
                 {t("dialog.steps")}
               </Typography>
               <List dense sx={{ mb: 3 }}>
-                {selectedItem.steps?.map((step, index) => (
+                {t(`items.${selectedItem.key}.steps`, { returnObjects: true }).map((step, index) => (
                   <ListItem key={index} sx={{ px: 0 }}>
                     <ListItemText primary={`${index + 1}. ${step}`} />
                   </ListItem>
                 ))}
               </List>
 
-              {selectedItem.resources && selectedItem.resources.length > 0 && (
+              {t(`items.${selectedItem.key}.resources`, { returnObjects: true }).length > 0 && (
                 <>
                   <Typography variant="h6" sx={{ mb: 1 }}>
                     {t("dialog.resources")}
                   </Typography>
                   <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap" }}>
-                    {selectedItem.resources.map((resource, index) => (
+                    {t(`items.${selectedItem.key}.resources`, { returnObjects: true }).map((resource, index) => (
                       <Button key={index} variant="outlined" size="small" href={resource.url} target="_blank">
                         {resource.name}
                       </Button>

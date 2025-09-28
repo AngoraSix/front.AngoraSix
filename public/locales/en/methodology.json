@@ -3,20 +3,30 @@
   "subtitle": "A clear process that adapts to your project's stage and characteristics. Explore the stages and activate what applies from the right panel.",
   "presets": {
     "title": "Quick Presets",
-    "startup": "Early Startup",
-    "venture": "Mature Venture",
-    "community": "Open Community",
-    "subproject": "Sub-project",
-    "traditional": "Traditional Manager"
+    "tooltip": "Pre-configured scenarios that automatically set the most relevant aspects for common project types. You can adjust individual settings after selecting a preset.",
+    "startup": {
+      "label": "Early Startup",
+      "tooltip": "New product, small team, core ownership, closed development, no revenue yet. Focus on validation and basic structure."
+    },
+    "venture": {
+      "label": "Mature Venture",
+      "tooltip": "Validated product, experienced management, core team structure, stable revenue. Focus on optimization and growth."
+    },
+    "community": {
+      "label": "Open Community",
+      "tooltip": "New collaborative project, decentralized governance, open to contributors, community-driven development."
+    },
+    "subproject": {
+      "label": "Sub-project",
+      "tooltip": "Part of larger organization, validated approach, centralized admin, stable funding and processes."
+    },
+    "traditional": {
+      "label": "Traditional Manager",
+      "tooltip": "Established product, mature management, centralized control, stable revenue, traditional corporate structure."
+    }
   },
   "controls": {
-    "refine": "Refine",
     "title": "Configuration"
-  },
-  "essential": {
-    "title": "Your Recommended Route",
-    "showMatrix": "View Complete Matrix",
-    "hideMatrix": "Hide Matrix"
   },
   "aspects": {
     "title": "Project Aspects",
@@ -63,6 +73,11 @@
         "unstableRevenue": "Unstable/Growing Revenue"
       }
     }
+  },
+  "essential": {
+    "title": "Your Recommended Route",
+    "showMatrix": "View Complete Matrix",
+    "hideMatrix": "Hide Matrix"
   },
   "matrix": {
     "title": "Complete Process Matrix",
@@ -113,14 +128,166 @@
       "description": "We review rules, metrics and practices; integrate AngoraSix Platform more deeply to scale effectively."
     }
   },
-  "item": {
-    "seeMore": "See More",
-    "notApplicable": "Not applicable with your current configuration"
+  "items": {
+    "align-expectations": {
+      "title": "Align expectations and roles",
+      "purpose": "Clarify roles, responsibilities and initial team expectations.",
+      "whenToUse": [
+        "At the start of a new project",
+        "When there's confusion about roles",
+        "Before defining team structure"
+      ],
+      "steps": [
+        "Gather all stakeholders",
+        "Define roles and responsibilities",
+        "Set clear expectations",
+        "Document initial agreements"
+      ],
+      "resources": [{ "name": "Roles Template", "url": "#" }, { "name": "Expectations Guide", "url": "#" }]
+    },
+    "initial-rhythm": {
+      "title": "Establish initial rhythm",
+      "purpose": "Define a basic work rhythm to start operating.",
+      "whenToUse": ["At the start of any project", "When the team needs structure", "To establish work routines"],
+      "steps": [
+        "Define meeting frequency",
+        "Establish communication channels",
+        "Create basic calendar",
+        "Agree on work hours"
+      ],
+      "resources": [{ "name": "Rhythm Template", "url": "#" }]
+    },
+    "validate-opportunity": {
+      "title": "Validate problem and opportunity",
+      "purpose": "Confirm there's a real problem and market opportunity.",
+      "whenToUse": [
+        "With new or uncertain products",
+        "Before investing significant resources",
+        "To validate initial hypotheses"
+      ],
+      "steps": [
+        "Identify the problem to solve",
+        "Research target market",
+        "Validate with potential users",
+        "Evaluate the opportunity"
+      ],
+      "resources": [{ "name": "Validation Canvas", "url": "#" }, { "name": "Interview Guide", "url": "#" }]
+    },
+    "base-agreements": {
+      "title": "Base agreements and ownership",
+      "purpose": "Establish fundamental ownership and governance rules for the project.",
+      "whenToUse": [
+        "With core or decentralized teams",
+        "When there are multiple stakeholders",
+        "For projects with shared ownership"
+      ],
+      "steps": [
+        "Define ownership structure",
+        "Establish governance rules",
+        "Create participation agreements",
+        "Document rights and obligations"
+      ],
+      "resources": [{ "name": "Charter Template", "url": "#" }, { "name": "Ownership Guide", "url": "#" }]
+    },
+    "processes-tools": {
+      "title": "Processes and tools",
+      "purpose": "Adopt work processes and tools to operate efficiently.",
+      "whenToUse": ["In all projects", "When the team needs structure", "To improve productivity"],
+      "steps": ["Select work tools", "Define basic processes", "Train the team", "Establish workflows"],
+      "resources": [{ "name": "Tools List", "url": "#" }, { "name": "Recommended Processes", "url": "#" }]
+    },
+    "financial-structure": {
+      "title": "Financial structure",
+      "purpose": "Define how project finances and distributions will be managed.",
+      "whenToUse": [
+        "With revenue-generating projects",
+        "When there's investment or funding",
+        "For projects with multiple participants"
+      ],
+      "steps": ["Define financial model", "Establish distribution rules", "Create cost structure", "Plan cash flow"],
+      "resources": [{ "name": "Financial Template", "url": "#" }, { "name": "Distribution Guide", "url": "#" }]
+    },
+    "experiment-cycle": {
+      "title": "Experiment cycle",
+      "purpose": "Implement a systematic process of experimentation and learning.",
+      "whenToUse": ["With products in development", "To validate hypotheses", "When there's market uncertainty"],
+      "steps": ["Define hypotheses to test", "Design experiments", "Execute and measure results", "Learn and adjust"],
+      "resources": [{ "name": "Experiment Template", "url": "#" }, { "name": "Lean Startup Guide", "url": "#" }]
+    },
+    "sprint-rhythm": {
+      "title": "Sprint rhythm",
+      "purpose": "Establish an agile work rhythm based on short sprints.",
+      "whenToUse": ["In all development projects", "To improve productivity", "When rapid iteration is needed"],
+      "steps": [
+        "Define sprint duration",
+        "Establish agile ceremonies",
+        "Create task backlog",
+        "Implement retrospectives"
+      ],
+      "resources": [{ "name": "Basic Scrum Guide", "url": "#" }, { "name": "Sprint Template", "url": "#" }]
+    },
+    "distribution-scheme": {
+      "title": "Distribution scheme",
+      "purpose": "Implement a system to distribute value among participants.",
+      "whenToUse": [
+        "With revenue-generating projects",
+        "When there are multiple contributors",
+        "To incentivize participation"
+      ],
+      "steps": [
+        "Define distribution criteria",
+        "Implement tracking system",
+        "Establish payment periods",
+        "Communicate rules to team"
+      ],
+      "resources": [{ "name": "Distribution Calculator", "url": "#" }, { "name": "Platform Guide", "url": "#" }]
+    },
+    "roadmap-scalability": {
+      "title": "Roadmap and scalability",
+      "purpose": "Plan long-term growth and scalability of the project.",
+      "whenToUse": ["With validated and stable products", "When planning growth", "For projects in scaling phase"],
+      "steps": ["Analyze current metrics", "Identify bottlenecks", "Plan growth roadmap", "Define scaling strategy"],
+      "resources": [{ "name": "Roadmap Template", "url": "#" }, { "name": "Scalability Guide", "url": "#" }]
+    },
+    "rules-review": {
+      "title": "Rules review",
+      "purpose": "Review and update project rules and agreements periodically.",
+      "whenToUse": ["With mature management", "Every 6-12 months", "When circumstances change"],
+      "steps": ["Review current agreements", "Identify change needs", "Propose updates", "Implement new rules"],
+      "resources": [{ "name": "Review Checklist", "url": "#" }, { "name": "Changes Template", "url": "#" }]
+    },
+    "health-metrics": {
+      "title": "Health metrics",
+      "purpose": "Monitor team and project health continuously.",
+      "whenToUse": ["With mature management", "For established projects", "As general good practice"],
+      "steps": ["Define key metrics", "Implement monitoring system", "Create dashboards", "Review metrics regularly"],
+      "resources": [{ "name": "Dashboard Template", "url": "#" }, { "name": "Metrics Guide", "url": "#" }]
+    },
+    "financial-optimization": {
+      "title": "Financial optimization",
+      "purpose": "Optimize financial management and project distributions.",
+      "whenToUse": [
+        "With revenue-generating projects",
+        "To improve financial efficiency",
+        "When optimizing distributions"
+      ],
+      "steps": [
+        "Analyze financial flows",
+        "Identify improvement opportunities",
+        "Optimize distributions",
+        "Implement improvements"
+      ],
+      "resources": [{ "name": "Financial Analysis", "url": "#" }, { "name": "Platform Optimizer", "url": "#" }]
+    }
   },
-  "cta": {
-    "headline": "Want us to help you map your journey?",
-    "primary": "Request Advisory",
-    "secondary": "View Documentation"
+  "item": {
+    "notApplicableChip": "Not applicable"
+  },
+  "dialog": {
+    "whenToUse": "When to use",
+    "steps": "Steps",
+    "resources": "Resources",
+    "close": "Done"
   },
   "faq": {
     "title": "Frequently Asked Questions",
@@ -144,11 +311,5 @@
       "question": "Do you provide templates and resources?",
       "answer": "Yes, each activity includes templates, guides, and resources to help you implement it effectively. These are available through our documentation and advisory services."
     }
-  },
-  "dialog": {
-    "whenToUse": "When to use",
-    "steps": "Steps",
-    "resources": "Resources",
-    "close": "Done"
   }
 }

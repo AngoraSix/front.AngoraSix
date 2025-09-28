@@ -3,19 +3,30 @@
   "subtitle": "Un proceso claro que se ajusta al estadio y características de tu proyecto. Explorá las etapas y activá lo que aplique desde la derecha.",
   "presets": {
     "title": "Presets Rápidos",
-    "startup": "Startup Temprana",
-    "venture": "Venture Madura",
-    "community": "Comunidad Abierta",
-    "subproject": "Sub-proyecto",
-    "traditional": "Manager Tradicional"
+    "tooltip": "Escenarios preconfigurados que automáticamente ajustan los aspectos más relevantes para tipos comunes de proyectos. Podés ajustar configuraciones individuales después de seleccionar un preset.",
+    "startup": {
+      "label": "Startup Temprana",
+      "tooltip": "Producto nuevo, equipo pequeño, ownership core, desarrollo cerrado, sin ingresos aún. Foco en validación y estructura básica."
+    },
+    "venture": {
+      "label": "Venture Madura",
+      "tooltip": "Producto validado, gestión experimentada, estructura de equipo core, ingresos estables. Foco en optimización y crecimiento."
+    },
+    "community": {
+      "label": "Comunidad Abierta",
+      "tooltip": "Proyecto colaborativo nuevo, gobernanza descentralizada, abierto a contribuidores, desarrollo dirigido por la comunidad."
+    },
+    "subproject": {
+      "label": "Sub-proyecto",
+      "tooltip": "Parte de organización más grande, enfoque validado, admin centralizado, financiamiento y procesos estables."
+    },
+    "traditional": {
+      "label": "Manager Tradicional",
+      "tooltip": "Producto establecido, gestión madura, control centralizado, ingresos estables, estructura corporativa tradicional."
+    }
   },
   "controls": {
     "title": "Configuración"
-  },
-  "essential": {
-    "title": "Tu Ruta Recomendada",
-    "showMatrix": "Ver Matriz Completa",
-    "hideMatrix": "Ocultar Matriz"
   },
   "aspects": {
     "title": "Aspectos del Proyecto",
@@ -63,37 +74,6 @@
       }
     }
   },
-  "matrix": {
-    "title": "Matriz de Proceso Completa",
-    "density": "Vista:",
-    "stages": {
-      "explore": "Explorar & Alinear",
-      "define": "Definir & Adoptar",
-      "test": "Probar & Aprender",
-      "evolve": "Evolucionar & Escalar"
-    },
-    "dimensions": {
-      "innovation": "Innovación & Diseño",
-      "governance": "Gobernanza & Fairness",
-      "management": "Gestión & Ritmo",
-      "finance": "Finanzas & Rewards"
-    },
-    "more": "más"
-  },
-  "more": {
-    "title": "Actividades Adicionales"
-  },
-  "modules": {
-    "compass": "Compass",
-    "charter": "Charter",
-    "pulse": "Pulse",
-    "platform": "Platform"
-  },
-  "effort": {
-    "S": "Pequeño",
-    "M": "Mediano",
-    "L": "Grande"
-  },
   "stages": {
     "explore": {
       "title": "Explorar & Alinear",
@@ -112,37 +92,206 @@
       "description": "Revisamos reglas, métricas y prácticas; integramos AngoraSix Platform más profundamente para escalar."
     }
   },
-  "item": {
-    "seeMore": "Ver Más",
-    "notApplicable": "No aplica con tu configuración actual"
-  },
-  "cta": {
-    "headline": "¿Querés que te ayudemos a trazar tu recorrido?",
-    "primary": "Solicitar Asesoramiento",
-    "secondary": "Ver Documentación"
-  },
-  "faq": {
-    "title": "Preguntas Frecuentes",
-    "q1": {
-      "question": "¿Cuánto tiempo toma el proceso completo?",
-      "answer": "Depende de tu escenario y tamaño de equipo. Una startup podría completar el ciclo básico en 2-3 meses, mientras que una organización madura podría tomar 6-12 meses implementar todas las dimensiones."
+  "items": {
+    "align-expectations": {
+      "title": "Alinear expectativas y roles",
+      "purpose": "Clarificar roles, responsabilidades y expectativas iniciales del equipo.",
+      "whenToUse": [
+        "Al inicio de un nuevo proyecto",
+        "Cuando hay confusión sobre roles",
+        "Antes de definir la estructura del equipo"
+      ],
+      "steps": [
+        "Reunir a todos los stakeholders",
+        "Definir roles y responsabilidades",
+        "Establecer expectativas claras",
+        "Documentar acuerdos iniciales"
+      ],
+      "resources": [{ "name": "Template de Roles", "url": "#" }, { "name": "Guía de Expectativas", "url": "#" }]
     },
-    "q2": {
-      "question": "¿Necesito seguir todas las etapas?",
-      "answer": "No, el proceso es adaptativo. Basado en tu configuración, algunas actividades podrían no aplicar a tu situación. Enfócate en lo que es relevante para tu etapa y contexto actual."
+    "initial-rhythm": {
+      "title": "Establecer ritmo inicial",
+      "purpose": "Definir un ritmo de trabajo básico para comenzar a operar.",
+      "whenToUse": [
+        "Al inicio de cualquier proyecto",
+        "Cuando el equipo necesita estructura",
+        "Para establecer rutinas de trabajo"
+      ],
+      "steps": [
+        "Definir frecuencia de reuniones",
+        "Establecer canales de comunicación",
+        "Crear calendario básico",
+        "Acordar horarios de trabajo"
+      ],
+      "resources": [{ "name": "Template de Ritmo", "url": "#" }]
     },
-    "q3": {
-      "question": "¿Qué son los módulos de AngoraSix?",
-      "answer": "Compass ayuda con evaluación de preparación, Charter maneja reglas base y gobernanza, Pulse rastrea métricas y salud del equipo, y Platform maneja tracking de ownership y distribuciones."
+    "validate-opportunity": {
+      "title": "Validar problema y oportunidad",
+      "purpose": "Confirmar que existe un problema real y una oportunidad de mercado.",
+      "whenToUse": [
+        "Con productos nuevos o inciertos",
+        "Antes de invertir recursos significativos",
+        "Para validar hipótesis iniciales"
+      ],
+      "steps": [
+        "Identificar el problema a resolver",
+        "Investigar el mercado objetivo",
+        "Validar con usuarios potenciales",
+        "Evaluar la oportunidad"
+      ],
+      "resources": [{ "name": "Canvas de Validación", "url": "#" }, { "name": "Guía de Entrevistas", "url": "#" }]
     },
-    "q4": {
-      "question": "¿Puedo cambiar escenarios a mitad del proceso?",
-      "answer": "Absolutamente. A medida que tu proyecto evoluciona, podés ajustar la configuración para reflejar tu nueva realidad. Las recomendaciones se adaptarán en consecuencia."
+    "base-agreements": {
+      "title": "Acuerdos base y ownership",
+      "purpose": "Establecer las reglas fundamentales de propiedad y gobernanza del proyecto.",
+      "whenToUse": [
+        "Con equipos core o descentralizados",
+        "Cuando hay múltiples stakeholders",
+        "Para proyectos con ownership compartido"
+      ],
+      "steps": [
+        "Definir estructura de ownership",
+        "Establecer reglas de gobernanza",
+        "Crear acuerdos de participación",
+        "Documentar derechos y obligaciones"
+      ],
+      "resources": [{ "name": "Template Charter", "url": "#" }, { "name": "Guía de Ownership", "url": "#" }]
     },
-    "q5": {
-      "question": "¿Proporcionan templates y recursos?",
-      "answer": "Sí, cada actividad incluye templates, guías y recursos para ayudarte a implementarla efectivamente. Estos están disponibles a través de nuestra documentación y servicios de asesoramiento."
+    "processes-tools": {
+      "title": "Procesos y herramientas",
+      "purpose": "Adoptar procesos de trabajo y herramientas para operar eficientemente.",
+      "whenToUse": ["En todos los proyectos", "Cuando el equipo necesita estructura", "Para mejorar la productividad"],
+      "steps": [
+        "Seleccionar herramientas de trabajo",
+        "Definir procesos básicos",
+        "Capacitar al equipo",
+        "Establecer flujos de trabajo"
+      ],
+      "resources": [{ "name": "Lista de Herramientas", "url": "#" }, { "name": "Procesos Recomendados", "url": "#" }]
+    },
+    "financial-structure": {
+      "title": "Estructura financiera",
+      "purpose": "Definir cómo se manejarán las finanzas y distribuciones del proyecto.",
+      "whenToUse": [
+        "Con proyectos que generan ingresos",
+        "Cuando hay inversión o financiamiento",
+        "Para proyectos con múltiples participantes"
+      ],
+      "steps": [
+        "Definir modelo financiero",
+        "Establecer reglas de distribución",
+        "Crear estructura de costos",
+        "Planificar flujo de caja"
+      ],
+      "resources": [{ "name": "Template Financiero", "url": "#" }, { "name": "Guía de Distribuciones", "url": "#" }]
+    },
+    "experiment-cycle": {
+      "title": "Ciclo de experimentos",
+      "purpose": "Implementar un proceso sistemático de experimentación y aprendizaje.",
+      "whenToUse": [
+        "Con productos en desarrollo",
+        "Para validar hipótesis",
+        "Cuando hay incertidumbre sobre el mercado"
+      ],
+      "steps": [
+        "Definir hipótesis a probar",
+        "Diseñar experimentos",
+        "Ejecutar y medir resultados",
+        "Aprender y ajustar"
+      ],
+      "resources": [{ "name": "Template de Experimentos", "url": "#" }, { "name": "Guía Lean Startup", "url": "#" }]
+    },
+    "sprint-rhythm": {
+      "title": "Ritmo de sprints",
+      "purpose": "Establecer un ritmo de trabajo ágil basado en sprints cortos.",
+      "whenToUse": [
+        "En todos los proyectos de desarrollo",
+        "Para mejorar la productividad",
+        "Cuando se necesita iteración rápida"
+      ],
+      "steps": [
+        "Definir duración de sprints",
+        "Establecer ceremonias ágiles",
+        "Crear backlog de tareas",
+        "Implementar retrospectivas"
+      ],
+      "resources": [{ "name": "Guía Scrum Básico", "url": "#" }, { "name": "Template Sprint", "url": "#" }]
+    },
+    "distribution-scheme": {
+      "title": "Esquema de distribución",
+      "purpose": "Implementar un sistema para distribuir valor entre los participantes.",
+      "whenToUse": [
+        "Con proyectos que generan ingresos",
+        "Cuando hay múltiples contribuidores",
+        "Para incentivar participación"
+      ],
+      "steps": [
+        "Definir criterios de distribución",
+        "Implementar sistema de tracking",
+        "Establecer períodos de pago",
+        "Comunicar reglas al equipo"
+      ],
+      "resources": [{ "name": "Calculadora de Distribución", "url": "#" }, { "name": "Guía Platform", "url": "#" }]
+    },
+    "roadmap-scalability": {
+      "title": "Roadmap y escalabilidad",
+      "purpose": "Planificar el crecimiento y escalabilidad del proyecto a largo plazo.",
+      "whenToUse": [
+        "Con productos validados y estables",
+        "Cuando se planifica crecimiento",
+        "Para proyectos en fase de escala"
+      ],
+      "steps": [
+        "Analizar métricas actuales",
+        "Identificar cuellos de botella",
+        "Planificar roadmap de crecimiento",
+        "Definir estrategia de escala"
+      ],
+      "resources": [{ "name": "Template Roadmap", "url": "#" }, { "name": "Guía de Escalabilidad", "url": "#" }]
+    },
+    "rules-review": {
+      "title": "Revisión de reglas",
+      "purpose": "Revisar y actualizar las reglas y acuerdos del proyecto periódicamente.",
+      "whenToUse": ["Con gestión madura", "Cada 6-12 meses", "Cuando cambian las circunstancias"],
+      "steps": [
+        "Revisar acuerdos actuales",
+        "Identificar necesidades de cambio",
+        "Proponer actualizaciones",
+        "Implementar nuevas reglas"
+      ],
+      "resources": [{ "name": "Checklist de Revisión", "url": "#" }, { "name": "Template de Cambios", "url": "#" }]
+    },
+    "health-metrics": {
+      "title": "Métricas de salud",
+      "purpose": "Monitorear la salud del equipo y del proyecto de forma continua.",
+      "whenToUse": ["Con gestión madura", "Para proyectos establecidos", "Como buena práctica general"],
+      "steps": [
+        "Definir métricas clave",
+        "Implementar sistema de monitoreo",
+        "Crear dashboards",
+        "Revisar métricas regularmente"
+      ],
+      "resources": [{ "name": "Dashboard Template", "url": "#" }, { "name": "Guía de Métricas", "url": "#" }]
+    },
+    "financial-optimization": {
+      "title": "Optimización financiera",
+      "purpose": "Optimizar la gestión financiera y las distribuciones del proyecto.",
+      "whenToUse": [
+        "Con proyectos que generan ingresos",
+        "Para mejorar eficiencia financiera",
+        "Cuando se busca optimizar distribuciones"
+      ],
+      "steps": [
+        "Analizar flujos financieros",
+        "Identificar oportunidades de mejora",
+        "Optimizar distribuciones",
+        "Implementar mejoras"
+      ],
+      "resources": [{ "name": "Análisis Financiero", "url": "#" }, { "name": "Optimizador Platform", "url": "#" }]
     }
+  },
+  "item": {
+    "notApplicableChip": "No aplica"
   },
   "dialog": {
     "whenToUse": "Cuándo usar",
