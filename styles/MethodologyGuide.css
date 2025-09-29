@@ -1,123 +1,123 @@
-.MethodologyPage {
+.MethodologyGuidePage {
   min-height: 100vh;
 }
 
-.MethodologyPage .MuiContainer-root {
+.MethodologyGuidePage .MuiContainer-root {
   padding-left: 1rem;
   padding-right: 1rem;
 }
 
 /* Stage containers */
-.MethodologyPage .MuiPaper-root {
+.MethodologyGuidePage .MuiPaper-root {
   transition: all 0.3s ease;
 }
 
-.MethodologyPage .stage-container {
+.MethodologyGuidePage .stage-container {
   margin-bottom: 1.5rem;
   border-radius: 12px;
   overflow: hidden;
 }
 
 /* Stage headers with icons */
-.MethodologyPage .stage-header {
+.MethodologyGuidePage .stage-header {
   display: flex;
   align-items: center;
   margin-bottom: 1rem;
 }
 
-.MethodologyPage .stage-icon {
+.MethodologyGuidePage .stage-icon {
   margin-right: 0.75rem;
   font-size: 1.5rem;
 }
 
-.MethodologyPage .stage-title {
+.MethodologyGuidePage .stage-title {
   font-weight: 600;
   font-size: 1.3rem;
 }
 
-.MethodologyPage .stage-description {
+.MethodologyGuidePage .stage-description {
   line-height: 1.5;
   margin-bottom: 1.5rem;
   font-size: 0.9rem;
 }
 
 /* Mini item cards - horizontal layout */
-.MethodologyPage .items-container {
+.MethodologyGuidePage .items-container {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
   justify-content: flex-start;
 }
 
-.MethodologyPage .mini-card {
+.MethodologyGuidePage .mini-card {
   min-width: 200px;
   max-width: 280px;
   flex: 0 0 auto;
 }
 
-.MethodologyPage .mini-card.enabled {
+.MethodologyGuidePage .mini-card.enabled {
   background-color: #ffffff;
   border: 1px solid #dce7ea;
   opacity: 1;
 }
 
-.MethodologyPage .mini-card.disabled {
+.MethodologyGuidePage .mini-card.disabled {
   background-color: #f5f5f5;
   border: 1px solid #e0e0e0;
   opacity: 0.3;
   cursor: pointer; /* Still clickable for disabled items */
 }
 
-.MethodologyPage .mini-card.enabled:hover {
+.MethodologyGuidePage .mini-card.enabled:hover {
   border-color: #1b5993;
   box-shadow: 0 4px 12px rgba(27, 89, 147, 0.15);
   transform: translateY(-2px);
 }
 
-.MethodologyPage .mini-card.disabled:hover {
+.MethodologyGuidePage .mini-card.disabled:hover {
   border-color: #999;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   transform: translateY(-1px);
 }
 
 /* Card content */
-.MethodologyPage .mini-card .MuiCardContent-root {
+.MethodologyGuidePage .mini-card .MuiCardContent-root {
   padding: 1rem;
 }
 
-.MethodologyPage .mini-card .card-title {
+.MethodologyGuidePage .mini-card .card-title {
   font-weight: 600;
   font-size: 0.85rem;
   line-height: 1.2;
   margin-bottom: 0.5rem;
 }
 
-.MethodologyPage .mini-card.enabled .card-title {
+.MethodologyGuidePage .mini-card.enabled .card-title {
   color: #0a2239;
 }
 
-.MethodologyPage .mini-card.disabled .card-title {
+.MethodologyGuidePage .mini-card.disabled .card-title {
   color: #999;
 }
 
 /* Module icons - translucent hints */
-.MethodologyPage .module-icon {
+.MethodologyGuidePage .module-icon {
   opacity: 0.3;
   margin-left: 0.25rem;
 }
 
-.MethodologyPage .module-icon.angorasix-logo {
+.MethodologyGuidePage .module-icon.angorasix-logo {
   width: 16px;
   height: 16px;
   filter: invert(1);
 }
 
-.MethodologyPage .module-icon.mui-icon {
+.MethodologyGuidePage .module-icon.mui-icon {
   font-size: 1.2rem;
 }
 
 /* Controls panel - compressed */
-.MethodologyPage .controls-panel {
+.MethodologyGuidePage .controls-panel {
   background-color: #ffffff;
   border: 1px solid #dce7ea;
   border-radius: 8px;
@@ -125,66 +125,66 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.MethodologyPage .controls-panel.sticky {
+.MethodologyGuidePage .controls-panel.sticky {
   position: sticky;
   top: 24px;
 }
 
 /* Preset chips - compressed with tooltips */
-.MethodologyPage .presets-container {
+.MethodologyGuidePage .presets-container {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
   margin-bottom: 1.5rem;
 }
 
-.MethodologyPage .preset-chip {
+.MethodologyGuidePage .preset-chip {
   font-size: 0.75rem;
   height: 28px;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
-.MethodologyPage .preset-chip.selected {
+.MethodologyGuidePage .preset-chip.selected {
   background-color: #1b5993;
   color: white;
 }
 
-.MethodologyPage .preset-chip.outlined {
+.MethodologyGuidePage .preset-chip.outlined {
   border-color: #afc1d6;
   color: #0a2239;
 }
 
-.MethodologyPage .preset-chip.outlined:hover {
+.MethodologyGuidePage .preset-chip.outlined:hover {
   background-color: #dce7ea;
   border-color: #1b5993;
 }
 
 /* Toggle buttons - compressed */
-.MethodologyPage .aspect-container {
+.MethodologyGuidePage .aspect-container {
   margin-bottom: 1rem;
 }
 
-.MethodologyPage .aspect-header {
+.MethodologyGuidePage .aspect-header {
   display: flex;
   align-items: center;
   margin-bottom: 0.5rem;
 }
 
-.MethodologyPage .aspect-label {
+.MethodologyGuidePage .aspect-label {
   font-weight: 600;
   font-size: 0.75rem;
   color: #0a2239;
 }
 
-.MethodologyPage .MuiToggleButtonGroup-root {
+.MethodologyGuidePage .MuiToggleButtonGroup-root {
   border-radius: 6px;
   overflow: hidden;
   width: 100%;
   height: 32px;
 }
 
-.MethodologyPage .MuiToggleButton-root {
+.MethodologyGuidePage .MuiToggleButton-root {
   border-color: #afc1d6;
   color: #0a2239;
   font-size: 0.7rem;
@@ -194,191 +194,191 @@
   text-align: center;
 }
 
-.MethodologyPage .MuiToggleButton-root.Mui-selected {
+.MethodologyGuidePage .MuiToggleButton-root.Mui-selected {
   background-color: #1b5993;
   color: white;
 }
 
-.MethodologyPage .MuiToggleButton-root.Mui-selected:hover {
+.MethodologyGuidePage .MuiToggleButton-root.Mui-selected:hover {
   background-color: #0a2239;
 }
 
 /* Mobile FAB */
-.MethodologyPage .MuiFab-root {
+.MethodologyGuidePage .MuiFab-root {
   background-color: #1b5993;
   color: white;
 }
 
-.MethodologyPage .MuiFab-root:hover {
+.MethodologyGuidePage .MuiFab-root:hover {
   background-color: #0a2239;
 }
 
 /* Mobile drawer */
-.MethodologyPage .MuiDrawer-paper {
+.MethodologyGuidePage .MuiDrawer-paper {
   border-radius: 16px 16px 0 0;
   max-height: 70vh;
 }
 
 /* Dialog styling */
-.MethodologyPage .MuiDialog-paper {
+.MethodologyGuidePage .MuiDialog-paper {
   border-radius: 12px;
   max-height: 80vh;
 }
 
-.MethodologyPage .MuiDialogTitle-root {
+.MethodologyGuidePage .MuiDialogTitle-root {
   background-color: #dce7ea;
   border-radius: 12px 12px 0 0;
 }
 
 /* Dialog title with module icon */
-.MethodologyPage .dialog-title-container {
+.MethodologyGuidePage .dialog-title-container {
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
-.MethodologyPage .dialog-module-icon {
+.MethodologyGuidePage .dialog-module-icon {
   opacity: 0.5;
 }
 
 /* Stage color variations */
-.MethodologyPage .stage-explore {
+.MethodologyGuidePage .stage-explore {
   background-color: rgba(27, 89, 147, 0.03);
   border-left-color: #1b5993;
 }
 
-.MethodologyPage .stage-define {
+.MethodologyGuidePage .stage-define {
   background-color: rgba(10, 34, 57, 0.03);
   border-left-color: #0a2239;
 }
 
-.MethodologyPage .stage-test {
+.MethodologyGuidePage .stage-test {
   background-color: rgba(254, 95, 85, 0.03);
   border-left-color: #fe5f55;
 }
 
-.MethodologyPage .stage-evolve {
+.MethodologyGuidePage .stage-evolve {
   background-color: rgba(125, 153, 186, 0.03);
   border-left-color: #7d99ba;
 }
 
 /* Responsive adjustments */
 @media (max-width: 900px) {
-  .MethodologyPage .MuiContainer-root {
+  .MethodologyGuidePage .MuiContainer-root {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
   }
 
-  .MethodologyPage .stage-container {
+  .MethodologyGuidePage .stage-container {
     margin-bottom: 1rem;
     padding: 1.5rem;
   }
 
-  .MethodologyPage .items-container {
+  .MethodologyGuidePage .items-container {
     gap: 0.75rem;
   }
 
-  .MethodologyPage .mini-card {
+  .MethodologyGuidePage .mini-card {
     min-width: 180px;
     max-width: 250px;
   }
 }
 
 @media (max-width: 600px) {
-  .MethodologyPage .stage-title {
+  .MethodologyGuidePage .stage-title {
     font-size: 1.1rem;
   }
 
-  .MethodologyPage .stage-description {
+  .MethodologyGuidePage .stage-description {
     font-size: 0.85rem;
   }
 
-  .MethodologyPage .items-container {
+  .MethodologyGuidePage .items-container {
     flex-direction: column;
     gap: 0.5rem;
   }
 
-  .MethodologyPage .mini-card {
+  .MethodologyGuidePage .mini-card {
     min-width: 100%;
     max-width: 100%;
   }
 
-  .MethodologyPage .mini-card .MuiCardContent-root {
+  .MethodologyGuidePage .mini-card .MuiCardContent-root {
     padding: 0.75rem;
   }
 
   /* Mobile drawer controls */
-  .MethodologyPage .MuiDrawer-paper .presets-container {
+  .MethodologyGuidePage .MuiDrawer-paper .presets-container {
     flex-direction: column;
     gap: 0.25rem;
   }
 
-  .MethodologyPage .MuiDrawer-paper .preset-chip {
+  .MethodologyGuidePage .MuiDrawer-paper .preset-chip {
     width: 100%;
     justify-content: flex-start;
   }
 
-  .MethodologyPage .MuiDrawer-paper .MuiToggleButton-root {
+  .MethodologyGuidePage .MuiDrawer-paper .MuiToggleButton-root {
     padding: 0.75rem;
     font-size: 0.75rem;
   }
 }
 
 /* Animation classes */
-.methodology-item-enter {
+.methodology-guide-item-enter {
   opacity: 0;
   transform: scale(0.95);
 }
 
-.methodology-item-enter-active {
+.methodology-guide-item-enter-active {
   opacity: 1;
   transform: scale(1);
   transition: opacity 300ms, transform 300ms;
 }
 
-.methodology-item-exit {
+.methodology-guide-item-exit {
   opacity: 1;
   transform: scale(1);
 }
 
-.methodology-item-exit-active {
+.methodology-guide-item-exit-active {
   opacity: 0;
   transform: scale(0.95);
   transition: opacity 300ms, transform 300ms;
 }
 
 /* Focus states for accessibility */
-.MethodologyPage .MuiToggleButton-root:focus,
-.MethodologyPage .MuiChip-root:focus,
-.MethodologyPage .MuiCard-root:focus {
+.MethodologyGuidePage .MuiToggleButton-root:focus,
+.MethodologyGuidePage .MuiChip-root:focus,
+.MethodologyGuidePage .MuiCard-root:focus {
   outline: 2px solid #1b5993;
   outline-offset: 2px;
 }
 
 /* Smooth transitions for enable/disable */
-.MethodologyPage .mini-card {
+.MethodologyGuidePage .mini-card {
   transition: opacity 200ms ease, background-color 200ms ease, border-color 200ms ease;
 }
 
 /* Info tooltips */
-.MethodologyPage .info-tooltip {
+.MethodologyGuidePage .info-tooltip {
   margin-left: 0.25rem;
   padding: 0.125rem;
 }
 
-.MethodologyPage .info-tooltip .MuiSvgIcon-root {
+.MethodologyGuidePage .info-tooltip .MuiSvgIcon-root {
   font-size: 0.875rem;
   color: #7d99ba;
 }
 
 /* Preset tooltips styling */
-.MethodologyPage .preset-tooltip {
+.MethodologyGuidePage .preset-tooltip {
   max-width: 300px;
   font-size: 0.8rem;
   line-height: 1.4;
 }
 
 /* Not applicable chip in dialog */
-.MethodologyPage .not-applicable-chip {
+.MethodologyGuidePage .not-applicable-chip {
   margin-left: 0.5rem;
 }

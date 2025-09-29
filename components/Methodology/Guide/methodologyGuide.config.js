@@ -1,6 +1,6 @@
-// Methodology configuration with static stages and items
+// Methodology Guide configuration with static stages and items
 
-export const methodologyConfig = {
+export const methodologyGuideConfig = {
   aspects: {
     product: ["new", "validated"],
     management: ["newTeam", "mature"],
