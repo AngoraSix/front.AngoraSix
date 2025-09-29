@@ -1,0 +1,39 @@
+{
+  "hero": {
+    "title": "AngoraSix Methodology",
+    "description": "A framework that helps teams establish a foundation of fairness, determining what's just for project management iteratively and evolutionarily. It accompanies progress to reduce friction, enabling a dynamic governance system based on each member's real contribution, without ambiguities and with transparency, as well as a transparent and objective system for income distribution and finance."
+  },
+  "journey": {
+    "title": "The Journey",
+    "subtitle": "Three fundamental stages that evolve with your team and project, creating a sustainable and fair collaboration framework.",
+    "outcome": "Expected Outcome",
+    "viewCompassBonus": "View Compass Bonus",
+    "compassBonus": "AngoraSix Compass Bonus",
+    "steps": {
+      "fairness": {
+        "title": "A. Fairness Assessment",
+        "description": "Through workshops, activities, and meetings, the team reaches agreements according to their particularities, case, and scenario about what is considered fair. Understanding each other's position within the project, motivations, and expectations.",
+        "outcome": "A solid initial snapshot (which will evolve as the team finds its way) of how the team wants to manage itself, what it considers fair, and a starting point where everyone agrees (at least to some extent, or at least everyone knows how we're starting).",
+        "compassBonus": "We can integrate this with Readiness Assessments, training, preparation, and introduction to methodologies that accompany the activity, such as Lean Startup, Design Thinking, Agile Methodologies, etc."
+      },
+      "parametrization": {
+        "title": "B. Parametrization",
+        "description": "It's time to translate all this into well-defined and 'formal' rules and parameters (usually within our system), defining this 'constitution' that everyone can see and review.",
+        "outcome": "Clear, verifiable rules ready to operate, ideally implemented in the AngoraSix Platform for automated tracking and transparency.",
+        "compassBonus": "We take care of systematizing everything in AngoraSix, a tool specifically developed for this, perfectly prepared and integrated with tracking, governance, and financial tools to ensure rules are followed as everyone expects."
+      },
+      "implementation": {
+        "title": "C. Implementation & Iterative Review",
+        "description": "This framework will evolve, and the definition of what we consider 'fair' will mutate as we progress, both from the clarity of being in contact and testing the system and team dynamics, and from changes or achievement of milestones within the project itself.",
+        "outcome": "A continuous improvement cycle where governance and financial resource management are integrated with project operations, evolving alongside the team.",
+        "compassBonus": "We advise and guide throughout this process to ensure the methodology serves and adjusts appropriately to what we truly consider fair, especially in the early stages until maturity is achieved. We can also advise in other areas in the role of incubator/development guide."
+      }
+    }
+  },
+  "ctas": {
+    "title": "Ready to Start?",
+    "contact": "Contact Us",
+    "register": "Create Account",
+    "guide": "Explore Interactive Guide"
+  }
+}

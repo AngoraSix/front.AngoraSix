@@ -26,6 +26,7 @@ import "../styles/ManagementDecisions.css";
 import "../styles/ManagementFinancial.css";
 import '../styles/ManagementIntegrationList.css';
 import '../styles/MethodologyGuide.css';
+import '../styles/MethodologyOverview.css';
 import '../styles/Navbar.css';
 import '../styles/NewProjectManagement.css';
 import '../styles/Notifications.css';
