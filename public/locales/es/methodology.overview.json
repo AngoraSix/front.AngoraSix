@@ -1,39 +1,38 @@
 {
   "hero": {
-    "title": "Metodología AngoraSix",
-    "description": "Un marco que ayuda a los equipos a establecer una base de equidad, determinando lo que es justo para la gestión del proyecto de forma iterativa y evolutiva. Acompaña el avance para reducir fricciones, permitiendo un sistema de gobernanza dinámico basado en el aporte real de cada miembro, sin ambigüedades y con transparencia, al igual que un sistema transparente y objetivo de distribución de ingresos y finanzas."
+    "title": "La Metodología AngoraSix",
+    "description": "Un marco que ayuda a los equipos a establecer fairness, determinar lo que es justo para la gestión del proyecto de forma iterativa y evolutiva, reduciendo fricciones y permitiendo una gobernanza dinámica basada en aportes reales.",
+    "quote": "La única forma de darle sentido al cambio es sumergirse en él, moverse con él y unirse a la danza. — Alan Watts"
   },
   "journey": {
-    "title": "El Camino",
-    "subtitle": "Tres etapas fundamentales que evolucionan con tu equipo y proyecto, creando un marco de colaboración sostenible y justo.",
+    "title": "El Recorrido",
+    "subtitle": "Tres etapas fundamentales que evolucionan con tu equipo",
     "outcome": "Resultado Esperado",
-    "viewCompassBonus": "Ver Bonus Compass",
-    "compassBonus": "Bonus AngoraSix Compass",
+    "compassBonus": "Bonus A6 Compass",
     "steps": {
       "fairness": {
-        "title": "A. Evaluación de Equidad",
-        "description": "Mediante workshops, actividades y reuniones, el equipo se pone de acuerdo según sus particularidades, su caso y su escenario sobre lo que se considera justo. Entendiendo la posición de los demás dentro del proyecto, motivaciones y expectativas.",
-        "outcome": "Un buen primer pantallazo (que irá evolucionando a medida que el equipo le encuentre la forma) de cómo el equipo quiere gestionarse, de lo que considera justo, y un puntapié inicial donde todos estamos de acuerdo (al menos hasta cierto punto, o al menos todos sabemos cómo vamos a arrancar).",
-        "compassBonus": "Lo podemos integrar con procesos de Readiness Assessments, capacitación, preparación e introducción a metodologías que acompañen la actividad, como Lean Startup, Design Thinking, Metodologías Ágiles, etc."
+        "title": "Evaluación de Fairness",
+        "description": "Mediante workshops, actividades y reuniones, el equipo se alinea sobre lo que se considera justo según sus particularidades, caso y escenario. Entendiendo la posición, motivaciones y expectativas de cada miembro.",
+        "outcome": "Un buen primer pantallazo de cómo el equipo quiere gestionarse, de lo que considera justo, y un punto de partida donde todos estamos de acuerdo (al menos hasta cierto punto, o al menos todos sabemos cómo vamos a arrancar).",
+        "compassBonus": "Integramos Readiness Assessments, capacitación, preparación e introducción a metodologías que acompañen la actividad, como Lean Startup, Design Thinking y Metodologías Ágiles."
       },
       "parametrization": {
-        "title": "B. Parametrización",
+        "title": "Parametrización",
         "description": "Es hora de traducir todo esto a reglas y parámetros bien definidos y 'formales' (usualmente dentro de nuestro sistema), definir esta 'constitución' que todos puedan ver y revisar.",
-        "outcome": "Reglas claras y verificables listas para operar, idealmente implementadas en la Plataforma AngoraSix para seguimiento automatizado y transparencia.",
-        "compassBonus": "Nosotros nos encargamos de sistematizar todo en AngoraSix, una herramienta específicamente desarrollada para esto, perfectamente preparada e integrada con las herramientas de trackeo, gobernanza y financieras para garantizar que las reglas se cumplan como todos esperan."
+        "outcome": "Un conjunto claro, transparente y accesible de reglas que gobiernan el proyecto, visible para todos los miembros del equipo y listo para ser implementado.",
+        "compassBonus": "Nos encargamos de sistematizar todo en AngoraSix, una herramienta específicamente desarrollada para esto, perfectamente preparada e integrada con las herramientas de trackeo, gobernanza y financieras para garantizar que las reglas se cumplan como todos esperan."
       },
       "implementation": {
-        "title": "C. Implementación y Revisión Iterativa",
-        "description": "Este marco va a ir cambiando, y la definición de lo que consideremos 'justo' va a ir mutando a medida que se avance con el proceso, tanto por claridad de estar en contacto y poner a prueba el sistema y la dinámica del equipo, como por cambios o logro de hitos dentro del proyecto mismo.",
-        "outcome": "Un ciclo de mejora continua donde la gobernanza y el manejo de los recursos financieros se integran con la operatividad del proyecto, evolucionando junto con el equipo.",
-        "compassBonus": "Asesoramos y guiamos en todo este proceso para garantizar que la metodología sirva y se ajuste adecuadamente a lo que realmente consideramos justo, en especial en las primeras etapas hasta que se logre una madurez. También podemos asesorar en otras áreas en el rol de incubadora/guía de desarrollo."
+        "title": "Implementación y Revisión Iterativa",
+        "description": "Este marco va a ir cambiando, y la definición de lo que consideremos 'justo' va a ir mutando a medida que se avance, tanto por claridad de estar en contacto y poner a prueba el sistema, como por cambios o logro de hitos dentro del proyecto mismo.",
+        "outcome": "Un sistema vivo que se adapta a la evolución del equipo, con revisiones regulares alineadas con las ceremonias de la metodología de gestión, idealmente Scrum o Scrum-lite.",
+        "compassBonus": "Asesoramos y guiamos en todo este proceso para garantizar que la metodología sirva y se ajuste adecuadamente a lo que realmente consideramos justo, especialmente en las primeras etapas hasta lograr madurez. También podemos asesorar en otras áreas en el rol de incubadora/guía de desarrollo."
       }
     }
   },
   "ctas": {
-    "title": "¿Listo para Comenzar?",
-    "contact": "Contáctanos",
-    "register": "Crear Cuenta",
-    "guide": "Explorar Guía Interactiva"
+    "contact": "A6 Compass",
+    "register": "Comencemos",
+    "guide": "Explorar Guía"
   }
 }

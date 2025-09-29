@@ -21,6 +21,8 @@
     "@mui/lab": "^5.0.0-alpha.85",
     "@mui/material": "^5.12.1",
     "@mui/x-charts": "^7.28.0",
+    "@react-three/drei": "^9.122.0",
+    "@react-three/fiber": "^8.18.0",
     "@svgr/webpack": "^8.1.0",
     "axios": "^1.6.2",
     "chalk": "^5.0.1",
@@ -55,6 +57,7 @@
     "redux": "^4.1.2",
     "sharp": "^0.32.6",
     "swiper": "^11.2.8",
+    "three": "^0.180.0",
     "typeface-roboto": "^1.1.13",
     "v8": "^0.1.0"
   },

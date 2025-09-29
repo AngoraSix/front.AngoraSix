@@ -1,33 +1,255 @@
 "use client"
 
-import React, { useState } from "react"
+import React, { useRef, useMemo, Suspense } from "react"
 import { useTranslation } from "next-i18next"
 import { motion } from "framer-motion"
-import { Dialog, DialogContent, DialogTitle, IconButton } from "@mui/material"
 import {
   Lightbulb as LightbulbIcon,
   Settings as SettingsIcon,
   Autorenew as AutorenewIcon,
-  Close as CloseIcon,
-  ArrowForward as ArrowForwardIcon,
   ContactMail as ContactMailIcon,
-  PersonAdd as PersonAddIcon,
+  AltRoute as RouteIcon,
   Explore as ExploreIcon,
+  KeyboardArrowRight as StartIcon
 } from "@mui/icons-material"
+import { Canvas, useFrame } from "@react-three/fiber"
+import { Float } from "@react-three/drei"
+import * as THREE from "three"
 import { trackEvent } from "../../../utils/analytics"
+
+// 3D Scene Components - Collective Work Representations
+
+// Fairness: Multiple nodes forming a sphere, dissolving, rotating, and reforming
+const FairnessNodes = () => {
+  const nodesRef = useRef()
+  const count = 60
+
+  const nodes = useMemo(() => {
+    const temp = []
+    for (let i = 0; i < count; i++) {
+      const phi = Math.acos(-1 + (2 * i) / count)
+      const theta = Math.sqrt(count * Math.PI) * phi
+
+      temp.push({
+        spherePosition: [
+          Math.cos(theta) * Math.sin(phi) * 1.2,
+          Math.sin(theta) * Math.sin(phi) * 1.2,
+          Math.cos(phi) * 1.2,
+        ],
+        scatteredPosition: [(Math.random() - 0.5) * 4, (Math.random() - 0.5) * 4, (Math.random() - 0.5) * 4],
+        rotationAxis: new THREE.Vector3(Math.random() - 0.5, Math.random() - 0.5, Math.random() - 0.5).normalize(),
+        phase: Math.random() * Math.PI * 2,
+      })
+    }
+    return temp
+  }, [])
+
+  useFrame((state) => {
+    if (!nodesRef.current) return
+    const time = state.clock.getElapsedTime() * 0.3
+
+    // Cycle: 0-2s form sphere, 2-3s dissolve, 3-5s rotate scattered, 5-6s stabilize, 6-8s reform
+    const cycleTime = time % 8
+    let progress = 0
+
+    if (cycleTime < 2) {
+      // Forming sphere
+      progress = cycleTime / 2
+    } else if (cycleTime < 3) {
+      // Dissolving
+      progress = 1 - (cycleTime - 2)
+    } else if (cycleTime < 5) {
+      // Scattered and rotating
+      progress = 0
+      const rotationTime = cycleTime - 3
+      nodesRef.current.rotation.y = rotationTime * 0.5
+    } else if (cycleTime < 6) {
+      // Stabilizing
+      progress = 0
+      nodesRef.current.rotation.y = 1
+    } else {
+      // Reforming sphere
+      progress = (cycleTime - 6) / 2
+      nodesRef.current.rotation.y = 1 - (cycleTime - 6) / 2
+    }
+
+    nodesRef.current.children.forEach((node, i) => {
+      const data = nodes[i]
+      const easedProgress = progress * progress * (3 - 2 * progress) // Smooth easing
+
+      node.position.x = THREE.MathUtils.lerp(data.scatteredPosition[0], data.spherePosition[0], easedProgress)
+      node.position.y = THREE.MathUtils.lerp(data.scatteredPosition[1], data.spherePosition[1], easedProgress)
+      node.position.z = THREE.MathUtils.lerp(data.scatteredPosition[2], data.spherePosition[2], easedProgress)
+    })
+  })
+
+  return (
+    <group ref={nodesRef}>
+      {nodes.map((node, i) => (
+        <mesh key={i} position={node.scatteredPosition}>
+          <sphereGeometry args={[0.06, 8, 8]} />
+          <meshStandardMaterial color="#1B5993" />
+        </mesh>
+      ))}
+    </group>
+  )
+}
+
+// Parametrization: Path segments that occasionally align into a solid circle
+const ParametrizationPath = () => {
+  const pathRef = useRef()
+  const segments = 40
+
+  const pathSegments = useMemo(() => {
+    const temp = []
+    for (let i = 0; i < segments; i++) {
+      const angle = (i / segments) * Math.PI * 2
+
+      temp.push({
+        circlePosition: [Math.cos(angle) * 1.5, Math.sin(angle) * 1.5, 0],
+        pathPosition: [
+          Math.cos(angle * 2) * (1 + Math.sin(angle * 3) * 0.3),
+          Math.sin(angle * 2) * (1 + Math.sin(angle * 3) * 0.3),
+          Math.sin(angle * 5) * 0.3,
+        ],
+        rotation: angle,
+        delay: i * 0.05,
+      })
+    }
+    return temp
+  }, [])
+
+  useFrame((state) => {
+    if (!pathRef.current) return
+    const time = state.clock.getElapsedTime() * 0.4
+
+    // Cycle: 0-3s scattered path, 3-4s forming circle, 4-5s solid circle, 5-6s dissolving, 6-9s scattered
+    const cycleTime = time % 9
+    let progress = 0
+
+    if (cycleTime < 3) {
+      progress = 0
+    } else if (cycleTime < 4) {
+      progress = cycleTime - 3
+    } else if (cycleTime < 5) {
+      progress = 1
+    } else if (cycleTime < 6) {
+      progress = 1 - (cycleTime - 5)
+    } else {
+      progress = 0
+    }
+
+    pathRef.current.children.forEach((segment, i) => {
+      const data = pathSegments[i]
+      const easedProgress = progress * progress * (3 - 2 * progress)
+
+      segment.position.x = THREE.MathUtils.lerp(data.pathPosition[0], data.circlePosition[0], easedProgress)
+      segment.position.y = THREE.MathUtils.lerp(data.pathPosition[1], data.circlePosition[1], easedProgress)
+      segment.position.z = THREE.MathUtils.lerp(data.pathPosition[2], data.circlePosition[2], easedProgress)
+
+      const scale = progress < 0.1 ? Math.abs(Math.sin(time + data.delay)) * 0.5 + 0.5 : 1
+      segment.scale.set(scale, scale, 1)
+    })
+
+    if (progress < 0.1) {
+      pathRef.current.rotation.z = time * 0.2
+    }
+  })
+
+  return (
+    <group ref={pathRef}>
+      {pathSegments.map((segment, i) => (
+        <mesh key={i} position={segment.pathPosition} rotation={[0, 0, segment.rotation]}>
+          <boxGeometry args={[0.3, 0.12, 0.1]} />
+          <meshStandardMaterial color="#0A2239" />
+        </mesh>
+      ))}
+    </group>
+  )
+}
+
+// Implementation: Sound waves forming patterns
+const ImplementationWaves = () => {
+  const wavesRef = useRef()
+  const waveCount = 5
+  const pointsPerWave = 50
+
+  const waves = useMemo(() => {
+    const temp = []
+    for (let w = 0; w < waveCount; w++) {
+      const points = []
+      for (let i = 0; i < pointsPerWave; i++) {
+        const x = (i / pointsPerWave - 0.5) * 4
+        points.push(new THREE.Vector3(x, 0, w * 0.3 - 0.6))
+      }
+      temp.push({ points, offset: w * 0.5 })
+    }
+    return temp
+  }, [])
+
+  useFrame((state) => {
+    if (!wavesRef.current) return
+    const time = state.clock.getElapsedTime()
+
+    wavesRef.current.children.forEach((line, waveIndex) => {
+      const geometry = line.geometry
+      const positions = geometry.attributes.position.array
+      const wave = waves[waveIndex]
+
+      for (let i = 0; i < pointsPerWave; i++) {
+        const x = (i / pointsPerWave - 0.5) * 4
+        const y = Math.sin(x * 2 + time + wave.offset) * 0.5 * Math.cos(time * 0.5 + wave.offset)
+
+        positions[i * 3] = x
+        positions[i * 3 + 1] = y
+        positions[i * 3 + 2] = wave.points[0].z
+      }
+
+      geometry.attributes.position.needsUpdate = true
+    })
+  })
+
+  return (
+    <group ref={wavesRef}>
+      {waves.map((wave, i) => (
+        <line key={i}>
+          <bufferGeometry>
+            <bufferAttribute
+              attach="attributes-position"
+              count={pointsPerWave}
+              array={new Float32Array(pointsPerWave * 3)}
+              itemSize={3}
+            />
+          </bufferGeometry>
+          <lineBasicMaterial color="#FE5F55" linewidth={2} />
+        </line>
+      ))}
+    </group>
+  )
+}
+
+const Scene3D = ({ sceneType }) => {
+  const scenes = {
+    fairness: <FairnessNodes />,
+    parametrization: <ParametrizationPath />,
+    implementation: <ImplementationWaves />,
+  }
+
+  return (
+    <Canvas camera={{ position: [0, 0, 5], fov: 45 }} style={{ background: "transparent" }}>
+      <Suspense fallback={null}>
+        <ambientLight intensity={0.5} />
+        <directionalLight position={[10, 10, 5]} intensity={1} />
+        <Float speed={1} rotationIntensity={0.1} floatIntensity={0.2}>
+          {scenes[sceneType]}
+        </Float>
+      </Suspense>
+    </Canvas>
+  )
+}
 
 const MethodologyOverviewPage = () => {
   const { t } = useTranslation("methodology.overview")
-  const [openDialog, setOpenDialog] = useState(null)
-
-  const handleStepClick = (stepId) => {
-    setOpenDialog(stepId)
-    trackEvent("overview_step_dialog_opened", {
-      event_category: "engagement",
-      event_label: "methodology_overview",
-      step_id: stepId,
-    })
-  }
 
   const handleCTAClick = (ctaType) => {
     trackEvent("overview_cta_clicked", {
@@ -51,6 +273,7 @@ const MethodologyOverviewPage = () => {
       color: "#1B5993",
       lightColor: "#DCE7EA",
       position: "left",
+      scene: "fairness",
     },
     {
       id: "parametrization",
@@ -58,6 +281,7 @@ const MethodologyOverviewPage = () => {
       color: "#0A2239",
       lightColor: "#AFC1D6",
       position: "right",
+      scene: "parametrization",
     },
     {
       id: "implementation",
@@ -65,6 +289,7 @@ const MethodologyOverviewPage = () => {
       color: "#FE5F55",
       lightColor: "#FFE5E3",
       position: "left",
+      scene: "implementation",
     },
   ]
 
@@ -108,9 +333,12 @@ const MethodologyOverviewPage = () => {
       <motion.section className="overview-hero" initial="hidden" animate="visible" variants={containerVariants}>
         <div className="hero-content">
           <motion.h1 variants={itemVariants}>{t("hero.title")}</motion.h1>
-          <motion.div className="hero-description" variants={itemVariants}>
-            <p>{t("hero.description")}</p>
-          </motion.div>
+          <motion.p className="hero-description" variants={itemVariants}>
+            {t("hero.description")}
+          </motion.p>
+          <motion.blockquote className="hero-quote" variants={itemVariants}>
+            {t("hero.quote")}
+          </motion.blockquote>
         </div>
       </motion.section>
 
@@ -129,11 +357,11 @@ const MethodologyOverviewPage = () => {
 
         <div className="journey-path">
           {/* SVG Path Background */}
-          <svg className="path-svg" viewBox="0 0 800 1200" preserveAspectRatio="xMidYMid meet">
+          <svg className="path-svg" viewBox="0 0 1200 1000" preserveAspectRatio="xMidYMid meet">
             <motion.path
-              d="M 100 100 Q 400 150, 700 250 T 100 450 Q 400 550, 700 700 T 100 950"
+              d="M 200 150 Q 600 100, 1000 200 T 200 450 Q 600 400, 1000 550 T 200 800"
               stroke="#DCE7EA"
-              strokeWidth="8"
+              strokeWidth="6"
               fill="none"
               strokeLinecap="round"
               variants={pathVariants}
@@ -160,18 +388,25 @@ const MethodologyOverviewPage = () => {
 
                   <motion.div
                     className="step-card"
-                    whileHover={{ scale: 1.02, y: -5 }}
-                    onClick={() => handleStepClick(step.id)}
+                    whileHover={{ scale: 1.01, y: -3 }}
                     style={{
                       borderColor: step.color,
                     }}
                   >
-                    <div className="step-icon-wrapper" style={{ backgroundColor: step.lightColor }}>
-                      <Icon sx={{ fontSize: 40, color: step.color }} />
+                    <div className="step-visual">
+                      <div className="step-3d-container">
+                        <Scene3D sceneType={step.scene} />
+                      </div>
                     </div>
 
                     <div className="step-content">
-                      <h3>{t(`journey.steps.${step.id}.title`)}</h3>
+                      <div className="step-header">
+                        <div className="step-icon-wrapper" style={{ backgroundColor: step.lightColor }}>
+                          <Icon sx={{ fontSize: 32, color: step.color }} />
+                        </div>
+                        <h3>{t(`journey.steps.${step.id}.title`)}</h3>
+                      </div>
+
                       <p className="step-description">{t(`journey.steps.${step.id}.description`)}</p>
 
                       <div className="step-outcome">
@@ -179,10 +414,10 @@ const MethodologyOverviewPage = () => {
                         <p>{t(`journey.steps.${step.id}.outcome`)}</p>
                       </div>
 
-                      <button className="step-details-btn">
-                        {t("journey.viewCompassBonus")}
-                        <ArrowForwardIcon sx={{ fontSize: 18, marginLeft: "8px" }} />
-                      </button>
+                      <div className="compass-bonus">
+                        <strong>{t("journey.compassBonus")}:</strong>
+                        <p>{t(`journey.steps.${step.id}.compassBonus`)}</p>
+                      </div>
                     </div>
                   </motion.div>
                 </motion.div>
@@ -200,18 +435,16 @@ const MethodologyOverviewPage = () => {
         viewport={{ once: true, margin: "-50px" }}
         variants={containerVariants}
       >
-        <motion.h2 variants={itemVariants}>{t("ctas.title")}</motion.h2>
-
         <motion.div className="ctas-buttons" variants={containerVariants}>
           <motion.a
             href="/services"
             className="cta-button cta-primary"
             variants={itemVariants}
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.98 }}
             onClick={() => handleCTAClick("contact")}
           >
-            <ContactMailIcon sx={{ fontSize: 24 }} />
+            <ExploreIcon sx={{ fontSize: 20 }} />
             <span>{t("ctas.contact")}</span>
           </motion.a>
 
@@ -219,11 +452,11 @@ const MethodologyOverviewPage = () => {
             href="/auth/signin"
             className="cta-button cta-secondary"
             variants={itemVariants}
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.98 }}
             onClick={() => handleCTAClick("register")}
           >
-            <PersonAddIcon sx={{ fontSize: 24 }} />
+            <StartIcon sx={{ fontSize: 20 }} />
             <span>{t("ctas.register")}</span>
           </motion.a>
 
@@ -231,51 +464,15 @@ const MethodologyOverviewPage = () => {
             href="/methodology/guide"
             className="cta-button cta-tertiary"
             variants={itemVariants}
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.98 }}
             onClick={() => handleCTAClick("guide")}
           >
-            <ExploreIcon sx={{ fontSize: 24 }} />
+            <RouteIcon sx={{ fontSize: 20 }} />
             <span>{t("ctas.guide")}</span>
           </motion.a>
         </motion.div>
       </motion.section>
-
-      {/* Compass Bonus Dialogs */}
-      {steps.map((step) => (
-        <Dialog
-          key={step.id}
-          open={openDialog === step.id}
-          onClose={() => setOpenDialog(null)}
-          maxWidth="md"
-          fullWidth
-          className="compass-dialog"
-        >
-          <DialogTitle>
-            <div className="dialog-title-wrapper">
-              <div className="dialog-icon" style={{ backgroundColor: step.lightColor }}>
-                {React.createElement(step.icon, { sx: { fontSize: 32, color: step.color } })}
-              </div>
-              <div>
-                <h3>{t(`journey.steps.${step.id}.title`)}</h3>
-                <span className="dialog-subtitle">{t("journey.compassBonus")}</span>
-              </div>
-              <IconButton
-                onClick={() => setOpenDialog(null)}
-                sx={{ marginLeft: "auto" }}
-                aria-label={t("common:close")}
-              >
-                <CloseIcon />
-              </IconButton>
-            </div>
-          </DialogTitle>
-          <DialogContent>
-            <div className="compass-bonus-content">
-              <p>{t(`journey.steps.${step.id}.compassBonus`)}</p>
-            </div>
-          </DialogContent>
-        </Dialog>
-      ))}
     </div>
   )
 }

@@ -1,302 +1,184 @@
 .MethodologyOverviewPage {
   width: 100%;
   min-height: 100vh;
-  background: linear-gradient(180deg, #ffffff 0%, #f8fafb 50%, #ffffff 100%);
+  background: #ffffff;
   padding: 0;
   margin: 0;
 }
 
-/* Hero Section */
-.overview-hero {
-  padding: 80px 5% 60px;
-  background: linear-gradient(135deg, #0a2239 0%, #1b5993 100%);
-  color: white;
+.MethodologyOverviewPage .overview-hero {
+  padding: 60px 5% 40px;
+  background: transparent;
 }
 
-.hero-content {
-  max-width: 1400px;
-  margin: 0 auto;
-}
-
-.overview-hero h1 {
-  font-size: 56px;
-  font-weight: 700;
-  margin-bottom: 24px;
-  line-height: 1.2;
-}
-
-.hero-description {
-  max-width: 800px;
-}
-
-.hero-description p {
-  font-size: 20px;
-  line-height: 1.6;
-  opacity: 0.95;
-}
-
-/* Journey Section */
-.journey-section {
-  padding: 80px 5% 100px;
-  position: relative;
+.MethodologyOverviewPage .hero-content {
   max-width: 1600px;
   margin: 0 auto;
 }
 
-.journey-header {
+.MethodologyOverviewPage .overview-hero h1 {
+  font-size: 56px;
+  font-weight: 700;
+  color: #0a2239;
+  margin-bottom: 24px;
+  line-height: 1.2;
+}
+
+.MethodologyOverviewPage .hero-description {
+  font-size: 18px;
+  color: #555;
+  line-height: 1.7;
+  max-width: 900px;
+  margin: 0 0 20px 0;
+  text-align: left;
+}
+
+.MethodologyOverviewPage .hero-quote {
+  font-size: 15px;
+  font-style: italic;
+  color: #7d99ba;
+  margin: 0;
+  padding-left: 20px;
+  border-left: 3px solid #afc1d6;
+  line-height: 1.5;
+  max-width: 700px;
+  opacity: 0.85;
+}
+
+.MethodologyOverviewPage .journey-section {
+  padding: 80px 5% 100px;
+  position: relative;
+  max-width: 1800px;
+  margin: 0 auto;
+}
+
+.MethodologyOverviewPage .journey-header {
   margin-bottom: 80px;
 }
 
-.journey-header h2 {
-  font-size: 42px;
+.MethodologyOverviewPage .journey-header h2 {
+  font-size: 48px;
   font-weight: 700;
   color: #0a2239;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 
-.journey-header p {
-  font-size: 20px;
+.MethodologyOverviewPage .journey-header p {
+  font-size: 22px;
   color: #1b5993;
-  max-width: 800px;
+  max-width: 900px;
   line-height: 1.6;
 }
 
-/* Journey Path */
-.journey-path {
+.MethodologyOverviewPage .journey-path {
   position: relative;
-  min-height: 1200px;
+  min-height: 1000px;
 }
 
-.path-svg {
+.MethodologyOverviewPage .path-svg {
   position: absolute;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
-  max-width: 800px;
+  max-width: 1200px;
   height: 100%;
   z-index: 0;
   pointer-events: none;
 }
 
-.journey-steps {
+.MethodologyOverviewPage .journey-steps {
   position: relative;
   z-index: 1;
   display: flex;
   flex-direction: column;
-  gap: 120px;
+  gap: 100px;
   padding: 40px 0;
 }
 
-/* Journey Step */
-.journey-step {
+.MethodologyOverviewPage .journey-step {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 40px;
   position: relative;
 }
 
-.journey-step.left {
+.MethodologyOverviewPage .journey-step.left {
   flex-direction: row;
   justify-content: flex-start;
-  padding-left: 5%;
 }
 
-.journey-step.right {
+.MethodologyOverviewPage .journey-step.right {
   flex-direction: row-reverse;
   justify-content: flex-start;
-  padding-right: 5%;
 }
 
-.step-number {
+.MethodologyOverviewPage .step-number {
   flex-shrink: 0;
-  width: 60px;
-  height: 60px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
   background: linear-gradient(135deg, #1b5993 0%, #0a2239 100%);
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 28px;
+  font-size: 32px;
   font-weight: 700;
-  box-shadow: 0 4px 12px rgba(10, 34, 57, 0.2);
+  box-shadow: 0 6px 20px rgba(10, 34, 57, 0.25);
   position: relative;
   z-index: 2;
 }
 
-.step-card {
+.MethodologyOverviewPage .step-card {
   flex: 1;
-  max-width: 600px;
+  max-width: 1200px;
   background: white;
-  border-radius: 16px;
-  padding: 32px;
-  box-shadow: 0 4px 20px rgba(10, 34, 57, 0.08);
+  border-radius: 20px;
+  padding: 0;
+  box-shadow: 0 4px 24px rgba(10, 34, 57, 0.08);
   border: 3px solid transparent;
   transition: all 0.3s ease;
-  cursor: pointer;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  overflow: hidden;
 }
 
-.step-card:hover {
-  box-shadow: 0 8px 32px rgba(10, 34, 57, 0.15);
-  transform: translateY(-4px);
+.MethodologyOverviewPage .step-card:hover {
+  box-shadow: 0 8px 40px rgba(10, 34, 57, 0.15);
 }
 
-.step-icon-wrapper {
-  width: 80px;
-  height: 80px;
-  border-radius: 16px;
+.MethodologyOverviewPage .step-visual {
+  background: linear-gradient(135deg, #f8fafb 0%, #dce7ea 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 24px;
+  padding: 32px;
 }
 
-.step-content h3 {
-  font-size: 28px;
-  font-weight: 700;
-  color: #0a2239;
-  margin-bottom: 16px;
-}
-
-.step-description {
-  font-size: 16px;
-  color: #555;
-  line-height: 1.7;
-  margin-bottom: 20px;
-}
-
-.step-outcome {
-  background: #f8fafb;
-  padding: 16px 20px;
-  border-radius: 8px;
-  margin-bottom: 20px;
-  border-left: 4px solid #1b5993;
-}
-
-.step-outcome strong {
-  display: block;
-  font-size: 14px;
-  font-weight: 700;
-  color: #1b5993;
-  margin-bottom: 8px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.step-outcome p {
-  font-size: 15px;
-  color: #333;
-  line-height: 1.6;
-  margin: 0;
-}
-
-.step-details-btn {
-  display: inline-flex;
-  align-items: center;
-  background: none;
-  border: none;
-  color: #1b5993;
-  font-weight: 600;
-  font-size: 15px;
-  cursor: pointer;
-  padding: 8px 0;
-  transition: all 0.2s ease;
-}
-
-.step-details-btn:hover {
-  color: #0a2239;
-  gap: 8px;
-}
-
-/* CTAs Section */
-.ctas-section {
-  padding: 80px 5% 100px;
-  background: linear-gradient(135deg, #dce7ea 0%, #afc1d6 100%);
-}
-
-.ctas-section h2 {
-  font-size: 36px;
-  font-weight: 700;
-  color: #0a2239;
-  margin-bottom: 40px;
-  max-width: 1400px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.ctas-buttons {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-  max-width: 1400px;
-  margin: 0 auto;
-}
-
-.cta-button {
-  flex: 1;
-  min-width: 250px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  padding: 18px 32px;
+.MethodologyOverviewPage .step-3d-container {
+  width: 100%;
+  height: 250px;
   border-radius: 12px;
-  font-size: 16px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 
-.cta-primary {
-  background: #1b5993;
-  color: white;
+.MethodologyOverviewPage .step-content {
+  padding: 32px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.cta-primary:hover {
-  background: #0a2239;
-  box-shadow: 0 4px 16px rgba(10, 34, 57, 0.3);
-}
-
-.cta-secondary {
-  background: white;
-  color: #0a2239;
-  border: 2px solid #0a2239;
-}
-
-.cta-secondary:hover {
-  background: #0a2239;
-  color: white;
-  box-shadow: 0 4px 16px rgba(10, 34, 57, 0.3);
-}
-
-.cta-tertiary {
-  background: #fe5f55;
-  color: white;
-}
-
-.cta-tertiary:hover {
-  background: #e54d43;
-  box-shadow: 0 4px 16px rgba(254, 95, 85, 0.4);
-}
-
-/* Compass Dialog */
-.compass-dialog .MuiDialog-paper {
-  border-radius: 16px;
-  max-width: 700px;
-}
-
-.dialog-title-wrapper {
+.MethodologyOverviewPage .step-header {
   display: flex;
   align-items: center;
-  gap: 16px;
-  padding: 8px 0;
+  gap: 20px;
 }
 
-.dialog-icon {
-  width: 60px;
-  height: 60px;
+.MethodologyOverviewPage .step-icon-wrapper {
+  width: 64px;
+  height: 64px;
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -304,150 +186,126 @@
   flex-shrink: 0;
 }
 
-.dialog-title-wrapper h3 {
-  font-size: 24px;
+.MethodologyOverviewPage .step-content h3 {
+  font-size: 32px;
   font-weight: 700;
   color: #0a2239;
   margin: 0;
 }
 
-.dialog-subtitle {
-  font-size: 14px;
-  color: #1b5993;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.compass-bonus-content {
-  padding: 8px 0;
-}
-
-.compass-bonus-content p {
-  font-size: 16px;
-  color: #333;
+.MethodologyOverviewPage .step-description {
+  font-size: 17px;
+  color: #555;
   line-height: 1.7;
   margin: 0;
 }
 
-/* Responsive Design */
-@media (max-width: 1024px) {
-  .overview-hero h1 {
-    font-size: 42px;
-  }
-
-  .hero-description p {
-    font-size: 18px;
-  }
-
-  .journey-header h2 {
-    font-size: 36px;
-  }
-
-  .journey-header p {
-    font-size: 18px;
-  }
-
-  .step-content h3 {
-    font-size: 24px;
-  }
-
-  .journey-step.left,
-  .journey-step.right {
-    padding-left: 5%;
-    padding-right: 5%;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .step-card {
-    max-width: 100%;
-  }
-
-  .path-svg {
-    display: none;
-  }
+.MethodologyOverviewPage .step-outcome {
+  background: #f8fafb;
+  padding: 20px 24px;
+  border-radius: 12px;
+  border-left: 4px solid #1b5993;
 }
 
-@media (max-width: 768px) {
-  .overview-hero {
-    padding: 60px 5% 40px;
-  }
-
-  .overview-hero h1 {
-    font-size: 32px;
-  }
-
-  .hero-description p {
-    font-size: 16px;
-  }
-
-  .journey-section {
-    padding: 60px 5% 80px;
-  }
-
-  .journey-header {
-    margin-bottom: 60px;
-  }
-
-  .journey-header h2 {
-    font-size: 28px;
-  }
-
-  .journey-header p {
-    font-size: 16px;
-  }
-
-  .journey-steps {
-    gap: 80px;
-  }
-
-  .step-number {
-    width: 50px;
-    height: 50px;
-    font-size: 24px;
-  }
-
-  .step-card {
-    padding: 24px;
-  }
-
-  .step-icon-wrapper {
-    width: 64px;
-    height: 64px;
-  }
-
-  .step-content h3 {
-    font-size: 22px;
-  }
-
-  .step-description {
-    font-size: 15px;
-  }
-
-  .ctas-section {
-    padding: 60px 5% 80px;
-  }
-
-  .ctas-section h2 {
-    font-size: 28px;
-  }
-
-  .ctas-buttons {
-    flex-direction: column;
-  }
-
-  .cta-button {
-    min-width: 100%;
-  }
+.MethodologyOverviewPage .step-outcome strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  color: #1b5993;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-@media (min-width: 1600px) {
-  .overview-hero h1 {
-    font-size: 64px;
-  }
+.MethodologyOverviewPage .step-outcome p {
+  font-size: 16px;
+  color: #333;
+  line-height: 1.6;
+  margin: 0;
+}
 
-  .journey-header h2 {
-    font-size: 48px;
-  }
+.MethodologyOverviewPage .compass-bonus {
+  background: linear-gradient(135deg, #dce7ea 0%, #afc1d6 100%);
+  padding: 14px 18px;
+  border-radius: 10px;
+  border-left: 3px solid #fe5f55;
+  max-width: 85%;
+  margin-left: auto;
+}
+
+.MethodologyOverviewPage .compass-bonus strong {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  color: #0a2239;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.MethodologyOverviewPage .compass-bonus p {
+  font-size: 13px;
+  color: #0a2239;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.MethodologyOverviewPage .ctas-section {
+  padding: 60px 5% 80px;
+  background: #f8fafb;
+}
+
+.MethodologyOverviewPage .ctas-buttons {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  max-width: 1600px;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.MethodologyOverviewPage .cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 32px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.MethodologyOverviewPage .cta-primary {
+  background: #1b5993;
+  color: white;
+}
+
+.MethodologyOverviewPage .cta-primary:hover {
+  background: #0a2239;
+  box-shadow: 0 4px 16px rgba(10, 34, 57, 0.25);
+}
+
+.MethodologyOverviewPage .cta-secondary {
+  background: white;
+  color: #0a2239;
+  border: 2px solid #0a2239;
+}
+
+.MethodologyOverviewPage .cta-secondary:hover {
+  background: #0a2239;
+  color: white;
+  box-shadow: 0 4px 16px rgba(10, 34, 57, 0.25);
+}
+
+.MethodologyOverviewPage .cta-tertiary {
+  background: #fe5f55;
+  color: white;
+}
+
+.MethodologyOverviewPage .cta-tertiary:hover {
+  background: #e54d43;
+  box-shadow: 0 4px 16px rgba(254, 95, 85, 0.3);
 }
