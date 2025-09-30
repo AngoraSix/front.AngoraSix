@@ -1,38 +1,39 @@
 {
   "hero": {
-    "title": "La Metodología AngoraSix",
-    "description": "Un marco que ayuda a los equipos a establecer fairness, determinar lo que es justo para la gestión del proyecto de forma iterativa y evolutiva, reduciendo fricciones y permitiendo una gobernanza dinámica basada en aportes reales.",
-    "quote": "La única forma de darle sentido al cambio es sumergirse en él, moverse con él y unirse a la danza. — Alan Watts"
+    "title": "La metodología AngoraSix",
+    "description": "Un marco que ayuda a los equipos a definir lo que es justo en la gestión del proyecto — de manera iterativa y evolutiva. Reduce fricciones, aporta claridad y habilita una gobernanza dinámica basada en aportes reales.",
+    "quote": "La única forma de darle sentido al cambio es sumergirse en él, moverse con él y unirse al baile - Alan Watts"
   },
   "journey": {
-    "title": "El Recorrido",
-    "subtitle": "Tres etapas fundamentales que evolucionan con tu equipo",
-    "outcome": "Resultado Esperado",
-    "compassBonus": "Bonus A6 Compass",
+    "title": "Tu viaje con AngoraSix",
+    "subtitle": "El marco para que \"crear entre todos\" funcione",
+    "outcome": "El resultado",
+    "compassBonus": "✨ Bonus con A6 Compass",
     "steps": {
       "fairness": {
-        "title": "Evaluación de Fairness",
-        "description": "Mediante workshops, actividades y reuniones, el equipo se alinea sobre lo que se considera justo según sus particularidades, caso y escenario. Entendiendo la posición, motivaciones y expectativas de cada miembro.",
-        "outcome": "Un buen primer pantallazo de cómo el equipo quiere gestionarse, de lo que considera justo, y un punto de partida donde todos estamos de acuerdo (al menos hasta cierto punto, o al menos todos sabemos cómo vamos a arrancar).",
-        "compassBonus": "Integramos Readiness Assessments, capacitación, preparación e introducción a metodologías que acompañen la actividad, como Lean Startup, Design Thinking y Metodologías Ágiles."
+        "title": "Definamos lo que es justo",
+        "description": "Mediante workshops y actividades guiadas, el equipo acuerda qué significa 'justo' para su caso particular. Se exploran motivaciones, expectativas y roles para alinear la visión desde el inicio.",
+        "outcome": "Un primer acuerdo compartido sobre cómo gestionarse, con reglas claras y puntos de partida reconocidos por todos.",
+        "compassBonus": "Workshops adaptados + capacitaciones Lean Startup, Design Thinking y Metodologías Ágiles"
       },
       "parametrization": {
-        "title": "Parametrización",
-        "description": "Es hora de traducir todo esto a reglas y parámetros bien definidos y 'formales' (usualmente dentro de nuestro sistema), definir esta 'constitución' que todos puedan ver y revisar.",
-        "outcome": "Un conjunto claro, transparente y accesible de reglas que gobiernan el proyecto, visible para todos los miembros del equipo y listo para ser implementado.",
-        "compassBonus": "Nos encargamos de sistematizar todo en AngoraSix, una herramienta específicamente desarrollada para esto, perfectamente preparada e integrada con las herramientas de trackeo, gobernanza y financieras para garantizar que las reglas se cumplan como todos esperan."
+        "title": "Configuración del proyecto",
+        "description": "Traducimos los acuerdos en reglas y parámetros formales dentro de AngoraSix. Se definen cómo se valoran las contribuciones, cómo se toman las decisiones y cómo se distribuyen los recursos.",
+        "outcome": "Un marco visible y confiable donde todos entienden las reglas del juego y cómo se aplican.",
+        "compassBonus": "Sistematización en AngoraSix a cargo nuestro"
       },
       "implementation": {
-        "title": "Implementación y Revisión Iterativa",
-        "description": "Este marco va a ir cambiando, y la definición de lo que consideremos 'justo' va a ir mutando a medida que se avance, tanto por claridad de estar en contacto y poner a prueba el sistema, como por cambios o logro de hitos dentro del proyecto mismo.",
-        "outcome": "Un sistema vivo que se adapta a la evolución del equipo, con revisiones regulares alineadas con las ceremonias de la metodología de gestión, idealmente Scrum o Scrum-lite.",
-        "compassBonus": "Asesoramos y guiamos en todo este proceso para garantizar que la metodología sirva y se ajuste adecuadamente a lo que realmente consideramos justo, especialmente en las primeras etapas hasta lograr madurez. También podemos asesorar en otras áreas en el rol de incubadora/guía de desarrollo."
+        "title": "Evolución continua",
+        "description": "El sistema se pone en marcha y evoluciona con el equipo. A través de revisiones periódicas se ajustan reglas y procesos, alineando gobernanza y finanzas con la realidad del proyecto.",
+        "outcome": "Un sistema vivo que crece con el colectivo: claridad sobre la salud del proyecto, distribución justa y decisiones basadas en datos.",
+        "compassBonus": "Acompañamiento en la adaptación de la metodología + soporte en resolución de conflictos y optimización."
       }
     }
   },
   "ctas": {
-    "contact": "A6 Compass",
-    "register": "Comencemos",
-    "guide": "Explorar Guía"
+    "title": "¿Listo para Comenzar?",
+    "contact": "Obtener Asesoría",
+    "register": "Comienza tu Viaje",
+    "guide": "Explorar la Guía"
   }
 }

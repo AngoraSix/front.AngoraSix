@@ -2,20 +2,21 @@
 
 import React, { useRef, useMemo, Suspense } from "react"
 import { useTranslation } from "next-i18next"
-import { motion } from "framer-motion"
+import { useRouter } from "next/router"
+import { Typography, Box, Button } from "@mui/material"
 import {
-  Lightbulb as LightbulbIcon,
+  Handshake as Handshake,
   Settings as SettingsIcon,
   Autorenew as AutorenewIcon,
-  ContactMail as ContactMailIcon,
-  AltRoute as RouteIcon,
   Explore as ExploreIcon,
-  KeyboardArrowRight as StartIcon
+  KeyboardArrowRight as StartIcon,
+  AltRoute as RouteIcon,
 } from "@mui/icons-material"
 import { Canvas, useFrame } from "@react-three/fiber"
 import { Float } from "@react-three/drei"
 import * as THREE from "three"
 import { trackEvent } from "../../../utils/analytics"
+import { ROUTES } from "../../../constants/constants"
 
 // 3D Scene Components - Collective Work Representations
 
@@ -48,34 +49,28 @@ const FairnessNodes = () => {
     if (!nodesRef.current) return
     const time = state.clock.getElapsedTime() * 0.3
 
-    // Cycle: 0-2s form sphere, 2-3s dissolve, 3-5s rotate scattered, 5-6s stabilize, 6-8s reform
     const cycleTime = time % 8
     let progress = 0
 
     if (cycleTime < 2) {
-      // Forming sphere
       progress = cycleTime / 2
     } else if (cycleTime < 3) {
-      // Dissolving
       progress = 1 - (cycleTime - 2)
     } else if (cycleTime < 5) {
-      // Scattered and rotating
       progress = 0
       const rotationTime = cycleTime - 3
       nodesRef.current.rotation.y = rotationTime * 0.5
     } else if (cycleTime < 6) {
-      // Stabilizing
       progress = 0
       nodesRef.current.rotation.y = 1
     } else {
-      // Reforming sphere
       progress = (cycleTime - 6) / 2
       nodesRef.current.rotation.y = 1 - (cycleTime - 6) / 2
     }
 
     nodesRef.current.children.forEach((node, i) => {
       const data = nodes[i]
-      const easedProgress = progress * progress * (3 - 2 * progress) // Smooth easing
+      const easedProgress = progress * progress * (3 - 2 * progress)
 
       node.position.x = THREE.MathUtils.lerp(data.scatteredPosition[0], data.spherePosition[0], easedProgress)
       node.position.y = THREE.MathUtils.lerp(data.scatteredPosition[1], data.spherePosition[1], easedProgress)
@@ -123,7 +118,6 @@ const ParametrizationPath = () => {
     if (!pathRef.current) return
     const time = state.clock.getElapsedTime() * 0.4
 
-    // Cycle: 0-3s scattered path, 3-4s forming circle, 4-5s solid circle, 5-6s dissolving, 6-9s scattered
     const cycleTime = time % 9
     let progress = 0
 
@@ -250,13 +244,15 @@ const Scene3D = ({ sceneType }) => {
 
 const MethodologyOverviewPage = () => {
   const { t } = useTranslation("methodology.overview")
+  const router = useRouter()
 
-  const handleCTAClick = (ctaType) => {
+  const handleCTAClick = (ctaType, route) => {
     trackEvent("overview_cta_clicked", {
       event_category: "engagement",
       event_label: "methodology_overview",
       cta_type: ctaType,
     })
+    router.push(route)
   }
 
   React.useEffect(() => {
@@ -269,7 +265,7 @@ const MethodologyOverviewPage = () => {
   const steps = [
     {
       id: "fairness",
-      icon: LightbulbIcon,
+      icon: Handshake,
       color: "#1B5993",
       lightColor: "#DCE7EA",
       position: "left",
@@ -293,81 +289,43 @@ const MethodologyOverviewPage = () => {
     },
   ]
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-      },
-    },
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut",
-      },
-    },
-  }
-
-  const pathVariants = {
-    hidden: { pathLength: 0, opacity: 0 },
-    visible: {
-      pathLength: 1,
-      opacity: 1,
-      transition: {
-        duration: 2,
-        ease: "easeInOut",
-      },
-    },
-  }
-
   return (
     <div className="MethodologyOverviewPage">
       {/* Hero Section */}
-      <motion.section className="overview-hero" initial="hidden" animate="visible" variants={containerVariants}>
+      <section className="overview-hero">
         <div className="hero-content">
-          <motion.h1 variants={itemVariants}>{t("hero.title")}</motion.h1>
-          <motion.p className="hero-description" variants={itemVariants}>
+          <Typography variant="h2" component="h1" className="hero-title">
+            {t("hero.title")}
+          </Typography>
+          <Typography variant="body1" className="hero-description">
             {t("hero.description")}
-          </motion.p>
-          <motion.blockquote className="hero-quote" variants={itemVariants}>
+          </Typography>
+          <Typography variant="body2" component="blockquote" className="hero-quote">
             {t("hero.quote")}
-          </motion.blockquote>
+          </Typography>
         </div>
-      </motion.section>
+      </section>
 
       {/* Journey Path Section */}
       <section className="journey-section">
-        <motion.div
-          className="journey-header"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          variants={containerVariants}
-        >
-          <motion.h2 variants={itemVariants}>{t("journey.title")}</motion.h2>
-          <motion.p variants={itemVariants}>{t("journey.subtitle")}</motion.p>
-        </motion.div>
+        <div className="journey-header">
+          <Typography variant="h3" component="h2">
+            {t("journey.title")}
+          </Typography>
+          <Typography variant="h6" component="p">
+            {t("journey.subtitle")}
+          </Typography>
+        </div>
 
         <div className="journey-path">
           {/* SVG Path Background */}
           <svg className="path-svg" viewBox="0 0 1200 1000" preserveAspectRatio="xMidYMid meet">
-            <motion.path
+            <path
               d="M 200 150 Q 600 100, 1000 200 T 200 450 Q 600 400, 1000 550 T 200 800"
               stroke="#DCE7EA"
               strokeWidth="6"
               fill="none"
               strokeLinecap="round"
-              variants={pathVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
             />
           </svg>
 
@@ -376,19 +334,11 @@ const MethodologyOverviewPage = () => {
             {steps.map((step, index) => {
               const Icon = step.icon
               return (
-                <motion.div
-                  key={step.id}
-                  className={`journey-step ${step.position}`}
-                  initial={{ opacity: 0, x: step.position === "left" ? -50 : 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.6, delay: index * 0.2 }}
-                >
+                <div key={step.id} className={`journey-step ${step.position}`}>
                   <div className="step-number">{index + 1}</div>
 
-                  <motion.div
+                  <div
                     className="step-card"
-                    whileHover={{ scale: 1.01, y: -3 }}
                     style={{
                       borderColor: step.color,
                     }}
@@ -404,23 +354,33 @@ const MethodologyOverviewPage = () => {
                         <div className="step-icon-wrapper" style={{ backgroundColor: step.lightColor }}>
                           <Icon sx={{ fontSize: 32, color: step.color }} />
                         </div>
-                        <h3>{t(`journey.steps.${step.id}.title`)}</h3>
+                        <Typography variant="h4" component="h3">
+                          {t(`journey.steps.${step.id}.title`)}
+                        </Typography>
                       </div>
 
-                      <p className="step-description">{t(`journey.steps.${step.id}.description`)}</p>
+                      <Typography variant="body1" className="step-description">
+                        {t(`journey.steps.${step.id}.description`)}
+                      </Typography>
 
-                      <div className="step-outcome">
-                        <strong>{t("journey.outcome")}:</strong>
-                        <p>{t(`journey.steps.${step.id}.outcome`)}</p>
-                      </div>
+                      <Box className="step-outcome">
+                        <Typography variant="subtitle2" component="strong">
+                          {t("journey.outcome")}:
+                        </Typography>
+                        <Typography variant="body2">{t(`journey.steps.${step.id}.outcome`)}</Typography>
+                      </Box>
 
-                      <div className="compass-bonus">
-                        <strong>{t("journey.compassBonus")}:</strong>
-                        <p>{t(`journey.steps.${step.id}.compassBonus`)}</p>
-                      </div>
+                      <Box className="compass-bonus">
+                        <Typography variant="caption" component="strong" className="compass-bonus-label">
+                          {t("journey.compassBonus")}:
+                        </Typography>
+                        <Typography variant="caption" className="compass-bonus-text">
+                          {t(`journey.steps.${step.id}.compassBonus`)}
+                        </Typography>
+                      </Box>
                     </div>
-                  </motion.div>
-                </motion.div>
+                  </div>
+                </div>
               )
             })}
           </div>
@@ -428,51 +388,32 @@ const MethodologyOverviewPage = () => {
       </section>
 
       {/* CTAs Section */}
-      <motion.section
-        className="ctas-section"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-50px" }}
-        variants={containerVariants}
-      >
-        <motion.div className="ctas-buttons" variants={containerVariants}>
-          <motion.a
-            href="/services"
+      <section className="ctas-section">
+        <div className="ctas-header">
+          <Typography variant="h4" component="h2" className="ctas-title">
+            {t("ctas.title")}
+          </Typography>
+        </div>
+        <div className="ctas-buttons">
+          <Button
             className="cta-button cta-primary"
-            variants={itemVariants}
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.98 }}
-            onClick={() => handleCTAClick("contact")}
+            onClick={() => handleCTAClick("contact", `${ROUTES.services}?section=guidance&dialog=true`)}
           >
             <ExploreIcon sx={{ fontSize: 20 }} />
             <span>{t("ctas.contact")}</span>
-          </motion.a>
+          </Button>
 
-          <motion.a
-            href="/auth/signin"
-            className="cta-button cta-secondary"
-            variants={itemVariants}
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.98 }}
-            onClick={() => handleCTAClick("register")}
-          >
+          <Button className="cta-button cta-secondary" onClick={() => handleCTAClick("register", ROUTES.signin)}>
             <StartIcon sx={{ fontSize: 20 }} />
             <span>{t("ctas.register")}</span>
-          </motion.a>
+          </Button>
 
-          <motion.a
-            href="/methodology/guide"
-            className="cta-button cta-tertiary"
-            variants={itemVariants}
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.98 }}
-            onClick={() => handleCTAClick("guide")}
-          >
+          <Button className="cta-button cta-tertiary" onClick={() => handleCTAClick("guide", ROUTES.methodology.guide)}>
             <RouteIcon sx={{ fontSize: 20 }} />
             <span>{t("ctas.guide")}</span>
-          </motion.a>
-        </motion.div>
-      </motion.section>
+          </Button>
+        </div>
+      </section>
     </div>
   )
 }

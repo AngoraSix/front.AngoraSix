@@ -4,7 +4,7 @@ import MethodologyOverview from "../../../components/Methodology/Overview"
 
 export default function MethodologyOverviewPage() {
   return (
-    <DefaultLayout>
+    <DefaultLayout contained={false} className="MethodologyOverviewPage__Page__Body">
       <MethodologyOverview />
     </DefaultLayout>
   )

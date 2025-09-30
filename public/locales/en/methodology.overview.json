@@ -1,38 +1,39 @@
 {
   "hero": {
     "title": "The AngoraSix Methodology",
-    "description": "A framework that helps teams establish fairness, determine what's just for project management iteratively and evolutionarily, reducing friction and enabling dynamic governance based on real contributions.",
-    "quote": "The only way to make sense out of change is to plunge into it, move with it, and join the dance. — Alan Watts"
+    "description": "A framework that helps teams define what 'fair' means in project management — iteratively and adaptively. It reduces friction, brings clarity, and enables dynamic governance based on real contributions.",
+    "quote": "The only way to make sense of change is to plunge into it, move with it, and join the dance. — Alan Watts"
   },
   "journey": {
-    "title": "The Journey",
-    "subtitle": "Three fundamental stages that evolve with your team",
-    "outcome": "Expected Outcome",
-    "compassBonus": "A6 Compass Bonus",
+    "title": "Your Journey with AngoraSix",
+    "subtitle": "The framework that makes 'creating together' possible",
+    "outcome": "The outcome",
+    "compassBonus": "✨ Bonus with A6 Compass",
     "steps": {
       "fairness": {
-        "title": "Fairness Assessment",
-        "description": "Through workshops, activities, and meetings, the team aligns on what's considered fair according to their particularities, case, and scenario. Understanding each member's position, motivations, and expectations.",
-        "outcome": "A solid initial snapshot of how the team wants to be managed, what they consider fair, and a starting point where everyone agrees (at least to some extent, or at least everyone knows how we're starting).",
-        "compassBonus": "We integrate Readiness Assessments, training, preparation, and introduction to methodologies that accompany the activity, such as Lean Startup, Design Thinking, and Agile Methodologies."
+        "title": "Defining What’s Fair",
+        "description": "Through workshops and guided activities, the team aligns on what 'fair' means for their specific case. Motivations, expectations, and roles are surfaced early to build shared understanding.",
+        "outcome": "An initial agreement on how to work together, with clear rules and starting points recognized by everyone.",
+        "compassBonus": "Tailored workshops + introductory training in Lean Startup, Design Thinking, and Agile practices"
       },
       "parametrization": {
-        "title": "Parametrization",
-        "description": "Time to translate everything into well-defined and 'formal' rules and parameters (usually within our system), defining this 'constitution' that everyone can see and review.",
-        "outcome": "A clear, transparent, and accessible set of rules that govern the project, visible to all team members and ready to be implemented.",
-        "compassBonus": "We systematize everything in AngoraSix, a tool specifically developed for this, perfectly prepared and integrated with tracking, governance, and financial tools to ensure rules are followed as everyone expects."
+        "title": "Project Setup",
+        "description": "We translate agreements into clear, formal rules within AngoraSix. This defines how contributions are valued, how decisions are made, and how resources are distributed.",
+        "outcome": "A visible, reliable framework where everyone understands the rules of the game and how they are applied.",
+        "compassBonus": "We take care of systematizing everything within AngoraSix"
       },
       "implementation": {
-        "title": "Implementation & Iterative Review",
-        "description": "This framework will evolve, and the definition of what we consider 'fair' will mutate as we progress, both from clarity of being in contact and testing the system, and from changes or achievement of milestones within the project itself.",
-        "outcome": "A living system that adapts to the team's evolution, with regular reviews aligned with management methodology ceremonies, ideally Scrum or Scrum-lite.",
-        "compassBonus": "We advise and guide throughout this process to ensure the methodology serves and adjusts properly to what we really consider fair, especially in the early stages until maturity is achieved. We can also advise in other areas in the role of incubator/development guide."
+        "title": "Continuous Evolution",
+        "description": "The system goes live and evolves with the team. Regular reviews adjust rules and processes, keeping governance and finance aligned with the project’s reality.",
+        "outcome": "A living system that grows with the collective: clarity on project health, fair distribution, and data-informed decisions.",
+        "compassBonus": "Guidance on methodology adaptation + support in conflict resolution and optimization"
       }
     }
   },
   "ctas": {
-    "contact": "A6 Compass",
-    "register": "Get Started",
-    "guide": "Explore Guide"
+    "title": "Ready to Begin?",
+    "contact": "Get Guidance",
+    "register": "Start Your Journey",
+    "guide": "Explore the Guide"
   }
 }

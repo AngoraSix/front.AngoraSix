@@ -25,7 +25,7 @@ const DefaultLayout = ({ children, className, contained = true }) => {
 };
 
 DefaultLayout.defaultProps = {
-  className: 'ManagementDetailsLayout__Page',
+  className: 'DefaultLayout__Page',
   headData: {},
 };
 
