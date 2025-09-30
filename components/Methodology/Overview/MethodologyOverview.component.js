@@ -3,9 +3,9 @@
 import {
     Autorenew as AutorenewIcon,
     Explore as ExploreIcon,
-    Handshake,
+    Handshake as HandshakeIcon,
     AltRoute as RouteIcon,
-    Settings as SettingsIcon,
+    Build as BuildIcon,
     KeyboardArrowRight as StartIcon,
 } from "@mui/icons-material"
 import { Box, Button, Typography } from "@mui/material"
@@ -269,7 +269,7 @@ const MethodologyOverviewPage = () => {
     const steps = [
         {
             id: "fairness",
-            icon: Handshake,
+            icon: HandshakeIcon,
             color: "#1B5993",
             lightColor: "#DCE7EA",
             position: "left",
@@ -277,7 +277,7 @@ const MethodologyOverviewPage = () => {
         },
         {
             id: "parametrization",
-            icon: SettingsIcon,
+            icon: BuildIcon,
             color: "#0A2239",
             lightColor: "#AFC1D6",
             position: "right",

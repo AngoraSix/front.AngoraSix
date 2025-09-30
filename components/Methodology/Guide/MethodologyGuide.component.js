@@ -4,6 +4,7 @@ import {
   Build as BuildIcon,
   Close as CloseIcon,
   Explore as ExploreIcon,
+  Handshake as HandshakeIcon,
   FiberManualRecord as CircleIcon,
   Info as InfoIcon,
   Loop as LoopIcon,
@@ -22,7 +23,6 @@ import {
   DialogTitle,
   Drawer,
   Fab,
-  Fade,
   Grid,
   IconButton,
   List,
@@ -39,16 +39,10 @@ import { useRouter } from "next/router"
 import { useState } from "react"
 import { ROUTES } from "../../../constants/constants"
 import { trackEvent } from "../../../utils/analytics"
-import {
-  getItemEnabledState,
-  getItemImportance,
-  methodologyGuideConfig,
-  presetConfigs,
-  staticStages,
-} from "./methodologyGuide.config"
+import { getItemImportance, methodologyGuideConfig, presetConfigs, staticStages } from "./methodologyGuide.config"
 
 const stageIcons = {
-  alignment: ExploreIcon,
+  alignment: HandshakeIcon,
   setup: BuildIcon,
   implementation: LoopIcon,
 }
@@ -92,11 +86,12 @@ const MethodologyGuidePage = () => {
   const handleItemClick = (item) => {
     setSelectedItem(item)
     setDialogOpen(true)
-    const isEnabled = getItemEnabledState(item, toggles)
+    const importance = getItemImportance(item, toggles)
     trackEvent("methodology_guide_item_opened", {
       stage: item.stage,
       key: item.key,
-      enabled: isEnabled,
+      enabled: importance > 0,
+      importance,
     })
   }
 
@@ -148,8 +143,10 @@ const MethodologyGuidePage = () => {
     }
   }
 
-  // Render importance indicator
+  // Render importance indicator - always shows 3 circles
   const renderImportanceIndicator = (importance) => {
+    const isEnabled = importance > 0
+
     return (
       <Box sx={{ display: "flex", gap: 0.25, alignItems: "center" }}>
         {[1, 2, 3].map((level) => (
@@ -157,7 +154,8 @@ const MethodologyGuidePage = () => {
             key={level}
             sx={{
               fontSize: "0.5rem",
-              color: level <= importance ? "#1b5993" : "#dce7ea",
+              color: isEnabled && level <= importance ? "#1b5993" : "#dce7ea",
+              transition: "color 0.4s ease",
             }}
           />
         ))}
@@ -167,56 +165,54 @@ const MethodologyGuidePage = () => {
 
   // Render mini item card
   const renderMiniItemCard = (item) => {
-    const isEnabled = getItemEnabledState(item, toggles)
-    const importance = isEnabled ? getItemImportance(item, toggles) : 0
+    const importance = getItemImportance(item, toggles)
+    const isEnabled = importance > 0
 
     return (
-      <Fade in key={item.key} timeout={300}>
-        <Card
-          sx={{
-            minWidth: 200,
-            maxWidth: 280,
-            opacity: isEnabled ? 1 : 0.35,
-            cursor: "pointer",
-            transition: "all 0.2s ease",
-            backgroundColor: isEnabled ? "background.paper" : "grey.50",
-            border: "1px solid",
-            borderColor: isEnabled ? "divider" : "grey.300",
-            "&:hover": {
-              elevation: 3,
-              transform: "translateY(-2px)",
-              borderColor: isEnabled ? "primary.main" : "grey.400",
-              boxShadow: isEnabled ? "0 4px 12px rgba(27, 89, 147, 0.15)" : "0 2px 8px rgba(0, 0, 0, 0.1)",
-            },
-          }}
-          onClick={() => handleItemClick(item)}
-        >
-          <CardContent sx={{ p: 1.5, "&:last-child": { pb: 1.5 } }}>
-            <Box sx={{ display: "flex", flexDirection: "column", gap: 0.75 }}>
-              <Box sx={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between" }}>
-                <Typography
-                  variant="subtitle2"
-                  sx={{
-                    fontWeight: 600,
-                    flex: 1,
-                    lineHeight: 1.3,
-                    fontSize: "0.85rem",
-                    color: isEnabled ? "text.primary" : "text.disabled",
-                  }}
-                >
-                  {t(`items.${item.key}.title`)}
-                </Typography>
-                <Box sx={{ display: "flex", alignItems: "center", ml: 0.5 }}>
-                  {item.module && getModuleIcon(item.module)}
-                </Box>
+      <Card
+        key={item.key}
+        sx={{
+          minWidth: 200,
+          maxWidth: 280,
+          opacity: isEnabled ? 1 : 0.35,
+          cursor: "pointer",
+          backgroundColor: isEnabled ? "background.paper" : "grey.50",
+          border: "1px solid",
+          borderColor: isEnabled ? "divider" : "grey.300",
+          transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
+          "&:hover": {
+            elevation: 3,
+            transform: "translateY(-2px)",
+            borderColor: isEnabled ? "primary.main" : "grey.400",
+            boxShadow: isEnabled ? "0 4px 12px rgba(27, 89, 147, 0.15)" : "0 2px 8px rgba(0, 0, 0, 0.1)",
+          },
+        }}
+        onClick={() => handleItemClick(item)}
+      >
+        <CardContent sx={{ p: 1.5, "&:last-child": { pb: 1.5 } }}>
+          <Box sx={{ display: "flex", flexDirection: "column", gap: 0.75 }}>
+            <Box sx={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between" }}>
+              <Typography
+                variant="subtitle2"
+                sx={{
+                  fontWeight: 600,
+                  flex: 1,
+                  lineHeight: 1.3,
+                  fontSize: "0.85rem",
+                  color: isEnabled ? "text.primary" : "text.disabled",
+                  transition: "color 0.4s ease",
+                }}
+              >
+                {t(`items.${item.key}.title`)}
+              </Typography>
+              <Box sx={{ display: "flex", alignItems: "center", ml: 0.5 }}>
+                {item.module && getModuleIcon(item.module)}
               </Box>
-              {isEnabled && (
-                <Box sx={{ display: "flex", justifyContent: "flex-end" }}>{renderImportanceIndicator(importance)}</Box>
-              )}
             </Box>
-          </CardContent>
-        </Card>
-      </Fade>
+            <Box sx={{ display: "flex", justifyContent: "flex-end" }}>{renderImportanceIndicator(importance)}</Box>
+          </Box>
+        </CardContent>
+      </Card>
     )
   }
 
@@ -595,10 +591,9 @@ const MethodologyGuidePage = () => {
                     {t(`items.${selectedItem.key}.title`)}
                   </Typography>
                   {selectedItem.module && getModuleIcon(selectedItem.module)}
-                  {!getItemEnabledState(selectedItem, toggles) && (
+                  {getItemImportance(selectedItem, toggles) === 0 ? (
                     <Chip label={t("item.notApplicableChip")} size="small" color="warning" variant="outlined" />
-                  )}
-                  {getItemEnabledState(selectedItem, toggles) && (
+                  ) : (
                     <Box sx={{ ml: 1 }}>{renderImportanceIndicator(getItemImportance(selectedItem, toggles))}</Box>
                   )}
                 </Box>

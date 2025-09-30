@@ -43,7 +43,7 @@
   font-size: 0.9rem;
 }
 
-/* Mini item cards - horizontal layout */
+/* Mini item cards - horizontal layout with smooth animations */
 .MethodologyGuidePage .items-container {
   display: flex;
   gap: 1rem;
@@ -57,6 +57,11 @@
   flex: 0 0 auto;
 }
 
+/* Smooth transition for all card state changes */
+.MethodologyGuidePage .MuiCard-root {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .MethodologyGuidePage .mini-card.enabled {
   background-color: #ffffff;
   border: 1px solid #dce7ea;
@@ -66,8 +71,8 @@
 .MethodologyGuidePage .mini-card.disabled {
   background-color: #f5f5f5;
   border: 1px solid #e0e0e0;
-  opacity: 0.3;
-  cursor: pointer; /* Still clickable for disabled items */
+  opacity: 0.35;
+  cursor: pointer;
 }
 
 .MethodologyGuidePage .mini-card.enabled:hover {
@@ -92,6 +97,7 @@
   font-size: 0.85rem;
   line-height: 1.2;
   margin-bottom: 0.5rem;
+  transition: color 0.4s ease;
 }
 
 .MethodologyGuidePage .mini-card.enabled .card-title {
@@ -116,6 +122,11 @@
 
 .MethodologyGuidePage .module-icon.mui-icon {
   font-size: 1.2rem;
+}
+
+/* Importance indicators - smooth color transitions */
+.MethodologyGuidePage .MuiSvgIcon-root {
+  transition: color 0.4s ease;
 }
 
 /* Controls panel - compressed */
@@ -194,6 +205,7 @@
   text-transform: none;
   justify-content: center;
   text-align: center;
+  transition: all 0.3s ease;
 }
 
 .MethodologyGuidePage .MuiToggleButton-root.Mui-selected {
@@ -209,6 +221,7 @@
 .MethodologyGuidePage .MuiFab-root {
   background-color: #1b5993;
   color: white;
+  transition: all 0.3s ease;
 }
 
 .MethodologyGuidePage .MuiFab-root:hover {
@@ -326,27 +339,36 @@
   }
 }
 
-/* Animation classes */
-.methodology-guide-item-enter {
-  opacity: 0;
-  transform: scale(0.95);
+/* Enhanced animations for card state changes */
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
-.methodology-guide-item-enter-active {
-  opacity: 1;
-  transform: scale(1);
-  transition: opacity 300ms, transform 300ms;
+@keyframes fadeOutScale {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0.35;
+    transform: scale(0.98);
+  }
+}
+
+/* Apply animations to cards */
+.methodology-guide-item-enter {
+  animation: fadeInScale 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .methodology-guide-item-exit {
-  opacity: 1;
-  transform: scale(1);
-}
-
-.methodology-guide-item-exit-active {
-  opacity: 0;
-  transform: scale(0.95);
-  transition: opacity 300ms, transform 300ms;
+  animation: fadeOutScale 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Focus states for accessibility */
@@ -355,11 +377,6 @@
 .MethodologyGuidePage .MuiCard-root:focus {
   outline: 2px solid #1b5993;
   outline-offset: 2px;
-}
-
-/* Smooth transitions for enable/disable */
-.MethodologyGuidePage .mini-card {
-  transition: opacity 200ms ease, background-color 200ms ease, border-color 200ms ease;
 }
 
 /* Info tooltips */
