@@ -32,6 +32,7 @@
   "navbar.shared.about": "Nosotros",
   "navbar.shared.pricing": "Precios",
   "navbar.shared.services": "Servicios",
+  "navbar.shared.methodology": "Metodología",
   "navbar.shared.contact": "Contacto",
   "navbar.shared.login": "Iniciar Sesión",
   "navbar.shared.signup": "Registrarse",
@@ -81,7 +82,8 @@
       "pricing": "Precios",
       "about": "Nosotros",
       "terms": "Términos y Condiciones",
-      "privacy": "Política de Privacidad"
+      "privacy": "Política de Privacidad",
+      "methodology": "Metodología"
     },
     "sponsor": {
       "support": "Apoya nuestro trabajo"

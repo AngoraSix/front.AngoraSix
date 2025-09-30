@@ -24,7 +24,7 @@ import Link from "next/link"
 import { useRouter } from "next/router"
 import { useState } from "react"
 import config from "../../../config"
-import { ROUTES } from '../../../constants/constants'
+import { ROUTES } from "../../../constants/constants"
 import { trackLandingCTAClick } from "../../../utils/analytics"
 
 const SharedNavbar = ({ forProfile }) => {
@@ -61,12 +61,16 @@ const SharedNavbar = ({ forProfile }) => {
   const otherLocales = locales?.filter((l) => l !== locale) || []
 
   const resolveNavigationHref = (href, forProfileValue) => {
-    return forProfileValue ? `${href}?for=${forProfileValue}` : href;
+    return forProfileValue ? `${href}?for=${forProfileValue}` : href
   }
 
   // Define navigation items based on variant
   const getNavigationItems = () => {
     const baseItems = [
+      {
+        href: "/methodology/overview",
+        label: t("navbar.shared.methodology"),
+      },
       {
         href: "/services",
         label: t("navbar.shared.services"),
@@ -81,14 +85,15 @@ const SharedNavbar = ({ forProfile }) => {
       },
     ]
 
-    return session ?
-      [
-        {
-          href: `${ROUTES.welcome.postRegistration}${forProfile ? `?for=${forProfile}` : ""}`,
-          label: t("navbar.shared.access"),
-        },
-        ...baseItems,
-      ] : baseItems;
+    return session
+      ? [
+          {
+            href: `${ROUTES.welcome.postRegistration}${forProfile ? `?for=${forProfile}` : ""}`,
+            label: t("navbar.shared.access"),
+          },
+          ...baseItems,
+        ]
+      : baseItems
   }
 
   const navigationItems = getNavigationItems()
@@ -140,7 +145,11 @@ const SharedNavbar = ({ forProfile }) => {
             <Box sx={{ display: "flex", alignItems: "center", gap: 3 }}>
               {/* Navigation Links */}
               {navigationItems.map((item) => (
-                <Link href={resolveNavigationHref(item.href, forProfile)} style={{ textDecoration: "none" }} key={item.href}>
+                <Link
+                  href={resolveNavigationHref(item.href, forProfile)}
+                  style={{ textDecoration: "none" }}
+                  key={item.href}
+                >
                   <Button
                     sx={{
                       textTransform: "none",
@@ -389,7 +398,11 @@ const SharedNavbar = ({ forProfile }) => {
                 }}
               >
                 {navigationItems.map((item) => (
-                  <Link href={resolveNavigationHref(item.href, forProfile)} style={{ textDecoration: "none", color: "inherit" }} key={item.href}>
+                  <Link
+                    href={resolveNavigationHref(item.href, forProfile)}
+                    style={{ textDecoration: "none", color: "inherit" }}
+                    key={item.href}
+                  >
                     <MenuItem
                       onClick={handleCloseNavMenu}
                       sx={{

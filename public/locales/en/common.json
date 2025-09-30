@@ -32,6 +32,7 @@
   "navbar.shared.about": "About Us",
   "navbar.shared.pricing": "Pricing",
   "navbar.shared.services": "Services",
+  "navbar.shared.methodology": "Methodology",
   "navbar.shared.contact": "Contact",
   "navbar.shared.login": "Log In",
   "navbar.shared.signup": "Sign Up",
@@ -79,7 +80,8 @@
       "pricing": "Pricing",
       "about": "About Us",
       "terms": "Terms & Conditions",
-      "privacy": "Privacy Policy"
+      "privacy": "Privacy Policy",
+      "methodology": "Methodology"
     },
     "sponsor": {
       "support": "Support our work"
