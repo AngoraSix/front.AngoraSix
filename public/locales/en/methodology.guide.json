@@ -1,6 +1,7 @@
 {
-  "title": "AngoraSix Methodology",
-  "subtitle": "A clear process that adapts to your project's stage and characteristics. Explore the stages and activate what applies from the right panel.",
+  "title": "AngoraSix Methodology Guide",
+  "subtitle": "A comprehensive guide to implementing fair and effective project management.",
+  "description": "This guide adapts to your project's characteristics, showing you the most relevant activities and tools at each stage. Configure your project profile on the right to see personalized recommendations.",
   "presets": {
     "title": "Quick Presets",
     "tooltip": "Pre-configured scenarios that automatically set the most relevant aspects for common project types. You can adjust individual settings after selecting a preset.",
@@ -74,245 +75,231 @@
       }
     }
   },
-  "essential": {
-    "title": "Your Recommended Route",
-    "showMatrix": "View Complete Matrix",
-    "hideMatrix": "Hide Matrix"
-  },
-  "matrix": {
-    "title": "Complete Process Matrix",
-    "density": "View:",
-    "stages": {
-      "explore": "Explore & Align",
-      "define": "Define & Adopt",
-      "test": "Test & Learn",
-      "evolve": "Evolve & Scale"
-    },
-    "dimensions": {
-      "innovation": "Innovation & Design",
-      "governance": "Governance & Fairness",
-      "management": "Management & Rhythm",
-      "finance": "Finance & Rewards"
-    },
-    "more": "more"
-  },
-  "more": {
-    "title": "Additional Activities"
-  },
-  "modules": {
-    "compass": "Compass",
-    "charter": "Charter",
-    "pulse": "Pulse",
-    "platform": "Platform"
-  },
-  "effort": {
-    "S": "Small",
-    "M": "Medium",
-    "L": "Large"
-  },
   "stages": {
-    "explore": {
-      "title": "Explore & Align",
-      "description": "We analyze readiness and motivation; clarify roles, expectations and initial rules. Goal: decide if we're ready and under what conditions we start."
+    "alignment": {
+      "title": "1. Alignment",
+      "description": "Establish team readiness, align expectations, and validate the project foundation before diving into implementation."
     },
-    "define": {
-      "title": "Define & Adopt",
-      "description": "We establish base rules (ownership, governance, distribution) and adopt a minimal rhythm (Scrum-lite) to operate with clarity."
+    "setup": {
+      "title": "2. Project Setup",
+      "description": "Define governance rules, financial structures, and set up the tools and integrations needed for smooth operations."
     },
-    "test": {
-      "title": "Test & Learn",
-      "description": "We introduce validation (Lean), define simple metrics and sustain rapid learning cycles."
-    },
-    "evolve": {
-      "title": "Evolve & Scale",
-      "description": "We review rules, metrics and practices; integrate AngoraSix Platform more deeply to scale effectively."
+    "implementation": {
+      "title": "3. Implementation & Iterative Revision",
+      "description": "Execute agile ceremonies, distribute value, and continuously revise processes, metrics, and governance to evolve the project."
     }
   },
   "items": {
-    "align-expectations": {
-      "title": "Align expectations and roles",
-      "purpose": "Clarify roles, responsibilities and initial team expectations.",
-      "whenToUse": [
-        "At the start of a new project",
-        "When there's confusion about roles",
-        "Before defining team structure"
+    "fairness-assessment": {
+      "title": "Fairness Assessment",
+      "description": "Evaluate the current and desired fairness levels within the project to establish a baseline for equitable practices.",
+      "objectives": [
+        "Understand team members' fairness expectations",
+        "Identify potential inequities in current structure",
+        "Create a shared understanding of fairness principles"
       ],
-      "steps": [
-        "Gather all stakeholders",
-        "Define roles and responsibilities",
-        "Set clear expectations",
-        "Document initial agreements"
+      "deliverables": [
+        "Fairness assessment report",
+        "Team fairness expectations document",
+        "Recommended fairness improvements"
       ],
-      "resources": [{ "name": "Roles Template", "url": "#" }, { "name": "Expectations Guide", "url": "#" }]
+      "tools": ["A6 Compass", "Surveys", "Workshops"]
     },
-    "initial-rhythm": {
-      "title": "Establish initial rhythm",
-      "purpose": "Define a basic work rhythm to start operating.",
-      "whenToUse": ["At the start of any project", "When the team needs structure", "To establish work routines"],
-      "steps": [
-        "Define meeting frequency",
-        "Establish communication channels",
-        "Create basic calendar",
-        "Agree on work hours"
+    "team-readiness": {
+      "title": "Team Readiness",
+      "description": "Assess the team's preparedness to embark on a new project, including skills, motivation, and availability.",
+      "objectives": [
+        "Evaluate team skills and competencies",
+        "Assess commitment and availability",
+        "Identify potential gaps or risks"
       ],
-      "resources": [{ "name": "Rhythm Template", "url": "#" }]
+      "deliverables": ["Team readiness assessment", "Skills gap analysis", "Risk mitigation plan"],
+      "tools": ["A6 Compass", "Skills Matrix", "Interviews"]
     },
-    "validate-opportunity": {
-      "title": "Validate problem and opportunity",
-      "purpose": "Confirm there's a real problem and market opportunity.",
-      "whenToUse": [
-        "With new or uncertain products",
-        "Before investing significant resources",
-        "To validate initial hypotheses"
+    "team-alignment": {
+      "title": "Team Alignment",
+      "description": "Align team members on project vision, goals, values, and working principles to ensure everyone is moving in the same direction.",
+      "objectives": [
+        "Create shared vision and mission",
+        "Align on core values and principles",
+        "Establish common goals and success criteria"
       ],
-      "steps": [
-        "Identify the problem to solve",
-        "Research target market",
-        "Validate with potential users",
-        "Evaluate the opportunity"
+      "deliverables": ["Vision and mission statement", "Team values document", "Aligned goals and OKRs"],
+      "tools": ["A6 Compass", "Workshops", "Alignment Canvas"]
+    },
+    "management-definition": {
+      "title": "Management Definition",
+      "description": "Define the management structure, roles, responsibilities, and decision-making processes for the project.",
+      "objectives": [
+        "Define organizational structure",
+        "Clarify roles and responsibilities",
+        "Establish decision-making processes"
       ],
-      "resources": [{ "name": "Validation Canvas", "url": "#" }, { "name": "Interview Guide", "url": "#" }]
+      "deliverables": ["Organizational chart", "RACI matrix", "Decision-making framework"],
+      "tools": ["A6 Compass", "RACI Matrix", "Governance Templates"]
     },
-    "base-agreements": {
-      "title": "Base agreements and ownership",
-      "purpose": "Establish fundamental ownership and governance rules for the project.",
-      "whenToUse": [
-        "With core or decentralized teams",
-        "When there are multiple stakeholders",
-        "For projects with shared ownership"
+    "product-prevalidation": {
+      "title": "Product Pre-validation",
+      "description": "Validate the product idea, market opportunity, and initial assumptions before committing significant resources.",
+      "objectives": ["Validate problem-solution fit", "Test market demand", "Refine value proposition"],
+      "deliverables": ["Market research report", "Customer interviews summary", "Validated value proposition"],
+      "tools": ["A6 Compass", "Lean Canvas", "Customer Interviews"]
+    },
+    "product-analysis": {
+      "title": "Product Analysis",
+      "description": "Analyze the validated product to identify optimization opportunities, growth strategies, and improvement areas.",
+      "objectives": ["Analyze product-market fit", "Identify growth opportunities", "Optimize product features"],
+      "deliverables": ["Product analysis report", "Growth strategy document", "Feature optimization plan"],
+      "tools": ["A6 Compass", "Analytics", "User Feedback"]
+    },
+    "trainings": {
+      "title": "Trainings",
+      "description": "Provide necessary training to team members on methodology, tools, and best practices for effective collaboration.",
+      "objectives": [
+        "Train on AngoraSix methodology",
+        "Upskill on relevant tools and practices",
+        "Foster continuous learning culture"
       ],
-      "steps": [
-        "Define ownership structure",
-        "Establish governance rules",
-        "Create participation agreements",
-        "Document rights and obligations"
+      "deliverables": ["Training curriculum", "Completed training sessions", "Certification or assessment"],
+      "tools": ["A6 Compass", "Workshops", "Online Courses"]
+    },
+    "governance-rules": {
+      "title": "A6 Governance Rules",
+      "description": "Establish clear governance rules for decision-making, conflict resolution, and power distribution within the project.",
+      "objectives": [
+        "Define decision-making processes",
+        "Establish voting mechanisms",
+        "Create conflict resolution procedures"
       ],
-      "resources": [{ "name": "Charter Template", "url": "#" }, { "name": "Ownership Guide", "url": "#" }]
+      "deliverables": ["Governance charter", "Decision-making framework", "Conflict resolution guide"],
+      "tools": ["A6 Platform", "Governance Templates"]
     },
-    "processes-tools": {
-      "title": "Processes and tools",
-      "purpose": "Adopt work processes and tools to operate efficiently.",
-      "whenToUse": ["In all projects", "When the team needs structure", "To improve productivity"],
-      "steps": ["Select work tools", "Define basic processes", "Train the team", "Establish workflows"],
-      "resources": [{ "name": "Tools List", "url": "#" }, { "name": "Recommended Processes", "url": "#" }]
-    },
-    "financial-structure": {
-      "title": "Financial structure",
-      "purpose": "Define how project finances and distributions will be managed.",
-      "whenToUse": [
-        "With revenue-generating projects",
-        "When there's investment or funding",
-        "For projects with multiple participants"
+    "financial-rules": {
+      "title": "A6 Financial Rules",
+      "description": "Define financial management rules, including revenue distribution, expense allocation, and budget management.",
+      "objectives": [
+        "Establish revenue distribution model",
+        "Define expense management rules",
+        "Create financial accountability framework"
       ],
-      "steps": ["Define financial model", "Establish distribution rules", "Create cost structure", "Plan cash flow"],
-      "resources": [{ "name": "Financial Template", "url": "#" }, { "name": "Distribution Guide", "url": "#" }]
+      "deliverables": ["Financial rules document", "Distribution model", "Budget management plan"],
+      "tools": ["A6 Platform", "Financial Templates"]
     },
-    "experiment-cycle": {
-      "title": "Experiment cycle",
-      "purpose": "Implement a systematic process of experimentation and learning.",
-      "whenToUse": ["With products in development", "To validate hypotheses", "When there's market uncertainty"],
-      "steps": ["Define hypotheses to test", "Design experiments", "Execute and measure results", "Learn and adjust"],
-      "resources": [{ "name": "Experiment Template", "url": "#" }, { "name": "Lean Startup Guide", "url": "#" }]
-    },
-    "sprint-rhythm": {
-      "title": "Sprint rhythm",
-      "purpose": "Establish an agile work rhythm based on short sprints.",
-      "whenToUse": ["In all development projects", "To improve productivity", "When rapid iteration is needed"],
-      "steps": [
-        "Define sprint duration",
-        "Establish agile ceremonies",
-        "Create task backlog",
-        "Implement retrospectives"
+    "contribution-integrations": {
+      "title": "A6 Contribution Integrations",
+      "description": "Integrate project management and development tools to automatically track contributions and calculate ownership.",
+      "objectives": [
+        "Connect project management tools",
+        "Automate contribution tracking",
+        "Enable accurate ownership calculation"
       ],
-      "resources": [{ "name": "Basic Scrum Guide", "url": "#" }, { "name": "Sprint Template", "url": "#" }]
+      "deliverables": ["Integrated tools setup", "Automated tracking system", "Contribution dashboard"],
+      "tools": ["A6 Platform", "GitHub", "Jira", "Trello"]
     },
-    "distribution-scheme": {
-      "title": "Distribution scheme",
-      "purpose": "Implement a system to distribute value among participants.",
-      "whenToUse": [
-        "With revenue-generating projects",
-        "When there are multiple contributors",
-        "To incentivize participation"
-      ],
-      "steps": [
-        "Define distribution criteria",
-        "Implement tracking system",
-        "Establish payment periods",
-        "Communicate rules to team"
-      ],
-      "resources": [{ "name": "Distribution Calculator", "url": "#" }, { "name": "Platform Guide", "url": "#" }]
+    "shared-wallet-setup": {
+      "title": "A6 Shared Wallet Setup",
+      "description": "Set up a shared wallet for managing project funds, enabling transparent financial management and automated distributions.",
+      "objectives": ["Create shared wallet", "Define access and permissions", "Enable automated distributions"],
+      "deliverables": ["Configured shared wallet", "Access control setup", "Distribution automation"],
+      "tools": ["A6 Platform", "Crypto Wallets"]
     },
-    "roadmap-scalability": {
-      "title": "Roadmap and scalability",
-      "purpose": "Plan long-term growth and scalability of the project.",
-      "whenToUse": ["With validated and stable products", "When planning growth", "For projects in scaling phase"],
-      "steps": ["Analyze current metrics", "Identify bottlenecks", "Plan growth roadmap", "Define scaling strategy"],
-      "resources": [{ "name": "Roadmap Template", "url": "#" }, { "name": "Scalability Guide", "url": "#" }]
+    "management-tools-setup": {
+      "title": "Management Tools Setup",
+      "description": "Set up and configure project management tools, including task tracking, sprint planning, and agile workflows.",
+      "objectives": ["Select appropriate tools", "Configure workflows and processes", "Train team on tool usage"],
+      "deliverables": ["Configured project management tools", "Workflow templates", "Team training completed"],
+      "tools": ["A6 Compass", "Jira", "Trello", "Asana"]
     },
-    "rules-review": {
-      "title": "Rules review",
-      "purpose": "Review and update project rules and agreements periodically.",
-      "whenToUse": ["With mature management", "Every 6-12 months", "When circumstances change"],
-      "steps": ["Review current agreements", "Identify change needs", "Propose updates", "Implement new rules"],
-      "resources": [{ "name": "Review Checklist", "url": "#" }, { "name": "Changes Template", "url": "#" }]
+    "metrics-setup": {
+      "title": "Metrics Setup",
+      "description": "Define and set up key performance indicators (KPIs) and metrics to track project health, progress, and success.",
+      "objectives": ["Define relevant KPIs", "Set up tracking systems", "Create dashboards and reports"],
+      "deliverables": ["KPI dashboard", "Metrics tracking system", "Reporting templates"],
+      "tools": ["A6 Compass", "Analytics", "Dashboards"]
+    },
+    "job-marketplace": {
+      "title": "A6 Job Marketplace",
+      "description": "Enable the job marketplace to attract external contributors and facilitate open collaboration on project tasks.",
+      "objectives": ["List open tasks and bounties", "Attract external contributors", "Manage contributor onboarding"],
+      "deliverables": ["Job marketplace profile", "Published tasks and bounties", "Contributor guidelines"],
+      "tools": ["A6 Platform", "Job Board"]
+    },
+    "agile-ceremonies": {
+      "title": "Agile Methodology Ceremonies",
+      "description": "Implement agile ceremonies such as sprint planning, daily standups, reviews, and retrospectives for continuous improvement.",
+      "objectives": ["Establish sprint rhythm", "Conduct regular ceremonies", "Foster continuous improvement"],
+      "deliverables": ["Sprint schedule", "Ceremony templates", "Retrospective insights"],
+      "tools": ["A6 Compass", "Scrum", "Kanban"]
+    },
+    "ownership-revision": {
+      "title": "A6 Ownership Revision",
+      "description": "Regularly review and update ownership distribution based on ongoing contributions and agreed-upon rules.",
+      "objectives": ["Review contribution data", "Adjust ownership percentages", "Ensure fairness and transparency"],
+      "deliverables": ["Updated ownership percentages", "Revision report", "Transparent communication"],
+      "tools": ["A6 Compass", "A6 Platform"]
+    },
+    "income-distribution": {
+      "title": "A6 Income Distribution",
+      "description": "Execute income distribution based on ownership percentages and financial rules, ensuring fair compensation.",
+      "objectives": ["Calculate distributions", "Execute payments", "Maintain transparency"],
+      "deliverables": ["Distribution calculations", "Executed payments", "Distribution reports"],
+      "tools": ["A6 Platform", "Payment Systems"]
+    },
+    "governance": {
+      "title": "Governance",
+      "description": "Implement governance processes, including voting on decisions, proposals, and changes to project rules.",
+      "objectives": ["Facilitate decision-making", "Ensure democratic participation", "Maintain governance records"],
+      "deliverables": ["Governance decisions", "Voting records", "Proposal outcomes"],
+      "tools": ["A6 Platform", "Voting Tools"]
+    },
+    "ownership-reports": {
+      "title": "A6 Ownership Reports",
+      "description": "Generate and review ownership reports to maintain transparency and keep all stakeholders informed.",
+      "objectives": ["Generate ownership snapshots", "Share with stakeholders", "Maintain transparency"],
+      "deliverables": ["Ownership reports", "Stakeholder communications", "Historical records"],
+      "tools": ["A6 Platform", "Reporting Tools"]
+    },
+    "financial-reports": {
+      "title": "A6 Financial Reports",
+      "description": "Generate and review financial reports, including income, expenses, distributions, and budget status.",
+      "objectives": ["Generate financial statements", "Review budget status", "Ensure financial transparency"],
+      "deliverables": ["Financial statements", "Budget reports", "Distribution summaries"],
+      "tools": ["A6 Platform", "Accounting Software"]
+    },
+    "rules-revision": {
+      "title": "A6 Rules Revision",
+      "description": "Periodically review and update project rules, including governance, financial, and operational policies.",
+      "objectives": ["Review current rules", "Identify improvement opportunities", "Implement rule changes"],
+      "deliverables": ["Revised rules document", "Change proposals", "Implementation plan"],
+      "tools": ["A6 Platform", "A6 Compass"]
     },
     "health-metrics": {
-      "title": "Health metrics",
-      "purpose": "Monitor team and project health continuously.",
-      "whenToUse": ["With mature management", "For established projects", "As general good practice"],
-      "steps": ["Define key metrics", "Implement monitoring system", "Create dashboards", "Review metrics regularly"],
-      "resources": [{ "name": "Dashboard Template", "url": "#" }, { "name": "Metrics Guide", "url": "#" }]
+      "title": "Health Metrics",
+      "description": "Monitor team and project health metrics to identify issues early and maintain a positive work environment.",
+      "objectives": ["Track team satisfaction", "Monitor project health", "Identify improvement areas"],
+      "deliverables": ["Health metrics dashboard", "Regular health reports", "Action plans for improvements"],
+      "tools": ["A6 Compass", "Surveys", "Analytics"]
     },
-    "financial-optimization": {
-      "title": "Financial optimization",
-      "purpose": "Optimize financial management and project distributions.",
-      "whenToUse": [
-        "With revenue-generating projects",
-        "To improve financial efficiency",
-        "When optimizing distributions"
-      ],
-      "steps": [
-        "Analyze financial flows",
-        "Identify improvement opportunities",
-        "Optimize distributions",
-        "Implement improvements"
-      ],
-      "resources": [{ "name": "Financial Analysis", "url": "#" }, { "name": "Platform Optimizer", "url": "#" }]
+    "general-roadmap": {
+      "title": "General Roadmap Revision",
+      "description": "Review and update the project roadmap to align with current goals, market conditions, and team capacity.",
+      "objectives": ["Review progress against roadmap", "Adjust priorities and timelines", "Align on next steps"],
+      "deliverables": ["Updated roadmap", "Priority adjustments", "Team alignment"],
+      "tools": ["A6 Compass", "Roadmap Tools"]
     }
   },
   "item": {
     "notApplicableChip": "Not applicable"
   },
   "dialog": {
-    "whenToUse": "When to use",
-    "steps": "Steps",
-    "resources": "Resources",
-    "close": "Done"
-  },
-  "faq": {
-    "title": "Frequently Asked Questions",
-    "q1": {
-      "question": "How long does the complete process take?",
-      "answer": "It depends on your scenario and team size. A startup might complete the basic cycle in 2-3 months, while a mature organization might take 6-12 months to implement all dimensions."
-    },
-    "q2": {
-      "question": "Do I need to follow all stages?",
-      "answer": "No, the process is adaptive. Based on your configuration, some activities might not apply to your situation. Focus on what's relevant for your current stage and context."
-    },
-    "q3": {
-      "question": "What are the AngoraSix modules?",
-      "answer": "Compass helps with readiness assessment, Charter manages base rules and governance, Pulse tracks metrics and team health, and Platform handles ownership tracking and distributions."
-    },
-    "q4": {
-      "question": "Can I change scenarios mid-process?",
-      "answer": "Absolutely. As your project evolves, you can adjust the configuration to reflect your new reality. The recommendations will adapt accordingly."
-    },
-    "q5": {
-      "question": "Do you provide templates and resources?",
-      "answer": "Yes, each activity includes templates, guides, and resources to help you implement it effectively. These are available through our documentation and advisory services."
-    }
+    "objectives": "Objectives",
+    "deliverables": "Deliverables",
+    "tools": "Tools & Resources",
+    "close": "Close"
   },
   "cta": {
-    "contact": "Get Expert Guidance"
+    "title": "Ready to Get Started?",
+    "description": "Our team of experts can guide you through implementing the AngoraSix Methodology in your project.",
+    "button": "Get Expert Guidance"
   }
 }

@@ -1,5 +1,6 @@
 .MethodologyGuidePage {
   min-height: 100vh;
+  background-color: #fafbfc;
   margin-top: 2.5rem;
 }
 
@@ -123,12 +124,12 @@
   border: 1px solid #dce7ea;
   border-radius: 8px;
   padding: 1.5rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .MethodologyGuidePage .controls-panel.sticky {
   position: sticky;
-  top: 24px;
+  top: 100px;
 }
 
 /* Preset chips - compressed with tooltips */
@@ -382,4 +383,32 @@
 /* Not applicable chip in dialog */
 .MethodologyGuidePage .not-applicable-chip {
   margin-left: 0.5rem;
+}
+
+/* CTA Section */
+.MethodologyGuidePage .cta-section {
+  background: linear-gradient(135deg, #0a2239 0%, #1b5993 100%);
+  border-radius: 16px;
+  padding: 3rem 2rem;
+  margin-top: 4rem;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(10, 34, 57, 0.2);
+}
+
+.MethodologyGuidePage .cta-button {
+  background-color: #fe5f55;
+  color: white;
+  font-weight: 600;
+  padding: 12px 32px;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  text-transform: none;
+  box-shadow: 0 4px 12px rgba(254, 95, 85, 0.3);
+  transition: all 0.3s ease;
+}
+
+.MethodologyGuidePage .cta-button:hover {
+  background-color: #ff4d42;
+  box-shadow: 0 6px 16px rgba(254, 95, 85, 0.4);
+  transform: translateY(-2px);
 }

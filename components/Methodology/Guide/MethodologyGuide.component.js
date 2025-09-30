@@ -4,10 +4,10 @@ import {
   Build as BuildIcon,
   Close as CloseIcon,
   Explore as ExploreIcon,
+  FiberManualRecord as CircleIcon,
   Info as InfoIcon,
-  Science as ScienceIcon,
+  Loop as LoopIcon,
   Settings as SettingsIcon,
-  TrendingUp as TrendingUpIcon,
 } from "@mui/icons-material"
 import {
   Box,
@@ -39,20 +39,24 @@ import { useRouter } from "next/router"
 import { useState } from "react"
 import { ROUTES } from "../../../constants/constants"
 import { trackEvent } from "../../../utils/analytics"
-import { getItemEnabledState, methodologyGuideConfig, presetConfigs, staticStages } from "./methodologyGuide.config"
+import {
+  getItemEnabledState,
+  getItemImportance,
+  methodologyGuideConfig,
+  presetConfigs,
+  staticStages,
+} from "./methodologyGuide.config"
 
 const stageIcons = {
-  explore: ExploreIcon,
-  define: BuildIcon,
-  test: ScienceIcon,
-  evolve: TrendingUpIcon,
+  alignment: ExploreIcon,
+  setup: BuildIcon,
+  implementation: LoopIcon,
 }
 
 const stageColors = {
-  explore: "#1b5993",
-  define: "#0a2239",
-  test: "#fe5f55",
-  evolve: "#0F2F4D",
+  alignment: "#1b5993",
+  setup: "#0a2239",
+  implementation: "#fe5f55",
 }
 
 const MethodologyGuidePage = () => {
@@ -84,7 +88,7 @@ const MethodologyGuidePage = () => {
     trackEvent("methodology_guide_toggle_changed", { aspect, value })
   }
 
-  // Handle item dialog - now works for both enabled and disabled items
+  // Handle item dialog - works for both enabled and disabled items
   const handleItemClick = (item) => {
     setSelectedItem(item)
     setDialogOpen(true)
@@ -101,22 +105,40 @@ const MethodologyGuidePage = () => {
     setSelectedItem(null)
   }
 
-  // Get module icon
+  // Get module icon(s)
   const getModuleIcon = (module) => {
+    if (module === "both") {
+      return (
+        <Box sx={{ display: "flex", gap: 0.25 }}>
+          <ExploreIcon sx={{ opacity: 0.4, fontSize: "1rem" }} />
+          <Box
+            component="img"
+            src="/logos/a6-white-500.png"
+            alt="AngoraSix"
+            sx={{
+              width: 14,
+              height: 14,
+              opacity: 0.4,
+              filter: "invert(1)",
+            }}
+          />
+        </Box>
+      )
+    }
+
     switch (module) {
       case "compass":
-        return <ExploreIcon sx={{ opacity: 0.3, fontSize: "1.2rem" }} />
+        return <ExploreIcon sx={{ opacity: 0.4, fontSize: "1rem" }} />
       case "platform":
-      case "charter":
         return (
           <Box
             component="img"
             src="/logos/a6-white-500.png"
             alt="AngoraSix"
             sx={{
-              width: 16,
-              height: 16,
-              opacity: 0.3,
+              width: 14,
+              height: 14,
+              opacity: 0.4,
               filter: "invert(1)",
             }}
           />
@@ -126,9 +148,27 @@ const MethodologyGuidePage = () => {
     }
   }
 
+  // Render importance indicator
+  const renderImportanceIndicator = (importance) => {
+    return (
+      <Box sx={{ display: "flex", gap: 0.25, alignItems: "center" }}>
+        {[1, 2, 3].map((level) => (
+          <CircleIcon
+            key={level}
+            sx={{
+              fontSize: "0.5rem",
+              color: level <= importance ? "#1b5993" : "#dce7ea",
+            }}
+          />
+        ))}
+      </Box>
+    )
+  }
+
   // Render mini item card
   const renderMiniItemCard = (item) => {
     const isEnabled = getItemEnabledState(item, toggles)
+    const importance = isEnabled ? getItemImportance(item, toggles) : 0
 
     return (
       <Fade in key={item.key} timeout={300}>
@@ -136,37 +176,43 @@ const MethodologyGuidePage = () => {
           sx={{
             minWidth: 200,
             maxWidth: 280,
-            opacity: isEnabled ? 1 : 0.3,
+            opacity: isEnabled ? 1 : 0.35,
             cursor: "pointer",
             transition: "all 0.2s ease",
-            backgroundColor: isEnabled ? "background.paper" : "grey.100",
-            border: isEnabled ? "1px solid" : "1px solid",
+            backgroundColor: isEnabled ? "background.paper" : "grey.50",
+            border: "1px solid",
             borderColor: isEnabled ? "divider" : "grey.300",
             "&:hover": {
               elevation: 3,
               transform: "translateY(-2px)",
               borderColor: isEnabled ? "primary.main" : "grey.400",
+              boxShadow: isEnabled ? "0 4px 12px rgba(27, 89, 147, 0.15)" : "0 2px 8px rgba(0, 0, 0, 0.1)",
             },
           }}
           onClick={() => handleItemClick(item)}
         >
           <CardContent sx={{ p: 1.5, "&:last-child": { pb: 1.5 } }}>
-            <Box sx={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", mb: 1 }}>
-              <Typography
-                variant="subtitle2"
-                sx={{
-                  fontWeight: 600,
-                  flex: 1,
-                  lineHeight: 1.2,
-                  fontSize: "0.85rem",
-                  color: isEnabled ? "text.primary" : "text.disabled",
-                }}
-              >
-                {t(`items.${item.key}.title`)}
-              </Typography>
-              <Box sx={{ display: "flex", alignItems: "center", ml: 0.5 }}>
-                {item.module && getModuleIcon(item.module)}
+            <Box sx={{ display: "flex", flexDirection: "column", gap: 0.75 }}>
+              <Box sx={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between" }}>
+                <Typography
+                  variant="subtitle2"
+                  sx={{
+                    fontWeight: 600,
+                    flex: 1,
+                    lineHeight: 1.3,
+                    fontSize: "0.85rem",
+                    color: isEnabled ? "text.primary" : "text.disabled",
+                  }}
+                >
+                  {t(`items.${item.key}.title`)}
+                </Typography>
+                <Box sx={{ display: "flex", alignItems: "center", ml: 0.5 }}>
+                  {item.module && getModuleIcon(item.module)}
+                </Box>
               </Box>
+              {isEnabled && (
+                <Box sx={{ display: "flex", justifyContent: "flex-end" }}>{renderImportanceIndicator(importance)}</Box>
+              )}
             </Box>
           </CardContent>
         </Card>
@@ -180,7 +226,7 @@ const MethodologyGuidePage = () => {
       {/* Presets */}
       <Box sx={{ mb: 3 }}>
         <Box sx={{ display: "flex", alignItems: "center", mb: 1.5 }}>
-          <Typography variant="h6" sx={{ fontSize: "1rem" }}>
+          <Typography variant="h6" sx={{ fontSize: "1rem", fontWeight: 600 }}>
             {t("presets.title")}
           </Typography>
           <Tooltip title={t("presets.tooltip")} placement="top">
@@ -198,7 +244,11 @@ const MethodologyGuidePage = () => {
                 color={selectedPreset === preset ? "primary" : "default"}
                 onClick={() => handlePresetChange(preset)}
                 size="small"
-                sx={{ cursor: "pointer", fontSize: "0.75rem" }}
+                sx={{
+                  cursor: "pointer",
+                  fontSize: "0.75rem",
+                  fontWeight: selectedPreset === preset ? 600 : 400,
+                }}
               />
             </Tooltip>
           ))}
@@ -207,7 +257,7 @@ const MethodologyGuidePage = () => {
 
       {/* Toggles - Compressed */}
       <Box>
-        <Typography variant="h6" sx={{ mb: 1.5, fontSize: "1rem" }}>
+        <Typography variant="h6" sx={{ mb: 1.5, fontSize: "1rem", fontWeight: 600 }}>
           {t("aspects.title")}
         </Typography>
         <Grid container spacing={2}>
@@ -320,35 +370,44 @@ const MethodologyGuidePage = () => {
   return (
     <Box className="MethodologyGuidePage">
       {/* Header */}
-      <Container maxWidth="lg" sx={{ py: 3 }}>
-        <Typography variant="h1" component="h1" sx={{ mb: 2, fontSize: { xs: "2rem", md: "2.5rem" } }}>
+      <Container maxWidth="lg" sx={{ py: { xs: 2, md: 4 } }}>
+        <Typography
+          variant="h1"
+          component="h1"
+          sx={{
+            mb: 2,
+            fontSize: { xs: "2rem", md: "2.5rem" },
+            fontWeight: 700,
+            color: "primary.main",
+          }}
+        >
           {t("title")}
         </Typography>
 
-        <Typography variant="h5" color="text.secondary" sx={{ mb: 3, fontSize: { xs: "1.1rem", md: "1.25rem" } }}>
+        <Typography
+          variant="h5"
+          color="text.secondary"
+          sx={{
+            mb: 1,
+            fontSize: { xs: "1.1rem", md: "1.25rem" },
+            fontWeight: 400,
+            lineHeight: 1.5,
+          }}
+        >
           {t("subtitle")}
         </Typography>
 
-        <Box sx={{ textAlign: "center", mb: 4 }}>
-          <Button
-            className="cta-button"
-            color="secondary"
-            variant="contained"
-            size="large"
-            onClick={() => {
-              // Navigate to services and open contact modal
-              router.push(`${ROUTES.services}?section=guidance&dialog=true`)
-            }}
-            sx={{
-              px: 4,
-              py: 1.5,
-              fontSize: "1.1rem",
-              fontWeight: 600,
-            }}
-          >
-            {t("cta.contact")}
-          </Button>
-        </Box>
+        <Typography
+          variant="body1"
+          color="text.secondary"
+          sx={{
+            mb: 3,
+            fontSize: { xs: "0.95rem", md: "1rem" },
+            lineHeight: 1.6,
+          }}
+        >
+          {t("description")}
+        </Typography>
       </Container>
 
       {/* Main Content */}
@@ -363,21 +422,37 @@ const MethodologyGuidePage = () => {
               return (
                 <Paper
                   key={stage.key}
-                  elevation={2}
+                  elevation={1}
                   sx={{
                     mb: 3,
-                    p: 3,
+                    p: { xs: 2, md: 3 },
                     borderLeft: `4px solid ${stageColor}`,
                     backgroundColor: `${stageColor}08`,
+                    borderRadius: 2,
                   }}
                 >
                   <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
-                    <StageIcon sx={{ color: stageColor, mr: 1.5, fontSize: "1.5rem" }} />
-                    <Typography variant="h5" sx={{ color: stageColor, fontWeight: 600, fontSize: "1.3rem" }}>
+                    <StageIcon sx={{ color: stageColor, mr: 1.5, fontSize: "1.75rem" }} />
+                    <Typography
+                      variant="h5"
+                      sx={{
+                        color: stageColor,
+                        fontWeight: 700,
+                        fontSize: { xs: "1.2rem", md: "1.4rem" },
+                      }}
+                    >
                       {t(`stages.${stage.key}.title`)}
                     </Typography>
                   </Box>
-                  <Typography variant="body2" color="text.secondary" sx={{ mb: 2.5, lineHeight: 1.5 }}>
+                  <Typography
+                    variant="body2"
+                    color="text.secondary"
+                    sx={{
+                      mb: 2.5,
+                      lineHeight: 1.6,
+                      fontSize: { xs: "0.9rem", md: "0.95rem" },
+                    }}
+                  >
                     {t(`stages.${stage.key}.description`)}
                   </Typography>
                   <Box
@@ -400,7 +475,7 @@ const MethodologyGuidePage = () => {
             <Box
               sx={{
                 position: "sticky",
-                top: 24,
+                top: 100,
                 bgcolor: "background.paper",
                 border: 1,
                 borderColor: "divider",
@@ -413,6 +488,62 @@ const MethodologyGuidePage = () => {
             </Box>
           </Grid>
         </Grid>
+
+        {/* CTA Section */}
+        <Box
+          sx={{
+            mt: 6,
+            p: { xs: 3, md: 4 },
+            bgcolor: "primary.main",
+            borderRadius: 3,
+            textAlign: "center",
+            boxShadow: 3,
+          }}
+        >
+          <Typography
+            variant="h4"
+            sx={{
+              color: "white",
+              fontWeight: 700,
+              mb: 2,
+              fontSize: { xs: "1.5rem", md: "2rem" },
+            }}
+          >
+            {t("cta.title")}
+          </Typography>
+          <Typography
+            variant="body1"
+            sx={{
+              color: "white",
+              mb: 3,
+              opacity: 0.95,
+              fontSize: { xs: "0.95rem", md: "1.1rem" },
+            }}
+          >
+            {t("cta.description")}
+          </Typography>
+          <Button
+            className="cta-button"
+            color="secondary"
+            variant="contained"
+            size="large"
+            onClick={() => {
+              router.push(`${ROUTES.services}?section=guidance&dialog=true`)
+            }}
+            sx={{
+              px: 4,
+              py: 1.5,
+              fontSize: "1.1rem",
+              fontWeight: 600,
+              boxShadow: 2,
+              "&:hover": {
+                boxShadow: 4,
+              },
+            }}
+          >
+            {t("cta.button")}
+          </Button>
+        </Box>
       </Container>
 
       {/* Mobile FAB */}
@@ -451,21 +582,24 @@ const MethodologyGuidePage = () => {
       <Dialog open={dialogOpen} onClose={handleDialogClose} maxWidth="md" fullWidth>
         {selectedItem && (
           <>
-            <DialogTitle>
+            <DialogTitle
+              sx={{
+                bgcolor: "primary.light2",
+                borderBottom: 1,
+                borderColor: "divider",
+              }}
+            >
               <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                <Box sx={{ display: "flex", alignItems: "center" }}>
-                  <Typography variant="h5" sx={{ mr: 1 }}>
+                <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                  <Typography variant="h5" sx={{ fontWeight: 600 }}>
                     {t(`items.${selectedItem.key}.title`)}
                   </Typography>
                   {selectedItem.module && getModuleIcon(selectedItem.module)}
                   {!getItemEnabledState(selectedItem, toggles) && (
-                    <Chip
-                      label={t("item.notApplicableChip")}
-                      size="small"
-                      color="warning"
-                      variant="outlined"
-                      sx={{ ml: 1 }}
-                    />
+                    <Chip label={t("item.notApplicableChip")} size="small" color="warning" variant="outlined" />
+                  )}
+                  {getItemEnabledState(selectedItem, toggles) && (
+                    <Box sx={{ ml: 1 }}>{renderImportanceIndicator(getItemImportance(selectedItem, toggles))}</Box>
                   )}
                 </Box>
                 <IconButton onClick={handleDialogClose}>
@@ -473,50 +607,62 @@ const MethodologyGuidePage = () => {
                 </IconButton>
               </Box>
             </DialogTitle>
-            <DialogContent>
-              <Typography variant="body1" sx={{ mb: 2 }}>
-                {t(`items.${selectedItem.key}.purpose`)}
+            <DialogContent sx={{ mt: 2 }}>
+              <Typography variant="body1" sx={{ mb: 3, lineHeight: 1.7 }}>
+                {t(`items.${selectedItem.key}.description`)}
               </Typography>
 
-              <Typography variant="h6" sx={{ mb: 1 }}>
-                {t("dialog.whenToUse")}
-              </Typography>
-              <List dense sx={{ mb: 2 }}>
-                {t(`items.${selectedItem.key}.whenToUse`, { returnObjects: true }).map((item, index) => (
-                  <ListItem key={index} sx={{ px: 0 }}>
-                    <ListItemText primary={`• ${item}`} />
-                  </ListItem>
-                ))}
-              </List>
-
-              <Typography variant="h6" sx={{ mb: 1 }}>
-                {t("dialog.steps")}
+              <Typography variant="h6" sx={{ mb: 1.5, fontWeight: 600 }}>
+                {t("dialog.objectives")}
               </Typography>
               <List dense sx={{ mb: 3 }}>
-                {t(`items.${selectedItem.key}.steps`, { returnObjects: true }).map((step, index) => (
-                  <ListItem key={index} sx={{ px: 0 }}>
-                    <ListItemText primary={`${index + 1}. ${step}`} />
+                {t(`items.${selectedItem.key}.objectives`, { returnObjects: true }).map((item, index) => (
+                  <ListItem key={index} sx={{ px: 0, py: 0.5 }}>
+                    <ListItemText
+                      primary={`• ${item}`}
+                      primaryTypographyProps={{
+                        fontSize: "0.95rem",
+                        lineHeight: 1.6,
+                      }}
+                    />
                   </ListItem>
                 ))}
               </List>
 
-              {t(`items.${selectedItem.key}.resources`, { returnObjects: true }).length > 0 && (
+              <Typography variant="h6" sx={{ mb: 1.5, fontWeight: 600 }}>
+                {t("dialog.deliverables")}
+              </Typography>
+              <List dense sx={{ mb: 3 }}>
+                {t(`items.${selectedItem.key}.deliverables`, { returnObjects: true }).map((deliverable, index) => (
+                  <ListItem key={index} sx={{ px: 0, py: 0.5 }}>
+                    <ListItemText
+                      primary={`${index + 1}. ${deliverable}`}
+                      primaryTypographyProps={{
+                        fontSize: "0.95rem",
+                        lineHeight: 1.6,
+                      }}
+                    />
+                  </ListItem>
+                ))}
+              </List>
+
+              {t(`items.${selectedItem.key}.tools`, { returnObjects: true }).length > 0 && (
                 <>
-                  <Typography variant="h6" sx={{ mb: 1 }}>
-                    {t("dialog.resources")}
+                  <Typography variant="h6" sx={{ mb: 1.5, fontWeight: 600 }}>
+                    {t("dialog.tools")}
                   </Typography>
-                  <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap" }}>
-                    {t(`items.${selectedItem.key}.resources`, { returnObjects: true }).map((resource, index) => (
-                      <Button key={index} variant="outlined" size="small" href={resource.url} target="_blank">
-                        {resource.name}
-                      </Button>
+                  <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap", mb: 2 }}>
+                    {t(`items.${selectedItem.key}.tools`, { returnObjects: true }).map((tool, index) => (
+                      <Chip key={index} label={tool} size="small" variant="outlined" />
                     ))}
                   </Box>
                 </>
               )}
             </DialogContent>
-            <DialogActions>
-              <Button onClick={handleDialogClose}>{t("dialog.close")}</Button>
+            <DialogActions sx={{ p: 2, bgcolor: "grey.50" }}>
+              <Button onClick={handleDialogClose} variant="contained">
+                {t("dialog.close")}
+              </Button>
             </DialogActions>
           </>
         )}

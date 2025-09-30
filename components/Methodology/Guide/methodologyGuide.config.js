@@ -1,4 +1,4 @@
-// Methodology Guide configuration with static stages and items
+// Methodology Guide configuration with updated stages and items
 
 export const methodologyGuideConfig = {
   aspects: {
@@ -52,100 +52,308 @@ export const presetConfigs = {
 // Static stages with fixed items
 export const staticStages = [
   {
-    key: "explore",
+    key: "alignment",
     items: [
       {
-        key: "align-expectations",
-        stage: "explore",
-        module: "compass",
-        enabledWhen: { management: ["newTeam"] },
-      },
-      {
-        key: "initial-rhythm",
-        stage: "explore",
+        key: "fairness-assessment",
+        stage: "alignment",
         module: "compass",
         enabledWhen: {}, // Always enabled
+        importanceWhen: {
+          finance: {
+            noRevenue: 1,
+            noDefinitiveRevenue: 1,
+            stableRevenue: 2,
+            unstableRevenue: 3,
+          },
+        },
       },
       {
-        key: "validate-opportunity",
-        stage: "explore",
+        key: "team-readiness",
+        stage: "alignment",
         module: "compass",
         enabledWhen: { product: ["new"] },
-      },
-    ],
-  },
-  {
-    key: "define",
-    items: [
-      {
-        key: "base-agreements",
-        stage: "define",
-        module: "charter",
-        enabledWhen: { centralization: ["core", "decentralized"] },
+        importanceWhen: {
+          management: {
+            newTeam: 3,
+            mature: 2,
+          },
+        },
       },
       {
-        key: "processes-tools",
-        stage: "define",
-        module: null,
+        key: "team-alignment",
+        stage: "alignment",
+        module: "compass",
         enabledWhen: {}, // Always enabled
+        importanceWhen: {
+          management: {
+            newTeam: 3,
+            mature: 2,
+          },
+        },
       },
       {
-        key: "financial-structure",
-        stage: "define",
-        module: "charter",
-        enabledWhen: { finance: ["stableRevenue", "unstableRevenue"] },
-      },
-    ],
-  },
-  {
-    key: "test",
-    items: [
-      {
-        key: "experiment-cycle",
-        stage: "test",
-        module: null,
-        enabledWhen: { product: ["new", "validated"] },
+        key: "management-definition",
+        stage: "alignment",
+        module: "compass",
+        enabledWhen: { management: ["newTeam"] },
+        importanceWhen: {
+          centralization: {
+            admin: 1,
+            core: 2,
+            decentralized: 3,
+          },
+        },
       },
       {
-        key: "sprint-rhythm",
-        stage: "test",
-        module: null,
-        enabledWhen: {}, // Always enabled
+        key: "product-prevalidation",
+        stage: "alignment",
+        module: "compass",
+        enabledWhen: { product: ["new"] },
+        importanceWhen: {
+          openness: {
+            closed: 2,
+            open: 3,
+          },
+        },
       },
       {
-        key: "distribution-scheme",
-        stage: "test",
-        module: "platform",
-        enabledWhen: { finance: ["stableRevenue", "unstableRevenue"] },
-      },
-    ],
-  },
-  {
-    key: "evolve",
-    items: [
-      {
-        key: "roadmap-scalability",
-        stage: "evolve",
-        module: "platform",
+        key: "product-analysis",
+        stage: "alignment",
+        module: "compass",
         enabledWhen: { product: ["validated"] },
+        importanceWhen: {
+          finance: {
+            noRevenue: 1,
+            noDefinitiveRevenue: 2,
+            stableRevenue: 3,
+            unstableRevenue: 3,
+          },
+        },
       },
       {
-        key: "rules-review",
-        stage: "evolve",
-        module: "charter",
-        enabledWhen: { management: ["mature"] },
+        key: "trainings",
+        stage: "alignment",
+        module: "compass",
+        enabledWhen: {}, // Always enabled
+        importanceWhen: {
+          management: {
+            newTeam: 3,
+            mature: 1,
+          },
+        },
+      },
+    ],
+  },
+  {
+    key: "setup",
+    items: [
+      {
+        key: "governance-rules",
+        stage: "setup",
+        module: "platform",
+        enabledWhen: {}, // Always enabled
+        importanceWhen: {
+          centralization: {
+            admin: 1,
+            core: 2,
+            decentralized: 3,
+          },
+        },
+      },
+      {
+        key: "financial-rules",
+        stage: "setup",
+        module: "platform",
+        enabledWhen: { finance: ["noDefinitiveRevenue", "stableRevenue", "unstableRevenue"] },
+        importanceWhen: {
+          finance: {
+            noDefinitiveRevenue: 1,
+            stableRevenue: 2,
+            unstableRevenue: 3,
+          },
+        },
+      },
+      {
+        key: "contribution-integrations",
+        stage: "setup",
+        module: "platform",
+        enabledWhen: {}, // Always enabled
+        importanceWhen: {
+          openness: {
+            closed: 1,
+            open: 3,
+          },
+        },
+      },
+      {
+        key: "shared-wallet-setup",
+        stage: "setup",
+        module: "platform",
+        enabledWhen: { finance: ["noDefinitiveRevenue", "stableRevenue", "unstableRevenue"] },
+        importanceWhen: {
+          finance: {
+            noDefinitiveRevenue: 1,
+            stableRevenue: 2,
+            unstableRevenue: 3,
+          },
+        },
+      },
+      {
+        key: "management-tools-setup",
+        stage: "setup",
+        module: "compass",
+        enabledWhen: {}, // Always enabled
+        importanceWhen: {
+          management: {
+            newTeam: 3,
+            mature: 2,
+          },
+        },
+      },
+      {
+        key: "metrics-setup",
+        stage: "setup",
+        module: "compass",
+        enabledWhen: {}, // Always enabled
+        importanceWhen: {
+          product: {
+            new: 2,
+            validated: 3,
+          },
+        },
+      },
+      {
+        key: "job-marketplace",
+        stage: "setup",
+        module: "platform",
+        enabledWhen: { openness: ["open"] },
+        importanceWhen: {
+          finance: {
+            noRevenue: 1,
+            noDefinitiveRevenue: 2,
+            stableRevenue: 3,
+            unstableRevenue: 3,
+          },
+        },
+      },
+    ],
+  },
+  {
+    key: "implementation",
+    items: [
+      {
+        key: "agile-ceremonies",
+        stage: "implementation",
+        module: "compass",
+        enabledWhen: {}, // Always enabled
+        importanceWhen: {
+          management: {
+            newTeam: 3,
+            mature: 2,
+          },
+        },
+      },
+      {
+        key: "ownership-revision",
+        stage: "implementation",
+        module: "both", // Both compass and platform
+        enabledWhen: {}, // Always enabled
+        importanceWhen: {
+          centralization: {
+            admin: 1,
+            core: 2,
+            decentralized: 3,
+          },
+        },
+      },
+      {
+        key: "income-distribution",
+        stage: "implementation",
+        module: "platform",
+        enabledWhen: { finance: ["noDefinitiveRevenue", "stableRevenue", "unstableRevenue"] },
+        importanceWhen: {
+          finance: {
+            noDefinitiveRevenue: 1,
+            stableRevenue: 2,
+            unstableRevenue: 3,
+          },
+        },
+      },
+      {
+        key: "governance",
+        stage: "implementation",
+        module: "platform",
+        enabledWhen: {}, // Always enabled
+        importanceWhen: {
+          centralization: {
+            admin: 1,
+            core: 2,
+            decentralized: 3,
+          },
+        },
+      },
+      {
+        key: "ownership-reports",
+        stage: "implementation",
+        module: "platform",
+        enabledWhen: {}, // Always enabled
+        importanceWhen: {
+          centralization: {
+            admin: 1,
+            core: 2,
+            decentralized: 3,
+          },
+        },
+      },
+      {
+        key: "financial-reports",
+        stage: "implementation",
+        module: "platform",
+        enabledWhen: { finance: ["noDefinitiveRevenue", "stableRevenue", "unstableRevenue"] },
+        importanceWhen: {
+          finance: {
+            noDefinitiveRevenue: 1,
+            stableRevenue: 2,
+            unstableRevenue: 3,
+          },
+        },
+      },
+      {
+        key: "rules-revision",
+        stage: "implementation",
+        module: "both", // Both platform and compass
+        enabledWhen: {}, // Always enabled
+        importanceWhen: {
+          management: {
+            newTeam: 2,
+            mature: 3,
+          },
+        },
       },
       {
         key: "health-metrics",
-        stage: "evolve",
-        module: "platform",
-        enabledWhen: { management: ["mature"] },
+        stage: "implementation",
+        module: "compass",
+        enabledWhen: {}, // Always enabled
+        importanceWhen: {
+          management: {
+            newTeam: 2,
+            mature: 3,
+          },
+        },
       },
       {
-        key: "financial-optimization",
-        stage: "evolve",
-        module: "platform",
-        enabledWhen: { finance: ["stableRevenue", "unstableRevenue"] },
+        key: "general-roadmap",
+        stage: "implementation",
+        module: "compass",
+        enabledWhen: {}, // Always enabled
+        importanceWhen: {
+          product: {
+            new: 2,
+            validated: 3,
+          },
+        },
       },
     ],
   },
@@ -160,4 +368,21 @@ export const getItemEnabledState = (item, toggles) => {
   return Object.entries(item.enabledWhen).every(([aspect, allowedValues]) => {
     return allowedValues.includes(toggles[aspect])
   })
+}
+
+// Helper function to get item importance level (1-3)
+export const getItemImportance = (item, toggles) => {
+  if (!item.importanceWhen || Object.keys(item.importanceWhen).length === 0) {
+    return 2 // Default medium importance
+  }
+
+  // Get the first matching importance rule
+  for (const [aspect, importanceMap] of Object.entries(item.importanceWhen)) {
+    const currentValue = toggles[aspect]
+    if (importanceMap[currentValue] !== undefined) {
+      return importanceMap[currentValue]
+    }
+  }
+
+  return 2 // Default medium importance
 }
