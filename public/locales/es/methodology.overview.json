@@ -1,4 +1,8 @@
 {
+  "page": {
+    "title": "La metodología AngoraSix",
+    "description": "Un marco que ayuda a los equipos a definir lo que es justo en la gestión del proyecto — de manera iterativa y evolutiva."
+  },
   "hero": {
     "title": "La metodología AngoraSix",
     "description": "Un marco que ayuda a los equipos a definir lo que es justo en la gestión del proyecto — de manera iterativa y evolutiva. Reduce fricciones, aporta claridad y habilita una gobernanza dinámica basada en aportes reales.",
@@ -32,8 +36,8 @@
   },
   "ctas": {
     "title": "¿Listo para Comenzar?",
-    "contact": "Obtener Asesoría",
-    "register": "Comienza tu Viaje",
-    "guide": "Explorar la Guía"
+    "contact": "Obtener asesoría",
+    "register": "Comienza tu viaje",
+    "guide": "Guía Interactiva"
   }
 }

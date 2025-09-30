@@ -61,6 +61,10 @@ export const ROUTES = {
     ideas: '/welcome/ideas',
     root: "/"
   },
+  methodology: {
+    overview: '/methodology/overview',
+    guide: '/methodology/guide',
+  },
   legal: {
     termsAndConditions: '/legal/terms-and-conditions',
   },

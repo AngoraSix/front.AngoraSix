@@ -10,7 +10,7 @@
     "badge2": "AngoraSix Platform"
   },
   "guidance": {
-    "badge": "Expert Guidance",
+    "badge": "A6 Compass",
     "title": "Guidance & Methodology Services",
     "subtitle": "We're your partners in building better. Get expert support with proven frameworks and methodologies to set your project up for success from day one.",
     "agile": {
@@ -29,10 +29,11 @@
       "title": "Fair Management Frameworks",
       "description": "Help your team align on what 'fair' means and implement transparent governance and financial processes that everyone understands."
     },
-    "cta": "Talk to Our Advisors"
+    "cta": "Talk to Our Advisors",
+    "cta2": "Explore the Methodology"
   },
   "platform": {
-    "badge": "Power-Up",
+    "badge": "A6 Platform",
     "title": "AngoraSix Platform",
     "subtitle": "A natural extension of your framework — gain efficiency while upholding your transparency and fairness principles, as you've set them.",
     "contribution": {

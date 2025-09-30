@@ -4,7 +4,7 @@ import DefaultLayout from "../../../layouts/DefaultLayout"
 
 const MethodologyGuidePage = () => {
   return (
-    <DefaultLayout>
+    <DefaultLayout contained={false} className="MethodologyGuidePage__Page__Body">
       <MethodologyGuide />
     </DefaultLayout>
   )

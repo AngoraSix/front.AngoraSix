@@ -55,6 +55,10 @@ const Services = ({ forProfile }) => {
     }
   }
 
+  const handleExploreMethodology = () => {
+    router.push(ROUTES.methodology.overview)
+  }
+
   const handleContactAdvisor = () => {
     // Track analytics event
     trackConsultationServiceClick()
@@ -220,10 +224,19 @@ const Services = ({ forProfile }) => {
               variant="outlined"
               size="large"
               onClick={handleContactAdvisor}
-              className="services-guidance-cta"
+              className="services-cta services-guidance-cta"
               endIcon={<ArrowForwardIcon />}
             >
               {t("guidance.cta")}
+            </Button>
+            <Button
+              variant="outlined"
+              size="large"
+              onClick={handleExploreMethodology}
+              className="services-cta services-methodology-cta"
+              endIcon={<ArrowForwardIcon />}
+            >
+              {t("guidance.cta2")}
             </Button>
           </div>
         </div>

@@ -1,4 +1,8 @@
 {
+  "page": {
+    "title": "The AngoraSix Methodology",
+    "description": "A framework that helps teams define what 'fair' means in project management — iteratively and adaptively."
+  },
   "hero": {
     "title": "The AngoraSix Methodology",
     "description": "A framework that helps teams define what 'fair' means in project management — iteratively and adaptively. It reduces friction, brings clarity, and enables dynamic governance based on real contributions.",
@@ -34,6 +38,6 @@
     "title": "Ready to Begin?",
     "contact": "Get Guidance",
     "register": "Start Your Journey",
-    "guide": "Explore the Guide"
+    "guide": "Interactive Guide"
   }
 }
