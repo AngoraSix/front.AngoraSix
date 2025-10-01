@@ -31,12 +31,12 @@ export const presetConfigs = {
     management: "newTeam",
     centralization: "decentralized",
     openness: "open",
-    finance: "noRevenue",
+    finance: "stableRevenue",
   },
   subproject: {
     product: "validated",
     management: "mature",
-    centralization: "admin",
+    centralization: "core",
     openness: "closed",
     finance: "stableRevenue",
   },
@@ -327,8 +327,9 @@ export const staticStages = [
         module: "both", // Both platform and compass
         getImportance: (toggles) => {
           // Always enabled
-          const value = toggles.management === "mature" || toggles.centralization === "admin" ? 2
-            : 3
+          const value = toggles.product === "new" || toggles.management === "newTeam" ? 1
+            : toggles.management === "mature" || toggles.centralization === "admin" ? 2
+              : 3
           return value
         },
       },
@@ -338,8 +339,9 @@ export const staticStages = [
         module: "compass",
         getImportance: (toggles) => {
           // Always enabled
-          const value = toggles.finance === "unstableRevenue" || toggles.management === "newTeam" || toggles.product === "new" ? 3
-            : 2
+          const value = toggles.product === "new" || toggles.management === "newTeam" ? 1
+            : toggles.finance === "unstableRevenue" || toggles.management === "newTeam" || toggles.product === "new" ? 3
+              : 2
           return value
         },
       },
@@ -349,8 +351,9 @@ export const staticStages = [
         module: "compass",
         getImportance: (toggles) => {
           // Always enabled
-          const value = toggles.finance === "unstableRevenue" || toggles.management === "newTeam" || toggles.product === "new" ? 3
-            : 2
+          const value = toggles.product === "new" ? 1
+            : toggles.finance === "unstableRevenue" || toggles.management === "newTeam" || toggles.product === "new" ? 3
+              : 2
           return value
         },
       },
