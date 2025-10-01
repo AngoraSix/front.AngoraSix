@@ -65,11 +65,11 @@
       }
     },
     "finance": {
-      "label": "Finance",
-      "tooltip": "Current financial situation",
+      "label": "Financial flow",
+      "tooltip": "Revenue model",
       "options": {
-        "noRevenue": "No Revenue",
-        "noDefinitiveRevenue": "No Definitive Revenue",
+        "noRevenue": "Non-financial",
+        "noRevenueYet": "No revenue yet",
         "stableRevenue": "Stable Revenue",
         "unstableRevenue": "Unstable/Growing Revenue"
       }

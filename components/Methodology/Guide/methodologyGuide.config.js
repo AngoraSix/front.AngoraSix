@@ -6,7 +6,7 @@ export const methodologyGuideConfig = {
     management: ["newTeam", "mature"],
     centralization: ["admin", "core", "decentralized"],
     openness: ["closed", "open"],
-    finance: ["noRevenue", "noDefinitiveRevenue", "stableRevenue", "unstableRevenue"],
+    finance: ["noRevenue", "noRevenueYet", "stableRevenue", "unstableRevenue"],
   },
 }
 
@@ -17,7 +17,7 @@ export const presetConfigs = {
     management: "newTeam",
     centralization: "core",
     openness: "closed",
-    finance: "noRevenue",
+    finance: "noRevenueYet",
   },
   venture: {
     product: "validated",
@@ -60,13 +60,10 @@ export const staticStages = [
         module: "compass",
         getImportance: (toggles) => {
           // Always enabled
-          const financeMap = {
-            noRevenue: 1,
-            noDefinitiveRevenue: 1,
-            stableRevenue: 2,
-            unstableRevenue: 3,
-          }
-          return financeMap[toggles.finance] || 2
+          const value = toggles.centralization === "admin" || toggles.finance === "noRevenue" ? 1
+            : toggles.management === "newTeam" || toggles.centralization === "decentralized" || toggles.openness === "open" || toggles.finance === "unstableRevenue" ? 3
+              : 2
+          return value
         },
       },
       {
@@ -74,14 +71,11 @@ export const staticStages = [
         stage: "alignment",
         module: "compass",
         getImportance: (toggles) => {
-          // Only enabled for new products
-          if (toggles.product !== "new") return 0
-
-          const managementMap = {
-            newTeam: 3,
-            mature: 2,
-          }
-          return managementMap[toggles.management] || 2
+          // Only enabled for new teams
+          if (toggles.management !== "newTeam") return 0
+          const value = toggles.centralization === "admin" || toggles.openness === "open" || toggles.finance === "noRevenue" ? 2
+            : 3
+          return value
         },
       },
       {
@@ -90,11 +84,9 @@ export const staticStages = [
         module: "compass",
         getImportance: (toggles) => {
           // Always enabled
-          const managementMap = {
-            newTeam: 3,
-            mature: 2,
-          }
-          return managementMap[toggles.management] || 2
+          const value = toggles.management === "mature" || toggles.centralization === "admin" || toggles.openness === "open" || toggles.finance === "noRevenue" || toggles.centralization === "decentralized" ? 2
+            : 3
+          return value
         },
       },
       {
@@ -104,13 +96,10 @@ export const staticStages = [
         getImportance: (toggles) => {
           // Only enabled for new teams
           if (toggles.management !== "newTeam") return 0
-
-          const centralizationMap = {
-            admin: 1,
-            core: 2,
-            decentralized: 3,
-          }
-          return centralizationMap[toggles.centralization] || 2
+          const value = toggles.centralization === "admin" ? 1
+            : toggles.finance === "noRevenue" ? 2
+              : 3
+          return value
         },
       },
       {
@@ -121,11 +110,9 @@ export const staticStages = [
           // Only enabled for new products
           if (toggles.product !== "new") return 0
 
-          const opennessMap = {
-            closed: 2,
-            open: 3,
-          }
-          return opennessMap[toggles.openness] || 2
+          const value = toggles.finance === "noRevenue" ? 2
+            : 3
+          return value
         },
       },
       {
@@ -138,7 +125,7 @@ export const staticStages = [
 
           const financeMap = {
             noRevenue: 1,
-            noDefinitiveRevenue: 2,
+            noRevenueYet: 2,
             stableRevenue: 3,
             unstableRevenue: 3,
           }
@@ -151,11 +138,9 @@ export const staticStages = [
         module: "compass",
         getImportance: (toggles) => {
           // Always enabled
-          const managementMap = {
-            newTeam: 3,
-            mature: 1,
-          }
-          return managementMap[toggles.management] || 2
+          const value = toggles.product === "new" || toggles.management === "newTeam" ? 3
+            : 2
+          return value
         },
       },
     ],
@@ -169,12 +154,10 @@ export const staticStages = [
         module: "platform",
         getImportance: (toggles) => {
           // Always enabled
-          const centralizationMap = {
-            admin: 1,
-            core: 2,
-            decentralized: 3,
-          }
-          return centralizationMap[toggles.centralization] || 2
+          const value = toggles.centralization === "admin" ? 1
+            : toggles.management === "newTeam" || toggles.centralization === "decentralized" ? 3
+              : 2
+          return value
         },
       },
       {
@@ -185,12 +168,10 @@ export const staticStages = [
           // Only disabled for noRevenue
           if (toggles.finance === "noRevenue") return 0
 
-          const financeMap = {
-            noDefinitiveRevenue: 1,
-            stableRevenue: 2,
-            unstableRevenue: 3,
-          }
-          return financeMap[toggles.finance] || 2
+          const value = toggles.centralization === "admin" ? 1
+            : toggles.management === "newTeam" || toggles.centralization === "decentralized" || toggles.finance === "unstableRevenue" ? 3
+              : 2
+          return value
         },
       },
       {
@@ -199,11 +180,7 @@ export const staticStages = [
         module: "platform",
         getImportance: (toggles) => {
           // Always enabled
-          const opennessMap = {
-            closed: 1,
-            open: 3,
-          }
-          return opennessMap[toggles.openness] || 2
+          return 3
         },
       },
       {
@@ -214,12 +191,10 @@ export const staticStages = [
           // Only disabled for noRevenue
           if (toggles.finance === "noRevenue") return 0
 
-          const financeMap = {
-            noDefinitiveRevenue: 1,
-            stableRevenue: 2,
-            unstableRevenue: 3,
-          }
-          return financeMap[toggles.finance] || 2
+          const value = toggles.finance === "noRevenueYet" ? 1
+            : toggles.centralization === "admin" ? 2
+              : 3
+          return value
         },
       },
       {
@@ -227,13 +202,10 @@ export const staticStages = [
         stage: "setup",
         module: "compass",
         getImportance: (toggles) => {
-          // Always enabled
-          const managementMap = {
-            newTeam: 3,
-            mature: 2,
-          }
-          return managementMap[toggles.management] || 2
-        },
+          // Only disabled for mature teams
+          if (toggles.management === "mature") return 0
+          return 3
+        }
       },
       {
         key: "metrics-setup",
@@ -241,11 +213,10 @@ export const staticStages = [
         module: "compass",
         getImportance: (toggles) => {
           // Always enabled
-          const productMap = {
-            new: 2,
-            validated: 3,
-          }
-          return productMap[toggles.product] || 2
+          const value = toggles.management === "newTeam" ? 3
+            : toggles.product === "validated" ? 1
+              : 2
+          return value
         },
       },
       {
@@ -255,14 +226,7 @@ export const staticStages = [
         getImportance: (toggles) => {
           // Only enabled for open projects
           if (toggles.openness !== "open") return 0
-
-          const financeMap = {
-            noRevenue: 1,
-            noDefinitiveRevenue: 2,
-            stableRevenue: 3,
-            unstableRevenue: 3,
-          }
-          return financeMap[toggles.finance] || 2
+          return 3
         },
       },
     ],
@@ -306,7 +270,7 @@ export const staticStages = [
           if (toggles.finance === "noRevenue") return 0
 
           const financeMap = {
-            noDefinitiveRevenue: 1,
+            noRevenueYet: 1,
             stableRevenue: 2,
             unstableRevenue: 3,
           }
@@ -350,7 +314,7 @@ export const staticStages = [
           if (toggles.finance === "noRevenue") return 0
 
           const financeMap = {
-            noDefinitiveRevenue: 1,
+            noRevenueYet: 1,
             stableRevenue: 2,
             unstableRevenue: 3,
           }
@@ -363,11 +327,9 @@ export const staticStages = [
         module: "both", // Both platform and compass
         getImportance: (toggles) => {
           // Always enabled
-          const managementMap = {
-            newTeam: 2,
-            mature: 3,
-          }
-          return managementMap[toggles.management] || 2
+          const value = toggles.management === "mature" || toggles.centralization === "admin" ? 2
+            : 3
+          return value
         },
       },
       {
@@ -376,11 +338,9 @@ export const staticStages = [
         module: "compass",
         getImportance: (toggles) => {
           // Always enabled
-          const managementMap = {
-            newTeam: 2,
-            mature: 3,
-          }
-          return managementMap[toggles.management] || 2
+          const value = toggles.finance === "unstableRevenue" || toggles.management === "newTeam" || toggles.product === "new" ? 3
+            : 2
+          return value
         },
       },
       {
@@ -389,11 +349,9 @@ export const staticStages = [
         module: "compass",
         getImportance: (toggles) => {
           // Always enabled
-          const productMap = {
-            new: 2,
-            validated: 3,
-          }
-          return productMap[toggles.product] || 2
+          const value = toggles.finance === "unstableRevenue" || toggles.management === "newTeam" || toggles.product === "new" ? 3
+            : 2
+          return value
         },
       },
     ],

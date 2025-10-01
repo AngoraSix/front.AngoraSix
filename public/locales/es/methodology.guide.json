@@ -65,11 +65,11 @@
       }
     },
     "finance": {
-      "label": "Finanzas",
-      "tooltip": "Situación financiera actual",
+      "label": "Flujo Financiero",
+      "tooltip": "Modelo financiero",
       "options": {
-        "noRevenue": "Sin Ingresos",
-        "noDefinitiveRevenue": "Sin Ingresos Definitivos",
+        "noRevenue": "No Financiero",
+        "noRevenueYet": "Sin Ingresos todavía",
         "stableRevenue": "Ingresos Estables",
         "unstableRevenue": "Ingresos Inestables/Crecientes"
       }
