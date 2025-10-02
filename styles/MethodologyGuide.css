@@ -9,18 +9,64 @@
   padding-right: 1rem;
 }
 
-/* Stage containers */
-.MethodologyGuidePage .MuiPaper-root {
+/* Header Section */
+.MethodologyGuidePage .page-header {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.MethodologyGuidePage .page-title {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1b5993;
+}
+
+.MethodologyGuidePage .page-subtitle {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.MethodologyGuidePage .page-description {
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+/* Main Content */
+.MethodologyGuidePage .page-main-content {
+  padding-bottom: 3rem;
+}
+
+/* Stage Cards */
+.MethodologyGuidePage .stage-card {
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  border-left-width: 4px;
+  border-left-style: solid;
   transition: all 0.3s ease;
 }
 
-.MethodologyGuidePage .stage-container {
-  margin-bottom: 1.5rem;
-  border-radius: 12px;
-  overflow: hidden;
+.MethodologyGuidePage .stage-card.stage-alignment {
+  background-color: rgba(27, 89, 147, 0.03);
+  border-left-color: #1b5993;
 }
 
-/* Stage headers with icons */
+.MethodologyGuidePage .stage-card.stage-setup {
+  background-color: rgba(10, 34, 57, 0.03);
+  border-left-color: #0a2239;
+}
+
+.MethodologyGuidePage .stage-card.stage-implementation {
+  background-color: rgba(254, 95, 85, 0.03);
+  border-left-color: #fe5f55;
+}
+
 .MethodologyGuidePage .stage-header {
   display: flex;
   align-items: center;
@@ -29,126 +75,191 @@
 
 .MethodologyGuidePage .stage-icon {
   margin-right: 0.75rem;
-  font-size: 1.5rem;
+  font-size: 1.75rem;
 }
 
 .MethodologyGuidePage .stage-title {
-  font-weight: 600;
-  font-size: 1.3rem;
+  font-weight: 700;
+  font-size: 1.2rem;
 }
 
 .MethodologyGuidePage .stage-description {
-  line-height: 1.5;
   margin-bottom: 1.5rem;
+  line-height: 1.6;
   font-size: 0.9rem;
+  color: rgba(0, 0, 0, 0.6);
 }
 
-/* Mini item cards - horizontal layout with smooth animations */
-.MethodologyGuidePage .items-container {
+.MethodologyGuidePage .stage-items {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
   justify-content: flex-start;
 }
 
-.MethodologyGuidePage .mini-card {
+/* Item Cards */
+.MethodologyGuidePage .item-card {
   min-width: 200px;
   max-width: 280px;
-  flex: 0 0 auto;
-}
-
-/* Smooth transition for all card state changes */
-.MethodologyGuidePage .MuiCard-root {
+  cursor: pointer;
+  border: 1px solid;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.MethodologyGuidePage .mini-card.enabled {
+.MethodologyGuidePage .item-card.enabled {
   background-color: #ffffff;
-  border: 1px solid #dce7ea;
+  border-color: #dce7ea;
   opacity: 1;
 }
 
-.MethodologyGuidePage .mini-card.disabled {
+.MethodologyGuidePage .item-card.disabled {
   background-color: #f5f5f5;
-  border: 1px solid #e0e0e0;
+  border-color: #e0e0e0;
   opacity: 0.35;
-  cursor: pointer;
 }
 
-.MethodologyGuidePage .mini-card.enabled:hover {
+.MethodologyGuidePage .item-card.enabled:hover {
   border-color: #1b5993;
   box-shadow: 0 4px 12px rgba(27, 89, 147, 0.15);
   transform: translateY(-2px);
 }
 
-.MethodologyGuidePage .mini-card.disabled:hover {
+.MethodologyGuidePage .item-card.disabled:hover {
   border-color: #999;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   transform: translateY(-1px);
 }
 
-/* Card content */
-.MethodologyGuidePage .mini-card .MuiCardContent-root {
+.MethodologyGuidePage .item-card-content {
   padding: 1rem;
 }
 
-.MethodologyGuidePage .mini-card .card-title {
+.MethodologyGuidePage .item-card-content:last-child {
+  padding-bottom: 1rem;
+}
+
+.MethodologyGuidePage .item-card-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.MethodologyGuidePage .item-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.MethodologyGuidePage .item-card-title {
   font-weight: 600;
+  flex: 1;
+  line-height: 1.3;
   font-size: 0.85rem;
-  line-height: 1.2;
-  margin-bottom: 0.5rem;
   transition: color 0.4s ease;
 }
 
-.MethodologyGuidePage .mini-card.enabled .card-title {
+.MethodologyGuidePage .item-card.enabled .item-card-title {
   color: #0a2239;
 }
 
-.MethodologyGuidePage .mini-card.disabled .card-title {
+.MethodologyGuidePage .item-card.disabled .item-card-title {
   color: #999;
 }
 
-/* Module icons - translucent hints */
-.MethodologyGuidePage .module-icon {
-  opacity: 0.3;
-  margin-left: 0.25rem;
+.MethodologyGuidePage .item-card-module {
+  display: flex;
+  align-items: center;
+  margin-left: 0.5rem;
 }
 
-.MethodologyGuidePage .module-icon.angorasix-logo {
-  width: 16px;
-  height: 16px;
+.MethodologyGuidePage .item-card-importance {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Module Icons */
+.MethodologyGuidePage .module-icons-both {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.MethodologyGuidePage .module-icon-compass {
+  opacity: 0.4;
+  font-size: 1rem;
+}
+
+.MethodologyGuidePage .module-icon-platform {
+  width: 14px;
+  height: 14px;
+  opacity: 0.4;
   filter: invert(1);
 }
 
-.MethodologyGuidePage .module-icon.mui-icon {
-  font-size: 1.2rem;
+/* Importance Indicator */
+.MethodologyGuidePage .importance-indicator {
+  display: flex;
+  gap: 0.25rem;
+  align-items: center;
 }
 
-/* Importance indicators - smooth color transitions */
-.MethodologyGuidePage .MuiSvgIcon-root {
+.MethodologyGuidePage .importance-circle {
+  font-size: 0.5rem;
   transition: color 0.4s ease;
 }
 
-/* Controls panel - compressed */
+.MethodologyGuidePage .importance-circle.filled {
+  color: #1b5993;
+}
+
+.MethodologyGuidePage .importance-circle.empty {
+  color: #dce7ea;
+}
+
+/* Controls Column */
+.MethodologyGuidePage .controls-column {
+  display: none;
+}
+
 .MethodologyGuidePage .controls-panel {
+  position: sticky;
+  top: 100px;
   background-color: #ffffff;
   border: 1px solid #dce7ea;
-  border-radius: 8px;
-  padding: 1.5rem;
+  border-radius: 0.5rem;
+  padding: 1.25rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
-.MethodologyGuidePage .controls-panel.sticky {
-  position: sticky;
-  top: 100px;
+/* Presets Section */
+.MethodologyGuidePage .presets-section {
+  margin-bottom: 1.5rem;
 }
 
-/* Preset chips - compressed with tooltips */
-.MethodologyGuidePage .presets-container {
+.MethodologyGuidePage .presets-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.MethodologyGuidePage .presets-title {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.MethodologyGuidePage .info-icon-button {
+  margin-left: 0.25rem;
+  padding: 0.125rem;
+}
+
+.MethodologyGuidePage .info-icon-button .MuiSvgIcon-root {
+  font-size: 0.875rem;
+  color: #7d99ba;
+}
+
+.MethodologyGuidePage .presets-chips {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-bottom: 1.5rem;
 }
 
 .MethodologyGuidePage .preset-chip {
@@ -159,22 +270,21 @@
 }
 
 .MethodologyGuidePage .preset-chip.selected {
-  background-color: #1b5993;
-  color: white;
+  font-weight: 600;
 }
 
-.MethodologyGuidePage .preset-chip.outlined {
-  border-color: #afc1d6;
-  color: #0a2239;
+/* Aspects Section */
+.MethodologyGuidePage .aspects-section {
+  /* No additional styles needed */
 }
 
-.MethodologyGuidePage .preset-chip.outlined:hover {
-  background-color: #dce7ea;
-  border-color: #1b5993;
+.MethodologyGuidePage .aspects-title {
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
 }
 
-/* Toggle buttons - compressed */
-.MethodologyGuidePage .aspect-container {
+.MethodologyGuidePage .aspect-item {
   margin-bottom: 1rem;
 }
 
@@ -190,110 +300,284 @@
   color: #0a2239;
 }
 
-.MethodologyGuidePage .MuiToggleButtonGroup-root {
-  border-radius: 6px;
-  overflow: hidden;
-  width: 100%;
-  height: 32px;
+/* Toggle Buttons */
+.MethodologyGuidePage .toggle-grid-4 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  height: 64px;
 }
 
-.MethodologyGuidePage .MuiToggleButton-root {
-  border-color: #afc1d6;
-  color: #0a2239;
+.MethodologyGuidePage .toggle-button {
   font-size: 0.7rem;
   padding: 0.25rem 0.5rem;
   text-transform: none;
   justify-content: center;
   text-align: center;
+  border-color: #afc1d6;
+  color: #0a2239;
   transition: all 0.3s ease;
 }
 
-.MethodologyGuidePage .MuiToggleButton-root.Mui-selected {
+.MethodologyGuidePage .toggle-button.top-left {
+  border-radius: 6px 0 0 0;
+  border-right: 0.5px solid #afc1d6;
+  border-bottom: 0.5px solid #afc1d6;
+}
+
+.MethodologyGuidePage .toggle-button.top-right {
+  border-radius: 0 6px 0 0;
+  border-left: 0.5px solid #afc1d6;
+  border-bottom: 0.5px solid #afc1d6;
+}
+
+.MethodologyGuidePage .toggle-button.bottom-left {
+  border-radius: 0 0 0 6px;
+  border-right: 0.5px solid #afc1d6;
+  border-top: 0.5px solid #afc1d6;
+}
+
+.MethodologyGuidePage .toggle-button.bottom-right {
+  border-radius: 0 0 6px 0;
+  border-left: 0.5px solid #afc1d6;
+  border-top: 0.5px solid #afc1d6;
+}
+
+.MethodologyGuidePage .toggle-button.Mui-selected {
   background-color: #1b5993;
   color: white;
 }
 
-.MethodologyGuidePage .MuiToggleButton-root.Mui-selected:hover {
+.MethodologyGuidePage .toggle-button.Mui-selected:hover {
   background-color: #0a2239;
+}
+
+.MethodologyGuidePage .toggle-group {
+  border-radius: 6px;
+  overflow: hidden;
+  height: 32px;
+}
+
+/* CTA Section */
+.MethodologyGuidePage .cta-section {
+  margin-top: 3rem;
+  padding: 2rem;
+  background-color: #1b5993;
+  border-radius: 1rem;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.MethodologyGuidePage .cta-title {
+  color: white;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.MethodologyGuidePage .cta-description {
+  color: white;
+  margin-bottom: 1.5rem;
+  opacity: 0.95;
+  font-size: 0.95rem;
+}
+
+.MethodologyGuidePage .cta-button {
+  padding: 0.75rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.MethodologyGuidePage .cta-button:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* Mobile FAB */
-.MethodologyGuidePage .MuiFab-root {
+.MethodologyGuidePage .mobile-fab {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  display: flex;
   background-color: #1b5993;
   color: white;
   transition: all 0.3s ease;
 }
 
-.MethodologyGuidePage .MuiFab-root:hover {
+.MethodologyGuidePage .mobile-fab:hover {
   background-color: #0a2239;
 }
 
-/* Mobile drawer */
-.MethodologyGuidePage .MuiDrawer-paper {
+/* Mobile Drawer */
+.MethodologyGuidePage .mobile-drawer .MuiDrawer-paper {
   border-radius: 16px 16px 0 0;
   max-height: 70vh;
 }
 
-/* Dialog styling */
-.MethodologyGuidePage .MuiDialog-paper {
+.MethodologyGuidePage .mobile-drawer-content {
+  padding: 1.5rem;
+  max-height: 70vh;
+  overflow: auto;
+}
+
+.MethodologyGuidePage .mobile-drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Dialog Styles */
+.MethodologyGuidePage .item-dialog .MuiDialog-paper {
   border-radius: 12px;
   max-height: 80vh;
 }
 
-.MethodologyGuidePage .MuiDialogTitle-root {
+.MethodologyGuidePage .dialog-title {
   background-color: #dce7ea;
   border-radius: 12px 12px 0 0;
+  border-bottom: 1px solid #afc1d6;
 }
 
-/* Dialog title with module icon */
-.MethodologyGuidePage .dialog-title-container {
+.MethodologyGuidePage .dialog-title-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.MethodologyGuidePage .dialog-title-main {
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
-.MethodologyGuidePage .dialog-module-icon {
-  opacity: 0.5;
+.MethodologyGuidePage .dialog-item-title {
+  font-weight: 600;
 }
 
-/* Stage color variations */
-.MethodologyGuidePage .stage-explore {
-  background-color: rgba(27, 89, 147, 0.03);
-  border-left-color: #1b5993;
+.MethodologyGuidePage .not-applicable-chip {
+  margin-left: 0.5rem;
 }
 
-.MethodologyGuidePage .stage-define {
-  background-color: rgba(10, 34, 57, 0.03);
-  border-left-color: #0a2239;
+.MethodologyGuidePage .dialog-importance {
+  margin-left: 0.5rem;
 }
 
-.MethodologyGuidePage .stage-test {
-  background-color: rgba(254, 95, 85, 0.03);
-  border-left-color: #fe5f55;
+.MethodologyGuidePage .dialog-content {
+  margin-top: 1rem;
 }
 
-.MethodologyGuidePage .stage-evolve {
-  background-color: rgba(125, 153, 186, 0.03);
-  border-left-color: #7d99ba;
+.MethodologyGuidePage .dialog-description {
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
 }
 
-/* Responsive adjustments */
+.MethodologyGuidePage .dialog-section-title {
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.MethodologyGuidePage .dialog-list {
+  margin-bottom: 1.5rem;
+}
+
+.MethodologyGuidePage .dialog-list-item {
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
+.MethodologyGuidePage .dialog-list-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.MethodologyGuidePage .dialog-tools {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.MethodologyGuidePage .tool-chip {
+  /* No additional styles needed */
+}
+
+.MethodologyGuidePage .dialog-actions {
+  padding: 1rem;
+  background-color: #f5f5f5;
+}
+
+/* Responsive - Desktop */
+@media (min-width: 900px) {
+  .MethodologyGuidePage .page-header {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .MethodologyGuidePage .page-title {
+    font-size: 2.5rem;
+  }
+
+  .MethodologyGuidePage .page-subtitle {
+    font-size: 1.25rem;
+  }
+
+  .MethodologyGuidePage .page-description {
+    font-size: 1rem;
+  }
+
+  .MethodologyGuidePage .stage-card {
+    padding: 2rem;
+  }
+
+  .MethodologyGuidePage .stage-title {
+    font-size: 1.4rem;
+  }
+
+  .MethodologyGuidePage .stage-description {
+    font-size: 0.95rem;
+  }
+
+  .MethodologyGuidePage .controls-column {
+    display: block;
+  }
+
+  .MethodologyGuidePage .mobile-fab {
+    display: none;
+  }
+
+  .MethodologyGuidePage .cta-section {
+    padding: 3rem;
+  }
+
+  .MethodologyGuidePage .cta-title {
+    font-size: 2rem;
+  }
+
+  .MethodologyGuidePage .cta-description {
+    font-size: 1.1rem;
+  }
+}
+
+/* Responsive - Mobile */
 @media (max-width: 900px) {
   .MethodologyGuidePage .MuiContainer-root {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
   }
 
-  .MethodologyGuidePage .stage-container {
+  .MethodologyGuidePage .stage-card {
     margin-bottom: 1rem;
     padding: 1.5rem;
   }
 
-  .MethodologyGuidePage .items-container {
+  .MethodologyGuidePage .stage-items {
     gap: 0.75rem;
   }
 
-  .MethodologyGuidePage .mini-card {
+  .MethodologyGuidePage .item-card {
     min-width: 180px;
     max-width: 250px;
   }
@@ -308,32 +592,36 @@
     font-size: 0.85rem;
   }
 
-  .MethodologyGuidePage .items-container {
+  .MethodologyGuidePage .stage-items {
     flex-direction: column;
     gap: 0.5rem;
   }
 
-  .MethodologyGuidePage .mini-card {
+  .MethodologyGuidePage .item-card {
     min-width: 100%;
     max-width: 100%;
   }
 
-  .MethodologyGuidePage .mini-card .MuiCardContent-root {
+  .MethodologyGuidePage .item-card-content {
     padding: 0.75rem;
   }
 
+  .MethodologyGuidePage .item-card-content:last-child {
+    padding-bottom: 0.75rem;
+  }
+
   /* Mobile drawer controls */
-  .MethodologyGuidePage .MuiDrawer-paper .presets-container {
+  .MethodologyGuidePage .mobile-drawer .presets-chips {
     flex-direction: column;
     gap: 0.25rem;
   }
 
-  .MethodologyGuidePage .MuiDrawer-paper .preset-chip {
+  .MethodologyGuidePage .mobile-drawer .preset-chip {
     width: 100%;
     justify-content: flex-start;
   }
 
-  .MethodologyGuidePage .MuiDrawer-paper .MuiToggleButton-root {
+  .MethodologyGuidePage .mobile-drawer .toggle-button {
     padding: 0.75rem;
     font-size: 0.75rem;
   }
@@ -363,11 +651,11 @@
 }
 
 /* Apply animations to cards */
-.methodology-guide-item-enter {
+.MethodologyGuidePage .methodology-guide-item-enter {
   animation: fadeInScale 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.methodology-guide-item-exit {
+.MethodologyGuidePage .methodology-guide-item-exit {
   animation: fadeOutScale 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -377,55 +665,4 @@
 .MethodologyGuidePage .MuiCard-root:focus {
   outline: 2px solid #1b5993;
   outline-offset: 2px;
-}
-
-/* Info tooltips */
-.MethodologyGuidePage .info-tooltip {
-  margin-left: 0.25rem;
-  padding: 0.125rem;
-}
-
-.MethodologyGuidePage .info-tooltip .MuiSvgIcon-root {
-  font-size: 0.875rem;
-  color: #7d99ba;
-}
-
-/* Preset tooltips styling */
-.MethodologyGuidePage .preset-tooltip {
-  max-width: 300px;
-  font-size: 0.8rem;
-  line-height: 1.4;
-}
-
-/* Not applicable chip in dialog */
-.MethodologyGuidePage .not-applicable-chip {
-  margin-left: 0.5rem;
-}
-
-/* CTA Section */
-.MethodologyGuidePage .cta-section {
-  background: linear-gradient(135deg, #0a2239 0%, #1b5993 100%);
-  border-radius: 16px;
-  padding: 3rem 2rem;
-  margin-top: 4rem;
-  text-align: center;
-  box-shadow: 0 8px 24px rgba(10, 34, 57, 0.2);
-}
-
-.MethodologyGuidePage .cta-button {
-  background-color: #fe5f55;
-  color: white;
-  font-weight: 600;
-  padding: 12px 32px;
-  font-size: 1.1rem;
-  border-radius: 8px;
-  text-transform: none;
-  box-shadow: 0 4px 12px rgba(254, 95, 85, 0.3);
-  transition: all 0.3s ease;
-}
-
-.MethodologyGuidePage .cta-button:hover {
-  background-color: #ff4d42;
-  box-shadow: 0 6px 16px rgba(254, 95, 85, 0.4);
-  transform: translateY(-2px);
 }

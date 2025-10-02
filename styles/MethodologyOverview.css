@@ -31,6 +31,7 @@
   margin-bottom: 32px;
   color: #1b5993;
   animation: fadeInUp 0.8s ease-out 0.4s both;
+  text-align: left;
 }
 
 .MethodologyOverviewPage .hero-quote {
