@@ -202,134 +202,115 @@
       ]
     },
     "governance-rules": {
-      "title": "Reglas de Gobernanza A6",
-      "description": "Establecer reglas claras de gobernanza para toma de decisiones, resolución de conflictos y distribución de poder dentro del proyecto.",
+      "title": "Reglas de Gobernanza",
+      "description": "Definir las reglas de toma de decisiones, distribución de poder y resolución de conflictos del proyecto. Estas reglas forman la base del sistema de gobernanza dinámica de AngoraSix.",
+      "help": "A6 Layer permite parametrizar estas reglas para que las decisiones, votos y revisiones se apliquen de forma automática y transparente, reduciendo fricción en la gestión.",
       "objectives": [
-        "Definir procesos de toma de decisiones",
-        "Establecer mecanismos de votación",
-        "Crear procedimientos de resolución de conflictos"
-      ],
-      "deliverables": [
-        "Carta de gobernanza",
-        "Marco de toma de decisiones",
-        "Guía de resolución de conflictos"
+        "Establecer procesos claros y verificables de toma de decisiones",
+        "Definir mecanismos de votación y actualización de reglas",
+        "Formalizar la distribución de poder y participación en el proyecto"
       ],
       "tools": [
-        "A6 Platform",
+        "A6 Layer",
         "Templates de Gobernanza"
       ]
     },
     "financial-rules": {
-      "title": "Reglas Financieras A6",
-      "description": "Definir reglas de gestión financiera, incluyendo distribución de ingresos, asignación de gastos y gestión de presupuesto.",
+      "title": "Reglas Financieras",
+      "description": "Diseñar el modelo financiero que rige cómo se distribuyen los ingresos, cómo se gestionan los gastos y cómo se registra el valor creado.",
+      "help": "En A6 Layer se pueden definir parámetros de distribución y fórmulas automáticas basadas en contribuciones, asegurando trazabilidad y equidad en cada movimiento.",
       "objectives": [
-        "Establecer modelo de distribución de ingresos",
-        "Definir reglas de gestión de gastos",
-        "Crear marco de responsabilidad financiera"
-      ],
-      "deliverables": [
-        "Documento de reglas financieras",
-        "Modelo de distribución",
-        "Plan de gestión de presupuesto"
+        "Definir el modelo de distribución de ingresos y gastos",
+        "Establecer las reglas que vinculan aportes con recompensas",
+        "Habilitar trazabilidad y reporting financiero automático"
       ],
       "tools": [
-        "A6 Platform",
+        "A6 Layer",
+        "Modelos Financieros",
         "Templates Financieros"
       ]
     },
     "contribution-integrations": {
-      "title": "Integraciones de Contribución A6",
-      "description": "Integrar herramientas de gestión de proyectos y desarrollo para rastrear automáticamente contribuciones y calcular ownership.",
+      "title": "Integraciones de Contribución",
+      "description": "Conectar herramientas externas (como GitHub, Trello o Jira) para que las contribuciones se registren automáticamente y alimenten los cálculos de ownership y fairness.",
+      "help": "A6 Layer actúa como una capa de integración que sincroniza actividades reales del equipo con el modelo de fairness, sin agregar carga operativa.",
       "objectives": [
-        "Conectar herramientas de gestión de proyectos",
-        "Automatizar rastreo de contribuciones",
-        "Habilitar cálculo preciso de ownership"
-      ],
-      "deliverables": [
-        "Configuración de herramientas integradas",
-        "Sistema de rastreo automatizado",
-        "Dashboard de contribuciones"
+        "Integrar herramientas de trabajo existentes para el registro automático de aportes",
+        "Reducir carga manual y errores en la medición de contribuciones",
+        "Consolidar ownership y métricas de aporte en un solo sistema"
       ],
       "tools": [
-        "A6 Platform",
-        "GitHub",
+        "A6 Layer",
+        "GitHub Projects",
         "Jira",
-        "Trello"
+        "Trello",
+        "Notion",
+        "Asana",
+        "ClickUp"
       ]
     },
     "shared-wallet-setup": {
-      "title": "Configuración de Billetera Compartida A6",
-      "description": "Configurar una billetera compartida para gestionar fondos del proyecto, habilitando gestión financiera transparente y distribuciones automáticas.",
+      "title": "Billetera Compartida",
+      "description": "Configurar una billetera compartida o multi-firma que permita administrar fondos del proyecto de forma transparente, segura y basada en reglas acordadas por el equipo.",
+      "help": "A6 Layer se integra con soluciones tanto cripto como tradicionales para habilitar una gestión descentralizada y verificable de los recursos. Las distribuciones se aplican automáticamente según las reglas de fairness definidas.",
       "objectives": [
-        "Crear billetera compartida",
-        "Definir accesos y permisos",
-        "Habilitar distribuciones automáticas"
-      ],
-      "deliverables": [
-        "Billetera compartida configurada",
-        "Configuración de control de acceso",
-        "Automatización de distribuciones"
+        "Habilitar una billetera compartida con control distribuido",
+        "Automatizar distribuciones y pagos de acuerdo a los aportes reales y reglas de contribución",
+        "Garantizar trazabilidad y transparencia en todos los movimientos financieros"
       ],
       "tools": [
-        "A6 Platform",
-        "Billeteras Crypto"
+        "A6 Layer",
+        "Safe Wallet",
+        "Billeteras Crypto Compatibles",
+        "Billeteras Tradicionales Multi-firma o Cooperativas"
       ]
     },
     "management-tools-setup": {
       "title": "Configuración de Herramientas de Gestión",
-      "description": "Configurar herramientas de gestión de proyectos, incluyendo seguimiento de tareas, planificación de sprints y flujos de trabajo ágiles.",
+      "description": "Seleccionar y configurar herramientas de gestión de tareas y comunicación para acompañar la implementación del marco de fairness y gobernanza.",
+      "help": "A6 Compass asesora en la selección y configuración de herramientas que faciliten la coordinación del equipo y su integración con la A6 Layer.",
       "objectives": [
-        "Seleccionar herramientas apropiadas",
-        "Configurar flujos de trabajo y procesos",
-        "Capacitar al equipo en uso de herramientas"
-      ],
-      "deliverables": [
-        "Herramientas de gestión de proyectos configuradas",
-        "Templates de flujos de trabajo",
-        "Capacitación del equipo completada"
+        "Elegir herramientas adecuadas al tamaño y madurez del equipo",
+        "Configurar flujos de trabajo compatibles con la gobernanza A6",
+        "Asegurar que el equipo pueda operar con claridad y autonomía"
       ],
       "tools": [
         "A6 Compass",
+        "GitHub Projects",
         "Jira",
         "Trello",
-        "Asana"
+        "Notion",
+        "Asana",
+        "ClickUp"
       ]
     },
     "metrics-setup": {
-      "title": "Configuración de Métricas",
-      "description": "Definir y configurar indicadores clave de rendimiento (KPIs) y métricas para rastrear la salud, progreso y éxito del proyecto.",
+      "title": "Métricas y Seguimiento",
+      "description": "Definir indicadores que permitan visualizar progreso, colaboración y equidad dentro del equipo, sin agregar burocracia innecesaria.",
+      "help": "A6 Compass ayuda al equipo a definir métricas de valor y a configurar dashboards dentro de la A6 Layer para seguir su evolución y tomar decisiones basadas en datos reales.",
       "objectives": [
-        "Definir KPIs relevantes",
-        "Configurar sistemas de rastreo",
-        "Crear dashboards y reportes"
-      ],
-      "deliverables": [
-        "Dashboard de KPIs",
-        "Sistema de rastreo de métricas",
-        "Templates de reportes"
+        "Definir métricas relevantes de salud, fairness y progreso",
+        "Configurar dashboards integrados dentro de la A6 Layer",
+        "Promover decisiones informadas y adaptativas"
       ],
       "tools": [
         "A6 Compass",
-        "Analíticas",
-        "Dashboards"
+        "A6 Layer",
+        "Dashboards Integrados"
       ]
     },
     "job-marketplace": {
-      "title": "Mercado de Trabajo A6",
-      "description": "Habilitar el mercado de trabajo para atraer contribuidores externos y facilitar colaboración abierta en tareas del proyecto.",
+      "title": "Mercado de Contribuciones",
+      "description": "Abrir el proyecto a colaboraciones externas, permitiendo que nuevos miembros participen con trazabilidad y reglas claras de compensación.",
+      "help": "A6 Layer incluye una plataforma de oportunidades abiertas, donde los equipos pueden publicar tareas, recibir contribuciones y aplicar automáticamente las reglas de fairness.",
       "objectives": [
-        "Listar tareas abiertas y recompensas",
-        "Atraer contribuidores externos",
-        "Gestionar onboarding de contribuidores"
-      ],
-      "deliverables": [
-        "Perfil en mercado de trabajo",
-        "Tareas y recompensas publicadas",
-        "Guías para contribuidores"
+        "Ampliar la red de contribución de forma segura y transparente",
+        "Publicar tareas y roles con recompensas asociadas",
+        "Registrar y compensar colaboraciones externas según reglas A6"
       ],
       "tools": [
-        "A6 Platform",
-        "Job Board"
+        "A6 Layer",
+        "Job Board A6"
       ]
     },
     "agile-ceremonies": {
