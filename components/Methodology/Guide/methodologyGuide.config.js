@@ -322,21 +322,9 @@ export const staticStages = [
         },
       },
       {
-        key: "rules-revision",
-        stage: "implementation",
-        module: "both", // Both platform and compass
-        getImportance: (toggles) => {
-          // Always enabled
-          const value = toggles.product === "new" || toggles.management === "newTeam" ? 1
-            : toggles.management === "mature" || toggles.centralization === "admin" ? 2
-              : 3
-          return value
-        },
-      },
-      {
         key: "health-metrics",
         stage: "implementation",
-        module: "compass",
+        module: "both",
         getImportance: (toggles) => {
           // Always enabled
           const value = toggles.product === "new" || toggles.management === "newTeam" ? 1

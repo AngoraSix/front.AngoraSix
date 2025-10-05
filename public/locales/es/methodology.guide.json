@@ -296,7 +296,9 @@
       "tools": [
         "A6 Compass",
         "A6 Layer",
-        "Dashboards Integrados"
+        "Dashboards de Progreso",
+        "KPIs",
+        "Analíticas"
       ]
     },
     "job-marketplace": {
@@ -314,167 +316,129 @@
       ]
     },
     "agile-ceremonies": {
-      "title": "Ceremonias de Metodología Ágil",
-      "description": "Implementar ceremonias ágiles como planificación de sprints, standups diarios, revisiones y retrospectivas para mejora continua.",
+      "title": "Ceremonias Ágiles",
+      "description": "Implementar un sistema de trabajo iterativo y colaborativo mediante ceremonias ágiles (planificación, standups, revisiones y retrospectivas) que fomenten foco, ritmo y mejora continua.",
+      "help": "Desde A6 Compass guiamos la adopción de una metodología liviana adaptada al tamaño y madurez del equipo, alineando las ceremonias con la revisión de métricas, reglas y fairness del proyecto.",
       "objectives": [
-        "Establecer ritmo de sprints",
-        "Conducir ceremonias regulares",
-        "Fomentar mejora continua"
-      ],
-      "deliverables": [
-        "Cronograma de sprints",
-        "Templates de ceremonias",
-        "Insights de retrospectivas"
+        "Establecer un ritmo de trabajo sostenible con cadencias claras",
+        "Consolidar espacios regulares de comunicación y reflexión",
+        "Promover la mejora continua y la transparencia en el avance"
       ],
       "tools": [
         "A6 Compass",
-        "Scrum",
+        "Scrum-lite",
         "Kanban"
       ]
     },
     "ownership-revision": {
-      "title": "Revisión de Ownership A6",
-      "description": "Revisar y actualizar regularmente la distribución de ownership basado en contribuciones continuas y reglas acordadas.",
+      "title": "Revisión de Ownership y Reglas",
+      "description": "Proceso iterativo y liviano para ajustar la distribución de ownership, compensaciones y reglas operativas según la evolución del proyecto y los aprendizajes del equipo. Se integra naturalmente a las ceremonias de gestión ágiles, evitando burocracia y asegurando que las reglas sigan representando la realidad del trabajo y los aportes.",
+      "help": "A6 Compass facilita la reflexión colectiva y ayuda al equipo a detectar señales de desbalance o desalineación. A6 Layer provee datos actualizados de contribuciones para realizar microajustes de forma sencilla y coordinada.",
       "objectives": [
-        "Revisar datos de contribución",
-        "Ajustar porcentajes de ownership",
-        "Asegurar equidad y transparencia"
-      ],
-      "deliverables": [
-        "Porcentajes de ownership actualizados",
-        "Informe de revisión",
-        "Comunicación transparente"
+        "Revisar periódicamente la correspondencia entre aportes, reglas y distribución de ownership",
+        "Realizar microajustes basados en evidencias y consensos del equipo",
+        "Mantener el sistema de reglas y compensaciones actualizado y alineado con la evolución del proyecto"
       ],
       "tools": [
         "A6 Compass",
-        "A6 Platform"
+        "A6 Layer",
+        "Ceremonias Ágiles",
+        "Dashboards de Ownership"
       ]
     },
     "income-distribution": {
-      "title": "Distribución de Ingresos A6",
-      "description": "Ejecutar distribución de ingresos basado en porcentajes de ownership y reglas financieras, asegurando compensación justa.",
+      "title": "Distribución de Ingresos",
+      "description": "Ejecutar distribuciones automáticas o semiautomáticas de ingresos según reglas predefinidas, asegurando una compensación justa y verificable.",
+      "help": "A6 Layer automatiza los cálculos y las transferencias, permitiendo al equipo validar o auditar cada ciclo de distribución con total transparencia.",
       "objectives": [
-        "Calcular distribuciones",
-        "Ejecutar pagos",
-        "Mantener transparencia"
-      ],
-      "deliverables": [
-        "Cálculos de distribución",
-        "Pagos ejecutados",
-        "Reportes de distribución"
+        "Aplicar reglas de distribución basadas en fairness y ownership",
+        "Asegurar que cada miembro reciba su compensación justa",
+        "Mantener registros verificables de todas las transacciones"
       ],
       "tools": [
-        "A6 Platform",
-        "Sistemas de Pago"
+        "A6 Layer",
+        "Billeteras Compartidas",
+        "Sistemas de Pago Integrados"
       ]
     },
     "governance": {
-      "title": "Gobernanza",
-      "description": "Implementar procesos de gobernanza, incluyendo votación sobre decisiones, propuestas y cambios a reglas del proyecto.",
+      "title": "Gobernanza Activa",
+      "description": "Implementar mecanismos para la toma de decisiones colectivas, la gestión de propuestas y la evolución de reglas internas de forma democrática y auditable.",
+      "help": "A6 Layer permite crear y votar propuestas directamente dentro del entorno de trabajo, garantizando trazabilidad, participación y legitimidad de cada decisión.",
       "objectives": [
-        "Facilitar toma de decisiones",
-        "Asegurar participación democrática",
-        "Mantener registros de gobernanza"
-      ],
-      "deliverables": [
-        "Decisiones de gobernanza",
-        "Registros de votación",
-        "Resultados de propuestas"
+        "Facilitar la participación equitativa en decisiones clave",
+        "Mantener registros claros de votaciones y resultados",
+        "Fomentar una cultura de gobernanza distribuida y responsable"
       ],
       "tools": [
-        "A6 Platform",
-        "Herramientas de Votación"
+        "A6 Layer",
+        "Loomio"
       ]
     },
     "ownership-reports": {
-      "title": "Reportes de Ownership A6",
-      "description": "Generar y revisar reportes de ownership para mantener transparencia y mantener informados a todos los stakeholders.",
+      "title": "Reportes de Ownership",
+      "description": "Generar y visualizar reportes claros sobre el estado y la evolución del ownership y las contribuciones del equipo, ofreciendo transparencia y trazabilidad sin agregar complejidad operativa.",
+      "help": "Desde A6 Layer, los reportes se actualizan automáticamente y pueden ser consultados cuando el equipo lo necesite. A6 Compass acompaña la interpretación de estos datos, ayudando a entender su impacto en la dinámica real del proyecto y ofreciendo recomendaciones específicas para cada caso.",
       "objectives": [
-        "Generar snapshots de ownership",
-        "Compartir con stakeholders",
-        "Mantener transparencia"
-      ],
-      "deliverables": [
-        "Reportes de ownership",
-        "Comunicaciones con stakeholders",
-        "Registros históricos"
+        "Mantener visibilidad continua sobre los aportes y la evolución del ownership",
+        "Facilitar decisiones informadas sin necesidad de procesos adicionales o reuniones formales",
+        "Brindar orientación práctica y contextual sobre los datos, adaptada a la realidad de cada equipo"
       ],
       "tools": [
-        "A6 Platform",
-        "Herramientas de Reportes"
+        "A6 Layer",
+        "A6 Compass",
+        "Dashboards de Ownership"
       ]
     },
     "financial-reports": {
-      "title": "Reportes Financieros A6",
-      "description": "Generar y revisar reportes financieros, incluyendo ingresos, gastos, distribuciones y estado del presupuesto.",
+      "title": "Reportes Financieros",
+      "description": "Ofrecer visibilidad simple y en tiempo real sobre el flujo financiero del proyecto — ingresos, gastos y distribuciones — de manera transparente y sin agregar carga operativa.",
+      "help": "A6 Layer consolida automáticamente los movimientos financieros relevantes y genera visualizaciones claras sobre el estado general. Desde A6 Compass ayudamos a interpretar esos datos para detectar patrones, anticipar riesgos y ajustar decisiones financieras según la realidad del equipo.",
       "objectives": [
-        "Generar estados financieros",
-        "Revisar estado del presupuesto",
-        "Asegurar transparencia financiera"
-      ],
-      "deliverables": [
-        "Estados financieros",
-        "Reportes de presupuesto",
-        "Resúmenes de distribución"
+        "Mantener transparencia sobre los ingresos, gastos y distribuciones sin procesos manuales",
+        "Proveer una visión integrada del estado financiero del proyecto",
+        "Facilitar decisiones rápidas y contextualizadas a partir de datos claros"
       ],
       "tools": [
-        "A6 Platform",
-        "Software de Contabilidad"
-      ]
-    },
-    "rules-revision": {
-      "title": "Revisión de Reglas A6",
-      "description": "Revisar y actualizar periódicamente las reglas del proyecto, incluyendo políticas de gobernanza, financieras y operacionales.",
-      "objectives": [
-        "Revisar reglas actuales",
-        "Identificar oportunidades de mejora",
-        "Implementar cambios de reglas"
-      ],
-      "deliverables": [
-        "Documento de reglas revisado",
-        "Propuestas de cambios",
-        "Plan de implementación"
-      ],
-      "tools": [
-        "A6 Platform",
-        "A6 Compass"
+        "A6 Layer",
+        "Dashboards Financieros",
+        "Integraciones Contables"
       ]
     },
     "health-metrics": {
-      "title": "Métricas de Salud",
-      "description": "Monitorear métricas de salud del equipo y proyecto para identificar problemas temprano y mantener un ambiente de trabajo positivo.",
+      "title": "Indicadores de Salud",
+      "description": "Monitorear el pulso del equipo y del proyecto a través de métricas clave de actividad, participación, equilibrio y bienestar, detectando señales tempranas de desalineación o riesgo.",
+      "help": "A6 Layer ofrece un conjunto de indicadores automáticos sobre participación, contribuciones y equilibrio general del equipo. Desde A6 Compass complementamos con análisis cualitativo y recomendaciones personalizadas para sostener la motivación y el rendimiento colectivo.",
       "objectives": [
-        "Rastrear satisfacción del equipo",
-        "Monitorear salud del proyecto",
-        "Identificar áreas de mejora"
-      ],
-      "deliverables": [
-        "Dashboard de métricas de salud",
-        "Reportes regulares de salud",
-        "Planes de acción para mejoras"
+        "Detectar tempranamente señales de sobrecarga, desalineación o baja participación",
+        "Mantener equilibrio entre aportes, reconocimiento y bienestar del equipo",
+        "Promover ajustes continuos para sostener un entorno de colaboración saludable"
       ],
       "tools": [
+        "A6 Layer",
         "A6 Compass",
-        "Encuestas",
-        "Analíticas"
+        "Dashboards de Salud",
+        "Encuestas Breves"
       ]
     },
     "general-roadmap": {
-      "title": "Revisión de Roadmap General",
-      "description": "Revisar y actualizar el roadmap del proyecto para alinearlo con objetivos actuales, condiciones de mercado y capacidad del equipo.",
+      "title": "Revisión del Roadmap General",
+      "description": "Actualizar la hoja de ruta del proyecto según aprendizajes, prioridades cambiantes o disponibilidad del equipo, manteniendo enfoque estratégico.",
+      "help": "A6 Compass puede guiar las revisiones de roadmap en base a datos de progreso reales y aprendizajes del ciclo anterior, promoviendo decisiones basadas en evidencia.",
       "objectives": [
-        "Revisar progreso contra roadmap",
-        "Ajustar prioridades y tiempos",
-        "Alinear sobre próximos pasos"
-      ],
-      "deliverables": [
-        "Roadmap actualizado",
-        "Ajustes de prioridades",
-        "Alineación del equipo"
+        "Revisar hitos y avances frente al roadmap original",
+        "Repriorizar tareas y metas según contexto actual",
+        "Alinear el equipo sobre próximos pasos y foco común"
       ],
       "tools": [
+        "A6 Layer",
         "A6 Compass",
-        "Herramientas de Roadmap"
+        "Dashboards de Progreso",
+        "OKRs",
+        "Matrices de Priorización (Impacto / Esfuerzo, RICE)",
+        "Asambleas Generales",
+        "Quarterly Planning",
+        "Modelos de Horizonte (H1–H3)"
       ]
     }
   },
@@ -483,8 +447,8 @@
   },
   "dialog": {
     "objectives": "Objetivos",
-    "deliverables": "Entregables",
     "tools": "Herramientas y Recursos",
+    "help": "Valor de AngoraSix",
     "close": "Cerrar"
   },
   "cta": {
