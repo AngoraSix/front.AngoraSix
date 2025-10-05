@@ -12,7 +12,9 @@
 .MethodologyOverviewPage .overview-hero {
   padding: 80px 20px 60px;
   text-align: center;
-  background: linear-gradient(135deg, #dce7ea 0%, #ffffff 100%);
+  /* background: linear-gradient(135deg, #dce7ea 0%, #ffffff 100%); */
+  background: linear-gradient(135deg, #030D16 0%, #0F2F4D 100%);
+  color: #ffffff;
   animation: fadeIn 0.8s ease-out;
 }
 
@@ -22,14 +24,21 @@
 }
 
 .MethodologyOverviewPage .hero-title {
-  margin-bottom: 24px;
-  color: #0a2239;
+  color: #ffffff;
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
   animation: fadeInUp 0.8s ease-out 0.2s both;
 }
 
 .MethodologyOverviewPage .hero-description {
-  margin-bottom: 32px;
-  color: #1b5993;
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  color: #dce7ea;
+  opacity: 0.9;
   animation: fadeInUp 0.8s ease-out 0.4s both;
   text-align: left;
 }
@@ -37,9 +46,9 @@
 .MethodologyOverviewPage .hero-quote {
   padding: 20px;
   border-left: 4px solid #fe5f55;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.1);
   font-style: italic;
-  color: #0a2239;
+  color: #dce7ea;
   animation: fadeInUp 0.8s ease-out 0.6s both;
 }
 

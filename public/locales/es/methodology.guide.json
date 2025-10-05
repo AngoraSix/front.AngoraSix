@@ -1,25 +1,29 @@
 {
+  "page": {
+    "title": "Guía de metodología AngoraSix",
+    "description": "Una guía detallada, una hoja de ruta para implementar una gestión de proyectos justa y eficiente."
+  },
   "title": "Guía de Metodología AngoraSix",
-  "subtitle": "Una guía completa para implementar gestión de proyectos justa y efectiva.",
-  "description": "Esta guía se adapta a las características de tu proyecto, mostrándote las actividades y herramientas más relevantes en cada etapa. Configurá el perfil de tu proyecto a la derecha para ver recomendaciones personalizadas.",
+  "subtitle": "Una hoja de ruta para implementar una gestión de proyectos justa y eficiente. Esta guía se adapta a las características de tu proyecto, mostrándote las actividades y herramientas más relevantes en cada etapa.",
+  "description": "Singular, como un latido en el pecho. Único, exactamente lo mismo que el resto - El Chojin",
   "presets": {
     "title": "Presets Rápidos",
-    "tooltip": "Escenarios preconfigurados que automáticamente ajustan los aspectos más relevantes para tipos comunes de proyectos. Podés ajustar configuraciones individuales después de seleccionar un preset.",
+    "tooltip": "Escenarios preconfigurados que automáticamente ajustan los aspectos más relevantes para tipos comunes de proyectos.",
     "startup": {
       "label": "Startup Temprana",
-      "tooltip": "Producto nuevo, equipo pequeño, ownership core, desarrollo cerrado, sin ingresos aún. Foco en validación y estructura básica."
+      "tooltip": "Producto nuevo, equipo pequeño, desarrollo cerrado, sin ingresos aún. Foco en validación y estructura básica."
     },
     "venture": {
       "label": "Venture Madura",
-      "tooltip": "Producto validado, gestión experimentada, estructura de equipo core, ingresos estables. Foco en optimización y crecimiento."
+      "tooltip": "Producto validado, gestión experimentada, ingresos estables. Foco en optimización y crecimiento."
     },
     "community": {
       "label": "Comunidad Abierta",
-      "tooltip": "Proyecto colaborativo nuevo, gobernanza descentralizada, abierto a contribuidores, desarrollo dirigido por la comunidad."
+      "tooltip": "Proyecto colaborativo, gobernanza descentralizada, abierto a contribuidores, desarrollo dirigido por la comunidad."
     },
     "subproject": {
       "label": "Sub-proyecto",
-      "tooltip": "Parte de organización más grande, enfoque validado, admin centralizado, financiamiento y procesos estables."
+      "tooltip": "Parte de una organización más grande, a cargo de un equipo, enfoque validado, financiamiento y procesos estables."
     },
     "traditional": {
       "label": "Manager Tradicional",
@@ -52,7 +56,7 @@
       "tooltip": "Estructura de toma de decisiones",
       "options": {
         "admin": "Administrador",
-        "core": "Equipo Core",
+        "core": "Equipo Central",
         "decentralized": "Descentralizado"
       }
     },
@@ -71,18 +75,18 @@
         "noRevenue": "No Financiero",
         "noRevenueYet": "Sin Ingresos todavía",
         "stableRevenue": "Ingresos Estables",
-        "unstableRevenue": "Ingresos Inestables/Crecientes"
+        "unstableRevenue": "Ingresos Crecientes"
       }
     }
   },
   "stages": {
     "alignment": {
       "title": "1. Alineación",
-      "description": "Establecer la preparación del equipo, alinear expectativas y validar los cimientos del proyecto antes de sumergirse en la implementación."
+      "description": "Chequeos y preparación del equipo, alinear expectativas y validar los cimientos del proyecto antes de sumergirse en la implementación."
     },
     "setup": {
       "title": "2. Configuración del Proyecto",
-      "description": "Definir reglas de gobernanza, estructuras financieras y configurar las herramientas e integraciones necesarias para operaciones fluidas."
+      "description": "Definir reglas de gobernanza, estructuras financieras y configurar las herramientas e integraciones necesarias para una operación fluida."
     },
     "implementation": {
       "title": "3. Implementación y Revisión Iterativa",
@@ -91,101 +95,111 @@
   },
   "items": {
     "fairness-assessment": {
-      "title": "Evaluación de Equidad",
-      "description": "Evaluar los niveles actuales y deseados de equidad dentro del proyecto para establecer una línea base de prácticas equitativas.",
+      "title": "Definir lo 'justo'",
+      "description": "Espacio inicial para conversar abiertamente sobre lo que cada integrante considera 'justo' dentro del proyecto. Se exploran percepciones de equidad, aportes esperados y criterios de reconocimiento para construir un entendimiento compartido.",
+      "help": "Con A6 Compass facilitamos y guiamos los talleres, ayudando al equipo a transformar conversaciones abstractas sobre justicia en acuerdos claros, accionables y adaptados a su contexto.",
       "objectives": [
         "Comprender las expectativas de equidad de los miembros del equipo",
-        "Identificar posibles inequidades en la estructura actual",
-        "Crear un entendimiento compartido de los principios de equidad"
+        "Detectar posibles puntos de tensión o visiones desalineadas sobre aportes y recompensas",
+        "Lograr un marco inicial de acuerdos donde el equipo sienta que las reglas son claras y justas"
       ],
-      "deliverables": [
-        "Informe de evaluación de equidad",
-        "Documento de expectativas de equidad del equipo",
-        "Mejoras de equidad recomendadas"
-      ],
-      "tools": ["A6 Compass", "Encuestas", "Talleres"]
+      "tools": [
+        "A6 Compass",
+        "Team Canvas",
+        "Talleres"
+      ]
     },
     "team-readiness": {
       "title": "Preparación del Equipo",
-      "description": "Evaluar la preparación del equipo para embarcarse en un nuevo proyecto, incluyendo habilidades, motivación y disponibilidad.",
+      "description": "Diagnóstico del nivel de preparación del equipo para iniciar o escalar un proyecto. Se evalúan habilidades, motivación, disponibilidad y capacidad de colaboración para identificar fortalezas y posibles brechas.",
+      "help": "A6 Compass realiza un relevamiento guiado y provee plantillas que permiten mapear competencias, niveles de compromiso y riesgos antes de avanzar.",
       "objectives": [
-        "Evaluar habilidades y competencias del equipo",
-        "Evaluar compromiso y disponibilidad",
-        "Identificar posibles brechas o riesgos"
+        "Mapear habilidades, disponibilidad y motivaciones de cada integrante",
+        "Identificar posibles brechas de capacidades o recursos que afecten el avance",
+        "Asegurar que el equipo tenga las condiciones necesarias para avanzar de forma sostenible"
       ],
-      "deliverables": [
-        "Evaluación de preparación del equipo",
-        "Análisis de brecha de habilidades",
-        "Plan de mitigación de riesgos"
-      ],
-      "tools": ["A6 Compass", "Matriz de Habilidades", "Entrevistas"]
+      "tools": [
+        "A6 Compass",
+        "Matriz de Habilidades",
+        "Talleres",
+        "Entrevistas estructuradas"
+      ]
     },
     "team-alignment": {
       "title": "Alineación del Equipo",
-      "description": "Alinear a los miembros del equipo en la visión, objetivos, valores y principios de trabajo del proyecto para asegurar que todos se muevan en la misma dirección.",
+      "description": "Consolidar una visión, valores y objetivos compartidos que orienten las decisiones y la colaboración. El equipo define su propósito, principios de trabajo y criterios de éxito.",
+      "help": "Con A6 Compass facilitamos dinámicas de co-creación para alinear propósito, valores y objetivos, transformando la visión colectiva en un marco operativo concreto.",
       "objectives": [
-        "Crear visión y misión compartidas",
-        "Alinear valores y principios centrales",
-        "Establecer objetivos comunes y criterios de éxito"
+        "Construir una visión y propósito compartido entre todos los miembros",
+        "Establecer valores y principios que guíen la toma de decisiones",
+        "Acordar objetivos comunes y criterios de éxito medibles"
       ],
-      "deliverables": [
-        "Declaración de visión y misión",
-        "Documento de valores del equipo",
-        "Objetivos y OKRs alineados"
-      ],
-      "tools": ["A6 Compass", "Talleres", "Canvas de Alineación"]
+      "tools": [
+        "A6 Compass",
+        "Team Canvas",
+        "Talleres"
+      ]
     },
     "management-definition": {
-      "title": "Definición de Gestión",
-      "description": "Definir la estructura de gestión, roles, responsabilidades y procesos de toma de decisiones para el proyecto.",
+      "title": "Definición de Gestión y Roles",
+      "description": "Estructurar cómo se organizará el equipo en la práctica: roles, responsabilidades, procesos de toma de decisiones y canales de comunicación.",
+      "help": "Con A6 Compass guiamos la definición de estructuras livianas de gestión, ayudando a clarificar responsabilidades sin burocratizar el trabajo.",
       "objectives": [
-        "Definir estructura organizacional",
-        "Clarificar roles y responsabilidades",
-        "Establecer procesos de toma de decisiones"
+        "Definir estructura y funciones clave del equipo",
+        "Clarificar responsabilidades individuales y compartidas",
+        "Establecer procesos simples y transparentes de toma de decisiones"
       ],
-      "deliverables": ["Organigrama", "Matriz RACI", "Marco de toma de decisiones"],
-      "tools": ["A6 Compass", "Matriz RACI", "Templates de Gobernanza"]
+      "tools": [
+        "A6 Compass",
+        "Matriz RACI",
+        "Templates de Gobernanza"
+      ]
     },
     "product-prevalidation": {
       "title": "Pre-validación del Producto",
-      "description": "Validar la idea del producto, la oportunidad de mercado y las suposiciones iniciales antes de comprometer recursos significativos.",
-      "objectives": ["Validar ajuste problema-solución", "Probar demanda del mercado", "Refinar propuesta de valor"],
-      "deliverables": [
-        "Informe de investigación de mercado",
-        "Resumen de entrevistas con clientes",
-        "Propuesta de valor validada"
+      "description": "Validar las suposiciones clave sobre el problema, la oportunidad y la propuesta de valor antes de invertir tiempo o recursos significativos.",
+      "help": "Con A6 Compass guiamos las primeras etapas de validación, ayudando al equipo a testear ideas de forma ágil y con datos reales, siguiendo la metodología Lean Startup.",
+      "objectives": [
+        "Verificar el ajuste problema-solución",
+        "Explorar la demanda real del mercado o comunidad",
+        "Refinar la propuesta de valor para futuras iteraciones"
       ],
-      "tools": ["A6 Compass", "Lean Canvas", "Entrevistas con Clientes"]
+      "tools": [
+        "A6 Compass",
+        "Lean Canvas",
+        "Entrevistas con Clientes"
+      ]
     },
     "product-analysis": {
-      "title": "Análisis del Producto",
-      "description": "Analizar el producto validado para identificar oportunidades de optimización, estrategias de crecimiento y áreas de mejora.",
+      "title": "Análisis de Producto Existente",
+      "description": "Revisar productos o iniciativas ya operativas para identificar oportunidades de mejora, crecimiento y eficiencia.",
+      "help": "A6 Compass facilita el análisis de métricas y feedback del usuario para ajustar la estrategia de producto sin perder coherencia con el propósito inicial.",
       "objectives": [
-        "Analizar ajuste producto-mercado",
-        "Identificar oportunidades de crecimiento",
-        "Optimizar características del producto"
+        "Analizar el ajuste producto-mercado actual",
+        "Identificar oportunidades de optimización y escalabilidad",
+        "Revisar el alineamiento entre estrategia y propósito original"
       ],
-      "deliverables": [
-        "Informe de análisis de producto",
-        "Documento de estrategia de crecimiento",
-        "Plan de optimización de características"
-      ],
-      "tools": ["A6 Compass", "Analíticas", "Feedback de Usuarios"]
+      "tools": [
+        "A6 Compass",
+        "Análisis de Datos",
+        "Feedback de Usuarios"
+      ]
     },
     "trainings": {
-      "title": "Capacitaciones",
-      "description": "Proporcionar capacitación necesaria a los miembros del equipo sobre metodología, herramientas y mejores prácticas para colaboración efectiva.",
+      "title": "Capacitación y Acompañamiento",
+      "description": "Fortalecer al equipo con los conocimientos, metodologías y herramientas necesarias para operar de forma efectiva y colaborativa bajo el marco de AngoraSix, al tiempo que se promueve un desarrollo integral que potencie sus capacidades a mediano y largo plazo.",
+      "help": "Desde A6 Compass acompañamos el proceso de aprendizaje combinando talleres prácticos, sesiones guiadas y recursos complementarios. No solo capacitamos en el uso y la filosofía de AngoraSix, sino también en metodologías y enfoques que refuercen su autonomía y capacidad de gestión (Lean Startup, Design Thinking, metodologías ágiles, entre otras).",
       "objectives": [
-        "Capacitar en metodología AngoraSix",
-        "Mejorar habilidades en herramientas y prácticas relevantes",
-        "Fomentar cultura de aprendizaje continuo"
+        "Fortalecer el entendimiento de los principios y prácticas del marco AngoraSix",
+        "Desarrollar habilidades y criterios para la gestión y colaboración efectiva",
+        "Proveer una hoja de ruta de aprendizaje integral que acompañe la evolución del proyecto"
       ],
-      "deliverables": [
-        "Curriculum de capacitación",
-        "Sesiones de capacitación completadas",
-        "Certificación o evaluación"
-      ],
-      "tools": ["A6 Compass", "Talleres", "Cursos Online"]
+      "tools": [
+        "A6 Compass",
+        "Talleres",
+        "Sesiones Prácticas",
+        "Recursos y Bibliotecas Online"
+      ]
     },
     "governance-rules": {
       "title": "Reglas de Gobernanza A6",
@@ -195,8 +209,15 @@
         "Establecer mecanismos de votación",
         "Crear procedimientos de resolución de conflictos"
       ],
-      "deliverables": ["Carta de gobernanza", "Marco de toma de decisiones", "Guía de resolución de conflictos"],
-      "tools": ["A6 Platform", "Templates de Gobernanza"]
+      "deliverables": [
+        "Carta de gobernanza",
+        "Marco de toma de decisiones",
+        "Guía de resolución de conflictos"
+      ],
+      "tools": [
+        "A6 Platform",
+        "Templates de Gobernanza"
+      ]
     },
     "financial-rules": {
       "title": "Reglas Financieras A6",
@@ -206,8 +227,15 @@
         "Definir reglas de gestión de gastos",
         "Crear marco de responsabilidad financiera"
       ],
-      "deliverables": ["Documento de reglas financieras", "Modelo de distribución", "Plan de gestión de presupuesto"],
-      "tools": ["A6 Platform", "Templates Financieros"]
+      "deliverables": [
+        "Documento de reglas financieras",
+        "Modelo de distribución",
+        "Plan de gestión de presupuesto"
+      ],
+      "tools": [
+        "A6 Platform",
+        "Templates Financieros"
+      ]
     },
     "contribution-integrations": {
       "title": "Integraciones de Contribución A6",
@@ -222,7 +250,12 @@
         "Sistema de rastreo automatizado",
         "Dashboard de contribuciones"
       ],
-      "tools": ["A6 Platform", "GitHub", "Jira", "Trello"]
+      "tools": [
+        "A6 Platform",
+        "GitHub",
+        "Jira",
+        "Trello"
+      ]
     },
     "shared-wallet-setup": {
       "title": "Configuración de Billetera Compartida A6",
@@ -237,7 +270,10 @@
         "Configuración de control de acceso",
         "Automatización de distribuciones"
       ],
-      "tools": ["A6 Platform", "Billeteras Crypto"]
+      "tools": [
+        "A6 Platform",
+        "Billeteras Crypto"
+      ]
     },
     "management-tools-setup": {
       "title": "Configuración de Herramientas de Gestión",
@@ -252,14 +288,31 @@
         "Templates de flujos de trabajo",
         "Capacitación del equipo completada"
       ],
-      "tools": ["A6 Compass", "Jira", "Trello", "Asana"]
+      "tools": [
+        "A6 Compass",
+        "Jira",
+        "Trello",
+        "Asana"
+      ]
     },
     "metrics-setup": {
       "title": "Configuración de Métricas",
       "description": "Definir y configurar indicadores clave de rendimiento (KPIs) y métricas para rastrear la salud, progreso y éxito del proyecto.",
-      "objectives": ["Definir KPIs relevantes", "Configurar sistemas de rastreo", "Crear dashboards y reportes"],
-      "deliverables": ["Dashboard de KPIs", "Sistema de rastreo de métricas", "Templates de reportes"],
-      "tools": ["A6 Compass", "Analíticas", "Dashboards"]
+      "objectives": [
+        "Definir KPIs relevantes",
+        "Configurar sistemas de rastreo",
+        "Crear dashboards y reportes"
+      ],
+      "deliverables": [
+        "Dashboard de KPIs",
+        "Sistema de rastreo de métricas",
+        "Templates de reportes"
+      ],
+      "tools": [
+        "A6 Compass",
+        "Analíticas",
+        "Dashboards"
+      ]
     },
     "job-marketplace": {
       "title": "Mercado de Trabajo A6",
@@ -269,15 +322,34 @@
         "Atraer contribuidores externos",
         "Gestionar onboarding de contribuidores"
       ],
-      "deliverables": ["Perfil en mercado de trabajo", "Tareas y recompensas publicadas", "Guías para contribuidores"],
-      "tools": ["A6 Platform", "Job Board"]
+      "deliverables": [
+        "Perfil en mercado de trabajo",
+        "Tareas y recompensas publicadas",
+        "Guías para contribuidores"
+      ],
+      "tools": [
+        "A6 Platform",
+        "Job Board"
+      ]
     },
     "agile-ceremonies": {
       "title": "Ceremonias de Metodología Ágil",
       "description": "Implementar ceremonias ágiles como planificación de sprints, standups diarios, revisiones y retrospectivas para mejora continua.",
-      "objectives": ["Establecer ritmo de sprints", "Conducir ceremonias regulares", "Fomentar mejora continua"],
-      "deliverables": ["Cronograma de sprints", "Templates de ceremonias", "Insights de retrospectivas"],
-      "tools": ["A6 Compass", "Scrum", "Kanban"]
+      "objectives": [
+        "Establecer ritmo de sprints",
+        "Conducir ceremonias regulares",
+        "Fomentar mejora continua"
+      ],
+      "deliverables": [
+        "Cronograma de sprints",
+        "Templates de ceremonias",
+        "Insights de retrospectivas"
+      ],
+      "tools": [
+        "A6 Compass",
+        "Scrum",
+        "Kanban"
+      ]
     },
     "ownership-revision": {
       "title": "Revisión de Ownership A6",
@@ -287,15 +359,33 @@
         "Ajustar porcentajes de ownership",
         "Asegurar equidad y transparencia"
       ],
-      "deliverables": ["Porcentajes de ownership actualizados", "Informe de revisión", "Comunicación transparente"],
-      "tools": ["A6 Compass", "A6 Platform"]
+      "deliverables": [
+        "Porcentajes de ownership actualizados",
+        "Informe de revisión",
+        "Comunicación transparente"
+      ],
+      "tools": [
+        "A6 Compass",
+        "A6 Platform"
+      ]
     },
     "income-distribution": {
       "title": "Distribución de Ingresos A6",
       "description": "Ejecutar distribución de ingresos basado en porcentajes de ownership y reglas financieras, asegurando compensación justa.",
-      "objectives": ["Calcular distribuciones", "Ejecutar pagos", "Mantener transparencia"],
-      "deliverables": ["Cálculos de distribución", "Pagos ejecutados", "Reportes de distribución"],
-      "tools": ["A6 Platform", "Sistemas de Pago"]
+      "objectives": [
+        "Calcular distribuciones",
+        "Ejecutar pagos",
+        "Mantener transparencia"
+      ],
+      "deliverables": [
+        "Cálculos de distribución",
+        "Pagos ejecutados",
+        "Reportes de distribución"
+      ],
+      "tools": [
+        "A6 Platform",
+        "Sistemas de Pago"
+      ]
     },
     "governance": {
       "title": "Gobernanza",
@@ -305,15 +395,33 @@
         "Asegurar participación democrática",
         "Mantener registros de gobernanza"
       ],
-      "deliverables": ["Decisiones de gobernanza", "Registros de votación", "Resultados de propuestas"],
-      "tools": ["A6 Platform", "Herramientas de Votación"]
+      "deliverables": [
+        "Decisiones de gobernanza",
+        "Registros de votación",
+        "Resultados de propuestas"
+      ],
+      "tools": [
+        "A6 Platform",
+        "Herramientas de Votación"
+      ]
     },
     "ownership-reports": {
       "title": "Reportes de Ownership A6",
       "description": "Generar y revisar reportes de ownership para mantener transparencia y mantener informados a todos los stakeholders.",
-      "objectives": ["Generar snapshots de ownership", "Compartir con stakeholders", "Mantener transparencia"],
-      "deliverables": ["Reportes de ownership", "Comunicaciones con stakeholders", "Registros históricos"],
-      "tools": ["A6 Platform", "Herramientas de Reportes"]
+      "objectives": [
+        "Generar snapshots de ownership",
+        "Compartir con stakeholders",
+        "Mantener transparencia"
+      ],
+      "deliverables": [
+        "Reportes de ownership",
+        "Comunicaciones con stakeholders",
+        "Registros históricos"
+      ],
+      "tools": [
+        "A6 Platform",
+        "Herramientas de Reportes"
+      ]
     },
     "financial-reports": {
       "title": "Reportes Financieros A6",
@@ -323,15 +431,33 @@
         "Revisar estado del presupuesto",
         "Asegurar transparencia financiera"
       ],
-      "deliverables": ["Estados financieros", "Reportes de presupuesto", "Resúmenes de distribución"],
-      "tools": ["A6 Platform", "Software de Contabilidad"]
+      "deliverables": [
+        "Estados financieros",
+        "Reportes de presupuesto",
+        "Resúmenes de distribución"
+      ],
+      "tools": [
+        "A6 Platform",
+        "Software de Contabilidad"
+      ]
     },
     "rules-revision": {
       "title": "Revisión de Reglas A6",
       "description": "Revisar y actualizar periódicamente las reglas del proyecto, incluyendo políticas de gobernanza, financieras y operacionales.",
-      "objectives": ["Revisar reglas actuales", "Identificar oportunidades de mejora", "Implementar cambios de reglas"],
-      "deliverables": ["Documento de reglas revisado", "Propuestas de cambios", "Plan de implementación"],
-      "tools": ["A6 Platform", "A6 Compass"]
+      "objectives": [
+        "Revisar reglas actuales",
+        "Identificar oportunidades de mejora",
+        "Implementar cambios de reglas"
+      ],
+      "deliverables": [
+        "Documento de reglas revisado",
+        "Propuestas de cambios",
+        "Plan de implementación"
+      ],
+      "tools": [
+        "A6 Platform",
+        "A6 Compass"
+      ]
     },
     "health-metrics": {
       "title": "Métricas de Salud",
@@ -346,7 +472,11 @@
         "Reportes regulares de salud",
         "Planes de acción para mejoras"
       ],
-      "tools": ["A6 Compass", "Encuestas", "Analíticas"]
+      "tools": [
+        "A6 Compass",
+        "Encuestas",
+        "Analíticas"
+      ]
     },
     "general-roadmap": {
       "title": "Revisión de Roadmap General",
@@ -356,8 +486,15 @@
         "Ajustar prioridades y tiempos",
         "Alinear sobre próximos pasos"
       ],
-      "deliverables": ["Roadmap actualizado", "Ajustes de prioridades", "Alineación del equipo"],
-      "tools": ["A6 Compass", "Herramientas de Roadmap"]
+      "deliverables": [
+        "Roadmap actualizado",
+        "Ajustes de prioridades",
+        "Alineación del equipo"
+      ],
+      "tools": [
+        "A6 Compass",
+        "Herramientas de Roadmap"
+      ]
     }
   },
   "item": {
@@ -372,6 +509,7 @@
   "cta": {
     "title": "¿Listo para Comenzar?",
     "description": "Nuestro equipo de expertos puede guiarte en la implementación de la Metodología AngoraSix en tu proyecto.",
-    "button": "Obtener Orientación Experta"
+    "button": "Obtener Asesoría Personalizada",
+    "register": "Comienza tu viaje"
   }
 }

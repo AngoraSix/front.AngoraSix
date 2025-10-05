@@ -313,7 +313,7 @@ const MethodologyOverviewPage = () => {
                         <Typography variant="h2" component="h1" className="hero-title">
                             {t("hero.title")}
                         </Typography>
-                        <Typography variant="body1" className="hero-description">
+                        <Typography variant="h5" className="hero-description">
                             {t("hero.description")}
                         </Typography>
                         <Typography variant="body2" component="blockquote" className="hero-quote">

@@ -2,13 +2,14 @@
 
 import {
   Build as BuildIcon,
+  FiberManualRecord as CircleIcon,
   Close as CloseIcon,
   Explore as ExploreIcon,
   Handshake as HandshakeIcon,
-  FiberManualRecord as CircleIcon,
   Info as InfoIcon,
   Loop as LoopIcon,
   Settings as SettingsIcon,
+  KeyboardArrowRight as StartIcon,
 } from "@mui/icons-material"
 import {
   Box,
@@ -34,9 +35,12 @@ import {
   Tooltip,
   Typography,
 } from "@mui/material"
+import { useSession } from "next-auth/react"
 import { useTranslation } from "next-i18next"
+import Head from "next/head"
 import { useRouter } from "next/router"
 import { useState } from "react"
+import config from "../../../config"
 import { ROUTES } from "../../../constants/constants"
 import { trackEvent } from "../../../utils/analytics"
 import { getItemImportance, methodologyGuideConfig, presetConfigs, staticStages } from "./methodologyGuide.config"
@@ -55,6 +59,7 @@ const stageColors = {
 
 const MethodologyGuidePage = () => {
   const { t } = useTranslation("methodology.guide")
+  const { data: session } = useSession()
 
   // State management
   const [selectedPreset, setSelectedPreset] = useState("startup")
@@ -98,6 +103,15 @@ const MethodologyGuidePage = () => {
   const handleDialogClose = () => {
     setDialogOpen(false)
     setSelectedItem(null)
+  }
+
+  const handleCTAClick = (ctaType, route) => {
+    trackEvent("guide_cta_clicked", {
+      event_category: "engagement",
+      event_label: "methodology_guide",
+      cta_type: ctaType,
+    })
+    router.push(route)
   }
 
   // Get module icon(s)
@@ -277,181 +291,197 @@ const MethodologyGuidePage = () => {
   )
 
   return (
-    <Box className="MethodologyGuidePage">
-      {/* Header */}
-      <Container className="page-header" maxWidth="lg">
-        <Typography variant="h1" component="h1" className="page-title">
-          {t("title")}
-        </Typography>
+    <>
+      <Head>
+        <title>{t("page.title")}</title>
+        <meta name="description" content={t("page.description")} />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <Typography variant="h5" className="page-subtitle">
-          {t("subtitle")}
-        </Typography>
+        <meta property="og:title" key="og.title" content={t("page.title")} />
+        <meta property="og:description" key="og.description" content={t("page.description")} />
+        <meta property="og:image" key="og.image" content={config.site.head.image.logoSquare} />
+        <meta property="og:url" key="og.url" content="https://angorasix.com/methodology/overview" />
+        <meta property="og:type" key="og.type" content="website" />
+      </Head>
+      <Box className="MethodologyGuidePage">
+        {/* Hero Section */}
+        <section className="guide-hero">
+          <div className="hero-content">
+            <Typography variant="h1" component="h1" className="hero-title">
+              {t("title")}
+            </Typography>
 
-        <Typography variant="body1" className="page-description">
-          {t("description")}
-        </Typography>
-      </Container>
+            <Typography variant="h5" className="hero-description">
+              {t("subtitle")}
+            </Typography>
 
-      {/* Main Content */}
-      <Container maxWidth="lg" className="page-main-content">
-        <Grid container spacing={3}>
-          {/* Left Column - Stages (Desktop: 8/12, Mobile: 12/12) */}
-          <Grid item xs={12} md={8}>
-            {staticStages.map((stage) => {
-              const StageIcon = stageIcons[stage.key]
-              const stageColor = stageColors[stage.key]
+            <Typography variant="body2" component="blockquote" className="hero-quote">
+              {t("description")}
+            </Typography>
+          </div>
+        </section>
 
-              return (
-                <Paper key={stage.key} elevation={1} className={`stage-card stage-${stage.key}`}>
-                  <Box className="stage-header">
-                    <StageIcon className="stage-icon" style={{ color: stageColor }} />
-                    <Typography variant="h5" className="stage-title" style={{ color: stageColor }}>
-                      {t(`stages.${stage.key}.title`)}
+        {/* Main Content */}
+        <Container maxWidth="lg" className="page-main-content">
+          <Grid container spacing={3}>
+            {/* Left Column - Stages (Desktop: 8/12, Mobile: 12/12) */}
+            <Grid item xs={12} md={8}>
+              {staticStages.map((stage) => {
+                const StageIcon = stageIcons[stage.key]
+                const stageColor = stageColors[stage.key]
+
+                return (
+                  <Paper key={stage.key} elevation={1} className={`stage-card stage-${stage.key}`}>
+                    <Box className="stage-header">
+                      <StageIcon className="stage-icon" style={{ color: stageColor }} />
+                      <Typography variant="h5" className="stage-title" style={{ color: stageColor }}>
+                        {t(`stages.${stage.key}.title`)}
+                      </Typography>
+                    </Box>
+                    <Typography variant="body2" className="stage-description">
+                      {t(`stages.${stage.key}.description`)}
                     </Typography>
-                  </Box>
-                  <Typography variant="body2" className="stage-description">
-                    {t(`stages.${stage.key}.description`)}
-                  </Typography>
-                  <Box className="stage-items">{stage.items.map((item) => renderMiniItemCard(item))}</Box>
-                </Paper>
-              )
-            })}
-          </Grid>
+                    <Box className="stage-items">{stage.items.map((item) => renderMiniItemCard(item))}</Box>
+                  </Paper>
+                )
+              })}
+            </Grid>
 
-          {/* Right Column - Controls (Desktop: 4/12, Mobile: Hidden) */}
-          <Grid item xs={12} md={4} className="controls-column">
-            <Box className="controls-panel">{renderControlsPanel()}</Box>
+            {/* Right Column - Controls (Desktop: 4/12, Mobile: Hidden) */}
+            <Grid item xs={12} md={4} className="controls-column">
+              <Box className="controls-panel">{renderControlsPanel()}</Box>
+            </Grid>
           </Grid>
-        </Grid>
+        </Container>
 
         {/* CTA Section */}
-        <Box className="cta-section">
-          <Typography variant="h4" className="cta-title">
-            {t("cta.title")}
-          </Typography>
-          <Typography variant="body1" className="cta-description">
-            {t("cta.description")}
-          </Typography>
-          <Button
-            className="cta-button"
-            color="secondary"
-            variant="contained"
-            size="large"
-            onClick={() => {
-              router.push(`${ROUTES.services}?section=guidance&dialog=true`)
-            }}
-          >
-            {t("cta.button")}
-          </Button>
-        </Box>
-      </Container>
-
-      {/* Mobile FAB */}
-      <Fab className="mobile-fab" onClick={() => setMobileDrawerOpen(true)}>
-        <SettingsIcon />
-      </Fab>
-
-      {/* Mobile Drawer */}
-      <Drawer
-        anchor="bottom"
-        open={mobileDrawerOpen}
-        onClose={() => setMobileDrawerOpen(false)}
-        className="mobile-drawer"
-      >
-        <Box className="mobile-drawer-content">
-          <Box className="mobile-drawer-header">
-            <Typography variant="h6">{t("controls.title")}</Typography>
-            <IconButton onClick={() => setMobileDrawerOpen(false)}>
-              <CloseIcon />
-            </IconButton>
-          </Box>
-          {renderControlsPanel()}
-        </Box>
-      </Drawer>
-
-      {/* Item Detail Dialog */}
-      <Dialog open={dialogOpen} onClose={handleDialogClose} maxWidth="md" fullWidth className="item-dialog">
-        {selectedItem && (
-          <>
-            <DialogTitle className="dialog-title">
-              <Box className="dialog-title-content">
-                <Box className="dialog-title-main">
-                  <Typography variant="h5" className="dialog-item-title">
-                    {t(`items.${selectedItem.key}.title`)}
-                  </Typography>
-                  {selectedItem.module && getModuleIcon(selectedItem.module)}
-                  {getItemImportance(selectedItem, toggles) === 0 ? (
-                    <Chip
-                      label={t("item.notApplicableChip")}
-                      size="small"
-                      color="warning"
-                      variant="outlined"
-                      className="not-applicable-chip"
-                    />
-                  ) : (
-                    <Box className="dialog-importance">
-                      {renderImportanceIndicator(getItemImportance(selectedItem, toggles))}
-                    </Box>
-                  )}
-                </Box>
-                <IconButton onClick={handleDialogClose}>
-                  <CloseIcon />
-                </IconButton>
-              </Box>
-            </DialogTitle>
-            <DialogContent className="dialog-content">
-              <Typography variant="body1" className="dialog-description">
-                {t(`items.${selectedItem.key}.description`)}
+        <section className="ctas-section">
+          <div className="ctas-content">
+            <div className="ctas-header">
+              <Typography variant="h4" component="h2" className="ctas-title">
+                {t("cta.title")}
               </Typography>
-
-              <Typography variant="h6" className="dialog-section-title">
-                {t("dialog.objectives")}
+              <Typography variant="body1" className="cta-description">
+                {t("cta.description")}
               </Typography>
-              <List dense className="dialog-list">
-                {t(`items.${selectedItem.key}.objectives`, { returnObjects: true }).map((item, index) => (
-                  <ListItem key={index} className="dialog-list-item">
-                    <ListItemText primary={`• ${item}`} primaryTypographyProps={{ className: "dialog-list-text" }} />
-                  </ListItem>
-                ))}
-              </List>
-
-              <Typography variant="h6" className="dialog-section-title">
-                {t("dialog.deliverables")}
-              </Typography>
-              <List dense className="dialog-list">
-                {t(`items.${selectedItem.key}.deliverables`, { returnObjects: true }).map((deliverable, index) => (
-                  <ListItem key={index} className="dialog-list-item">
-                    <ListItemText
-                      primary={`${index + 1}. ${deliverable}`}
-                      primaryTypographyProps={{ className: "dialog-list-text" }}
-                    />
-                  </ListItem>
-                ))}
-              </List>
-
-              {t(`items.${selectedItem.key}.tools`, { returnObjects: true }).length > 0 && (
-                <>
-                  <Typography variant="h6" className="dialog-section-title">
-                    {t("dialog.tools")}
-                  </Typography>
-                  <Box className="dialog-tools">
-                    {t(`items.${selectedItem.key}.tools`, { returnObjects: true }).map((tool, index) => (
-                      <Chip key={index} label={tool} size="small" variant="outlined" className="tool-chip" />
-                    ))}
-                  </Box>
-                </>
-              )}
-            </DialogContent>
-            <DialogActions className="dialog-actions">
-              <Button onClick={handleDialogClose} variant="contained">
-                {t("dialog.close")}
+            </div>
+            <div className="ctas-buttons">
+              <Button
+                className="cta-button cta-primary"
+                onClick={() => handleCTAClick("contact", `${ROUTES.services}?section=guidance&dialog=true`)}
+              >
+                <ExploreIcon sx={{ fontSize: 20 }} />
+                <span>{t("cta.button")}</span>
               </Button>
-            </DialogActions>
-          </>
-        )}
-      </Dialog>
-    </Box>
+
+              <Button
+                className="cta-button cta-secondary"
+                onClick={() => handleCTAClick("register", session ? ROUTES.welcome.postRegistration : ROUTES.auth.signin)}
+              >
+                <StartIcon sx={{ fontSize: 20 }} />
+                <span>{t("cta.register")}</span>
+              </Button>
+            </div>
+          </div>
+        </section>
+
+        {/* Mobile FAB */}
+        <Fab className="mobile-fab" onClick={() => setMobileDrawerOpen(true)}>
+          <SettingsIcon />
+        </Fab>
+
+        {/* Mobile Drawer */}
+        <Drawer
+          anchor="bottom"
+          open={mobileDrawerOpen}
+          onClose={() => setMobileDrawerOpen(false)}
+          className="mobile-drawer"
+        >
+          <Box className="mobile-drawer-content">
+            <Box className="mobile-drawer-header">
+              <Typography variant="h6">{t("controls.title")}</Typography>
+              <IconButton onClick={() => setMobileDrawerOpen(false)}>
+                <CloseIcon />
+              </IconButton>
+            </Box>
+            {renderControlsPanel()}
+          </Box>
+        </Drawer>
+
+        {/* Item Detail Dialog */}
+        <Dialog open={dialogOpen} onClose={handleDialogClose} maxWidth="md" fullWidth className="item-dialog">
+          {selectedItem && (
+            <>
+              <DialogTitle className="dialog-title">
+                <Box className="dialog-title-content">
+                  <Box className="dialog-title-main">
+                    <Typography variant="h5" className="dialog-item-title">
+                      {t(`items.${selectedItem.key}.title`)}
+                    </Typography>
+                    {selectedItem.module && getModuleIcon(selectedItem.module)}
+                    {getItemImportance(selectedItem, toggles) === 0 ? (
+                      <Chip
+                        label={t("item.notApplicableChip")}
+                        size="small"
+                        color="warning"
+                        variant="outlined"
+                        className="not-applicable-chip"
+                      />
+                    ) : (
+                      <Box className="dialog-importance">
+                        {renderImportanceIndicator(getItemImportance(selectedItem, toggles))}
+                      </Box>
+                    )}
+                  </Box>
+                  <IconButton onClick={handleDialogClose}>
+                    <CloseIcon />
+                  </IconButton>
+                </Box>
+              </DialogTitle>
+              <DialogContent className="dialog-content">
+                <Typography variant="body1" className="dialog-description">
+                  {t(`items.${selectedItem.key}.description`)}
+                </Typography>
+
+                <Typography variant="h6" className="dialog-section-title">
+                  {t("dialog.objectives")}
+                </Typography>
+                <List dense className="dialog-list">
+                  {t(`items.${selectedItem.key}.objectives`, { returnObjects: true }).map((item, index) => (
+                    <ListItem key={index} className="dialog-list-item">
+                      <ListItemText primary={`• ${item}`} primaryTypographyProps={{ className: "dialog-list-text" }} />
+                    </ListItem>
+                  ))}
+                </List>
+                <Typography variant="h6" className="dialog-section-title">
+                  {t("dialog.help")}
+                </Typography>
+                <Typography variant="body1" className="dialog-help">
+                  {t(`items.${selectedItem.key}.help`)}
+                </Typography>
+                {t(`items.${selectedItem.key}.tools`, { returnObjects: true }).length > 0 && (
+                  <>
+                    <Typography variant="h6" className="dialog-section-title">
+                      {t("dialog.tools")}
+                    </Typography>
+                    <Box className="dialog-tools">
+                      {t(`items.${selectedItem.key}.tools`, { returnObjects: true }).map((tool, index) => (
+                        <Chip key={index} label={tool} size="small" variant="outlined" className="tool-chip" />
+                      ))}
+                    </Box>
+                  </>
+                )}
+              </DialogContent>
+              <DialogActions className="dialog-actions">
+                <Button onClick={handleDialogClose} variant="contained">
+                  {t("dialog.close")}
+                </Button>
+              </DialogActions>
+            </>
+          )}
+        </Dialog>
+      </Box>
+    </>
   )
 }
 

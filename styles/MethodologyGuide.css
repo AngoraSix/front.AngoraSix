@@ -2,44 +2,59 @@
   min-height: 100vh;
   background-color: #fafbfc;
   margin-top: 2.5rem;
+  width: 100%;
+  overflow-x: hidden;
 }
 
-.MethodologyGuidePage .MuiContainer-root {
-  padding-left: 1rem;
-  padding-right: 1rem;
+/* Hero Section - Same as Overview */
+.MethodologyGuidePage .guide-hero {
+  padding: 80px 20px 60px;
+  text-align: center;
+  background: linear-gradient(135deg, #030d16 0%, #0f2f4d 100%);
+  color: #ffffff;
+  animation: fadeIn 0.8s ease-out;
 }
 
-/* Header Section */
-.MethodologyGuidePage .page-header {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+.MethodologyGuidePage .hero-content {
+  max-width: 900px;
+  margin: 0 auto;
 }
 
-.MethodologyGuidePage .page-title {
-  margin-bottom: 1rem;
-  font-size: 2rem;
+.MethodologyGuidePage .hero-title {
+  color: #ffffff;
+  font-size: 3.5rem;
   font-weight: 700;
-  color: #1b5993;
-}
-
-.MethodologyGuidePage .page-subtitle {
-  margin-bottom: 0.5rem;
-  font-size: 1.1rem;
-  font-weight: 400;
-  line-height: 1.5;
-  color: rgba(0, 0, 0, 0.6);
-}
-
-.MethodologyGuidePage .page-description {
   margin-bottom: 1.5rem;
-  font-size: 0.95rem;
+  line-height: 1.2;
+  animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.MethodologyGuidePage .hero-description {
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
   line-height: 1.6;
-  color: rgba(0, 0, 0, 0.6);
+  color: #dce7ea;
+  opacity: 0.9;
+  animation: fadeInUp 0.8s ease-out 0.4s both;
+  text-align: left;
+}
+
+.MethodologyGuidePage .hero-quote {
+  padding: 20px;
+  border-left: 4px solid #fe5f55;
+  background-color: rgba(255, 255, 255, 0.1);
+  font-style: italic;
+  color: #dce7ea;
+  animation: fadeInUp 0.8s ease-out 0.6s both;
 }
 
 /* Main Content */
 .MethodologyGuidePage .page-main-content {
+  padding-top: 3rem;
   padding-bottom: 3rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 /* Stage Cards */
@@ -358,39 +373,86 @@
   height: 32px;
 }
 
-/* CTA Section */
-.MethodologyGuidePage .cta-section {
-  margin-top: 3rem;
-  padding: 2rem;
-  background-color: #1b5993;
-  border-radius: 1rem;
-  text-align: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+/* CTA Section - Same as Overview */
+.MethodologyGuidePage .ctas-section {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #030d16 0%, #0f2f4d 100%);
+  animation: fadeIn 0.8s ease-out;
+  width: 100%;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
 }
 
-.MethodologyGuidePage .cta-title {
+.MethodologyGuidePage .ctas-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.MethodologyGuidePage .ctas-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.MethodologyGuidePage .ctas-title {
   color: white;
+  margin: 0 0 16px 0;
+  font-size: 2rem;
   font-weight: 700;
-  margin-bottom: 1rem;
-  font-size: 1.5rem;
 }
 
 .MethodologyGuidePage .cta-description {
   color: white;
-  margin-bottom: 1.5rem;
+  margin: 0;
   opacity: 0.95;
-  font-size: 0.95rem;
+  font-size: 1.1rem;
+}
+
+.MethodologyGuidePage .ctas-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .MethodologyGuidePage .cta-button {
-  padding: 0.75rem 2rem;
-  font-size: 1.1rem;
+  padding: 20px 32px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
   font-weight: 600;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+  font-size: 16px;
+  text-transform: none;
 }
 
 .MethodologyGuidePage .cta-button:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.MethodologyGuidePage .cta-primary {
+  background-color: #fe5f55;
+  color: white;
+}
+
+.MethodologyGuidePage .cta-primary:hover {
+  background-color: #ff4538;
+}
+
+.MethodologyGuidePage .cta-secondary {
+  background-color: white;
+  color: #0a2239;
+}
+
+.MethodologyGuidePage .cta-secondary:hover {
+  background-color: #dce7ea;
 }
 
 /* Mobile FAB */
@@ -509,23 +571,35 @@
   background-color: #f5f5f5;
 }
 
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Responsive - Desktop */
 @media (min-width: 900px) {
-  .MethodologyGuidePage .page-header {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+  .MethodologyGuidePage .hero-title {
+    font-size: 3.5rem;
   }
 
-  .MethodologyGuidePage .page-title {
-    font-size: 2.5rem;
-  }
-
-  .MethodologyGuidePage .page-subtitle {
+  .MethodologyGuidePage .hero-description {
     font-size: 1.25rem;
-  }
-
-  .MethodologyGuidePage .page-description {
-    font-size: 1rem;
   }
 
   .MethodologyGuidePage .stage-card {
@@ -547,23 +621,22 @@
   .MethodologyGuidePage .mobile-fab {
     display: none;
   }
+}
 
-  .MethodologyGuidePage .cta-section {
-    padding: 3rem;
+/* Responsive - Tablet */
+@media (max-width: 1024px) {
+  .MethodologyGuidePage .guide-hero {
+    padding: 60px 20px 40px;
   }
 
-  .MethodologyGuidePage .cta-title {
-    font-size: 2rem;
-  }
-
-  .MethodologyGuidePage .cta-description {
-    font-size: 1.1rem;
+  .MethodologyGuidePage .ctas-section {
+    padding: 60px 0;
   }
 }
 
 /* Responsive - Mobile */
 @media (max-width: 900px) {
-  .MethodologyGuidePage .MuiContainer-root {
+  .MethodologyGuidePage .page-main-content {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
   }
@@ -580,6 +653,46 @@
   .MethodologyGuidePage .item-card {
     min-width: 180px;
     max-width: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  .MethodologyGuidePage .guide-hero {
+    padding: 40px 16px 32px;
+  }
+
+  .MethodologyGuidePage .hero-title {
+    font-size: 2rem;
+  }
+
+  .MethodologyGuidePage .hero-description {
+    font-size: 1rem;
+  }
+
+  .MethodologyGuidePage .ctas-section {
+    padding: 60px 0;
+  }
+
+  .MethodologyGuidePage .ctas-content {
+    padding: 0 16px;
+  }
+
+  .MethodologyGuidePage .ctas-title {
+    font-size: 1.5rem;
+  }
+
+  .MethodologyGuidePage .cta-description {
+    font-size: 0.95rem;
+  }
+
+  .MethodologyGuidePage .ctas-buttons {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .MethodologyGuidePage .cta-button {
+    padding: 16px 24px;
+    width: 100%;
   }
 }
 
@@ -624,6 +737,33 @@
   .MethodologyGuidePage .mobile-drawer .toggle-button {
     padding: 0.75rem;
     font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .MethodologyGuidePage .guide-hero {
+    padding: 32px 12px 24px;
+  }
+
+  .MethodologyGuidePage .hero-title {
+    font-size: 1.75rem;
+  }
+
+  .MethodologyGuidePage .hero-quote {
+    padding: 16px;
+  }
+
+  .MethodologyGuidePage .ctas-section {
+    padding: 48px 0;
+  }
+
+  .MethodologyGuidePage .ctas-content {
+    padding: 0 12px;
+  }
+
+  .MethodologyGuidePage .cta-button {
+    padding: 14px 20px;
+    font-size: 14px;
   }
 }
 
