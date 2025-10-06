@@ -2,10 +2,10 @@
 
 import {
     Autorenew as AutorenewIcon,
+    Build as BuildIcon,
     Explore as ExploreIcon,
     Handshake as HandshakeIcon,
     AltRoute as RouteIcon,
-    Build as BuildIcon,
     KeyboardArrowRight as StartIcon,
 } from "@mui/icons-material"
 import { Box, Button, Typography } from "@mui/material"

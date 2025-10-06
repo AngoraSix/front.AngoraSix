@@ -120,7 +120,7 @@ const MethodologyGuidePage = () => {
       return (
         <Box className="module-icons-both">
           <ExploreIcon className="module-icon-compass" />
-          <Box component="img" src="/logos/a6-white-500.png" alt="AngoraSix" className="module-icon-platform" />
+          <Box component="img" src="/logos/a6-blue.png" alt="AngoraSix" className="module-icon-platform" />
         </Box>
       )
     }
@@ -129,7 +129,7 @@ const MethodologyGuidePage = () => {
       case "compass":
         return <ExploreIcon className="module-icon-compass" />
       case "platform":
-        return <Box component="img" src="/logos/a6-white-500.png" alt="AngoraSix" className="module-icon-platform" />
+        return <Box component="img" src="/logos/a6-blue.png" alt="AngoraSix" className="module-icon-platform" />
       default:
         return null
     }
@@ -322,7 +322,7 @@ const MethodologyGuidePage = () => {
         </section>
 
         {/* Main Content */}
-        <Container maxWidth="lg" className="page-main-content">
+        <Container className="page-main-content">
           <Grid container spacing={3}>
             {/* Left Column - Stages (Desktop: 8/12, Mobile: 12/12) */}
             <Grid item xs={12} md={8}>
@@ -361,9 +361,6 @@ const MethodologyGuidePage = () => {
               <Typography variant="h4" component="h2" className="ctas-title">
                 {t("cta.title")}
               </Typography>
-              <Typography variant="body1" className="cta-description">
-                {t("cta.description")}
-              </Typography>
             </div>
             <div className="ctas-buttons">
               <Button
@@ -376,7 +373,9 @@ const MethodologyGuidePage = () => {
 
               <Button
                 className="cta-button cta-secondary"
-                onClick={() => handleCTAClick("register", session ? ROUTES.welcome.postRegistration : ROUTES.auth.signin)}
+                onClick={() =>
+                  handleCTAClick("register", session ? ROUTES.welcome.postRegistration : ROUTES.auth.signin)
+                }
               >
                 <StartIcon sx={{ fontSize: 20 }} />
                 <span>{t("cta.register")}</span>
@@ -413,67 +412,87 @@ const MethodologyGuidePage = () => {
           {selectedItem && (
             <>
               <DialogTitle className="dialog-title">
-                <Box className="dialog-title-content">
+                <Box className="dialog-title-header">
                   <Box className="dialog-title-main">
-                    <Typography variant="h5" className="dialog-item-title">
+                    <Typography variant="h4" className="dialog-item-title">
                       {t(`items.${selectedItem.key}.title`)}
                     </Typography>
-                    {selectedItem.module && getModuleIcon(selectedItem.module)}
-                    {getItemImportance(selectedItem, toggles) === 0 ? (
-                      <Chip
-                        label={t("item.notApplicableChip")}
-                        size="small"
-                        color="warning"
-                        variant="outlined"
-                        className="not-applicable-chip"
-                      />
-                    ) : (
-                      <Box className="dialog-importance">
-                        {renderImportanceIndicator(getItemImportance(selectedItem, toggles))}
-                      </Box>
-                    )}
+                    <Box className="dialog-title-badges">
+                      {selectedItem.module && (
+                        <Box className="dialog-module-badge">{getModuleIcon(selectedItem.module)}</Box>
+                      )}
+                      {getItemImportance(selectedItem, toggles) === 0 ? (
+                        <Chip label={t("item.notApplicableChip")} size="small" className="dialog-chip not-applicable" />
+                      ) : (
+                        <Box className="dialog-importance-badge">
+                          {renderImportanceIndicator(getItemImportance(selectedItem, toggles))}
+                        </Box>
+                      )}
+                    </Box>
                   </Box>
-                  <IconButton onClick={handleDialogClose}>
+                  <IconButton onClick={handleDialogClose} className="dialog-close-button">
                     <CloseIcon />
                   </IconButton>
                 </Box>
               </DialogTitle>
-              <DialogContent className="dialog-content">
-                <Typography variant="body1" className="dialog-description">
-                  {t(`items.${selectedItem.key}.description`)}
-                </Typography>
 
-                <Typography variant="h6" className="dialog-section-title">
-                  {t("dialog.objectives")}
-                </Typography>
-                <List dense className="dialog-list">
-                  {t(`items.${selectedItem.key}.objectives`, { returnObjects: true }).map((item, index) => (
-                    <ListItem key={index} className="dialog-list-item">
-                      <ListItemText primary={`• ${item}`} primaryTypographyProps={{ className: "dialog-list-text" }} />
-                    </ListItem>
-                  ))}
-                </List>
-                <Typography variant="h6" className="dialog-section-title">
-                  {t("dialog.help")}
-                </Typography>
-                <Typography variant="body1" className="dialog-help">
-                  {t(`items.${selectedItem.key}.help`)}
-                </Typography>
-                {t(`items.${selectedItem.key}.tools`, { returnObjects: true }).length > 0 && (
-                  <>
+              <DialogContent className="dialog-content">
+                {/* Description Section */}
+                <Box className="dialog-section dialog-description-section">
+                  <Typography variant="body1" className="dialog-description">
+                    {t(`items.${selectedItem.key}.description`)}
+                  </Typography>
+                </Box>
+
+                {/* Objectives Section */}
+                <Box className="dialog-section dialog-objectives-section">
+                  <Box className="dialog-section-header">
                     <Typography variant="h6" className="dialog-section-title">
-                      {t("dialog.tools")}
+                      {t("dialog.objectives")}
                     </Typography>
-                    <Box className="dialog-tools">
+                  </Box>
+                  <List className="dialog-objectives-list">
+                    {t(`items.${selectedItem.key}.objectives`, { returnObjects: true }).map((item, index) => (
+                      <ListItem key={index} className="dialog-objective-item">
+                        <Box className="objective-bullet" />
+                        <ListItemText primary={item} primaryTypographyProps={{ className: "dialog-objective-text" }} />
+                      </ListItem>
+                    ))}
+                  </List>
+                </Box>
+
+                {/* Help Section */}
+                <Box className="dialog-section dialog-help-section">
+                  <Box className="dialog-section-header">
+                    <InfoIcon className="dialog-section-icon" />
+                    <Typography variant="h6" className="dialog-section-title">
+                      {t("dialog.help")}
+                    </Typography>
+                  </Box>
+                  <Typography variant="body2" className="dialog-help-text">
+                    {t(`items.${selectedItem.key}.help`)}
+                  </Typography>
+                </Box>
+
+                {/* Tools Section */}
+                {t(`items.${selectedItem.key}.tools`, { returnObjects: true }).length > 0 && (
+                  <Box className="dialog-section dialog-tools-section">
+                    <Box className="dialog-section-header">
+                      <Typography variant="h6" className="dialog-section-title">
+                        {t("dialog.tools")}
+                      </Typography>
+                    </Box>
+                    <Box className="dialog-tools-grid">
                       {t(`items.${selectedItem.key}.tools`, { returnObjects: true }).map((tool, index) => (
-                        <Chip key={index} label={tool} size="small" variant="outlined" className="tool-chip" />
+                        <Chip key={index} label={tool} size="medium" className="dialog-tool-chip" />
                       ))}
                     </Box>
-                  </>
+                  </Box>
                 )}
               </DialogContent>
+
               <DialogActions className="dialog-actions">
-                <Button onClick={handleDialogClose} variant="contained">
+                <Button onClick={handleDialogClose} variant="contained" color="primary" className="dialog-close-action">
                   {t("dialog.close")}
                 </Button>
               </DialogActions>
