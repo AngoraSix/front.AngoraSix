@@ -1,7 +1,8 @@
-import { Box, Container, Divider, Grid, Link, Typography } from "@mui/material"
+import { Box, Container, Divider, Grid, Typography } from "@mui/material"
 import { styled } from "@mui/material/styles"
 import { useTranslation } from "next-i18next"
 import Image from "next/image"
+import Link from "next/link"
 import { ROUTES } from "../../../constants/constants"
 import SponsorButton from "../SponsorButton"
 
@@ -29,6 +30,7 @@ const Footer = ({ forProfile }) => {
 
   const footerLinks = [
     { key: "home", href: rootHref },
+    { key: "methodology", href: "/methodology/overview" },
     { key: "pricing", href: "/pricing" },
     { key: "about", href: "/about" },
     { key: "terms", href: "/legal/terms-and-conditions" },

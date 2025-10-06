@@ -1,0 +1,881 @@
+/* MethodologyGuidePage scoped styles */
+
+.MethodologyGuidePage {
+  min-height: 100vh;
+  background: #ffffff;
+}
+
+/* ================================
+   HERO SECTION
+   ================================ */
+.MethodologyGuidePage .guide-hero {
+  background: linear-gradient(135deg, #030d16 0%, #0f2f4d 100%);
+  padding: 120px 20px 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.MethodologyGuidePage .hero-content {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  animation: fadeIn 0.8s ease-out;
+}
+
+.MethodologyGuidePage .hero-title {
+  color: #ffffff;
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+  line-height: 1.2;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.MethodologyGuidePage .hero-description {
+  color: #dce7ea;
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin-bottom: 32px;
+  line-height: 1.6;
+  text-align: left;
+  animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.MethodologyGuidePage .hero-quote {
+  color: #afc1d6;
+  font-size: 1.125rem;
+  font-style: italic;
+  line-height: 1.8;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 24px 32px;
+  border-left: 4px solid #fe5f55;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile hero adjustments */
+@media (max-width: 768px) {
+  .MethodologyGuidePage .guide-hero {
+    padding: 80px 16px 60px;
+  }
+
+  .MethodologyGuidePage .hero-title {
+    font-size: 2.25rem;
+  }
+
+  .MethodologyGuidePage .hero-description {
+    font-size: 1.125rem;
+  }
+
+  .MethodologyGuidePage .hero-quote {
+    font-size: 1rem;
+    padding: 20px 24px;
+  }
+}
+
+/* ================================
+   MAIN CONTENT
+   ================================ */
+.MethodologyGuidePage .page-main-content {
+  padding: 60px 20px;
+  max-width: 1400px;
+}
+
+/* ================================
+   STAGE CARDS
+   ================================ */
+.MethodologyGuidePage .stage-card {
+  margin-bottom: 32px;
+  padding: 32px;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.3s ease;
+}
+
+.MethodologyGuidePage .stage-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.MethodologyGuidePage .stage-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.MethodologyGuidePage .stage-icon {
+  font-size: 2rem;
+}
+
+.MethodologyGuidePage .stage-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.MethodologyGuidePage .stage-description {
+  color: #5a6c7d;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.MethodologyGuidePage .stage-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+/* ================================
+   ITEM CARDS
+   ================================ */
+.MethodologyGuidePage .item-card {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.MethodologyGuidePage .item-card.enabled {
+  background: #ffffff;
+  border: 2px solid #1b5993;
+}
+
+.MethodologyGuidePage .item-card.disabled {
+  background: #f5f7f9;
+  border: 2px solid #e0e4e8;
+  opacity: 0.6;
+}
+
+.MethodologyGuidePage .item-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+.MethodologyGuidePage .item-card-content {
+  padding: 16px !important;
+}
+
+.MethodologyGuidePage .item-card-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.MethodologyGuidePage .item-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.MethodologyGuidePage .item-card-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #0a2239;
+  line-height: 1.4;
+  flex: 1;
+}
+
+.MethodologyGuidePage .item-card-module {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.MethodologyGuidePage .module-icons-both {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.MethodologyGuidePage .module-icon-compass {
+  font-size: 1.25rem;
+  color: #0a2239;
+}
+
+.MethodologyGuidePage .module-icon-platform {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.MethodologyGuidePage .item-card-importance {
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* ================================
+   IMPORTANCE INDICATOR
+   ================================ */
+.MethodologyGuidePage .importance-indicator {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.MethodologyGuidePage .importance-circle {
+  font-size: 0.75rem;
+}
+
+.MethodologyGuidePage .importance-circle.filled {
+  color: #fe5f55;
+}
+
+.MethodologyGuidePage .importance-circle.empty {
+  color: #e0e4e8;
+}
+
+/* ================================
+   CONTROLS PANEL
+   ================================ */
+.MethodologyGuidePage .controls-column {
+  position: relative;
+}
+
+.MethodologyGuidePage .controls-panel {
+  position: sticky;
+  top: 100px;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.MethodologyGuidePage .controls-panel-content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* Presets Section */
+.MethodologyGuidePage .presets-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.MethodologyGuidePage .presets-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.MethodologyGuidePage .presets-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #0a2239;
+  margin: 0;
+}
+
+.MethodologyGuidePage .info-icon-button {
+  color: #7d99ba;
+}
+
+.MethodologyGuidePage .presets-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.MethodologyGuidePage .preset-chip {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.MethodologyGuidePage .preset-chip.selected {
+  background-color: #1b5993;
+  color: #ffffff;
+}
+
+/* Aspects Section */
+.MethodologyGuidePage .aspects-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.MethodologyGuidePage .aspects-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #0a2239;
+  margin: 0;
+}
+
+.MethodologyGuidePage .aspect-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.MethodologyGuidePage .aspect-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.MethodologyGuidePage .aspect-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #5a6c7d;
+}
+
+.MethodologyGuidePage .toggle-group,
+.MethodologyGuidePage .toggle-grid-4 {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.MethodologyGuidePage .toggle-group .toggle-button:first-child {
+  border-top-left-radius: 8px !important;
+  border-bottom-left-radius: 8px !important;
+}
+
+.MethodologyGuidePage .toggle-group .toggle-button:last-child {
+  border-top-right-radius: 8px !important;
+  border-bottom-right-radius: 8px !important;
+
+}
+
+.MethodologyGuidePage .toggle-button {
+  font-size: 0.8rem;
+  padding: 6px 12px;
+  text-transform: none;
+  border-color: #dce7ea !important;
+}
+
+.mobile-drawer .toggle-grid-4,
+.MethodologyGuidePage .toggle-grid-4 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.mobile-drawer .toggle-grid-4 .toggle-button ,
+.MethodologyGuidePage .toggle-grid-4 .toggle-button {
+  border: 1px solid #dce7ea !important;
+  border-radius: 0 !important;
+  background: #ffffff;
+}
+
+.MethodologyGuidePage .toggle-grid-4 .toggle-button.top-left,
+.mobile-drawer .toggle-grid-4 .toggle-button.top-left {
+  border-top-left-radius: 8px !important;
+}
+
+.mobile-drawer .toggle-grid-4 .toggle-button.top-right,
+.MethodologyGuidePage .toggle-grid-4 .toggle-button.top-right {
+  border-top-right-radius: 8px !important;
+}
+
+.MethodologyGuidePage .toggle-grid-4 .toggle-button.bottom-left,
+.mobile-drawer .toggle-grid-4 .toggle-button.bottom-left {
+  border-bottom-left-radius: 8px !important;
+}
+
+.MethodologyGuidePage .toggle-grid-4 .toggle-button.bottom-right,
+.mobile-drawer .toggle-grid-4 .toggle-button.bottom-right {
+  border-bottom-right-radius: 8px !important;
+}
+
+.MethodologyGuidePage .toggle-button.Mui-selected,
+.mobile-drawer .toggle-button.Mui-selected {
+  background-color: #1b5993 !important;
+  color: #ffffff !important;
+}
+
+/* ================================
+   CTA SECTION
+   ================================ */
+.MethodologyGuidePage .ctas-section {
+  background: linear-gradient(135deg, #030d16 0%, #0f2f4d 100%);
+  padding: 80px 20px;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  left: 50%;
+  right: 50%;
+  position: relative;
+  width: 100vw;
+}
+
+.MethodologyGuidePage .ctas-content {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.MethodologyGuidePage .ctas-header {
+  margin-bottom: 48px;
+}
+
+.MethodologyGuidePage .ctas-title {
+  color: #ffffff;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.MethodologyGuidePage .ctas-buttons {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.MethodologyGuidePage .cta-button {
+  padding: 20px 32px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+  font-size: 16px;
+  text-transform: none;
+}
+
+.MethodologyGuidePage .cta-button.cta-primary {
+  background: #fe5f55;
+  color: #ffffff;
+  border: none;
+}
+
+.MethodologyGuidePage .cta-button.cta-primary:hover {
+  background: #e54d43;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(254, 95, 85, 0.3);
+}
+
+.MethodologyGuidePage .cta-button.cta-secondary {
+  background: #ffffff;
+  color: #0a2239;
+  border: 2px solid #ffffff;
+}
+
+.MethodologyGuidePage .cta-button.cta-secondary:hover {
+  background: #f5f7f9;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(255, 255, 255, 0.2);
+}
+
+/* Mobile CTA adjustments */
+@media (max-width: 768px) {
+  .MethodologyGuidePage .ctas-section {
+    padding: 60px 16px;
+  }
+
+  .MethodologyGuidePage .ctas-title {
+    font-size: 1.875rem;
+  }
+
+  .MethodologyGuidePage .ctas-buttons {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .MethodologyGuidePage .cta-button {
+    padding: 14px 24px;
+    font-size: 1rem;
+  }
+}
+
+/* ================================
+   MOBILE FAB
+   ================================ */
+.MethodologyGuidePage .mobile-fab {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: #1b5993;
+  color: #ffffff;
+  z-index: 1000;
+}
+
+.MethodologyGuidePage .mobile-fab:hover {
+  background: #0f3a5f;
+}
+
+/* Hide FAB on desktop */
+@media (min-width: 960px) {
+  .MethodologyGuidePage .mobile-fab {
+    display: none;
+  }
+}
+
+/* ================================
+   MOBILE DRAWER
+   ================================ */
+.mobile-drawer .MuiDrawer-paper {
+  border-radius: 16px 16px 0 0;
+  max-height: 85vh;
+}
+
+.mobile-drawer-content {
+  padding: 24px;
+}
+
+.mobile-drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #e0e4e8;
+}
+
+/* ================================
+   METHODOLOGY DIALOG - DISEÑO SOBRIO Y LIMPIO
+   ================================ */
+
+/* Dialog Paper */
+.methodology-dialog .MuiDialog-paper {
+  border-radius: 12px;
+  max-width: 800px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+/* Header */
+.methodology-dialog-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 24px 32px;
+  background: #fafbfc;
+  border-bottom: 1px solid #e8eef3;
+}
+
+.methodology-dialog-header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.methodology-dialog-module-icon {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.methodology-dialog-module-icon .module-icon-compass {
+  font-size: 22px;
+  color: #1b5993;
+}
+
+.methodology-dialog-module-icon .module-icon-platform {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+.methodology-dialog-module-icon .module-icons-both {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.methodology-dialog-module-icon .module-icons-both .module-icon-compass {
+  font-size: 22px;
+  color: #1b5993;
+}
+
+.methodology-dialog-module-icon .module-icons-both .module-icon-platform {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+.methodology-dialog-importance {
+  display: flex;
+  align-items: center;
+}
+
+.methodology-dialog-importance .importance-indicator {
+  display: flex;
+  gap: 4px;
+}
+
+.methodology-dialog-importance .importance-circle {
+  font-size: 12px;
+}
+
+.methodology-dialog-importance .importance-circle.filled {
+  color: #fe5f55;
+}
+
+.methodology-dialog-importance .importance-circle.empty {
+  color: #dce7ea;
+}
+
+.methodology-dialog-not-applicable {
+  padding: 4px 12px;
+  background: #fff3e0;
+  border: 1px solid #ffb74d;
+  border-radius: 12px;
+  color: #e65100;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.methodology-dialog-title {
+  flex: 1;
+  color: #0a2239;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 0;
+  text-align: center;
+}
+
+.methodology-dialog-close {
+  flex-shrink: 0;
+  color: #5a6c7d;
+  transition: all 0.2s ease;
+}
+
+.methodology-dialog-close:hover {
+  background: #e8eef3;
+  color: #0a2239;
+}
+
+/* Content */
+.methodology-dialog-content {
+  padding: 32px !important;
+  background: #ffffff;
+}
+
+/* Sections */
+.methodology-dialog-section {
+  margin-bottom: 28px;
+}
+
+.methodology-dialog-section:last-child {
+  margin-bottom: 0;
+}
+
+/* Description */
+.methodology-dialog-description {
+  color: #2c3e50;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Section Title */
+.methodology-dialog-section-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #0a2239;
+  margin: 0 0 16px 0;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #e8eef3;
+}
+
+/* Objectives */
+.methodology-dialog-objectives {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.methodology-dialog-objective {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px;
+  background: #fafbfc;
+  border-radius: 8px;
+  border: 1px solid #e8eef3;
+}
+
+.objective-check-icon {
+  flex-shrink: 0;
+  font-size: 20px;
+  color: #1b5993;
+  margin-top: 2px;
+}
+
+.objective-text {
+  flex: 1;
+  color: #2c3e50;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Help Section */
+.methodology-dialog-help {
+  padding: 20px;
+  background: #f0f7ff;
+  border-radius: 8px;
+  border-left: 4px solid #1b5993;
+}
+
+.help-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.help-icon {
+  font-size: 20px;
+  color: #1b5993;
+}
+
+.help-title {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: #0a2239;
+  margin: 0;
+}
+
+.help-text {
+  color: #34495e;
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Tools */
+.methodology-dialog-tools {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 10px;
+}
+
+.tool-item {
+  padding: 10px 10px;
+  background: #fafbfc;
+  border: 1px solid #2c3e50;
+  border-radius: 50px;
+  color: #2c3e50;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-align: center;
+  background-color: rgba(220, 231, 234, 0.4);
+  align-content: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .methodology-dialog-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px 24px;
+  }
+
+  .methodology-dialog-header-left {
+    width: 100%;
+    justify-content: start;
+  }
+
+  .methodology-dialog-title {
+    text-align: left;
+    font-size: 1.25rem;
+  }
+
+  .methodology-dialog-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+
+  .methodology-dialog-content {
+    padding: 24px 20px !important;
+  }
+
+  .methodology-dialog-section {
+    margin-bottom: 24px;
+  }
+
+  .methodology-dialog-description {
+    font-size: 1rem;
+  }
+
+  .methodology-dialog-section-title {
+    font-size: 1rem;
+  }
+
+  .methodology-dialog-objective {
+    padding: 10px;
+  }
+
+  .objective-text {
+    font-size: 0.875rem;
+  }
+
+  .methodology-dialog-help {
+    padding: 16px;
+  }
+
+  .help-text {
+    font-size: 0.875rem;
+  }
+
+  .methodology-dialog-tools {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ================================
+   RESPONSIVE
+   ================================ */
+@media (max-width: 960px) {
+  .MethodologyGuidePage .controls-column {
+    display: none;
+  }
+
+  .MethodologyGuidePage .stage-items {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .MethodologyGuidePage .page-main-content {
+    padding: 40px 16px;
+  }
+
+  .MethodologyGuidePage .stage-card {
+    padding: 24px;
+  }
+
+  .MethodologyGuidePage .stage-title {
+    font-size: 1.5rem;
+  }
+}

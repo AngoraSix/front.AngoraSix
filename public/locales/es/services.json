@@ -10,7 +10,7 @@
     "badge2": "Plataforma AngoraSix"
   },
   "guidance": {
-    "badge": "Asesoría experta",
+    "badge": "A6 Compass",
     "title": "Servicios de asesoría y metodología",
     "subtitle": "Somos tus aliados para construir mejor. Recibí apoyo experto con marcos y metodologías probadas para preparar tu proyecto para el éxito desde el primer día.",
     "agile": {
@@ -29,10 +29,11 @@
       "title": "Marcos de gestión justa",
       "description": "Ayudamos a tu equipo a definir qué significa 'justo' e implementar procesos de gobernanza y finanzas transparentes que todos comprendan."
     },
-    "cta": "Hablá con nuestros asesores"
+    "cta": "Hablá con nuestros asesores",
+    "cta2": "Explorá la metodología"
   },
   "platform": {
-    "badge": "Potenciá tu proyecto",
+    "badge": "A6 Platform",
     "title": "Plataforma AngoraSix",
     "subtitle": "La extensión natural de tu marco de trabajo — ganá eficiencia manteniendo los principios de transparencia y equidad, tal como los definiste.",
     "contribution": {

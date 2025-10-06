@@ -1,0 +1,43 @@
+{
+  "page": {
+    "title": "The AngoraSix Methodology",
+    "description": "A framework that helps teams define what 'fair' means in project management — iteratively and adaptively."
+  },
+  "hero": {
+    "title": "The AngoraSix Methodology",
+    "description": "A framework that helps teams define what 'fair' means in project management — iteratively and adaptively. It reduces friction, brings clarity, and enables dynamic governance based on real contributions.",
+    "quote": "The only way to make sense of change is to plunge into it, move with it, and join the dance. — Alan Watts"
+  },
+  "journey": {
+    "title": "Your Journey with AngoraSix",
+    "subtitle": "The framework that makes 'creating together' possible",
+    "outcome": "The outcome",
+    "compassBonus": "✨ Bonus with A6 Compass",
+    "steps": {
+      "fairness": {
+        "title": "Defining What’s Fair",
+        "description": "Through workshops and guided activities, the team aligns on what 'fair' means for their specific case. Motivations, expectations, and roles are surfaced early to build shared understanding.",
+        "outcome": "An initial agreement on how to work together, with clear rules and starting points recognized by everyone.",
+        "compassBonus": "Tailored workshops + introductory training in Lean Startup, Design Thinking, and Agile practices"
+      },
+      "parametrization": {
+        "title": "Project Setup",
+        "description": "We translate agreements into clear, formal rules within AngoraSix. This defines how contributions are valued, how decisions are made, and how resources are distributed.",
+        "outcome": "A visible, reliable framework where everyone understands the rules of the game and how they are applied.",
+        "compassBonus": "We take care of systematizing everything within AngoraSix"
+      },
+      "implementation": {
+        "title": "Continuous Evolution",
+        "description": "The system goes live and evolves with the team. Regular reviews adjust rules and processes, keeping governance and finance aligned with the project’s reality.",
+        "outcome": "A living system that grows with the collective: clarity on project health, fair distribution, and data-informed decisions.",
+        "compassBonus": "Guidance on methodology adaptation + support in conflict resolution and optimization"
+      }
+    }
+  },
+  "ctas": {
+    "title": "Ready to Begin?",
+    "contact": "Get Guidance",
+    "register": "Start Your Journey",
+    "guide": "Interactive Guide"
+  }
+}

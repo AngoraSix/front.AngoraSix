@@ -1,0 +1,592 @@
+.MethodologyOverviewPage__Page__Body {
+  display: block;
+}
+
+.MethodologyOverviewPage {
+  width: 100%;
+  overflow-x: hidden;
+  margin-top: 2.5rem;
+}
+
+/* Hero Section */
+.MethodologyOverviewPage .overview-hero {
+  padding: 80px 20px 60px;
+  text-align: center;
+  /* background: linear-gradient(135deg, #dce7ea 0%, #ffffff 100%); */
+  background: linear-gradient(135deg, #030D16 0%, #0F2F4D 100%);
+  color: #ffffff;
+  animation: fadeIn 0.8s ease-out;
+}
+
+.MethodologyOverviewPage .hero-content {
+  max-width: 900px;
+  margin: 0 auto;
+  animation: fadeIn 0.8s ease-out;
+}
+
+.MethodologyOverviewPage .hero-title {
+  color: #ffffff;
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.MethodologyOverviewPage .hero-description {
+  color: #dce7ea;
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin-bottom: 32px;
+  line-height: 1.6;
+  text-align: left;
+  animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.MethodologyOverviewPage .hero-quote {
+  color: #afc1d6;
+  font-size: 1.125rem;
+  font-style: italic;
+  line-height: 1.8;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 24px 32px;
+  border-left: 4px solid #fe5f55;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+/* Journey Section */
+.MethodologyOverviewPage .journey-section {
+  padding: 80px 20px;
+  position: relative;
+  background-color: #ffffff;
+}
+
+.MethodologyOverviewPage .journey-header {
+  text-align: center;
+  margin-bottom: 80px;
+  animation: fadeIn 0.8s ease-out;
+}
+
+.MethodologyOverviewPage .journey-header h2 {
+  margin-bottom: 16px;
+  color: #0a2239;
+}
+
+.MethodologyOverviewPage .journey-header p {
+  color: #1b5993;
+}
+
+.MethodologyOverviewPage .journey-path {
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* SVG Path */
+.MethodologyOverviewPage .path-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.MethodologyOverviewPage .path-svg path {
+  animation: drawPath 3s ease-out forwards;
+}
+
+/* Steps */
+.MethodologyOverviewPage .journey-steps {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+}
+
+.MethodologyOverviewPage .journey-step {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 24px;
+  align-items: start;
+  animation: fadeInUp 0.8s ease-out both;
+}
+
+.MethodologyOverviewPage .journey-step:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.MethodologyOverviewPage .journey-step:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.MethodologyOverviewPage .journey-step:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.MethodologyOverviewPage .step-number {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1b5993 0%, #0a2239 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(10, 34, 57, 0.2);
+  flex-shrink: 0;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.MethodologyOverviewPage .step-card {
+  background: white;
+  border-radius: 16px;
+  border: 3px solid;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 0;
+}
+
+.MethodologyOverviewPage .step-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+}
+
+/* Step Visual */
+.MethodologyOverviewPage .step-visual {
+  background: linear-gradient(135deg, #dce7ea 0%, #ffffff 100%);
+  padding: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.MethodologyOverviewPage .step-3d-container {
+  width: 100%;
+  height: 300px;
+  position: relative;
+}
+
+/* Step Content */
+.MethodologyOverviewPage .step-content {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.MethodologyOverviewPage .step-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.MethodologyOverviewPage .step-icon-wrapper {
+  width: 64px;
+  height: 64px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.MethodologyOverviewPage .step-header h3 {
+  margin: 0;
+  color: #0a2239;
+}
+
+.MethodologyOverviewPage .step-description {
+  color: #1b5993;
+  line-height: 1.7;
+}
+
+.MethodologyOverviewPage .step-outcome {
+  padding: 16px;
+  border-radius: 8px;
+  background-color: rgba(220, 231, 234, 0.3);
+}
+
+.MethodologyOverviewPage .step-outcome strong {
+  display: block;
+  margin-bottom: 8px;
+  color: #0a2239;
+}
+
+.MethodologyOverviewPage .step-outcome p {
+  margin: 0;
+  color: #1b5993;
+}
+
+/* Compass Bonus - Smaller, side-aligned */
+.MethodologyOverviewPage .compass-bonus {
+  padding: 10px 14px;
+  border-radius: 6px;
+  background-color: rgba(254, 95, 85, 0.08);
+  border-left: 3px solid #fe5f55;
+  max-width: 65%;
+  margin-left: auto;
+  margin-top: 8px;
+}
+
+.MethodologyOverviewPage .compass-bonus-label {
+  display: block;
+  color: #fe5f55;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 700;
+}
+
+.MethodologyOverviewPage .compass-bonus-text {
+  display: block;
+  color: #0a2239;
+  line-height: 1.4;
+  font-style: italic;
+}
+
+/* CTAs Section */
+.MethodologyOverviewPage .ctas-section {
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #030D16 0%, #0F2F4D 100%);
+  animation: fadeIn 0.8s ease-out;
+}
+
+.MethodologyOverviewPage .ctas-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.MethodologyOverviewPage .ctas-title {
+  color: #ffffff;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+
+.MethodologyOverviewPage .ctas-buttons {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.MethodologyOverviewPage .cta-button {
+  padding: 20px 32px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+  font-size: 16px;
+  text-transform: none;
+}
+
+.MethodologyOverviewPage .cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.MethodologyOverviewPage .cta-primary {
+  background-color: #fe5f55;
+  color: white;
+}
+
+.MethodologyOverviewPage .cta-primary:hover {
+  background-color: #ff4538;
+}
+
+.MethodologyOverviewPage .cta-secondary {
+  background-color: white;
+  color: #0a2239;
+}
+
+.MethodologyOverviewPage .cta-secondary:hover {
+  background-color: #dce7ea;
+}
+
+.MethodologyOverviewPage .cta-tertiary {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.MethodologyOverviewPage .cta-tertiary:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes drawPath {
+  from {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+  }
+
+  to {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Responsive Design */
+
+/* Large Desktop */
+@media (min-width: 1400px) {
+  .MethodologyOverviewPage .journey-steps {
+    gap: 120px;
+  }
+
+  .MethodologyOverviewPage .step-card {
+    grid-template-columns: 1fr 2.5fr;
+  }
+}
+
+/* Desktop */
+@media (max-width: 1200px) {
+  .MethodologyOverviewPage .step-card {
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .MethodologyOverviewPage .step-3d-container {
+    height: 250px;
+  }
+
+  .MethodologyOverviewPage .compass-bonus {
+    max-width: 70%;
+  }
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .MethodologyOverviewPage .overview-hero {
+    padding: 60px 20px 40px;
+  }
+
+  .MethodologyOverviewPage .journey-section {
+    padding: 60px 20px;
+  }
+
+  .MethodologyOverviewPage .journey-header {
+    margin-bottom: 60px;
+  }
+
+  .MethodologyOverviewPage .journey-steps {
+    gap: 80px;
+  }
+
+  .MethodologyOverviewPage .path-svg {
+    display: none;
+  }
+
+  .MethodologyOverviewPage .compass-bonus {
+    max-width: 80%;
+  }
+
+  .MethodologyOverviewPage .ctas-buttons {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .MethodologyOverviewPage .cta-button:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .MethodologyOverviewPage .overview-hero {
+    padding: 40px 16px 32px;
+  }
+
+  .MethodologyOverviewPage .journey-section {
+    padding: 40px 16px;
+  }
+
+  .MethodologyOverviewPage .journey-header {
+    margin-bottom: 40px;
+  }
+
+  .MethodologyOverviewPage .journey-steps {
+    gap: 60px;
+  }
+
+  .MethodologyOverviewPage .journey-step {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .MethodologyOverviewPage .step-number {
+    width: 48px;
+    height: 48px;
+    font-size: 20px;
+    margin: 0 auto;
+  }
+
+  .MethodologyOverviewPage .step-card {
+    grid-template-columns: 1fr;
+  }
+
+  .MethodologyOverviewPage .step-visual {
+    padding: 24px;
+  }
+
+  .MethodologyOverviewPage .step-3d-container {
+    height: 200px;
+  }
+
+  .MethodologyOverviewPage .step-content {
+    padding: 24px;
+  }
+
+  .MethodologyOverviewPage .step-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+  }
+
+  .MethodologyOverviewPage .step-icon-wrapper {
+    width: 48px;
+    height: 48px;
+  }
+
+  .MethodologyOverviewPage .compass-bonus {
+    max-width: 90%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .MethodologyOverviewPage .ctas-section {
+    padding: 60px 16px;
+  }
+
+  .MethodologyOverviewPage .ctas-header {
+    margin-bottom: 32px;
+  }
+
+  .MethodologyOverviewPage .ctas-buttons {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .MethodologyOverviewPage .cta-button:last-child {
+    grid-column: 1;
+  }
+
+  .MethodologyOverviewPage .cta-button {
+    padding: 16px 24px;
+    width: 100%;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .MethodologyOverviewPage .overview-hero {
+    padding: 32px 12px 24px;
+  }
+
+  .MethodologyOverviewPage .hero-quote {
+    padding: 16px;
+  }
+
+  .MethodologyOverviewPage .journey-section {
+    padding: 32px 12px;
+  }
+
+  .MethodologyOverviewPage .journey-steps {
+    gap: 48px;
+  }
+
+  .MethodologyOverviewPage .step-number {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+
+  .MethodologyOverviewPage .step-visual {
+    padding: 16px;
+  }
+
+  .MethodologyOverviewPage .step-3d-container {
+    height: 180px;
+  }
+
+  .MethodologyOverviewPage .step-content {
+    padding: 20px;
+    gap: 16px;
+  }
+
+  .MethodologyOverviewPage .step-icon-wrapper {
+    width: 40px;
+    height: 40px;
+  }
+
+  .MethodologyOverviewPage .step-outcome {
+    padding: 12px;
+  }
+
+  .MethodologyOverviewPage .compass-bonus {
+    padding: 8px 12px;
+    max-width: 100%;
+  }
+
+  .MethodologyOverviewPage .ctas-section {
+    padding: 48px 12px;
+  }
+
+  .MethodologyOverviewPage .cta-button {
+    padding: 14px 20px;
+    font-size: 14px;
+  }
+}

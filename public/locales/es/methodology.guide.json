@@ -1,0 +1,460 @@
+{
+  "page": {
+    "title": "Guía de metodología AngoraSix",
+    "description": "Una guía detallada, una hoja de ruta para implementar una gestión de proyectos justa y eficiente."
+  },
+  "title": "Guía de metodología AngoraSix",
+  "subtitle": "Una hoja de ruta para implementar una gestión de proyectos justa y eficiente. Esta guía se adapta a las características de tu proyecto, mostrándote las actividades y herramientas más relevantes en cada etapa.",
+  "description": "Singular, como un latido en el pecho. Único, exactamente lo mismo que el resto - El Chojin",
+  "presets": {
+    "title": "Presets Rápidos",
+    "tooltip": "Escenarios preconfigurados que automáticamente ajustan los aspectos más relevantes para tipos comunes de proyectos.",
+    "startup": {
+      "label": "Startup Temprana",
+      "tooltip": "Producto nuevo, equipo pequeño, desarrollo cerrado, sin ingresos aún. Foco en validación y estructura básica."
+    },
+    "venture": {
+      "label": "Venture Madura",
+      "tooltip": "Producto validado, gestión experimentada, ingresos estables. Foco en optimización y crecimiento."
+    },
+    "community": {
+      "label": "Comunidad Abierta",
+      "tooltip": "Proyecto colaborativo, gobernanza descentralizada, abierto a contribuidores, desarrollo dirigido por la comunidad."
+    },
+    "subproject": {
+      "label": "Sub-proyecto",
+      "tooltip": "Parte de una organización más grande, a cargo de un equipo, enfoque validado, financiamiento y procesos estables."
+    },
+    "traditional": {
+      "label": "Manager Tradicional",
+      "tooltip": "Producto establecido, gestión madura, control centralizado, ingresos estables, estructura corporativa tradicional."
+    }
+  },
+  "controls": {
+    "title": "Configuración"
+  },
+  "aspects": {
+    "title": "Aspectos del Proyecto",
+    "product": {
+      "label": "Producto",
+      "tooltip": "Estado actual de tu producto o servicio",
+      "options": {
+        "new": "Nuevo/Incierto",
+        "validated": "Validado/Estable"
+      }
+    },
+    "management": {
+      "label": "Gestión",
+      "tooltip": "Nivel de madurez en gestión del equipo",
+      "options": {
+        "newTeam": "Equipo Nuevo",
+        "mature": "Gestión Madura"
+      }
+    },
+    "centralization": {
+      "label": "Centralización",
+      "tooltip": "Estructura de toma de decisiones",
+      "options": {
+        "admin": "Administrador",
+        "core": "Equipo Central",
+        "decentralized": "Descentralizado"
+      }
+    },
+    "openness": {
+      "label": "Apertura",
+      "tooltip": "Nivel de apertura a contribuidores externos",
+      "options": {
+        "closed": "Cerrado",
+        "open": "Abierto"
+      }
+    },
+    "finance": {
+      "label": "Flujo Financiero",
+      "tooltip": "Modelo financiero",
+      "options": {
+        "noRevenue": "No Financiero",
+        "noRevenueYet": "Sin Ingresos todavía",
+        "stableRevenue": "Ingresos Estables",
+        "unstableRevenue": "Ingresos Crecientes"
+      }
+    }
+  },
+  "stages": {
+    "alignment": {
+      "title": "1. Alineación",
+      "description": "Chequeos y preparación del equipo, alinear expectativas y validar los cimientos del proyecto antes de sumergirse en la implementación."
+    },
+    "setup": {
+      "title": "2. Configuración del Proyecto",
+      "description": "Definir reglas de gobernanza, estructuras financieras y configurar las herramientas e integraciones necesarias para una operación fluida."
+    },
+    "implementation": {
+      "title": "3. Implementación y Revisión Iterativa",
+      "description": "Ejecutar ceremonias ágiles, distribuir valor y revisar continuamente procesos, métricas y gobernanza para hacer evolucionar el proyecto."
+    }
+  },
+  "items": {
+    "fairness-assessment": {
+      "title": "Definir lo 'justo'",
+      "description": "Espacio inicial para conversar abiertamente sobre lo que cada integrante considera 'justo' dentro del proyecto. Se exploran percepciones de equidad, aportes esperados y criterios de reconocimiento para construir un entendimiento compartido.",
+      "help": "Con A6 Compass facilitamos y guiamos los talleres, ayudando al equipo a transformar conversaciones abstractas sobre justicia en acuerdos claros, accionables y adaptados a su contexto.",
+      "objectives": [
+        "Comprender las expectativas de equidad de los miembros del equipo",
+        "Detectar posibles puntos de tensión o visiones desalineadas sobre aportes y recompensas",
+        "Lograr un marco inicial de acuerdos donde el equipo sienta que las reglas son claras y justas"
+      ],
+      "tools": [
+        "A6 Compass",
+        "Team Canvas",
+        "Talleres"
+      ]
+    },
+    "team-readiness": {
+      "title": "Preparación del Equipo",
+      "description": "Diagnóstico del nivel de preparación del equipo para iniciar o escalar un proyecto. Se evalúan habilidades, motivación, disponibilidad y capacidad de colaboración para identificar fortalezas y posibles brechas.",
+      "help": "A6 Compass realiza un relevamiento guiado y provee plantillas que permiten mapear competencias, niveles de compromiso y riesgos antes de avanzar.",
+      "objectives": [
+        "Mapear habilidades, disponibilidad y motivaciones de cada integrante",
+        "Identificar posibles brechas de capacidades o recursos que afecten el avance",
+        "Asegurar que el equipo tenga las condiciones necesarias para avanzar de forma sostenible"
+      ],
+      "tools": [
+        "A6 Compass",
+        "Matriz de Habilidades",
+        "Talleres",
+        "Entrevistas estructuradas"
+      ]
+    },
+    "team-alignment": {
+      "title": "Alineación del Equipo",
+      "description": "Consolidar una visión, valores y objetivos compartidos que orienten las decisiones y la colaboración. El equipo define su propósito, principios de trabajo y criterios de éxito.",
+      "help": "Con A6 Compass facilitamos dinámicas de co-creación para alinear propósito, valores y objetivos, transformando la visión colectiva en un marco operativo concreto.",
+      "objectives": [
+        "Construir una visión y propósito compartido entre todos los miembros",
+        "Establecer valores y principios que guíen la toma de decisiones",
+        "Acordar objetivos comunes y criterios de éxito medibles"
+      ],
+      "tools": [
+        "A6 Compass",
+        "Team Canvas",
+        "Talleres"
+      ]
+    },
+    "management-definition": {
+      "title": "Definición de Gestión y Roles",
+      "description": "Estructurar cómo se organizará el equipo en la práctica: roles, responsabilidades, procesos de toma de decisiones y canales de comunicación.",
+      "help": "Con A6 Compass guiamos la definición de estructuras livianas de gestión, ayudando a clarificar responsabilidades sin burocratizar el trabajo.",
+      "objectives": [
+        "Definir estructura y funciones clave del equipo",
+        "Clarificar responsabilidades individuales y compartidas",
+        "Establecer procesos simples y transparentes de toma de decisiones"
+      ],
+      "tools": [
+        "A6 Compass",
+        "Matriz RACI",
+        "Templates de Gobernanza"
+      ]
+    },
+    "product-prevalidation": {
+      "title": "Pre-validación del Producto",
+      "description": "Validar las suposiciones clave sobre el problema, la oportunidad y la propuesta de valor antes de invertir tiempo o recursos significativos.",
+      "help": "Con A6 Compass guiamos las primeras etapas de validación, ayudando al equipo a testear ideas de forma ágil y con datos reales, siguiendo la metodología Lean Startup.",
+      "objectives": [
+        "Verificar el ajuste problema-solución",
+        "Explorar la demanda real del mercado o comunidad",
+        "Refinar la propuesta de valor para futuras iteraciones"
+      ],
+      "tools": [
+        "A6 Compass",
+        "Lean Canvas",
+        "Entrevistas con Clientes"
+      ]
+    },
+    "product-analysis": {
+      "title": "Análisis de Producto Existente",
+      "description": "Revisar productos o iniciativas ya operativas para identificar oportunidades de mejora, crecimiento y eficiencia.",
+      "help": "A6 Compass facilita el análisis de métricas y feedback del usuario para ajustar la estrategia de producto sin perder coherencia con el propósito inicial.",
+      "objectives": [
+        "Analizar el ajuste producto-mercado actual",
+        "Identificar oportunidades de optimización y escalabilidad",
+        "Revisar el alineamiento entre estrategia y propósito original"
+      ],
+      "tools": [
+        "A6 Compass",
+        "Análisis de Datos",
+        "Feedback de Usuarios"
+      ]
+    },
+    "trainings": {
+      "title": "Capacitación y Acompañamiento",
+      "description": "Fortalecer al equipo con los conocimientos, metodologías y herramientas necesarias para operar de forma efectiva y colaborativa bajo el marco de AngoraSix, al tiempo que se promueve un desarrollo integral que potencie sus capacidades a mediano y largo plazo.",
+      "help": "Desde A6 Compass acompañamos el proceso de aprendizaje combinando talleres prácticos, sesiones guiadas y recursos complementarios. No solo capacitamos en el uso y la filosofía de AngoraSix, sino también en metodologías y enfoques que refuercen su autonomía y capacidad de gestión (Lean Startup, Design Thinking, metodologías ágiles, entre otras).",
+      "objectives": [
+        "Fortalecer el entendimiento de los principios y prácticas del marco AngoraSix",
+        "Desarrollar habilidades y criterios para la gestión y colaboración efectiva",
+        "Proveer una hoja de ruta de aprendizaje integral que acompañe la evolución del proyecto"
+      ],
+      "tools": [
+        "A6 Compass",
+        "Talleres",
+        "Sesiones Prácticas",
+        "Recursos y Bibliotecas Online"
+      ]
+    },
+    "governance-rules": {
+      "title": "Reglas de Gobernanza",
+      "description": "Definir las reglas de toma de decisiones, distribución de poder y resolución de conflictos del proyecto. Estas reglas forman la base del sistema de gobernanza dinámica de AngoraSix.",
+      "help": "A6 Layer permite parametrizar estas reglas para que las decisiones, votos y revisiones se apliquen de forma automática y transparente, reduciendo fricción en la gestión.",
+      "objectives": [
+        "Establecer procesos claros y verificables de toma de decisiones",
+        "Definir mecanismos de votación y actualización de reglas",
+        "Formalizar la distribución de poder y participación en el proyecto"
+      ],
+      "tools": [
+        "A6 Layer",
+        "Templates de Gobernanza"
+      ]
+    },
+    "financial-rules": {
+      "title": "Reglas Financieras",
+      "description": "Diseñar el modelo financiero que rige cómo se distribuyen los ingresos, cómo se gestionan los gastos y cómo se registra el valor creado.",
+      "help": "En A6 Layer se pueden definir parámetros de distribución y fórmulas automáticas basadas en contribuciones, asegurando trazabilidad y equidad en cada movimiento.",
+      "objectives": [
+        "Definir el modelo de distribución de ingresos y gastos",
+        "Establecer las reglas que vinculan aportes con recompensas",
+        "Habilitar trazabilidad y reporting financiero automático"
+      ],
+      "tools": [
+        "A6 Layer",
+        "Modelos Financieros",
+        "Templates Financieros"
+      ]
+    },
+    "contribution-integrations": {
+      "title": "Integraciones de Contribución",
+      "description": "Conectar herramientas externas (como GitHub, Trello o Jira) para que las contribuciones se registren automáticamente y alimenten los cálculos de ownership y fairness.",
+      "help": "A6 Layer actúa como una capa de integración que sincroniza actividades reales del equipo con el modelo de fairness, sin agregar carga operativa.",
+      "objectives": [
+        "Integrar herramientas de trabajo existentes para el registro automático de aportes",
+        "Reducir carga manual y errores en la medición de contribuciones",
+        "Consolidar ownership y métricas de aporte en un solo sistema"
+      ],
+      "tools": [
+        "A6 Layer",
+        "GitHub Projects",
+        "Jira",
+        "Trello",
+        "Notion",
+        "Asana",
+        "ClickUp"
+      ]
+    },
+    "shared-wallet-setup": {
+      "title": "Billetera Compartida",
+      "description": "Configurar una billetera compartida o multi-firma que permita administrar fondos del proyecto de forma transparente, segura y basada en reglas acordadas por el equipo.",
+      "help": "A6 Layer se integra con soluciones tanto cripto como tradicionales para habilitar una gestión descentralizada y verificable de los recursos. Las distribuciones se aplican automáticamente según las reglas de fairness definidas.",
+      "objectives": [
+        "Habilitar una billetera compartida con control distribuido",
+        "Automatizar distribuciones y pagos de acuerdo a los aportes reales y reglas de contribución",
+        "Garantizar trazabilidad y transparencia en todos los movimientos financieros"
+      ],
+      "tools": [
+        "A6 Layer",
+        "Safe Wallet",
+        "Billeteras Crypto Compatibles",
+        "Billeteras Tradicionales Multi-firma o Cooperativas"
+      ]
+    },
+    "management-tools-setup": {
+      "title": "Configuración de Herramientas de Gestión",
+      "description": "Seleccionar y configurar herramientas de gestión de tareas y comunicación para acompañar la implementación del marco de fairness y gobernanza.",
+      "help": "A6 Compass asesora en la selección y configuración de herramientas que faciliten la coordinación del equipo y su integración con la A6 Layer.",
+      "objectives": [
+        "Elegir herramientas adecuadas al tamaño y madurez del equipo",
+        "Configurar flujos de trabajo compatibles con la gobernanza A6",
+        "Asegurar que el equipo pueda operar con claridad y autonomía"
+      ],
+      "tools": [
+        "A6 Compass",
+        "GitHub Projects",
+        "Jira",
+        "Trello",
+        "Notion",
+        "Asana",
+        "ClickUp"
+      ]
+    },
+    "metrics-setup": {
+      "title": "Métricas y Seguimiento",
+      "description": "Definir indicadores que permitan visualizar progreso, colaboración y equidad dentro del equipo, sin agregar burocracia innecesaria.",
+      "help": "A6 Compass ayuda al equipo a definir métricas de valor y a configurar dashboards dentro de la A6 Layer para seguir su evolución y tomar decisiones basadas en datos reales.",
+      "objectives": [
+        "Definir métricas relevantes de salud, fairness y progreso",
+        "Configurar dashboards integrados dentro de la A6 Layer",
+        "Promover decisiones informadas y adaptativas"
+      ],
+      "tools": [
+        "A6 Compass",
+        "A6 Layer",
+        "Dashboards de Progreso",
+        "KPIs",
+        "Analíticas"
+      ]
+    },
+    "job-marketplace": {
+      "title": "Mercado de Contribuciones",
+      "description": "Abrir el proyecto a colaboraciones externas, permitiendo que nuevos miembros participen con trazabilidad y reglas claras de compensación.",
+      "help": "A6 Layer incluye una plataforma de oportunidades abiertas, donde los equipos pueden publicar tareas, recibir contribuciones y aplicar automáticamente las reglas de fairness.",
+      "objectives": [
+        "Ampliar la red de contribución de forma segura y transparente",
+        "Publicar tareas y roles con recompensas asociadas",
+        "Registrar y compensar colaboraciones externas según reglas A6"
+      ],
+      "tools": [
+        "A6 Layer",
+        "Job Board A6"
+      ]
+    },
+    "agile-ceremonies": {
+      "title": "Ceremonias Ágiles",
+      "description": "Implementar un sistema de trabajo iterativo y colaborativo mediante ceremonias ágiles (planificación, standups, revisiones y retrospectivas) que fomenten foco, ritmo y mejora continua.",
+      "help": "Desde A6 Compass guiamos la adopción de una metodología liviana adaptada al tamaño y madurez del equipo, alineando las ceremonias con la revisión de métricas, reglas y fairness del proyecto.",
+      "objectives": [
+        "Establecer un ritmo de trabajo sostenible con cadencias claras",
+        "Consolidar espacios regulares de comunicación y reflexión",
+        "Promover la mejora continua y la transparencia en el avance"
+      ],
+      "tools": [
+        "A6 Compass",
+        "Scrum-lite",
+        "Kanban"
+      ]
+    },
+    "ownership-revision": {
+      "title": "Revisión de Ownership y Reglas",
+      "description": "Proceso iterativo y liviano para ajustar la distribución de ownership, compensaciones y reglas operativas según la evolución del proyecto y los aprendizajes del equipo. Se integra naturalmente a las ceremonias de gestión ágiles, evitando burocracia y asegurando que las reglas sigan representando la realidad del trabajo y los aportes.",
+      "help": "A6 Compass facilita la reflexión colectiva y ayuda al equipo a detectar señales de desbalance o desalineación. A6 Layer provee datos actualizados de contribuciones para realizar microajustes de forma sencilla y coordinada.",
+      "objectives": [
+        "Revisar periódicamente la correspondencia entre aportes, reglas y distribución de ownership",
+        "Realizar microajustes basados en evidencias y consensos del equipo",
+        "Mantener el sistema de reglas y compensaciones actualizado y alineado con la evolución del proyecto"
+      ],
+      "tools": [
+        "A6 Compass",
+        "A6 Layer",
+        "Ceremonias Ágiles",
+        "Dashboards de Ownership"
+      ]
+    },
+    "income-distribution": {
+      "title": "Distribución de Ingresos",
+      "description": "Ejecutar distribuciones automáticas o semiautomáticas de ingresos según reglas predefinidas, asegurando una compensación justa y verificable.",
+      "help": "A6 Layer automatiza los cálculos y las transferencias, permitiendo al equipo validar o auditar cada ciclo de distribución con total transparencia.",
+      "objectives": [
+        "Aplicar reglas de distribución basadas en fairness y ownership",
+        "Asegurar que cada miembro reciba su compensación justa",
+        "Mantener registros verificables de todas las transacciones"
+      ],
+      "tools": [
+        "A6 Layer",
+        "Billeteras Compartidas",
+        "Sistemas de Pago Integrados"
+      ]
+    },
+    "governance": {
+      "title": "Gobernanza Activa",
+      "description": "Implementar mecanismos para la toma de decisiones colectivas, la gestión de propuestas y la evolución de reglas internas de forma democrática y auditable.",
+      "help": "A6 Layer permite crear y votar propuestas directamente dentro del entorno de trabajo, garantizando trazabilidad, participación y legitimidad de cada decisión.",
+      "objectives": [
+        "Facilitar la participación equitativa en decisiones clave",
+        "Mantener registros claros de votaciones y resultados",
+        "Fomentar una cultura de gobernanza distribuida y responsable"
+      ],
+      "tools": [
+        "A6 Layer",
+        "Loomio"
+      ]
+    },
+    "ownership-reports": {
+      "title": "Reportes de Ownership",
+      "description": "Generar y visualizar reportes claros sobre el estado y la evolución del ownership y las contribuciones del equipo, ofreciendo transparencia y trazabilidad sin agregar complejidad operativa.",
+      "help": "Desde A6 Layer, los reportes se actualizan automáticamente y pueden ser consultados cuando el equipo lo necesite. A6 Compass acompaña la interpretación de estos datos, ayudando a entender su impacto en la dinámica real del proyecto y ofreciendo recomendaciones específicas para cada caso.",
+      "objectives": [
+        "Mantener visibilidad continua sobre los aportes y la evolución del ownership",
+        "Facilitar decisiones informadas sin necesidad de procesos adicionales o reuniones formales",
+        "Brindar orientación práctica y contextual sobre los datos, adaptada a la realidad de cada equipo"
+      ],
+      "tools": [
+        "A6 Layer",
+        "A6 Compass",
+        "Dashboards de Ownership"
+      ]
+    },
+    "financial-reports": {
+      "title": "Reportes Financieros",
+      "description": "Ofrecer visibilidad simple y en tiempo real sobre el flujo financiero del proyecto — ingresos, gastos y distribuciones — de manera transparente y sin agregar carga operativa.",
+      "help": "A6 Layer consolida automáticamente los movimientos financieros relevantes y genera visualizaciones claras sobre el estado general. Desde A6 Compass ayudamos a interpretar esos datos para detectar patrones, anticipar riesgos y ajustar decisiones financieras según la realidad del equipo.",
+      "objectives": [
+        "Mantener transparencia sobre los ingresos, gastos y distribuciones sin procesos manuales",
+        "Proveer una visión integrada del estado financiero del proyecto",
+        "Facilitar decisiones rápidas y contextualizadas a partir de datos claros"
+      ],
+      "tools": [
+        "A6 Layer",
+        "Dashboards Financieros",
+        "Integraciones Contables"
+      ]
+    },
+    "health-metrics": {
+      "title": "Indicadores de Salud",
+      "description": "Monitorear el pulso del equipo y del proyecto a través de métricas clave de actividad, participación, equilibrio y bienestar, detectando señales tempranas de desalineación o riesgo.",
+      "help": "A6 Layer ofrece un conjunto de indicadores automáticos sobre participación, contribuciones y equilibrio general del equipo. Desde A6 Compass complementamos con análisis cualitativo y recomendaciones personalizadas para sostener la motivación y el rendimiento colectivo.",
+      "objectives": [
+        "Detectar tempranamente señales de sobrecarga, desalineación o baja participación",
+        "Mantener equilibrio entre aportes, reconocimiento y bienestar del equipo",
+        "Promover ajustes continuos para sostener un entorno de colaboración saludable"
+      ],
+      "tools": [
+        "A6 Layer",
+        "A6 Compass",
+        "Dashboards de Salud",
+        "Encuestas Breves"
+      ]
+    },
+    "general-roadmap": {
+      "title": "Revisión del Roadmap General",
+      "description": "Actualizar la hoja de ruta del proyecto según aprendizajes, prioridades cambiantes o disponibilidad del equipo, manteniendo enfoque estratégico.",
+      "help": "A6 Compass puede guiar las revisiones de roadmap en base a datos de progreso reales y aprendizajes del ciclo anterior, promoviendo decisiones basadas en evidencia.",
+      "objectives": [
+        "Revisar hitos y avances frente al roadmap original",
+        "Repriorizar tareas y metas según contexto actual",
+        "Alinear el equipo sobre próximos pasos y foco común"
+      ],
+      "tools": [
+        "A6 Layer",
+        "A6 Compass",
+        "Dashboards de Progreso",
+        "OKRs",
+        "Matrices de Priorización (Impacto / Esfuerzo, RICE)",
+        "Asambleas Generales",
+        "Quarterly Planning",
+        "Modelos de Horizonte (H1–H3)"
+      ]
+    }
+  },
+  "item": {
+    "notApplicableChip": "No aplica"
+  },
+  "dialog": {
+    "objectives": "Objetivos",
+    "tools": "Herramientas y Recursos",
+    "help": "Valor de AngoraSix",
+    "close": "Cerrar"
+  },
+  "cta": {
+    "title": "¿Listo para Comenzar?",
+    "description": "Nuestro equipo de expertos puede guiarte en la implementación de la Metodología AngoraSix en tu proyecto.",
+    "button": "Obtener Asesoría Personalizada",
+    "register": "Comienza tu viaje"
+  }
+}

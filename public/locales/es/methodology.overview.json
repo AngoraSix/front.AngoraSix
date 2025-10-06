@@ -1,0 +1,43 @@
+{
+  "page": {
+    "title": "La metodología AngoraSix",
+    "description": "Un marco que ayuda a los equipos a definir lo que es justo en la gestión del proyecto — de manera iterativa y evolutiva."
+  },
+  "hero": {
+    "title": "La metodología AngoraSix",
+    "description": "Un marco que ayuda a los equipos a definir lo que es justo en la gestión del proyecto — de manera iterativa y evolutiva. Reduce fricciones, aporta claridad y habilita una gobernanza dinámica basada en aportes reales.",
+    "quote": "La única forma de darle sentido al cambio es sumergirse en él, moverse con él y unirse al baile - Alan Watts"
+  },
+  "journey": {
+    "title": "Tu viaje con AngoraSix",
+    "subtitle": "El marco para que \"crear entre todos\" funcione",
+    "outcome": "El resultado",
+    "compassBonus": "✨ Bonus con A6 Compass",
+    "steps": {
+      "fairness": {
+        "title": "Definamos lo que es justo",
+        "description": "Mediante workshops y actividades guiadas, el equipo acuerda qué significa 'justo' para su caso particular. Se exploran motivaciones, expectativas y roles para alinear la visión desde el inicio.",
+        "outcome": "Un primer acuerdo compartido sobre cómo gestionarse, con reglas claras y puntos de partida reconocidos por todos.",
+        "compassBonus": "Workshops adaptados + capacitaciones Lean Startup, Design Thinking y Metodologías Ágiles"
+      },
+      "parametrization": {
+        "title": "Configuración del proyecto",
+        "description": "Traducimos los acuerdos en reglas y parámetros formales dentro de AngoraSix. Se definen cómo se valoran las contribuciones, cómo se toman las decisiones y cómo se distribuyen los recursos.",
+        "outcome": "Un marco visible y confiable donde todos entienden las reglas del juego y cómo se aplican.",
+        "compassBonus": "Sistematización en AngoraSix a cargo nuestro"
+      },
+      "implementation": {
+        "title": "Evolución continua",
+        "description": "El sistema se pone en marcha y evoluciona con el equipo. A través de revisiones periódicas se ajustan reglas y procesos, alineando gobernanza y finanzas con la realidad del proyecto.",
+        "outcome": "Un sistema vivo que crece con el colectivo: claridad sobre la salud del proyecto, distribución justa y decisiones basadas en datos.",
+        "compassBonus": "Acompañamiento en la adaptación de la metodología + soporte en resolución de conflictos y optimización."
+      }
+    }
+  },
+  "ctas": {
+    "title": "¿Listo para Comenzar?",
+    "contact": "Obtener asesoría",
+    "register": "Comienza tu viaje",
+    "guide": "Guía Interactiva"
+  }
+}
