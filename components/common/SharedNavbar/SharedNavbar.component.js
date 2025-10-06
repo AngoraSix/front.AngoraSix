@@ -1,6 +1,11 @@
 "use client"
 
-import { Language as LanguageIcon, Login as LoginIcon, Menu as MenuIcon } from "@mui/icons-material"
+import {
+  Language as LanguageIcon,
+  Login as LoginIcon,
+  Menu as MenuIcon,
+  ExpandMore as ExpandMoreIcon,
+} from "@mui/icons-material"
 import {
   AppBar,
   Avatar,
@@ -40,6 +45,7 @@ const SharedNavbar = ({ forProfile }) => {
   const [anchorElNav, setAnchorElNav] = useState(null)
   const [anchorElUser, setAnchorElUser] = useState(null)
   const [anchorElLanguage, setAnchorElLanguage] = useState(null)
+  const [anchorElMethodology, setAnchorElMethodology] = useState(null)
 
   const handleLanguageChange = async (selectedLocale) => {
     if (selectedLocale !== locale) {
@@ -54,9 +60,14 @@ const SharedNavbar = ({ forProfile }) => {
   const handleOpenNavMenu = (event) => setAnchorElNav(event.currentTarget)
   const handleOpenUserMenu = (event) => setAnchorElUser(event.currentTarget)
   const handleOpenLanguageMenu = (event) => setAnchorElLanguage(event.currentTarget)
+  const handleOpenMethodologyMenu = (event) => {
+    event.preventDefault()
+    setAnchorElMethodology(event.currentTarget)
+  }
   const handleCloseNavMenu = () => setAnchorElNav(null)
   const handleCloseUserMenu = () => setAnchorElUser(null)
   const handleCloseLanguageMenu = () => setAnchorElLanguage(null)
+  const handleCloseMethodologyMenu = () => setAnchorElMethodology(null)
 
   const otherLocales = locales?.filter((l) => l !== locale) || []
 
@@ -68,8 +79,18 @@ const SharedNavbar = ({ forProfile }) => {
   const getNavigationItems = () => {
     const baseItems = [
       {
-        href: "/methodology/overview",
+        href: "/methodology",
         label: t("navbar.shared.methodology"),
+        submenu: [
+          {
+            href: "/methodology/overview",
+            label: t("navbar.shared.methodology.overview"),
+          },
+          {
+            href: "/methodology/guide",
+            label: t("navbar.shared.methodology.guide"),
+          },
+        ],
       },
       {
         href: "/services",
@@ -144,32 +165,96 @@ const SharedNavbar = ({ forProfile }) => {
           {!isMobile && (
             <Box sx={{ display: "flex", alignItems: "center", gap: 3 }}>
               {/* Navigation Links */}
-              {navigationItems.map((item) => (
-                <Link
-                  href={resolveNavigationHref(item.href, forProfile)}
-                  style={{ textDecoration: "none" }}
-                  key={item.href}
-                >
-                  <Button
-                    sx={{
-                      textTransform: "none",
-                      color: "#DCE7EA",
-                      fontSize: "1rem",
-                      fontWeight: 500,
-                      padding: "8px 16px",
-                      borderRadius: "8px",
-                      transition: "all 0.3s ease",
-                      "&:hover": {
-                        backgroundColor: "rgba(254, 95, 85, 0.1)",
-                        color: "#FE5F55",
-                        transform: "translateY(-1px)",
-                      },
-                    }}
+              {navigationItems.map((item) =>
+                item.submenu ? (
+                  <Box key={item.href}>
+                    <Button
+                      onClick={handleOpenMethodologyMenu}
+                      endIcon={<ExpandMoreIcon />}
+                      sx={{
+                        textTransform: "none",
+                        color: "#DCE7EA",
+                        fontSize: "1rem",
+                        fontWeight: 500,
+                        padding: "8px 16px",
+                        borderRadius: "8px",
+                        transition: "all 0.3s ease",
+                        "&:hover": {
+                          backgroundColor: "rgba(254, 95, 85, 0.1)",
+                          color: "#FE5F55",
+                          transform: "translateY(-1px)",
+                        },
+                      }}
+                    >
+                      {item.label}
+                    </Button>
+                    <Menu
+                      anchorEl={anchorElMethodology}
+                      open={Boolean(anchorElMethodology)}
+                      onClose={handleCloseMethodologyMenu}
+                      anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
+                      transformOrigin={{ vertical: "top", horizontal: "left" }}
+                      PaperProps={{
+                        sx: {
+                          background: "linear-gradient(135deg, #0A2239 0%, #0F2F4D 100%)",
+                          border: "1px solid rgba(220, 231, 234, 0.2)",
+                          borderRadius: "12px",
+                          backdropFilter: "blur(10px)",
+                          mt: 1,
+                          minWidth: "220px",
+                        },
+                      }}
+                    >
+                      {item.submenu.map((subitem) => (
+                        <Link
+                          key={subitem.href}
+                          href={resolveNavigationHref(subitem.href, forProfile)}
+                          style={{ textDecoration: "none" }}
+                        >
+                          <MenuItem
+                            onClick={handleCloseMethodologyMenu}
+                            sx={{
+                              color: "#DCE7EA",
+                              padding: "12px 20px",
+                              "&:hover": {
+                                backgroundColor: "rgba(254, 95, 85, 0.1)",
+                                color: "#FE5F55",
+                              },
+                            }}
+                          >
+                            {subitem.label}
+                          </MenuItem>
+                        </Link>
+                      ))}
+                    </Menu>
+                  </Box>
+                ) : (
+                  <Link
+                    href={resolveNavigationHref(item.href, forProfile)}
+                    style={{ textDecoration: "none" }}
+                    key={item.href}
                   >
-                    {item.label}
-                  </Button>
-                </Link>
-              ))}
+                    <Button
+                      sx={{
+                        textTransform: "none",
+                        color: "#DCE7EA",
+                        fontSize: "1rem",
+                        fontWeight: 500,
+                        padding: "8px 16px",
+                        borderRadius: "8px",
+                        transition: "all 0.3s ease",
+                        "&:hover": {
+                          backgroundColor: "rgba(254, 95, 85, 0.1)",
+                          color: "#FE5F55",
+                          transform: "translateY(-1px)",
+                        },
+                      }}
+                    >
+                      {item.label}
+                    </Button>
+                  </Link>
+                ),
+              )}
 
               {/* Language Selector */}
               {locales && locales.length > 1 && (
@@ -397,26 +482,64 @@ const SharedNavbar = ({ forProfile }) => {
                   },
                 }}
               >
-                {navigationItems.map((item) => (
-                  <Link
-                    href={resolveNavigationHref(item.href, forProfile)}
-                    style={{ textDecoration: "none", color: "inherit" }}
-                    key={item.href}
-                  >
-                    <MenuItem
-                      onClick={handleCloseNavMenu}
-                      sx={{
-                        color: "#DCE7EA",
-                        "&:hover": {
-                          backgroundColor: "rgba(254, 95, 85, 0.1)",
-                          color: "#FE5F55",
-                        },
-                      }}
+                {navigationItems.map((item) =>
+                  item.submenu ? (
+                    <Box key={item.href}>
+                      <MenuItem
+                        sx={{
+                          color: "#DCE7EA",
+                          fontWeight: 600,
+                          pointerEvents: "none",
+                          opacity: 0.7,
+                          fontSize: "0.85rem",
+                          paddingTop: "12px",
+                        }}
+                      >
+                        {item.label}
+                      </MenuItem>
+                      {item.submenu.map((subitem) => (
+                        <Link
+                          href={resolveNavigationHref(subitem.href, forProfile)}
+                          style={{ textDecoration: "none", color: "inherit" }}
+                          key={subitem.href}
+                        >
+                          <MenuItem
+                            onClick={handleCloseNavMenu}
+                            sx={{
+                              color: "#DCE7EA",
+                              paddingLeft: "32px",
+                              "&:hover": {
+                                backgroundColor: "rgba(254, 95, 85, 0.1)",
+                                color: "#FE5F55",
+                              },
+                            }}
+                          >
+                            {subitem.label}
+                          </MenuItem>
+                        </Link>
+                      ))}
+                    </Box>
+                  ) : (
+                    <Link
+                      href={resolveNavigationHref(item.href, forProfile)}
+                      style={{ textDecoration: "none", color: "inherit" }}
+                      key={item.href}
                     >
-                      {item.label}
-                    </MenuItem>
-                  </Link>
-                ))}
+                      <MenuItem
+                        onClick={handleCloseNavMenu}
+                        sx={{
+                          color: "#DCE7EA",
+                          "&:hover": {
+                            backgroundColor: "rgba(254, 95, 85, 0.1)",
+                            color: "#FE5F55",
+                          },
+                        }}
+                      >
+                        {item.label}
+                      </MenuItem>
+                    </Link>
+                  ),
+                )}
                 {session ? (
                   [
                     <MenuItem

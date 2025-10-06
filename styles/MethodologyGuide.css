@@ -375,13 +375,11 @@
 .MethodologyGuidePage .toggle-grid-4 {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1px;
-  background: #dce7ea;
 }
 
 .mobile-drawer .toggle-grid-4 .toggle-button ,
 .MethodologyGuidePage .toggle-grid-4 .toggle-button {
-  border: none !important;
+  border: 1px solid #dce7ea !important;
   border-radius: 0 !important;
   background: #ffffff;
 }
