@@ -24,7 +24,7 @@ export const presetConfigs = {
     management: "mature",
     centralization: "core",
     openness: "closed",
-    finance: "stableRevenue",
+    finance: "unstableRevenue",
   },
   community: {
     product: "new",

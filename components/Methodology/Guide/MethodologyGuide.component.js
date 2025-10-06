@@ -18,17 +18,10 @@ import {
   CardContent,
   Chip,
   Container,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogTitle,
   Drawer,
   Fab,
   Grid,
   IconButton,
-  List,
-  ListItem,
-  ListItemText,
   Paper,
   ToggleButton,
   ToggleButtonGroup,
@@ -44,6 +37,7 @@ import config from "../../../config"
 import { ROUTES } from "../../../constants/constants"
 import { trackEvent } from "../../../utils/analytics"
 import { getItemImportance, methodologyGuideConfig, presetConfigs, staticStages } from "./methodologyGuide.config"
+import MethodologyGuideDialog from "./MethodologyGuideDialog.component"
 
 const stageIcons = {
   alignment: HandshakeIcon,
@@ -407,98 +401,15 @@ const MethodologyGuidePage = () => {
           </Box>
         </Drawer>
 
-        {/* Item Detail Dialog */}
-        <Dialog open={dialogOpen} onClose={handleDialogClose} maxWidth="md" fullWidth className="item-dialog">
-          {selectedItem && (
-            <>
-              <DialogTitle className="dialog-title">
-                <Box className="dialog-title-header">
-                  <Box className="dialog-title-main">
-                    <Typography variant="h4" className="dialog-item-title">
-                      {t(`items.${selectedItem.key}.title`)}
-                    </Typography>
-                    <Box className="dialog-title-badges">
-                      {selectedItem.module && (
-                        <Box className="dialog-module-badge">{getModuleIcon(selectedItem.module)}</Box>
-                      )}
-                      {getItemImportance(selectedItem, toggles) === 0 ? (
-                        <Chip label={t("item.notApplicableChip")} size="small" className="dialog-chip not-applicable" />
-                      ) : (
-                        <Box className="dialog-importance-badge">
-                          {renderImportanceIndicator(getItemImportance(selectedItem, toggles))}
-                        </Box>
-                      )}
-                    </Box>
-                  </Box>
-                  <IconButton onClick={handleDialogClose} className="dialog-close-button">
-                    <CloseIcon />
-                  </IconButton>
-                </Box>
-              </DialogTitle>
-
-              <DialogContent className="dialog-content">
-                {/* Description Section */}
-                <Box className="dialog-section dialog-description-section">
-                  <Typography variant="body1" className="dialog-description">
-                    {t(`items.${selectedItem.key}.description`)}
-                  </Typography>
-                </Box>
-
-                {/* Objectives Section */}
-                <Box className="dialog-section dialog-objectives-section">
-                  <Box className="dialog-section-header">
-                    <Typography variant="h6" className="dialog-section-title">
-                      {t("dialog.objectives")}
-                    </Typography>
-                  </Box>
-                  <List className="dialog-objectives-list">
-                    {t(`items.${selectedItem.key}.objectives`, { returnObjects: true }).map((item, index) => (
-                      <ListItem key={index} className="dialog-objective-item">
-                        <Box className="objective-bullet" />
-                        <ListItemText primary={item} primaryTypographyProps={{ className: "dialog-objective-text" }} />
-                      </ListItem>
-                    ))}
-                  </List>
-                </Box>
-
-                {/* Help Section */}
-                <Box className="dialog-section dialog-help-section">
-                  <Box className="dialog-section-header">
-                    <InfoIcon className="dialog-section-icon" />
-                    <Typography variant="h6" className="dialog-section-title">
-                      {t("dialog.help")}
-                    </Typography>
-                  </Box>
-                  <Typography variant="body2" className="dialog-help-text">
-                    {t(`items.${selectedItem.key}.help`)}
-                  </Typography>
-                </Box>
-
-                {/* Tools Section */}
-                {t(`items.${selectedItem.key}.tools`, { returnObjects: true }).length > 0 && (
-                  <Box className="dialog-section dialog-tools-section">
-                    <Box className="dialog-section-header">
-                      <Typography variant="h6" className="dialog-section-title">
-                        {t("dialog.tools")}
-                      </Typography>
-                    </Box>
-                    <Box className="dialog-tools-grid">
-                      {t(`items.${selectedItem.key}.tools`, { returnObjects: true }).map((tool, index) => (
-                        <Chip key={index} label={tool} size="medium" className="dialog-tool-chip" />
-                      ))}
-                    </Box>
-                  </Box>
-                )}
-              </DialogContent>
-
-              <DialogActions className="dialog-actions">
-                <Button onClick={handleDialogClose} variant="contained" color="primary" className="dialog-close-action">
-                  {t("dialog.close")}
-                </Button>
-              </DialogActions>
-            </>
-          )}
-        </Dialog>
+        {/* Item Detail Dialog - Now as separate component */}
+        <MethodologyGuideDialog
+          open={dialogOpen}
+          onClose={handleDialogClose}
+          selectedItem={selectedItem}
+          toggles={toggles}
+          getModuleIcon={getModuleIcon}
+          renderImportanceIndicator={renderImportanceIndicator}
+        />
       </Box>
     </>
   )
