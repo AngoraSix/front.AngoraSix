@@ -1,18 +1,28 @@
-"use client"
+'use client'
 
-import Campaign from "@mui/icons-material/Campaign"
-import { Box, Button, Card, CardContent, Container, Divider, Link, Stack, Typography } from "@mui/material"
-import { signIn } from "next-auth/react"
-import { useTranslation } from "next-i18next"
-import Head from "next/head"
-import Image from "next/image"
-import { useRouter } from "next/router"
-import { useState } from "react"
-import { ROUTES } from "../../../constants/constants"
-import { trackLoginClick } from "../../../utils/analytics"
+import Campaign from '@mui/icons-material/Campaign'
+import {
+  Box,
+  Button,
+  Card,
+  CardContent,
+  Container,
+  Divider,
+  Link,
+  Stack,
+  Typography,
+} from '@mui/material'
+import { signIn } from 'next-auth/react'
+import { useTranslation } from 'next-i18next'
+import Head from 'next/head'
+import Image from 'next/image'
+import { useRouter } from 'next/router'
+import { useState } from 'react'
+import { ROUTES } from '../../../constants/constants'
+import { trackLoginClick } from '../../../utils/analytics'
 
 const AuthSignin = ({ forProfile }) => {
-  const { t } = useTranslation("auth.signin")
+  const { t } = useTranslation('auth.signin')
   const router = useRouter()
   const { locale } = router
   const [isLoading, setIsLoading] = useState(false)
@@ -20,13 +30,12 @@ const AuthSignin = ({ forProfile }) => {
   const handleGoogleSignIn = async () => {
     setIsLoading(true)
     try {
-
       trackLoginClick(forProfile)
-      await signIn("angorasixspring", {
-        callbackUrl: `${locale === 'es' ? '/es' : ''}${ROUTES.welcome.postRegistration}${forProfile ? `?for=${forProfile}` : ""}`,
+      await signIn('angorasixspring', {
+        callbackUrl: `${locale === 'es' ? '/es' : ''}${ROUTES.management.new}`,
       })
     } catch (error) {
-      console.error("Sign in error:", error)
+      console.error('Sign in error:', error)
       setIsLoading(false)
     }
   }
@@ -34,8 +43,8 @@ const AuthSignin = ({ forProfile }) => {
   return (
     <>
       <Head>
-        <title>{t("page.title")}</title>
-        <meta name="description" content={t("page.description")} />
+        <title>{t('page.title')}</title>
+        <meta name="description" content={t('page.description')} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
@@ -52,16 +61,22 @@ const AuthSignin = ({ forProfile }) => {
         </Box>
 
         <Container maxWidth="md" className="auth-signin-content">
-          {" "}
+          {' '}
           {/* Changed maxWidth to md */}
           {/* Header Section */}
           <Box className="auth-signin-header">
             <Box className="auth-signin-logo">
-              <Image src="/logos/a6-white-500.png" alt="AngoraSix" width={80} height={80} priority />{" "}
+              <Image
+                src="/logos/a6-white-500.png"
+                alt="AngoraSix"
+                width={80}
+                height={80}
+                priority
+              />{' '}
               {/* Changed to white logo */}
             </Box>
             <Typography variant="h3" className="auth-signin-title">
-              {t("welcome.title")}
+              {t('welcome.title')}
             </Typography>
           </Box>
           <Box className="auth-signin-main">
@@ -69,10 +84,13 @@ const AuthSignin = ({ forProfile }) => {
             <Card className="auth-signin-card" elevation={3}>
               <CardContent className="auth-signin-card-content">
                 <Typography variant="h6" className="auth-signin-card-title">
-                  {t("login.title")}
+                  {t('login.title')}
                 </Typography>
-                <Typography variant="body2" className="auth-signin-card-description">
-                  {t("login.description")}
+                <Typography
+                  variant="body2"
+                  className="auth-signin-card-description"
+                >
+                  {t('login.description')}
                 </Typography>
 
                 <Button
@@ -105,25 +123,25 @@ const AuthSignin = ({ forProfile }) => {
                     </Box>
                   }
                 >
-                  {isLoading ? t("login.signing_in") : t("login.google_button")}
+                  {isLoading ? t('login.signing_in') : t('login.google_button')}
                 </Button>
 
                 <Box className="auth-signin-divider">
                   <Divider>
                     <Typography variant="body2" color="text.secondary">
-                      {t("login.or")}
+                      {t('login.or')}
                     </Typography>
                   </Divider>
                 </Box>
 
                 <Typography variant="body2" className="auth-signin-help">
-                  {t("login.help_text")}{" "}
+                  {t('login.help_text')}{' '}
                   <Link
                     href="mailto:team@angorasix.com"
                     color="primary"
                     underline="hover"
                     variant="body2"
-                    sx={{ fontWeight: "medium" }}
+                    sx={{ fontWeight: 'medium' }}
                   >
                     team@angorasix.com
                   </Link>
@@ -134,15 +152,23 @@ const AuthSignin = ({ forProfile }) => {
             {/* Beta Program Promotion */}
             <Card className="auth-signin-beta-card" elevation={2}>
               <CardContent className="auth-signin-beta-content">
-                <Stack direction="row" spacing={2} alignItems="center" className="auth-signin-beta-header">
+                <Stack
+                  direction="row"
+                  spacing={2}
+                  alignItems="center"
+                  className="auth-signin-beta-header"
+                >
                   <Campaign className="celebration-icon" />
                   <Typography variant="h6" className="auth-signin-beta-title">
-                    {t("beta.title")}
+                    {t('beta.title')}
                   </Typography>
                 </Stack>
 
-                <Typography variant="body1" className="auth-signin-beta-description">
-                  {t("beta.description")}
+                <Typography
+                  variant="body1"
+                  className="auth-signin-beta-description"
+                >
+                  {t('beta.description')}
                 </Typography>
               </CardContent>
             </Card>
@@ -150,7 +176,7 @@ const AuthSignin = ({ forProfile }) => {
           {/* Footer */}
           <Box className="auth-signin-footer">
             <Typography variant="body2" color="primary.contrastText">
-              {t("footer.text")}
+              {t('footer.text')}
             </Typography>
           </Box>
         </Container>

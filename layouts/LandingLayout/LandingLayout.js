@@ -1,10 +1,10 @@
-import { Box } from "@mui/material"
-import Head from "next/head"
-import CookieConsent from "../../components/common/CookieConsent"
-import Footer from "../../components/common/Footer"
-import SharedNavbar from "../../components/common/SharedNavbar"
+import { Box } from '@mui/material'
+import Head from 'next/head'
+import CookieConsent from '../../components/common/CookieConsent'
+import Footer from '../../components/common/Footer'
+import SharedNavbar from '../../components/common/SharedNavbar'
 
-const LandingLayout = ({ children, title, description, forProfile }) => {
+const LandingLayout = ({ children, title, description }) => {
   return (
     <>
       <Head>
@@ -12,11 +12,11 @@ const LandingLayout = ({ children, title, description, forProfile }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <SharedNavbar forProfile={forProfile} />
-      <Box component="main" sx={{ minHeight: "100vh" }}>
+      <SharedNavbar />
+      <Box component="main" sx={{ minHeight: '100vh' }}>
         {children}
       </Box>
-      <Footer forProfile={forProfile} />
+      <Footer />
       <CookieConsent />
     </>
   )

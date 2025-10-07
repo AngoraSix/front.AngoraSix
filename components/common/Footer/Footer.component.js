@@ -19,14 +19,10 @@ const LogoContainer = styled(Box)({
   marginBottom: 16,
 })
 
-const resolveNavigationHref = (href, forProfileValue) => {
-  return forProfileValue ? `${href}?for=${forProfileValue}` : href
-}
-
-const Footer = ({ forProfile }) => {
+const Footer = () => {
   const { t } = useTranslation("common")
 
-  const rootHref = ROUTES.welcome[forProfile || "root"] || "/"
+  const rootHref = ROUTES.projects.list
 
   const footerLinks = [
     { key: "home", href: rootHref },
@@ -69,7 +65,7 @@ const Footer = ({ forProfile }) => {
               {footerLinks.map((link) => (
                 <Link
                   key={link.key}
-                  href={resolveNavigationHref(link.href, forProfile)}
+                  href={link.href}
                   color="text.secondary"
                   underline="hover"
                   variant="body2"

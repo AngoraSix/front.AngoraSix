@@ -1,19 +1,23 @@
-import { serverSideTranslations } from "next-i18next/serverSideTranslations"
-import Services from "../../components/Services"
-import LandingLayout from "../../layouts/LandingLayout"
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import Services from '../../components/Services'
+import LandingLayout from '../../layouts/LandingLayout'
 
-const ServicesPage = ({ forQueryValue }) => {
-  return <LandingLayout forProfile={forQueryValue}>
-    <Services forProfile={forQueryValue} />
-  </LandingLayout>
+const ServicesPage = () => {
+  return (
+    <LandingLayout>
+      <Services />
+    </LandingLayout>
+  )
 }
 
-export async function getServerSideProps({ locale, query }) {
-  const forQueryValue = query.for || null
+export async function getServerSideProps({ locale }) {
   return {
     props: {
-      forQueryValue,
-      ...(await serverSideTranslations(locale || "en", ["common", "common.legal", "services"])),
+      ...(await serverSideTranslations(locale || 'en', [
+        'common',
+        'common.legal',
+        'services',
+      ])),
     },
   }
 }

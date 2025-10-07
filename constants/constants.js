@@ -34,6 +34,7 @@ export const ROUTES = {
       landing: '/',
       new: '/projects/:projectId/management/new',
     },
+    list: '/projects',
   },
   management: {
     dashboard: '/managements/:managementId',

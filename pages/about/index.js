@@ -1,20 +1,23 @@
-import { serverSideTranslations } from "next-i18next/serverSideTranslations"
-import About from "../../components/About"
-import LandingLayout from "../../layouts/LandingLayout"
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import About from '../../components/About'
+import LandingLayout from '../../layouts/LandingLayout'
 
-const AboutPage = ({ forQueryValue }) => {
-  return <LandingLayout forProfile={forQueryValue}>
-    <About forProfile={forQueryValue} />
-  </LandingLayout>
+const AboutPage = () => {
+  return (
+    <LandingLayout>
+      <About />
+    </LandingLayout>
+  )
 }
 
 export async function getServerSideProps({ locale, query }) {
-  const forQueryValue = query.for || null
-
   return {
     props: {
-      forQueryValue,
-      ...(await serverSideTranslations(locale || "en", ["common", "common.legal", "about"])),
+      ...(await serverSideTranslations(locale || 'en', [
+        'common',
+        'common.legal',
+        'about',
+      ])),
     },
   }
 }
