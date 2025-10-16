@@ -1,0 +1,20 @@
+{
+  "page": {
+    "title": "My Projects",
+    "description": "Manage and view all your projects in one place"
+  },
+  "title": "My Projects",
+  "description": "Here you can view and manage all the projects you own or are part of.",
+  "auth": {
+    "required": "You need to be signed in to view your projects."
+  },
+  "error": {
+    "loading": "Error loading projects"
+  },
+  "empty": {
+    "message": "You don't have any projects yet. Create your first project to get started!"
+  },
+  "list": {
+    "placeholder": "Projects list will be displayed here"
+  }
+}

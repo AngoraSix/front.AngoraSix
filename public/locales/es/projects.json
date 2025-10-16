@@ -1,0 +1,20 @@
+{
+  "page": {
+    "title": "Mis Proyectos",
+    "description": "Administra y visualiza todos tus proyectos en un solo lugar"
+  },
+  "title": "Mis Proyectos",
+  "description": "Aquí puedes ver y administrar todos los proyectos de los que eres propietario o formas parte.",
+  "auth": {
+    "required": "Necesitas iniciar sesión para ver tus proyectos."
+  },
+  "error": {
+    "loading": "Error al cargar los proyectos"
+  },
+  "empty": {
+    "message": "Aún no tienes ningún proyecto. ¡Crea tu primer proyecto para comenzar!"
+  },
+  "list": {
+    "placeholder": "La lista de proyectos se mostrará aquí"
+  }
+}

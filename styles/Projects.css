@@ -1,0 +1,19 @@
+/* Projects Page Styles */
+
+.projects-page {
+  /* Mobile-first styles */
+}
+
+/* Tablet and larger */
+@media (min-width: 768px) {
+  .projects-page {
+    /* Tablet styles */
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .projects-page {
+    /* Desktop styles */
+  }
+}

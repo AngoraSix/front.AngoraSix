@@ -138,6 +138,13 @@ class FrontAPI {
     return data;
   }
 
+  async searchWellKnownClubsForContributor(clubType, contributorId) {
+    const { data } = await this.axios.get(
+      `api/clubs/well-known?type=${clubType}&memberContributorId=${contributorId}`,
+    )
+    return data
+  }
+
   async startPlatformUsersMatch(sourceSyncId, projectContributors) {
     const { data } = await this.axios.post(`api/integrations/${sourceSyncId}/mappings/users`,
       {
