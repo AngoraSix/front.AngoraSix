@@ -5,6 +5,7 @@ import ListSkeleton from '../../components/common/Skeletons/ListSkeleton.compone
 import Projects from '../../components/Projects'
 import config from '../../config'
 import { useAndCheckActiveToken } from '../../hooks/oauth'
+import DefaultLayout from '../../layouts/DefaultLayout'
 import { obtainValidatedToken } from '../../utils/api/apiHelper'
 import logger from '../../utils/logger'
 import { extractFieldsFromHateoasCollection } from '../../utils/rest/hateoas/hateoasUtils'
@@ -12,17 +13,17 @@ import { extractFieldsFromHateoasCollection } from '../../utils/rest/hateoas/hat
 const ProjectsPage = ({ contributorClubsData, managementsData }) => {
   useAndCheckActiveToken(true)
 
-  return contributorClubsData && managementsData ? (
-    <>
-      <Projects
-        contributorClubsData={contributorClubsData}
-        managementsData={managementsData}
-      />
-    </>
-  ) : (
-    <>
-      <ListSkeleton />
-    </>
+  return (
+    <DefaultLayout>
+      {contributorClubsData && managementsData ? (
+        <Projects
+          contributorClubsData={contributorClubsData}
+          managementsData={managementsData}
+        />
+      ) : (
+        <ListSkeleton />
+      )}
+    </DefaultLayout>
   )
 }
 

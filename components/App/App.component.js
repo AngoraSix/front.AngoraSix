@@ -44,10 +44,6 @@ const App = ({ isLoading, children }) => (
   </StyledEngineProvider>
 );
 
-App.defaultProps = {
-  isLoading: false,
-};
-
 App.propTypes = {
   isLoading: PropTypes.bool,
   children: PropTypes.node,

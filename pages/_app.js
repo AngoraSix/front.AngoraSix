@@ -80,11 +80,11 @@ const AngoraSixWebApp = ({ Component, pageProps, preloadedState, env }) => {
   )
 }
 
-AngoraSixWebApp.defaultProps = {
-  pageProps: {},
-  preloadedState: {},
-  env: {},
-}
+// AngoraSixWebApp.defaultProps = {
+//   pageProps: {},
+//   preloadedState: {},
+//   env: {},
+// }
 
 AngoraSixWebApp.propTypes = {
   Component: PropTypes.any.isRequired,

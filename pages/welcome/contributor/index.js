@@ -1,12 +1,12 @@
 import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 import ContributorLanding from "../../../components/Landings/Contributor/ContributorLanding"
-import LandingLayout from "../../../layouts/LandingLayout"
+import DefaultLayout from "../../../layouts/DefaultLayout"
 
 const ContributorLandingPage = () => {
   return (
-    <LandingLayout forProfile="contributor">
+    <DefaultLayout forProfile="contributor">
       <ContributorLanding translationKey="welcome.contributor"/>
-    </LandingLayout>
+    </DefaultLayout>
   )
 }
 

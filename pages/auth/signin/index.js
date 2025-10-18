@@ -1,12 +1,12 @@
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import AuthSigninContainer from '../../../components/Auth/Signin'
-import LandingLayout from '../../../layouts/LandingLayout'
+import DefaultLayout from '../../../layouts/DefaultLayout'
 
 const AuthSigninPage = ({ forQueryValue }) => {
   return (
-    <LandingLayout>
+    <DefaultLayout>
       <AuthSigninContainer forProfile={forQueryValue} />
-    </LandingLayout>
+    </DefaultLayout>
   )
 }
 

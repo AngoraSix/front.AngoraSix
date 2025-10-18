@@ -1,12 +1,12 @@
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import PrivacyPolicyComponent from '../../../components/Legal/PrivacyPolicy'
-import LandingLayout from '../../../layouts/LandingLayout'
+import DefaultLayout from '../../../layouts/DefaultLayout'
 
 const PrivacyPolicyPage = () => {
   return (
-    <LandingLayout>
+    <DefaultLayout>
       <PrivacyPolicyComponent />
-    </LandingLayout>
+    </DefaultLayout>
   )
 }
 

@@ -1,12 +1,12 @@
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import Pricing from '../../components/Pricing'
-import LandingLayout from '../../layouts/LandingLayout'
+import DefaultLayout from '../../layouts/DefaultLayout'
 
 const PricingPage = () => {
   return (
-    <LandingLayout>
+    <DefaultLayout>
       <Pricing />
-    </LandingLayout>
+    </DefaultLayout>
   )
 }
 

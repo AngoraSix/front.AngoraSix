@@ -1,12 +1,12 @@
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import TermsAndConditionsComponent from '../../../components/Legal/TermsAndConditions'
-import LandingLayout from '../../../layouts/LandingLayout'
+import DefaultLayout from '../../../layouts/DefaultLayout'
 
 const TermsAndConditionsPage = () => {
   return (
-    <LandingLayout>
+    <DefaultLayout>
       <TermsAndConditionsComponent />
-    </LandingLayout>
+    </DefaultLayout>
   )
 }
 

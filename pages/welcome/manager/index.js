@@ -1,12 +1,12 @@
 import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 import ManagerLanding from "../../../components/Landings/Manager/ManagerLanding"
-import LandingLayout from "../../../layouts/LandingLayout"
+import DefaultLayout from "../../../layouts/DefaultLayout"
 
 const ManagerLandingPage = () => {
   return (
-    <LandingLayout forProfile="manager">
+    <DefaultLayout forProfile="manager">
       <ManagerLanding translationKey="welcome.manager"/>
-    </LandingLayout>
+    </DefaultLayout>
   )
 }
 

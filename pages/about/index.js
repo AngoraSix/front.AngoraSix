@@ -1,12 +1,12 @@
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import About from '../../components/About'
-import LandingLayout from '../../layouts/LandingLayout'
+import DefaultLayout from '../../layouts/DefaultLayout'
 
 const AboutPage = () => {
   return (
-    <LandingLayout>
+    <DefaultLayout>
       <About />
-    </LandingLayout>
+    </DefaultLayout>
   )
 }
 

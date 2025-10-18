@@ -55,7 +55,7 @@ export const mapToHateoasCollectionDto = (
 }
 
 /* Legacy support for non-hateoas collections */
-export const mapLegacyToHateoasCollectionDto = (hateoasResponse = {}, Type) => {
+export const mapLegacyToHateoasCollectionDto = (hateoasResponse = [], Type) => {
   return new HateoasCollectionDto(
     { _embedded: { anyFieldName: hateoasResponse } },
     Type

@@ -1,20 +1,43 @@
 {
   "page": {
     "title": "My Projects",
-    "description": "Manage and view all your projects in one place"
+    "description": "Manage and view all your collaborative projects"
   },
   "title": "My Projects",
-  "description": "Here you can view and manage all the projects you own or are part of.",
-  "auth": {
-    "required": "You need to be signed in to view your projects."
-  },
-  "error": {
-    "loading": "Error loading projects"
+  "description": "View and manage all the projects you're involved in",
+  "actions": {
+    "create": "Create New Project"
   },
   "empty": {
-    "message": "You don't have any projects yet. Create your first project to get started!"
+    "message": "You don't have any projects yet. Start by creating your first collaborative project!",
+    "action": "Create Your First Project"
+  },
+  "sections": {
+    "admin": {
+      "title": "Projects I Administer",
+      "description": "Projects where you have administrative privileges"
+    },
+    "member": {
+      "title": "Projects I'm Part Of",
+      "description": "Projects where you participate as a member"
+    }
+  },
+  "project": {
+    "unnamed": "Unnamed Project"
+  },
+  "role": {
+    "admin": "Admin"
+  },
+  "members": {
+    "count_one": "{{count}} member",
+    "count_other": "{{count}} members"
+  },
+  "status": {
+    "IDEA": "Idea",
+    "STARTUP": "Startup",
+    "OPERATIONAL": "Operational"
   },
   "list": {
-    "placeholder": "Projects list will be displayed here"
+    "placeholder": "Project list"
   }
 }

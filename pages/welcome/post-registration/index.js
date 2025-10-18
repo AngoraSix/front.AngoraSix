@@ -4,7 +4,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import FormSkeleton from '../../../components/common/Skeletons/FormSkeleton.component'
 import PostRegistration from '../../../components/PostRegistration'
 import { useAndCheckActiveToken } from '../../../hooks/oauth'
-import LandingLayout from '../../../layouts/LandingLayout'
+import DefaultLayout from '../../../layouts/DefaultLayout'
 import logger from '../../../utils/logger'
 
 const PostRegistrationPage = ({ session }) => {
@@ -13,18 +13,18 @@ const PostRegistrationPage = ({ session }) => {
   if (!session || session?.error) {
     logger.error('Log in to register project management')
     return (
-      <LandingLayout>
+      <DefaultLayout>
         <Box>
           <FormSkeleton />
         </Box>
-      </LandingLayout>
+      </DefaultLayout>
     )
   }
 
   return (
-    <LandingLayout>
+    <DefaultLayout>
       <PostRegistration />
-    </LandingLayout>
+    </DefaultLayout>
   )
 }
 
