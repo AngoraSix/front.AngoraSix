@@ -64,7 +64,6 @@ const getCategoryIcon = (categoryKey) => {
 
 const ManagementCoreSection = ({ project, projectManagement }) => {
   const { t, i18n } = useTranslation("management.view")
-  console.log("Project Management Data:", projectManagement)
 
   const generateBylawChip = (bylawKey, definition) => {
     let displayValue = definition

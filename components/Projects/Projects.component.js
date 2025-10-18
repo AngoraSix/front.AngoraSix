@@ -4,13 +4,17 @@ import { Alert, Box, Container, Typography } from '@mui/material'
 import { useTranslation } from 'next-i18next'
 import Head from 'next/head'
 import config from '../../config'
+import {useSession} from "next-auth/react";
 
 const ProjectsComponent = ({ managements }) => {
   const { t } = useTranslation('projects')
+  const { data: session } = useSession();
   console.log("FINAL");
   console.log(managements);
   console.log(managements.collection[0].project);
   console.log(managements.collection[0].members);
+  console.log("USER SESSION");
+  console.log(session.user.id);
 
   return (
     <>
