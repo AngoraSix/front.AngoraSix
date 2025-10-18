@@ -16,5 +16,7 @@
     "management.integration.list.actions.getsourcesync.tooltip.template": "Ver estado de sincronizacion de :source",
     "management.integration.list.actions.getsourcesync.text": "Ver estado",
     "management.integration.list.title": "Integraciones de Administración",
-    "management.integration.list.empty-message": "No se encontraron integraciones"
+    "management.integration.list.empty-message": "No se encontraron integraciones",
+    "management.integration.list.interest.title": "Próximas integraciones — contanos tu interés",
+    "management.integration.list.interest.button": "Prioricen esto"
 }

@@ -15,6 +15,9 @@
     "management.integration.list.actions.matchplatformusers.tooltip.template": "Match the contributors with the :source users",
     "management.integration.list.actions.getsourcesync.tooltip.template": "Check sync status for :source",
     "management.integration.list.actions.getsourcesync.text": "Check",
-    "management.integration.list.title": "Management Integrations",
-    "management.integration.list.empty-message": "No integrations found"
+  "management.integration.list.title": "Management Integrations",
+  "management.integration.list.empty-message": "No integrations found"
+  ,
+  "management.integration.list.interest.title": "Coming soon — express interest",
+  "management.integration.list.interest.button": "Prioritize this"
 }

@@ -1,5 +1,10 @@
 import StackoverflowLogo from '../public/logos/thirdparty/stackoverflow.svg';
 import TrelloLogo from '../public/logos/thirdparty/trello.svg';
+import AsanaLogo from '../public/logos/thirdparty/asana.svg';
+import ClickUpLogo from '../public/logos/thirdparty/clickup.svg';
+import GithubLogo from '../public/logos/thirdparty/github.svg';
+import JiraLogo from '../public/logos/thirdparty/jira.svg';
+import NotionLogo from '../public/logos/thirdparty/notion.svg';
 
 export const PROFILE_ATTRIBUTES = {
   headImage: {
@@ -82,6 +87,31 @@ export const THIRD_PARTY = {
     logo: TrelloLogo,
     name: 'Trello',
     color: '#0079BF'
+  },
+  asana: {
+    logo: AsanaLogo,
+    name: 'Asana',
+    color: '#F06A6A'
+  },
+  clickup: {
+    logo: ClickUpLogo,
+    name: 'ClickUp',
+    color: '#7B68EE'
+  },
+  github: {
+    logo: GithubLogo,
+    name: 'GitHub Projects',
+    color: '#333333'
+  },
+  jira: {
+    logo: JiraLogo,
+    name: 'Jira',
+    color: '#2684FF'
+  },
+  notion: {
+    logo: NotionLogo,
+    name: 'Notion',
+    color: '#000000'
   },
   stackoverflow: {
     logo: StackoverflowLogo,
