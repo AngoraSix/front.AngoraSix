@@ -1,22 +1,70 @@
 {
-    "management.integration.list.page.title": "Administración de Proyecto - Integraciones",
-    "management.integration.list.page.description": "Listado de las Integraciones de Administración de Proyecto",
-    "management.integration.list.actions.register.text": "Registrar",
-    "management.integration.list.actions.register.tooltip.template": "Registrar integracion con :source",
-    "management.integration.list.actions.disable.text": "Deshabilitar",
-    "management.integration.list.actions.disable.tooltip.template": "Deshabilitar integracion con :source",
-    "management.integration.list.actions.configsync.text": "Finalizar",
-    "management.integration.list.actions.configsync.tooltip.template": "Finalizar la configuración de la integración con :source",
-    "management.integration.list.actions.fullsync.text": "Sincronizar",
-    "management.integration.list.actions.fullsync.tooltip.template": "Solicitar sincronización completa de tareas para :source",
-    "management.integration.list.actions.updatesyncconfig.text": "Re-configurar",
-    "management.integration.list.actions.updatesyncconfig.tooltip.template": "Configurar sincronizacion de tareas de :source",
-    "management.integration.list.actions.matchplatformusers.text": "Asociar usuarios",
-    "management.integration.list.actions.matchplatformusers.tooltip.template": "Asociar los colaboradores con los usuarios de :source",
-    "management.integration.list.actions.getsourcesync.tooltip.template": "Ver estado de sincronizacion de :source",
-    "management.integration.list.actions.getsourcesync.text": "Ver estado",
-    "management.integration.list.title": "Integraciones de Administración",
-    "management.integration.list.empty-message": "No se encontraron integraciones",
-    "management.integration.list.interest.title": "Próximas integraciones — contanos tu interés",
-    "management.integration.list.interest.button": "Prioricen esto"
+  "management": {
+    "integration": {
+      "list": {
+        "page": {
+          "title": "Administración de Proyectos - Integraciones",
+          "description": "Listado de integraciones disponibles para la administración de proyectos."
+        },
+        "actions": {
+          "register": {
+            "text": "Registrar",
+            "tooltip": {
+              "template": "Registrar integración con :source"
+            }
+          },
+          "disable": {
+            "text": "Deshabilitar",
+            "tooltip": {
+              "template": "Deshabilitar integración con :source"
+            }
+          },
+          "configsync": {
+            "text": "Finalizar",
+            "tooltip": {
+              "template": "Finalizar la configuración de la integración con :source"
+            }
+          },
+          "fullsync": {
+            "text": "Sincronizar",
+            "tooltip": {
+              "template": "Solicitar sincronización completa de tareas para :source"
+            }
+          },
+          "updatesyncconfig": {
+            "text": "Reconfigurar",
+            "tooltip": {
+              "template": "Actualizar la configuración de sincronización de tareas para :source"
+            }
+          },
+          "matchplatformusers": {
+            "text": "Asociar usuarios",
+            "tooltip": {
+              "template": "Asociar los colaboradores con los usuarios de :source"
+            }
+          },
+          "getsourcesync": {
+            "text": "Ver estado",
+            "tooltip": {
+              "template": "Ver el estado de sincronización de :source"
+            }
+          }
+        },
+        "title": "Integraciones de Administración",
+        "empty-message": "No se encontraron integraciones.",
+        "interest": {
+          "title": "Próximamente — contanos tu interés",
+          "subtitle": "Decinos qué herramientas querés que sumemos primero.",
+          "button": "Me interesa",
+          "notice": "Todavía no está habilitado. Registramos tu interés en {{tool}}. Por ahora solo hay soporte para Trello.",
+          "error": "No pudimos registrar tu interés. Intentá de nuevo más tarde.",
+          "custom": {
+            "title": "¿Preferís otra plataforma?",
+            "placeholder": "¿Qué herramienta querés que prioricemos?",
+            "button": "Enviar solicitud"
+          }
+        }
+      }
+    }
+  }
 }
