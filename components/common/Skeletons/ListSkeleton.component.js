@@ -32,8 +32,6 @@ const ListSkeleton = () => {
   );
 };
 
-ListSkeleton.defaultProps = {};
-
 ListSkeleton.propTypes = {};
 
 export default ListSkeleton;

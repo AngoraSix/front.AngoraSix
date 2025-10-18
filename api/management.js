@@ -83,6 +83,30 @@ class ProjectsManagementAPI {
     );
     return response;
   }
+
+  async listProjectManagements(managementIds, token) {
+    const headers = this.axios.getCommonHeaders();
+    const authHeaders = this.axios.getAuthorizationHeaders(token, false);
+    const infraHeaders = await obtainInfraHeaders(
+      config.infra,
+      config.api.serverBaseURL
+    );
+
+    const response = await this.axios.get(
+      `/management`,
+      {
+        headers: {
+          ...headers,
+          ...authHeaders,
+          ...infraHeaders,
+        },
+        params: {
+          ids: managementIds.join(',')
+        }
+      }
+    );
+    return response.data
+  }
 }
 
 export default ProjectsManagementAPI;
