@@ -11,6 +11,7 @@ export default class Club {
       type,
       description,
       projectId,
+      projectManagementId,
       members,
       admins,
       open,
@@ -23,6 +24,7 @@ export default class Club {
     this.type = type;
     this.description = description;
     this.projectId = projectId;
+    this.projectManagementId = projectManagementId;
     this.members = members;
     this.admins = admins;
     this.open = open;

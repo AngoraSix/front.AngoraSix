@@ -1,20 +1,23 @@
-import { serverSideTranslations } from "next-i18next/serverSideTranslations"
-import Pricing from "../../components/Pricing"
-import LandingLayout from "../../layouts/LandingLayout"
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import Pricing from '../../components/Pricing'
+import DefaultLayout from '../../layouts/DefaultLayout'
 
-const PricingPage = ({ forQueryValue }) => {
-  return <LandingLayout forProfile={forQueryValue}>
-    <Pricing forProfile={forQueryValue} />
-  </LandingLayout>
+const PricingPage = () => {
+  return (
+    <DefaultLayout>
+      <Pricing />
+    </DefaultLayout>
+  )
 }
 
-export async function getServerSideProps({ locale, query }) {
-  const forQueryValue = query.for || null
-
+export async function getServerSideProps({ locale }) {
   return {
     props: {
-      forQueryValue,
-      ...(await serverSideTranslations(locale || "en", ["common", "common.legal", "pricing"])),
+      ...(await serverSideTranslations(locale || 'en', [
+        'common',
+        'common.legal',
+        'pricing',
+      ])),
     },
   }
 }

@@ -7,16 +7,13 @@
     "title": "Elegí tu plan y empezá a construir de una mejor manera.",
     "subtitle": "Planes pensados para acompañarte en cada etapa."
   },
-  "betaProgram": {
-    "title": "Programa de Usuarios Beta de AngoraSix",
-    "description": "Unite a nuestro exclusivo Programa de Usuarios Beta y sé parte del futuro de la gestión de proyectos. Obtené acceso anticipado a funciones premium y ayudanos a dar forma a nuestra plataforma.",
-    "benefits": {
-      "premium": "Acceso a funcionalidades premium sin costo",
-      "evolution": "Participación en la evolución del sistema",
-      "priority": "Prioridad para nuevas funciones y soporte"
-    },
-    "cta": "Postularme al programa Beta",
-    "limitedSpots": "Cupos limitados."
+  "navigation": {
+    "platform": "Plataforma",
+    "advisory": "Asesoramiento"
+  },
+  "platform": {
+    "title": "Precios de la Plataforma",
+    "subtitle": "Elegí el plan que mejor se adapte a las necesidades y escala de tu proyecto."
   },
   "plans": {
     "free": {
@@ -65,5 +62,36 @@
         "enterprise": "Beneficios y descuentos exclusivos con herramientas del ecosistema AngoraSix"
       }
     }
+  },
+  "advisory": {
+    "title": "Servicios de asesoramiento y metodología",
+    "subtitle": "Precios con propósito para equipos que quieren construir mejor.",
+    "pwyw": {
+      "title": "Modelo PWYW (pagá lo que quieras)",
+      "description": "Nuestro servicio de asesoría opera con un esquema flexible y transparente. En lugar de una tarifa fija, te invitamos a contribuir según tu etapa y tus posibilidades, con rangos de referencia y total claridad sobre el alcance. Así promovemos el acceso para equipos que recién empiezan y sostenemos el trabajo que nos permite mejorar la metodología para todos.",
+      "whatWeOffer": "Qué ofrecemos",
+      "principles": {
+        "title": "Cómo funciona",
+        "access": {
+          "title": "Acceso para todos",
+          "description": "Cualquier equipo puede acceder a la asesoría y a marcos metodológicos probados, sin barreras iniciales."
+        },
+        "trust": {
+          "title": "Transparencia y referencia",
+          "description": "Compartimos rangos sugeridos según tu contexto; la contribución final la definís vos, con acuerdos claros de alcance."
+        },
+        "sustainability": {
+          "title": "Sustentabilidad compartida",
+          "description": "Tu aporte nos ayuda a seguir acompañando equipos y a evolucionar herramientas y prácticas abiertas."
+        }
+      }
+    },
+    "features": {
+      "methodology": "Diseño e implementación de una metodología a medida",
+      "structure": "Estructura de ownership y gobernanza justa",
+      "guidance": "Acompañamiento en decisiones clave y resolución de tensiones",
+      "ongoing": "Asesoramiento continuo a medida que el proyecto evoluciona"
+    },
+    "cta": "Conocer más y comenzar"
   }
 }

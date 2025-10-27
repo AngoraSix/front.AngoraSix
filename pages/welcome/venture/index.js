@@ -1,12 +1,12 @@
 import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 import TeamLanding from "../../../components/Landings/Team/TeamLanding"
-import LandingLayout from "../../../layouts/LandingLayout"
+import DefaultLayout from "../../../layouts/DefaultLayout"
 
 const TeamLandingPage = () => {
   return (
-    <LandingLayout forProfile="venture">
+    <DefaultLayout forProfile="venture">
       <TeamLanding translationKey="welcome.team"/>
-    </LandingLayout>
+    </DefaultLayout>
   )
 }
 

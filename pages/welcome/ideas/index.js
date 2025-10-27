@@ -1,12 +1,12 @@
 import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 import IdeasLanding from "../../../components/Landings/Ideas/IdeasLanding"
-import LandingLayout from "../../../layouts/LandingLayout"
+import DefaultLayout from "../../../layouts/DefaultLayout"
 
 const IdeasPage = () => {
   return (
-    <LandingLayout forProfile="ideas">
+    <DefaultLayout forProfile="ideas">
       <IdeasLanding translationKey="welcome.ideas" />
-    </LandingLayout>
+    </DefaultLayout>
   )
 }
 

@@ -5,20 +5,56 @@
   },
   "hero": {
     "title": {
-      "part1": "Participación societaria clara para que tu emprendimiento",
-      "highlight": "siga creciendo"
+      "part1": "Emprendé tranquilo: Reglas claras y ",
+      "highlight": "participación según el valor real",
+      "part3": " que aporta cada uno"
     },
-    "subtitle": "Acuerdos internos transparentes y trackeo de aportes, todo respaldado por una wallet compartida para enfocarse en construir con confianza y sin malentendidos.",
-    "subtitle2": "Consenso claro. Sin conflictos. Sencillo y compatible con las herramientas que ya usás.",
-    "cta": "Empezá gratis"
+    "subtitle": "Un sistema para gestionar decisiones y ganancias según los aportes reales. Socios alineados y equipos comprometidos.",
+    "subtitle2": "Sencillo y compatible con las herramientas que ya usás.",
+    "cta": "Comiencen ahora"
   },
   "problems": {
-    "title": "¿Tu actual modelo de gestión acompaña el crecimiento de tu emprendimiento?",
-    "subtitle": "Preguntas clave si querés que tu equipo empuje siempre para el mismo lado.",
-    "unequal": "¿Cómo aseguramos que todos sigan comprometidos y aportando según lo pactado?",
-    "unclear": "¿Cómo acordamos reglas claras que eviten conflictos y no generen incomodidad para cumplirse?",
-    "distribution": "¿Cómo resolvemos una distribución justa de ingresos que todos consideren legítima?",
-    "management": "¿Cómo reducimos la carga de gestión para enfocarnos en lo que realmente mueve al proyecto?"
+    "title": "¿Tu modelo de gestión impulsa el crecimiento de tu emprendimiento?",
+    "subtitle": "Si alguna de estas preguntas te resuena, AngoraSix puede ayudar a tu proyecto.",
+    "unequal": "¿Cómo aseguramos que todos sigan comprometidos y aportando según lo acordado?",
+    "unclear": "¿Cómo definimos reglas claras que eviten conflictos y no generen incomodidad?",
+    "distribution": "¿Cómo logramos una distribución justa de ingresos que todos sientan realmente equitativa?",
+    "management": "¿Cómo reducimos la carga de gestión para enfocarnos en lo que realmente mueve al proyecto?",
+    "structure": "¿Cómo adoptamos una estructura de gestión que ordene el trabajo, motive los aportes y fomente un clima de colaboración sana y constructiva?"
+  },
+  "howItWorks": {
+    "title": "Cómo funciona AngoraSix",
+    "subtitle": "Un proceso claro para transformar aportes en poder de decisión y distribución justa de ganancias — adaptado a tu gestión.",
+    "steps": {
+      "step1": {
+        "title": "Definí las reglas del proyecto",
+        "description": "Proporcionamos un marco sencillo para establecer cómo se toman decisiones, se gestionan tareas y se manejan pagos. Claridad y transparencia para todos desde el inicio.",
+        "imageAlt": "Pantalla inicial de configuración de reglas del proyecto"
+      },
+      "step2": {
+        "title": "Conectá tus herramientas de gestión",
+        "description": "Nos integramos con las plataformas que ya usás — Trello, Notion, Jira, Github Projects y más — para registrar automáticamente los aportes de cada miembro.",
+        "imageAlt": "Vista de integración mostrando herramientas conectadas y contribuciones registradas"
+      }
+    },
+    "outcomes": {
+      "title": "Con todo esto...",
+      "baseOutcome": {
+        "title": "Ownership dinámico",
+        "description": "AngoraSix ayuda a determinar cuánto valor aporta cada persona al proyecto. Una herramienta práctica para aplicar un esquema de propiedad basado en aportes reales — tanto para socios como para reconocer y motivar a los miembros más comprometidos.",
+        "imageAlt": "Gráfico de distribución de propiedad"
+      },
+      "outcome1": {
+        "title": "Decisiones compartidas basadas en aportes reales",
+        "description": "Un sistema de gobernanza que pondera los votos según el ownership o el modelo que definas. Justo, sin jerarquías arbitrarias ni conflictos societarios.",
+        "imageAlt": "Panel de gobernanza mostrando votos ponderados por contribución"
+      },
+      "outcome2": {
+        "title": "Reparto de ingresos simple y transparente",
+        "description": "Los ingresos se reparten según aportes y reglas acordadas, usando una cuenta compartida y segura. Todos reciben lo que corresponde.",
+        "imageAlt": "Pantalla de distribución de fondos mostrando pagos automáticos según aportes"
+      }
+    }
   },
   "solutions": {
     "title": "El soporte que tu equipo necesita para llevar tu proyecto al siguiente nivel",
@@ -31,49 +67,24 @@
       "title": "Registro automático de contribuciones",
       "description": "Nos integramos con tus herramientas de gestión para registrar automáticamente el aporte real de cada persona."
     },
+    "methodology": {
+      "title": "Metodología para una gestión más justa",
+      "description": "Acompañamiento y estructura para implementar, ajustar y sostener prácticas de gestión basadas en aportes reales."
+    },
     "multisig": {
       "title": "Wallet multi-firma integrada",
       "description": "Una cuenta compartida sobre blockchain conectada a tus reglas y tareas, que asegura que cada decisión financiera esté alineada con lo acordado."
     }
   },
-  "howItWorks": {
-    "title": "Cómo funciona AngoraSix",
-    "subtitle": "Un proceso simple y transparente",
-    "steps": {
-      "step1": {
-        "title": "Definí las reglas de tu proyecto",
-        "description": "Brindamos un marco sencillo para establecer cómo se gestiona el proyecto: decisiones, ingresos, tareas. Las bases claras y visibles para todos desde el inicio.",
-        "imageAlt": "Pantalla de configuración inicial de reglas del proyecto"
-      },
-      "step2": {
-        "title": "Integración con las herramientas de gestión",
-        "description": "Nos conectamos con la herramienta que ya usás — Trello, Notion, Jira, Asana, y más — para registrar automáticamente lo que cada miembro aporta.",
-        "imageAlt": "Vista de la integración con herramientas de gestión."
-      }
-    },
-    "outcomes": {
-      "title": "Con todo esto...",
-      "outcome1": {
-        "title": "Decisiones compartidas basadas en los aportes reales",
-        "description": "En AngoraSix ofrecemos un sistema de gobernanza basado en ownership. Quien más aporta, mayor poder de decisión tiene. Justo, sin jerarquías ni conflictos.",
-        "imageAlt": "Visualización del sistema de gobernanza con votos ponderados por contribución"
-      },
-      "outcome2": {
-        "title": "Gestión automática, segura y transparente de los ingresos",
-        "description": "Conectamos tu proyecto a una wallet compartida multi-firma para repartir los ingresos automáticamente según el valor aportado. Cada persona recibe lo que le corresponde.",
-        "imageAlt": "Pantalla de distribución de fondos mostrando pagos automáticos según aportes"
-      }
-    }
-  },
   "useCases": {
     "title": "Una solución adecuada para tu equipo",
     "partners": {
-      "title": "Dos socios en etapa inicial",
+      "title": "Pocos socios en etapa inicial",
       "description": "Quieren avanzar con claridad y confianza mutua, sin dejar cabos sueltos."
     },
-    "newTeam": {
-      "title": "Un equipo formándose",
-      "description": "Buscan empezar con herramientas modernas y una cultura sana desde el principio."
+    "experiencedTeam": {
+      "title": "Un equipo con experiencia",
+      "description": "Ya vivieron los desafíos de la coordinación y entienden que un marco justo puede prevenir muchos conflictos y mejorar la colaboración."
     },
     "startup": {
       "title": "Startup en expansión",
@@ -82,10 +93,11 @@
   },
   "finalCta": {
     "title": {
-      "part1": "No pongas en riesgo el futuro de tu emprendimiento.",
-      "highlight": "Gestioná con claridad desde el principio"
+      "part1": "Incorporá una forma de ",
+      "highlight": "gestión más justa y eficiente"
     },
-    "subtitle": "Sumate a los equipos que ya están construyendo con herramientas de nueva generación.",
-    "cta": "Empezar a construir"
+    "subtitle": "Sumate a los equipos que ya gestionan con eficiencia, transparencia y foco en el crecimiento real.",
+    "cta": "Empezar",
+    "ctaKnowMore": "Saber más"
   }
 }

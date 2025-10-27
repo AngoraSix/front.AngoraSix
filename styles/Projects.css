@@ -1,0 +1,62 @@
+/* Projects Page Styles */
+
+.projects-page {
+  min-height: calc(100vh - 200px);
+  background-color: #f5f5f5;
+}
+
+.projects-container {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.project-card {
+  height: 100%;
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+  background-color: #ffffff;
+}
+
+.project-card:hover {
+  border-color: #0a2239;
+}
+
+.project-card .MuiCardContent-root {
+  padding: 1.5rem;
+}
+
+/* Mobile-first styles */
+@media (max-width: 767px) {
+  .projects-page {
+    background-color: #ffffff;
+  }
+
+  .projects-container {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .project-card {
+    border-radius: 8px;
+  }
+
+  .project-card .MuiCardContent-root {
+    padding: 1rem;
+  }
+}
+
+/* Tablet and larger */
+@media (min-width: 768px) {
+  .projects-container {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .projects-container {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+}

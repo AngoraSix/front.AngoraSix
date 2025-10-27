@@ -1,0 +1,43 @@
+{
+  "page": {
+    "title": "Mis Proyectos",
+    "description": "Gestiona y visualiza todos tus proyectos colaborativos"
+  },
+  "title": "Mis Proyectos",
+  "description": "Visualiza y gestiona todos los proyectos en los que participas",
+  "actions": {
+    "create": "Crear Nuevo Proyecto"
+  },
+  "empty": {
+    "message": "Aún no tienes proyectos. ¡Comienza creando tu primer proyecto colaborativo!",
+    "action": "Crear Tu Primer Proyecto"
+  },
+  "sections": {
+    "admin": {
+      "title": "Proyectos que Administro",
+      "description": "Proyectos donde tienes privilegios de administración"
+    },
+    "member": {
+      "title": "Proyectos en los que Participo",
+      "description": "Proyectos donde participas como miembro"
+    }
+  },
+  "project": {
+    "unnamed": "Proyecto Sin Nombre"
+  },
+  "role": {
+    "admin": "Admin"
+  },
+  "members": {
+    "count_one": "{{count}} miembro",
+    "count_other": "{{count}} miembros"
+  },
+  "status": {
+    "IDEA": "Idea",
+    "STARTUP": "Startup",
+    "OPERATIONAL": "Operacional"
+  },
+  "list": {
+    "placeholder": "Lista de proyectos"
+  }
+}

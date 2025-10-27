@@ -1,20 +1,70 @@
 {
-    "management.integration.list.page.title": "Project Management - Integrations",
-    "management.integration.list.page.description": "List of Project Management Integrations",
-    "management.integration.list.actions.register.text": "Register",
-    "management.integration.list.actions.register.tooltip.template": "Register integration with :source",
-    "management.integration.list.actions.disable.text": "Disable",
-    "management.integration.list.actions.disable.tooltip.template": "Disable integration with :source",
-    "management.integration.list.actions.configsync.text": "Finish",
-    "management.integration.list.actions.configsync.tooltip.template": "Finish configuring SourceSync for :source",
-    "management.integration.list.actions.fullsync.text": "Sync",
-    "management.integration.list.actions.fullsync.tooltip.template": "Request full task sync for :source",
-    "management.integration.list.actions.updatesyncconfig.text": "Re-config",
-    "management.integration.list.actions.updatesyncconfig.tooltip.template": "Configure task syncing for :source",
-    "management.integration.list.actions.matchplatformusers.text": "Match Users",
-    "management.integration.list.actions.matchplatformusers.tooltip.template": "Match the contributors with the :source users",
-    "management.integration.list.actions.getsourcesync.tooltip.template": "Check sync status for :source",
-    "management.integration.list.actions.getsourcesync.text": "Check",
-    "management.integration.list.title": "Management Integrations",
-    "management.integration.list.empty-message": "No integrations found"
+  "management": {
+    "integration": {
+      "list": {
+        "page": {
+          "title": "Project Management - Integrations",
+          "description": "List of Project Management Integrations"
+        },
+        "actions": {
+          "register": {
+            "text": "Register",
+            "tooltip": {
+              "template": "Register integration with :source"
+            }
+          },
+          "disable": {
+            "text": "Disable",
+            "tooltip": {
+              "template": "Disable integration with :source"
+            }
+          },
+          "configsync": {
+            "text": "Finish",
+            "tooltip": {
+              "template": "Finish configuring SourceSync for :source"
+            }
+          },
+          "fullsync": {
+            "text": "Sync",
+            "tooltip": {
+              "template": "Request full task sync for :source"
+            }
+          },
+          "updatesyncconfig": {
+            "text": "Re-config",
+            "tooltip": {
+              "template": "Configure task syncing for :source"
+            }
+          },
+          "matchplatformusers": {
+            "text": "Match Users",
+            "tooltip": {
+              "template": "Match the contributors with the :source users"
+            }
+          },
+          "getsourcesync": {
+            "text": "Check",
+            "tooltip": {
+              "template": "Check sync status for :source"
+            }
+          }
+        },
+        "title": "Management Integrations",
+        "empty-message": "No integrations found",
+        "interest": {
+          "title": "Coming soon - express interest",
+          "subtitle": "Let us know which tools you want next.",
+          "button": "I'm interested",
+          "notice": "Not available yet. We recorded your interest in {{tool}}. For now we only support Trello.",
+          "error": "We couldn't record your interest. Please try again later.",
+          "custom": {
+            "title": "Prefer another platform?",
+            "placeholder": "Which tool should we prioritize?",
+            "button": "Submit request"
+          }
+        }
+      }
+    }
+  }
 }

@@ -1,25 +1,22 @@
-import { serverSideTranslations } from "next-i18next/serverSideTranslations"
-import PrivacyPolicyComponent from "../../../components/Legal/PrivacyPolicy"
-import LandingLayout from "../../../layouts/LandingLayout"
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import PrivacyPolicyComponent from '../../../components/Legal/PrivacyPolicy'
+import DefaultLayout from '../../../layouts/DefaultLayout'
 
-const PrivacyPolicyPage = ({ forQueryValue }) => {
+const PrivacyPolicyPage = () => {
   return (
-    <LandingLayout forProfile={forQueryValue}>
+    <DefaultLayout>
       <PrivacyPolicyComponent />
-    </LandingLayout>
+    </DefaultLayout>
   )
 }
 
-export async function getServerSideProps({ locale, query }) {
-  const forQueryValue = query.for || null
-
+export async function getServerSideProps({ locale }) {
   return {
     props: {
-      forQueryValue,
       ...(await serverSideTranslations(locale, [
-        "common",
-        "common.legal",
-        "legal.privacy",
+        'common',
+        'common.legal',
+        'legal.privacy',
       ])),
     },
   }

@@ -1,10 +1,10 @@
-import { FieldMakerModel } from 'react-mui-fieldmaker';
-import HateoasCollectionDto from './hateoasDtos';
+import { FieldMakerModel } from 'react-mui-fieldmaker'
+import HateoasCollectionDto from './hateoasDtos'
 
-const ADMIN_REQUIRED_KEY = 'admin';
+const ADMIN_REQUIRED_KEY = 'admin'
 
 export const processHateoasActions = (hateoasResponse = {}) => {
-  const actions = hateoasResponse._links;
+  const actions = hateoasResponse._links
   Object.entries(hateoasResponse._templates || {}).forEach(
     ([key, template]) => {
       if (key !== 'default') {
@@ -17,12 +17,12 @@ export const processHateoasActions = (hateoasResponse = {}) => {
             ...template,
           },
           adminRequired: template.properties?.some((p) => _isAdminProperty(p)),
-        };
+        }
       }
     }
-  );
-  return actions || {};
-};
+  )
+  return actions || {}
+}
 
 export const hateoasPropertyToFieldMakerField = (hateoasProperty) => {
   return new FieldMakerModel({
@@ -40,16 +40,37 @@ export const hateoasPropertyToFieldMakerField = (hateoasProperty) => {
     pickOneOptionValue: hateoasProperty.pickOneOptionValue || null,
     pickOneOptionPrompt: hateoasProperty.pickOneOptionPrompt || 'Select',
   })
-};
+}
 
 const _isAdminProperty = (property) => {
-  return property.name === ADMIN_REQUIRED_KEY && property.type == null;
-};
+  return property.name === ADMIN_REQUIRED_KEY && property.type == null
+}
 
 export const mapToHateoasCollectionDto = (
   hateoasResponse = {},
   Type,
   embeddedField
 ) => {
-  return new HateoasCollectionDto(hateoasResponse, Type, embeddedField);
-};
+  return new HateoasCollectionDto(hateoasResponse, Type, embeddedField)
+}
+
+/* Legacy support for non-hateoas collections */
+export const mapLegacyToHateoasCollectionDto = (hateoasResponse = [], Type) => {
+  return new HateoasCollectionDto(
+    { _embedded: { anyFieldName: hateoasResponse } },
+    Type
+  )
+}
+
+export const extractFieldsFromHateoasCollection = (
+  hateoasResponse = {},
+  field,
+  embeddedField
+) => {
+  const embedded = hateoasResponse._embedded || {}
+  const collection =
+    (embeddedField
+      ? embedded[embeddedField]
+      : embedded[Object.keys(embedded)[0]]) || []
+  return collection.map((item) => item[field])
+}

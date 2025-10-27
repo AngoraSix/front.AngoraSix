@@ -419,7 +419,7 @@ const MethodologyOverviewPage = () => {
                             <span>{t("ctas.contact")}</span>
                         </Button>
 
-                        <Button className="cta-button cta-secondary" onClick={() => handleCTAClick("register", session ? ROUTES.welcome.postRegistration : ROUTES.auth.signin)}>
+                        <Button className="cta-button cta-secondary" onClick={() => handleCTAClick("register", session ? ROUTES.projects.list : ROUTES.auth.signin)}>
                             <StartIcon sx={{ fontSize: 20 }} />
                             <span>{t("ctas.register")}</span>
                         </Button>

@@ -1,12 +1,12 @@
 import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 import CooperativeLanding from "../../../components/Landings/Cooperative/CooperativeLanding"
-import LandingLayout from "../../../layouts/LandingLayout"
+import DefaultLayout from "../../../layouts/DefaultLayout"
 
 const CooperativeLandingPage = () => {
   return (
-    <LandingLayout forProfile="community-driven">
+    <DefaultLayout forProfile="community-driven">
       <CooperativeLanding translationKey="welcome.cooperative"/>
-    </LandingLayout>
+    </DefaultLayout>
   )
 }
 

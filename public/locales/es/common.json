@@ -1,57 +1,98 @@
 {
-  "common.page.title": "AngoraSix",
-  "navbar.menu.projects": "Proyectos Mgmts",
-  "navbar.language.tooltip": "Seleccionar lenguaje",
-  "navbar.settings.tooltip": "Configuraciones",
-  "navbar.settings.avatar.alt": "Imagen de Perfil del Usuario",
-  "navbar.settings.menu.profile": "Perfil",
-  "navbar.settings.menu.logout": "Cerrar Sesión",
-  "navbar.settings.menu.login": "Iniciar Sesión",
-  "navbar.notifications.no-notifications": "No hay notificaciones",
-  "navbar.notifications.see-more": "Ver Más",
-  "navbar.notifications.browse": "Navegar",
-  "common.editable.modify": "Modificar",
-  "common.commands.cancel": "Cancelar",
-  "common.commands.save": "Guardar",
-  "common.input-dialog.title": "Agregar",
-  "common.input-dialog.browse": "Explorar",
-  "common.input-dialog.text.new-value": "Nuevo Valor",
-  "common.input-dialog.youtube.video-id": "Video ID o URL",
-  "common.media.dnd.input.media": "Multimedia",
-  "common.media.dnd.input.empty-message": "Seleccioná alguna de las opciones de arriba o arrastrá una imagen o enlace de Youtube",
-  "common.media.options.image": "Imagen",
-  "common.media.options.image.dialog": "Cargar nueva imagen",
-  "common.media.options.video": "Video",
-  "common.media.options.video.dialog": "Ingresa el ID o URL del video de Youtube",
-  "common.domain.section": "Sección",
-  "common.domain.sections": "Secciones",
-  "common.temp.landing-page.title": "Vuelva pronto",
-  "common.temp.landing-page.text": "Sitio en construcción :)",
-  "common.interactions.in-progress.text": "Procesando. Aguarde un minuto...",
-  "navbar.shared.access": "Acceso",
-  "navbar.shared.about": "Nosotros",
-  "navbar.shared.pricing": "Precios",
-  "navbar.shared.services": "Servicios",
-  "navbar.shared.methodology": "Metodología",
-  "navbar.shared.methodology.overview": "La Metodología AngoraSix",
-  "navbar.shared.methodology.guide": "Guía Interactiva",
-  "navbar.shared.contact": "Contacto",
-  "navbar.shared.login": "Iniciar Sesión",
-  "navbar.shared.signup": "Registrarse",
-  "navbar.shared.get-started": "Comenzar",
-  "common.loading": "Cargando...",
-  "common.error": "Error",
-  "common.success": "Éxito",
-  "common.try-again": "Intentar de nuevo",
-  "common.email.placeholder": "Ingresa tu email",
-  "common.email.invalid": "Por favor ingresa un email válido",
-  "common.subscription.success": "¡Suscripción exitosa!",
-  "common.subscription.error": "Error al suscribirse. Por favor intenta de nuevo.",
-  "common.calendar.add-to-calendar": "Agregar al Calendario",
-  "common.contact.support": "Contactar Soporte",
-  "common.early-bird": "Early Bird",
-  "common.beta-access": "Acceso Beta",
-  "common.coming-soon": "Próximamente",
+  "page": {
+    "title": "AngoraSix"
+  },
+  "editable": {
+    "modify": "Modificar"
+  },
+  "commands": {
+    "cancel": "Cancelar",
+    "save": "Guardar"
+  },
+  "input-dialog": {
+    "title": "Agregar",
+    "browse": "Explorar",
+    "text": {
+      "new-value": "Nuevo Valor"
+    },
+    "youtube": {
+      "video-id": "Video ID o URL"
+    }
+  },
+  "media": {
+    "dnd": {
+      "input": {
+        "media": "Multimedia",
+        "empty-message": "Seleccioná alguna de las opciones de arriba o arrastrá una imagen o enlace de Youtube"
+      }
+    },
+    "options": {
+      "image": "Imagen",
+      "image.dialog": "Cargar nueva imagen",
+      "video": "Video",
+      "video.dialog": "Ingresa el ID o URL del video de Youtube"
+    }
+  },
+  "domain": {
+    "section": "Sección",
+    "sections": "Secciones"
+  },
+  "temp": {
+    "landing-page": {
+      "title": "Vuelva pronto",
+      "text": "Sitio en construcción :)"
+    }
+  },
+  "interactions": {
+    "in-progress": {
+      "text": "Procesando. Aguarde un minuto..."
+    }
+  },
+  "loading": "Cargando...",
+  "error": "Error",
+  "success": "Éxito",
+  "try-again": "Intentar de nuevo",
+  "email": {
+    "placeholder": "Ingresa tu email",
+    "invalid": "Por favor ingresa un email válido"
+  },
+  "subscription": {
+    "success": "¡Suscripción exitosa!",
+    "error": "Error al suscribirse. Por favor intenta de nuevo."
+  },
+  "calendar": {
+    "add-to-calendar": "Agregar al Calendario"
+  },
+  "contact": {
+    "support": "Contactar Soporte"
+  },
+  "early-bird": "Early Bird",
+  "beta-access": "Acceso Beta",
+  "coming-soon": "Próximamente",
+  "navbar": {
+    "shared": {
+      "access": "Acceso",
+      "about": "Nosotros",
+      "pricing": "Precios",
+      "services": "Servicios",
+      "methodology": {
+        "main": "Metodología",
+        "overview": "La Metodología AngoraSix",
+        "guide": "Guía Interactiva"
+      },
+      "contact": "Contacto",
+      "login": "Iniciar Sesión",
+      "signup": "Registrarse",
+      "get-started": "Comenzar",
+      "settings": {
+        "logout": "Cerrar Sesión",
+        "tooltip": "Configuraciones"
+      },
+      "language": {
+        "tooltip": "Cambiar idioma"
+      }
+    }
+  },
   "banner": {
     "message": "🎉 AngoraSix estará disponible en:",
     "subtitle": "¡Reserva tu acceso Early Bird ahora!",

@@ -1,22 +1,23 @@
-import { serverSideTranslations } from "next-i18next/serverSideTranslations"
-import TermsAndConditionsComponent from "../../../components/Legal/TermsAndConditions"
-import LandingLayout from "../../../layouts/LandingLayout"
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import TermsAndConditionsComponent from '../../../components/Legal/TermsAndConditions'
+import DefaultLayout from '../../../layouts/DefaultLayout'
 
-const TermsAndConditionsPage = ({ forQueryValue }) => {
+const TermsAndConditionsPage = () => {
   return (
-    <LandingLayout forProfile={forQueryValue}>
+    <DefaultLayout>
       <TermsAndConditionsComponent />
-    </LandingLayout>
+    </DefaultLayout>
   )
 }
 
-export async function getServerSideProps({ locale, query }) {
-  const forQueryValue = query.for || null
-
+export async function getServerSideProps({ locale }) {
   return {
     props: {
-      forQueryValue,
-      ...(await serverSideTranslations(locale, ["common", "common.legal", "legal.terms"])),
+      ...(await serverSideTranslations(locale, [
+        'common',
+        'common.legal',
+        'legal.terms',
+      ])),
     },
   }
 }

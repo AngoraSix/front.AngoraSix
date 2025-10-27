@@ -36,7 +36,7 @@ const IdeasLanding = ({ translationKey }) => {
     trackLandingCTAClick("ideas", ctaText)
 
     if (session) {
-      router.push(`${ROUTES.welcome.postRegistration}?for=ideas`)
+      router.push(ROUTES.projects.list)
     } else {
       router.push(`${ROUTES.auth.signin}?for=ideas`)
     }

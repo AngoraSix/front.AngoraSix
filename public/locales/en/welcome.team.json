@@ -1,91 +1,103 @@
 {
   "page": {
-    "title": "AngoraSix — Clear ownership agreements so your venture keeps growing.",
-    "description": "Transparent internal agreements and contribution tracking — backed by a shared wallet, so you can focus on building with trust and clarity."
+    "title": "AngoraSix — Clear Ownership and Fair Collaboration for Growing Ventures.",
+    "description": "Transparent internal agreements and contribution tracking — all backed by a shared wallet so you can focus on building with confidence and without misunderstandings."
   },
   "hero": {
     "title": {
-      "part1": "Clear ownership agreements so your venture",
-      "highlight": "keeps growing"
+      "part1": "Build with confidence: Clear rules and ",
+      "highlight": "ownership based on real contributions",
+      "part3": ""
     },
-    "subtitle": "Transparent internal agreements and contribution tracking — backed by a shared wallet, so you can focus on building with trust and clarity.",
-    "subtitle2": "Clear consensus. Conflict-free. Simple and compatible with the tools you already use.",
-    "cta": "Start Free"
+    "subtitle": "A system to manage decision-making and profit distribution based on actual contributions. Aligned partners and motivated teams.",
+    "subtitle2": "Simple and compatible with the tools you already use.",
+    "cta": "Get Started"
   },
   "problems": {
-    "title": "Can your management model keep up with your growing venture?",
-    "subtitle": "Key questions to ensure your team always pulls in the same direction.",
-    "unequal": "How do we ensure everyone stays committed and contributes as agreed?",
-    "unclear": "How do we establish clear rules to prevent conflicts without creating friction to enforce them?",
-    "distribution": "How do we fairly distribute income in a way everyone considers legitimate?",
-    "management": "How can I reduce management overhead and focus on what truly drives the project?"
-  },
-  "solutions": {
-    "title": "The support your team needs to reach the next level",
-    "subtitle": "Move forward with focus, clarity, and confidence—friction-free.",
-    "rules": {
-      "title": "A Framework for Clear Agreements",
-      "description": "A straightforward structure to define your project's key aspects, avoid conflicts, and build collaboratively without ambiguity."
-    },
-    "transparency": {
-      "title": "Automatic Contribution Tracking",
-      "description": "We integrate with your existing management tools to automatically track the real contributions of each team member."
-    },
-    "multisig": {
-      "title": "Integrated Multi-Signature Wallet",
-      "description": "A shared blockchain account linked to your rules and tasks, ensuring every financial decision aligns with what's agreed upon."
-    }
+    "title": "Does your management model support your venture’s growth?",
+    "subtitle": "If any of these questions resonate, AngoraSix can help your project move forward.",
+    "unequal": "How can we make sure everyone stays engaged and contributing as agreed?",
+    "unclear": "How can we define clear rules that prevent conflicts and don’t create discomfort when applied?",
+    "distribution": "How can we ensure a fair income distribution that everyone truly considers equitable?",
+    "management": "How can we reduce management overhead and focus on what truly drives the project?",
+    "structure": "How can we adopt a management structure that keeps things organized, encourages contributions, and fosters a healthy, constructive team dynamic?"
   },
   "howItWorks": {
-    "title": "How AngoraSix works",
-    "subtitle": "A simple and transparent process",
+    "title": "How AngoraSix Works",
+    "subtitle": "A clear process to turn contributions into decision-making power and fair profit distribution — fully adaptable to your management style.",
     "steps": {
       "step1": {
-        "title": "Define your project rules",
-        "description": "We provide a simple framework to establish how your project will be managed — decisions, tasks and payments. Clear and visible foundations for everyone from day one.",
+        "title": "Define the project rules",
+        "description": "We provide a simple framework to establish how decisions are made, tasks are managed, and payments are handled — ensuring clarity and transparency from the start.",
         "imageAlt": "Initial setup screen for project rules"
       },
       "step2": {
-        "title": "Integrate with your management tools",
-        "description": "We connect with the tools you already use — Trello, Notion, Jira, Asana, and more — to automatically track what each member contributes.",
-        "imageAlt": "View of integration with management tools"
+        "title": "Connect your management tools",
+        "description": "We integrate with the platforms you already use — Trello, Notion, Jira, GitHub Projects, and more — to automatically track each member’s contributions.",
+        "imageAlt": "Integration view showing connected tools and tracked contributions"
       }
     },
     "outcomes": {
       "title": "With all this in place...",
+      "baseOutcome": {
+        "title": "Dynamic Ownership",
+        "description": "AngoraSix helps determine how much value each person contributes to the project. A practical tool to apply a contribution-based ownership model — ideal for partners and for recognizing or motivating committed team members.",
+        "imageAlt": "Ownership distribution chart"
+      },
       "outcome1": {
-        "title": "Shared decisions based on real contributions",
-        "description": "AngoraSix provides a governance system based on ownership. The more someone gives to the project, the more weight their vote has in key decisions. Fair, without hierarchies or conflict.",
-        "imageAlt": "Visualization of the governance system with contribution-weighted voting"
+        "title": "Shared Decisions Based on Real Contributions",
+        "description": "A governance system that weights votes according to ownership or any model you define — fair, without arbitrary hierarchies or partner conflicts.",
+        "imageAlt": "Governance dashboard showing contribution-weighted voting"
       },
       "outcome2": {
-        "title": "Automated, secure, and transparent income management",
-        "description": "We connect your project to a multi-signature shared wallet that automatically distributes income based on real contributions. Everyone receives what they truly earned.",
-        "imageAlt": "Fund distribution screen showing automatic payments based on contributions"
+        "title": "Simple and Transparent Income Distribution",
+        "description": "Income is distributed based on contributions and agreed rules, using a shared, secure wallet. Everyone receives what they truly deserve.",
+        "imageAlt": "Fund distribution screen showing automatic payments by contribution"
       }
     }
   },
-  "useCases": {
-    "title": "A suitable solution for your team",
-    "partners": {
-      "title": "Two partners at an early stage",
-      "description": "They want to move forward clearly and confidently, leaving nothing to chance."
+  "solutions": {
+    "title": "The Structure Your Team Needs to Reach the Next Level",
+    "subtitle": "Move forward with confidence, focus, and clarity — without friction.",
+    "rules": {
+      "title": "A Framework for Clear Agreements",
+      "description": "Guidance and structure to define your project’s key points, prevent conflicts, and build alignment from the start."
     },
-    "newTeam": {
-      "title": "A newly forming team",
-      "description": "Looking to start with modern tools and a healthy culture from day one."
+    "transparency": {
+      "title": "Automatic Contribution Tracking",
+      "description": "We integrate with your management tools to automatically record each person’s actual contributions."
+    },
+    "methodology": {
+      "title": "A Methodology for Fair Management",
+      "description": "Support and structure to implement, refine, and sustain contribution-based management practices over time."
+    },
+    "multisig": {
+      "title": "Integrated Multi-Signature Wallet",
+      "description": "A shared blockchain-based account connected to your project’s rules and tasks, ensuring every financial decision aligns with what was agreed."
+    }
+  },
+  "useCases": {
+    "title": "A Perfect Fit for Your Team",
+    "partners": {
+      "title": "Early-Stage Partners",
+      "description": "They want to move forward with clarity and mutual trust, leaving no loose ends."
+    },
+    "experiencedTeam": {
+      "title": "An Experienced Team",
+      "description": "They’ve already faced the challenges of coordination and know that a fair framework can prevent many conflicts and improve collaboration."
     },
     "startup": {
-      "title": "Expanding startup",
-      "description": "They need clarity and harmony as they grow and add more team members."
+      "title": "Growing Startup",
+      "description": "They need to maintain clarity and harmony while bringing more people onto the team."
     }
   },
   "finalCta": {
     "title": {
-      "part1": "Don't risk your venture's future.",
-      "highlight": "Manage clearly from the start"
+      "part1": "Adopt a way of managing that’s ",
+      "highlight": "fair and efficient."
     },
-    "subtitle": "Join teams already building with next-generation tools.",
-    "cta": "Start Building"
+    "subtitle": "Join the teams already managing with efficiency, transparency, and a real focus on growth.",
+    "cta": "Get Started",
+    "ctaKnowMore": "Learn More"
   }
 }

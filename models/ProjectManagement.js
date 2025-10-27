@@ -2,41 +2,54 @@ import {
   createObjectFromFlatParams,
   createObjectWithFlatParams,
   toType,
-} from '../utils/helpers';
-import Project from './Project';
+} from '../utils/helpers'
+import Project from './Project'
+import ClubMemberContributor from './ClubMemberContributor'
 
 export default class ProjectManagement {
-  #project;
+  #project
+  #members
   constructor({ id, constitution, projectId, project, status }) {
-    this.id = id;
-    this.constitution = constitution;
-    this.projectId = projectId;
-    this.project = project;
-    this.status = status;
+    this.id = id
+    this.constitution = constitution
+    this.projectId = projectId
+    this.project = project
+    this.status = status
   }
 
   static fromFormData(formData) {
-    let projectManagementObject = createObjectFromFlatParams(formData);
-    return new ProjectManagement(projectManagementObject);
+    let projectManagementObject = createObjectFromFlatParams(formData)
+    return new ProjectManagement(projectManagementObject)
   }
 
   completeRequiredFields(project) {
-    this.projectId = this.projectId || project.id;
+    this.projectId = this.projectId || project.id
   }
 
   toFormData() {
-    return createObjectWithFlatParams(this);
+    return createObjectWithFlatParams(this)
   }
 
   /**
    * @param {Project} project
    */
   set project(project) {
-    this.#project = toType(project, Project, true);
+    this.#project = toType(project, Project, true)
   }
 
   get project() {
-    return this.#project;
+    return this.#project
+  }
+
+  /**
+   * @param {ClubMemberContributor} members
+   */
+  set members(members) {
+    this.#members = toType(members, ClubMemberContributor)
+  }
+
+  get members() {
+    return this.#members
   }
 
   toFormData(fieldSuffix = '') {
@@ -46,7 +59,7 @@ export default class ProjectManagement {
       [`${fieldSuffix}projectId`]: this.projectId,
       [`${fieldSuffix}project`]: this.project?.toFormData(),
       [`${fieldSuffix}status`]: this.status,
-    };
+    }
   }
 
   toJSON() {
@@ -56,6 +69,6 @@ export default class ProjectManagement {
       status: this.status,
       projectId: this.projectId,
       project: this.project,
-    };
+    }
   }
 }

@@ -1,36 +1,25 @@
-import { useTranslation } from 'next-i18next';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import WelcomeLanding from "../components/Landings/Welcome/WelcomeLanding";
-import RootLayout from "../layouts/RootLayout";
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import TeamLanding from '../components/Landings/Team/TeamLanding'
+import DefaultLayout from '../layouts/DefaultLayout'
 
-const HomePage = ({ }) => {
-  const { t } = useTranslation('common');
-
+const HomePage = ({}) => {
   return (
-    <RootLayout
-      headData={{
-        title: t('common.page.title'),
-        description: t('common.page.description'),
-      }}
-    >
-      <WelcomeLanding />
-    </RootLayout>
-  );
-};
+    <DefaultLayout forProfile="venture">
+      <TeamLanding translationKey="welcome.team" />
+    </DefaultLayout>
+  )
+}
 
-HomePage.defaultProps = {};
-
-HomePage.propTypes = {};
-
-export const getServerSideProps = async (ctx) => {
-  // const session = await getSession(ctx);
-  let props = {
-    ...(await serverSideTranslations(ctx.locale, ['common', 'welcome', 'common.legal'])),
-  };
-
+export async function getServerSideProps({ locale }) {
   return {
-    props,
-  };
-};
+    props: {
+      ...(await serverSideTranslations(locale, [
+        'common',
+        'welcome.team',
+        'common.legal',
+      ])),
+    },
+  }
+}
 
-export default HomePage;
+export default HomePage
