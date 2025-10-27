@@ -70,7 +70,7 @@ const TeamLanding = ({ translationKey }) => {
   }
 
   const navigateToKnowMore = () => {
-    router.push(`${ROUTES.methodology.overview}`)
+    router.push(`${ROUTES.services}`)
   }
 
   const problems = [
