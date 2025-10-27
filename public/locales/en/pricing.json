@@ -7,16 +7,13 @@
     "title": "Choose your plan and start building in a better way.",
     "subtitle": "Plans designed to support you at every stage."
   },
-  "betaProgram": {
-    "title": "AngoraSix Beta User Program",
-    "description": "Join our exclusive Beta User Program and help shape the future of project management. Get early access to premium features and contribute to the platform’s evolution.",
-    "benefits": {
-      "premium": "Access to premium features at no cost",
-      "evolution": "Be part of the platform’s growth and evolution",
-      "priority": "Priority access to new features and support"
-    },
-    "cta": "Apply for Beta Program",
-    "limitedSpots": "Limited spots available."
+  "navigation": {
+    "platform": "Platform",
+    "advisory": "Advisory Services"
+  },
+  "platform": {
+    "title": "Platform Pricing",
+    "subtitle": "Choose the plan that best fits your project's needs and scale."
   },
   "plans": {
     "free": {
@@ -55,7 +52,7 @@
     },
     "custom": {
       "title": "Custom",
-      "price": "Let’s Talk",
+      "price": "Let's Talk",
       "cta": "Contact Us",
       "features": {
         "all": "Includes everything from the Plus plan",
@@ -65,5 +62,36 @@
         "enterprise": "Exclusive benefits and discounts with ecosystem tools"
       }
     }
+  },
+  "advisory": {
+    "title": "Advisory & Methodology Services",
+    "subtitle": "Fair, purpose-driven pricing for teams building better",
+    "pwyw": {
+      "title": "PWYW Model (Pay What You Want)",
+      "description": "Our advisory and methodology support services follow a fair, purpose-driven pricing model. Instead of fixed fees, we invite each team to contribute according to their means and stage — with transparent guidance and mutual trust as the foundation. This ensures access for early projects while sustaining the shared work that helps all of us build better.",
+      "whatWeOffer": "What We Offer",
+      "principles": {
+        "title": "How It Works",
+        "access": {
+          "title": "Access for All",
+          "description": "Every team, regardless of budget, can access our advisory services and proven methodologies."
+        },
+        "trust": {
+          "title": "Transparent Guidance",
+          "description": "We provide suggested contribution ranges based on your project stage, but the final decision is yours."
+        },
+        "sustainability": {
+          "title": "Sustainable Community",
+          "description": "Your contributions help us continue supporting teams and developing better methodologies for everyone."
+        }
+      }
+    },
+    "features": {
+      "methodology": "Custom methodology design and implementation guidance",
+      "structure": "Fair ownership and governance structure consulting",
+      "guidance": "Strategic decision-making and conflict resolution support",
+      "ongoing": "Ongoing advisory as your project evolves"
+    },
+    "cta": "Learn More & Get Started"
   }
 }
