@@ -148,30 +148,6 @@ const AuthSignin = ({ forProfile }) => {
                 </Typography>
               </CardContent>
             </Card>
-
-            {/* Beta Program Promotion */}
-            <Card className="auth-signin-beta-card" elevation={2}>
-              <CardContent className="auth-signin-beta-content">
-                <Stack
-                  direction="row"
-                  spacing={2}
-                  alignItems="center"
-                  className="auth-signin-beta-header"
-                >
-                  <Campaign className="celebration-icon" />
-                  <Typography variant="h6" className="auth-signin-beta-title">
-                    {t('beta.title')}
-                  </Typography>
-                </Stack>
-
-                <Typography
-                  variant="body1"
-                  className="auth-signin-beta-description"
-                >
-                  {t('beta.description')}
-                </Typography>
-              </CardContent>
-            </Card>
           </Box>
           {/* Footer */}
           <Box className="auth-signin-footer">

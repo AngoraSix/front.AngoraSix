@@ -1,86 +1,93 @@
 {
-  "common": {
-    "page": {
-      "title": "AngoraSix"
-    },
-    "editable": {
-      "modify": "Modify"
-    },
-    "commands": {
-      "cancel": "Cancel",
-      "save": "Save"
-    },
-    "input-dialog": {
-      "title": "Fill in",
-      "browse": "Browse",
-      "text": {
-        "new-value": "New Value"
-      },
-      "youtube": {
-        "video-id": "Video ID or URL"
-      }
-    },
-    "media": {
-      "dnd": {
-        "input": {
-          "media": "Media",
-          "empty-message": "Click above or drop image file or Youtube link"
-        }
-      },
-      "options": {
-        "image": "Image",
-        "image.dialog": "Upload new image",
-        "video": "Video",
-        "video.dialog": "Introduce the Youtube video ID or URL"
-      }
-    },
-    "domain": {
-      "section": "Section",
-      "sections": "Sections"
-    },
-    "temp": {
-      "landing-page": {
-        "title": "Coming soon",
-        "text": "Site under construction :)"
-      }
-    },
-    "interactions": {
-      "in-progress": {
-        "text": "Processing. Hold on a minute..."
-      }
-    },
-    "loading": "Loading...",
-    "error": "Error",
-    "success": "Success",
-    "try-again": "Try again",
-    "email": {
-      "placeholder": "Enter your email",
-      "invalid": "Please enter a valid email address"
-    },
-    "subscription": {
-      "success": "Successfully subscribed!",
-      "error": "Error subscribing. Please try again."
-    },
-    "contact": {
-      "support": "Contact Support"
-    },
-    "early-bird": "Early Bird",
-    "coming-soon": "Coming Soon"
+  "page": {
+    "title": "AngoraSix"
   },
+  "editable": {
+    "modify": "Modify"
+  },
+  "commands": {
+    "cancel": "Cancel",
+    "save": "Save"
+  },
+  "input-dialog": {
+    "title": "Fill in",
+    "browse": "Browse",
+    "text": {
+      "new-value": "New Value"
+    },
+    "youtube": {
+      "video-id": "Video ID or URL"
+    }
+  },
+  "media": {
+    "dnd": {
+      "input": {
+        "media": "Media",
+        "empty-message": "Click above or drop image file or Youtube link"
+      }
+    },
+    "options": {
+      "image": "Image",
+      "image.dialog": "Upload new image",
+      "video": "Video",
+      "video.dialog": "Introduce the Youtube video ID or URL"
+    }
+  },
+  "domain": {
+    "section": "Section",
+    "sections": "Sections"
+  },
+  "temp": {
+    "landing-page": {
+      "title": "Coming soon",
+      "text": "Site under construction :)"
+    }
+  },
+  "interactions": {
+    "in-progress": {
+      "text": "Processing. Hold on a minute..."
+    }
+  },
+  "loading": "Loading...",
+  "error": "Error",
+  "success": "Success",
+  "try-again": "Try again",
+  "email": {
+    "placeholder": "Enter your email",
+    "invalid": "Please enter a valid email address"
+  },
+  "subscription": {
+    "success": "Successfully subscribed!",
+    "error": "Error subscribing. Please try again."
+  },
+  "contact": {
+    "support": "Contact Support"
+  },
+  "early-bird": "Early Bird",
+  "coming-soon": "Coming Soon",
   "navbar": {
     "shared": {
       "access": "Access",
       "about": "About Us",
       "pricing": "Pricing",
       "services": "Services",
-      "methodology": "Methodology",
-      "methodology.overview": "The AngoraSix Methodology",
-      "methodology.guide": "Interactive Guide",
+      "methodology": {
+        "main": "Methodology",
+        "overview": "The AngoraSix Methodology",
+        "guide": "Interactive Guide"
+      },
       "contact": "Contact",
       "login": "Log In",
       "signup": "Sign Up",
       "get-started": "Get Started",
-      "projects": "Projects"
+      "projects": "Projects",
+      "settings": {
+        "logout": "Log Out",
+        "tooltip": "Settings"
+      },
+      "language": {
+        "tooltip": "Change Language"
+      }
     }
   },
   "banner": {

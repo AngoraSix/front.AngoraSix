@@ -150,7 +150,7 @@ const WelcomeLanding = () => {
           {session && (
             <Button
               className="access-button"
-              onClick={() => router.push(ROUTES.welcome.postRegistration)}
+              onClick={() => router.push(ROUTES.projects.list)}
               sx={{
                 mr: 2,
                 color: "#dce7ea",

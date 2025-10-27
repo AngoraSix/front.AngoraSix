@@ -52,7 +52,7 @@ const ContributorLanding = ({ translationKey }) => {
     trackLandingCTAClick("contributor", ctaText)
 
     if (session) {
-      router.push(`${ROUTES.welcome.postRegistration}?for=contributor`)
+      router.push(ROUTES.projects.list)
     } else {
       router.push(`${ROUTES.auth.signin}?for=contributor`)
     }

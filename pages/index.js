@@ -9,8 +9,8 @@ const HomePage = ({ }) => {
   return (
     <RootLayout
       headData={{
-        title: t('common.page.title'),
-        description: t('common.page.description'),
+        title: t('page.title'),
+        description: t('page.description'),
       }}
     >
       <WelcomeLanding />

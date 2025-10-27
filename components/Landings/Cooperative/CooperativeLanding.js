@@ -45,7 +45,7 @@ const CooperativeLanding = ({ translationKey }) => {
     trackLandingCTAClick("cooperative", ctaText)
 
     if (session) {
-      router.push(`${ROUTES.welcome.postRegistration}?for=community-driven`)
+      router.push(ROUTES.projects.list)
     } else {
       router.push(`${ROUTES.auth.signin}?for=community-driven`)
     }

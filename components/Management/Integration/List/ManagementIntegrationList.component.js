@@ -80,7 +80,7 @@ const ManagementIntegrationList = ({
         })}
       </List>
 
-      {(interestOptions.length > 0 || onCustomToolSubmit) && (
+      {/* {(interestOptions.length > 0 || onCustomToolSubmit) && (
         <Box className="ManagementIntegrationList__Interest" sx={{ mt: 3 }}>
           <Typography
             align="center"
@@ -182,7 +182,7 @@ const ManagementIntegrationList = ({
             </Box>
           )}
         </Box>
-      )}
+      )} */}
 
       <Snackbar
         open={Boolean(isInterestOpen)}

@@ -54,7 +54,7 @@ const ManagerLanding = ({ translationKey }) => {
     trackLandingCTAClick("manager", ctaText)
 
     if (session) {
-      router.push(`${ROUTES.welcome.postRegistration}?for=manager`)
+      router.push(ROUTES.projects.list)
     } else {
       router.push(`${ROUTES.auth.signin}?for=manager`)
     }

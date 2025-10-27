@@ -73,6 +73,7 @@ export const ROUTES = {
   },
   legal: {
     termsAndConditions: '/legal/terms-and-conditions',
+    privacyPolicy: '/legal/privacy-policy',
   },
 };
 

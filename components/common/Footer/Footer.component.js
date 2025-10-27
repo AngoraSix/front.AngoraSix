@@ -22,15 +22,13 @@ const LogoContainer = styled(Box)({
 const Footer = () => {
   const { t } = useTranslation("common")
 
-  const rootHref = ROUTES.projects.list
-
   const footerLinks = [
-    { key: "home", href: rootHref },
-    { key: "methodology", href: "/methodology/overview" },
-    { key: "pricing", href: "/pricing" },
-    { key: "about", href: "/about" },
-    { key: "terms", href: "/legal/terms-and-conditions" },
-    { key: "privacy", href: "/legal/privacy-policy" },
+    { key: "home", href: ROUTES.home },
+    { key: "methodology", href: ROUTES.methodology.overview },
+    { key: "pricing", href: ROUTES.pricing },
+    { key: "about", href: ROUTES.about },
+    { key: "terms", href: ROUTES.legal.termsAndConditions },
+    { key: "privacy", href: ROUTES.legal.privacyPolicy },
   ]
 
   return (

@@ -86,7 +86,7 @@ const SharedNavbar = () => {
     const baseItems = [
       {
         href: '/methodology',
-        label: t('navbar.shared.methodology'),
+        label: t('navbar.shared.methodology.main'),
         submenu: [
           {
             href: '/methodology/overview',
@@ -119,7 +119,7 @@ const SharedNavbar = () => {
 
   const navigationItems = getNavigationItems()
 
-  const rootHref = ROUTES.projects.list
+  const rootHref = ROUTES.home
 
   return (
     <AppBar
@@ -266,7 +266,7 @@ const SharedNavbar = () => {
               {/* Language Selector */}
               {locales && locales.length > 1 && (
                 <>
-                  <Tooltip title={t('navbar.language.tooltip')}>
+                  <Tooltip title={t('navbar.shared.language.tooltip')}>
                     <Button
                       onClick={handleOpenLanguageMenu}
                       startIcon={<LanguageIcon />}
@@ -328,7 +328,7 @@ const SharedNavbar = () => {
               {/* Authentication */}
               {session ? (
                 <>
-                  <Tooltip title={t('navbar.settings.tooltip')}>
+                  <Tooltip title={t('navbar.shared.settings.tooltip')}>
                     <IconButton
                       onClick={handleOpenUserMenu}
                       sx={{
@@ -377,7 +377,7 @@ const SharedNavbar = () => {
                         },
                       }}
                     >
-                      {t('navbar.settings.menu.logout')}
+                      {t('navbar.shared.settings.logout')}
                     </MenuItem>
                   </Menu>
                 </>
@@ -566,7 +566,7 @@ const SharedNavbar = () => {
                         },
                       }}
                     >
-                      {t('navbar.settings.menu.logout')}
+                      {t('navbar.shared.settings.logout')}
                     </MenuItem>,
                   ]
                 ) : (

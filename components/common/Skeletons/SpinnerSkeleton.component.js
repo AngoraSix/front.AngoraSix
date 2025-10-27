@@ -12,7 +12,7 @@ const SpinnerSkeleton = () => {
     component="h2"
     color="primary"
   >
-    {t('common.interactions.in-progress.text')}
+    {t('interactions.in-progress.text')}
   </Typography>
   </Box>
     <Box className="ManagementIntegrationInteraction__Content" sx={{ display: 'flex' }}>

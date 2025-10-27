@@ -368,7 +368,7 @@ const MethodologyGuidePage = () => {
               <Button
                 className="cta-button cta-secondary"
                 onClick={() =>
-                  handleCTAClick("register", session ? ROUTES.welcome.postRegistration : ROUTES.auth.signin)
+                  handleCTAClick("register", session ? ROUTES.projects.list : ROUTES.auth.signin)
                 }
               >
                 <StartIcon sx={{ fontSize: 20 }} />

@@ -181,7 +181,7 @@ const ManagementCapsSection = ({
   return (
     <Container maxWidth="xl" className="management-caps-section" sx={{ py: 2 }}>
       {/* Personal Contributor subsection */}
-      {contributor.tasks && (
+      {contributor.accounts && (
         <Fade in timeout={2000}>
           <div className="caps-section-container">
             <div className="caps-section-title">
