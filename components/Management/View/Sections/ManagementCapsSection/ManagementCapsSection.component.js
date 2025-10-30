@@ -124,10 +124,6 @@ const ManagementCapsSection = ({
     return Math.round((amount * 100) / total)
   }
 
-  console.log("GERGERGER0000");
-  console.log(project.accounts)
-  console.log(contributor.accounts)
-
   const projectOwnershipChartData = [
     {
       id: getRandomId(),
@@ -182,18 +178,10 @@ const ManagementCapsSection = ({
     },
   ]
 
-  console.log("GERGERGER");
-  console.log(contributor);
-
-  console.log(projectOwnershipChartData);
-  
-
-  // const hasContributorData = !!contributor.tasks && 
-
   return (
     <Container maxWidth="xl" className="management-caps-section" sx={{ py: 2 }}>
       {/* Personal Contributor subsection */}
-      {contributor.tasks && (
+      {contributor.accounts && (
         <Fade in timeout={2000}>
           <div className="caps-section-container">
             <div className="caps-section-title">
