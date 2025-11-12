@@ -40,6 +40,7 @@ const SourceSyncForm = ({
               {requiredStepFields.map((field) => {
                 const fieldValue = formData[currentStepObj.index][field.key]?.[0];
                 const translationKey = field.key.split(":")[0];
+                const isMultiple = field.type === 'MULTIPLE';
                 return <FieldMaker
                   {...Object.fromEntries(Object.entries(field).filter(([_, value]) => value != null))}
                   key={field.key}
@@ -47,8 +48,9 @@ const SourceSyncForm = ({
                   withPickOneOption={true}
                   pickOneOptionValue={null}
                   pickOneOptionPrompt={t(`management.integration.sourcesync.finish.field.pickone.${source.toLowerCase()}.${translationKey}`)}
-                  value={fieldValue}
-                  onChange={onFormChange(currentStepObj.index, field.key)}
+                  value={isMultiple ? undefined : fieldValue}
+                  selectedOptions={isMultiple ? formData[currentStepObj.index][field.key] : undefined}
+                  onChange={onFormChange(currentStepObj.index, field.key, isMultiple)}
                   error={wasSubmitted && (fieldValue == null || fieldValue == '')}
                   fullWidth={true}
                 />
