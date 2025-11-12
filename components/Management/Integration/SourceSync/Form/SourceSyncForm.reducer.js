@@ -1,30 +1,33 @@
+const UPDATE_STEP_FIELDS = 'SourceSyncFormForm/UPDATE_STEP_FIELDS'
+const TOGGLE_SELECTION_FIELD = 'SourceSyncFormForm/TOGGLE_SELECTION_FIELD'
+const FORM_WAS_SUBMITTED = 'SourceSyncFormForm/FORM_WAS_SUBMITTED'
+const PROCESSING_FORM = 'SourceSyncFormForm/PROCESSING_FORM'
+const NEW_STEP = 'SourceSyncFormForm/NEW_STEP'
 
-const UPDATE_STEP_FIELDS = 'SourceSyncFormForm/UPDATE_STEP_FIELDS';
-const FORM_WAS_SUBMITTED =
-  'SourceSyncFormForm/FORM_WAS_SUBMITTED';
-const PROCESSING_FORM =
-  'SourceSyncFormForm/PROCESSING_FORM';
-const NEW_STEP = 'SourceSyncFormForm/NEW_STEP';
+export const toggleSelectionAction = (payload) => ({
+  type: TOGGLE_SELECTION_FIELD,
+  payload,
+})
 
 export const updateFieldsAction = (payload) => ({
   type: UPDATE_STEP_FIELDS,
   payload,
-});
+})
 
 export const wasSubmitted = (payload) => ({
   type: FORM_WAS_SUBMITTED,
   payload,
-});
+})
 
 export const isProcessing = (payload) => ({
   type: PROCESSING_FORM,
   payload,
-});
+})
 
 export const newStep = (payload) => ({
   type: NEW_STEP,
   payload,
-});
+})
 
 export const INITIAL_STATE = {
   formData: {},
@@ -35,29 +38,51 @@ export const INITIAL_STATE = {
   currentStepObj: {
     index: 0,
     key: '',
-  }
-};
+  },
+}
 
 const SourceSyncFormFormReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case UPDATE_STEP_FIELDS:
       return {
         ...state,
-        formData: { ...state.formData, ...action.payload },
-      };
+        formData: {
+          ...state.formData,
+          ...{ [action.payload.stepIndex]: action.payload.partialFormData },
+        },
+      }
+    case TOGGLE_SELECTION_FIELD:
+      const previousValues =
+        state.formData[action.payload.stepIndex]?.[action.payload.property] ||
+        []
+      const isSelected = previousValues.includes(action.payload.value)
+      const newValues = isSelected
+        ? previousValues.filter((v) => v !== action.payload.value)
+        : [...previousValues, action.payload.value]
+      return {
+        ...state,
+        formData: {
+          ...state.formData,
+          [action.payload.stepIndex]: {
+            ...state.formData[action.payload.stepIndex],
+            [action.payload.property]: newValues,
+          },
+        },
+      }
     case FORM_WAS_SUBMITTED:
       return {
         ...state,
         wasSubmitted: action.payload,
-      };
+      }
     case PROCESSING_FORM:
       return {
         ...state,
         isProcessing: action.payload,
-      };
+      }
     case NEW_STEP:
-      const { actions, requiredDataForStep, sourceSyncStatus, currentStepObj } = action.payload;
-      const currentStepIndex = state.currentStepObj.index + 1;
+      const { actions, requiredDataForStep, sourceSyncStatus, currentStepObj } =
+        action.payload
+      const currentStepIndex = state.currentStepObj.index + 1
       return {
         ...state,
         currentStepIndex,
@@ -67,13 +92,13 @@ const SourceSyncFormFormReducer = (state = INITIAL_STATE, action) => {
         currentStepObj,
         formData: {
           ...state.formData,
-          [currentStepIndex]: {}
+          [currentStepIndex]: {},
         },
         wasSubmitted: false,
-      };
+      }
     default:
-      return state;
+      return state
   }
-};
+}
 
-export default SourceSyncFormFormReducer;
+export default SourceSyncFormFormReducer
