@@ -65,31 +65,31 @@
   },
   "advisory": {
     "title": "Servicios de asesoramiento y metodología",
-    "subtitle": "Precios con propósito para equipos que quieren construir mejor.",
+    "subtitle": "Precios alineados al propósito y a la capacidad real de cada equipo",
     "pwyw": {
-      "title": "Modelo PWYW (pagá lo que quieras)",
-      "description": "Nuestro servicio de asesoría opera con un esquema flexible y transparente. En lugar de una tarifa fija, te invitamos a contribuir según tu etapa y tus posibilidades, con rangos de referencia y total claridad sobre el alcance. Así promovemos el acceso para equipos que recién empiezan y sostenemos el trabajo que nos permite mejorar la metodología para todos.",
+      "title": "Modelo Within Capacity",
+      "description": "Nuestro servicio de asesoría funciona con un esquema flexible basado en capacidad. En lugar de una tarifa fija, ofrecemos precios de referencia que podés ajustar según la realidad de tu equipo. Esto garantiza acceso para proyectos en etapas tempranas y, al mismo tiempo, sostiene un trabajo justo y transparente para todos.",
       "whatWeOffer": "Qué ofrecemos",
       "principles": {
         "title": "Cómo funciona",
         "access": {
           "title": "Acceso para todos",
-          "description": "Cualquier equipo puede acceder a la asesoría y a marcos metodológicos probados, sin barreras iniciales."
+          "description": "Cualquier equipo, sin importar su presupuesto o etapa, puede acceder a la asesoría y a metodologías probadas."
         },
         "trust": {
-          "title": "Transparencia y referencia",
-          "description": "Compartimos rangos sugeridos según tu contexto; la contribución final la definís vos, con acuerdos claros de alcance."
+          "title": "Transparencia en precios de referencia",
+          "description": "Compartimos rangos sugeridos y las razones detrás de ellos — pero la decisión final es tuya."
         },
         "sustainability": {
           "title": "Sustentabilidad compartida",
-          "description": "Tu aporte nos ayuda a seguir acompañando equipos y a evolucionar herramientas y prácticas abiertas."
+          "description": "Tu aporte hace posible sostener nuestro trabajo y mejorar continuamente herramientas y metodologías abiertas."
         }
       }
     },
     "features": {
       "methodology": "Diseño e implementación de una metodología a medida",
-      "structure": "Estructura de ownership y gobernanza justa",
-      "guidance": "Acompañamiento en decisiones clave y resolución de tensiones",
+      "structure": "Consultoría en estructuras de ownership y gobernanza justa",
+      "guidance": "Acompañamiento en decisiones estratégicas y resolución de tensiones",
       "ongoing": "Asesoramiento continuo a medida que el proyecto evoluciona"
     },
     "cta": "Conocer más y comenzar"

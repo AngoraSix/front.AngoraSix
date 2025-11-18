@@ -65,24 +65,24 @@
   },
   "advisory": {
     "title": "Advisory & Methodology Services",
-    "subtitle": "Fair, purpose-driven pricing for teams building better",
+    "subtitle": "Purpose-aligned pricing that adapts to each team’s capacity",
     "pwyw": {
-      "title": "PWYW Model (Pay What You Want)",
-      "description": "Our advisory and methodology support services follow a fair, purpose-driven pricing model. Instead of fixed fees, we invite each team to contribute according to their means and stage — with transparent guidance and mutual trust as the foundation. This ensures access for early projects while sustaining the shared work that helps all of us build better.",
+      "title": "Within Capacity Model",
+      "description": "Our advisory and methodology services follow a flexible, capacity-based pricing model. Instead of a fixed fee, we provide clear reference prices that teams can adjust according to their real ability to contribute. This keeps our work accessible for early-stage projects while ensuring sustainability and fairness for everyone involved.",
       "whatWeOffer": "What We Offer",
       "principles": {
         "title": "How It Works",
         "access": {
           "title": "Access for All",
-          "description": "Every team, regardless of budget, can access our advisory services and proven methodologies."
+          "description": "Any team, regardless of budget or stage, can access our advisory services and proven methodologies."
         },
         "trust": {
-          "title": "Transparent Guidance",
-          "description": "We provide suggested contribution ranges based on your project stage, but the final decision is yours."
+          "title": "Transparent Reference Pricing",
+          "description": "We provide suggested contribution ranges and the reasoning behind them — but the final decision is yours."
         },
         "sustainability": {
-          "title": "Sustainable Community",
-          "description": "Your contributions help us continue supporting teams and developing better methodologies for everyone."
+          "title": "Shared Sustainability",
+          "description": "Your contribution helps sustain our work and supports the continuous evolution of open tools and methodologies for everyone."
         }
       }
     },
