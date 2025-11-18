@@ -82,6 +82,8 @@ const ContributorsDetails = ({ contributors = [], contributorsData = [] }) => {
                   <TableRow key={contributor.contributorId} className="contributors-table-row">
                     <TableCell className="contributors-table-cell">
                       <Box display="flex" alignItems="center" gap={2}>
+                        {console.log("GERGERGER44444")}
+                        {console.log(contributor)}
                         {thumbnailUrl ? (
                           <Avatar src={thumbnailUrl} className="contributor-avatar" />
                         ) : (

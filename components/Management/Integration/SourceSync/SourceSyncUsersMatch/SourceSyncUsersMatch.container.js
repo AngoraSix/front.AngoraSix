@@ -74,7 +74,7 @@ const SourceSyncUsersMatchContainer = ({
     const partialMatchSelect = {
       [contributorId]: {
         value,
-        selectedIndex
+        selectedIndex,
       }
     };
 
@@ -116,7 +116,7 @@ const SourceSyncUsersMatchContainer = ({
       isOpen={isDialogOpen}
       closeDialog={onDialogClose}>
       <SourceSyncUsersMatch
-        contributorMatches={formState.matches}
+        sourceUserMatches={formState.matches}
         sourceKey={sourceKey}
         onMemberMatchSelect={onMemberMatchSelect}
         onSubmit={onSubmit}
@@ -124,7 +124,7 @@ const SourceSyncUsersMatchContainer = ({
     </SourceSyncUsersMatchDialog>
   ) : (
     <SourceSyncUsersMatch
-      contributorMatches={formState.matches}
+      sourceUserMatches={formState.matches}
       sourceKey={sourceKey}
       onMemberMatchSelect={onMemberMatchSelect}
       onSubmit={onSubmit}

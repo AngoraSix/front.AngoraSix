@@ -1,16 +1,15 @@
-import { Avatar, Box, Paper, Typography } from '@mui/material';
-import Image from 'next/image';
-import PropTypes from 'prop-types';
-import React from 'react';
+import { Avatar, Box, Typography } from '@mui/material'
+import Image from 'next/image'
+import PropTypes from 'prop-types'
 
-const LOGO_IMAGE_URI = '/logos/a6-white-500.png';
+const LOGO_IMAGE_URI = '/logos/a6-white-500.png'
 
-const A6UserCard = ({
-  contributorId,
-  fieldSpec,
-}) => {
+const A6UserCard = ({ contributorId, optionSpec, onClick }) => {
   return (
-    <Paper className="SourceSyncUsersMatch__A6UserCard__Container" variant="outlined">
+    <Box
+      className="SourceSyncUsersMatch__A6UserCard__Container"
+      onClick={onClick}
+    >
       <Box className="SourceSyncUsersMatch__Source__Icon__Container">
         <Avatar variant="rounded" sx={{ bgcolor: '#0A2239' }}>
           <Box className="SourceSyncUsersMatch__Logo__Container">
@@ -29,29 +28,28 @@ const A6UserCard = ({
         </Avatar>
       </Box>
       <Box className="SourceSyncUsersMatch__A6UserCard__Avatar__Container">
-        <Avatar alt={fieldSpec?.contributorData?.fullName || contributorId} src={fieldSpec.contributorData.profileMedia.thumbnailUrl} />
+        <Avatar
+          alt={optionSpec?.contributorData?.fullName || contributorId}
+          src={optionSpec.contributorData.profileMedia.thumbnailUrl}
+        />
       </Box>
 
       <Box className="SourceSyncUsersMatch__A6UserCard__Data__Container">
         <Typography>
-          {fieldSpec?.contributorData?.fullName || contributorId}
+          {optionSpec?.contributorData?.fullName || contributorId}
         </Typography>
-        <Typography
-          component="span"
-          variant="body2"
-        >
-          {fieldSpec?.contributorData?.email}
+        <Typography component="span" variant="body2">
+          {optionSpec?.contributorData?.email}
         </Typography>
       </Box>
-    </Paper>)
-};
-
-A6UserCard.defaultProps = {
-};
+    </Box>
+  )
+}
 
 A6UserCard.propTypes = {
   contributorId: PropTypes.string.isRequired,
-  fieldSpec: PropTypes.object.isRequired,
-};
+  optionSpec: PropTypes.object.isRequired,
+  onClick: PropTypes.func,
+}
 
-export default A6UserCard;
+export default A6UserCard

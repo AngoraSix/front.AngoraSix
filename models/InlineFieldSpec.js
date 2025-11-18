@@ -6,11 +6,12 @@ import { processHateoasActions } from '../utils/rest/hateoas/hateoasUtils';
 export default class InlineFieldSpec {
   #options;
   constructor(object) {
-    const { name, type, options } = object;
+    const { name, type, options, promptData } = object;
     this.name = name;
     this.type = type;
     this.options = options;
     this.actions = processHateoasActions(object);
+    this.promptData = promptData;
   }
 
   /**
