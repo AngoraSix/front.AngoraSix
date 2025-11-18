@@ -59,11 +59,9 @@
 .SourceSyncUsersMatch__A6UserCard__Container {
   width: 100%;
   height: 100%;
-  margin: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
 }
 
 .SourceSyncUsersMatch__Source__Icon__Container {
@@ -75,7 +73,7 @@
 }
 
 .SourceSyncUsersMatch__A6UserCard__Avatar__Container {
-  width: 30%;
+  width: 20%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -96,28 +94,26 @@
   position: relative;
 }
 
-.SourceSyncUsersMatch__SourceUserDropDown__SourceUserCard__Container {
+.SourceSyncUsersMatch__SourceUserCard__Container {
   width: 100%;
   height: 100%;
+  margin: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.SourceSyncUsersMatch__SourceUserCard__Avatar__Container {
+  width: 20%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.SourceSyncUsersMatch__SourceUserDropDown__SourceUserCard__Avatar__Container {
-  width: 30%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.SourceSyncUsersMatch__SourceUserDropDown__SourceUserCard__Data__Container {
+.SourceSyncUsersMatch__SourceUserCard__Data__Container {
   flex-grow: 1;
   margin-right: 50px;
-}
-
-.SourceSyncUsersMatch__SourceUserDropDown__SourceUserCard__Data__Container {
-  flex-grow: 1;
 }
 
 .SourceSyncUsersMatch__SourceUserDropDown__Menu .MuiMenu-paper {
