@@ -9,8 +9,10 @@ import MatchPlatformUsersAction from './MatchPlatformUsersAction';
 import RedirectAuthoziationRegistrationAction from './RedirectAuthorizationRegistrationAction';
 import RequestFullSyncAction from './RequestFullSyncAction';
 import UpdateSourceSyncConfigAction from './UpdateSourceSyncConfigAction';
+import ExternalLinkAction from './ExternalLinkAction';
 
 const INTEGRATIONS_ACTION_STRATEGIES = {
+  [INTEGRATION_ACTIONS_SUPPORTED_KEYS.INSTALL_IN_PLATFORM]: ExternalLinkAction,
   [INTEGRATION_ACTIONS_SUPPORTED_KEYS.REDIRECT_AUTHORIZATION]: RedirectAuthoziationRegistrationAction,
   [INTEGRATION_ACTIONS_SUPPORTED_KEYS.DISABLE_INTEGRATION]: DisableIntegrationAction,
   [INTEGRATION_ACTIONS_SUPPORTED_KEYS.REQUEST_FULL_SYNC]: RequestFullSyncAction,

@@ -48,6 +48,12 @@
             "tooltip": {
               "template": "Ver el estado de sincronización de :source"
             }
+          },
+          "installinplatform": {
+            "text": "Instalar",
+            "tooltip": {
+              "template": "Instalar la app/plugin en :source"
+            }
           }
         },
         "title": "Integraciones de Administración",

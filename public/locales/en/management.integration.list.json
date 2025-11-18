@@ -48,6 +48,12 @@
             "tooltip": {
               "template": "Check sync status for :source"
             }
+          },
+          "installinplatform": {
+            "text": "Install",
+            "tooltip": {
+              "template": "Install the app/plugin in :source"
+            }
           }
         },
         "title": "Management Integrations",
