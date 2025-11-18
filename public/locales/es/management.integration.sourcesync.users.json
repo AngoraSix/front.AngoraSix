@@ -3,9 +3,7 @@
     "management.integration.sourcesync.users.page.description": "Asocie los usuarios de las diferentes plataformas",
     "management.integration.sourcesync.users.notifications.success.saved": "La asociación de usuarios se ha registrado correctamente.",
     "management.integration.sourcesync.users.match.title": "Asociar usuarios de plataformas",
-    "management.integration.sourcesync.users.match.options.unassigned.included.title": "Sin asignar - Incluir",
-    "management.integration.sourcesync.users.match.options.unassigned.excluded.title": "Sin asignar - Excluir",
-    "management.integration.sourcesync.users.match.options.unassigned.included.text": "Incluir contribuciones en los cálculos",
-    "management.integration.sourcesync.users.match.options.unassigned.excluded.text": "Excluir contribuciones de los cálculos",
+    "management.integration.sourcesync.users.match.options.unassigned.title": "Sin asignar",
+    "management.integration.sourcesync.users.match.options.unassigned.text": "Puede llevar a cálculos incorrectos de propiedad",
     "management.integration.sourcesync.users.match.submit": "Enviar"
 }

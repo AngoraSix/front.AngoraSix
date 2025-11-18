@@ -15,15 +15,10 @@ class Integrations {
     }
     this.userMatching = {
       keys: {
-        unassignedInclude: getFromEnvsOrElse(
+        unassigned: getFromEnvsOrElse(
           env,
-          'A6_PUBLIC_APP_INTEGRATIONS_USERMATCHING_UNASSIGNEDINCLUDEKEY',
-          'unassignedInclude'
-        ),
-        unassignedExclude: getFromEnvsOrElse(
-          env,
-          'A6_PUBLIC_APP_INTEGRATIONS_USERMATCHING_UNASSIGNEDEXCLUDEKEY',
-          'unassignedExclude'
+          'A6_PUBLIC_APP_INTEGRATIONS_USERMATCHING_UNASSIGNEDKEY',
+          'unassigned'
         ),
       },
     }

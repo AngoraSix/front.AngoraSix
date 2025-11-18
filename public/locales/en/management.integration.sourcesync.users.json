@@ -3,9 +3,7 @@
     "management.integration.sourcesync.users.page.description": "Match the users from the different platforms to the users in the system.",
     "management.integration.sourcesync.users.notifications.success.saved": "The user matching has been registered successfully.",
     "management.integration.sourcesync.users.match.title": "Platform Users Matching",
-    "management.integration.sourcesync.users.match.options.unassigned.included.title": "Unassigned - Include",
-    "management.integration.sourcesync.users.match.options.unassigned.excluded.title": "Unassigned - Exclude",
-    "management.integration.sourcesync.users.match.options.unassigned.included.text": "Include contributions in calculations",
-    "management.integration.sourcesync.users.match.options.unassigned.excluded.text": "Exclude contributions from calculations",
+    "management.integration.sourcesync.users.match.options.unassigned.title": "Unassigned",
+    "management.integration.sourcesync.users.match.options.unassigned.text": "May lead to incorrect ownership calculations",
     "management.integration.sourcesync.users.match.submit": "Submit"
 }

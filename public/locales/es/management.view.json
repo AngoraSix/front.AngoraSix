@@ -81,7 +81,7 @@
   "management.view.stats.team.contributors.table.heading.investedeffort": "Esfuerzo Invertido",
   "management.view.stats.team.contributors.table.heading.taskscompleted": "Tareas Completadas",
   "management.view.stats.team.contributors.table.heading.recentactivity": "Actividad Reciente",
-  "management.view.stats.team.contributors.table.heading.progress": "Progreso",
+  "management.view.stats.team.contributors.table.heading.progress": "Progreso (% Tareas Completadas)",
   "management.view.stats.accounts.currency.A6_INTERNAL-PROJECTS-OWNERSHIP_CAP": "A6 Chapitas",
   "management.view.stats.accounts.currency.PROFIT_SHARES": "Profit Shares"
 }

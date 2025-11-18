@@ -1,5 +1,4 @@
-import UnassignedExcludedIcon from '@mui/icons-material/Block'
-import UnassignedIncludedIcon from '@mui/icons-material/PersonAddDisabled'
+import UnassignedIcon from '@mui/icons-material/PersonOff';
 import {
   Avatar,
   Box,
@@ -15,7 +14,7 @@ import { useState } from 'react'
 import config from '../../../../../../config'
 import A6UserCard from './A6UserCard.component'
 
-const UnassignedIncludedCard = ({ onClick }) => {
+const UnassignedCard = ({ onClick }) => {
   const { t } = useTranslation('management.integration.sourcesync.users')
   return (
     <Box
@@ -23,47 +22,19 @@ const UnassignedIncludedCard = ({ onClick }) => {
       onClick={onClick}
     >
       <Box className="SourceSyncUsersMatch__A6UserCard__Avatar__Container">
-        <Avatar alt="Unassigned-included">
-          <UnassignedIncludedIcon />
+        <Avatar alt="Unassigned">
+          <UnassignedIcon />
         </Avatar>
       </Box>
       <Box className="SourceSyncUsersMatch__A6UserCard__Data__Container">
         <Typography>
           {t(
-            'management.integration.sourcesync.users.match.options.unassigned.included.title'
+            'management.integration.sourcesync.users.match.options.unassigned.title'
           )}
         </Typography>
         <Typography variant="body2">
           {t(
-            'management.integration.sourcesync.users.match.options.unassigned.included.text'
-          )}
-        </Typography>
-      </Box>
-    </Box>
-  )
-}
-
-const UnassignedExcludedCard = ({ onClick }) => {
-  const { t } = useTranslation('management.integration.sourcesync.users')
-  return (
-    <Box
-      className="SourceSyncUsersMatch__A6UserCard__Container"
-      onClick={onClick}
-    >
-      <Box className="SourceSyncUsersMatch__A6UserCard__Avatar__Container">
-        <Avatar alt="Unassigned-excluded">
-          <UnassignedExcludedIcon />
-        </Avatar>
-      </Box>
-      <Box className="SourceSyncUsersMatch__A6UserCard__Data__Container">
-        <Typography>
-          {t(
-            'management.integration.sourcesync.users.match.options.unassigned.excluded.title'
-          )}
-        </Typography>
-        <Typography variant="body2">
-          {t(
-            'management.integration.sourcesync.users.match.options.unassigned.excluded.text'
+            'management.integration.sourcesync.users.match.options.unassigned.text'
           )}
         </Typography>
       </Box>
@@ -86,23 +57,17 @@ const A6UserDropDown = ({ fieldSpec, selectedIndex, onSelectMember }) => {
   const handleClose = () => {
     setAnchorEl(null)
   }
-  const unassignedIncludeIndex = fieldSpec?.options.findIndex(
+  const unassignedIndex = fieldSpec?.options.findIndex(
     (option) =>
-      option.value === config.integrations.userMatching.keys.unassignedInclude
-  )
-  const unassignedExcludeIndex = fieldSpec?.options.findIndex(
-    (option) =>
-      option.value === config.integrations.userMatching.keys.unassignedExclude
+      option.value === config.integrations.userMatching.keys.unassigned
   )
   return (
     <Paper
       className="SourceSyncUsersMatch__SourceUserDropDown__Container"
       variant="outlined"
     >
-      {selectedIndex === unassignedIncludeIndex ? (
-        <UnassignedIncludedCard onClick={handleClickListItem} />
-      ) : selectedIndex === unassignedExcludeIndex ? (
-        <UnassignedExcludedCard onClick={handleClickListItem} />
+      {selectedIndex === unassignedIndex ? (
+        <UnassignedCard onClick={handleClickListItem} />
       ) : (
         <A6UserCard
           contributorId={fieldSpec?.options[selectedIndex].value}
@@ -129,11 +94,8 @@ const A6UserDropDown = ({ fieldSpec, selectedIndex, onSelectMember }) => {
                 onClick={() => handleMenuItemClick(option.value, index)}
               >
                 {option.value ===
-                config.integrations.userMatching.keys.unassignedInclude ? (
-                  <UnassignedIncludedCard />
-                ) : option.value ===
-                  config.integrations.userMatching.keys.unassignedExclude ? (
-                  <UnassignedExcludedCard />
+                config.integrations.userMatching.keys.unassigned ? (
+                  <UnassignedCard />
                 ) : (
                   <A6UserCard
                     contributorId={option.value}
