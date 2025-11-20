@@ -24,7 +24,10 @@ import { trackLoginClick } from '../../../utils/analytics'
 const AuthSignin = ({ forProfile }) => {
   const { t } = useTranslation('auth.signin')
   const router = useRouter()
-  const { locale } = router
+  const { locale, query } = router
+  const callbackUrl =
+    query.callbackUrl ||
+    `${locale === 'es' ? '/es' : ''}${ROUTES.management.new}`
   const [isLoading, setIsLoading] = useState(false)
 
   const handleGoogleSignIn = async () => {
@@ -32,7 +35,7 @@ const AuthSignin = ({ forProfile }) => {
     try {
       trackLoginClick(forProfile)
       await signIn('angorasixspring', {
-        callbackUrl: `${locale === 'es' ? '/es' : ''}${ROUTES.management.new}`,
+        callbackUrl,
       })
     } catch (error) {
       console.error('Sign in error:', error)

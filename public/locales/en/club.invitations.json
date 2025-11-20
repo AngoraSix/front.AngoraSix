@@ -3,8 +3,8 @@
     "club.invitations.accept.page.description": "Processing the invitation to join the project",
     "club.invitations.accepted.title": "Invitation accepted",
     "club.invitations.accepted.description": "Congratulations, you have joined a new project!",
-    "club.invitations.accepted.outro": "You can see all the projects you are a member of in your profile:",
-    "club.invitations.accepted.profilelink": "Joined Projects",
+    "club.invitations.accepted.outro": "You can see all your projects here:",
+    "club.invitations.accepted.myprojects": "Joined Projects",
     "club.invitations.rejected.title": "Error processing invitation",
     "club.invitations.rejected.description": "The invitation token is invalid, has expired, or you are already part of this project",
     "club.invitations.rejected.outro": "Please ask the project owner to send you a new invitation"
