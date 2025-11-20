@@ -22,10 +22,9 @@ const AcceptedInvitation = ({ }) => {
             <Typography variant="subtitle1" className="ClubInvitation__Section ClubInvitation__Outro">
                 {t('club.invitations.accepted.outro')}
             </Typography>
-            {/* Can add Link to project when there is Page for Project (Trello-bwSYrJTC), or to mgmt */}
-            <Link href={resolveRoute(ROUTES.profile.view, session.user?.id)}>
+            <Link href={ROUTES.projects.list}>
                 <Typography variant="text" color="primary" className="ClubInvitation__Section ClubInvitation__Link">
-                    {t('club.invitations.accepted.profilelink')}
+                    {t('club.invitations.accepted.myprojects')}
                 </Typography>
             </Link>
 
