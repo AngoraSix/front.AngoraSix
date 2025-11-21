@@ -185,5 +185,11 @@
     "JPY": "Japanese Yen",
     "CAD": "Canadian Dollar",
     "AUD": "Australian Dollar"
+  },
+  "submit": {
+    "result": {
+      "success": "Project management created successfully",
+      "error": "Error creating project management"
+    }
   }
 }

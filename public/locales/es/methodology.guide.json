@@ -19,7 +19,7 @@
     },
     "community": {
       "label": "Comunidad Abierta",
-      "tooltip": "Proyecto colaborativo, gobernanza descentralizada, abierto a contribuidores, desarrollo dirigido por la comunidad."
+      "tooltip": "Proyecto colaborativo, gobernanza descentralizada, abierto a colaboradores, desarrollo dirigido por la comunidad."
     },
     "subproject": {
       "label": "Sub-proyecto",
@@ -62,7 +62,7 @@
     },
     "openness": {
       "label": "Apertura",
-      "tooltip": "Nivel de apertura a contribuidores externos",
+      "tooltip": "Nivel de apertura a colaboradores externos",
       "options": {
         "closed": "Cerrado",
         "open": "Abierto"

@@ -9,8 +9,10 @@ import { useNotifications } from '../../../hooks/app'
 import { resolveRoute } from '../../../utils/api/apiHelper'
 import logger from '../../../utils/logger'
 import NewProjectManagement from './NewProjectManagement.component'
+import { useTranslation } from "next-i18next"
 
 const NewProjectManagementContainer = ({ project }) => {
+  const { t } = useTranslation("management.new")
   const { onSuccess, onError } = useNotifications()
   const router = useRouter()
   const onSubmit = async (formData) => {
@@ -49,11 +51,11 @@ const NewProjectManagementContainer = ({ project }) => {
         null,
         projectId
       )
-      onSuccess('Project management created successfully')
+      onSuccess(t("newproject.submit.result.success"))
       router.push(resolveRoute(ROUTES.management.dashboard, newProjectMgmt.id))
       return newProjectMgmt
     } catch (error) {
-      onError('Error creating project management')
+      onError(t("newproject.submit.result.error"))
       logger.error('Error creating project management:', error)
       // Handle error appropriately
     }
