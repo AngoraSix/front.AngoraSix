@@ -1,11 +1,15 @@
 {
-    "club.invitations.accept.page.title": "Aceptar la invitación para unirse al proyecto",
-    "club.invitations.accept.page.description": "Procesando la invitación para unirse al proyecto",
-    "club.invitations.accepted.title": "Invitación aceptada",
-    "club.invitations.accepted.description": "¡Felicidades, te has unido a un nuevo proyecto!",
-    "club.invitations.accepted.outro": "Puedes ver todos tus proyectos aquí:",
-    "club.invitations.accepted.myprojects": "Mis Proyectos",
-    "club.invitations.rejected.title": "Error procesando la invitación",
-    "club.invitations.rejected.description": "El token de la invitación es inválido, ha expirado, o ya eres parte de este proyecto",
-    "club.invitations.rejected.outro": "Por favor, pide al dueño del proyecto que te envíe una nueva invitación"
+  "club.invitations.accept.page.title": "Aceptar la invitación para unirse al proyecto",
+  "club.invitations.accept.page.description": "Procesando la invitación para unirse al proyecto",
+  "club.invitations.accepted.title": "Invitación aceptada",
+  "club.invitations.accepted.description": "¡Felicidades, te has unido a un nuevo proyecto!",
+  "club.invitations.accepted.linkpresentation": "Puedes ver todos tus proyectos aquí:",
+  "club.invitations.accepted.myprojects": "Mis Proyectos",
+  "club.invitations.rejected.page.title": "Rechazar la invitación para unirse al proyecto",
+  "club.invitations.rejected.page.description": "Procesando la invitación para unirse al proyecto",
+  "club.invitations.rejected.title": "Error procesando la invitación",
+  "club.invitations.rejected.description": "El token de la invitación es inválido o ha expirado",
+  "club.invitations.rejected.outro": "Por favor, pide al dueño del proyecto que te envíe una nueva invitación",
+  "club.invitations.rejected.linkpresentation": "Puedes ver todos tus proyectos aquí:",
+  "club.invitations.rejected.myprojects": "Mis Proyectos"
 }
