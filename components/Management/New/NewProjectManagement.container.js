@@ -51,11 +51,11 @@ const NewProjectManagementContainer = ({ project }) => {
         null,
         projectId
       )
-      onSuccess(t("newproject.submit.result.success"))
+      onSuccess(t("submit.result.success"))
       router.push(resolveRoute(ROUTES.management.dashboard, newProjectMgmt.id))
       return newProjectMgmt
     } catch (error) {
-      onError(t("newproject.submit.result.error"))
+      onError(t("submit.result.error"))
       logger.error('Error creating project management:', error)
       // Handle error appropriately
     }
