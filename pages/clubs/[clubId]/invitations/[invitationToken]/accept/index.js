@@ -1,67 +1,58 @@
-import { Box } from '@mui/material';
-import { getSession } from 'next-auth/react';
-import { useTranslation } from 'next-i18next';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import PropTypes from 'prop-types';
-import api from '../../../../../../api';
-import AcceptedInvitation from '../../../../../../components/Club/Invitations/AcceptedInvitation';
-import RejectedInvitation from '../../../../../../components/Club/Invitations/RejectedInvitation';
-import AreaSkeleton from '../../../../../../components/common/Skeletons/AreaSkeleton.component';
-import { useActiveSession } from '../../../../../../hooks/oauth';
-import DefaultLayout from '../../../../../../layouts/DefaultLayout';
-import { obtainValidatedToken } from '../../../../../../utils/api/apiHelper';
-import logger from '../../../../../../utils/logger';
+import { Box } from '@mui/material'
+import { getSession } from 'next-auth/react'
+import { useTranslation } from 'next-i18next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import PropTypes from 'prop-types'
+import api from '../../../../../../api'
+import AcceptedInvitation from '../../../../../../components/Club/Invitations/AcceptedInvitation'
+import RejectedInvitation from '../../../../../../components/Club/Invitations/RejectedInvitation'
+import AreaSkeleton from '../../../../../../components/common/Skeletons/AreaSkeleton.component'
+import { useActiveSession } from '../../../../../../hooks/oauth'
+import DefaultLayout from '../../../../../../layouts/DefaultLayout'
+import { obtainValidatedToken } from '../../../../../../utils/api/apiHelper'
+import logger from '../../../../../../utils/logger'
 
 const AcceptClubInvitationTokenPage = ({
   badRequestResponse,
   clubResponse,
 }) => {
-  const { t } = useTranslation('club.invitations');
-  useActiveSession();
+  const { t } = useTranslation('club.invitations')
+  useActiveSession()
 
   if (!badRequestResponse && !clubResponse) {
     return (
-      <DefaultLayout
-        headData={{
-          title: t('club.invitations.accept.page.title'),
-          description: t('club.invitations.page.description'),
-        }}
-      >
+      <DefaultLayout>
         <Box>
           <AreaSkeleton />
         </Box>
       </DefaultLayout>
-    );
+    )
   }
 
   return (
-    <DefaultLayout
-      headData={{
-        title: t('club.invitations.accept.page.title'),
-        description: t('club.invitations.page.description'),
-      }}
-    >
-      {clubResponse ?
+    <DefaultLayout>
+      {clubResponse ? (
         <AcceptedInvitation clubResponse={clubResponse} />
-        : <RejectedInvitation />}
+      ) : (
+        <RejectedInvitation />
+      )}
     </DefaultLayout>
-  );
-};
+  )
+}
 
-AcceptClubInvitationTokenPage.defaultProps = {
-};
+AcceptClubInvitationTokenPage.defaultProps = {}
 
 AcceptClubInvitationTokenPage.propTypes = {
   clubResponse: PropTypes.object,
   badRequestResponse: PropTypes.object,
-};
+}
 
 export const getServerSideProps = async (ctx) => {
-  let props = {};
+  let props = {}
 
-  const { clubId, invitationToken } = ctx.params;
-  const session = await getSession(ctx);
-  const validatedToken = await obtainValidatedToken(ctx.req);
+  const { clubId, invitationToken } = ctx.params
+  const session = await getSession(ctx)
+  const validatedToken = await obtainValidatedToken(ctx.req)
 
   if (validatedToken) {
     try {
@@ -69,21 +60,21 @@ export const getServerSideProps = async (ctx) => {
         clubId,
         invitationToken,
         validatedToken
-      );
+      )
 
       props = {
         ...props,
         clubResponse,
-      };
+      }
     } catch (err) {
       if (err.response?.status === 400) {
-        const badRequestResponse = err.response.data;
+        const badRequestResponse = err.response.data
         props = {
           ...props,
-          badRequestResponse
-        };
+          badRequestResponse,
+        }
       } else {
-        logger.error('err', err);
+        logger.error('err', err)
       }
     }
   }
@@ -93,11 +84,11 @@ export const getServerSideProps = async (ctx) => {
       session,
       ...(await serverSideTranslations(ctx.locale, [
         'common',
-        "common.legal",
+        'common.legal',
         'club.invitations',
       ])),
     },
-  };
-};
+  }
+}
 
-export default AcceptClubInvitationTokenPage;
+export default AcceptClubInvitationTokenPage

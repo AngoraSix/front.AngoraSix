@@ -1,11 +1,15 @@
 {
-    "club.invitations.accept.page.title": "Accept invitation to join project",
-    "club.invitations.accept.page.description": "Processing the invitation to join the project",
-    "club.invitations.accepted.title": "Invitation accepted",
-    "club.invitations.accepted.description": "Congratulations, you have joined a new project!",
-    "club.invitations.accepted.outro": "You can see all your projects here:",
-    "club.invitations.accepted.myprojects": "Joined Projects",
-    "club.invitations.rejected.title": "Error processing invitation",
-    "club.invitations.rejected.description": "The invitation token is invalid, has expired, or you are already part of this project",
-    "club.invitations.rejected.outro": "Please ask the project owner to send you a new invitation"
+  "club.invitations.accept.page.title": "Accept invitation to join project",
+  "club.invitations.accept.page.description": "Processing the invitation to join the project",
+  "club.invitations.accepted.title": "Invitation accepted",
+  "club.invitations.accepted.description": "Congratulations, you have joined a new project!",
+  "club.invitations.accepted.linkpresentation": "You can see all your projects here:",
+  "club.invitations.accepted.myprojects": "Joined Projects",
+  "club.invitations.rejected.page.title": "Reject invitation to join project",
+  "club.invitations.rejected.page.description": "Processing the invitation to join the project",
+  "club.invitations.rejected.title": "Error processing invitation",
+  "club.invitations.rejected.description": "The invitation token is invalid or has expired",
+  "club.invitations.rejected.outro": "Please ask the project owner to send you a new invitation",
+  "club.invitations.rejected.linkpresentation": "You can see all your projects here:",
+  "club.invitations.rejected.myprojects": "Joined Projects"
 }
