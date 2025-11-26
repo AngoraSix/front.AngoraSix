@@ -7,7 +7,7 @@ class Integrations {
         redirectAuthorization: {
           registrationUrlTemplate: getFromEnvsOrElse(
             env,
-            'A6_APP_INTEGRATIONS_REGISTRATION_CALLBACK_URL_TEMPLATE',
+            'A6_PUBLIC_APP_INTEGRATIONS_REGISTRATION_CALLBACK_URL_TEMPLATE',
             'http://localhost:10700/managements/:managementId/integrations/authorization/:sourceKey/register'
           ),
         },
