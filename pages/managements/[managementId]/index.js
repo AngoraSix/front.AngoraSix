@@ -84,50 +84,64 @@ ProjectManagementViewPage.propTypes = {
 export const getServerSideProps = async (ctx) => {
   let props = { isAdmin: false }
   const { managementId } = ctx.params
+
   const session = await getSession(ctx)
   const validatedToken = await obtainValidatedToken(ctx.req)
 
   try {
-    const projectManagement = await api.management.getProjectManagement(
+    // independent calls first
+    const projectManagementPromise = api.management.getProjectManagement(
       managementId,
       validatedToken
     )
 
-    const project = projectManagement.project
-    const projectManagementActions = {}
+    const tasksStatsPromise = api.managementTasks.resolveProjectManagementTasks(
+      managementId,
+      validatedToken
+    )
 
-    const projectManagementTasksStats =
-      await api.managementTasks.resolveProjectManagementTasks(
+    const accountingStatsPromise =
+      api.managementAccounting.resolveProjectManagementAccounting(
         managementId,
         validatedToken
       )
 
-    const projectManagementAccountingStats =
-      await api.managementAccounting.resolveProjectManagementAccounting(
-        managementId,
-        validatedToken
-      )
+    // Call them in parallel
+    const [
+      projectManagement,
+      projectManagementTasksStats,
+      projectManagementAccountingStats,
+    ] = await Promise.all([
+      projectManagementPromise,
+      tasksStatsPromise,
+      accountingStatsPromise,
+    ])
+
+    // Extract and request the required contributor IDs
     const projectContributorIds =
       projectManagementTasksStats.project.contributors.map(
         (c) => c.contributorId
       )
+
     const contributorsData = await api.contributors.listContributors(
       projectContributorIds,
       validatedToken
     )
+
     props = {
       ...props,
-      project,
+      project: projectManagement.project,
       projectManagement,
       projectManagementTasksStats,
       projectManagementAccountingStats,
       contributorsData,
-      projectManagementActions,
+      projectManagementActions: {},
       isAdmin: isA6ResourceAdmin(session?.user?.id, projectManagement),
     }
   } catch (err) {
     logger.error('err', err)
   }
+
   return {
     props: {
       ...props,
