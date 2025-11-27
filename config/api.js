@@ -26,6 +26,7 @@ class Api {
         getFromEnvsOrElse(env, 'A6_PUBLIC_APP_APIPARAMS_CLUBS_WELLKNOWN_PROJECTMGMTMEMBERS', 'PROJECT_MANAGEMENT_MEMBERS'),
     };
     this.frontLocalhost = getFromEnvsOrElse(env, 'A6_PUBLIC_APP_API_EVENTSOURCE_LOCALHOST', 'https://localhost/');
+    this.requestTimeout = parseInt(getFromEnvsOrElse(env, 'A6_PUBLIC_APP_API_REQUEST_TIMEOUT_MS', '30000'), 10);
   }
 }
 

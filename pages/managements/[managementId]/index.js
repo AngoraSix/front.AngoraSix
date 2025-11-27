@@ -6,6 +6,7 @@ import PropTypes from 'prop-types'
 import api from '../../../api'
 import FormSkeleton from '../../../components/common/Skeletons/FormSkeleton.component'
 import ProjectManagementView from '../../../components/Management/View'
+import { useActiveSession } from '../../../hooks/oauth'
 import ManagementDetailsLayout from '../../../layouts/ManagementDetailsLayout'
 import { obtainValidatedToken } from '../../../utils/api/apiHelper'
 import { isA6ResourceAdmin } from '../../../utils/commons/a6commonsUtils'
@@ -22,6 +23,7 @@ const ProjectManagementViewPage = ({
   session,
 }) => {
   const { t } = useTranslation('management.view')
+  useActiveSession(true)
 
   if (!projectManagement) {
     logger.error('Log in to see management dashboard')

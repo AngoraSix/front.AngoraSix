@@ -1,24 +1,34 @@
 import { signIn, useSession } from 'next-auth/react'
 import { useEffect } from 'react'
+import TokenRequiredError from '../utils/errors/TokenRequiredError'
 import { useLoading } from './app'
 
-export const useActiveSession = (allowsAnonymous = false) => {
+export const useActiveSession = (
+  allowsAnonymous = false,
+  loginOnError = true
+) => {
   const { data: session, status } = useSession()
   const loading = status === 'loading'
   const { doLoad } = useLoading()
 
   useEffect(() => {
-    const shouldReauth =
-      session?.error === 'RefreshAccessTokenError' ||
-      session?.error === 'SessionExpired'
-    doLoad(!session || loading || shouldReauth)
-    const identityProvider = session?.user?.identityProvider
-    if ((!session || shouldReauth) && !allowsAnonymous) {
-      signIn(
-        null,
-        null,
-        identityProvider ? { kc_idp_hint: identityProvider } : null
-      ) // Force sign in to hopefully resolve error and be able to edit
+    if (!session && !allowsAnonymous) {
+      throw new TokenRequiredError(
+        'BaseAPI Error - Authorization header is required but user is not authenticated'
+      )
+    } else {
+      const shouldReauth =
+        session?.error === 'RefreshAccessTokenError' ||
+        session?.error === 'SessionExpired'
+      if (shouldReauth && loginOnError) {
+        doLoad(loading)
+        const identityProvider = session?.user?.identityProvider
+        signIn(
+          null,
+          null,
+          identityProvider ? { kc_idp_hint: identityProvider } : null
+        )
+      }
     }
   }, [session, loading])
   return { session, status }
