@@ -1,5 +1,6 @@
 import axios from 'axios';
 import TokenRequiredError from '../utils/errors/TokenRequiredError';
+import config from '../config';
 
 class BaseAPI {
   constructor({ browserBaseURL = null, serverBaseURL = null, baseURL = null }) {
@@ -11,10 +12,12 @@ class BaseAPI {
 
     this.axiosBrowser = axios.create({
       baseURL: browserBaseURL || baseURL,
+      timeout: config.api.requestTimeout || 30000
     });
 
     this.axiosServer = axios.create({
       baseURL: serverBaseURL || baseURL,
+      timeout: config.api.requestTimeout || 30000
     });
   }
 
@@ -42,7 +45,7 @@ class BaseAPI {
   }
 
   getAuthorizationHeaders = (token, isRequired = true) => {
-    if (token?.accessToken) {
+    if (!token?.error && token?.accessToken) {
       return { Authorization: `Bearer ${token.accessToken}` };
     } else if (isRequired) {
       throw new TokenRequiredError(
