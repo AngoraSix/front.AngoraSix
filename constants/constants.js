@@ -71,6 +71,9 @@ export const ROUTES = {
     overview: '/methodology/overview',
     guide: '/methodology/guide',
   },
+  platform: {
+    gettingStarted: '/platform/getting-started',
+  },
   legal: {
     termsAndConditions: '/legal/terms-and-conditions',
     privacyPolicy: '/legal/privacy-policy',

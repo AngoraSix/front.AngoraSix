@@ -1,0 +1,37 @@
+{
+  "page": {
+    "title": "Comenzando con AngoraSix",
+    "description": "Conocé los pasos esenciales para crear tu proyecto, sumar a tu equipo y conectar tus herramientas de gestión. Comenzá a construir mejor con AngoraSix."
+  },
+  "hero": {
+    "title": "Comenzá a trabajar con AngoraSix",
+    "description": "Esta guía te muestra los pasos esenciales para crear tu proyecto, sumar a tu equipo y conectar tus herramientas de gestión.",
+    "quote": "Cuando empiezas a caminar por el camino, el camino aparece. — Rumi"
+  },
+  "compass-bonus": {
+    "title": "✨ Bonus con A6 Compass",
+    "description": "También ofrecemos servicio de asesoría \"Within Capacity\" para adoptar AngoraSix eficientemente.",
+    "cta": "Pedir Soporte"
+  },
+  "steps": {
+    "step1": {
+      "title": "Crear un proyecto",
+      "description": "Para comenzar, creá tu primer proyecto. Solo necesitás darle un nombre, indicar en qué etapa está, y luego podrás definir cómo querés manejar la gobernanza y las finanzas del equipo.\n\nPodés revisar cada opción en detalle y ajustar la configuración para que refleje cómo trabajan ustedes hoy. Si algún aspecto no encaja con tus prácticas reales, escribinos: podemos ayudarte o preparar nuevas configuraciones para tu caso.",
+      "action": "Nuevo Proyecto"
+    },
+    "step2": {
+      "title": "Invitar a tus colaboradores",
+      "description": "Con el proyecto creado, el siguiente paso es invitar a las personas que forman parte del equipo.\n\nEn cualquier momento podés ir a:\nProyectos → Seleccioná el proyecto → Colaboradores\n\nIngresá el email y enviaremos una invitación automática. Tendrán tres días para aceptarla y, una vez que lo hagan, aparecerán en la lista de colaboradores activos.",
+      "action": "Mis Proyectos"
+    },
+    "step3": {
+      "title": "Integrar tu herramienta de gestión",
+      "description": "En el tab Integraciones vas a encontrar las opciones disponibles para conectar tu herramienta de gestión, o podés votar la tuya para priorizar su incorporación.\n\nSegún cada herramienta, vas a ver estas acciones:\n\nAntes de configurar:\n- Instalar: si la herramienta requiere un plugin o paso técnico adicional, acá vas a encontrar las instrucciones.\n- Registrar: proceso guiado para autorizar la integración y mapear usuarios entre la herramienta y AngoraSix.\n\nUna vez configurada:\n- Sincronizar: actualizar manualmente los datos si algo cambió en tu herramienta.\n- Ver estado: revisar el estado de la integración y el detalle de las tareas importadas.\n- Reconfigurar: modificar la vinculación cuando lo necesites.\n- Asociar usuarios: actualizar el mapeo de usuarios.\n- Deshabilitar: desconectar la integración."
+    },
+    "step4": {
+      "title": "Ver la distribución del Ownership del proyecto",
+      "description": "Con la integración en marcha, podés ir al tab Dashboard para ver cómo evoluciona la distribución del ownership a partir de los aportes registrados. También encontrarás métricas clave del proyecto y tus propias contribuciones.\n\nMientras trabajamos en un soporte aún más integrado, esta visualización puede ayudarte a tomar decisiones, manejar acuerdos financieros y evaluar cómo evoluciona el proyecto con el tiempo.\n\nAdemás, te recomendamos adoptar una metodología que les permita revisar y ajustar la gestión del ownership de forma iterativa.",
+      "action": "Metodología para comenzar con AngoraSix"
+    }
+  }
+}
