@@ -282,168 +282,170 @@ const PricingComponent = () => {
       </Head>
 
       <Box className="pricing-page">
-        <Container maxWidth="lg" className="pricing-container">
-          {/* Hero Section with Navigation */}
-          <Box className="pricing-hero">
-            <Typography variant="h3" className="pricing-hero-title">
-              {t('hero.title')}
-            </Typography>
-            <Typography variant="h6" className="pricing-hero-subtitle">
-              {t('hero.subtitle')}
-            </Typography>
-
-            {/* Navigation Links */}
-            <Box className="pricing-hero-badges">
-              <Chip
-                label={t('navigation.platform')}
-                className="pricing-badge guidance clickable"
-                onClick={() => scrollToSection(platformRef)}
-                clickable
-              />
-              <Chip
-                label={t('navigation.advisory')}
-                className="pricing-badge platform clickable"
-                onClick={() => scrollToSection(advisoryRef)}
-                clickable
-              />
-            </Box>
-          </Box>
-
-          {/* Platform Plans Section */}
-          <Box ref={platformRef} className="pricing-section">
-            <Typography variant="h3" className="pricing-section-title">
-              {t('platform.title')}
-            </Typography>
-            <Typography variant="body1" className="pricing-section-subtitle">
-              {t('platform.subtitle')}
-            </Typography>
-
-            <Box className="pricing-plans-section">
-              {isMobile ? (
-                <Swiper
-                  modules={[Navigation, Pagination]}
-                  spaceBetween={20}
-                  slidesPerView={1}
-                  navigation
-                  pagination={{ clickable: true }}
-                  className="pricing-plans-swiper"
-                  initialSlide={initialSlide}
-                >
-                  {plans.map((plan, index) => (
-                    <SwiperSlide key={index}>
-                      <PlanCard
-                        plan={plan}
-                        isPlus={index === 1}
-                        isCustom={index === 2}
-                      />
-                    </SwiperSlide>
-                  ))}
-                </Swiper>
-              ) : (
-                <Grid container spacing={4} className="pricing-plans-grid">
-                  {plans.map((plan, index) => (
-                    <Grid item xs={12} md={4} key={index}>
-                      <PlanCard
-                        plan={plan}
-                        isPlus={index === 1}
-                        isCustom={index === 2}
-                      />
-                    </Grid>
-                  ))}
-                </Grid>
-              )}
-            </Box>
-          </Box>
-
-          {/* Advisory Services Section */}
-          <Box ref={advisoryRef} className="pricing-advisory-section">
-            <Box className="advisory-header">
-              <Typography variant="h3" className="pricing-section-title">
-                {t('advisory.title')}
+        {/* Hero Section with Navigation */}
+        <Box className="pricing-hero">
+          <Container maxWidth="lg">
+            <Box className="hero-content">
+              <Typography variant="h3" className="pricing-hero-title">
+                {t('hero.title')}
               </Typography>
+              <Typography variant="h6" className="pricing-hero-subtitle">
+                {t('hero.subtitle')}
+              </Typography>
+
+              {/* Navigation Links */}
+              <Box className="pricing-hero-badges">
+                <Chip
+                  label={t('navigation.platform')}
+                  className="pricing-badge guidance clickable"
+                  onClick={() => scrollToSection(platformRef)}
+                  clickable
+                />
+                <Chip
+                  label={t('navigation.advisory')}
+                  className="pricing-badge platform clickable"
+                  onClick={() => scrollToSection(advisoryRef)}
+                  clickable
+                />
+              </Box>
             </Box>
+          </Container>
+        </Box>
 
-            <Typography variant="h5" className="advisory-subtitle">
-              {t('advisory.subtitle')}
-            </Typography>
+        {/* Platform Plans Section */}
+        <Box ref={platformRef} className="pricing-section">
+          <Typography variant="h3" className="pricing-section-title">
+            {t('platform.title')}
+          </Typography>
+          <Typography variant="body1" className="pricing-section-subtitle">
+            {t('platform.subtitle')}
+          </Typography>
 
-            <Card className="advisory-pwyw-card">
-              <CardContent className="advisory-pwyw-content">
-                <Box className="pwyw-header">
-                  <VolunteerActivism className="pwyw-icon" />
-                  <Typography variant="h4" className="pwyw-title">
-                    {t('advisory.pwyw.title')}
-                  </Typography>
-                </Box>
-
-                <Typography variant="body1" className="pwyw-description">
-                  {t('advisory.pwyw.description')}
-                </Typography>
-
-                <Divider className="pwyw-divider" />
-
-                <Typography variant="h6" className="pwyw-section-title">
-                  {t('advisory.pwyw.whatWeOffer')}
-                </Typography>
-
-                <List className="advisory-features-list">
-                  {advisoryFeatures.map((feature, index) => (
-                    <ListItem key={index} className="advisory-feature-item">
-                      <ListItemIcon className="advisory-feature-icon">
-                        <Check className="feature-icon advisory" />
-                      </ListItemIcon>
-                      <ListItemText primary={feature.base} />
-                    </ListItem>
-                  ))}
-                </List>
-
-                <Box className="pwyw-principles">
-                  <Typography variant="h6" className="pwyw-section-title">
-                    {t('advisory.pwyw.principles.title')}
-                  </Typography>
-                  <Box className="pwyw-principle">
-                    <Typography variant="body2" className="pwyw-principle-text">
-                      <strong>
-                        {t('advisory.pwyw.principles.access.title')}:
-                      </strong>{' '}
-                      {t('advisory.pwyw.principles.access.description')}
-                    </Typography>
-                  </Box>
-                  <Box className="pwyw-principle">
-                    <Typography variant="body2" className="pwyw-principle-text">
-                      <strong>
-                        {t('advisory.pwyw.principles.trust.title')}:
-                      </strong>{' '}
-                      {t('advisory.pwyw.principles.trust.description')}
-                    </Typography>
-                  </Box>
-                  <Box className="pwyw-principle">
-                    <Typography variant="body2" className="pwyw-principle-text">
-                      <strong>
-                        {t('advisory.pwyw.principles.sustainability.title')}:
-                      </strong>{' '}
-                      {t('advisory.pwyw.principles.sustainability.description')}
-                    </Typography>
-                  </Box>
-                </Box>
-              </CardContent>
-
-              <CardActions className="advisory-pwyw-actions">
-                <Button
-                  fullWidth
-                  variant="contained"
-                  size="large"
-                  onClick={() => router.push(
-                    `${ROUTES.services}?section=guidance&dialog=true`
-                  )}
-                  className="advisory-cta"
-                >
-                  {t('advisory.cta')}
-                </Button>
-              </CardActions>
-            </Card>
+          <Box className="pricing-plans-section">
+            {isMobile ? (
+              <Swiper
+                modules={[Navigation, Pagination]}
+                spaceBetween={20}
+                slidesPerView={1}
+                navigation
+                pagination={{ clickable: true }}
+                className="pricing-plans-swiper"
+                initialSlide={initialSlide}
+              >
+                {plans.map((plan, index) => (
+                  <SwiperSlide key={index}>
+                    <PlanCard
+                      plan={plan}
+                      isPlus={index === 1}
+                      isCustom={index === 2}
+                    />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            ) : (
+              <Grid container spacing={4} className="pricing-plans-grid">
+                {plans.map((plan, index) => (
+                  <Grid item xs={12} md={4} key={index}>
+                    <PlanCard
+                      plan={plan}
+                      isPlus={index === 1}
+                      isCustom={index === 2}
+                    />
+                  </Grid>
+                ))}
+              </Grid>
+            )}
           </Box>
-        </Container>
+        </Box>
+
+        {/* Advisory Services Section */}
+        <Box ref={advisoryRef} className="pricing-advisory-section">
+          <Box className="advisory-header">
+            <Typography variant="h3" className="pricing-section-title">
+              {t('advisory.title')}
+            </Typography>
+          </Box>
+
+          <Typography variant="h5" className="advisory-subtitle">
+            {t('advisory.subtitle')}
+          </Typography>
+
+          <Card className="advisory-pwyw-card">
+            <CardContent className="advisory-pwyw-content">
+              <Box className="pwyw-header">
+                <VolunteerActivism className="pwyw-icon" />
+                <Typography variant="h4" className="pwyw-title">
+                  {t('advisory.pwyw.title')}
+                </Typography>
+              </Box>
+
+              <Typography variant="body1" className="pwyw-description">
+                {t('advisory.pwyw.description')}
+              </Typography>
+
+              <Divider className="pwyw-divider" />
+
+              <Typography variant="h6" className="pwyw-section-title">
+                {t('advisory.pwyw.whatWeOffer')}
+              </Typography>
+
+              <List className="advisory-features-list">
+                {advisoryFeatures.map((feature, index) => (
+                  <ListItem key={index} className="advisory-feature-item">
+                    <ListItemIcon className="advisory-feature-icon">
+                      <Check className="feature-icon advisory" />
+                    </ListItemIcon>
+                    <ListItemText primary={feature.base} />
+                  </ListItem>
+                ))}
+              </List>
+
+              <Box className="pwyw-principles">
+                <Typography variant="h6" className="pwyw-section-title">
+                  {t('advisory.pwyw.principles.title')}
+                </Typography>
+                <Box className="pwyw-principle">
+                  <Typography variant="body2" className="pwyw-principle-text">
+                    <strong>
+                      {t('advisory.pwyw.principles.access.title')}:
+                    </strong>{' '}
+                    {t('advisory.pwyw.principles.access.description')}
+                  </Typography>
+                </Box>
+                <Box className="pwyw-principle">
+                  <Typography variant="body2" className="pwyw-principle-text">
+                    <strong>
+                      {t('advisory.pwyw.principles.trust.title')}:
+                    </strong>{' '}
+                    {t('advisory.pwyw.principles.trust.description')}
+                  </Typography>
+                </Box>
+                <Box className="pwyw-principle">
+                  <Typography variant="body2" className="pwyw-principle-text">
+                    <strong>
+                      {t('advisory.pwyw.principles.sustainability.title')}:
+                    </strong>{' '}
+                    {t('advisory.pwyw.principles.sustainability.description')}
+                  </Typography>
+                </Box>
+              </Box>
+            </CardContent>
+
+            <CardActions className="advisory-pwyw-actions">
+              <Button
+                fullWidth
+                variant="contained"
+                size="large"
+                onClick={() =>
+                  router.push(`${ROUTES.services}?section=guidance&dialog=true`)
+                }
+                className="advisory-cta"
+              >
+                {t('advisory.cta')}
+              </Button>
+            </CardActions>
+          </Card>
+        </Box>
       </Box>
     </>
   )

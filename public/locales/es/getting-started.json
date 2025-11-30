@@ -1,0 +1,37 @@
+{
+  "page": {
+    "title": "Comenzando con AngoraSix",
+    "description": "Conocé los pasos esenciales para crear tu proyecto, sumar a tu equipo y conectar tus herramientas de gestión. Comenzá a construir mejor con AngoraSix."
+  },
+  "hero": {
+    "title": "Comenzá a trabajar con AngoraSix",
+    "description": "Esta guía te muestra los pasos esenciales para crear tu proyecto, sumar a tu equipo y conectar tus herramientas de gestión.",
+    "quote": "Cuando empiezas a caminar por el camino, el camino aparece. — Rumi"
+  },
+  "compass-bonus": {
+    "title": "✨ Bonus con A6 Compass",
+    "description": "Te acompañamos con asesoría Within Capacity para que tu equipo adopte AngoraSix de la mejor manera.",
+    "cta": "Hablar con nosotros"
+  },
+  "steps": {
+    "step1": {
+      "title": "Crear un proyecto",
+      "description": "Para comenzar, creá tu primer proyecto. Solo necesitás darle un nombre, indicar en qué etapa está, y luego podrás definir cómo querés manejar la gobernanza y las finanzas del equipo.\n\nPodés revisar cada opción en detalle y ajustar la configuración para que refleje cómo trabajan ustedes hoy. Si algún aspecto no encaja con tus prácticas reales, escribinos: podemos ayudarte o preparar nuevas configuraciones para tu caso.",
+      "action": "Nuevo Proyecto"
+    },
+    "step2": {
+      "title": "Invitar a tus colaboradores",
+      "description": "Con el proyecto creado, el siguiente paso es invitar a las personas que forman parte del equipo.\n\nEn cualquier momento podés ir a:\nAvatar (esquina superior derecha) → Mis Proyectos → Seleccioná el proyecto → Colaboradores\n\nDesde ahi, ingresá el email del colaborador y le enviaremos una invitación. Tendrán tres días para aceptarla y, una vez que lo hagan, aparecerán en la lista de colaboradores activos.",
+      "action": "Mis Proyectos"
+    },
+    "step3": {
+      "title": "Integrar tu herramienta de gestión",
+      "description": "En el tab Integraciones vas a encontrar las opciones disponibles para conectar tu herramienta de gestión, o podés votar la tuya para priorizar su incorporación.\n\nDesde aquí vas a poder:\n- Instalar lo necesario si la herramienta lo requiere.\n- Registrar y autorizar la conexión.\n- Ver el estado de la integración.\n- Sincronizar los datos si algo no está actualizado."
+    },
+    "step4": {
+      "title": "Ver la distribución del Ownership del proyecto",
+      "description": "Con la integración en marcha, podés ir al tab Panel de Control para ver cómo evoluciona la distribución del ownership a partir de los aportes registrados. También encontrarás métricas clave del proyecto y tus propias contribuciones.\n\nEsta información puede ayudar al equipo a organizar su gobernanza, sus acuerdos y sus recursos de forma más transparente y descentralizada.\n\nAdemás, te recomendamos adoptar una metodología que permita revisar y ajustar la gestión del ownership de forma iterativa.",
+      "action": "Metodología para ownership evolutivo"
+    }
+  }
+}

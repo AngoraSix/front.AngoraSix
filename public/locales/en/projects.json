@@ -6,6 +6,7 @@
   "title": "My Projects",
   "description": "View and manage all the projects you're involved in",
   "actions": {
+    "gettingstarted": "Getting Started Guide",
     "create": "Create New Project"
   },
   "empty": {

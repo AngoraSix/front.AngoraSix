@@ -1,24 +1,21 @@
 /* Services Page Styles */
-.ServicesPage {
-  background-color: #ffffff;
-  min-height: 100vh;
-}
-
 .services-page {
-  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+  margin-top: 2.5rem;
 }
 
 /* Hero Section */
 .services-hero {
-  background: linear-gradient(135deg, #030D16 0%, #0F2F4D 100%);
+  background: linear-gradient(135deg, #030d16 0%, #0f2f4d 100%);
   color: #ffffff;
-  padding: 6rem 0 4rem;
+  padding: 100px 60px;
   position: relative;
   overflow: hidden;
 }
 
 .services-hero::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -256,8 +253,8 @@
 
 .services-methodology-cta {
   background: transparent;
-  color: #1B5993;
-  border: 1px solid #1B5993;
+  color: #1b5993;
+  border: 1px solid #1b5993;
 }
 
 .services-guidance-cta:hover {
@@ -285,7 +282,7 @@
 
 /* Combined Section */
 .services-combined {
-  background: linear-gradient(135deg, #030D16 0%, #0F2F4D 100%);
+  background: linear-gradient(135deg, #030d16 0%, #0f2f4d 100%);
   color: #ffffff;
   padding: 5rem 0;
   text-align: center;
@@ -294,7 +291,7 @@
 }
 
 .services-combined::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -472,7 +469,7 @@
     font-size: 1.5rem;
   }
 
-  .services-combined-content{
+  .services-combined-content {
     padding: 0 2rem;
   }
 

@@ -27,7 +27,7 @@ const AuthSignin = ({ forProfile }) => {
   const { locale, query } = router
   const callbackUrl =
     query.callbackUrl ||
-    `${locale === 'es' ? '/es' : ''}${ROUTES.management.new}`
+    `${locale === 'es' ? '/es' : ''}${ROUTES.platform.gettingStarted}`
   const [isLoading, setIsLoading] = useState(false)
 
   const handleGoogleSignIn = async () => {

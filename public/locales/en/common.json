@@ -71,6 +71,12 @@
       "about": "About Us",
       "pricing": "Pricing",
       "services": "Services",
+      "resources": {
+        "main": "Resources",
+        "gettingStarted": "Getting Started",
+        "methodology": "AngoraSix Methodology",
+        "guide": "Interactive Guide"
+      },
       "methodology": {
         "main": "Methodology",
         "overview": "The AngoraSix Methodology",
@@ -80,7 +86,8 @@
       "login": "Log In",
       "signup": "Sign Up",
       "get-started": "Get Started",
-      "projects": "Projects",
+      "projects": "My Projects",
+      "profile": "Profile",
       "settings": {
         "logout": "Log Out",
         "tooltip": "Settings"

@@ -1,0 +1,37 @@
+{
+  "page": {
+    "title": "Getting Started with AngoraSix",
+    "description": "Learn the essential steps to create your project, add your team, and connect your management tools. Start building better with AngoraSix."
+  },
+  "hero": {
+    "title": "Start Working with AngoraSix",
+    "description": "This guide walks you through the essential steps to create your project, add your team, and connect your management tools.",
+    "quote": "“As you start to walk on the way, the way appears.” — Rumi"
+  },
+  "compass-bonus": {
+    "title": "✨ Bonus with A6 Compass",
+    "description": "We offer Within Capacity advisory to help your team adopt AngoraSix in the best possible way.",
+    "cta": "Talk to Us"
+  },
+  "steps": {
+    "step1": {
+      "title": "Create a Project",
+      "description": "To get started, create your first project. You only need to give it a name, indicate what stage it's in, and then define how you want to manage governance and finances within the team.\n\nYou can review each option in detail and adjust the configuration to match how your team works today. If something doesn't fit your current practices, let us know — we can help or prepare new configurations for your case.",
+      "action": "New Project"
+    },
+    "step2": {
+      "title": "Invite Your Contributors",
+      "description": "Once the project is created, the next step is to invite the people who are part of your team.\n\nAt any time, you can go to:\nAvatar (top right) → My Projects → Select the project → Contributors\n\nEnter the contributor’s email and we’ll send an automatic invitation. They’ll have three days to accept it, and once they do, they’ll appear in the list of active contributors.",
+      "action": "My Projects"
+    },
+    "step3": {
+      "title": "Integrate Your Management Tool",
+      "description": "In the Integrations tab, you'll find the available options to connect your management tool, or you can vote for yours so we can prioritize it.\n\nFrom here, you can:\n- Install what's needed if the tool requires it.\n- Register and authorize the connection.\n- View the integration status.\n- Sync data manually if something is out of date."
+    },
+    "step4": {
+      "title": "View the Project’s Ownership Distribution",
+      "description": "With the integration running, you can go to the Dashboard tab to see how ownership distribution evolves based on recorded contributions. You’ll also find key project metrics and your own activity.\n\nThis information helps the whole team organize its governance, agreements, and resource management in a more transparent and decentralized way.\n\nWe also recommend adopting a methodology that allows you to review and refine ownership management over time.",
+      "action": "Methodology for evolving ownership"
+    }
+  }
+}

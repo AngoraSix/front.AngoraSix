@@ -6,6 +6,7 @@
   "title": "Mis Proyectos",
   "description": "Visualiza y gestiona todos los proyectos en los que participas",
   "actions": {
+    "gettingstarted": "Guía de Inicio",
     "create": "Crear Nuevo Proyecto"
   },
   "empty": {
