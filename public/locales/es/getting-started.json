@@ -10,7 +10,7 @@
   },
   "compass-bonus": {
     "title": "✨ Bonus con A6 Compass",
-    "description": "También ofrecemos servicio de asesoría \"Within Capacity\" para adoptar AngoraSix eficientemente.",
+    "description": "Te guiamos con asesoría \"Within Capacity\" para adoptar AngoraSix eficientemente.",
     "cta": "Pedir Soporte"
   },
   "steps": {
@@ -21,7 +21,7 @@
     },
     "step2": {
       "title": "Invitar a tus colaboradores",
-      "description": "Con el proyecto creado, el siguiente paso es invitar a las personas que forman parte del equipo.\n\nEn cualquier momento podés ir a:\nProyectos → Seleccioná el proyecto → Colaboradores\n\nIngresá el email y enviaremos una invitación automática. Tendrán tres días para aceptarla y, una vez que lo hagan, aparecerán en la lista de colaboradores activos.",
+      "description": "Con el proyecto creado, el siguiente paso es invitar a las personas que forman parte del equipo.\n\nEn cualquier momento podés ir a:\nMis Proyectos → Seleccioná el proyecto → Colaboradores\n\nIngresá el email y enviaremos una invitación automática. Tendrán tres días para aceptarla y, una vez que lo hagan, aparecerán en la lista de colaboradores activos.",
       "action": "Mis Proyectos"
     },
     "step3": {
@@ -31,7 +31,7 @@
     "step4": {
       "title": "Ver la distribución del Ownership del proyecto",
       "description": "Con la integración en marcha, podés ir al tab Dashboard para ver cómo evoluciona la distribución del ownership a partir de los aportes registrados. También encontrarás métricas clave del proyecto y tus propias contribuciones.\n\nMientras trabajamos en un soporte aún más integrado, esta visualización puede ayudarte a tomar decisiones, manejar acuerdos financieros y evaluar cómo evoluciona el proyecto con el tiempo.\n\nAdemás, te recomendamos adoptar una metodología que les permita revisar y ajustar la gestión del ownership de forma iterativa.",
-      "action": "Metodología para comenzar con AngoraSix"
+      "action": "Metodología para ownership evolutivo"
     }
   }
 }

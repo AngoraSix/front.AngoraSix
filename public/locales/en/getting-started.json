@@ -10,7 +10,7 @@
   },
   "compass-bonus": {
     "title": "✨ Bonus with A6 Compass",
-    "description": "We also offer \"Within Capacity\" advisory services to adopt AngoraSix efficiently.",
+    "description": "Let us guide you with \"Within Capacity\" advisory services to adopt AngoraSix efficiently.",
     "cta": "Get Support"
   },
   "steps": {
@@ -21,7 +21,7 @@
     },
     "step2": {
       "title": "Invite Your Contributors",
-      "description": "With the project created, the next step is to invite the people who are part of the team.\n\nAt any time you can go to:\nProjects → Select the project → Contributors\n\nEnter the email and we'll send an automatic invitation. They'll have three days to accept it and, once they do, they'll appear in the list of active contributors.",
+      "description": "With the project created, the next step is to invite the people who are part of the team.\n\nAt any time you can go to:\nMy Projects → Select the project → Contributors\n\nEnter the email and we'll send an automatic invitation. They'll have three days to accept it and, once they do, they'll appear in the list of active contributors.",
       "action": "My Projects"
     },
     "step3": {
@@ -31,7 +31,7 @@
     "step4": {
       "title": "View the Project's Ownership Distribution",
       "description": "With the integration running, you can go to the Dashboard tab to see how the ownership distribution evolves based on recorded contributions. You'll also find key project metrics and your own contributions.\n\nWhile we work on even more integrated support, this visualization can help you make decisions, manage financial agreements, and evaluate how the project evolves over time.\n\nAdditionally, we recommend adopting a methodology that allows you to review and adjust ownership management iteratively.",
-      "action": "Methodology to Start with AngoraSix"
+      "action": "Methodology for evolving ownership"
     }
   }
 }

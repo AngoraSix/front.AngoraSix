@@ -2,27 +2,15 @@
 
 import { ArrowForward as ArrowForwardIcon } from '@mui/icons-material'
 import { Box, Container, Typography } from '@mui/material'
-import { useSession } from 'next-auth/react'
 import { useTranslation } from 'next-i18next'
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
 import config from '../../../config'
 import { ROUTES } from '../../../constants/constants'
 
 const GettingStarted = () => {
   const { t } = useTranslation('getting-started')
-  const router = useRouter()
-  const { data: session } = useSession()
-
-  const handleNewProject = () => {
-    router.push(ROUTES.management.new)
-  }
-
-  const handleMyProjects = () => {
-    router.push(ROUTES.projects.list)
-  }
 
   const steps = [
     {
@@ -31,9 +19,9 @@ const GettingStarted = () => {
       description: t('steps.step1.description'),
       action: {
         text: t('steps.step1.action'),
-        onClick: handleNewProject,
+        href: ROUTES.management.new,
       },
-      image: '/images/project-creation.png',
+      image: '/images/project-new.png',
       imageAlt: t('steps.step1.title'),
       imagePosition: 'right',
     },
@@ -43,9 +31,9 @@ const GettingStarted = () => {
       description: t('steps.step2.description'),
       action: {
         text: t('steps.step2.action'),
-        onClick: handleMyProjects,
+        href: ROUTES.projects.list,
       },
-      image: '/images/team-collaboration.png',
+      image: '/images/project-contributors.png',
       imageAlt: t('steps.step2.title'),
       imagePosition: 'left',
     },
@@ -54,7 +42,7 @@ const GettingStarted = () => {
       title: t('steps.step3.title'),
       description: t('steps.step3.description'),
       action: null,
-      image: '/images/integrations.png',
+      image: '/images/project-integrations.png',
       imageAlt: t('steps.step3.title'),
       imagePosition: 'right',
     },
@@ -135,7 +123,10 @@ const GettingStarted = () => {
                 {t('compass-bonus.description')}
               </Typography>
               <div className="compass-bonus-cta">
-                <Link href={ROUTES.services} className="compass-bonus-cta-link">
+                <Link
+                  href={`${ROUTES.services}?section=guidance&dialog=true`}
+                  className="compass-bonus-cta-link"
+                >
                   {t('compass-bonus.cta')}
                   <ArrowForwardIcon fontSize="small" />
                 </Link>
