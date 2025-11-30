@@ -21,7 +21,7 @@
     },
     "step2": {
       "title": "Invite Your Contributors",
-      "description": "Once the project is created, the next step is to invite the people who are part of your team.\n\nAt any time, you can go to:\nMy Projects → Select the project → Contributors\n\nEnter the contributor’s email and we’ll send an automatic invitation. They’ll have three days to accept it, and once they do, they’ll appear in the list of active contributors.",
+      "description": "Once the project is created, the next step is to invite the people who are part of your team.\n\nAt any time, you can go to:\nAvatar (top right) → My Projects → Select the project → Contributors\n\nEnter the contributor’s email and we’ll send an automatic invitation. They’ll have three days to accept it, and once they do, they’ll appear in the list of active contributors.",
       "action": "My Projects"
     },
     "step3": {

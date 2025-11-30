@@ -21,7 +21,7 @@
     },
     "step2": {
       "title": "Invitar a tus colaboradores",
-      "description": "Con el proyecto creado, el siguiente paso es invitar a las personas que forman parte del equipo.\n\nEn cualquier momento podés ir a:\nMis Proyectos → Seleccioná el proyecto → Colaboradores\n\nDesde ahi, ingresá el email del colaborador y le enviaremos una invitación. Tendrán tres días para aceptarla y, una vez que lo hagan, aparecerán en la lista de colaboradores activos.",
+      "description": "Con el proyecto creado, el siguiente paso es invitar a las personas que forman parte del equipo.\n\nEn cualquier momento podés ir a:\nAvatar (esquina superior derecha) → Mis Proyectos → Seleccioná el proyecto → Colaboradores\n\nDesde ahi, ingresá el email del colaborador y le enviaremos una invitación. Tendrán tres días para aceptarla y, una vez que lo hagan, aparecerán en la lista de colaboradores activos.",
       "action": "Mis Proyectos"
     },
     "step3": {
