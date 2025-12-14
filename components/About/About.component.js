@@ -100,6 +100,7 @@ const AboutComponent = () => {
       description: t('community.ger.description'),
       avatar: '/images/members/ger.jpg?height=120&width=120',
       social: {
+        personal: 'https://gerroza.com',
         linkedin: 'https://www.linkedin.com/in/rozagerardo/',
         github: 'https://github.com/rozagerardo',
         instagram: 'https://www.instagram.com/gerroza/',
@@ -140,7 +141,6 @@ const AboutComponent = () => {
       avatar: '/images/members/tomi.jpg?height=120&width=120',
       social: {
         linkedin: 'https://www.linkedin.com/in/tomasales/',
-        personal: 'https://thankstomas.com/index.html',
       },
     },
   ]
