@@ -428,56 +428,59 @@
 }
 
 /* ================================
-   SNAPSHOT CTA SECTION - Desktop Right Panel
+   SNAPSHOT CTA SECTION
    ================================ */
-.MethodologyGuidePage .snapshot-cta-section {
-  padding: 24px;
-  background: linear-gradient(135deg, #fff5f3 0%, #ffe8e4 100%);
-  border-radius: 12px;
-  border: 2px solid #fe5f55;
-  margin-top: 32px;
+/* Unified snapshot CTA panel styles for both desktop and mobile */
+.MethodologyGuidePage .snapshot-panel {
+  margin-top: 24px;
 }
 
-.MethodologyGuidePage .snapshot-cta-section.desktop-only {
+.MethodologyGuidePage .snapshot-cta,
+.mobile-drawer .snapshot-cta {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  padding: 20px;
+  background: linear-gradient(135deg, #fff5f3 0%, #ffe8e4 100%);
+  border-radius: 12px;
+  border: 2px solid #fe5f55;
 }
 
-.MethodologyGuidePage .snapshot-cta-header {
+.MethodologyGuidePage .snapshot-cta-content,
+.mobile-drawer .snapshot-cta-content {
   display: flex;
-  align-items: center;
-  gap: 12px;
+  flex-direction: column;
+  gap: 8px;
 }
 
-.MethodologyGuidePage .snapshot-icon {
-  font-size: 28px;
-  color: #fe5f55;
-}
-
-.MethodologyGuidePage .snapshot-title {
-  font-size: 1.25rem;
+.MethodologyGuidePage .snapshot-cta-title,
+.mobile-drawer .snapshot-cta-title {
+  font-size: 1.125rem;
   font-weight: 700;
   color: #0a2239;
   margin: 0;
+  text-align: left;
 }
 
-.MethodologyGuidePage .snapshot-description {
+.MethodologyGuidePage .snapshot-cta-subtitle,
+.mobile-drawer .snapshot-cta-subtitle {
+  font-size: 0.875rem;
   color: #2c3e50;
-  font-size: 0.9375rem;
-  line-height: 1.6;
+  line-height: 1.5;
+  text-align: left;
 }
 
-.MethodologyGuidePage .snapshot-cta-button {
+.MethodologyGuidePage .snapshot-cta-button,
+.mobile-drawer .snapshot-cta-button {
   background: #fe5f55 !important;
   color: #ffffff !important;
   font-weight: 600;
-  padding: 12px 24px;
   text-transform: none;
-  font-size: 1rem;
+  padding: 12px 20px;
 }
 
-.MethodologyGuidePage .snapshot-cta-button:hover {
+.MethodologyGuidePage .snapshot-cta-button:hover,
+.mobile-drawer .snapshot-cta-button:hover {
   background: #e54a40 !important;
 }
 
@@ -606,16 +609,28 @@
   margin-bottom: 8px;
 }
 
+/* Issues chips field styles */
+.snapshot-form .issues-field {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
 .snapshot-form .issues-chips {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-top: 8px;
 }
 
-.snapshot-form .issue-chip {
+.snapshot-form .issues-chips .MuiChip-root {
   cursor: pointer;
   transition: all 0.2s ease;
+}
+
+.snapshot-form .issues-chips .MuiChip-root.selected {
+  background-color: #1b5993 !important;
+  color: #ffffff !important;
+  border-color: #1b5993 !important;
 }
 
 .snapshot-form .form-notes {
@@ -648,7 +663,8 @@
 }
 
 /* Snapshot Success State */
-.snapshot-success {
+/* Form success view styles with action buttons */
+.form-success {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -657,45 +673,39 @@
   padding: 40px 20px;
 }
 
-.snapshot-success .success-icon {
+.form-success .success-icon {
   font-size: 80px;
   color: #4caf50;
 }
 
-.snapshot-success .success-title {
-  font-size: 1.75rem;
-  font-weight: 700;
-  color: #0a2239;
-}
-
-.snapshot-success .success-message {
+.form-success .snapshot-success-message {
   color: #2c3e50;
-  font-size: 1.125rem;
+  font-size: 1rem;
   line-height: 1.6;
   max-width: 500px;
+  margin: 8px 0;
 }
 
-.snapshot-success .success-button {
-  background: #1b5993 !important;
-  color: #ffffff !important;
-  padding: 12px 32px;
-  text-transform: none;
-  font-size: 1rem;
-  font-weight: 600;
+.form-success .success-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 400px;
+  margin-top: 16px;
 }
 
-.snapshot-success .success-secondary-actions {
+.form-success .secondary-ctas {
   display: flex;
   gap: 16px;
-  flex-wrap: wrap;
   justify-content: center;
-  margin-top: 8px;
+  flex-wrap: wrap;
 }
 
-.snapshot-success .success-secondary-actions button {
+.form-success .secondary-ctas button {
   color: #1b5993;
   text-transform: none;
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
 }
 
 /* ================================
@@ -720,6 +730,8 @@
    MOBILE DRAWER
    ================================ */
 /* Fixed mobile drawer styles - removed tabs, added snapshot panel */
+/* Removed duplicate mobile-snapshot-panel and tabs styles */
+/* Mobile drawer now uses unified snapshot panel */
 .mobile-drawer .MuiDrawer-paper {
   height: 90vh;
   border-top-left-radius: 16px;
@@ -732,7 +744,11 @@
   height: 100%;
   overflow-y: auto;
   padding: 24px 20px;
-  gap: 32px;
+  gap: 24px;
+}
+
+.mobile-drawer .controls-content {
+  flex: 1;
 }
 
 .mobile-drawer .mobile-drawer-header {
@@ -749,52 +765,6 @@
   font-weight: 700;
   color: #0a2239;
   margin: 0;
-}
-
-/* Mobile Snapshot Panel at bottom of drawer */
-.mobile-drawer .mobile-snapshot-panel {
-  padding: 20px;
-  background: linear-gradient(135deg, #fff5f3 0%, #ffe8e4 100%);
-  border-radius: 12px;
-  border: 2px solid #fe5f55;
-  margin-top: auto;
-}
-
-.mobile-drawer .snapshot-cta {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.mobile-drawer .snapshot-cta-content {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.mobile-drawer .snapshot-cta-title {
-  font-size: 1.125rem;
-  font-weight: 700;
-  color: #0a2239;
-  margin: 0;
-}
-
-.mobile-drawer .snapshot-cta-subtitle {
-  font-size: 0.875rem;
-  color: #2c3e50;
-  line-height: 1.5;
-}
-
-.mobile-drawer .snapshot-cta-button {
-  background: #fe5f55 !important;
-  color: #ffffff !important;
-  font-weight: 600;
-  text-transform: none;
-  padding: 12px 20px;
-}
-
-.mobile-drawer .snapshot-cta-button:hover {
-  background: #e54a40 !important;
 }
 
 /* Hide desktop snapshot CTA on mobile */

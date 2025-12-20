@@ -74,7 +74,7 @@ const MethodologyGuidePage = () => {
     email: "",
     internalStructure: "",
     roles: "",
-    mainIssues: "",
+    mainIssues: [],
     betaPilot: "no",
   })
   const [formSubmitting, setFormSubmitting] = useState(false)
@@ -141,7 +141,7 @@ const MethodologyGuidePage = () => {
         email: "",
         internalStructure: "",
         roles: "",
-        mainIssues: "",
+        mainIssues: [],
         betaPilot: "no",
       })
     }
@@ -158,6 +158,15 @@ const MethodologyGuidePage = () => {
   // Handle Snapshot form field changes
   const handleSnapshotFormChange = (field, value) => {
     setSnapshotFormData((prev) => ({ ...prev, [field]: value }))
+  }
+
+  const handleIssueToggle = (issue) => {
+    setSnapshotFormData((prev) => ({
+      ...prev,
+      mainIssues: prev.mainIssues.includes(issue)
+        ? prev.mainIssues.filter((i) => i !== issue)
+        : [...prev.mainIssues, issue],
+    }))
   }
 
   // Handle Snapshot form submission
@@ -279,10 +288,35 @@ const MethodologyGuidePage = () => {
         <Box className="form-success">
           <CheckCircleIcon className="success-icon" />
           <Typography variant="h6">{t("snapshot.form.successTitle")}</Typography>
-          <Typography variant="body2">{t("snapshot.form.successMessage")}</Typography>
+          <Typography variant="body2" className="snapshot-success-message">
+            {t("snapshot.form.successMessage")}
+          </Typography>
+          <Box className="success-actions">
+            <Button variant="contained" color="primary" onClick={handleSnapshotDrawerClose} fullWidth>
+              {t("snapshot.form.backToGuide")}
+            </Button>
+            <Box className="secondary-ctas">
+              <Button variant="text" color="primary" onClick={() => router.push("/services")} size="small">
+                {t("snapshot.form.learnAdvisory")}
+              </Button>
+              <Button variant="text" color="primary" onClick={() => router.push("/auth/register")} size="small">
+                {t("snapshot.form.register")}
+              </Button>
+            </Box>
+          </Box>
         </Box>
       )
     }
+
+    const issueOptions = [
+      "decisionMaking",
+      "contributionRecognition",
+      "rolesAccountability",
+      "fairnessEquity",
+      "participationEngagement",
+      "communicationConflict",
+      "other",
+    ]
 
     return (
       <Box component="form" onSubmit={handleSnapshotFormSubmit} className="snapshot-form">
@@ -306,15 +340,15 @@ const MethodologyGuidePage = () => {
           />
         </Box>
 
-        {/* Context Section - Simplified to 4 fields */}
+        {/* Context Section */}
         <Box className="form-section">
-          <Typography className="section-title">{t("snapshot.form.teamContext")}</Typography>
+          <Typography className="section-title">{t("snapshot.form.context")}</Typography>
           <TextField
             fullWidth
             label={t("snapshot.form.internalStructureLabel")}
+            placeholder={t("snapshot.form.internalStructurePlaceholder")}
             value={snapshotFormData.internalStructure}
             onChange={(e) => setSnapshotFormData({ ...snapshotFormData, internalStructure: e.target.value })}
-            placeholder={t("snapshot.form.internalStructurePlaceholder")}
             required
           />
           <TextField
@@ -325,14 +359,26 @@ const MethodologyGuidePage = () => {
             multiline
             rows={2}
           />
-          <TextField
-            fullWidth
-            label={t("snapshot.form.mainIssuesLabel")}
-            value={snapshotFormData.mainIssues}
-            onChange={(e) => setSnapshotFormData({ ...snapshotFormData, mainIssues: e.target.value })}
-            multiline
-            rows={3}
-          />
+
+          <Box className="issues-field">
+            <Typography variant="body2" className="field-label">
+              {t("snapshot.form.mainIssuesLabel")}
+            </Typography>
+            <Box className="issues-chips">
+              {issueOptions.map((issue) => (
+                <Chip
+                  key={issue}
+                  label={t(`snapshot.form.issues.${issue}`)}
+                  onClick={() => handleIssueToggle(issue)}
+                  color={snapshotFormData.mainIssues.includes(issue) ? "primary" : "default"}
+                  variant={snapshotFormData.mainIssues.includes(issue) ? "filled" : "outlined"}
+                  size="small"
+                  className={snapshotFormData.mainIssues.includes(issue) ? "selected" : ""}
+                />
+              ))}
+            </Box>
+          </Box>
+
           <FormControl fullWidth required>
             <InputLabel>{t("snapshot.form.betaPilotLabel")}</InputLabel>
             <Select
@@ -349,7 +395,7 @@ const MethodologyGuidePage = () => {
         <Button
           type="submit"
           variant="contained"
-          color="primary"
+          color="secondary"
           fullWidth
           disabled={formSubmitting}
           className="submit-button"
@@ -360,9 +406,31 @@ const MethodologyGuidePage = () => {
     )
   }
 
-  // Render controls panel
+  const renderSnapshotCTA = () => (
+    <Box className="snapshot-cta">
+      <Box className="snapshot-cta-content">
+        <Typography variant="h6" className="snapshot-cta-title">
+          {t("snapshot.cta.title")}
+        </Typography>
+        <Typography variant="body2" className="snapshot-cta-subtitle">
+          {t("snapshot.cta.subtitle")}
+        </Typography>
+      </Box>
+      <Button
+        variant="contained"
+        color="secondary"
+        onClick={handleSnapshotCtaClick}
+        className="snapshot-cta-button"
+        startIcon={<CameraAltIcon />}
+      >
+        {t("snapshot.cta.button")}
+      </Button>
+    </Box>
+  )
+
+  // Render the controls panel
   const renderControlsPanel = () => (
-    <Box className="controls-panel-content">
+    <Box className="controls-content">
       {/* Presets */}
       <Box className="presets-section">
         <Box className="presets-header">
@@ -471,32 +539,10 @@ const MethodologyGuidePage = () => {
         </Grid>
       </Box>
 
-      <Box className="snapshot-cta-section desktop-only">
-        <Box className="snapshot-cta-header">
-          <TrendingUpIcon className="snapshot-icon" />
-          <Typography variant="h6" className="snapshot-title">
-            {t("snapshot.cta.title")}
-          </Typography>
-        </Box>
-        <Typography variant="body2" className="snapshot-description">
-          {t("snapshot.cta.description")}
-        </Typography>
-        <Button
-          variant="contained"
-          color="secondary"
-          fullWidth
-          size="large"
-          onClick={handleSnapshotDrawerOpen}
-          className="snapshot-cta-button"
-        >
-          {t("snapshot.cta.button")}
-        </Button>
-        <Typography variant="caption" className="snapshot-microcopy">
-          {t("snapshot.cta.microcopy")}
-        </Typography>
-        <Typography variant="caption" className="snapshot-notes">
-          {t("snapshot.cta.notes")}
-        </Typography>
+      {/* Snapshot CTA section using unified component */}
+      <Box className="snapshot-panel">
+        <AutoAwesomeIcon sx={{ my: 2 }} />
+        {renderSnapshotCTA()}
       </Box>
     </Box>
   )
@@ -585,29 +631,6 @@ const MethodologyGuidePage = () => {
 
             {/* Controls Panel */}
             {renderControlsPanel()}
-
-            {/* Snapshot Panel for Mobile */}
-            <Box className="mobile-snapshot-panel">
-              <Box className="snapshot-cta">
-                <Box className="snapshot-cta-content">
-                  <Typography variant="h6" className="snapshot-cta-title">
-                    {t("snapshot.cta.title")}
-                  </Typography>
-                  <Typography variant="body2" className="snapshot-cta-subtitle">
-                    {t("snapshot.cta.subtitle")}
-                  </Typography>
-                </Box>
-                <Button
-                  variant="contained"
-                  color="secondary"
-                  onClick={handleSnapshotCtaClick}
-                  className="snapshot-cta-button"
-                  startIcon={<CameraAltIcon />}
-                >
-                  {t("snapshot.cta.button")}
-                </Button>
-              </Box>
-            </Box>
           </Box>
         </Drawer>
 

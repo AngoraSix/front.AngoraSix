@@ -383,18 +383,30 @@
       "contactInfo": "Contact Information",
       "nameLabel": "Name",
       "emailLabel": "Email",
-      "teamContext": "Team Context",
+      "context": "Team Context",
       "internalStructureLabel": "Internal team structure",
       "internalStructurePlaceholder": "Size, hierarchical structure, management nuance...",
       "rolesLabel": "Your and others' roles in the team",
       "mainIssuesLabel": "Main team issues/tensions",
+      "issues": {
+        "decisionMaking": "Decision-making",
+        "contributionRecognition": "Contribution & recognition",
+        "rolesAccountability": "Roles & accountability",
+        "fairnessEquity": "Fairness/equity/ownership",
+        "participationEngagement": "Participation/engagement",
+        "communicationConflict": "Communication/conflict",
+        "other": "Other"
+      },
       "betaPilotLabel": "Open to a 2-week beta pilot?",
       "betaPilotYes": "Yes, interested",
       "betaPilotNo": "No, just the snapshot",
       "submit": "Request Snapshot (48h)",
       "submitting": "Submitting...",
       "successTitle": "Request Received!",
-      "successMessage": "We'll analyze your team's configuration and get back to you within 48 hours."
+      "successMessage": "We'll analyze your team's configuration and get back to you within 48 hours.",
+      "backToGuide": "Back to Guide",
+      "learnAdvisory": "Learn about Advisory Services",
+      "register": "Create an Account"
     }
   }
 }
