@@ -58,6 +58,18 @@
   text-align: left;
 }
 
+/* Added microcopy style below quote */
+.MethodologyGuidePage .hero-microcopy {
+  color: #dce7ea;
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 24px auto 0;
+  text-align: left;
+  animation: fadeInUp 0.8s ease-out 0.6s both;
+  opacity: 0.9;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -97,6 +109,11 @@
   .MethodologyGuidePage .hero-quote {
     font-size: 1rem;
     padding: 20px 24px;
+  }
+
+  /* Added mobile styles for microcopy */
+  .MethodologyGuidePage .hero-microcopy {
+    font-size: 0.9375rem;
   }
 }
 
@@ -362,7 +379,6 @@
 .MethodologyGuidePage .toggle-group .toggle-button:last-child {
   border-top-right-radius: 8px !important;
   border-bottom-right-radius: 8px !important;
-
 }
 
 .MethodologyGuidePage .toggle-button {
@@ -378,7 +394,7 @@
   grid-template-columns: 1fr 1fr;
 }
 
-.mobile-drawer .toggle-grid-4 .toggle-button ,
+.mobile-drawer .toggle-grid-4 .toggle-button,
 .MethodologyGuidePage .toggle-grid-4 .toggle-button {
   border: 1px solid #dce7ea !important;
   border-radius: 0 !important;
@@ -412,445 +428,427 @@
 }
 
 /* ================================
-   CTA SECTION
+   SNAPSHOT CTA SECTION - Desktop Right Panel
    ================================ */
-.MethodologyGuidePage .ctas-section {
-  background: linear-gradient(135deg, #030d16 0%, #0f2f4d 100%);
-  padding: 80px 20px;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  left: 50%;
-  right: 50%;
-  position: relative;
-  width: 100vw;
+.MethodologyGuidePage .snapshot-cta-section {
+  padding: 24px;
+  background: linear-gradient(135deg, #fff5f3 0%, #ffe8e4 100%);
+  border-radius: 12px;
+  border: 2px solid #fe5f55;
+  margin-top: 32px;
 }
 
-.MethodologyGuidePage .ctas-content {
-  max-width: 900px;
-  margin: 0 auto;
+.MethodologyGuidePage .snapshot-cta-section.desktop-only {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.MethodologyGuidePage .snapshot-cta-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.MethodologyGuidePage .snapshot-icon {
+  font-size: 28px;
+  color: #fe5f55;
+}
+
+.MethodologyGuidePage .snapshot-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0a2239;
+  margin: 0;
+}
+
+.MethodologyGuidePage .snapshot-description {
+  color: #2c3e50;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+
+.MethodologyGuidePage .snapshot-cta-button {
+  background: #fe5f55 !important;
+  color: #ffffff !important;
+  font-weight: 600;
+  padding: 12px 24px;
+  text-transform: none;
+  font-size: 1rem;
+}
+
+.MethodologyGuidePage .snapshot-cta-button:hover {
+  background: #e54a40 !important;
+}
+
+.MethodologyGuidePage .snapshot-microcopy {
+  color: #5a6c7d;
+  font-size: 0.8125rem;
+  font-style: italic;
   text-align: center;
 }
 
-.MethodologyGuidePage .ctas-header {
-  margin-bottom: 48px;
+.MethodologyGuidePage .snapshot-notes {
+  color: #5a6c7d;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  text-align: center;
 }
 
-.MethodologyGuidePage .ctas-title {
-  color: #ffffff;
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 16px;
+/* ================================
+   SNAPSHOT DRAWER - Desktop Right Side
+   ================================ */
+.snapshot-drawer .MuiDrawer-paper {
+  width: 85%;
+  max-width: 700px;
+  padding: 0;
 }
 
-.MethodologyGuidePage .ctas-buttons {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
+.snapshot-drawer-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow-y: auto;
+  padding: 32px;
 }
 
-.MethodologyGuidePage .cta-button {
-  padding: 20px 32px;
-  border-radius: 12px;
+.snapshot-drawer-header {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 12px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  border: none;
-  font-size: 16px;
-  text-transform: none;
-}
-
-.MethodologyGuidePage .cta-button.cta-primary {
-  background: #fe5f55;
-  color: #ffffff;
-  border: none;
-}
-
-.MethodologyGuidePage .cta-button.cta-primary:hover {
-  background: #e54d43;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(254, 95, 85, 0.3);
-}
-
-.MethodologyGuidePage .cta-button.cta-secondary {
-  background: #ffffff;
-  color: #0a2239;
-  border: 2px solid #ffffff;
-}
-
-.MethodologyGuidePage .cta-button.cta-secondary:hover {
-  background: #f5f7f9;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(255, 255, 255, 0.2);
-}
-
-/* Mobile CTA adjustments */
-@media (max-width: 768px) {
-  .MethodologyGuidePage .ctas-section {
-    padding: 60px 16px;
-  }
-
-  .MethodologyGuidePage .ctas-title {
-    font-size: 1.875rem;
-  }
-
-  .MethodologyGuidePage .ctas-buttons {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  .MethodologyGuidePage .cta-button {
-    padding: 14px 24px;
-    font-size: 1rem;
-  }
-}
-
-/* ================================
-   MOBILE FAB
-   ================================ */
-.MethodologyGuidePage .mobile-fab {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  background: #1b5993;
-  color: #ffffff;
-  z-index: 1000;
-}
-
-.MethodologyGuidePage .mobile-fab:hover {
-  background: #0f3a5f;
-}
-
-/* Hide FAB on desktop */
-@media (min-width: 960px) {
-  .MethodologyGuidePage .mobile-fab {
-    display: none;
-  }
-}
-
-/* ================================
-   MOBILE DRAWER
-   ================================ */
-.mobile-drawer .MuiDrawer-paper {
-  border-radius: 16px 16px 0 0;
-  max-height: 85vh;
-}
-
-.mobile-drawer-content {
-  padding: 24px;
-}
-
-.mobile-drawer-header {
-  display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-bottom: 24px;
+  margin-bottom: 32px;
   padding-bottom: 16px;
   border-bottom: 2px solid #e0e4e8;
 }
 
-/* ================================
-   METHODOLOGY DIALOG - DISEÑO SOBRIO Y LIMPIO
-   ================================ */
-
-/* Dialog Paper */
-.methodology-dialog .MuiDialog-paper {
-  border-radius: 12px;
-  max-width: 800px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
-}
-
-/* Header */
-.methodology-dialog-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  padding: 24px 32px;
-  background: #fafbfc;
-  border-bottom: 1px solid #e8eef3;
-}
-
-.methodology-dialog-header-left {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex-shrink: 0;
-}
-
-.methodology-dialog-module-icon {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.methodology-dialog-module-icon .module-icon-compass {
-  font-size: 22px;
+.snapshot-drawer-header .back-button {
   color: #1b5993;
 }
 
-.methodology-dialog-module-icon .module-icon-platform {
-  width: 22px;
-  height: 22px;
-  object-fit: contain;
-}
-
-.methodology-dialog-module-icon .module-icons-both {
-  display: flex;
-  gap: 6px;
-  align-items: center;
-}
-
-.methodology-dialog-module-icon .module-icons-both .module-icon-compass {
-  font-size: 22px;
-  color: #1b5993;
-}
-
-.methodology-dialog-module-icon .module-icons-both .module-icon-platform {
-  width: 22px;
-  height: 22px;
-  object-fit: contain;
-}
-
-.methodology-dialog-importance {
-  display: flex;
-  align-items: center;
-}
-
-.methodology-dialog-importance .importance-indicator {
-  display: flex;
-  gap: 4px;
-}
-
-.methodology-dialog-importance .importance-circle {
-  font-size: 12px;
-}
-
-.methodology-dialog-importance .importance-circle.filled {
-  color: #fe5f55;
-}
-
-.methodology-dialog-importance .importance-circle.empty {
-  color: #dce7ea;
-}
-
-.methodology-dialog-not-applicable {
-  padding: 4px 12px;
-  background: #fff3e0;
-  border: 1px solid #ffb74d;
-  border-radius: 12px;
-  color: #e65100;
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.methodology-dialog-title {
+.snapshot-drawer-header .drawer-title {
   flex: 1;
-  color: #0a2239;
+  text-align: center;
   font-size: 1.5rem;
   font-weight: 700;
-  line-height: 1.3;
-  margin: 0;
-  text-align: center;
-}
-
-.methodology-dialog-close {
-  flex-shrink: 0;
-  color: #5a6c7d;
-  transition: all 0.2s ease;
-}
-
-.methodology-dialog-close:hover {
-  background: #e8eef3;
   color: #0a2239;
 }
 
-/* Content */
-.methodology-dialog-content {
-  padding: 32px !important;
-  background: #ffffff;
+/* Snapshot Summary */
+.snapshot-summary {
+  background: #fafbfc;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 32px;
+  border: 1px solid #e0e4e8;
 }
 
-/* Sections */
-.methodology-dialog-section {
-  margin-bottom: 28px;
-}
-
-.methodology-dialog-section:last-child {
-  margin-bottom: 0;
-}
-
-/* Description */
-.methodology-dialog-description {
-  color: #2c3e50;
-  font-size: 1.25rem;
-  line-height: 1.6;
-  margin: 0;
-}
-
-/* Section Title */
-.methodology-dialog-section-title {
-  font-size: 1.125rem;
+.snapshot-summary .summary-title {
+  font-size: 1rem;
   font-weight: 700;
   color: #0a2239;
-  margin: 0 0 16px 0;
-  padding-bottom: 8px;
-  border-bottom: 2px solid #e8eef3;
+  margin-bottom: 16px;
 }
 
-/* Objectives */
-.methodology-dialog-objectives {
+.snapshot-summary .summary-items {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-.methodology-dialog-objective {
+.snapshot-summary .summary-item {
   display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  padding: 12px;
-  background: #fafbfc;
-  border-radius: 8px;
-  border: 1px solid #e8eef3;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #e8eef3;
 }
 
-.objective-check-icon {
-  flex-shrink: 0;
-  font-size: 20px;
-  color: #1b5993;
-  margin-top: 2px;
+.snapshot-summary .summary-item:last-child {
+  border-bottom: none;
 }
 
-.objective-text {
-  flex: 1;
+.snapshot-summary .summary-label {
+  color: #5a6c7d;
+  font-weight: 600;
+  font-size: 0.8125rem;
+}
+
+.snapshot-summary .summary-value {
+  color: #0a2239;
+  font-weight: 500;
+  font-size: 0.875rem;
+  text-align: right;
+}
+
+/* Snapshot Form */
+.snapshot-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.snapshot-form .form-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.snapshot-form .section-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #0a2239;
+  margin-bottom: 8px;
+}
+
+.snapshot-form .field-label {
+  font-weight: 600;
   color: #2c3e50;
-  font-size: 0.9375rem;
-  line-height: 1.6;
-  margin: 0;
+  margin-bottom: 8px;
 }
 
-/* Help Section */
-.methodology-dialog-help {
-  padding: 20px;
+.snapshot-form .issues-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.snapshot-form .issue-chip {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.snapshot-form .form-notes {
   background: #f0f7ff;
   border-radius: 8px;
-  border-left: 4px solid #1b5993;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
-.help-header {
+.snapshot-form .notes-text {
+  color: #34495e;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+}
+
+.snapshot-form .submit-button {
+  background: #fe5f55 !important;
+  color: #ffffff !important;
+  font-weight: 600;
+  padding: 14px 24px;
+  text-transform: none;
+  font-size: 1.0625rem;
+  margin-top: 8px;
+}
+
+.snapshot-form .submit-button:hover {
+  background: #e54a40 !important;
+}
+
+/* Snapshot Success State */
+.snapshot-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.snapshot-success .success-icon {
+  font-size: 80px;
+  color: #4caf50;
+}
+
+.snapshot-success .success-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #0a2239;
+}
+
+.snapshot-success .success-message {
+  color: #2c3e50;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  max-width: 500px;
+}
+
+.snapshot-success .success-button {
+  background: #1b5993 !important;
+  color: #ffffff !important;
+  padding: 12px 32px;
+  text-transform: none;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.snapshot-success .success-secondary-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.snapshot-success .success-secondary-actions button {
+  color: #1b5993;
+  text-transform: none;
+  font-size: 0.9375rem;
+}
+
+/* ================================
+   MOBILE FAB
+   ================================ */
+/* Added proper mobile FAB sticky positioning */
+.MethodologyGuidePage .mobile-fab {
+  position: fixed !important;
+  bottom: 24px;
+  right: 24px;
+  background-color: #1b5993 !important;
+  color: #ffffff !important;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(27, 89, 147, 0.4) !important;
+}
+
+.MethodologyGuidePage .mobile-fab:hover {
+  background-color: #0a2239 !important;
+}
+
+/* ================================
+   MOBILE DRAWER
+   ================================ */
+/* Fixed mobile drawer styles - removed tabs, added snapshot panel */
+.mobile-drawer .MuiDrawer-paper {
+  height: 90vh;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+.mobile-drawer .mobile-drawer-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow-y: auto;
+  padding: 24px 20px;
+  gap: 32px;
+}
+
+.mobile-drawer .mobile-drawer-header {
   display: flex;
   align-items: center;
-  gap: 8px;
-  margin-bottom: 12px;
+  justify-content: space-between;
+  margin-bottom: 0;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #e0e4e8;
 }
 
-.help-icon {
-  font-size: 20px;
-  color: #1b5993;
-}
-
-.help-title {
-  font-size: 0.9375rem;
+.mobile-drawer .mobile-drawer-header h6 {
+  font-size: 1.25rem;
   font-weight: 700;
   color: #0a2239;
   margin: 0;
 }
 
-.help-text {
-  color: #34495e;
-  font-size: 0.9375rem;
-  line-height: 1.7;
+/* Mobile Snapshot Panel at bottom of drawer */
+.mobile-drawer .mobile-snapshot-panel {
+  padding: 20px;
+  background: linear-gradient(135deg, #fff5f3 0%, #ffe8e4 100%);
+  border-radius: 12px;
+  border: 2px solid #fe5f55;
+  margin-top: auto;
+}
+
+.mobile-drawer .snapshot-cta {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.mobile-drawer .snapshot-cta-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mobile-drawer .snapshot-cta-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #0a2239;
   margin: 0;
 }
 
-/* Tools */
-.methodology-dialog-tools {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  gap: 10px;
-}
-
-.tool-item {
-  padding: 10px 10px;
-  background: #fafbfc;
-  border: 1px solid #2c3e50;
-  border-radius: 50px;
+.mobile-drawer .snapshot-cta-subtitle {
+  font-size: 0.875rem;
   color: #2c3e50;
-  font-size: 0.8rem;
-  font-weight: 500;
-  text-align: center;
-  background-color: rgba(220, 231, 234, 0.4);
-  align-content: center;
+  line-height: 1.5;
 }
 
-/* Responsive */
+.mobile-drawer .snapshot-cta-button {
+  background: #fe5f55 !important;
+  color: #ffffff !important;
+  font-weight: 600;
+  text-transform: none;
+  padding: 12px 20px;
+}
+
+.mobile-drawer .snapshot-cta-button:hover {
+  background: #e54a40 !important;
+}
+
+/* Hide desktop snapshot CTA on mobile */
+@media (max-width: 960px) {
+  .MethodologyGuidePage .snapshot-cta-section.desktop-only {
+    display: none;
+  }
+}
+
+/* Hide FAB on desktop */
+@media (min-width: 961px) {
+  .MethodologyGuidePage .mobile-fab {
+    display: none !important;
+  }
+}
+
+/* Mobile drawer adjustments */
 @media (max-width: 768px) {
-  .methodology-dialog-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
-    padding: 20px 24px;
+  .snapshot-drawer .MuiDrawer-paper {
+    width: 95%;
   }
 
-  .methodology-dialog-header-left {
-    width: 100%;
-    justify-content: start;
+  .snapshot-drawer-content {
+    padding: 24px 20px;
   }
 
-  .methodology-dialog-title {
-    text-align: left;
+  .snapshot-drawer-header .drawer-title {
     font-size: 1.25rem;
   }
 
-  .methodology-dialog-close {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-  }
-
-  .methodology-dialog-content {
-    padding: 24px 20px !important;
-  }
-
-  .methodology-dialog-section {
-    margin-bottom: 24px;
-  }
-
-  .methodology-dialog-description {
-    font-size: 1rem;
-  }
-
-  .methodology-dialog-section-title {
-    font-size: 1rem;
-  }
-
-  .methodology-dialog-objective {
-    padding: 10px;
-  }
-
-  .objective-text {
-    font-size: 0.875rem;
-  }
-
-  .methodology-dialog-help {
+  .snapshot-summary {
     padding: 16px;
   }
 
-  .help-text {
-    font-size: 0.875rem;
+  .snapshot-success {
+    padding: 32px 16px;
   }
 
-  .methodology-dialog-tools {
-    grid-template-columns: 1fr;
+  .snapshot-success .success-icon {
+    font-size: 60px;
+  }
+
+  .snapshot-success .success-title {
+    font-size: 1.5rem;
+  }
+
+  .snapshot-success .success-message {
+    font-size: 1rem;
+  }
+
+  /* Better mobile FAB positioning */
+  .MethodologyGuidePage .mobile-fab {
+    bottom: 20px;
+    right: 20px;
   }
 }
 

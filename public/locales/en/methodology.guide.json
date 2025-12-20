@@ -6,6 +6,9 @@
   "title": "AngoraSix Methodology Guide",
   "subtitle": "A lightweight roadmap to run projects fairly and efficiently. The guide adapts to your context, highlighting the most relevant activities and tools at each stage.",
   "description": "Singular, like a heartbeat in your chest. Unique, exactly the same as the rest — El Chojin",
+  "hero": {
+    "microcopy": "Simple and compatible with the tools you already use."
+  },
   "presets": {
     "title": "Quick Presets",
     "tooltip": "Preconfigured scenarios that auto-adjust key aspects for common project types.",
@@ -45,7 +48,7 @@
     },
     "management": {
       "label": "Management",
-      "tooltip": "Team’s management maturity",
+      "tooltip": "Team's management maturity",
       "options": {
         "newTeam": "New Team",
         "mature": "Mature Management"
@@ -82,7 +85,7 @@
   "stages": {
     "alignment": {
       "title": "1. Alignment",
-      "description": "Team checks and preparation, align expectations and validate the project’s foundation before moving into implementation."
+      "description": "Team checks and preparation, align expectations and validate the project's foundation before moving into implementation."
     },
     "setup": {
       "title": "2. Project Setup",
@@ -103,11 +106,7 @@
         "Spot potential tensions or misaligned views on contributions and rewards",
         "Reach an initial set of agreements that feel clear and fair to the team"
       ],
-      "tools": [
-        "A6 Compass",
-        "Team Canvas",
-        "Workshops"
-      ]
+      "tools": ["A6 Compass", "Team Canvas", "Workshops"]
     },
     "team-readiness": {
       "title": "Team Readiness",
@@ -118,12 +117,7 @@
         "Identify capability or resource gaps that could slow progress",
         "Ensure baseline conditions are in place for sustainable execution"
       ],
-      "tools": [
-        "A6 Compass",
-        "Skills Matrix",
-        "Workshops",
-        "Structured Interviews"
-      ]
+      "tools": ["A6 Compass", "Skills Matrix", "Workshops", "Structured Interviews"]
     },
     "team-alignment": {
       "title": "Team Alignment",
@@ -134,11 +128,7 @@
         "Define values and principles that guide decisions",
         "Agree on measurable goals and success criteria"
       ],
-      "tools": [
-        "A6 Compass",
-        "Team Canvas",
-        "Workshops"
-      ]
+      "tools": ["A6 Compass", "Team Canvas", "Workshops"]
     },
     "management-definition": {
       "title": "Management & Roles Definition",
@@ -149,11 +139,7 @@
         "Clarify individual and shared responsibilities",
         "Set simple, transparent decision-making processes"
       ],
-      "tools": [
-        "A6 Compass",
-        "RACI Matrix",
-        "Governance Templates"
-      ]
+      "tools": ["A6 Compass", "RACI Matrix", "Governance Templates"]
     },
     "product-prevalidation": {
       "title": "Product Pre-validation",
@@ -164,11 +150,7 @@
         "Explore real market or community demand",
         "Refine the value proposition for next iterations"
       ],
-      "tools": [
-        "A6 Compass",
-        "Lean Canvas",
-        "Customer Interviews"
-      ]
+      "tools": ["A6 Compass", "Lean Canvas", "Customer Interviews"]
     },
     "product-analysis": {
       "title": "Existing Product Analysis",
@@ -179,11 +161,7 @@
         "Identify optimization and scalability opportunities",
         "Check alignment between strategy and original purpose"
       ],
-      "tools": [
-        "A6 Compass",
-        "Data Analytics",
-        "User Feedback"
-      ]
+      "tools": ["A6 Compass", "Data Analytics", "User Feedback"]
     },
     "trainings": {
       "title": "Training & Enablement",
@@ -194,12 +172,7 @@
         "Develop skills and judgment for effective collaboration and management",
         "Provide a learning roadmap that grows with the project"
       ],
-      "tools": [
-        "A6 Compass",
-        "Workshops",
-        "Practice Sessions",
-        "Online Resources & Libraries"
-      ]
+      "tools": ["A6 Compass", "Workshops", "Practice Sessions", "Online Resources & Libraries"]
     },
     "governance-rules": {
       "title": "Governance Rules",
@@ -210,10 +183,7 @@
         "Define voting mechanisms and rule updates",
         "Formalize power distribution and participation"
       ],
-      "tools": [
-        "A6 Layer",
-        "Governance Templates"
-      ]
+      "tools": ["A6 Layer", "Governance Templates"]
     },
     "financial-rules": {
       "title": "Financial Rules",
@@ -224,11 +194,7 @@
         "Link contributions to rewards through clear rules",
         "Enable traceability and automatic financial reporting"
       ],
-      "tools": [
-        "A6 Layer",
-        "Financial Models",
-        "Financial Templates"
-      ]
+      "tools": ["A6 Layer", "Financial Models", "Financial Templates"]
     },
     "contribution-integrations": {
       "title": "Contribution Integrations",
@@ -239,15 +205,7 @@
         "Reduce manual work and errors in contribution tracking",
         "Consolidate ownership and contribution metrics in one place"
       ],
-      "tools": [
-        "A6 Layer",
-        "GitHub Projects",
-        "Jira",
-        "Trello",
-        "Notion",
-        "Asana",
-        "ClickUp"
-      ]
+      "tools": ["A6 Layer", "GitHub Projects", "Jira", "Trello", "Notion", "Asana", "ClickUp"]
     },
     "shared-wallet-setup": {
       "title": "Shared Wallet",
@@ -258,12 +216,7 @@
         "Automate payouts according to real contributions and rules",
         "Guarantee traceability and transparency for all transactions"
       ],
-      "tools": [
-        "A6 Layer",
-        "Safe Wallet",
-        "Compatible Crypto Wallets",
-        "Traditional Multi-sign / Cooperative Accounts"
-      ]
+      "tools": ["A6 Layer", "Safe Wallet", "Compatible Crypto Wallets", "Traditional Multi-sign / Cooperative Accounts"]
     },
     "management-tools-setup": {
       "title": "Management Tools Setup",
@@ -274,15 +227,7 @@
         "Configure workflows compatible with A6 governance",
         "Ensure the team can operate clearly and autonomously"
       ],
-      "tools": [
-        "A6 Compass",
-        "GitHub Projects",
-        "Jira",
-        "Trello",
-        "Notion",
-        "Asana",
-        "ClickUp"
-      ]
+      "tools": ["A6 Compass", "GitHub Projects", "Jira", "Trello", "Notion", "Asana", "ClickUp"]
     },
     "metrics-setup": {
       "title": "Metrics & Tracking",
@@ -293,13 +238,7 @@
         "Configure integrated dashboards in A6 Layer",
         "Promote informed, adaptive decision-making"
       ],
-      "tools": [
-        "A6 Compass",
-        "A6 Layer",
-        "Progress Dashboards",
-        "KPIs",
-        "Analytics"
-      ]
+      "tools": ["A6 Compass", "A6 Layer", "Progress Dashboards", "KPIs", "Analytics"]
     },
     "job-marketplace": {
       "title": "Open Contributions Marketplace",
@@ -310,10 +249,7 @@
         "Publish tasks and roles with associated rewards",
         "Record and compensate external work according to A6 rules"
       ],
-      "tools": [
-        "A6 Layer",
-        "A6 Job Board"
-      ]
+      "tools": ["A6 Layer", "A6 Job Board"]
     },
     "agile-ceremonies": {
       "title": "Agile Ceremonies",
@@ -324,11 +260,7 @@
         "Create regular spaces for communication and reflection",
         "Promote continuous improvement and transparent progress"
       ],
-      "tools": [
-        "A6 Compass",
-        "Scrum-lite",
-        "Kanban"
-      ]
+      "tools": ["A6 Compass", "Scrum-lite", "Kanban"]
     },
     "ownership-revision": {
       "title": "Ownership & Rules Review",
@@ -339,12 +271,7 @@
         "Make evidence-based micro-adjustments with team consensus",
         "Keep rules and compensation aligned with how the project actually works"
       ],
-      "tools": [
-        "A6 Compass",
-        "A6 Layer",
-        "Agile Ceremonies",
-        "Ownership Dashboards"
-      ]
+      "tools": ["A6 Compass", "A6 Layer", "Agile Ceremonies", "Ownership Dashboards"]
     },
     "income-distribution": {
       "title": "Income Distribution",
@@ -355,11 +282,7 @@
         "Ensure each member receives a fair payout",
         "Keep verifiable records of every transaction"
       ],
-      "tools": [
-        "A6 Layer",
-        "Shared Wallets",
-        "Integrated Payment Systems"
-      ]
+      "tools": ["A6 Layer", "Shared Wallets", "Integrated Payment Systems"]
     },
     "governance": {
       "title": "Active Governance",
@@ -370,10 +293,7 @@
         "Keep clear records of votes and results",
         "Foster responsible, distributed governance"
       ],
-      "tools": [
-        "A6 Layer",
-        "Loomio"
-      ]
+      "tools": ["A6 Layer", "Loomio"]
     },
     "ownership-reports": {
       "title": "Ownership Reports",
@@ -384,11 +304,7 @@
         "Support informed decisions without extra meetings or processes",
         "Provide practical, contextual guidance based on the data"
       ],
-      "tools": [
-        "A6 Layer",
-        "A6 Compass",
-        "Ownership Dashboards"
-      ]
+      "tools": ["A6 Layer", "A6 Compass", "Ownership Dashboards"]
     },
     "financial-reports": {
       "title": "Financial Reports",
@@ -399,11 +315,7 @@
         "Provide an integrated view of the project’s financial state",
         "Enable quick, contextual decisions from clear data"
       ],
-      "tools": [
-        "A6 Layer",
-        "Financial Dashboards",
-        "Accounting Integrations"
-      ]
+      "tools": ["A6 Layer", "Financial Dashboards", "Accounting Integrations"]
     },
     "health-metrics": {
       "title": "Project Health Indicators",
@@ -414,12 +326,7 @@
         "Maintain balance between effort, recognition and wellbeing",
         "Promote continuous adjustments for a healthy collaboration environment"
       ],
-      "tools": [
-        "A6 Layer",
-        "A6 Compass",
-        "Health Dashboards",
-        "Short Surveys"
-      ]
+      "tools": ["A6 Layer", "A6 Compass", "Health Dashboards", "Short Surveys"]
     },
     "general-roadmap": {
       "title": "Roadmap Review",
@@ -456,5 +363,38 @@
     "description": "Our team can guide you through adopting the AngoraSix Methodology in your project.",
     "button": "Get Personalized Advisory",
     "register": "Start your journey"
+  },
+  "snapshot": {
+    "cta": {
+      "title": "Team Dynamics Snapshot (48h)",
+      "subtitle": "Get personalized analysis based on your configuration",
+      "description": "Get a personalized analysis of your team's context based on your configuration.",
+      "button": "Request Snapshot",
+      "microcopy": "Not a bot… limited weekly capacity",
+      "notes": "Limited capacity + privacy-first approach (avoid sharing sensitive info)"
+    },
+    "drawer": {
+      "title": "Request Team Dynamics Snapshot"
+    },
+    "summary": {
+      "title": "Your Configuration"
+    },
+    "form": {
+      "contactInfo": "Contact Information",
+      "nameLabel": "Name",
+      "emailLabel": "Email",
+      "teamContext": "Team Context",
+      "internalStructureLabel": "Internal team structure",
+      "internalStructurePlaceholder": "Size, hierarchical structure, management nuance...",
+      "rolesLabel": "Your and others' roles in the team",
+      "mainIssuesLabel": "Main team issues/tensions",
+      "betaPilotLabel": "Open to a 2-week beta pilot?",
+      "betaPilotYes": "Yes, interested",
+      "betaPilotNo": "No, just the snapshot",
+      "submit": "Request Snapshot (48h)",
+      "submitting": "Submitting...",
+      "successTitle": "Request Received!",
+      "successMessage": "We'll analyze your team's configuration and get back to you within 48 hours."
+    }
   }
 }

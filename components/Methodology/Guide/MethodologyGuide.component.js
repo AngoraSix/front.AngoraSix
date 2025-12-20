@@ -2,14 +2,17 @@
 
 import {
   Build as BuildIcon,
-  FiberManualRecord as CircleIcon,
+  CheckCircle as CheckCircleIcon,
   Close as CloseIcon,
   Explore as ExploreIcon,
+  FiberManualRecord as CircleIcon,
   Handshake as HandshakeIcon,
   Info as InfoIcon,
   Loop as LoopIcon,
   Settings as SettingsIcon,
-  KeyboardArrowRight as StartIcon,
+  TrendingUp as TrendingUpIcon,
+  ArrowBack as ArrowBackIcon,
+  CameraAlt as CameraAltIcon,
 } from "@mui/icons-material"
 import {
   Box,
@@ -20,9 +23,14 @@ import {
   Container,
   Drawer,
   Fab,
+  FormControl,
   Grid,
   IconButton,
+  InputLabel,
+  MenuItem,
   Paper,
+  Select,
+  TextField,
   ToggleButton,
   ToggleButtonGroup,
   Tooltip,
@@ -34,7 +42,6 @@ import Head from "next/head"
 import { useRouter } from "next/router"
 import { useState } from "react"
 import config from "../../../config"
-import { ROUTES } from "../../../constants/constants"
 import { trackEvent } from "../../../utils/analytics"
 import { getItemImportance, methodologyGuideConfig, presetConfigs, staticStages } from "./methodologyGuide.config"
 import MethodologyGuideDialog from "./MethodologyGuideDialog.component"
@@ -61,6 +68,18 @@ const MethodologyGuidePage = () => {
   const [selectedItem, setSelectedItem] = useState(null)
   const [dialogOpen, setDialogOpen] = useState(false)
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false)
+  const [snapshotDrawerOpen, setSnapshotDrawerOpen] = useState(false)
+  const [snapshotFormData, setSnapshotFormData] = useState({
+    name: "",
+    email: "",
+    internalStructure: "",
+    roles: "",
+    mainIssues: "",
+    betaPilot: "no",
+  })
+  const [formSubmitting, setFormSubmitting] = useState(false)
+  const [formSuccess, setFormSuccess] = useState(false)
+
   const router = useRouter()
 
   // Handle preset selection
@@ -106,6 +125,61 @@ const MethodologyGuidePage = () => {
       cta_type: ctaType,
     })
     router.push(route)
+  }
+
+  const handleSnapshotDrawerOpen = () => {
+    setSnapshotDrawerOpen(true)
+    trackEvent("snapshot_drawer_opened", { source: "desktop_panel" })
+  }
+
+  const handleSnapshotDrawerClose = () => {
+    setSnapshotDrawerOpen(false)
+    if (formSuccess) {
+      setFormSuccess(false)
+      setSnapshotFormData({
+        name: "",
+        email: "",
+        internalStructure: "",
+        roles: "",
+        mainIssues: "",
+        betaPilot: "no",
+      })
+    }
+  }
+
+  const handleMobileDrawerClose = () => {
+    setMobileDrawerOpen(false)
+  }
+
+  const handleSnapshotCtaClick = () => {
+    handleSnapshotDrawerOpen()
+  }
+
+  // Handle Snapshot form field changes
+  const handleSnapshotFormChange = (field, value) => {
+    setSnapshotFormData((prev) => ({ ...prev, [field]: value }))
+  }
+
+  // Handle Snapshot form submission
+  const handleSnapshotFormSubmit = async (e) => {
+    e.preventDefault()
+    setFormSubmitting(true)
+
+    // Simulate API call - replace with actual submission
+    await new Promise((resolve) => setTimeout(resolve, 1500))
+
+    trackEvent("snapshot_request_submitted", {
+      name: snapshotFormData.name,
+      email: snapshotFormData.email,
+      internalStructure: snapshotFormData.internalStructure,
+      roles: snapshotFormData.roles,
+      mainIssues: snapshotFormData.mainIssues,
+      betaPilot: snapshotFormData.betaPilot,
+      toggles: toggles,
+    })
+
+    setFormSubmitting(false)
+    setFormSuccess(true)
   }
 
   // Get module icon(s)
@@ -168,6 +242,121 @@ const MethodologyGuidePage = () => {
           </Box>
         </CardContent>
       </Card>
+    )
+  }
+
+  const renderSnapshotSummary = () => (
+    <Box className="snapshot-summary">
+      <Typography variant="subtitle2" className="summary-title">
+        {t("snapshot.summary.title")}
+      </Typography>
+      <Box className="summary-items">
+        <Box className="summary-item">
+          <Typography variant="caption" className="summary-label">
+            {t("presets.title")}:
+          </Typography>
+          <Typography variant="body2" className="summary-value">
+            {t(`presets.${selectedPreset}.label`)}
+          </Typography>
+        </Box>
+        {Object.entries(toggles).map(([aspect, value]) => (
+          <Box key={aspect} className="summary-item">
+            <Typography variant="caption" className="summary-label">
+              {t(`aspects.${aspect}.label`)}:
+            </Typography>
+            <Typography variant="body2" className="summary-value">
+              {t(`aspects.${aspect}.options.${value}`)}
+            </Typography>
+          </Box>
+        ))}
+      </Box>
+    </Box>
+  )
+
+  const renderSnapshotForm = () => {
+    if (formSuccess) {
+      return (
+        <Box className="form-success">
+          <CheckCircleIcon className="success-icon" />
+          <Typography variant="h6">{t("snapshot.form.successTitle")}</Typography>
+          <Typography variant="body2">{t("snapshot.form.successMessage")}</Typography>
+        </Box>
+      )
+    }
+
+    return (
+      <Box component="form" onSubmit={handleSnapshotFormSubmit} className="snapshot-form">
+        {/* Contact Section */}
+        <Box className="form-section">
+          <Typography className="section-title">{t("snapshot.form.contactInfo")}</Typography>
+          <TextField
+            fullWidth
+            label={t("snapshot.form.nameLabel")}
+            value={snapshotFormData.name}
+            onChange={(e) => setSnapshotFormData({ ...snapshotFormData, name: e.target.value })}
+            required
+          />
+          <TextField
+            fullWidth
+            label={t("snapshot.form.emailLabel")}
+            type="email"
+            value={snapshotFormData.email}
+            onChange={(e) => setSnapshotFormData({ ...snapshotFormData, email: e.target.value })}
+            required
+          />
+        </Box>
+
+        {/* Context Section - Simplified to 4 fields */}
+        <Box className="form-section">
+          <Typography className="section-title">{t("snapshot.form.teamContext")}</Typography>
+          <TextField
+            fullWidth
+            label={t("snapshot.form.internalStructureLabel")}
+            value={snapshotFormData.internalStructure}
+            onChange={(e) => setSnapshotFormData({ ...snapshotFormData, internalStructure: e.target.value })}
+            placeholder={t("snapshot.form.internalStructurePlaceholder")}
+            required
+          />
+          <TextField
+            fullWidth
+            label={t("snapshot.form.rolesLabel")}
+            value={snapshotFormData.roles}
+            onChange={(e) => setSnapshotFormData({ ...snapshotFormData, roles: e.target.value })}
+            multiline
+            rows={2}
+          />
+          <TextField
+            fullWidth
+            label={t("snapshot.form.mainIssuesLabel")}
+            value={snapshotFormData.mainIssues}
+            onChange={(e) => setSnapshotFormData({ ...snapshotFormData, mainIssues: e.target.value })}
+            multiline
+            rows={3}
+          />
+          <FormControl fullWidth required>
+            <InputLabel>{t("snapshot.form.betaPilotLabel")}</InputLabel>
+            <Select
+              value={snapshotFormData.betaPilot}
+              onChange={(e) => setSnapshotFormData({ ...snapshotFormData, betaPilot: e.target.value })}
+            >
+              <MenuItem value="yes">{t("snapshot.form.betaPilotYes")}</MenuItem>
+              <MenuItem value="no">{t("snapshot.form.betaPilotNo")}</MenuItem>
+            </Select>
+          </FormControl>
+        </Box>
+
+        {/* Submit Button */}
+        <Button
+          type="submit"
+          variant="contained"
+          color="primary"
+          fullWidth
+          disabled={formSubmitting}
+          className="submit-button"
+        >
+          {formSubmitting ? t("snapshot.form.submitting") : t("snapshot.form.submit")}
+        </Button>
+      </Box>
     )
   }
 
@@ -281,6 +470,34 @@ const MethodologyGuidePage = () => {
           ))}
         </Grid>
       </Box>
+
+      <Box className="snapshot-cta-section desktop-only">
+        <Box className="snapshot-cta-header">
+          <TrendingUpIcon className="snapshot-icon" />
+          <Typography variant="h6" className="snapshot-title">
+            {t("snapshot.cta.title")}
+          </Typography>
+        </Box>
+        <Typography variant="body2" className="snapshot-description">
+          {t("snapshot.cta.description")}
+        </Typography>
+        <Button
+          variant="contained"
+          color="secondary"
+          fullWidth
+          size="large"
+          onClick={handleSnapshotDrawerOpen}
+          className="snapshot-cta-button"
+        >
+          {t("snapshot.cta.button")}
+        </Button>
+        <Typography variant="caption" className="snapshot-microcopy">
+          {t("snapshot.cta.microcopy")}
+        </Typography>
+        <Typography variant="caption" className="snapshot-notes">
+          {t("snapshot.cta.notes")}
+        </Typography>
+      </Box>
     </Box>
   )
 
@@ -311,6 +528,10 @@ const MethodologyGuidePage = () => {
 
             <Typography variant="body2" component="blockquote" className="hero-quote">
               {t("description")}
+            </Typography>
+
+            <Typography variant="body1" className="hero-microcopy">
+              {t("hero.microcopy")}
             </Typography>
           </div>
         </section>
@@ -348,56 +569,69 @@ const MethodologyGuidePage = () => {
           </Grid>
         </Container>
 
-        {/* CTA Section */}
-        <section className="ctas-section">
-          <div className="ctas-content">
-            <div className="ctas-header">
-              <Typography variant="h4" component="h2" className="ctas-title">
-                {t("cta.title")}
-              </Typography>
-            </div>
-            <div className="ctas-buttons">
-              <Button
-                className="cta-button cta-primary"
-                onClick={() => handleCTAClick("contact", `${ROUTES.services}?section=guidance&dialog=true`)}
-              >
-                <ExploreIcon sx={{ fontSize: 20 }} />
-                <span>{t("cta.button")}</span>
-              </Button>
-
-              <Button
-                className="cta-button cta-secondary"
-                onClick={() =>
-                  handleCTAClick("register", session ? ROUTES.projects.list : ROUTES.auth.signin)
-                }
-              >
-                <StartIcon sx={{ fontSize: 20 }} />
-                <span>{t("cta.register")}</span>
-              </Button>
-            </div>
-          </div>
-        </section>
-
         {/* Mobile FAB */}
         <Fab className="mobile-fab" onClick={() => setMobileDrawerOpen(true)}>
           <SettingsIcon />
         </Fab>
 
-        {/* Mobile Drawer */}
-        <Drawer
-          anchor="bottom"
-          open={mobileDrawerOpen}
-          onClose={() => setMobileDrawerOpen(false)}
-          className="mobile-drawer"
-        >
+        <Drawer anchor="bottom" open={mobileDrawerOpen} onClose={handleMobileDrawerClose} className="mobile-drawer">
           <Box className="mobile-drawer-content">
             <Box className="mobile-drawer-header">
               <Typography variant="h6">{t("controls.title")}</Typography>
-              <IconButton onClick={() => setMobileDrawerOpen(false)}>
+              <IconButton onClick={handleMobileDrawerClose}>
                 <CloseIcon />
               </IconButton>
             </Box>
+
+            {/* Controls Panel */}
             {renderControlsPanel()}
+
+            {/* Snapshot Panel for Mobile */}
+            <Box className="mobile-snapshot-panel">
+              <Box className="snapshot-cta">
+                <Box className="snapshot-cta-content">
+                  <Typography variant="h6" className="snapshot-cta-title">
+                    {t("snapshot.cta.title")}
+                  </Typography>
+                  <Typography variant="body2" className="snapshot-cta-subtitle">
+                    {t("snapshot.cta.subtitle")}
+                  </Typography>
+                </Box>
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  onClick={handleSnapshotCtaClick}
+                  className="snapshot-cta-button"
+                  startIcon={<CameraAltIcon />}
+                >
+                  {t("snapshot.cta.button")}
+                </Button>
+              </Box>
+            </Box>
+          </Box>
+        </Drawer>
+
+        {/* Snapshot Drawer */}
+        <Drawer
+          anchor="right"
+          open={snapshotDrawerOpen}
+          onClose={handleSnapshotDrawerClose}
+          className="snapshot-drawer"
+        >
+          <Box className="snapshot-drawer-content">
+            <Box className="snapshot-drawer-header">
+              <IconButton onClick={handleSnapshotDrawerClose} className="back-button">
+                <ArrowBackIcon />
+              </IconButton>
+              <Typography variant="h5" className="drawer-title">
+                {t("snapshot.drawer.title")}
+              </Typography>
+              <IconButton onClick={handleSnapshotDrawerClose}>
+                <CloseIcon />
+              </IconButton>
+            </Box>
+            {!formSuccess && renderSnapshotSummary()}
+            {renderSnapshotForm()}
           </Box>
         </Drawer>
 
