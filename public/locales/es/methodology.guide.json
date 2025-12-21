@@ -1,11 +1,12 @@
 {
   "page": {
-    "title": "Guía de metodología AngoraSix",
+    "title": "Guía interactiva de proyecto & Snapshot de equipo",
     "description": "Una guía detallada, una hoja de ruta para implementar una gestión de proyectos justa y eficiente."
   },
-  "title": "Guía de metodología AngoraSix",
-  "subtitle": "Una hoja de ruta para implementar una gestión de proyectos justa y eficiente. Esta guía se adapta a las características de tu proyecto, mostrándote las actividades y herramientas más relevantes en cada etapa.",
-  "description": "Singular, como un latido en el pecho. Único, exactamente lo mismo que el resto - El Chojin",
+  "title": "Guía interactiva de proyecto & Snapshot de equipo",
+  "subtitle": "Explora una hoja de ruta ligera que se adapta al contexto de tu proyecto. Si deseas un análisis escrito personalizado, solicita un Snapshot de Dinámicas de Equipo (48h).",
+  "quote": "The whole point of the dancing is the dance - Alan Watts",
+  "microcopy": "Explora libremente. Si deseas un análisis escrito personalizado, solicita un Snapshot.",
   "presets": {
     "title": "Presets Rápidos",
     "tooltip": "Escenarios preconfigurados que automáticamente ajustan los aspectos más relevantes para tipos comunes de proyectos.",
@@ -103,11 +104,7 @@
         "Detectar posibles puntos de tensión o visiones desalineadas sobre aportes y recompensas",
         "Lograr un marco inicial de acuerdos donde el equipo sienta que las reglas son claras y justas"
       ],
-      "tools": [
-        "A6 Compass",
-        "Team Canvas",
-        "Talleres"
-      ]
+      "tools": ["A6 Compass", "Team Canvas", "Talleres"]
     },
     "team-readiness": {
       "title": "Preparación del Equipo",
@@ -134,11 +131,7 @@
         "Establecer valores y principios que guíen la toma de decisiones",
         "Acordar objetivos comunes y criterios de éxito medibles"
       ],
-      "tools": [
-        "A6 Compass",
-        "Team Canvas",
-        "Talleres"
-      ]
+      "tools": ["A6 Compass", "Team Canvas", "Talleres"]
     },
     "management-definition": {
       "title": "Definición de Gestión y Roles",
@@ -149,11 +142,7 @@
         "Clarificar responsabilidades individuales y compartidas",
         "Establecer procesos simples y transparentes de toma de decisiones"
       ],
-      "tools": [
-        "A6 Compass",
-        "Matriz RACI",
-        "Templates de Gobernanza"
-      ]
+      "tools": ["A6 Compass", "Matriz RACI", "Templates de Gobernanza"]
     },
     "product-prevalidation": {
       "title": "Pre-validación del Producto",
@@ -164,11 +153,7 @@
         "Explorar la demanda real del mercado o comunidad",
         "Refinar la propuesta de valor para futuras iteraciones"
       ],
-      "tools": [
-        "A6 Compass",
-        "Lean Canvas",
-        "Entrevistas con Clientes"
-      ]
+      "tools": ["A6 Compass", "Lean Canvas", "Entrevistas con Clientes"]
     },
     "product-analysis": {
       "title": "Análisis de Producto Existente",
@@ -179,11 +164,7 @@
         "Identificar oportunidades de optimización y escalabilidad",
         "Revisar el alineamiento entre estrategia y propósito original"
       ],
-      "tools": [
-        "A6 Compass",
-        "Análisis de Datos",
-        "Feedback de Usuarios"
-      ]
+      "tools": ["A6 Compass", "Análisis de Datos", "Feedback de Usuarios"]
     },
     "trainings": {
       "title": "Capacitación y Acompañamiento",
@@ -210,10 +191,7 @@
         "Definir mecanismos de votación y actualización de reglas",
         "Formalizar la distribución de poder y participación en el proyecto"
       ],
-      "tools": [
-        "A6 Layer",
-        "Templates de Gobernanza"
-      ]
+      "tools": ["A6 Layer", "Templates de Gobernanza"]
     },
     "financial-rules": {
       "title": "Reglas Financieras",
@@ -224,11 +202,7 @@
         "Establecer las reglas que vinculan aportes con recompensas",
         "Habilitar trazabilidad y reporting financiero automático"
       ],
-      "tools": [
-        "A6 Layer",
-        "Modelos Financieros",
-        "Templates Financieros"
-      ]
+      "tools": ["A6 Layer", "Modelos Financieros", "Templates Financieros"]
     },
     "contribution-integrations": {
       "title": "Integraciones de Contribución",
@@ -310,10 +284,7 @@
         "Publicar tareas y roles con recompensas asociadas",
         "Registrar y compensar colaboraciones externas según reglas A6"
       ],
-      "tools": [
-        "A6 Layer",
-        "Job Board A6"
-      ]
+      "tools": ["A6 Layer", "Job Board A6"]
     },
     "agile-ceremonies": {
       "title": "Ceremonias Ágiles",
@@ -324,11 +295,7 @@
         "Consolidar espacios regulares de comunicación y reflexión",
         "Promover la mejora continua y la transparencia en el avance"
       ],
-      "tools": [
-        "A6 Compass",
-        "Scrum-lite",
-        "Kanban"
-      ]
+      "tools": ["A6 Compass", "Scrum-lite", "Kanban"]
     },
     "ownership-revision": {
       "title": "Revisión de Ownership y Reglas",
@@ -370,10 +337,7 @@
         "Mantener registros claros de votaciones y resultados",
         "Fomentar una cultura de gobernanza distribuida y responsable"
       ],
-      "tools": [
-        "A6 Layer",
-        "Loomio"
-      ]
+      "tools": ["A6 Layer", "Loomio"]
     },
     "ownership-reports": {
       "title": "Reportes de Ownership",
@@ -384,11 +348,7 @@
         "Facilitar decisiones informadas sin necesidad de procesos adicionales o reuniones formales",
         "Brindar orientación práctica y contextual sobre los datos, adaptada a la realidad de cada equipo"
       ],
-      "tools": [
-        "A6 Layer",
-        "A6 Compass",
-        "Dashboards de Ownership"
-      ]
+      "tools": ["A6 Layer", "A6 Compass", "Dashboards de Ownership"]
     },
     "financial-reports": {
       "title": "Reportes Financieros",
@@ -399,11 +359,7 @@
         "Proveer una visión integrada del estado financiero del proyecto",
         "Facilitar decisiones rápidas y contextualizadas a partir de datos claros"
       ],
-      "tools": [
-        "A6 Layer",
-        "Dashboards Financieros",
-        "Integraciones Contables"
-      ]
+      "tools": ["A6 Layer", "Dashboards Financieros", "Integraciones Contables"]
     },
     "health-metrics": {
       "title": "Indicadores de Salud",
@@ -456,5 +412,51 @@
     "description": "Nuestro equipo de expertos puede guiarte en la implementación de la Metodología AngoraSix en tu proyecto.",
     "button": "Obtener Asesoría Personalizada",
     "register": "Comienza tu viaje"
+  },
+  "snapshot": {
+    "cta": {
+      "title": "Snapshot de Dinámicas de Equipo (48h)",
+      "subtitle": "Un snapshot escrito de 1 página adaptado a tu proyecto.",
+      "button": "Solicitar Snapshot",
+      "microcopy": "No es un bot… capacidad semanal limitada",
+      "notes": "Capacidad limitada + enfoque de privacidad (evitá compartir info sensible)"
+    },
+    "drawer": {
+      "title": "Solicitar Snapshot de Dinámicas de Equipo",
+      "description": "Obtené 3 tensiones probables, 5 preguntas clave y 3 áreas de enfoque inmediato — en 48h.",
+      "privacy": "Tu información no se comparte. Se usa solo para tu snapshot + aprendizaje interno anonimizado. Por favor, evita compartir información personal sensible o confidencial."
+    },
+    "summary": {
+      "title": "Tu Configuración"
+    },
+    "form": {
+      "contactInfo": "Información de Contacto",
+      "nameLabel": "Nombre",
+      "emailLabel": "Email",
+      "context": "Contexto del Equipo",
+      "internalStructureLabel": "Estructura interna del equipo",
+      "internalStructurePlaceholder": "Tamaño, estructura jerárquica, matiz de gestión...",
+      "rolesLabel": "Tus roles y los de otros en el equipo",
+      "mainIssuesLabel": "Principales problemas/tensiones del equipo",
+      "issues": {
+        "decisionMaking": "Toma de decisiones",
+        "contributionRecognition": "Contribución y reconocimiento",
+        "rolesAccountability": "Roles y responsabilidades",
+        "fairnessEquity": "Equidad/propiedad",
+        "participationEngagement": "Participación/compromiso",
+        "communicationConflict": "Comunicación/conflicto",
+        "other": "Otro"
+      },
+      "betaPilotLabel": "¿Abierto a un piloto beta de 2 semanas?",
+      "betaPilotYes": "Sí, me interesa",
+      "betaPilotNo": "No, solo el snapshot",
+      "submit": "Solicitar Snapshot (48h)",
+      "submitting": "Enviando...",
+      "successTitle": "¡Solicitud Recibida!",
+      "successMessage": "Analizaremos la configuración de tu equipo y te responderemos dentro de 48 horas.",
+      "backToGuide": "Volver a la Guía",
+      "learnAdvisory": "Conocer Servicios de Asesoría",
+      "register": "Configurar proyecto con AngoraSix"
+    }
   }
 }
