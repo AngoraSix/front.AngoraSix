@@ -79,12 +79,7 @@
         "main": "Recursos",
         "gettingStarted": "Guía de Inicio",
         "methodology": "Metodología AngoraSix",
-        "guide": "Guía Interactiva"
-      },
-      "methodology": {
-        "main": "Metodología",
-        "overview": "La Metodología AngoraSix",
-        "guide": "Guía Interactiva"
+        "guide": "Guía para Proyectos y Snapshot"
       },
       "contact": "Contacto",
       "login": "Iniciar Sesión",

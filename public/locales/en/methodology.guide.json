@@ -1,14 +1,11 @@
 {
   "page": {
-    "title": "AngoraSix Methodology Guide",
+    "title": "Project Guidance & Snapshot",
     "description": "A practical roadmap to implement fair, transparent and efficient project management."
   },
-  "title": "AngoraSix Methodology Guide",
+  "title": "Project Guidance & Snapshot",
   "subtitle": "A lightweight roadmap to run projects fairly and efficiently. The guide adapts to your context, highlighting the most relevant activities and tools at each stage.",
-  "description": "Singular, like a heartbeat in your chest. Unique, exactly the same as the rest — El Chojin",
-  "hero": {
-    "microcopy": "Simple and compatible with the tools you already use."
-  },
+  "description": "The whole point of the dancing is the dance - Alan Watts",
   "presets": {
     "title": "Quick Presets",
     "tooltip": "Preconfigured scenarios that auto-adjust key aspects for common project types.",

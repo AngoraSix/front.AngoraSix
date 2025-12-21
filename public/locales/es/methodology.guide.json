@@ -1,14 +1,11 @@
 {
   "page": {
-    "title": "Guía de metodología AngoraSix",
+    "title": "Guía para proyectos y snapshot",
     "description": "Una guía detallada, una hoja de ruta para implementar una gestión de proyectos justa y eficiente."
   },
-  "title": "Guía de metodología AngoraSix",
+  "title": "Guía para proyectos y snapshot",
   "subtitle": "Una hoja de ruta para implementar una gestión de proyectos justa y eficiente. Esta guía se adapta a las características de tu proyecto, mostrándote las actividades y herramientas más relevantes en cada etapa.",
-  "description": "Singular, como un latido en el pecho. Único, exactamente lo mismo que el resto - El Chojin",
-  "hero": {
-    "microcopy": "Sencillo y compatible con las herramientas que ya usás."
-  },
+  "description": "The whole point of the dancing is the dance - Alan Watts",
   "presets": {
     "title": "Presets Rápidos",
     "tooltip": "Escenarios preconfigurados que automáticamente ajustan los aspectos más relevantes para tipos comunes de proyectos.",
