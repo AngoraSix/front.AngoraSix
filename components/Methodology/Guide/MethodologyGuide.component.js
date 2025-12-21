@@ -9,9 +9,9 @@ import {
   Explore as ExploreIcon,
   Handshake as HandshakeIcon,
   Info as InfoIcon,
-  Insights as InsightsIcon,
+  TipsAndUpdates as InsightsIcon,
   Loop as LoopIcon,
-  Settings as SettingsIcon,
+  Insights as SettingsIcon,
 } from '@mui/icons-material'
 import {
   Box,
@@ -42,6 +42,7 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 import config from '../../../config'
+import { ROUTES } from '../../../constants/constants'
 import { trackEvent } from '../../../utils/analytics'
 import {
   getItemImportance,
@@ -121,15 +122,6 @@ const MethodologyGuidePage = () => {
   const handleDialogClose = () => {
     setDialogOpen(false)
     setSelectedItem(null)
-  }
-
-  const handleCTAClick = (ctaType, route) => {
-    trackEvent('guide_cta_clicked', {
-      event_category: 'engagement',
-      event_label: 'methodology_guide',
-      cta_type: ctaType,
-    })
-    router.push(route)
   }
 
   const handleSnapshotDrawerOpen = () => {
@@ -329,7 +321,9 @@ const MethodologyGuidePage = () => {
               <Button
                 variant="text"
                 color="primary"
-                onClick={() => router.push('/services')}
+                onClick={() =>
+                  router.push(`${ROUTES.services}?section=guidance&dialog=true`)
+                }
                 size="small"
               >
                 {t('snapshot.form.learnAdvisory')}
@@ -337,7 +331,13 @@ const MethodologyGuidePage = () => {
               <Button
                 variant="text"
                 color="primary"
-                onClick={() => router.push('/auth/register')}
+                onClick={() => {
+                  if (session) {
+                    router.push(ROUTES.projects.list)
+                  } else {
+                    router.push(`${ROUTES.auth.signin}?for=contributor`)
+                  }
+                }}
                 size="small"
               >
                 {t('snapshot.form.register')}
