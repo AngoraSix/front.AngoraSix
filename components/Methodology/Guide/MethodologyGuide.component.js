@@ -41,6 +41,7 @@ import { useTranslation } from 'next-i18next'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
+import api from '../../../api'
 import config from '../../../config'
 import { ROUTES } from '../../../constants/constants'
 import { trackEvent } from '../../../utils/analytics'
@@ -126,7 +127,12 @@ const MethodologyGuidePage = () => {
 
   const handleSnapshotDrawerOpen = () => {
     setSnapshotDrawerOpen(true)
-    trackEvent('snapshot_drawer_opened', { source: 'desktop_panel' })
+    trackEvent('snapshot_drawer_opened', {
+      event_category: 'engagement',
+      event_label: 'snapshot_option_explored',
+      value: 1000,
+      currency: 'ARS',
+    })
   }
 
   const handleSnapshotDrawerClose = () => {
@@ -172,16 +178,26 @@ const MethodologyGuidePage = () => {
     setFormSubmitting(true)
 
     // Simulate API call - replace with actual submission
-    await new Promise((resolve) => setTimeout(resolve, 1500))
+    await api.front.saveSurveyResponse(
+      {
+        name: snapshotFormData.name,
+        email: snapshotFormData.email,
+        internalStructure: snapshotFormData.internalStructure,
+        roles: snapshotFormData.roles,
+        mainIssues: snapshotFormData.mainIssues,
+        betaPilot: snapshotFormData.betaPilot,
+        toggles: toggles,
+        selectedPreset: selectedPreset
+      },
+      'snapshot_request_submitted'
+    )
 
     trackEvent('snapshot_request_submitted', {
-      name: snapshotFormData.name,
-      email: snapshotFormData.email,
-      internalStructure: snapshotFormData.internalStructure,
-      roles: snapshotFormData.roles,
-      mainIssues: snapshotFormData.mainIssues,
-      betaPilot: snapshotFormData.betaPilot,
-      toggles: toggles,
+      event_category: 'engagement',
+      event_label: 'snapshot_request_submitted',
+      value: 10000,
+      currency: 'ARS',
+      conversion_intent: 'lead_generation',
     })
 
     setFormSubmitting(false)
