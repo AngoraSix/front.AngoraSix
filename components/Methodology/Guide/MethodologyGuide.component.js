@@ -200,6 +200,7 @@ const MethodologyGuidePage = () => {
       conversion_intent: 'lead_generation',
     })
 
+    api.front.wakeupMailingSvc()
     setFormSubmitting(false)
     setFormSuccess(true)
   }
@@ -700,7 +701,7 @@ const MethodologyGuidePage = () => {
         <meta
           property="og:url"
           key="og.url"
-          content="https://angorasix.com/methodology/overview"
+          content="https://angorasix.com/methodology/guide"
         />
         <meta property="og:type" key="og.type" content="website" />
       </Head>

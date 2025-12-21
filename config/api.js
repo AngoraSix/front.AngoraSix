@@ -20,6 +20,8 @@ class Api {
       clubs: getFromEnvsOrElse(env, 'A6_APP_API_CLUBS_SERVER_APIGATEWAY_PATH', '/clubs'),
       notifications:
         getFromEnvsOrElse(env, 'A6_APP_API_NOTIFICATIONS_SERVER_APIGATEWAY_PATH', '/notifications'),
+      messaging:
+        getFromEnvsOrElse(env, 'A6_APP_API_MESSAGING_SERVER_APIGATEWAY_PATH', '/messaging'),
     };
     this.servicesAPIParams = {
       clubsProjectManagementMembersType:

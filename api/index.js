@@ -10,6 +10,7 @@ import ManagementTasksAPI from './managementTasks';
 import NotificationsAPI from './notifications';
 import ProjectsCoreAPI from './projects';
 import SurveysAPI from './surveys';
+import MessagingAPI from './messaging';
 
 class API {
   constructor() {
@@ -22,6 +23,10 @@ class API {
 
   get surveys() {
     return this.SurveysAPI;
+  }
+
+  get messaging() {
+    return this.MessagingAPI;
   }
 
   get projects() {
@@ -82,6 +87,7 @@ class API {
       _getServiceAPI('notifications', this.axios)
     );
     this.SurveysAPI = new SurveysAPI(_getServiceAPI('surveys', this.axios));
+    this.MessagingAPI = new MessagingAPI(_getServiceAPI('messaging', this.axios));
   }
 }
 

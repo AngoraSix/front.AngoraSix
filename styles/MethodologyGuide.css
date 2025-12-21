@@ -275,8 +275,8 @@
 }
 
 .MethodologyGuidePage .controls-panel {
-  position: sticky;
-  top: 100px;
+  /* position: sticky;
+  top: 100px; */
   background: #ffffff;
   border-radius: 16px;
   padding: 24px;
