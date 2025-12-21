@@ -1,11 +1,12 @@
 {
   "page": {
-    "title": "Project Guidance & Snapshot",
+    "title": "Interactive Project Guide & Team Snapshot",
     "description": "A practical roadmap to implement fair, transparent and efficient project management."
   },
-  "title": "Project Guidance & Snapshot",
-  "subtitle": "A lightweight roadmap to run projects fairly and efficiently. The guide adapts to your context, highlighting the most relevant activities and tools at each stage.",
-  "description": "The whole point of the dancing is the dance - Alan Watts",
+  "title": "Interactive Project Guide & Team Snapshot",
+  "subtitle": "Explore a lightweight roadmap that adapts to your project context. If you want a personalized written analysis, request a Team Dynamics Snapshot (48h).",
+  "quote": "The whole point of the dancing is the dance - Alan Watts",
+  "microcopy": "Explore freely. If you want a tailored written analysis, request a Snapshot.",
   "presets": {
     "title": "Quick Presets",
     "tooltip": "Preconfigured scenarios that auto-adjust key aspects for common project types.",
@@ -114,7 +115,12 @@
         "Identify capability or resource gaps that could slow progress",
         "Ensure baseline conditions are in place for sustainable execution"
       ],
-      "tools": ["A6 Compass", "Skills Matrix", "Workshops", "Structured Interviews"]
+      "tools": [
+        "A6 Compass",
+        "Skills Matrix",
+        "Workshops",
+        "Structured Interviews"
+      ]
     },
     "team-alignment": {
       "title": "Team Alignment",
@@ -169,7 +175,12 @@
         "Develop skills and judgment for effective collaboration and management",
         "Provide a learning roadmap that grows with the project"
       ],
-      "tools": ["A6 Compass", "Workshops", "Practice Sessions", "Online Resources & Libraries"]
+      "tools": [
+        "A6 Compass",
+        "Workshops",
+        "Practice Sessions",
+        "Online Resources & Libraries"
+      ]
     },
     "governance-rules": {
       "title": "Governance Rules",
@@ -202,7 +213,15 @@
         "Reduce manual work and errors in contribution tracking",
         "Consolidate ownership and contribution metrics in one place"
       ],
-      "tools": ["A6 Layer", "GitHub Projects", "Jira", "Trello", "Notion", "Asana", "ClickUp"]
+      "tools": [
+        "A6 Layer",
+        "GitHub Projects",
+        "Jira",
+        "Trello",
+        "Notion",
+        "Asana",
+        "ClickUp"
+      ]
     },
     "shared-wallet-setup": {
       "title": "Shared Wallet",
@@ -213,7 +232,12 @@
         "Automate payouts according to real contributions and rules",
         "Guarantee traceability and transparency for all transactions"
       ],
-      "tools": ["A6 Layer", "Safe Wallet", "Compatible Crypto Wallets", "Traditional Multi-sign / Cooperative Accounts"]
+      "tools": [
+        "A6 Layer",
+        "Safe Wallet",
+        "Compatible Crypto Wallets",
+        "Traditional Multi-sign / Cooperative Accounts"
+      ]
     },
     "management-tools-setup": {
       "title": "Management Tools Setup",
@@ -224,7 +248,15 @@
         "Configure workflows compatible with A6 governance",
         "Ensure the team can operate clearly and autonomously"
       ],
-      "tools": ["A6 Compass", "GitHub Projects", "Jira", "Trello", "Notion", "Asana", "ClickUp"]
+      "tools": [
+        "A6 Compass",
+        "GitHub Projects",
+        "Jira",
+        "Trello",
+        "Notion",
+        "Asana",
+        "ClickUp"
+      ]
     },
     "metrics-setup": {
       "title": "Metrics & Tracking",
@@ -235,7 +267,13 @@
         "Configure integrated dashboards in A6 Layer",
         "Promote informed, adaptive decision-making"
       ],
-      "tools": ["A6 Compass", "A6 Layer", "Progress Dashboards", "KPIs", "Analytics"]
+      "tools": [
+        "A6 Compass",
+        "A6 Layer",
+        "Progress Dashboards",
+        "KPIs",
+        "Analytics"
+      ]
     },
     "job-marketplace": {
       "title": "Open Contributions Marketplace",
@@ -268,7 +306,12 @@
         "Make evidence-based micro-adjustments with team consensus",
         "Keep rules and compensation aligned with how the project actually works"
       ],
-      "tools": ["A6 Compass", "A6 Layer", "Agile Ceremonies", "Ownership Dashboards"]
+      "tools": [
+        "A6 Compass",
+        "A6 Layer",
+        "Agile Ceremonies",
+        "Ownership Dashboards"
+      ]
     },
     "income-distribution": {
       "title": "Income Distribution",
@@ -364,14 +407,15 @@
   "snapshot": {
     "cta": {
       "title": "Team Dynamics Snapshot (48h)",
-      "subtitle": "Get personalized analysis based on your configuration",
-      "description": "Get a personalized analysis of your team's context based on your configuration.",
+      "subtitle": "A written 1-page snapshot tailored to your configuration.",
       "button": "Request Snapshot",
-      "microcopy": "Not a bot… limited weekly capacity",
+      "microcopy": "Not a bot…limited weekly capacity",
       "notes": "Limited capacity + privacy-first approach (avoid sharing sensitive info)"
     },
     "drawer": {
-      "title": "Request Team Dynamics Snapshot"
+      "title": "Request Team Dynamics Snapshot",
+      "description": "Get 3 likely tensions, 5 key questions, and 3 immediate focus areas — within 48h.",
+      "privacy": "Your info is not shared. Used only for your snapshot + anonymized internal learning. Please avoid sharing sensitive personal or confidential information."
     },
     "summary": {
       "title": "Your Configuration"

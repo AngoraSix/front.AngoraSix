@@ -1,19 +1,18 @@
-"use client"
+'use client'
 
 import {
+  ArrowBack as ArrowBackIcon,
   Build as BuildIcon,
   CheckCircle as CheckCircleIcon,
+  FiberManualRecord as CircleIcon,
   Close as CloseIcon,
   Explore as ExploreIcon,
-  FiberManualRecord as CircleIcon,
   Handshake as HandshakeIcon,
   Info as InfoIcon,
+  Insights as InsightsIcon,
   Loop as LoopIcon,
   Settings as SettingsIcon,
-  ArrowBack as ArrowBackIcon,
-  CameraAlt as CameraAltIcon,
-  AutoAwesome as AutoAwesomeIcon,
-} from "@mui/icons-material"
+} from '@mui/icons-material'
 import {
   Box,
   Button,
@@ -21,31 +20,36 @@ import {
   CardContent,
   Chip,
   Container,
+  Divider,
   Drawer,
   Fab,
   FormControl,
+  FormControlLabel,
   Grid,
   IconButton,
   Paper,
+  Radio,
+  RadioGroup,
   TextField,
   ToggleButton,
   ToggleButtonGroup,
   Tooltip,
   Typography,
-  Radio,
-  RadioGroup,
-  FormControlLabel,
-  FormLabel,
-} from "@mui/material"
-import { useSession } from "next-auth/react"
-import { useTranslation } from "next-i18next"
-import Head from "next/head"
-import { useRouter } from "next/router"
-import { useState } from "react"
-import config from "../../../config"
-import { trackEvent } from "../../../utils/analytics"
-import { getItemImportance, methodologyGuideConfig, presetConfigs, staticStages } from "./methodologyGuide.config"
-import MethodologyGuideDialog from "./MethodologyGuideDialog.component"
+} from '@mui/material'
+import { useSession } from 'next-auth/react'
+import { useTranslation } from 'next-i18next'
+import Head from 'next/head'
+import { useRouter } from 'next/router'
+import { useState } from 'react'
+import config from '../../../config'
+import { trackEvent } from '../../../utils/analytics'
+import {
+  getItemImportance,
+  methodologyGuideConfig,
+  presetConfigs,
+  staticStages,
+} from './methodologyGuide.config'
+import MethodologyGuideDialog from './MethodologyGuideDialog.component'
 
 const stageIcons = {
   alignment: HandshakeIcon,
@@ -54,29 +58,29 @@ const stageIcons = {
 }
 
 const stageColors = {
-  alignment: "#1b5993",
-  setup: "#0a2239",
-  implementation: "#fe5f55",
+  alignment: '#1b5993',
+  setup: '#0a2239',
+  implementation: '#fe5f55',
 }
 
 const MethodologyGuidePage = () => {
-  const { t } = useTranslation("methodology.guide")
+  const { t } = useTranslation('methodology.guide')
   const { data: session } = useSession()
 
   // State management
-  const [selectedPreset, setSelectedPreset] = useState("startup")
+  const [selectedPreset, setSelectedPreset] = useState('startup')
   const [toggles, setToggles] = useState(presetConfigs.startup)
   const [selectedItem, setSelectedItem] = useState(null)
   const [dialogOpen, setDialogOpen] = useState(false)
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false)
   const [snapshotDrawerOpen, setSnapshotDrawerOpen] = useState(false)
   const [snapshotFormData, setSnapshotFormData] = useState({
-    name: "",
-    email: "",
-    internalStructure: "",
-    roles: "",
+    name: '',
+    email: '',
+    internalStructure: '',
+    roles: '',
     mainIssues: [],
-    betaPilot: "no",
+    betaPilot: 'no',
   })
   const [formSubmitting, setFormSubmitting] = useState(false)
   const [formSuccess, setFormSuccess] = useState(false)
@@ -88,7 +92,7 @@ const MethodologyGuidePage = () => {
     if (preset && presetConfigs[preset]) {
       setSelectedPreset(preset)
       setToggles(presetConfigs[preset])
-      trackEvent("methodology_guide_preset_selected", { preset })
+      trackEvent('methodology_guide_preset_selected', { preset })
     }
   }
 
@@ -98,7 +102,7 @@ const MethodologyGuidePage = () => {
       ...prev,
       [aspect]: value,
     }))
-    trackEvent("methodology_guide_toggle_changed", { aspect, value })
+    trackEvent('methodology_guide_toggle_changed', { aspect, value })
   }
 
   // Handle item dialog - works for both enabled and disabled items
@@ -106,7 +110,7 @@ const MethodologyGuidePage = () => {
     setSelectedItem(item)
     setDialogOpen(true)
     const importance = getItemImportance(item, toggles)
-    trackEvent("methodology_guide_item_opened", {
+    trackEvent('methodology_guide_item_opened', {
       stage: item.stage,
       key: item.key,
       enabled: importance > 0,
@@ -120,9 +124,9 @@ const MethodologyGuidePage = () => {
   }
 
   const handleCTAClick = (ctaType, route) => {
-    trackEvent("guide_cta_clicked", {
-      event_category: "engagement",
-      event_label: "methodology_guide",
+    trackEvent('guide_cta_clicked', {
+      event_category: 'engagement',
+      event_label: 'methodology_guide',
       cta_type: ctaType,
     })
     router.push(route)
@@ -130,7 +134,7 @@ const MethodologyGuidePage = () => {
 
   const handleSnapshotDrawerOpen = () => {
     setSnapshotDrawerOpen(true)
-    trackEvent("snapshot_drawer_opened", { source: "desktop_panel" })
+    trackEvent('snapshot_drawer_opened', { source: 'desktop_panel' })
   }
 
   const handleSnapshotDrawerClose = () => {
@@ -138,12 +142,12 @@ const MethodologyGuidePage = () => {
     if (formSuccess) {
       setFormSuccess(false)
       setSnapshotFormData({
-        name: "",
-        email: "",
-        internalStructure: "",
-        roles: "",
+        name: '',
+        email: '',
+        internalStructure: '',
+        roles: '',
         mainIssues: [],
-        betaPilot: "no",
+        betaPilot: 'no',
       })
     }
   }
@@ -178,7 +182,7 @@ const MethodologyGuidePage = () => {
     // Simulate API call - replace with actual submission
     await new Promise((resolve) => setTimeout(resolve, 1500))
 
-    trackEvent("snapshot_request_submitted", {
+    trackEvent('snapshot_request_submitted', {
       name: snapshotFormData.name,
       email: snapshotFormData.email,
       internalStructure: snapshotFormData.internalStructure,
@@ -194,20 +198,32 @@ const MethodologyGuidePage = () => {
 
   // Get module icon(s)
   const getModuleIcon = (module) => {
-    if (module === "both") {
+    if (module === 'both') {
       return (
         <Box className="module-icons-both">
           <ExploreIcon className="module-icon-compass" />
-          <Box component="img" src="/logos/a6-blue.png" alt="AngoraSix" className="module-icon-platform" />
+          <Box
+            component="img"
+            src="/logos/a6-blue.png"
+            alt="AngoraSix"
+            className="module-icon-platform"
+          />
         </Box>
       )
     }
 
     switch (module) {
-      case "compass":
+      case 'compass':
         return <ExploreIcon className="module-icon-compass" />
-      case "platform":
-        return <Box component="img" src="/logos/a6-blue.png" alt="AngoraSix" className="module-icon-platform" />
+      case 'platform':
+        return (
+          <Box
+            component="img"
+            src="/logos/a6-blue.png"
+            alt="AngoraSix"
+            className="module-icon-platform"
+          />
+        )
       default:
         return null
     }
@@ -222,7 +238,9 @@ const MethodologyGuidePage = () => {
         {[1, 2, 3].map((level) => (
           <CircleIcon
             key={level}
-            className={`importance-circle ${isEnabled && level <= importance ? "filled" : "empty"}`}
+            className={`importance-circle ${
+              isEnabled && level <= importance ? 'filled' : 'empty'
+            }`}
           />
         ))}
       </Box>
@@ -237,7 +255,7 @@ const MethodologyGuidePage = () => {
     return (
       <Card
         key={item.key}
-        className={`item-card ${isEnabled ? "enabled" : "disabled"}`}
+        className={`item-card ${isEnabled ? 'enabled' : 'disabled'}`}
         onClick={() => handleItemClick(item)}
       >
         <CardContent className="item-card-content">
@@ -246,9 +264,13 @@ const MethodologyGuidePage = () => {
               <Typography variant="subtitle2" className="item-card-title">
                 {t(`items.${item.key}.title`)}
               </Typography>
-              <Box className="item-card-module">{item.module && getModuleIcon(item.module)}</Box>
+              <Box className="item-card-module">
+                {item.module && getModuleIcon(item.module)}
+              </Box>
             </Box>
-            <Box className="item-card-importance">{renderImportanceIndicator(importance)}</Box>
+            <Box className="item-card-importance">
+              {renderImportanceIndicator(importance)}
+            </Box>
           </Box>
         </CardContent>
       </Card>
@@ -258,12 +280,12 @@ const MethodologyGuidePage = () => {
   const renderSnapshotSummary = () => (
     <Box className="snapshot-summary">
       <Typography variant="subtitle2" className="summary-title">
-        {t("snapshot.summary.title")}
+        {t('snapshot.summary.title')}
       </Typography>
       <Box className="summary-items">
         <Box className="summary-item">
           <Typography variant="caption" className="summary-label">
-            {t("presets.title")}:
+            {t('presets.title')}:
           </Typography>
           <Typography variant="body2" className="summary-value">
             {t(`presets.${selectedPreset}.label`)}
@@ -288,20 +310,37 @@ const MethodologyGuidePage = () => {
       return (
         <Box className="form-success">
           <CheckCircleIcon className="success-icon" />
-          <Typography variant="h6">{t("snapshot.form.successTitle")}</Typography>
+          <Typography variant="h6">
+            {t('snapshot.form.successTitle')}
+          </Typography>
           <Typography variant="body2" className="snapshot-success-message">
-            {t("snapshot.form.successMessage")}
+            {t('snapshot.form.successMessage')}
           </Typography>
           <Box className="success-actions">
-            <Button variant="contained" color="primary" onClick={handleSnapshotDrawerClose} fullWidth>
-              {t("snapshot.form.backToGuide")}
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={handleSnapshotDrawerClose}
+              fullWidth
+            >
+              {t('snapshot.form.backToGuide')}
             </Button>
             <Box className="secondary-ctas">
-              <Button variant="text" color="primary" onClick={() => router.push("/services")} size="small">
-                {t("snapshot.form.learnAdvisory")}
+              <Button
+                variant="text"
+                color="primary"
+                onClick={() => router.push('/services')}
+                size="small"
+              >
+                {t('snapshot.form.learnAdvisory')}
               </Button>
-              <Button variant="text" color="primary" onClick={() => router.push("/auth/register")} size="small">
-                {t("snapshot.form.register")}
+              <Button
+                variant="text"
+                color="primary"
+                onClick={() => router.push('/auth/register')}
+                size="small"
+              >
+                {t('snapshot.form.register')}
               </Button>
             </Box>
           </Box>
@@ -310,60 +349,85 @@ const MethodologyGuidePage = () => {
     }
 
     const issueOptions = [
-      "decisionMaking",
-      "contributionRecognition",
-      "rolesAccountability",
-      "fairnessEquity",
-      "participationEngagement",
-      "communicationConflict",
-      "other",
+      'decisionMaking',
+      'contributionRecognition',
+      'rolesAccountability',
+      'fairnessEquity',
+      'participationEngagement',
+      'communicationConflict',
+      'other',
     ]
 
     return (
-      <Box component="form" onSubmit={handleSnapshotFormSubmit} className="snapshot-form">
+      <Box
+        component="form"
+        onSubmit={handleSnapshotFormSubmit}
+        className="snapshot-form"
+      >
         {/* Contact Section */}
         <Box className="form-section">
-          <Typography className="section-title">{t("snapshot.form.contactInfo")}</Typography>
+          <Typography className="section-title">
+            {t('snapshot.form.contactInfo')}
+          </Typography>
           <TextField
             fullWidth
-            label={t("snapshot.form.nameLabel")}
+            label={t('snapshot.form.nameLabel')}
             value={snapshotFormData.name}
-            onChange={(e) => setSnapshotFormData({ ...snapshotFormData, name: e.target.value })}
+            onChange={(e) =>
+              setSnapshotFormData({ ...snapshotFormData, name: e.target.value })
+            }
             required
           />
           <TextField
             fullWidth
-            label={t("snapshot.form.emailLabel")}
+            label={t('snapshot.form.emailLabel')}
             type="email"
             value={snapshotFormData.email}
-            onChange={(e) => setSnapshotFormData({ ...snapshotFormData, email: e.target.value })}
+            onChange={(e) =>
+              setSnapshotFormData({
+                ...snapshotFormData,
+                email: e.target.value,
+              })
+            }
             required
           />
         </Box>
 
         {/* Context Section */}
         <Box className="form-section">
-          <Typography className="section-title">{t("snapshot.form.context")}</Typography>
+          <Typography className="section-title">
+            {t('snapshot.form.context')}
+          </Typography>
           <TextField
             fullWidth
-            label={t("snapshot.form.internalStructureLabel")}
-            placeholder={t("snapshot.form.internalStructurePlaceholder")}
+            label={t('snapshot.form.internalStructureLabel')}
+            placeholder={t('snapshot.form.internalStructurePlaceholder')}
             value={snapshotFormData.internalStructure}
-            onChange={(e) => setSnapshotFormData({ ...snapshotFormData, internalStructure: e.target.value })}
+            onChange={(e) =>
+              setSnapshotFormData({
+                ...snapshotFormData,
+                internalStructure: e.target.value,
+              })
+            }
             required
           />
           <TextField
             fullWidth
-            label={t("snapshot.form.rolesLabel")}
+            label={t('snapshot.form.rolesLabel')}
             value={snapshotFormData.roles}
-            onChange={(e) => setSnapshotFormData({ ...snapshotFormData, roles: e.target.value })}
+            onChange={(e) =>
+              setSnapshotFormData({
+                ...snapshotFormData,
+                roles: e.target.value,
+              })
+            }
             multiline
             rows={2}
           />
 
           <Box className="issues-field">
             <Typography variant="body2" className="field-label">
-              {t("snapshot.form.mainIssuesLabel")}
+              {t('snapshot.form.mainIssuesLabel')}
             </Typography>
             <Box className="issues-chips">
               {issueOptions.map((issue) => (
@@ -371,25 +435,52 @@ const MethodologyGuidePage = () => {
                   key={issue}
                   label={t(`snapshot.form.issues.${issue}`)}
                   onClick={() => handleIssueToggle(issue)}
-                  color={snapshotFormData.mainIssues.includes(issue) ? "primary" : "default"}
-                  variant={snapshotFormData.mainIssues.includes(issue) ? "filled" : "outlined"}
+                  color={
+                    snapshotFormData.mainIssues.includes(issue)
+                      ? 'primary'
+                      : 'default'
+                  }
+                  variant={
+                    snapshotFormData.mainIssues.includes(issue)
+                      ? 'filled'
+                      : 'outlined'
+                  }
                   size="small"
-                  className={snapshotFormData.mainIssues.includes(issue) ? "selected" : ""}
+                  className={
+                    snapshotFormData.mainIssues.includes(issue)
+                      ? 'selected'
+                      : ''
+                  }
                 />
               ))}
             </Box>
           </Box>
 
           <FormControl fullWidth required>
-            <FormLabel>{t("snapshot.form.betaPilotLabel")}</FormLabel>
+            <Typography variant="body2" className="field-label">
+              {t('snapshot.form.betaPilotLabel')}
+            </Typography>
             <RadioGroup
               row
               value={snapshotFormData.betaPilot}
-              onChange={(e) => setSnapshotFormData({ ...snapshotFormData, betaPilot: e.target.value })}
+              onChange={(e) =>
+                setSnapshotFormData({
+                  ...snapshotFormData,
+                  betaPilot: e.target.value,
+                })
+              }
               name="beta-pilot-group"
             >
-              <FormControlLabel value="yes" control={<Radio />} label={t("snapshot.form.betaPilotYes")} />
-              <FormControlLabel value="no" control={<Radio />} label={t("snapshot.form.betaPilotNo")} />
+              <FormControlLabel
+                value="yes"
+                control={<Radio />}
+                label={t('snapshot.form.betaPilotYes')}
+              />
+              <FormControlLabel
+                value="no"
+                control={<Radio />}
+                label={t('snapshot.form.betaPilotNo')}
+              />
             </RadioGroup>
           </FormControl>
         </Box>
@@ -403,8 +494,13 @@ const MethodologyGuidePage = () => {
           disabled={formSubmitting}
           className="submit-button"
         >
-          {formSubmitting ? t("snapshot.form.submitting") : t("snapshot.form.submit")}
+          {formSubmitting
+            ? t('snapshot.form.submitting')
+            : t('snapshot.form.submit')}
         </Button>
+        <Typography variant="caption" className="drawer-privacy">
+          {t('snapshot.drawer.privacy')}
+        </Typography>
       </Box>
     )
   }
@@ -413,10 +509,10 @@ const MethodologyGuidePage = () => {
     <Box className="snapshot-cta">
       <Box className="snapshot-cta-content">
         <Typography variant="h6" className="snapshot-cta-title">
-          {t("snapshot.cta.title")}
+          {t('snapshot.cta.title')}
         </Typography>
         <Typography variant="body2" className="snapshot-cta-description">
-          {t("snapshot.cta.description")}
+          {t('snapshot.cta.subtitle')}
         </Typography>
       </Box>
       <Button
@@ -424,12 +520,12 @@ const MethodologyGuidePage = () => {
         color="secondary"
         onClick={handleSnapshotCtaClick}
         className="snapshot-cta-button"
-        startIcon={<CameraAltIcon />}
+        startIcon={<InsightsIcon />}
       >
-        {t("snapshot.cta.button")}
+        {t('snapshot.cta.button')}
       </Button>
       <Typography variant="caption" className="snapshot-cta-microcopy">
-        {t("snapshot.cta.microcopy")}
+        {t('snapshot.cta.microcopy')}
       </Typography>
     </Box>
   )
@@ -441,9 +537,9 @@ const MethodologyGuidePage = () => {
       <Box className="presets-section">
         <Box className="presets-header">
           <Typography variant="h6" className="presets-title">
-            {t("presets.title")}
+            {t('presets.title')}
           </Typography>
-          <Tooltip title={t("presets.tooltip")} placement="top">
+          <Tooltip title={t('presets.tooltip')} placement="top">
             <IconButton size="small" className="info-icon-button">
               <InfoIcon fontSize="small" />
             </IconButton>
@@ -451,14 +547,20 @@ const MethodologyGuidePage = () => {
         </Box>
         <Box className="presets-chips">
           {Object.keys(presetConfigs).map((preset) => (
-            <Tooltip key={preset} title={t(`presets.${preset}.tooltip`)} placement="top">
+            <Tooltip
+              key={preset}
+              title={t(`presets.${preset}.tooltip`)}
+              placement="top"
+            >
               <Chip
                 label={t(`presets.${preset}.label`)}
-                variant={selectedPreset === preset ? "filled" : "outlined"}
-                color={selectedPreset === preset ? "primary" : "default"}
+                variant={selectedPreset === preset ? 'filled' : 'outlined'}
+                color={selectedPreset === preset ? 'primary' : 'default'}
                 onClick={() => handlePresetChange(preset)}
                 size="small"
-                className={`preset-chip ${selectedPreset === preset ? "selected" : ""}`}
+                className={`preset-chip ${
+                  selectedPreset === preset ? 'selected' : ''
+                }`}
               />
             </Tooltip>
           ))}
@@ -468,86 +570,94 @@ const MethodologyGuidePage = () => {
       {/* Toggles - Compressed */}
       <Box className="aspects-section">
         <Typography variant="h6" className="aspects-title">
-          {t("aspects.title")}
+          {t('aspects.title')}
         </Typography>
         <Grid container spacing={2}>
-          {Object.entries(methodologyGuideConfig.aspects).map(([aspect, options]) => (
-            <Grid item xs={12} key={aspect}>
-              <Box className="aspect-item">
-                <Box className="aspect-header">
-                  <Typography variant="caption" className="aspect-label">
-                    {t(`aspects.${aspect}.label`)}
-                  </Typography>
-                  <Tooltip title={t(`aspects.${aspect}.tooltip`)}>
-                    <IconButton size="small" className="info-icon-button">
-                      <InfoIcon fontSize="small" />
-                    </IconButton>
-                  </Tooltip>
-                </Box>
-                {options.length === 4 ? (
-                  <Box className="toggle-grid-4">
-                    <ToggleButton
-                      value={options[0]}
-                      selected={toggles[aspect] === options[0]}
-                      onChange={(e) => handleToggleChange(aspect, options[0])}
-                      size="small"
-                      className="toggle-button top-left"
-                    >
-                      {t(`aspects.${aspect}.options.${options[0]}`)}
-                    </ToggleButton>
-                    <ToggleButton
-                      value={options[1]}
-                      selected={toggles[aspect] === options[1]}
-                      onChange={(e) => handleToggleChange(aspect, options[1])}
-                      size="small"
-                      className="toggle-button top-right"
-                    >
-                      {t(`aspects.${aspect}.options.${options[1]}`)}
-                    </ToggleButton>
-                    <ToggleButton
-                      value={options[2]}
-                      selected={toggles[aspect] === options[2]}
-                      onChange={(e) => handleToggleChange(aspect, options[2])}
-                      size="small"
-                      className="toggle-button bottom-left"
-                    >
-                      {t(`aspects.${aspect}.options.${options[2]}`)}
-                    </ToggleButton>
-                    <ToggleButton
-                      value={options[3]}
-                      selected={toggles[aspect] === options[3]}
-                      onChange={(e) => handleToggleChange(aspect, options[3])}
-                      size="small"
-                      className="toggle-button bottom-right"
-                    >
-                      {t(`aspects.${aspect}.options.${options[3]}`)}
-                    </ToggleButton>
+          {Object.entries(methodologyGuideConfig.aspects).map(
+            ([aspect, options]) => (
+              <Grid item xs={12} key={aspect}>
+                <Box className="aspect-item">
+                  <Box className="aspect-header">
+                    <Typography variant="caption" className="aspect-label">
+                      {t(`aspects.${aspect}.label`)}
+                    </Typography>
+                    <Tooltip title={t(`aspects.${aspect}.tooltip`)}>
+                      <IconButton size="small" className="info-icon-button">
+                        <InfoIcon fontSize="small" />
+                      </IconButton>
+                    </Tooltip>
                   </Box>
-                ) : (
-                  <ToggleButtonGroup
-                    value={toggles[aspect]}
-                    exclusive
-                    onChange={(e, value) => value && handleToggleChange(aspect, value)}
-                    size="small"
-                    fullWidth
-                    className="toggle-group"
-                  >
-                    {options.map((option) => (
-                      <ToggleButton key={option} value={option} className="toggle-button">
-                        {t(`aspects.${aspect}.options.${option}`)}
+                  {options.length === 4 ? (
+                    <Box className="toggle-grid-4">
+                      <ToggleButton
+                        value={options[0]}
+                        selected={toggles[aspect] === options[0]}
+                        onChange={(e) => handleToggleChange(aspect, options[0])}
+                        size="small"
+                        className="toggle-button top-left"
+                      >
+                        {t(`aspects.${aspect}.options.${options[0]}`)}
                       </ToggleButton>
-                    ))}
-                  </ToggleButtonGroup>
-                )}
-              </Box>
-            </Grid>
-          ))}
+                      <ToggleButton
+                        value={options[1]}
+                        selected={toggles[aspect] === options[1]}
+                        onChange={(e) => handleToggleChange(aspect, options[1])}
+                        size="small"
+                        className="toggle-button top-right"
+                      >
+                        {t(`aspects.${aspect}.options.${options[1]}`)}
+                      </ToggleButton>
+                      <ToggleButton
+                        value={options[2]}
+                        selected={toggles[aspect] === options[2]}
+                        onChange={(e) => handleToggleChange(aspect, options[2])}
+                        size="small"
+                        className="toggle-button bottom-left"
+                      >
+                        {t(`aspects.${aspect}.options.${options[2]}`)}
+                      </ToggleButton>
+                      <ToggleButton
+                        value={options[3]}
+                        selected={toggles[aspect] === options[3]}
+                        onChange={(e) => handleToggleChange(aspect, options[3])}
+                        size="small"
+                        className="toggle-button bottom-right"
+                      >
+                        {t(`aspects.${aspect}.options.${options[3]}`)}
+                      </ToggleButton>
+                    </Box>
+                  ) : (
+                    <ToggleButtonGroup
+                      value={toggles[aspect]}
+                      exclusive
+                      onChange={(e, value) =>
+                        value && handleToggleChange(aspect, value)
+                      }
+                      size="small"
+                      fullWidth
+                      className="toggle-group"
+                    >
+                      {options.map((option) => (
+                        <ToggleButton
+                          key={option}
+                          value={option}
+                          className="toggle-button"
+                        >
+                          {t(`aspects.${aspect}.options.${option}`)}
+                        </ToggleButton>
+                      ))}
+                    </ToggleButtonGroup>
+                  )}
+                </Box>
+              </Grid>
+            )
+          )}
         </Grid>
       </Box>
 
       {/* Snapshot CTA section using unified component */}
       <Box className="snapshot-panel">
-        <AutoAwesomeIcon sx={{ my: 2 }} />
+        <Divider sx={{ my: 2 }} />
         {renderSnapshotCTA()}
       </Box>
     </Box>
@@ -556,14 +666,26 @@ const MethodologyGuidePage = () => {
   return (
     <>
       <Head>
-        <title>{t("page.title")}</title>
-        <meta name="description" content={t("page.description")} />
+        <title>{t('page.title')}</title>
+        <meta name="description" content={t('page.description')} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <meta property="og:title" key="og.title" content={t("page.title")} />
-        <meta property="og:description" key="og.description" content={t("page.description")} />
-        <meta property="og:image" key="og.image" content={config.site.head.image.logoSquare} />
-        <meta property="og:url" key="og.url" content="https://angorasix.com/methodology/overview" />
+        <meta property="og:title" key="og.title" content={t('page.title')} />
+        <meta
+          property="og:description"
+          key="og.description"
+          content={t('page.description')}
+        />
+        <meta
+          property="og:image"
+          key="og.image"
+          content={config.site.head.image.logoSquare}
+        />
+        <meta
+          property="og:url"
+          key="og.url"
+          content="https://angorasix.com/methodology/overview"
+        />
         <meta property="og:type" key="og.type" content="website" />
       </Head>
       <Box className="MethodologyGuidePage">
@@ -571,15 +693,23 @@ const MethodologyGuidePage = () => {
         <section className="guide-hero">
           <div className="hero-content">
             <Typography variant="h1" component="h1" className="hero-title">
-              {t("title")}
+              {t('title')}
             </Typography>
 
             <Typography variant="h5" className="hero-description">
-              {t("subtitle")}
+              {t('subtitle')}
             </Typography>
 
-            <Typography variant="body2" component="blockquote" className="hero-quote">
-              {t("description")}
+            <Typography
+              variant="body2"
+              component="blockquote"
+              className="hero-quote"
+            >
+              {t('quote')}
+            </Typography>
+
+            <Typography variant="body1" className="hero-microcopy">
+              {t('microcopy')}
             </Typography>
           </div>
         </section>
@@ -594,17 +724,30 @@ const MethodologyGuidePage = () => {
                 const stageColor = stageColors[stage.key]
 
                 return (
-                  <Paper key={stage.key} elevation={1} className={`stage-card stage-${stage.key}`}>
+                  <Paper
+                    key={stage.key}
+                    elevation={1}
+                    className={`stage-card stage-${stage.key}`}
+                  >
                     <Box className="stage-header">
-                      <StageIcon className="stage-icon" style={{ color: stageColor }} />
-                      <Typography variant="h5" className="stage-title" style={{ color: stageColor }}>
+                      <StageIcon
+                        className="stage-icon"
+                        style={{ color: stageColor }}
+                      />
+                      <Typography
+                        variant="h5"
+                        className="stage-title"
+                        style={{ color: stageColor }}
+                      >
                         {t(`stages.${stage.key}.title`)}
                       </Typography>
                     </Box>
                     <Typography variant="body2" className="stage-description">
                       {t(`stages.${stage.key}.description`)}
                     </Typography>
-                    <Box className="stage-items">{stage.items.map((item) => renderMiniItemCard(item))}</Box>
+                    <Box className="stage-items">
+                      {stage.items.map((item) => renderMiniItemCard(item))}
+                    </Box>
                   </Paper>
                 )
               })}
@@ -622,10 +765,15 @@ const MethodologyGuidePage = () => {
           <SettingsIcon />
         </Fab>
 
-        <Drawer anchor="bottom" open={mobileDrawerOpen} onClose={handleMobileDrawerClose} className="mobile-drawer">
+        <Drawer
+          anchor="bottom"
+          open={mobileDrawerOpen}
+          onClose={handleMobileDrawerClose}
+          className="mobile-drawer"
+        >
           <Box className="mobile-drawer-content">
             <Box className="mobile-drawer-header">
-              <Typography variant="h6">{t("controls.title")}</Typography>
+              <Typography variant="h6">{t('controls.title')}</Typography>
               <IconButton onClick={handleMobileDrawerClose}>
                 <CloseIcon />
               </IconButton>
@@ -645,16 +793,26 @@ const MethodologyGuidePage = () => {
         >
           <Box className="snapshot-drawer-content">
             <Box className="snapshot-drawer-header">
-              <IconButton onClick={handleSnapshotDrawerClose} className="back-button">
+              <IconButton
+                onClick={handleSnapshotDrawerClose}
+                className="back-button"
+              >
                 <ArrowBackIcon />
               </IconButton>
               <Typography variant="h5" className="drawer-title">
-                {t("snapshot.drawer.title")}
+                {t('snapshot.drawer.title')}
               </Typography>
               <IconButton onClick={handleSnapshotDrawerClose}>
                 <CloseIcon />
               </IconButton>
             </Box>
+            {!formSuccess && (
+              <Box className="snapshot-drawer-description">
+                <Typography variant="body2" className="drawer-description">
+                  {t('snapshot.drawer.description')}
+                </Typography>
+              </Box>
+            )}
             {!formSuccess && renderSnapshotSummary()}
             {renderSnapshotForm()}
           </Box>

@@ -61,13 +61,9 @@
 /* Added microcopy style below quote */
 .MethodologyGuidePage .hero-microcopy {
   color: #dce7ea;
-  font-size: 1rem;
-  line-height: 1.6;
-  max-width: 700px;
-  margin: 24px auto 0;
-  text-align: left;
-  animation: fadeInUp 0.8s ease-out 0.6s both;
-  opacity: 0.9;
+  margin-top: 1rem;
+  opacity: 0.8;
+  font-style: italic;
 }
 
 @keyframes fadeIn {
@@ -535,6 +531,24 @@
   border-bottom: 2px solid #e0e4e8;
 }
 
+.snapshot-drawer-description {
+  margin-bottom: 1rem;
+}
+
+.drawer-description {
+  color: #5a6c7d;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+}
+
+.drawer-privacy {
+  color: #5a6c7d;
+  opacity: 0.8;
+  font-size: 0.875rem;
+  font-style: italic;
+}
+
 .snapshot-drawer-header .back-button {
   color: #1b5993;
 }
@@ -617,7 +631,8 @@
 .snapshot-form .field-label {
   font-weight: 600;
   color: #2c3e50;
-  margin-bottom: 8px;
+  margin-top: 0.5rem;
+  margin-bottom: 0.25rem;
 }
 
 /* Issues chips field styles */

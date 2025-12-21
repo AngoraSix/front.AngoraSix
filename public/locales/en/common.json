@@ -74,12 +74,7 @@
       "resources": {
         "main": "Resources",
         "gettingStarted": "Getting Started",
-        "methodology": "AngoraSix Methodology",
-        "guide": "Project Guidance & Snapshot"
-      },
-      "methodology": {
-        "main": "Methodology",
-        "overview": "The AngoraSix Methodology",
+        "methodology": "Project Guide + Team Snapshot",
         "guide": "Project Guidance & Snapshot"
       },
       "contact": "Contact",

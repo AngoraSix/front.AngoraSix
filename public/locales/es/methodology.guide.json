@@ -1,11 +1,12 @@
 {
   "page": {
-    "title": "Guía para proyectos y snapshot",
+    "title": "Guía interactiva de proyecto & Snapshot de equipo",
     "description": "Una guía detallada, una hoja de ruta para implementar una gestión de proyectos justa y eficiente."
   },
-  "title": "Guía para proyectos y snapshot",
-  "subtitle": "Una hoja de ruta para implementar una gestión de proyectos justa y eficiente. Esta guía se adapta a las características de tu proyecto, mostrándote las actividades y herramientas más relevantes en cada etapa.",
-  "description": "The whole point of the dancing is the dance - Alan Watts",
+  "title": "Guía interactiva de proyecto & Snapshot de equipo",
+  "subtitle": "Explora una hoja de ruta ligera que se adapta al contexto de tu proyecto. Si deseas un análisis escrito personalizado, solicita un Snapshot de Dinámicas de Equipo (48h).",
+  "quote": "The whole point of the dancing is the dance - Alan Watts",
+  "microcopy": "Explora libremente. Si deseas un análisis escrito personalizado, solicita un Snapshot.",
   "presets": {
     "title": "Presets Rápidos",
     "tooltip": "Escenarios preconfigurados que automáticamente ajustan los aspectos más relevantes para tipos comunes de proyectos.",
@@ -114,7 +115,12 @@
         "Identificar posibles brechas de capacidades o recursos que afecten el avance",
         "Asegurar que el equipo tenga las condiciones necesarias para avanzar de forma sostenible"
       ],
-      "tools": ["A6 Compass", "Matriz de Habilidades", "Talleres", "Entrevistas estructuradas"]
+      "tools": [
+        "A6 Compass",
+        "Matriz de Habilidades",
+        "Talleres",
+        "Entrevistas estructuradas"
+      ]
     },
     "team-alignment": {
       "title": "Alineación del Equipo",
@@ -169,7 +175,12 @@
         "Desarrollar habilidades y criterios para la gestión y colaboración efectiva",
         "Proveer una hoja de ruta de aprendizaje integral que acompañe la evolución del proyecto"
       ],
-      "tools": ["A6 Compass", "Talleres", "Sesiones Prácticas", "Recursos y Bibliotecas Online"]
+      "tools": [
+        "A6 Compass",
+        "Talleres",
+        "Sesiones Prácticas",
+        "Recursos y Bibliotecas Online"
+      ]
     },
     "governance-rules": {
       "title": "Reglas de Gobernanza",
@@ -202,7 +213,15 @@
         "Reducir carga manual y errores en la medición de contribuciones",
         "Consolidar ownership y métricas de aporte en un solo sistema"
       ],
-      "tools": ["A6 Layer", "GitHub Projects", "Jira", "Trello", "Notion", "Asana", "ClickUp"]
+      "tools": [
+        "A6 Layer",
+        "GitHub Projects",
+        "Jira",
+        "Trello",
+        "Notion",
+        "Asana",
+        "ClickUp"
+      ]
     },
     "shared-wallet-setup": {
       "title": "Billetera Compartida",
@@ -229,7 +248,15 @@
         "Configurar flujos de trabajo compatibles con la gobernanza A6",
         "Asegurar que el equipo pueda operar con claridad y autonomía"
       ],
-      "tools": ["A6 Compass", "GitHub Projects", "Jira", "Trello", "Notion", "Asana", "ClickUp"]
+      "tools": [
+        "A6 Compass",
+        "GitHub Projects",
+        "Jira",
+        "Trello",
+        "Notion",
+        "Asana",
+        "ClickUp"
+      ]
     },
     "metrics-setup": {
       "title": "Métricas y Seguimiento",
@@ -240,7 +267,13 @@
         "Configurar dashboards integrados dentro de la A6 Layer",
         "Promover decisiones informadas y adaptativas"
       ],
-      "tools": ["A6 Compass", "A6 Layer", "Dashboards de Progreso", "KPIs", "Analíticas"]
+      "tools": [
+        "A6 Compass",
+        "A6 Layer",
+        "Dashboards de Progreso",
+        "KPIs",
+        "Analíticas"
+      ]
     },
     "job-marketplace": {
       "title": "Mercado de Contribuciones",
@@ -273,7 +306,12 @@
         "Realizar microajustes basados en evidencias y consensos del equipo",
         "Mantener el sistema de reglas y compensaciones actualizado y alineado con la evolución del proyecto"
       ],
-      "tools": ["A6 Compass", "A6 Layer", "Ceremonias Ágiles", "Dashboards de Ownership"]
+      "tools": [
+        "A6 Compass",
+        "A6 Layer",
+        "Ceremonias Ágiles",
+        "Dashboards de Ownership"
+      ]
     },
     "income-distribution": {
       "title": "Distribución de Ingresos",
@@ -284,7 +322,11 @@
         "Asegurar que cada miembro reciba su compensación justa",
         "Mantener registros verificables de todas las transacciones"
       ],
-      "tools": ["A6 Layer", "Billeteras Compartidas", "Sistemas de Pago Integrados"]
+      "tools": [
+        "A6 Layer",
+        "Billeteras Compartidas",
+        "Sistemas de Pago Integrados"
+      ]
     },
     "governance": {
       "title": "Gobernanza Activa",
@@ -328,7 +370,12 @@
         "Mantener equilibrio entre aportes, reconocimiento y bienestar del equipo",
         "Promover ajustes continuos para sostener un entorno de colaboración saludable"
       ],
-      "tools": ["A6 Layer", "A6 Compass", "Dashboards de Salud", "Encuestas Breves"]
+      "tools": [
+        "A6 Layer",
+        "A6 Compass",
+        "Dashboards de Salud",
+        "Encuestas Breves"
+      ]
     },
     "general-roadmap": {
       "title": "Revisión del Roadmap General",
@@ -369,14 +416,15 @@
   "snapshot": {
     "cta": {
       "title": "Snapshot de Dinámicas de Equipo (48h)",
-      "subtitle": "Obtené un análisis personalizado basado en tu configuración",
-      "description": "Obtené un análisis personalizado del contexto de tu equipo basado en tu configuración.",
+      "subtitle": "Un snapshot escrito de 1 página adaptado a tu proyecto.",
       "button": "Solicitar Snapshot",
       "microcopy": "No es un bot… capacidad semanal limitada",
       "notes": "Capacidad limitada + enfoque de privacidad (evitá compartir info sensible)"
     },
     "drawer": {
-      "title": "Solicitar Snapshot de Dinámicas de Equipo"
+      "title": "Solicitar Snapshot de Dinámicas de Equipo",
+      "description": "Obtené 3 tensiones probables, 5 preguntas clave y 3 áreas de enfoque inmediato — en 48h.",
+      "privacy": "Tu información no se comparte. Se usa solo para tu snapshot + aprendizaje interno anonimizado. Por favor, evita compartir información personal sensible o confidencial."
     },
     "summary": {
       "title": "Tu Configuración"
