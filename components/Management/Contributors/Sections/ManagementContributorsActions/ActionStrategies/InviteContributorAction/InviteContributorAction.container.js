@@ -48,6 +48,8 @@ const InviteContributorActionContainer = ({
     try {
       await api.front.inviteContributor(clubId, formState.formData);
       onSuccess(t('management.contributors.actions.invite.success'));
+      
+      api.front.wakeupMailingSvc()
       dispatch(setDialogOpened(false));
     } catch (error) {
       onError(t('management.contributors.actions.invite.error'));
