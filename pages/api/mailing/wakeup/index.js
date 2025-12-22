@@ -10,7 +10,7 @@ const page = async (req, res) => {
 
     try {
       await api.messaging.wakeup(validatedToken)
-      res.status(204)
+      res.status(204).end()
     } catch (err) {
       const errorMessage = `Error waking up messaging service[${req.method}]`,
         internalServerErr = new InternalServerError(
@@ -30,7 +30,7 @@ const page = async (req, res) => {
       `No API support for ${req.method} HTTP method`,
       'MESSAGING_WAKEUP'
     )
-    res.status(204)
+    res.status(204).end()
   }
 }
 
