@@ -252,6 +252,64 @@
 }
 
 /* ================================
+   LEGEND PANEL
+   ================================ */
+.MethodologyGuidePage .legend-panel {
+  margin-bottom: 24px;
+  padding: 16px 20px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  border-left: 4px solid #0a2239;
+}
+
+.MethodologyGuidePage .legend-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.MethodologyGuidePage .legend-title {
+  font-weight: 600;
+  color: #0a2239;
+  margin-bottom: 4px;
+}
+
+.MethodologyGuidePage .legend-items {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.MethodologyGuidePage .legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.MethodologyGuidePage .legend-item .importance-indicator {
+  display: flex;
+  gap: 4px;
+}
+
+.MethodologyGuidePage .legend-mobile-instruction {
+  display: none;
+  color: #5a6c7d;
+  font-style: italic;
+  margin-top: 4px;
+}
+
+/* Mobile legend adjustments */
+@media (max-width: 960px) {
+  .MethodologyGuidePage .legend-mobile-instruction {
+    display: block;
+  }
+
+  .MethodologyGuidePage .legend-items {
+    gap: 16px;
+  }
+}
+
+/* ================================
    IMPORTANCE INDICATOR
    ================================ */
 .MethodologyGuidePage .importance-indicator {
@@ -1104,6 +1162,12 @@
 
 /* Responsive */
 @media (max-width: 768px) {
+  .methodology-dialog .MuiDialog-paper {
+    border-radius: 12px;
+    max-width: 800px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  }
+
   .methodology-dialog-header {
     flex-direction: column;
     align-items: flex-start;

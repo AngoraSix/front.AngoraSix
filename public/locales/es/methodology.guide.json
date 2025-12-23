@@ -9,6 +9,14 @@
   "subtitle3": "Explorá libremente. Si querés un análisis escrito y personalizado de 1 página, pedí un Snapshot (48h).",
   "quote": "The whole point of the dancing is the dance - Alan Watts",
   "microcopy": "Sin registrarte. En 5–10 minutos obtenés un mapa de prioridades según tu contexto.",
+  "legend": {
+    "title": "Importancia",
+    "low": "Baja",
+    "medium": "Media",
+    "high": "Alta",
+    "importance": "Importancia",
+    "mobileInstruction": "Ajustá tu configuración y pedí un Snapshot usando el botón en la esquina inferior derecha."
+  },
   "presets": {
     "title": "Presets Rápidos",
     "tooltip": "Escenarios preconfigurados que automáticamente ajustan los aspectos más relevantes para tipos comunes de proyectos.",
