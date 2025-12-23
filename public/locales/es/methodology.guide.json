@@ -3,10 +3,12 @@
     "title": "Guía interactiva de proyecto & Snapshot de equipo",
     "description": "Una guía detallada, una hoja de ruta para implementar una gestión de proyectos justa y eficiente."
   },
-  "title": "Guía interactiva de proyecto & Snapshot de equipo",
-  "subtitle": "Explora una hoja de ruta ligera que se adapta al contexto de tu proyecto. Si deseas un análisis escrito personalizado, solicita un Snapshot de Dinámicas de Equipo (48h).",
+  "title": "Guía interactiva del proyecto y Snapshot del equipo",
+  "subtitle1": "Un gran producto no alcanza para que un proyecto crezca con claridad y confianza: a medida que avanza, la forma de trabajar y organizarse puede volverse tu ventaja o una limitación — especialmente entre cofundadores.",
+  "subtitle2": "Esta guía personalizable te aclara el panorama — qué priorizar ahora y qué puede esperar — en alineación, gobernanza y ejecución.",
+  "subtitle3": "Explorá libremente. Si querés un análisis escrito y personalizado de 1 página, pedí un Snapshot (48h).",
   "quote": "The whole point of the dancing is the dance - Alan Watts",
-  "microcopy": "Explora libremente. Si deseas un análisis escrito personalizado, solicita un Snapshot.",
+  "microcopy": "Sin registrarte. En 5–10 minutos obtenés un mapa de prioridades según tu contexto.",
   "presets": {
     "title": "Presets Rápidos",
     "tooltip": "Escenarios preconfigurados que automáticamente ajustan los aspectos más relevantes para tipos comunes de proyectos.",
@@ -422,9 +424,14 @@
       "notes": "Capacidad limitada + enfoque de privacidad (evitá compartir info sensible)"
     },
     "drawer": {
-      "title": "Solicitar Snapshot de Dinámicas de Equipo",
-      "description": "Obtené 3 tensiones probables, 5 preguntas clave y 3 áreas de enfoque inmediato — en 48h.",
-      "privacy": "Tu información no se comparte. Se usa solo para tu snapshot + aprendizaje interno anonimizado. Por favor, evita compartir información personal sensible o confidencial."
+      "title": "Solicitar Snapshot de dinámicas de equipo",
+      "description": "Respondé 3 preguntas cortas de contexto y recibí — en un máximo de 48h:",
+      "item1": "3 tensiones probables para tener en el radar (antes de que escalen)",
+      "item2": "5 preguntas clave que el equipo debería responder en conjunto (las conversaciones que importan)",
+      "item3": "3 focos inmediatos (próximos pasos prácticos — no un backlog infinito)",
+      "item4": "Herramientas/prácticas recomendadas según tu contexto",
+      "item5": "(Si hay buen fit) una invitación a un piloto beta de 2 semanas",
+      "privacy": "Tu información no se comparte. Se usa solo para tu snapshot y para aprendizaje interno anonimizado. Por favor, evitá compartir datos sensibles, personales o confidenciales."
     },
     "summary": {
       "title": "Tu Configuración"

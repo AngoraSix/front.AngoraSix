@@ -187,7 +187,7 @@ const MethodologyGuidePage = () => {
         mainIssues: snapshotFormData.mainIssues,
         betaPilot: snapshotFormData.betaPilot,
         toggles: toggles,
-        selectedPreset: selectedPreset
+        selectedPreset: selectedPreset,
       },
       'snapshot_request_submitted'
     )
@@ -713,10 +713,17 @@ const MethodologyGuidePage = () => {
               {t('title')}
             </Typography>
 
-            <Typography variant="h5" className="hero-description">
-              {t('subtitle')}
-            </Typography>
-
+            <Box className="hero-description-container">
+              <Typography variant="h6" className="hero-description">
+                {t('subtitle1')}
+              </Typography>
+              <Typography variant="h6" className="hero-description">
+                {t('subtitle2')}
+              </Typography>
+              <Typography variant="h6" className="hero-description">
+                {t('subtitle3')}
+              </Typography>
+            </Box>
             <Typography
               variant="body2"
               component="blockquote"
@@ -828,6 +835,38 @@ const MethodologyGuidePage = () => {
                 <Typography variant="body2" className="drawer-description">
                   {t('snapshot.drawer.description')}
                 </Typography>
+                <ul>
+                  <Typography
+                    variant="body2"
+                    className="drawer-description-item"
+                  >
+                    <li>{t('snapshot.drawer.item1')}</li>
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    className="drawer-description-item"
+                  >
+                    <li>{t('snapshot.drawer.item2')}</li>
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    className="drawer-description-item"
+                  >
+                    <li>{t('snapshot.drawer.item3')}</li>
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    className="drawer-description-item"
+                  >
+                    <li>{t('snapshot.drawer.item4')}</li>
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    className="drawer-description-item"
+                  >
+                    <li>{t('snapshot.drawer.item5')}</li>
+                  </Typography>
+                </ul>
               </Box>
             )}
             {!formSuccess && renderSnapshotSummary()}
