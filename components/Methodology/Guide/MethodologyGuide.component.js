@@ -242,7 +242,13 @@ const MethodologyGuidePage = () => {
   const renderImportanceIndicator = (importance) => {
     const isEnabled = importance > 0
 
-    return (
+    // Determine importance level text
+    let importanceLevel = ''
+    if (importance === 1) importanceLevel = t('legend.low')
+    else if (importance === 2) importanceLevel = t('legend.medium')
+    else if (importance === 3) importanceLevel = t('legend.high')
+
+    const indicatorContent = (
       <Box className="importance-indicator">
         {[1, 2, 3].map((level) => (
           <CircleIcon
@@ -254,6 +260,17 @@ const MethodologyGuidePage = () => {
         ))}
       </Box>
     )
+
+    // Wrap in tooltip if enabled
+    if (isEnabled && importanceLevel) {
+      return (
+        <Tooltip title={`${t('legend.importance')}: ${importanceLevel}`} arrow>
+          {indicatorContent}
+        </Tooltip>
+      )
+    }
+
+    return indicatorContent
   }
 
   // Render mini item card
@@ -550,6 +567,9 @@ const MethodologyGuidePage = () => {
   // Render the controls panel
   const renderControlsPanel = () => (
     <Box className="controls-content">
+      <Box className="controls-description">
+        <Typography variant="body2">{t('controls.description')}</Typography>
+      </Box>
       {/* Presets */}
       <Box className="presets-section">
         <Box className="presets-header">
@@ -740,7 +760,46 @@ const MethodologyGuidePage = () => {
 
         {/* Main Content */}
         <Container className="page-main-content">
-          <Grid container spacing={3}>
+          {/* Legend Panel */}
+          <Paper elevation={1} className="legend-panel">
+            <Box className="legend-content">
+              <Typography variant="subtitle2" className="legend-title">
+                {t('legend.title')}
+              </Typography>
+              <Box className="legend-items">
+                <Box className="legend-item">
+                  <Box className="importance-indicator">
+                    <CircleIcon className="importance-circle filled" />
+                    <CircleIcon className="importance-circle empty" />
+                    <CircleIcon className="importance-circle empty" />
+                  </Box>
+                  <Typography variant="body2">{t('legend.low')}</Typography>
+                </Box>
+                <Box className="legend-item">
+                  <Box className="importance-indicator">
+                    <CircleIcon className="importance-circle filled" />
+                    <CircleIcon className="importance-circle filled" />
+                    <CircleIcon className="importance-circle empty" />
+                  </Box>
+                  <Typography variant="body2">{t('legend.medium')}</Typography>
+                </Box>
+                <Box className="legend-item">
+                  <Box className="importance-indicator">
+                    <CircleIcon className="importance-circle filled" />
+                    <CircleIcon className="importance-circle filled" />
+                    <CircleIcon className="importance-circle filled" />
+                  </Box>
+                  <Typography variant="body2">{t('legend.high')}</Typography>
+                </Box>
+              </Box>
+
+              <Typography variant="body2" className="legend-mobile-instruction">
+                {t('legend.mobileInstruction')}
+              </Typography>
+            </Box>
+          </Paper>
+
+          <Grid container spacing={4}>
             {/* Left Column - Stages (Desktop: 8/12, Mobile: 12/12) */}
             <Grid item xs={12} md={8}>
               {staticStages.map((stage) => {
@@ -793,7 +852,7 @@ const MethodologyGuidePage = () => {
           anchor="bottom"
           open={mobileDrawerOpen}
           onClose={handleMobileDrawerClose}
-          className="mobile-drawer"
+          className="mobile-drawer MethodologyGuidePage"
         >
           <Box className="mobile-drawer-content">
             <Box className="mobile-drawer-header">

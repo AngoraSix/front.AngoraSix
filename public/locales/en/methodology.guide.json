@@ -9,6 +9,14 @@
   "subtitle3": "Explore freely. If you want a tailored 1-page written analysis, ask for a Snapshot.",
   "quote": "The whole point of the dancing is the dance - Alan Watts",
   "microcopy": "No account needed. 5–10 minutes to get a prioritized roadmap.",
+  "legend": {
+    "title": "Importance",
+    "low": "Low",
+    "medium": "Medium",
+    "high": "High",
+    "importance": "Importance",
+    "mobileInstruction": "Adjust your setup and request a Snapshot using the button in the bottom-right corner."
+  },
   "presets": {
     "title": "Quick Presets",
     "tooltip": "Preconfigured scenarios that auto-adjust key aspects for common project types.",
@@ -34,7 +42,8 @@
     }
   },
   "controls": {
-    "title": "Configuration"
+    "title": "Configuration",
+    "description": "Adjust these settings to update the guide items in real time."
   },
   "aspects": {
     "title": "Project Aspects",
