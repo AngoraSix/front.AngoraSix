@@ -19,13 +19,17 @@ class MessagingAPI {
       config.api.serverBaseURL
     )
 
-    const response = await this.axios.post(`/wakeup`, {
-      headers: {
-        ...headers,
-        ...authHeaders,
-        ...infraHeaders,
-      },
-    })
+    const response = await this.axios.post(
+      `/wakeup`,
+      {},
+      {
+        headers: {
+          ...headers,
+          ...authHeaders,
+          ...infraHeaders,
+        },
+      }
+    )
     return response.data
   }
 }

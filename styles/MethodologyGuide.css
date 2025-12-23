@@ -275,6 +275,11 @@
 /* ================================
    CONTROLS PANEL
    ================================ */
+.MethodologyGuidePage .controls-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
 .MethodologyGuidePage .controls-column {
   position: relative;
 }
@@ -1002,13 +1007,15 @@
   font-size: 1.125rem;
   font-weight: 700;
   color: #0a2239;
-  margin: 0 0 16px 0;
-  padding-bottom: 8px;
+  margin: 0 0 0.5rem 0;
+  padding-bottom: 0.5rem;
   border-bottom: 2px solid #e8eef3;
 }
 
 /* Objectives */
 .methodology-dialog-objectives {
+  padding-top: 0.5rem;
+  margin-top: 0.5rem;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -1075,6 +1082,8 @@
 
 /* Tools */
 .methodology-dialog-tools {
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
   gap: 10px;

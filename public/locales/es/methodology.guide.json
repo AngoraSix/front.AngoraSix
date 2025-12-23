@@ -34,7 +34,8 @@
     }
   },
   "controls": {
-    "title": "Configuración"
+    "title": "Configuración",
+    "description": "Ajustá estos parámetros para actualizar los ítems de la guía en tiempo real."
   },
   "aspects": {
     "title": "Aspectos del Proyecto",

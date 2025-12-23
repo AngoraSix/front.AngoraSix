@@ -30,7 +30,7 @@ const page = async (req, res) => {
       `No API support for ${req.method} HTTP method`,
       'MESSAGING_WAKEUP'
     )
-    res.status(204).end()
+    res.status(405).end()
   }
 }
 

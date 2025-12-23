@@ -550,6 +550,9 @@ const MethodologyGuidePage = () => {
   // Render the controls panel
   const renderControlsPanel = () => (
     <Box className="controls-content">
+      <Box className="controls-description">
+        <Typography variant="body2">{t('controls.description')}</Typography>
+      </Box>
       {/* Presets */}
       <Box className="presets-section">
         <Box className="presets-header">
@@ -793,7 +796,7 @@ const MethodologyGuidePage = () => {
           anchor="bottom"
           open={mobileDrawerOpen}
           onClose={handleMobileDrawerClose}
-          className="mobile-drawer"
+          className="mobile-drawer MethodologyGuidePage"
         >
           <Box className="mobile-drawer-content">
             <Box className="mobile-drawer-header">

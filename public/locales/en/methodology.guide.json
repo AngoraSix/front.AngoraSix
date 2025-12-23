@@ -34,7 +34,8 @@
     }
   },
   "controls": {
-    "title": "Configuration"
+    "title": "Configuration",
+    "description": "Adjust these settings to update the guide items in real time."
   },
   "aspects": {
     "title": "Project Aspects",
