@@ -10,7 +10,7 @@
    ================================ */
 .MethodologyGuidePage .guide-hero {
   background: linear-gradient(135deg, #030d16 0%, #0f2f4d 100%);
-  padding: 120px 20px 80px;
+  padding: 120px 20px 40px;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -33,14 +33,19 @@
   animation: fadeInUp 0.8s ease-out;
 }
 
+.hero-description-container {
+  margin-bottom: 2rem;
+}
+
 .MethodologyGuidePage .hero-description {
   color: #dce7ea;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 300;
-  margin-bottom: 32px;
-  line-height: 1.6;
+  margin-bottom: 1rem;
+  line-height: 1.4;
   text-align: left;
   animation: fadeInUp 0.8s ease-out 0.2s both;
+  white-space: pre-line;
 }
 
 .MethodologyGuidePage .hero-quote {
@@ -275,8 +280,6 @@
 }
 
 .MethodologyGuidePage .controls-panel {
-  /* position: sticky;
-  top: 100px; */
   background: #ffffff;
   border-radius: 16px;
   padding: 24px;
@@ -539,7 +542,12 @@
   color: #5a6c7d;
   font-size: 1rem;
   line-height: 1.6;
-  margin-bottom: 0.5rem;
+}
+
+.drawer-description-item {
+  color: #5a6c7d;
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
 .drawer-privacy {

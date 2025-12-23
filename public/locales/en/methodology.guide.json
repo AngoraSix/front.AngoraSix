@@ -4,9 +4,11 @@
     "description": "A practical roadmap to implement fair, transparent and efficient project management."
   },
   "title": "Interactive Project Guide & Team Snapshot",
-  "subtitle": "Explore a lightweight roadmap that adapts to your project context. If you want a personalized written analysis, request a Team Dynamics Snapshot (48h).",
+  "subtitle1": "A great product isn’t enough for a project to thrive: as your project grows, the way you work becomes either your advantage or your constraint — especially between cofounders.",
+  "subtitle2": "This adaptive guide clarifies the big picture — what to prioritize now, and what can wait — across alignment, governance, and execution.",
+  "subtitle3": "Explore freely. If you want a tailored 1-page written analysis, ask for a Snapshot.",
   "quote": "The whole point of the dancing is the dance - Alan Watts",
-  "microcopy": "Explore freely. If you want a tailored written analysis, request a Snapshot.",
+  "microcopy": "No account needed. 5–10 minutes to get a prioritized roadmap.",
   "presets": {
     "title": "Quick Presets",
     "tooltip": "Preconfigured scenarios that auto-adjust key aspects for common project types.",
@@ -407,14 +409,19 @@
   "snapshot": {
     "cta": {
       "title": "Team Dynamics Snapshot (48h)",
-      "subtitle": "A written 1-page snapshot tailored to your configuration.",
+      "subtitle": "A written 1-page snapshot tailored to your context and situation.",
       "button": "Request Snapshot",
       "microcopy": "Not a bot…limited weekly capacity",
       "notes": "Limited capacity + privacy-first approach (avoid sharing sensitive info)"
     },
     "drawer": {
       "title": "Request Team Dynamics Snapshot",
-      "description": "Get 3 likely tensions, 5 key questions, and 3 immediate focus areas — within 48h.",
+      "description": "Answer 3 short context questions and get — within 48h:",
+      "item1": "3 likely tensions to keep on your radar (before they escalate)",
+      "item2": "5 key questions your team should answer together (the conversations that matter)",
+      "item3": "3 immediate focus areas (practical next steps — not an endless backlog)",
+      "item4": "Recommended tools/practices that fit your context",
+      "item5": "(If there’s strong fit) an invitation to a 2-week beta pilot",
       "privacy": "Your info is not shared. Used only for your snapshot + anonymized internal learning. Please avoid sharing sensitive personal or confidential information."
     },
     "summary": {
