@@ -760,44 +760,61 @@ const MethodologyGuidePage = () => {
 
         {/* Main Content */}
         <Container className="page-main-content">
-          {/* Legend Panel */}
-          <Paper elevation={1} className="legend-panel">
-            <Box className="legend-content">
-              <Typography variant="subtitle2" className="legend-title">
-                {t('legend.title')}
-              </Typography>
-              <Box className="legend-items">
-                <Box className="legend-item">
-                  <Box className="importance-indicator">
-                    <CircleIcon className="importance-circle filled" />
-                    <CircleIcon className="importance-circle empty" />
-                    <CircleIcon className="importance-circle empty" />
-                  </Box>
-                  <Typography variant="body2">{t('legend.low')}</Typography>
-                </Box>
-                <Box className="legend-item">
-                  <Box className="importance-indicator">
-                    <CircleIcon className="importance-circle filled" />
-                    <CircleIcon className="importance-circle filled" />
-                    <CircleIcon className="importance-circle empty" />
-                  </Box>
-                  <Typography variant="body2">{t('legend.medium')}</Typography>
-                </Box>
-                <Box className="legend-item">
-                  <Box className="importance-indicator">
-                    <CircleIcon className="importance-circle filled" />
-                    <CircleIcon className="importance-circle filled" />
-                    <CircleIcon className="importance-circle filled" />
-                  </Box>
-                  <Typography variant="body2">{t('legend.high')}</Typography>
-                </Box>
-              </Box>
-
-              <Typography variant="body2" className="legend-mobile-instruction">
-                {t('legend.mobileInstruction')}
-              </Typography>
+          <Box className="clarification-block">
+            {/* Utility Pill */}
+            <Box className="utility-pill-container">
+              <Paper elevation={2} className="utility-pill">
+                <Typography variant="body2" className="utility-pill-text">
+                  ⏱ {t('utilityPill.time')} · {t('utilityPill.noSignup')} ·{' '}
+                  {t('utilityPill.realTime')}
+                </Typography>
+              </Paper>
             </Box>
-          </Paper>
+
+            {/* Legend Panel */}
+            <Paper elevation={1} className="legend-panel">
+              <Box className="legend-content">
+                <Typography variant="subtitle2" className="legend-title">
+                  {t('legend.title')}
+                </Typography>
+                <Box className="legend-items">
+                  <Box className="legend-item">
+                    <Box className="importance-indicator">
+                      <CircleIcon className="importance-circle filled" />
+                      <CircleIcon className="importance-circle empty" />
+                      <CircleIcon className="importance-circle empty" />
+                    </Box>
+                    <Typography variant="body2">{t('legend.low')}</Typography>
+                  </Box>
+                  <Box className="legend-item">
+                    <Box className="importance-indicator">
+                      <CircleIcon className="importance-circle filled" />
+                      <CircleIcon className="importance-circle filled" />
+                      <CircleIcon className="importance-circle empty" />
+                    </Box>
+                    <Typography variant="body2">
+                      {t('legend.medium')}
+                    </Typography>
+                  </Box>
+                  <Box className="legend-item">
+                    <Box className="importance-indicator">
+                      <CircleIcon className="importance-circle filled" />
+                      <CircleIcon className="importance-circle filled" />
+                      <CircleIcon className="importance-circle filled" />
+                    </Box>
+                    <Typography variant="body2">{t('legend.high')}</Typography>
+                  </Box>
+                </Box>
+
+                <Typography
+                  variant="body2"
+                  className="legend-mobile-instruction"
+                >
+                  {t('legend.mobileInstruction')}
+                </Typography>
+              </Box>
+            </Paper>
+          </Box>
 
           <Grid container spacing={4}>
             {/* Left Column - Stages (Desktop: 8/12, Mobile: 12/12) */}

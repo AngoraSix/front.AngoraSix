@@ -251,6 +251,71 @@
   justify-content: flex-start;
 }
 
+.MethodologyGuidePage .clarification-block {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ================================
+   UTILITY PILL
+   ================================ */
+.MethodologyGuidePage .utility-pill-container {
+  margin-bottom: 16px;
+}
+
+.MethodologyGuidePage .utility-pill {
+  display: inline-block;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #fe5f55 0%, #e91101 100%);
+  border-radius: 24px;
+  box-shadow: 0 2px 8px rgba(10, 34, 57, 0.15);
+}
+
+.MethodologyGuidePage .utility-pill-text {
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 0.875rem;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* Desktop: pill beside legend */
+@media (min-width: 960px) {
+  .MethodologyGuidePage .clarification-block {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+
+  .MethodologyGuidePage .utility-pill-container {
+    display: inline-block;
+    margin-right: 16px;
+    margin-bottom: 24px;
+    vertical-align: top;
+    margin-left: 2rem;
+    flex: 0 0 300px;
+  }
+
+  .MethodologyGuidePage .legend-panel {
+    display: inline-block;
+    max-width: calc(100% - 300px);
+    vertical-align: top;
+    flex: 0 1 auto;
+  }
+}
+
+/* Mobile: pill above legend */
+@media (max-width: 959px) {
+  .MethodologyGuidePage .utility-pill {
+    display: block;
+    text-align: center;
+  }
+
+  .MethodologyGuidePage .utility-pill-text {
+    white-space: normal;
+  }
+}
+
 /* ================================
    LEGEND PANEL
    ================================ */

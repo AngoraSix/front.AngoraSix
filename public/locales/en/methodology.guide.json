@@ -8,7 +8,7 @@
   "subtitle2": "This adaptive guide clarifies the big picture — what to prioritize now, and what can wait — across alignment, governance, and execution.",
   "subtitle3": "Explore freely. If you want a tailored 1-page written analysis, ask for a Snapshot.",
   "quote": "The whole point of the dancing is the dance - Alan Watts",
-  "microcopy": "No account needed. 5–10 minutes to get a prioritized roadmap.",
+  "microcopy": "Get a prioritized view of what matters for your project.",
   "legend": {
     "title": "Importance",
     "low": "Low",
@@ -16,6 +16,11 @@
     "high": "High",
     "importance": "Importance",
     "mobileInstruction": "Adjust your setup and request a Snapshot using the button in the bottom-right corner."
+  },
+  "utilityPill": {
+    "time": "5–10 minutes",
+    "noSignup": "No signup",
+    "realTime": "Personalized view"
   },
   "presets": {
     "title": "Quick Presets",
