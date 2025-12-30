@@ -760,6 +760,16 @@ const MethodologyGuidePage = () => {
 
         {/* Main Content */}
         <Container className="page-main-content">
+          {/* Utility Pill */}
+          <Box className="utility-pill-container">
+            <Paper elevation={2} className="utility-pill">
+              <Typography variant="body2" className="utility-pill-text">
+                ⏱ {t('utilityPill.time')} · {t('utilityPill.noSignup')} ·{' '}
+                {t('utilityPill.realTime')}
+              </Typography>
+            </Paper>
+          </Box>
+
           {/* Legend Panel */}
           <Paper elevation={1} className="legend-panel">
             <Box className="legend-content">

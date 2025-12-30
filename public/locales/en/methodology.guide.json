@@ -17,6 +17,11 @@
     "importance": "Importance",
     "mobileInstruction": "Adjust your setup and request a Snapshot using the button in the bottom-right corner."
   },
+  "utilityPill": {
+    "time": "5–10 minutes",
+    "noSignup": "No signup",
+    "realTime": "Updates in real time"
+  },
   "presets": {
     "title": "Quick Presets",
     "tooltip": "Preconfigured scenarios that auto-adjust key aspects for common project types.",

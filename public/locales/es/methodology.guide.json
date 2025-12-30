@@ -17,6 +17,11 @@
     "importance": "Importancia",
     "mobileInstruction": "Ajustá tu configuración y pedí un Snapshot usando el botón en la esquina inferior derecha."
   },
+  "utilityPill": {
+    "time": "5–10 minutos",
+    "noSignup": "Sin registro",
+    "realTime": "Actualiza en tiempo real"
+  },
   "presets": {
     "title": "Presets Rápidos",
     "tooltip": "Escenarios preconfigurados que automáticamente ajustan los aspectos más relevantes para tipos comunes de proyectos.",
