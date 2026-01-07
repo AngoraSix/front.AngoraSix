@@ -120,7 +120,7 @@
         "Detectar posibles puntos de tensión o visiones desalineadas sobre aportes y recompensas",
         "Lograr un marco inicial de acuerdos donde el equipo sienta que las reglas son claras y justas"
       ],
-      "tools": ["A6 Compass", "Team Canvas", "Talleres"]
+      "tools": ["A6 Compass", "Team Canvas", "The Money Game", "Talleres"]
     },
     "team-readiness": {
       "title": "Preparación del Equipo",
@@ -147,7 +147,7 @@
         "Establecer valores y principios que guíen la toma de decisiones",
         "Acordar objetivos comunes y criterios de éxito medibles"
       ],
-      "tools": ["A6 Compass", "Team Canvas", "Talleres"]
+      "tools": ["A6 Compass", "Team Canvas", "Talleres", "Introducción a NVC"]
     },
     "management-definition": {
       "title": "Definición de Gestión y Roles",
@@ -195,7 +195,8 @@
         "A6 Compass",
         "Talleres",
         "Sesiones Prácticas",
-        "Recursos y Bibliotecas Online"
+        "Recursos y Bibliotecas Online",
+        "Introducción a NVC"
       ]
     },
     "governance-rules": {
@@ -431,21 +432,21 @@
   },
   "snapshot": {
     "cta": {
-      "title": "Snapshot de Dinámicas de Equipo (48h)",
-      "subtitle": "Un snapshot escrito de 1 página adaptado a tu proyecto.",
+      "title": "Snapshot de dinámicas de equipo (48h)",
+      "subtitle": "Un snapshot escrito de 1 página que refleja las dinámicas actuales de tu equipo, posibles puntos de fricción y qué merece atención ahora.",
       "button": "Solicitar Snapshot",
       "microcopy": "No es un bot… capacidad semanal limitada",
       "notes": "Capacidad limitada + enfoque de privacidad (evitá compartir info sensible)"
     },
     "drawer": {
       "title": "Solicitar Snapshot de dinámicas de equipo",
-      "description": "Respondé 3 preguntas cortas de contexto y recibí — en un máximo de 48h:",
+      "description": "Respondé 3 preguntas breves sobre el contexto y las tensiones actuales de tu equipo y recibí — en un máximo de 48h:",
       "item1": "3 tensiones probables para tener en el radar (antes de que escalen)",
       "item2": "5 preguntas clave que el equipo debería responder en conjunto (las conversaciones que importan)",
       "item3": "3 focos inmediatos (próximos pasos prácticos — no un backlog infinito)",
-      "item4": "Herramientas/prácticas recomendadas según tu contexto",
+      "item4": "Prácticas o herramientas a considerar (y cuáles conviene ignorar por ahora)",
       "item5": "(Si hay buen fit) una invitación a un piloto beta de 2 semanas",
-      "privacy": "Tu información no se comparte. Se usa solo para tu snapshot y para aprendizaje interno anonimizado. Por favor, evitá compartir datos sensibles, personales o confidenciales."
+      "privacy": "Tu información no se comparte. Se utiliza únicamente para tu snapshot y para aprendizaje interno anonimizado. Por favor, evitá compartir información sensible, personal o confidencial."
     },
     "summary": {
       "title": "Tu Configuración"
@@ -456,27 +457,28 @@
       "emailLabel": "Email",
       "context": "Contexto del Equipo",
       "internalStructureLabel": "Estructura interna del equipo",
-      "internalStructurePlaceholder": "Tamaño, estructura jerárquica, matiz de gestión...",
+      "internalStructurePlaceholder": "Tamaño, estructura jerárquica, matices de gestión...",
       "rolesLabel": "Tus roles y los de otros en el equipo",
-      "mainIssuesLabel": "Principales problemas/tensiones del equipo",
+      "mainIssuesLabel": "Principales problemas o tensiones del equipo",
       "issues": {
         "decisionMaking": "Toma de decisiones",
         "contributionRecognition": "Contribución y reconocimiento",
         "rolesAccountability": "Roles y responsabilidades",
-        "fairnessEquity": "Equidad/propiedad",
-        "participationEngagement": "Participación/compromiso",
-        "communicationConflict": "Comunicación/conflicto",
+        "fairnessEquity": "Equidad / propiedad",
+        "participationEngagement": "Participación / compromiso",
+        "communicationConflict": "Comunicación / conflicto",
         "other": "Otro"
       },
-      "betaPilotLabel": "¿Abierto a un piloto beta de 2 semanas?",
+      "issuesDetailLabel": "Describí la situación con tus propias palabras (no hace falta pensarlo demasiado)",
+      "betaPilotLabel": "¿Estarías abierto a un piloto beta de 2 semanas?",
       "betaPilotYes": "Sí, me interesa",
       "betaPilotNo": "No, solo el snapshot",
       "submit": "Solicitar Snapshot (48h)",
       "submitting": "Enviando...",
-      "successTitle": "¡Solicitud Recibida!",
-      "successMessage": "Analizaremos la configuración de tu equipo y te responderemos dentro de 48 horas.",
-      "backToGuide": "Volver a la Guía",
-      "learnAdvisory": "Conocer Servicios de Asesoría",
+      "successTitle": "¡Solicitud recibida!",
+      "successMessage": "Vamos a analizar la configuración de tu equipo y te responderemos dentro de un máximo de 48 horas.",
+      "backToGuide": "Volver a la guía",
+      "learnAdvisory": "Conocer servicios de asesoría",
       "register": "Configurar proyecto con AngoraSix"
     }
   }
