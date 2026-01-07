@@ -81,6 +81,7 @@ const MethodologyGuidePage = () => {
     email: '',
     internalStructure: '',
     roles: '',
+    issuesDetail: '',
     mainIssues: [],
     betaPilot: 'no',
   })
@@ -144,6 +145,7 @@ const MethodologyGuidePage = () => {
         email: '',
         internalStructure: '',
         roles: '',
+        issuesDetail: '',
         mainIssues: [],
         betaPilot: 'no',
       })
@@ -184,6 +186,7 @@ const MethodologyGuidePage = () => {
         email: snapshotFormData.email,
         internalStructure: snapshotFormData.internalStructure,
         roles: snapshotFormData.roles,
+        issuesDetail: snapshotFormData.issuesDetail,
         mainIssues: snapshotFormData.mainIssues,
         betaPilot: snapshotFormData.betaPilot,
         toggles: toggles,
@@ -489,6 +492,21 @@ const MethodologyGuidePage = () => {
               ))}
             </Box>
           </Box>
+
+          
+          <TextField
+            fullWidth
+            label={t('snapshot.form.issuesDetailLabel')}
+            value={snapshotFormData.issuesDetail}
+            onChange={(e) =>
+              setSnapshotFormData({
+                ...snapshotFormData,
+                issuesDetail: e.target.value,
+              })
+            }
+            multiline
+            rows={2}
+          />
 
           <FormControl fullWidth required>
             <Typography variant="body2" className="field-label">

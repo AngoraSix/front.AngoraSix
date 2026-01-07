@@ -120,7 +120,7 @@
         "Spot potential tensions or misaligned views on contributions and rewards",
         "Reach an initial set of agreements that feel clear and fair to the team"
       ],
-      "tools": ["A6 Compass", "Team Canvas", "Workshops"]
+      "tools": ["A6 Compass", "Team Canvas", "The Money Game", "Workshops"]
     },
     "team-readiness": {
       "title": "Team Readiness",
@@ -147,7 +147,7 @@
         "Define values and principles that guide decisions",
         "Agree on measurable goals and success criteria"
       ],
-      "tools": ["A6 Compass", "Team Canvas", "Workshops"]
+      "tools": ["A6 Compass", "Team Canvas", "Workshops", "Intro to NVC"]
     },
     "management-definition": {
       "title": "Management & Roles Definition",
@@ -195,7 +195,8 @@
         "A6 Compass",
         "Workshops",
         "Practice Sessions",
-        "Online Resources & Libraries"
+        "Online Resources & Libraries",
+        "Intro to NVC"
       ]
     },
     "governance-rules": {
@@ -423,7 +424,7 @@
   "snapshot": {
     "cta": {
       "title": "Team Dynamics Snapshot (48h)",
-      "subtitle": "A written 1-page snapshot tailored to your context and situation.",
+      "subtitle": "A written 1-page snapshot that reflects your current team dynamics, likely friction points, and what deserves attention now.",
       "button": "Request Snapshot",
       "microcopy": "Not a bot…limited weekly capacity",
       "notes": "Limited capacity + privacy-first approach (avoid sharing sensitive info)"
@@ -434,7 +435,7 @@
       "item1": "3 likely tensions to keep on your radar (before they escalate)",
       "item2": "5 key questions your team should answer together (the conversations that matter)",
       "item3": "3 immediate focus areas (practical next steps — not an endless backlog)",
-      "item4": "Recommended tools/practices that fit your context",
+      "item4": "Practices or tools worth considering (and which ones to ignore for now)",
       "item5": "(If there’s strong fit) an invitation to a 2-week beta pilot",
       "privacy": "Your info is not shared. Used only for your snapshot + anonymized internal learning. Please avoid sharing sensitive personal or confidential information."
     },
@@ -459,6 +460,7 @@
         "communicationConflict": "Communication/conflict",
         "other": "Other"
       },
+      "issuesDetailLabel": "Describe the situation in your own words (no need to overthink it)",
       "betaPilotLabel": "Open to a 2-week beta pilot?",
       "betaPilotYes": "Yes, interested",
       "betaPilotNo": "No, just the snapshot",
